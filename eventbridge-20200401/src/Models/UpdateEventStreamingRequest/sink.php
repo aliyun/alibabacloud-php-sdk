@@ -17,52 +17,56 @@ use AlibabaCloud\Tea\Model;
 class sink extends Model
 {
     /**
-     * @description The parameters that are configured if the event target is Function Compute.
+     * @description The parameters that are configured if you specify Function Compute as the event target.
      *
      * @var sinkFcParameters
      */
     public $sinkFcParameters;
 
     /**
+     * @description The parameters that are configured if you specify CloudFlow as the event target.
+     *
      * @var sinkFnfParameters
      */
     public $sinkFnfParameters;
 
     /**
-     * @description The parameters that are configured if the event target is Message Queue for Apache Kafka.
+     * @description The parameters that are configured if you specify ApsaraMQ for Kafka as the event target.
      *
      * @var sinkKafkaParameters
      */
     public $sinkKafkaParameters;
 
     /**
-     * @description The parameters that are configured if the event target is MNS.
+     * @description The parameters that are configured if you specify MNS as the event target.
      *
      * @var sinkMNSParameters
      */
     public $sinkMNSParameters;
 
     /**
+     * @description The parameters that are configured if you specify Managed Service for Prometheus as the event target.
+     *
      * @var sinkPrometheusParameters
      */
     public $sinkPrometheusParameters;
 
     /**
-     * @description The parameters that are configured if the event target is Message Queue for RabbitMQ.
+     * @description The parameters that are configured if you specify ApsaraMQ for RabbitMQ as the event target.
      *
      * @var sinkRabbitMQParameters
      */
     public $sinkRabbitMQParameters;
 
     /**
-     * @description Sink RocketMQ Parameters
+     * @description The parameters that are configured if you specify ApsaraMQ for RocketMQ as the event target.
      *
      * @var sinkRocketMQParameters
      */
     public $sinkRocketMQParameters;
 
     /**
-     * @description Sink SLS Parameters
+     * @description The parameters that are configured if you specify Simple Log Service as the event target.
      *
      * @var sinkSLSParameters
      */

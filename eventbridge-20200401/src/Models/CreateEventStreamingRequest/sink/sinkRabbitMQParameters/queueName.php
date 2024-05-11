@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class queueName extends Model
 {
     /**
-     * @description The format into which you want to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -27,7 +27,7 @@ class queueName extends Model
     public $template;
 
     /**
-     * @description The name of the queue on the Message Queue for RabbitMQ instance.
+     * @description The name of the queue on the ApsaraMQ for RabbitMQ instance.
      *
      * @example MyQueue
      *

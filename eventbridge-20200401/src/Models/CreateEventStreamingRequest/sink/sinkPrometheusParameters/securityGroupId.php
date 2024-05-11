@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class securityGroupId extends Model
 {
     /**
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
+     *
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @description None.
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The ID of the security group to which the Managed Service for Prometheus instance belongs.
+     *
+     * @example sg-mw43*****
+     *
      * @var string
      */
     public $value;

@@ -11,6 +11,7 @@ class GetEventBusRequest extends Model
     /**
      * @description The name of the event bus.
      *
+     * This parameter is required.
      * @example MyEventBus
      *
      * @var string

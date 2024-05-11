@@ -25,6 +25,7 @@ class CreateEventSourceRequest extends Model
     /**
      * @description The name of the event bus with which the event source is associated.
      *
+     * This parameter is required.
      * @example my-event-bus
      *
      * @var string
@@ -34,6 +35,7 @@ class CreateEventSourceRequest extends Model
     /**
      * @description The name of the event source.
      *
+     * This parameter is required.
      * @example myrabbitmq.sourc
      *
      * @var string

@@ -11,6 +11,7 @@ class httpApiParameters extends Model
     /**
      * @description The endpoint of the API destination. The endpoint can be up to 127 characters in length.
      *
+     * This parameter is required.
      * @example http://127.0.0.1:8001/api
      *
      * @var string
@@ -27,6 +28,7 @@ class httpApiParameters extends Model
      *   PUT
      *   PATCH
      *
+     * This parameter is required.
      * @example POST
      *
      * @var string

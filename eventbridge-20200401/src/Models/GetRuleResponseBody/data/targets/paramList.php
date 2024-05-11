@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
-     * @description The method that is used to deliver events to the event target. For more information, see [Limits](~~163289~~).
+     * @description The method that is used to deliver events to the event target. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
      *
      * @example TEMPLATE
      *
@@ -18,7 +18,7 @@ class paramList extends Model
     public $form;
 
     /**
-     * @description The resource key of the event target. For more information, see [Limits](~~163289~~).
+     * @description The resource key of the event target. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
      *
      * @example body
      *
@@ -38,7 +38,7 @@ class paramList extends Model
     /**
      * @description The event target.
      *
-     * @example {\"key\"=\"value\"}
+     * @example {\\"key\\"=\\"value\\"}
      *
      * @var string
      */

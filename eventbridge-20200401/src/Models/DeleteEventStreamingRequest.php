@@ -11,6 +11,7 @@ class DeleteEventStreamingRequest extends Model
     /**
      * @description The name of the event stream that you want to delete.
      *
+     * This parameter is required.
      * @example rocketmq-sync
      *
      * @var string

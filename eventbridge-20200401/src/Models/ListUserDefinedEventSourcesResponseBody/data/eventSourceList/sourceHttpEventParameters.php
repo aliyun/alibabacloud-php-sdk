@@ -64,7 +64,7 @@ class sourceHttpEventParameters extends Model
      *
      *   HTTP
      *   HTTPS
-     *   HTTP\&HTTPS
+     *   HTTP\\&HTTPS
      *
      * @example HTTPS
      *

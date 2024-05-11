@@ -20,6 +20,7 @@ class UpdateEventBusRequest extends Model
     /**
      * @description The name of the event bus.
      *
+     * This parameter is required.
      * @example eventTest
      *
      * @var string

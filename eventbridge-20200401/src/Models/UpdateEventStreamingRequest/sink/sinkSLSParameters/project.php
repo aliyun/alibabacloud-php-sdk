@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class project extends Model
 {
     /**
-     * @description The method that is used to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,7 @@ class project extends Model
     public $template;
 
     /**
-     * @description The Log Service project.
+     * @description The Simple Log Service project.
      *
      * @example test-project
      *

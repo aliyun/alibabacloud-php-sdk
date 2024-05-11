@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class topic extends Model
 {
     /**
-     * @description The format into which you want to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,7 @@ class topic extends Model
     public $template;
 
     /**
-     * @description The topic that you want to use to store logs. This parameter corresponds to the **topic** reserved field in Simple Log Service.
+     * @description The topic that you want to use to store logs. This parameter corresponds to the reserved field **topic** in Simple Log Service.
      *
      * @example testTopic
      *

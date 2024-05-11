@@ -11,6 +11,7 @@ class PutTargetsShrinkRequest extends Model
     /**
      * @description The name of the event bus.
      *
+     * This parameter is required.
      * @example eventTest
      *
      * @var string
@@ -20,6 +21,7 @@ class PutTargetsShrinkRequest extends Model
     /**
      * @description The name of the event rule.
      *
+     * This parameter is required.
      * @example ssr-send-to-vendor-test01
      *
      * @var string
@@ -29,6 +31,7 @@ class PutTargetsShrinkRequest extends Model
     /**
      * @description The event targets to be created or updated. For more information, see [Limits.](https://www.alibabacloud.com/help/en/eventbridge/latest/limits)
      *
+     * This parameter is required.
      * @var string
      */
     public $targetsShrink;

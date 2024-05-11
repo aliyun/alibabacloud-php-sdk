@@ -58,7 +58,7 @@ class targets extends Model
     public $ruleName;
 
     /**
-     * @description The type of the event target. For more information, see [Event target parameters](~~183698~~).
+     * @description The type of the event target. For more information, see [Event target parameters](https://help.aliyun.com/document_detail/183698.html).
      *
      * @example acs.fc.function
      *

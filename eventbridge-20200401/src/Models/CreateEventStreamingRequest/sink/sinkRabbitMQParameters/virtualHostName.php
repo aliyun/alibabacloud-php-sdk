@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class virtualHostName extends Model
 {
     /**
-     * @description The format into which you want to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -27,7 +27,7 @@ class virtualHostName extends Model
     public $template;
 
     /**
-     * @description The name of the vhost of the Message Queue for RabbitMQ instance.
+     * @description The name of the vhost to which the ApsaraMQ for RabbitMQ instance belongs.
      *
      * @example rabbit-host
      *

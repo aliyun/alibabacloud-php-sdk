@@ -11,6 +11,7 @@ class GetConnectionRequest extends Model
     /**
      * @description The connection name.
      *
+     * This parameter is required.
      * @example connection-name
      *
      * @var string

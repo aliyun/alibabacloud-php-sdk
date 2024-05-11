@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class sinkKafkaParameters extends Model
 {
     /**
-     * @description The acknowledgement (ACK) mode.
+     * @description The acknowledgment (ACK) mode.
      *
      *   If you set this parameter to 0, no response is returned from the broker. In this mode, the performance is high, but the risk of data loss is also high.
      *   If you set this parameter to 1, a response is returned when data is written to the leader. In this mode, the performance and the risk of data loss are moderate. Data loss may occur if a failure occurs on the leader.
@@ -25,7 +25,7 @@ class sinkKafkaParameters extends Model
     public $acks;
 
     /**
-     * @description The ID of the Message Queue for Apache Kafka instance.
+     * @description The ID of the ApsaraMQ for Kafka instance.
      *
      * @var instanceId
      */
@@ -39,7 +39,7 @@ class sinkKafkaParameters extends Model
     public $key;
 
     /**
-     * @description The topic name.
+     * @description The name of the topic on the ApsaraMQ for Kafka instance.
      *
      * @var topic
      */

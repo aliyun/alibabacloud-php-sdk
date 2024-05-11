@@ -18,6 +18,8 @@ class targets extends Model
     public $endpoint;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $errorsTolerance;

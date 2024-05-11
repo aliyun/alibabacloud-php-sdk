@@ -11,6 +11,7 @@ class DeleteConnectionRequest extends Model
     /**
      * @description The name of the connection that you want to delete.
      *
+     * This parameter is required.
      * @example connection-name
      *
      * @var string

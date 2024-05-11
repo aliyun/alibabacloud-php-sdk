@@ -14,7 +14,7 @@ class sourceMQTTParameters extends Model
     public $bodyDataType;
 
     /**
-     * @description The ID of the Message Queue for MQTT instance.
+     * @description The ID of the ApsaraMQ for MQTT instance.
      *
      * @example r-bp1b5ncun5lqerzg4r
      *
@@ -23,7 +23,7 @@ class sourceMQTTParameters extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the region where the Message Queue for MQTT instance resides.
+     * @description The ID of the region where the ApsaraMQ for MQTT instance resides.
      *
      * @example cn-shenzhen
      *

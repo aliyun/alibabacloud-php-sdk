@@ -24,7 +24,7 @@ class source extends Model
     public $sourceDTSParameters;
 
     /**
-     * @description The parameters that are configured if you specify Message Queue for Apache Kafka as the event source.
+     * @description The parameters that are configured if you specify ApsaraMQ for Kafka as the event source.
      *
      * @var sourceKafkaParameters
      */
@@ -38,33 +38,35 @@ class source extends Model
     public $sourceMNSParameters;
 
     /**
-     * @description The parameters that are configured if you specify Message Queue for MQTT as the event source.
+     * @description The parameters that are configured if you specify ApsaraMQ for MQTT as the event source.
      *
      * @var sourceMQTTParameters
      */
     public $sourceMQTTParameters;
 
     /**
+     * @description Parameters that are configured if you specify Managed Service for Prometheus as the event source.
+     *
      * @var sourcePrometheusParameters
      */
     public $sourcePrometheusParameters;
 
     /**
-     * @description The parameters that are configured if you specify Message Queue for RabbitMQ as the event source.
+     * @description The parameters that are configured if you specify ApsaraMQ for RabbitMQ as the event source.
      *
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
 
     /**
-     * @description The parameters that are configured if you specify Message Queue for Apache RocketMQ as the event source.
+     * @description The parameters that are configured if you specify ApsaraMQ for RocketMQ as the event source.
      *
      * @var sourceRocketMQParameters
      */
     public $sourceRocketMQParameters;
 
     /**
-     * @description The parameters that are configured if you specify Log Service as the event source.
+     * @description The parameters that are configured if you specify Simple Log Service as the event source.
      *
      * @var sourceSLSParameters
      */

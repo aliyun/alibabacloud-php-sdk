@@ -11,6 +11,7 @@ class GetApiDestinationRequest extends Model
     /**
      * @description The name of the API destination.
      *
+     * This parameter is required.
      * @example api-destination-name
      *
      * @var string

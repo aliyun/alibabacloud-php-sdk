@@ -11,6 +11,7 @@ class DeleteRuleRequest extends Model
     /**
      * @description The name of the event bus.
      *
+     * This parameter is required.
      * @example tf-testacc-event-bus
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteRuleRequest extends Model
     /**
      * @description The name of the event rule that you want to delete.
      *
+     * This parameter is required.
      * @example ramrolechange-mns
      *
      * @var string

@@ -11,6 +11,7 @@ class QueryEventTracesRequest extends Model
     /**
      * @description The name of the event bus.
      *
+     * This parameter is required.
      * @example MyEventBus
      *
      * @var string
@@ -20,6 +21,7 @@ class QueryEventTracesRequest extends Model
     /**
      * @description The event ID.
      *
+     * This parameter is required.
      * @example 1935debf-ddac-49dc-a090-d4f2857a046d
      *
      * @var string

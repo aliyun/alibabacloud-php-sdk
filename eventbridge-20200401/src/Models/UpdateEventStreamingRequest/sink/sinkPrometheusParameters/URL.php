@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class URL extends Model
 {
     /**
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
+     *
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @description None.
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The URL for the remote write configuration item of the Managed Service for Prometheus instance.
+     *
+     * @example https://cn-hangzhou.arms.aliyuncs.com/prometheus/167275****\/c5b7faeb2e8994641*****d5c559f/cn-hangzhou/api/v3/write
+     *
      * @var string
      */
     public $value;

@@ -18,7 +18,7 @@ class sourceRocketMQParameters extends Model
     public $authType;
 
     /**
-     * @description The ID of the consumer group on the Message Queue for Apache RocketMQ instance.
+     * @description The ID of the consumer group on the ApsaraMQ for RocketMQ instance.
      *
      * @example GID_test
      *
@@ -27,7 +27,7 @@ class sourceRocketMQParameters extends Model
     public $groupID;
 
     /**
-     * @description The instance endpoint.
+     * @description The endpoint that is used to access the ApsaraMQ for RocketMQ instance.
      *
      * @example reg****-vpc.cn-zhangjiakou.aliyuncs.com
      *
@@ -36,7 +36,7 @@ class sourceRocketMQParameters extends Model
     public $instanceEndpoint;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance.
+     * @description The ID of the ApsaraMQ for RocketMQ instance.
      *
      * @example i-f8z9a9mcgwri1c1idd0e
      *
@@ -45,7 +45,7 @@ class sourceRocketMQParameters extends Model
     public $instanceId;
 
     /**
-     * @description The network type of the instance. Valid values:
+     * @description The network type of the ApsaraMQ for RocketMQ instance. Valid values:
      *
      * PublicNetwork and PrivateNetwork.
      * @example PublicNetwork
@@ -55,7 +55,7 @@ class sourceRocketMQParameters extends Model
     public $instanceNetwork;
 
     /**
-     * @description The instance password.
+     * @description The password that is used to access the ApsaraMQ for RocketMQ instance.
      *
      * @example admin
      *
@@ -64,7 +64,7 @@ class sourceRocketMQParameters extends Model
     public $instancePassword;
 
     /**
-     * @description The security group ID of the instance.
+     * @description The ID of the security group to which the ApsaraMQ for RocketMQ instance belongs.
      *
      * @example sg-m5edtu24f12345****
      *
@@ -73,7 +73,7 @@ class sourceRocketMQParameters extends Model
     public $instanceSecurityGroupId;
 
     /**
-     * @description The instance type.
+     * @description The type of the ApsaraMQ for RocketMQ instance.
      *
      * @example 2
      *
@@ -82,7 +82,7 @@ class sourceRocketMQParameters extends Model
     public $instanceType;
 
     /**
-     * @description The instance username.
+     * @description The username that is used to access the ApsaraMQ for RocketMQ instance.
      *
      * @example admin
      *
@@ -91,7 +91,7 @@ class sourceRocketMQParameters extends Model
     public $instanceUsername;
 
     /**
-     * @description The vSwitch ID of the instance.
+     * @description The ID of the vSwitch with which the ApsaraMQ for RocketMQ instance is associated.
      *
      * @example vsw-m5ev8asdc6h12****
      *
@@ -100,7 +100,7 @@ class sourceRocketMQParameters extends Model
     public $instanceVSwitchIds;
 
     /**
-     * @description The VPC ID of the instance.
+     * @description The ID of the VPC to which the ApsaraMQ for RocketMQ instance belongs.
      *
      * @example vpc-m5e3sv4b12345****
      *
@@ -123,7 +123,7 @@ class sourceRocketMQParameters extends Model
     public $offset;
 
     /**
-     * @description The ID of the region where the Message Queue for Apache RocketMQ instance resides.
+     * @description The ID of the region where the ApsaraMQ for RocketMQ instance resides.
      *
      * @example cn-shanghai
      *
@@ -150,7 +150,7 @@ class sourceRocketMQParameters extends Model
     public $timestamp;
 
     /**
-     * @description The topic name.
+     * @description The name of the topic on the ApsaraMQ for RocketMQ instance.
      *
      * @example TOPIC-cainiao-pcs-order-process-inBoundConditionCheck
      *

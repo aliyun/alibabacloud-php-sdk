@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vSwitchIds extends Model
 {
     /**
-     * @description The format into which you want to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,7 @@ class vSwitchIds extends Model
     public $template;
 
     /**
-     * @description The vSwitch ID.
+     * @description The ID of the vSwitch with which the ApsaraMQ for RocketMQ instance is associated.
      *
      * @example vbr-8vb835n3zf9shwlvbwlmp
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class queueName extends Model
 {
     /**
-     * @description The method that is used to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,7 @@ class queueName extends Model
     public $template;
 
     /**
-     * @description The name of the queue in MNS.
+     * @description The name of the MNS queue.
      *
      * @example MyQueue
      *

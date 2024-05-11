@@ -18,6 +18,7 @@ class CreateRuleShrinkRequest extends Model
     /**
      * @description The name of the event bus.
      *
+     * This parameter is required.
      * @example MyEventBus
      *
      * @var string
@@ -34,8 +35,8 @@ class CreateRuleShrinkRequest extends Model
     /**
      * @description The event pattern, in JSON format. Valid values: stringEqual and stringExpression. You can specify up to five expressions in the map data structure in each field.
      *
-     * You can specify up to five expressions in the map data structure in each field.
-     * @example {\"source\": [{\"prefix\": \"acs.\"}],\"type\": [{\"prefix\":\"oss:ObjectReplication\"}],\"subject\":[{\"prefix\":\"acs:oss:cn-hangzhou:123456789098****:my-movie-bucket/\", \"suffix\":\".txt\"}]}
+     * This parameter is required.
+     * @example {\\"source\\": [{\\"prefix\\": \\"acs.\\"}],\\"type\\": [{\\"prefix\\":\\"oss:ObjectReplication\\"}],\\"subject\\":[{\\"prefix\\":\\"acs:oss:cn-hangzhou:123456789098****:my-movie-bucket/\\", \\"suffix\\":\\".txt\\"}]}
      *
      * @var string
      */
@@ -44,6 +45,7 @@ class CreateRuleShrinkRequest extends Model
     /**
      * @description The name of the event rule.
      *
+     * This parameter is required.
      * @example MNSRule
      *
      * @var string

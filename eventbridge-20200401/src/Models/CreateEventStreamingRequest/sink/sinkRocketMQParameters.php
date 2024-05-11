@@ -23,42 +23,42 @@ use AlibabaCloud\Tea\Model;
 class sinkRocketMQParameters extends Model
 {
     /**
-     * @description The message body.
+     * @description The message content.
      *
      * @var body
      */
     public $body;
 
     /**
-     * @description The instance endpoint.
+     * @description The endpoint that is used to access the ApsaraMQ for RocketMQ instance.
      *
      * @var instanceEndpoint
      */
     public $instanceEndpoint;
 
     /**
-     * @description The parameters that are configured if you specify the event target as Message Queue for Apache RocketMQ.
+     * @description The ID of the ApsaraMQ for RocketMQ instance.
      *
      * @var instanceId
      */
     public $instanceId;
 
     /**
-     * @description The instance password.
+     * @description The password that is used to access the ApsaraMQ for RocketMQ instance.
      *
      * @var instancePassword
      */
     public $instancePassword;
 
     /**
-     * @description The instance type.
+     * @description The type of the ApsaraMQ for RocketMQ instance.
      *
      * @var instanceType
      */
     public $instanceType;
 
     /**
-     * @description The instance username.
+     * @description The username that is used to access the ApsaraMQ for RocketMQ instance.
      *
      * @var instanceUsername
      */
@@ -74,8 +74,8 @@ class sinkRocketMQParameters extends Model
     /**
      * @description The network type. Valid values:
      *
-     *   PublicNetwork
-     *   PrivateNetwork
+     *   PublicNetwork and
+     *   PrivateNetwork.
      *
      * @var network
      */
@@ -89,7 +89,7 @@ class sinkRocketMQParameters extends Model
     public $properties;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group to which the ApsaraMQ for RocketMQ instance belongs.
      *
      * @var securityGroupId
      */
@@ -103,21 +103,21 @@ class sinkRocketMQParameters extends Model
     public $tags;
 
     /**
-     * @description The topic on the Message Queue for Apache RocketMQ instance.
+     * @description The name of the topic on the ApsaraMQ for RocketMQ instance.
      *
      * @var topic
      */
     public $topic;
 
     /**
-     * @description The vSwitch ID.
+     * @description The ID of the vSwitch with which the ApsaraMQ for RocketMQ instance is associated.
      *
      * @var vSwitchIds
      */
     public $vSwitchIds;
 
     /**
-     * @description The VPC ID.
+     * @description The ID of the VPC to which the ApsaraMQ for RocketMQ instance belongs.
      *
      * @var vpcId
      */

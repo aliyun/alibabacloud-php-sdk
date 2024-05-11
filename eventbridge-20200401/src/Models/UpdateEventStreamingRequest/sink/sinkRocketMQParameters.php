@@ -22,35 +22,35 @@ class sinkRocketMQParameters extends Model
     public $body;
 
     /**
-     * @description The parameters that are configured if the event target is Message Queue for Apache RocketMQ.
+     * @description The ID of the ApsaraMQ for RocketMQ instance.
      *
      * @var instanceId
      */
     public $instanceId;
 
     /**
-     * @description The properties that are used to filter messages.
+     * @description The attributes that you want to use to filter messages.
      *
      * @var keys
      */
     public $keys;
 
     /**
-     * @description The properties that are used to filter messages.
+     * @description The attributes that you want to use to filter messages.
      *
      * @var properties
      */
     public $properties;
 
     /**
-     * @description The properties that are used to filter messages.
+     * @description The attributes that you want to use to filter messages.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The information about the topic in the Message Queue for Apache RocketMQ instance.
+     * @description The topic on the ApsaraMQ for RocketMQ instance.
      *
      * @var topic
      */

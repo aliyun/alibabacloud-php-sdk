@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class sinkMNSParameters extends Model
 {
     /**
-     * @description The message body.
+     * @description The message content.
      *
      * @var body
      */

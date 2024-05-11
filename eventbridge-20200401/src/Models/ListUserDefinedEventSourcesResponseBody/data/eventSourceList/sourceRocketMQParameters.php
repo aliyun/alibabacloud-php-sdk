@@ -36,7 +36,7 @@ class sourceRocketMQParameters extends Model
     public $instanceEndpoint;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance. For more information, see [Limits](~~163289~~).
+     * @description The ID of the Message Queue for Apache RocketMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
      *
      * @example bastionhost-cn-7mz293s9d1p
      *
@@ -72,7 +72,7 @@ class sourceRocketMQParameters extends Model
     public $instanceSecurityGroupId;
 
     /**
-     * @description The instance type. Valid values: CLOUD\_4, CLOUD\_5, and SELF_BUILT. The value CLOUD\_4 indicates that the instance is a Message Queue for Apache RocketMQ 4.0 instance. The value CLOUD\_5 indicates that the instance is a Message Queue for Apache RocketMQ 5.0 instance. The value SELF_BUILT indicates that the instance is a self-managed RocketMQ instance.
+     * @description The instance type. Valid values: CLOUD_4, CLOUD_5, and SELF_BUILT. The value CLOUD_4 indicates that the instance is a Message Queue for Apache RocketMQ 4.0 instance. The value CLOUD_5 indicates that the instance is a Message Queue for Apache RocketMQ 5.0 instance. The value SELF_BUILT indicates that the instance is a self-managed RocketMQ instance.
      *
      * @example CLOUD_5
      *
@@ -149,7 +149,7 @@ class sourceRocketMQParameters extends Model
     public $timestamp;
 
     /**
-     * @description The name of the topic on the Message Queue for Apache RocketMQ instance. For more information, see [Limits](~~163289~~).
+     * @description The name of the topic on the Message Queue for Apache RocketMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
      *
      * @example migration_instance
      *

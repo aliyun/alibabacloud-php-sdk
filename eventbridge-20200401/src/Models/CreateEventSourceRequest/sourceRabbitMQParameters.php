@@ -18,7 +18,7 @@ class sourceRabbitMQParameters extends Model
     public $instanceId;
 
     /**
-     * @description The name of the queue on the Message Queue for RabbitMQ instance. For more information, see [Limits](~~163289~~).
+     * @description The name of the queue on the Message Queue for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
      *
      * @example demo
      *
@@ -36,7 +36,7 @@ class sourceRabbitMQParameters extends Model
     public $regionId;
 
     /**
-     * @description The name of the vhost of the Message Queue for RabbitMQ instance. For more information, see [Limits](~~163289~~).
+     * @description The name of the vhost of the Message Queue for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
      *
      * @example eb-connect
      *

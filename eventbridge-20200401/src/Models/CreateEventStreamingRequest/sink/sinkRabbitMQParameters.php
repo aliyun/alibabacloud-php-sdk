@@ -18,21 +18,21 @@ use AlibabaCloud\Tea\Model;
 class sinkRabbitMQParameters extends Model
 {
     /**
-     * @description The message body.
+     * @description The message content.
      *
      * @var body
      */
     public $body;
 
     /**
-     * @description The exchange to which you want to deliver events. This parameter is available only if you set TargetType to Exchange.
+     * @description The exchange mode. This parameter is required only if you set TargetType to Exchange.
      *
      * @var exchange
      */
     public $exchange;
 
     /**
-     * @description The information about the Message Queue for RabbitMQ instance.
+     * @description The ID of the ApsaraMQ for RabbitMQ instance.
      *
      * @var instanceId
      */
@@ -53,14 +53,14 @@ class sinkRabbitMQParameters extends Model
     public $properties;
 
     /**
-     * @description The queue to which you want to deliver events. This parameter is available only if you set TargetType to Queue.
+     * @description The queue mode. This parameter is required only if you set TargetType to Queue.
      *
      * @var queueName
      */
     public $queueName;
 
     /**
-     * @description The rule that you want to use to route messages. This parameter is available only if you set TargetType to Exchange.
+     * @description The rule that you want to use to route messages. This parameter is required only if you set TargetType to Exchange.
      *
      * @var routingKey
      */
@@ -74,7 +74,7 @@ class sinkRabbitMQParameters extends Model
     public $targetType;
 
     /**
-     * @description The name of the vhost of the Message Queue for RabbitMQ instance.
+     * @description The name of the vhost to which the ApsaraMQ for RabbitMQ instance belongs.
      *
      * @var virtualHostName
      */

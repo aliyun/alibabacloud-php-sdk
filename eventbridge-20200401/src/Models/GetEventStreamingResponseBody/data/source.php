@@ -24,7 +24,7 @@ class source extends Model
     public $sourceDTSParameters;
 
     /**
-     * @description Source Kafka Parameters
+     * @description The parameters that are returned if ApsaraMQ for Kafka is specified as the event source.
      *
      * @var sourceKafkaParameters
      */

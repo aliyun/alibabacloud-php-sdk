@@ -11,6 +11,7 @@ class GetEventStreamingRequest extends Model
     /**
      * @description The name of the event stream whose details you want to query.
      *
+     * This parameter is required.
      * @example myeventstreaming
      *
      * @var string

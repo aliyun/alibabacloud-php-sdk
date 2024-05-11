@@ -36,7 +36,7 @@ class sinkFcParameters extends Model
     public $functionName;
 
     /**
-     * @description The invocation method. Valid values: Sync and Async.
+     * @description The invocation mode. Valid values: Sync and Async.
      *
      * @var invocationType
      */

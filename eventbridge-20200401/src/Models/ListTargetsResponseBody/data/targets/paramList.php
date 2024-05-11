@@ -38,7 +38,7 @@ class paramList extends Model
     /**
      * @description The value of the event target parameter.
      *
-     * @example {\"key\"=\"value\"}
+     * @example {\\"key\\"=\\"value\\"}
      *
      * @var string
      */

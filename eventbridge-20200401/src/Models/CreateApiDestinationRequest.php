@@ -12,6 +12,7 @@ class CreateApiDestinationRequest extends Model
     /**
      * @description The name of the API destination. The name must be 2 to 127 characters in length.
      *
+     * This parameter is required.
      * @example api-destination-name
      *
      * @var string
@@ -21,7 +22,7 @@ class CreateApiDestinationRequest extends Model
     /**
      * @description The name of the connection. The name must be 2 to 127 characters in length.
      *
-     * >  Before you configure this parameter, you must call the CreateConnection operation to create a connection. Then, set this parameter to the name of the connection that you created.
+     * This parameter is required.
      * @example connection-name
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateApiDestinationRequest extends Model
     /**
      * @description The parameters that are configured for the API destination.
      *
+     * This parameter is required.
      * @var httpApiParameters
      */
     public $httpApiParameters;

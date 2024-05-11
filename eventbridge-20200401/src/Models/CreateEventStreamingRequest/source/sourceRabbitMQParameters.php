@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceRabbitMQParameters extends Model
 {
     /**
-     * @description The ID of the Message Queue for RabbitMQ instance.
+     * @description The ID of the ApsaraMQ for RabbitMQ instance.
      *
      * @example gtm-cn-k2c2yfgzt02
      *
@@ -18,7 +18,7 @@ class sourceRabbitMQParameters extends Model
     public $instanceId;
 
     /**
-     * @description The queue name of the Message Queue for RabbitMQ instance.
+     * @description The name of the queue on the ApsaraMQ for RabbitMQ instance.
      *
      * @example demo
      *
@@ -27,7 +27,7 @@ class sourceRabbitMQParameters extends Model
     public $queueName;
 
     /**
-     * @description The ID of the region where the Message Queue for RabbitMQ instance resides. You can call the [DescribeRegions](~~62010~~) operation to query the most recent region list.
+     * @description The ID of the region where the ApsaraMQ for RabbitMQ instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/62010.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +36,7 @@ class sourceRabbitMQParameters extends Model
     public $regionId;
 
     /**
-     * @description The vhost name of the Message Queue for RabbitMQ instance.
+     * @description The name of the vhost to which the ApsaraMQ for RabbitMQ instance belongs.
      *
      * @example eb-connect
      *

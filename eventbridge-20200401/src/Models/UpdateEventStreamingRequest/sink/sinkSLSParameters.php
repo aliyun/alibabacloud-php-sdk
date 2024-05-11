@@ -21,28 +21,28 @@ class sinkSLSParameters extends Model
     public $body;
 
     /**
-     * @description The information about the Log Service Logstore.
+     * @description The Simple Log Service Logstore.
      *
      * @var logStore
      */
     public $logStore;
 
     /**
-     * @description The information about the Log Service project.
+     * @description The Simple Log Service project.
      *
      * @var project
      */
     public $project;
 
     /**
-     * @description The information about the role. If you want to authorize EventBridge to use this role to read logs in Log Service, you must select Alibaba Cloud Service for Selected Trusted Entity and EventBridge for Select Trusted Service when you create the role in the RAM console.
+     * @description The role name. If you want to authorize EventBridge to use this role to read logs in Simple Log Service, you must select Alibaba Cloud Service for Selected Trusted Entity and EventBridge for Select Trusted Service when you create the role in the RAM console.
      *
      * @var roleName
      */
     public $roleName;
 
     /**
-     * @description The information about the topic in which logs are stored. The topic corresponds to the topic reserved field in Log Service.
+     * @description The topic that you want to use to store logs. This parameter corresponds to the reserved field topic in Simple Log Service.
      *
      * @var topic
      */

@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The method that you want to use to transform events. Default value: JSONPATH.
+     *
+     * @example JSONPATH
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @description None.
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The metric data.
+     *
+     * @example $.data
+     *
      * @var string
      */
     public $value;

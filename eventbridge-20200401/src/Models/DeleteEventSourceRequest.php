@@ -16,6 +16,7 @@ class DeleteEventSourceRequest extends Model
     /**
      * @description The name of the event source.
      *
+     * This parameter is required.
      * @example myrabbitmq.source
      *
      * @var string

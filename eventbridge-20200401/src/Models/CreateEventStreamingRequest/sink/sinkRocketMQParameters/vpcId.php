@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vpcId extends Model
 {
     /**
-     * @description The format into which you want to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,7 @@ class vpcId extends Model
     public $template;
 
     /**
-     * @description The VPC ID.
+     * @description The ID of the VPC to which the ApsaraMQ for RocketMQ instance belongs.
      *
      * @example vbr-8vb835n3zf9shwlvbwlmp
      *

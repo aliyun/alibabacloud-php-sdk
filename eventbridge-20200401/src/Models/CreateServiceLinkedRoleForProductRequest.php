@@ -11,6 +11,7 @@ class CreateServiceLinkedRoleForProductRequest extends Model
     /**
      * @description The name of the cloud service or the name of the service-linked role with which the cloud service is associated.
      *
+     * This parameter is required.
      * @example AliyunServiceRoleForEventBridgeSendToMNS
      *
      * @var string

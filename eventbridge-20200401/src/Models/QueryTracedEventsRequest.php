@@ -11,6 +11,7 @@ class QueryTracedEventsRequest extends Model
     /**
      * @description The end of the time range when event traces are queried. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1661773509000
      *
      * @var int
@@ -20,6 +21,7 @@ class QueryTracedEventsRequest extends Model
     /**
      * @description The name of the event bus.
      *
+     * This parameter is required.
      * @example MyEventBus
      *
      * @var string
@@ -74,6 +76,7 @@ class QueryTracedEventsRequest extends Model
     /**
      * @description The beginning of the time range to query event traces. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1661773509000
      *
      * @var int

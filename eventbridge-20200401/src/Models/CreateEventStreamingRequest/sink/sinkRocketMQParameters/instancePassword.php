@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instancePassword extends Model
 {
     /**
-     * @description The format into which you want to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,7 @@ class instancePassword extends Model
     public $template;
 
     /**
-     * @description The instance password.
+     * @description The password that is used to access the ApsaraMQ for RocketMQ instance.
      *
      * @example admin
      *

@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class authorizationType extends Model
 {
     /**
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
+     *
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @description None.
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The authentication method.
+     *
+     * @example BASIC_AUTH
+     *
      * @var string
      */
     public $value;

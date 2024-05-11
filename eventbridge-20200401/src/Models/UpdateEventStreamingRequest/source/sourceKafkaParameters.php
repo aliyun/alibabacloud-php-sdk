@@ -18,7 +18,7 @@ class sourceKafkaParameters extends Model
     public $consumerGroup;
 
     /**
-     * @description The ID of the Message Queue for Apache Kafka instance.
+     * @description The ID of the ApsaraMQ for Kafka instance.
      *
      * @example i-8vbh4a5b9yfhgkkzm98f
      *
@@ -36,7 +36,7 @@ class sourceKafkaParameters extends Model
     public $network;
 
     /**
-     * @description The offset.
+     * @description The offset from which messages are consumed.
      *
      * @example latest
      *
@@ -45,7 +45,7 @@ class sourceKafkaParameters extends Model
     public $offsetReset;
 
     /**
-     * @description The ID of the region where the Message Queue for Apache Kafka instance resides.
+     * @description The ID of the region where the ApsaraMQ for Kafka instance resides.
      *
      * @example cn-zhangjiakou
      *
@@ -54,7 +54,7 @@ class sourceKafkaParameters extends Model
     public $regionId;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group to which the ApsaraMQ for Kafka instance belongs.
      *
      * @example sg-uf6jcm3y5hcs7hklytxh
      *
@@ -63,7 +63,7 @@ class sourceKafkaParameters extends Model
     public $securityGroupId;
 
     /**
-     * @description The topic name.
+     * @description The name of the topic on the ApsaraMQ for Kafka instance.
      *
      * @example topic_empower_1641539400786
      *
@@ -72,7 +72,7 @@ class sourceKafkaParameters extends Model
     public $topic;
 
     /**
-     * @description The vSwitch ID.
+     * @description The ID of the vSwitch with which the ApsaraMQ for Kafka instance is associated.
      *
      * @example vsw-wz9t1l1e8eu2omwjazmtm
      *
@@ -81,12 +81,16 @@ class sourceKafkaParameters extends Model
     public $vSwitchIds;
 
     /**
+     * @description The encoding or decoding method. Valid values: Json, Text, and Binary. The value Json specifies that binary data is decoded into strings based on UTF-8 encoding and then parsed into the JSON format. The value Text specifies that binary data is decoded into strings based on UTF-8 encoding and then put into the payload. The value Binary specifies that binary data is encoded into strings based on Base64 encoding and then put into the payload.
+     *
+     * @example Text
+     *
      * @var string
      */
     public $valueDataType;
 
     /**
-     * @description The VPC ID.
+     * @description The ID of the VPC to which the ApsaraMQ for Kafka instance belongs.
      *
      * @example vpc-2ze6p0o345nykmekxtuop
      *

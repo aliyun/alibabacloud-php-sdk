@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceRocketMQParameters extends Model
 {
     /**
+     * @example ACL
+     *
      * @var string
      */
     public $authType;
@@ -23,6 +25,8 @@ class sourceRocketMQParameters extends Model
     public $groupID;
 
     /**
+     * @example reg****-vpc.cn-zhangjiakou.aliyuncs.com
+     *
      * @var string
      */
     public $instanceEndpoint;
@@ -37,36 +41,50 @@ class sourceRocketMQParameters extends Model
     public $instanceId;
 
     /**
+     * @example PublicNetwork
+     *
      * @var string
      */
     public $instanceNetwork;
 
     /**
+     * @example xxxa
+     *
      * @var string
      */
     public $instancePassword;
 
     /**
+     * @example sg-m5edtu24f12345****
+     *
      * @var string
      */
     public $instanceSecurityGroupId;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example xxxa
+     *
      * @var string
      */
     public $instanceUsername;
 
     /**
+     * @example vsw-m5ev8asdc6h12****
+     *
      * @var string
      */
     public $instanceVSwitchIds;
 
     /**
+     * @example vpc-m5e3sv4b12345****
+     *
      * @var string
      */
     public $instanceVpcId;

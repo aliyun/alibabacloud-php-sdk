@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class routingKey extends Model
 {
     /**
-     * @description The method that is used to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,7 @@ class routingKey extends Model
     public $template;
 
     /**
-     * @description The routing rule of the message.
+     * @description The rule that you want to use to route messages.
      *
      * @example housekeeping
      *

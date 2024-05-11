@@ -81,6 +81,10 @@ class sourceKafkaParameters extends Model
     public $vSwitchIds;
 
     /**
+     * @description The encoding or decoding format. Valid values: Json, Text, and Binary. The value Json indicates that bytes are decoded into UTF-8 strings and then parsed into JSON format. The value Text indicates that bytes are decoded into UTF-8 strings and then put into the payload. The value Binary indicates that bytes are encoded into Base64 strings and put into the payload.
+     *
+     * @example Text
+     *
      * @var string
      */
     public $valueDataType;

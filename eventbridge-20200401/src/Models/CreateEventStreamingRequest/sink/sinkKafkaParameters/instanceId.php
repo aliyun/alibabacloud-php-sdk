@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceId extends Model
 {
     /**
-     * @description The format into which you want to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -27,7 +27,7 @@ class instanceId extends Model
     public $template;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the ApsaraMQ for Kafka instance.
      *
      * @example Defaut_1283278472_sadkj
      *

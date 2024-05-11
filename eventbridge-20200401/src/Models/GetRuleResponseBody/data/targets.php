@@ -77,7 +77,7 @@ class targets extends Model
     public $pushSelector;
 
     /**
-     * @description The type of the event target. For more information, see [Event target parameters](~~185887~~).
+     * @description The type of the event target. For more information, see [Event target parameters](https://help.aliyun.com/document_detail/185887.html).
      *
      * @example acs.mns.queue
      *

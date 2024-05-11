@@ -11,6 +11,7 @@ class ListRulesRequest extends Model
     /**
      * @description The name of the event bus.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string

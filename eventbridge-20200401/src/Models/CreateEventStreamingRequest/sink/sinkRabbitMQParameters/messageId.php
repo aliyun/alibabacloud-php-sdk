@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class messageId extends Model
 {
     /**
-     * @description The format into which you want to transform events.
+     * @description The method that you want to use to transform events.
      *
      * @example TEMPLATE
      *

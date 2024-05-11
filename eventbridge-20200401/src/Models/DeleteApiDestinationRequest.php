@@ -11,6 +11,7 @@ class DeleteApiDestinationRequest extends Model
     /**
      * @description The name of the API destination.
      *
+     * This parameter is required.
      * @example ApiDestinationName
      *
      * @var string

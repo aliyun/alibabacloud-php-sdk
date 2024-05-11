@@ -44,6 +44,12 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DisableRuleRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DisableRuleResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EnableRuleRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EnableRuleResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterCheckEnabledOnDefaultBusResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterDisableOnDefaultBusResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterEnableOnDefaultBusResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetApiDestinationRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetApiDestinationResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetConnectionRequest;
@@ -142,8 +148,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create an API destination.
-     *   *
+     * @summary Creates an API destination.
+     *  *
+     * @description You can call this API operation to create an API destination.
+     *  *
      * @param CreateApiDestinationRequest $tmpReq  CreateApiDestinationRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -189,8 +197,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create an API destination.
-     *   *
+     * @summary Creates an API destination.
+     *  *
+     * @description You can call this API operation to create an API destination.
+     *  *
      * @param CreateApiDestinationRequest $request CreateApiDestinationRequest
      *
      * @return CreateApiDestinationResponse CreateApiDestinationResponse
@@ -203,8 +213,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create a connection.
-     *   *
+     * @summary Creates a connection.
+     *  *
+     * @description You can call this API operation to create a connection.
+     *  *
      * @param CreateConnectionRequest $tmpReq  CreateConnectionRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -253,8 +265,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create a connection.
-     *   *
+     * @summary Creates a connection.
+     *  *
+     * @description You can call this API operation to create a connection.
+     *  *
      * @param CreateConnectionRequest $request CreateConnectionRequest
      *
      * @return CreateConnectionResponse CreateConnectionResponse
@@ -267,8 +281,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create an event bus.
-     *   *
+     * @summary Creates an event bus.
+     *  *
+     * @description You can call this API operation to create an event bus.
+     *  *
      * @param CreateEventBusRequest $request CreateEventBusRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -303,8 +319,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create an event bus.
-     *   *
+     * @summary Creates an event bus.
+     *  *
+     * @description You can call this API operation to create an event bus.
+     *  *
      * @param CreateEventBusRequest $request CreateEventBusRequest
      *
      * @return CreateEventBusResponse CreateEventBusResponse
@@ -317,8 +335,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create an event source.
-     *   *
+     * @summary Creates an event source.
+     *  *
+     * @description You can call this operation to create an event source.
+     *  *
      * @param CreateEventSourceRequest $tmpReq  CreateEventSourceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -400,8 +420,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create an event source.
-     *   *
+     * @summary Creates an event source.
+     *  *
+     * @description You can call this operation to create an event source.
+     *  *
      * @param CreateEventSourceRequest $request CreateEventSourceRequest
      *
      * @return CreateEventSourceResponse CreateEventSourceResponse
@@ -414,8 +436,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create an event stream.
-     *   *
+     * @summary Creates an event stream.
+     *  *
+     * @description You can call this API operation to create an event stream.
+     *  *
      * @param CreateEventStreamingRequest $tmpReq  CreateEventStreamingRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -479,8 +503,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create an event stream.
-     *   *
+     * @summary Creates an event stream.
+     *  *
+     * @description You can call this API operation to create an event stream.
+     *  *
      * @param CreateEventStreamingRequest $request CreateEventStreamingRequest
      *
      * @return CreateEventStreamingResponse CreateEventStreamingResponse
@@ -493,8 +519,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create an event rule.
-     *   *
+     * @summary Creates an event rule.
+     *  *
+     * @description You can call this API operation to create an event rule.
+     *  *
      * @param CreateRuleRequest $tmpReq  CreateRuleRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -546,8 +574,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create an event rule.
-     *   *
+     * @summary Creates an event rule.
+     *  *
+     * @description You can call this API operation to create an event rule.
+     *  *
      * @param CreateRuleRequest $request CreateRuleRequest
      *
      * @return CreateRuleResponse CreateRuleResponse
@@ -560,8 +590,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create a service-linked role for your cloud service.
-     *   *
+     * @summary Creates a service-linked role for your cloud service.
+     *  *
+     * @description You can call this API operation to create a service-linked role for your cloud service.
+     *  *
      * @param CreateServiceLinkedRoleForProductRequest $request CreateServiceLinkedRoleForProductRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -593,8 +625,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create a service-linked role for your cloud service.
-     *   *
+     * @summary Creates a service-linked role for your cloud service.
+     *  *
+     * @description You can call this API operation to create a service-linked role for your cloud service.
+     *  *
      * @param CreateServiceLinkedRoleForProductRequest $request CreateServiceLinkedRoleForProductRequest
      *
      * @return CreateServiceLinkedRoleForProductResponse CreateServiceLinkedRoleForProductResponse
@@ -607,8 +641,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete an API destination.
-     *   *
+     * @summary Deletes an API destination.
+     *  *
+     * @description You can call this API operation to delete an API destination.
+     *  *
      * @param DeleteApiDestinationRequest $request DeleteApiDestinationRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -640,8 +676,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete an API destination.
-     *   *
+     * @summary Deletes an API destination.
+     *  *
+     * @description You can call this API operation to delete an API destination.
+     *  *
      * @param DeleteApiDestinationRequest $request DeleteApiDestinationRequest
      *
      * @return DeleteApiDestinationResponse DeleteApiDestinationResponse
@@ -654,8 +692,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete a connection.
-     *   *
+     * @summary Deletes a connection.
+     *  *
+     * @description You can call this API operation to delete a connection.
+     *  *
      * @param DeleteConnectionRequest $request DeleteConnectionRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -687,8 +727,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete a connection.
-     *   *
+     * @summary Deletes a connection.
+     *  *
+     * @description You can call this API operation to delete a connection.
+     *  *
      * @param DeleteConnectionRequest $request DeleteConnectionRequest
      *
      * @return DeleteConnectionResponse DeleteConnectionResponse
@@ -701,8 +743,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete an event bus.
-     *   *
+     * @summary Deletes an event bus.
+     *  *
+     * @description You can call this API operation to delete an event bus.
+     *  *
      * @param DeleteEventBusRequest $request DeleteEventBusRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -734,8 +778,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete an event bus.
-     *   *
+     * @summary Deletes an event bus.
+     *  *
+     * @description You can call this API operation to delete an event bus.
+     *  *
      * @param DeleteEventBusRequest $request DeleteEventBusRequest
      *
      * @return DeleteEventBusResponse DeleteEventBusResponse
@@ -748,8 +794,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete an event source.
-     *   *
+     * @summary Deletes an event source.
+     *  *
+     * @description You can call this API operation to delete an event source.
+     *  *
      * @param DeleteEventSourceRequest $request DeleteEventSourceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -784,8 +832,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete an event source.
-     *   *
+     * @summary Deletes an event source.
+     *  *
+     * @description You can call this API operation to delete an event source.
+     *  *
      * @param DeleteEventSourceRequest $request DeleteEventSourceRequest
      *
      * @return DeleteEventSourceResponse DeleteEventSourceResponse
@@ -798,8 +848,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete an event stream.
-     *   *
+     * @summary Deletes an event stream.
+     *  *
+     * @description You can call this API operation to delete an event stream.
+     *  *
      * @param DeleteEventStreamingRequest $request DeleteEventStreamingRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -831,8 +883,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete an event stream.
-     *   *
+     * @summary Deletes an event stream.
+     *  *
+     * @description You can call this API operation to delete an event stream.
+     *  *
      * @param DeleteEventStreamingRequest $request DeleteEventStreamingRequest
      *
      * @return DeleteEventStreamingResponse DeleteEventStreamingResponse
@@ -845,8 +899,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete an event rule.
-     *   *
+     * @summary Deletes an event rule.
+     *  *
+     * @description You can call this API operation to delete an event rule.
+     *  *
      * @param DeleteRuleRequest $request DeleteRuleRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -881,8 +937,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete an event rule.
-     *   *
+     * @summary Deletes an event rule.
+     *  *
+     * @description You can call this API operation to delete an event rule.
+     *  *
      * @param DeleteRuleRequest $request DeleteRuleRequest
      *
      * @return DeleteRuleResponse DeleteRuleResponse
@@ -895,8 +953,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete one or more event targets of an event rule.
-     *   *
+     * @summary Deletes one or more event targets of an event rule.
+     *  *
+     * @description You can call this API operation to delete one or more event targets of an event rule.
+     *  *
      * @param DeleteTargetsRequest $tmpReq  DeleteTargetsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -939,8 +999,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to delete one or more event targets of an event rule.
-     *   *
+     * @summary Deletes one or more event targets of an event rule.
+     *  *
+     * @description You can call this API operation to delete one or more event targets of an event rule.
+     *  *
      * @param DeleteTargetsRequest $request DeleteTargetsRequest
      *
      * @return DeleteTargetsResponse DeleteTargetsResponse
@@ -953,8 +1015,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to disable an event rule.
-     *   *
+     * @summary Disables an event rule.
+     *  *
+     * @description You can call this API operation to disable an event rule.
+     *  *
      * @param DisableRuleRequest $request DisableRuleRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -989,8 +1053,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to disable an event rule.
-     *   *
+     * @summary Disables an event rule.
+     *  *
+     * @description You can call this API operation to disable an event rule.
+     *  *
      * @param DisableRuleRequest $request DisableRuleRequest
      *
      * @return DisableRuleResponse DisableRuleResponse
@@ -1003,8 +1069,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to enable an event rule.
-     *   *
+     * @summary Enables an event rule.
+     *  *
+     * @description You can call this API operation to enable an event rule.
+     *  *
      * @param EnableRuleRequest $request EnableRuleRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1039,8 +1107,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to enable an event rule.
-     *   *
+     * @summary Enables an event rule.
+     *  *
+     * @description You can call this API operation to enable an event rule.
+     *  *
      * @param EnableRuleRequest $request EnableRuleRequest
      *
      * @return EnableRuleResponse EnableRuleResponse
@@ -1053,8 +1123,184 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the information about an API destination.
-     *   *
+     * @summary EventCenterCheckEnabledOnDefaultBus
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EventCenterCheckEnabledOnDefaultBusResponse EventCenterCheckEnabledOnDefaultBusResponse
+     */
+    public function eventCenterCheckEnabledOnDefaultBusWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'EventCenterCheckEnabledOnDefaultBus',
+            'version'     => '2020-04-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EventCenterCheckEnabledOnDefaultBusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary EventCenterCheckEnabledOnDefaultBus
+     *  *
+     * @return EventCenterCheckEnabledOnDefaultBusResponse EventCenterCheckEnabledOnDefaultBusResponse
+     */
+    public function eventCenterCheckEnabledOnDefaultBus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->eventCenterCheckEnabledOnDefaultBusWithOptions($runtime);
+    }
+
+    /**
+     * @summary EventCenterDisableOnDefaultBus
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EventCenterDisableOnDefaultBusResponse EventCenterDisableOnDefaultBusResponse
+     */
+    public function eventCenterDisableOnDefaultBusWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'EventCenterDisableOnDefaultBus',
+            'version'     => '2020-04-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EventCenterDisableOnDefaultBusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary EventCenterDisableOnDefaultBus
+     *  *
+     * @return EventCenterDisableOnDefaultBusResponse EventCenterDisableOnDefaultBusResponse
+     */
+    public function eventCenterDisableOnDefaultBus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->eventCenterDisableOnDefaultBusWithOptions($runtime);
+    }
+
+    /**
+     * @summary EventCenterEnableOnDefaultBus
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EventCenterEnableOnDefaultBusResponse EventCenterEnableOnDefaultBusResponse
+     */
+    public function eventCenterEnableOnDefaultBusWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'EventCenterEnableOnDefaultBus',
+            'version'     => '2020-04-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EventCenterEnableOnDefaultBusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary EventCenterEnableOnDefaultBus
+     *  *
+     * @return EventCenterEnableOnDefaultBusResponse EventCenterEnableOnDefaultBusResponse
+     */
+    public function eventCenterEnableOnDefaultBus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->eventCenterEnableOnDefaultBusWithOptions($runtime);
+    }
+
+    /**
+     * @summary EventCenterQueryEvents
+     *  *
+     * @param EventCenterQueryEventsRequest $tmpReq  EventCenterQueryEventsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EventCenterQueryEventsResponse EventCenterQueryEventsResponse
+     */
+    public function eventCenterQueryEventsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new EventCenterQueryEventsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->body)) {
+            $request->bodyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->body, 'Body', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->busName)) {
+            $query['BusName'] = $request->busName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bodyShrink)) {
+            $body['Body'] = $request->bodyShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'EventCenterQueryEvents',
+            'version'     => '2020-04-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EventCenterQueryEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary EventCenterQueryEvents
+     *  *
+     * @param EventCenterQueryEventsRequest $request EventCenterQueryEventsRequest
+     *
+     * @return EventCenterQueryEventsResponse EventCenterQueryEventsResponse
+     */
+    public function eventCenterQueryEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->eventCenterQueryEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about an API destination.
+     *  *
+     * @description You can call this API operation to query the information about an API destination.
+     *  *
      * @param GetApiDestinationRequest $request GetApiDestinationRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1086,8 +1332,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the information about an API destination.
-     *   *
+     * @summary Queries the information about an API destination.
+     *  *
+     * @description You can call this API operation to query the information about an API destination.
+     *  *
      * @param GetApiDestinationRequest $request GetApiDestinationRequest
      *
      * @return GetApiDestinationResponse GetApiDestinationResponse
@@ -1100,8 +1348,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the configurations of a connection.
-     *   *
+     * @summary Queries the configurations of a connection.
+     *  *
+     * @description You can call this API operation to query the configurations of a connection.
+     *  *
      * @param GetConnectionRequest $request GetConnectionRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1133,8 +1383,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the configurations of a connection.
-     *   *
+     * @summary Queries the configurations of a connection.
+     *  *
+     * @description You can call this API operation to query the configurations of a connection.
+     *  *
      * @param GetConnectionRequest $request GetConnectionRequest
      *
      * @return GetConnectionResponse GetConnectionResponse
@@ -1147,8 +1399,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the detailed information about an event bus.
-     *   *
+     * @summary Queries the detailed information about an event bus.
+     *  *
+     * @description You can call this API operation to query the detailed information about an event bus.
+     *  *
      * @param GetEventBusRequest $request GetEventBusRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -1180,8 +1434,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the detailed information about an event bus.
-     *   *
+     * @summary Queries the detailed information about an event bus.
+     *  *
+     * @description You can call this API operation to query the detailed information about an event bus.
+     *  *
      * @param GetEventBusRequest $request GetEventBusRequest
      *
      * @return GetEventBusResponse GetEventBusResponse
@@ -1194,8 +1450,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the details of an event stream.
-     *   *
+     * @summary Queries the details of an event stream.
+     *  *
+     * @description You can call this API operation to query the details of an event stream.
+     *  *
      * @param GetEventStreamingRequest $request GetEventStreamingRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1227,8 +1485,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the details of an event stream.
-     *   *
+     * @summary Queries the details of an event stream.
+     *  *
+     * @description You can call this API operation to query the details of an event stream.
+     *  *
      * @param GetEventStreamingRequest $request GetEventStreamingRequest
      *
      * @return GetEventStreamingResponse GetEventStreamingResponse
@@ -1241,8 +1501,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the details of an event rule.
-     *   *
+     * @summary Queries the details of an event rule.
+     *  *
+     * @description You can call this API operation to query the details of an event rule.
+     *  *
      * @param GetRuleRequest $request GetRuleRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -1277,8 +1539,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the details of an event rule.
-     *   *
+     * @summary Queries the details of an event rule.
+     *  *
+     * @description You can call this API operation to query the details of an event rule.
+     *  *
      * @param GetRuleRequest $request GetRuleRequest
      *
      * @return GetRuleResponse GetRuleResponse
@@ -1291,8 +1555,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query all Alibaba Cloud service event sources.
-     *   *
+     * @summary Queries all Alibaba Cloud service event sources.
+     *  *
+     * @description You can call this API operation to query all Alibaba Cloud service event sources.
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return ListAliyunOfficialEventSourcesResponse ListAliyunOfficialEventSourcesResponse
@@ -1316,8 +1582,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query all Alibaba Cloud service event sources.
-     *   *
+     * @summary Queries all Alibaba Cloud service event sources.
+     *  *
+     * @description You can call this API operation to query all Alibaba Cloud service event sources.
+     *  *
      * @return ListAliyunOfficialEventSourcesResponse ListAliyunOfficialEventSourcesResponse
      */
     public function listAliyunOfficialEventSources()
@@ -1328,8 +1596,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can use this API operation to query a list of API destinations.
-     *   *
+     * @summary Queries a list of API destinations.
+     *  *
+     * @description You can use this API operation to query a list of API destinations.
+     *  *
      * @param ListApiDestinationsRequest $request ListApiDestinationsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1370,8 +1640,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can use this API operation to query a list of API destinations.
-     *   *
+     * @summary Queries a list of API destinations.
+     *  *
+     * @description You can use this API operation to query a list of API destinations.
+     *  *
      * @param ListApiDestinationsRequest $request ListApiDestinationsRequest
      *
      * @return ListApiDestinationsResponse ListApiDestinationsResponse
@@ -1384,8 +1656,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query connections.
-     *   *
+     * @summary Queries connections.
+     *  *
+     * @description You can call this API operation to query connections.
+     *  *
      * @param ListConnectionsRequest $request ListConnectionsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1423,8 +1697,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query connections.
-     *   *
+     * @summary Queries connections.
+     *  *
+     * @description You can call this API operation to query connections.
+     *  *
      * @param ListConnectionsRequest $request ListConnectionsRequest
      *
      * @return ListConnectionsResponse ListConnectionsResponse
@@ -1437,8 +1713,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query all event buses.
-     *   *
+     * @summary Queries all event buses.
+     *  *
+     * @description You can call this API operation to query all event buses.
+     *  *
      * @param ListEventBusesRequest $request ListEventBusesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1476,8 +1754,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query all event buses.
-     *   *
+     * @summary Queries all event buses.
+     *  *
+     * @description You can call this API operation to query all event buses.
+     *  *
      * @param ListEventBusesRequest $request ListEventBusesRequest
      *
      * @return ListEventBusesResponse ListEventBusesResponse
@@ -1490,8 +1770,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query event streams.
-     *   *
+     * @summary Queries event streams.
+     *  *
+     * @description You can call this API operation to query event streams.
+     *  *
      * @param ListEventStreamingsRequest $request ListEventStreamingsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1535,8 +1817,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query event streams.
-     *   *
+     * @summary Queries event streams.
+     *  *
+     * @description You can call this API operation to query event streams.
+     *  *
      * @param ListEventStreamingsRequest $request ListEventStreamingsRequest
      *
      * @return ListEventStreamingsResponse ListEventStreamingsResponse
@@ -1549,8 +1833,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query all rules of an event bus.
-     *   *
+     * @summary Queries all rules of an event bus.
+     *  *
+     * @description You can call this API operation to query all rules of an event bus.
+     *  *
      * @param ListRulesRequest $request ListRulesRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -1591,8 +1877,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query all rules of an event bus.
-     *   *
+     * @summary Queries all rules of an event bus.
+     *  *
+     * @description You can call this API operation to query all rules of an event bus.
+     *  *
      * @param ListRulesRequest $request ListRulesRequest
      *
      * @return ListRulesResponse ListRulesResponse
@@ -1605,10 +1893,12 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @param ListTargetsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries all event targets of an event rule.
+     *  *
+     * @param ListTargetsRequest $request ListTargetsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTargetsResponse
+     * @return ListTargetsResponse ListTargetsResponse
      */
     public function listTargetsWithOptions($request, $runtime)
     {
@@ -1648,9 +1938,11 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @param ListTargetsRequest $request
+     * @summary Queries all event targets of an event rule.
+     *  *
+     * @param ListTargetsRequest $request ListTargetsRequest
      *
-     * @return ListTargetsResponse
+     * @return ListTargetsResponse ListTargetsResponse
      */
     public function listTargets($request)
     {
@@ -1660,8 +1952,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query custom event sources.
-     *   *
+     * @summary Queries all custom event sources.
+     *  *
+     * @description You can call this API operation to query custom event sources.
+     *  *
      * @param ListUserDefinedEventSourcesRequest $request ListUserDefinedEventSourcesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -1702,8 +1996,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query custom event sources.
-     *   *
+     * @summary Queries all custom event sources.
+     *  *
+     * @description You can call this API operation to query custom event sources.
+     *  *
      * @param ListUserDefinedEventSourcesRequest $request ListUserDefinedEventSourcesRequest
      *
      * @return ListUserDefinedEventSourcesResponse ListUserDefinedEventSourcesResponse
@@ -1716,8 +2012,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to stop an event stream that is running.
-     *   *
+     * @summary Stops an event stream that is running.
+     *  *
+     * @description You can call this API operation to stop an event stream that is running.
+     *  *
      * @param PauseEventStreamingRequest $request PauseEventStreamingRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1749,8 +2047,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to stop an event stream that is running.
-     *   *
+     * @summary Stops an event stream that is running.
+     *  *
+     * @description You can call this API operation to stop an event stream that is running.
+     *  *
      * @param PauseEventStreamingRequest $request PauseEventStreamingRequest
      *
      * @return PauseEventStreamingResponse PauseEventStreamingResponse
@@ -1763,8 +2063,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create or update event targets under a rule.
-     *   *
+     * @summary Creates or updates event targets under a rule.
+     *  *
+     * @description You can call this API operation to create or update event targets under a rule.
+     *  *
      * @param PutTargetsRequest $tmpReq  PutTargetsRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1807,8 +2109,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to create or update event targets under a rule.
-     *   *
+     * @summary Creates or updates event targets under a rule.
+     *  *
+     * @description You can call this API operation to create or update event targets under a rule.
+     *  *
      * @param PutTargetsRequest $request PutTargetsRequest
      *
      * @return PutTargetsResponse PutTargetsResponse
@@ -1821,8 +2125,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the content of an event.
-     *   *
+     * @summary Queries the content of an event.
+     *  *
+     * @description You can call this API operation to query the content of an event.
+     *  *
      * @param QueryEventRequest $request QueryEventRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1860,8 +2166,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query the content of an event.
-     *   *
+     * @summary Queries the content of an event.
+     *  *
+     * @description You can call this API operation to query the content of an event.
+     *  *
      * @param QueryEventRequest $request QueryEventRequest
      *
      * @return QueryEventResponse QueryEventResponse
@@ -1874,8 +2182,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query event traces.
-     *   *
+     * @summary Queries event traces.
+     *  *
+     * @description You can call this API operation to query event traces.
+     *  *
      * @param QueryEventTracesRequest $request QueryEventTracesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1910,8 +2220,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query event traces.
-     *   *
+     * @summary Queries event traces.
+     *  *
+     * @description You can call this API operation to query event traces.
+     *  *
      * @param QueryEventTracesRequest $request QueryEventTracesRequest
      *
      * @return QueryEventTracesResponse QueryEventTracesResponse
@@ -1924,8 +2236,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query event traces by event ID.
-     *   *
+     * @summary Queries event traces by event ID.
+     *  *
+     * @description You can call this API operation to query event traces by event ID.
+     *  *
      * @param QueryTracedEventByEventIdRequest $request QueryTracedEventByEventIdRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1963,8 +2277,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query event traces by event ID.
-     *   *
+     * @summary Queries event traces by event ID.
+     *  *
+     * @description You can call this API operation to query event traces by event ID.
+     *  *
      * @param QueryTracedEventByEventIdRequest $request QueryTracedEventByEventIdRequest
      *
      * @return QueryTracedEventByEventIdResponse QueryTracedEventByEventIdResponse
@@ -1977,8 +2293,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query event traces by time range.
-     *   *
+     * @summary Queries event traces by time range.
+     *  *
+     * @description You can call this API operation to query event traces by time range.
+     *  *
      * @param QueryTracedEventsRequest $request QueryTracedEventsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2031,8 +2349,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to query event traces by time range.
-     *   *
+     * @summary Queries event traces by time range.
+     *  *
+     * @description You can call this API operation to query event traces by time range.
+     *  *
      * @param QueryTracedEventsRequest $request QueryTracedEventsRequest
      *
      * @return QueryTracedEventsResponse QueryTracedEventsResponse
@@ -2045,8 +2365,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to enable a created or deactivated event stream.
-     *   *
+     * @summary Enables a created or deactivated event stream.
+     *  *
+     * @description You can call this API operation to enable a created or deactivated event stream.
+     *  *
      * @param StartEventStreamingRequest $request StartEventStreamingRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2078,8 +2400,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to enable a created or deactivated event stream.
-     *   *
+     * @summary Enables a created or deactivated event stream.
+     *  *
+     * @description You can call this API operation to enable a created or deactivated event stream.
+     *  *
      * @param StartEventStreamingRequest $request StartEventStreamingRequest
      *
      * @return StartEventStreamingResponse StartEventStreamingResponse
@@ -2092,8 +2416,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to check whether the event pattern matches the provided JSON format.
-     *   *
+     * @summary Checks whether the event pattern matches the provided JSON format.
+     *  *
+     * @description You can call this API operation to check whether the event pattern matches the provided JSON format.
+     *  *
      * @param TestEventPatternRequest $request TestEventPatternRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2128,8 +2454,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to check whether the event pattern matches the provided JSON format.
-     *   *
+     * @summary Checks whether the event pattern matches the provided JSON format.
+     *  *
+     * @description You can call this API operation to check whether the event pattern matches the provided JSON format.
+     *  *
      * @param TestEventPatternRequest $request TestEventPatternRequest
      *
      * @return TestEventPatternResponse TestEventPatternResponse
@@ -2142,8 +2470,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to update an API destination.
-     *   *
+     * @summary Updates an API destination.
+     *  *
+     * @description You can call this API operation to update an API destination.
+     *  *
      * @param UpdateApiDestinationRequest $tmpReq  UpdateApiDestinationRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -2189,8 +2519,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to update an API destination.
-     *   *
+     * @summary Updates an API destination.
+     *  *
+     * @description You can call this API operation to update an API destination.
+     *  *
      * @param UpdateApiDestinationRequest $request UpdateApiDestinationRequest
      *
      * @return UpdateApiDestinationResponse UpdateApiDestinationResponse
@@ -2203,8 +2535,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to update a connection.
-     *   *
+     * @summary Updates a connection.
+     *  *
+     * @description You can call this API operation to update a connection.
+     *  *
      * @param UpdateConnectionRequest $tmpReq  UpdateConnectionRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2253,8 +2587,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to update a connection.
-     *   *
+     * @summary Updates a connection.
+     *  *
+     * @description You can call this API operation to update a connection.
+     *  *
      * @param UpdateConnectionRequest $request UpdateConnectionRequest
      *
      * @return UpdateConnectionResponse UpdateConnectionResponse
@@ -2267,8 +2603,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to modify an event bus.
-     *   *
+     * @summary Modifies an event bus.
+     *  *
+     * @description You can call this API operation to modify an event bus.
+     *  *
      * @param UpdateEventBusRequest $request UpdateEventBusRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2303,8 +2641,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to modify an event bus.
-     *   *
+     * @summary Modifies an event bus.
+     *  *
+     * @description You can call this API operation to modify an event bus.
+     *  *
      * @param UpdateEventBusRequest $request UpdateEventBusRequest
      *
      * @return UpdateEventBusResponse UpdateEventBusResponse
@@ -2317,8 +2657,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to update an event source.
-     *   *
+     * @summary Updates an event source.
+     *  *
+     * @description You can call this API operation to update an event source.
+     *  *
      * @param UpdateEventSourceRequest $tmpReq  UpdateEventSourceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2400,8 +2742,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to update an event source.
-     *   *
+     * @summary Updates an event source.
+     *  *
+     * @description You can call this API operation to update an event source.
+     *  *
      * @param UpdateEventSourceRequest $request UpdateEventSourceRequest
      *
      * @return UpdateEventSourceResponse UpdateEventSourceResponse
@@ -2414,8 +2758,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
-     *   *
+     * @summary Modifies the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+     *  *
+     * @description You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+     *  *
      * @param UpdateEventStreamingRequest $tmpReq  UpdateEventStreamingRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -2479,8 +2825,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
-     *   *
+     * @summary Modifies the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+     *  *
+     * @description You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+     *  *
      * @param UpdateEventStreamingRequest $request UpdateEventStreamingRequest
      *
      * @return UpdateEventStreamingResponse UpdateEventStreamingResponse
@@ -2493,8 +2841,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to update the configurations of an event rule.
-     *   *
+     * @summary Updates the configurations of an event rule.
+     *  *
+     * @description You can call this API operation to update the configurations of an event rule.
+     *  *
      * @param UpdateRuleRequest $request UpdateRuleRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -2538,8 +2888,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * You can call this API operation to update the configurations of an event rule.
-     *   *
+     * @summary Updates the configurations of an event rule.
+     *  *
+     * @description You can call this API operation to update the configurations of an event rule.
+     *  *
      * @param UpdateRuleRequest $request UpdateRuleRequest
      *
      * @return UpdateRuleResponse UpdateRuleResponse

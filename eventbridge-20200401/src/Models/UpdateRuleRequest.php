@@ -20,6 +20,7 @@ class UpdateRuleRequest extends Model
     /**
      * @description The name of the event bus.
      *
+     * This parameter is required.
      * @example hw-test
      *
      * @var string
@@ -29,8 +30,8 @@ class UpdateRuleRequest extends Model
     /**
      * @description The event pattern, in JSON format. Valid values: stringEqual stringExpression Each field can have a maximum of five expressions in the map data structure.
      *
-     * Each field can have a maximum of five expressions in the map data structure.
-     * @example {\"source\":[\"acs.oss\"],\"type\":[\"oss:BucketQueried:GetBucketStat\"]}
+     * This parameter is required.
+     * @example {\\"source\\":[\\"acs.oss\\"],\\"type\\":[\\"oss:BucketQueried:GetBucketStat\\"]}
      *
      * @var string
      */
@@ -39,6 +40,7 @@ class UpdateRuleRequest extends Model
     /**
      * @description The name of the event rule.
      *
+     * This parameter is required.
      * @example tf-testacc-rule
      *
      * @var string

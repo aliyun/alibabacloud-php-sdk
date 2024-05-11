@@ -11,6 +11,7 @@ class DisableRuleRequest extends Model
     /**
      * @description The name of the event bus.
      *
+     * This parameter is required.
      * @example MyEventBus
      *
      * @var string
@@ -20,6 +21,7 @@ class DisableRuleRequest extends Model
     /**
      * @description The name of the event rule.
      *
+     * This parameter is required.
      * @example tf-testacc-rule
      *
      * @var string

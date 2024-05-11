@@ -40,7 +40,7 @@ class data extends Model
      * @description The event pattern, in JSON format. Valid values: stringEqual and stringExpression. You can specify up to five expressions in the map data structure in each field.
      *
      * You can specify up to five expressions in the map data structure in each field.
-     * @example {\"source\":[\"acs.oss\"],\"type\":[\"oss:BucketQueried:GetBucketStat\"]}
+     * @example {\\"source\\":[\\"acs.oss\\"],\\"type\\":[\\"oss:BucketQueried:GetBucketStat\\"]}
      *
      * @var string
      */

@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class password extends Model
 {
     /**
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
+     *
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @description None.
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The password.
+     *
+     * @example *****
+     *
      * @var string
      */
     public $value;

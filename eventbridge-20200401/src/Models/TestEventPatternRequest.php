@@ -11,6 +11,7 @@ class TestEventPatternRequest extends Model
     /**
      * @description The event.
      *
+     * This parameter is required.
      * @example {
      * "datacontenttype": "application/json;charset=utf-8",
      * "aliyunaccountid": "*****",
@@ -37,6 +38,7 @@ class TestEventPatternRequest extends Model
     /**
      * @description The event pattern.
      *
+     * This parameter is required.
      * @example {"key1": "value1"}
      *
      * @var string

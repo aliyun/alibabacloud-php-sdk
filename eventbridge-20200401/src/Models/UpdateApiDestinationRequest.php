@@ -12,6 +12,7 @@ class UpdateApiDestinationRequest extends Model
     /**
      * @description The name of the API destination. The name must be 2 to 127 characters in length.
      *
+     * This parameter is required.
      * @example api-destination-name
      *
      * @var string

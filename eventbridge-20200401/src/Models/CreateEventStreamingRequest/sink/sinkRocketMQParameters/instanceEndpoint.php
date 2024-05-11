@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceEndpoint extends Model
 {
     /**
-     * @description The format into which you want to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,7 @@ class instanceEndpoint extends Model
     public $template;
 
     /**
-     * @description The instance endpoint.
+     * @description The endpoint that is used to access the ApsaraMQ for RocketMQ instance.
      *
      * @example vbr-8vbsvkkbpf3vb0zefs7ex
      *

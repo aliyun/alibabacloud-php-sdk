@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class transforms extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the cloud service, such as the ARN of a Function Compute function.
+     *
+     * @example acs:fc:cn-hangzhou:*****:services/demo-service.LATEST/functions/demo-func
+     *
      * @var string
      */
     public $arn;

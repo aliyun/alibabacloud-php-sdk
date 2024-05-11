@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class roleName extends Model
 {
     /**
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
+     *
      * @example CONSTANT
      *
      * @var string
@@ -16,11 +18,15 @@ class roleName extends Model
     public $form;
 
     /**
+     * @description The template based on which you want to transform events.
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The role name.
+     *
      * @example Al****FNF-x****
      *
      * @var string

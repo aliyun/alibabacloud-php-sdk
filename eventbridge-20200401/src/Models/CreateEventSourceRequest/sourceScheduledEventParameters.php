@@ -27,6 +27,8 @@ class sourceScheduledEventParameters extends Model
     public $timeZone;
 
     /**
+     * @example {"a": "b"}
+     *
      * @var string
      */
     public $userData;

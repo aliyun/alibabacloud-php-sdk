@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceMQTTParameters extends Model
 {
     /**
-     * @description The ID of the Message Queue for MQTT instance.
+     * @description The ID of the ApsaraMQ for MQTT instance.
      *
      * @example i-bp1dsudbecqwt61jqswt
      *
@@ -18,7 +18,7 @@ class sourceMQTTParameters extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the region where the Message Queue for MQTT instance resides.
+     * @description The ID of the region where the ApsaraMQ for MQTT instance resides.
      *
      * @example cn-shanghai
      *
@@ -27,7 +27,7 @@ class sourceMQTTParameters extends Model
     public $regionId;
 
     /**
-     * @description The topic name.
+     * @description The name of the topic on the ApsaraMQ for MQTT instance.
      *
      * @example topic_empower_1642400400779
      *

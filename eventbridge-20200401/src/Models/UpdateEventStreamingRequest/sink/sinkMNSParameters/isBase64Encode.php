@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class isBase64Encode extends Model
 {
     /**
-     * @description The method that is used to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,7 @@ class isBase64Encode extends Model
     public $template;
 
     /**
-     * @description Specifies that Base64 encoding is enabled.
+     * @description Specifies whether to enable Base64 encoding.
      *
      * @example true
      *

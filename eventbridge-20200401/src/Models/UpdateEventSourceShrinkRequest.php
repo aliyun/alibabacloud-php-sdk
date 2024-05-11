@@ -18,6 +18,7 @@ class UpdateEventSourceShrinkRequest extends Model
     /**
      * @description The event bus with which the event source is associated.
      *
+     * This parameter is required.
      * @example my-event-bus
      *
      * @var string
@@ -27,6 +28,7 @@ class UpdateEventSourceShrinkRequest extends Model
     /**
      * @description The name of the event source.
      *
+     * This parameter is required.
      * @example myrabbitmq.source
      *
      * @var string

@@ -36,7 +36,7 @@ class sourceRocketMQParameters extends Model
     public $instanceEndpoint;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance. For more information, see [Limits](~~163289~~).
+     * @description The ID of the Message Queue for Apache RocketMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
      *
      * @example dbaudit-cn-i7m2nx2or01
      *
@@ -74,8 +74,8 @@ class sourceRocketMQParameters extends Model
     /**
      * @description The type of the Message Queue for Apache RocketMQ instance. Valid values:
      *
-     *   Cloud\_4: Message Queue for Apache RocketMQ 4.0 instance.
-     *   Cloud\_5: Message Queue for Apache RocketMQ 5.0 instance.
+     *   Cloud_4: Message Queue for Apache RocketMQ 4.0 instance.
+     *   Cloud_5: Message Queue for Apache RocketMQ 5.0 instance.
      *
      * @example Cloud_4
      *
@@ -152,7 +152,7 @@ class sourceRocketMQParameters extends Model
     public $timestamp;
 
     /**
-     * @description The name of the topic on the Message Queue for Apache RocketMQ instance. For more information, see [Limits](~~163289~~).
+     * @description The name of the topic on the Message Queue for Apache RocketMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
      *
      * @example topic_default_195820716552192
      *

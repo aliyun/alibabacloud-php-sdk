@@ -20,6 +20,7 @@ class CreateConnectionRequest extends Model
     /**
      * @description The name of the connection. The name must be 2 to 127 characters in length.
      *
+     * This parameter is required.
      * @example connection-name
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateConnectionRequest extends Model
     /**
      * @description The parameters that are configured for the network.
      *
+     * This parameter is required.
      * @var networkParameters
      */
     public $networkParameters;

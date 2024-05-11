@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class securityGroupId extends Model
 {
     /**
-     * @description The format into which you want to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,7 @@ class securityGroupId extends Model
     public $template;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group to which the ApsaraMQ for RocketMQ instance belongs.
      *
      * @example b4bf375515f6440f942e3a20c33d5b9c
      *

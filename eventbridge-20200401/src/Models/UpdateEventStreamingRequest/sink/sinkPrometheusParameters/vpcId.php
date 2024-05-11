@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class vpcId extends Model
 {
     /**
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
+     *
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @description None.
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The ID of the VPC to which the Managed Service for Prometheus instance belongs.
+     *
+     * @example vpc-adw1awdw*****
+     *
      * @var string
      */
     public $value;

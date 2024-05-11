@@ -18,7 +18,7 @@ class sourceKafkaParameters extends Model
     public $consumerGroup;
 
     /**
-     * @description The ID of the Message Queue for Apache Kafka instance.
+     * @description The ID of the ApsaraMQ for Kafka instance.
      *
      * @example r-8vb64581862cd814
      *
@@ -27,7 +27,7 @@ class sourceKafkaParameters extends Model
     public $instanceId;
 
     /**
-     * @description The network setting. Default value: Default. The value PublicNetwork specifies a virtual private cloud (VPC).
+     * @description The network type. Default value: Default. The value PublicNetwork specifies a virtual private cloud (VPC).
      *
      * @example Default
      *
@@ -36,7 +36,7 @@ class sourceKafkaParameters extends Model
     public $network;
 
     /**
-     * @description The offset.
+     * @description The offset from which messages are consumed.
      *
      * @example latest
      *
@@ -45,7 +45,7 @@ class sourceKafkaParameters extends Model
     public $offsetReset;
 
     /**
-     * @description The ID of the region where the Message Queue for Apache Kafka instance resides.
+     * @description The ID of the region where the ApsaraMQ for Kafka instance resides.
      *
      * @example cn-hangzhou
      *
@@ -54,7 +54,7 @@ class sourceKafkaParameters extends Model
     public $regionId;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group to which the ApsaraMQ for Kafka instance belongs.
      *
      * @example sg-bp1iv19sp1msc7zot4wr
      *
@@ -63,7 +63,7 @@ class sourceKafkaParameters extends Model
     public $securityGroupId;
 
     /**
-     * @description The topic name.
+     * @description The name of the topic on the ApsaraMQ for Kafka instance.
      *
      * @example popvip_center_robot_order
      *
@@ -72,7 +72,7 @@ class sourceKafkaParameters extends Model
     public $topic;
 
     /**
-     * @description The vSwitch ID.
+     * @description The ID of the vSwitch with which the ApsaraMQ for Kafka instance is associated.
      *
      * @example vsw-bp179l3llg3jjxwrq72hh
      *
@@ -86,7 +86,7 @@ class sourceKafkaParameters extends Model
     public $valueDataType;
 
     /**
-     * @description The VPC ID.
+     * @description The ID of the VPC to which the ApsaraMQ for Kafka instance belongs.
      *
      * @example vpc-8vblalsi0vbhizr77cbhu
      *

@@ -11,6 +11,7 @@ class GetRuleRequest extends Model
     /**
      * @description The name of the event bus.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string
@@ -20,6 +21,7 @@ class GetRuleRequest extends Model
     /**
      * @description The name of the event rule.
      *
+     * This parameter is required.
      * @example ram-changes
      *
      * @var string

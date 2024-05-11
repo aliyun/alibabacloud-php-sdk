@@ -25,14 +25,14 @@ class sinkRabbitMQParameters extends Model
     public $body;
 
     /**
-     * @description The information about the exchange to which events are delivered. This parameter is available only if you set TargetType to Exchange.
+     * @description The exchange mode. This parameter is required only if you set TargetType to Exchange.
      *
      * @var exchange
      */
     public $exchange;
 
     /**
-     * @description The information about the Message Queue for RabbitMQ instance.
+     * @description The ID of the ApsaraMQ for RabbitMQ instance.
      *
      * @var instanceId
      */
@@ -46,35 +46,35 @@ class sinkRabbitMQParameters extends Model
     public $messageId;
 
     /**
-     * @description The properties that are used to filter messages.
+     * @description The attributes that you want to use to filter messages.
      *
      * @var properties
      */
     public $properties;
 
     /**
-     * @description The information about the queue to which events are delivered. This parameter is available only if you set TargetType to Queue.
+     * @description The queue mode. This parameter is required only if you set TargetType to Queue.
      *
      * @var queueName
      */
     public $queueName;
 
     /**
-     * @description The information about the routing rule of the message. This parameter is available only if you set TargetType to Exchange.
+     * @description The rule that you want to use to route messages. This parameter is required only if you set TargetType to Exchange.
      *
      * @var routingKey
      */
     public $routingKey;
 
     /**
-     * @description The information about the type of the resource to which events are delivered.
+     * @description The type of the resource to which you want to deliver events.
      *
      * @var targetType
      */
     public $targetType;
 
     /**
-     * @description The information about the vhost of the Message Queue for RabbitMQ instance.
+     * @description The name of the vhost to which the ApsaraMQ for RabbitMQ instance belongs.
      *
      * @var virtualHostName
      */

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class sourcePrometheusParameters extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example c83555068b6******ad213f565f209
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The data type.
+     *
+     * @example json
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @description The labels.
+     *
+     * @example __name__=.*
+     *
      * @var string
      */
     public $labels;

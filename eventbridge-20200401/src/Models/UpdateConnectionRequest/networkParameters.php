@@ -11,7 +11,7 @@ class networkParameters extends Model
     /**
      * @description PublicNetwork: the Internet.
      *
-     * Note: If you set this parameter to PrivateNetwork, you must configure VpcId, VswitcheId, and SecurityGroupId.
+     * This parameter is required.
      * @example PublicNetwork
      *
      * @var string

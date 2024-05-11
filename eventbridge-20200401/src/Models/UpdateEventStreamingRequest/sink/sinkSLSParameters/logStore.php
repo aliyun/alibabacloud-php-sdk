@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logStore extends Model
 {
     /**
-     * @description The method that is used to transform events. Default value: CONSTANT.
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
      *
      * @example CONSTANT
      *
@@ -25,7 +25,7 @@ class logStore extends Model
     public $template;
 
     /**
-     * @description The Log Service Logstore.
+     * @description The Simple Log Service Logstore.
      *
      * @example test-logstore
      *

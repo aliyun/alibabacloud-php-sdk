@@ -42,6 +42,7 @@ class targets extends Model
     /**
      * @description The ID of the custom event target.
      *
+     * This parameter is required.
      * @example Mlm123456JHd2RsRoKw
      *
      * @var string
@@ -71,6 +72,7 @@ class targets extends Model
     /**
      * @description The type of the event target. For more information, see [Event target parameters.](https://www.alibabacloud.com/help/en/eventbridge/latest/event-target-parameters)
      *
+     * This parameter is required.
      * @example acs.fc.function
      *
      * @var string

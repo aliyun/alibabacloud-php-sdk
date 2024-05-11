@@ -24,6 +24,7 @@ class UpdateEventStreamingRequest extends Model
     /**
      * @description The name of the event stream.
      *
+     * This parameter is required.
      * @example myeventstreaming
      *
      * @var string
@@ -33,6 +34,7 @@ class UpdateEventStreamingRequest extends Model
     /**
      * @description The rule that is used to filter events. If you leave this parameter empty, all events are matched.
      *
+     * This parameter is required.
      * @var string
      */
     public $filterPattern;
@@ -47,13 +49,15 @@ class UpdateEventStreamingRequest extends Model
     /**
      * @description The event target. You must and can specify only one event target.
      *
+     * This parameter is required.
      * @var sink
      */
     public $sink;
 
     /**
-     * @description The event source, which is also known as the event source. You must and can specify only one event source.
+     * @description The event provider, which is also known as the event source. You must and can specify only one event source.
      *
+     * This parameter is required.
      * @var source
      */
     public $source;

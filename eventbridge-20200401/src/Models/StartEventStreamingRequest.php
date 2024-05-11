@@ -11,6 +11,7 @@ class StartEventStreamingRequest extends Model
     /**
      * @description The name of the event stream that you want to enable.
      *
+     * This parameter is required.
      * @example rocketmq-sync
      *
      * @var string

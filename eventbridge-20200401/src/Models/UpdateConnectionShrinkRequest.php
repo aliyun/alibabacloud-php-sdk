@@ -18,6 +18,7 @@ class UpdateConnectionShrinkRequest extends Model
     /**
      * @description The name of the connection that you want to update. The name must be 2 to 127 characters in length.
      *
+     * This parameter is required.
      * @example connection-name
      *
      * @var string
@@ -36,6 +37,7 @@ class UpdateConnectionShrinkRequest extends Model
     /**
      * @description The parameters that are configured for the network.
      *
+     * This parameter is required.
      * @var string
      */
     public $networkParametersShrink;

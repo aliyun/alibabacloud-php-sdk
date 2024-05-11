@@ -18,46 +18,64 @@ use AlibabaCloud\Tea\Model;
 class sinkPrometheusParameters extends Model
 {
     /**
+     * @description The authentication method.
+     *
      * @var authorizationType
      */
     public $authorizationType;
 
     /**
+     * @description The metric data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The network type.
+     *
      * @var networkType
      */
     public $networkType;
 
     /**
+     * @description The password.
+     *
      * @var password
      */
     public $password;
 
     /**
+     * @description The ID of the security group to which the Managed Service for Prometheus instance belongs.
+     *
      * @var securityGroupId
      */
     public $securityGroupId;
 
     /**
+     * @description The URL for the remote write configuration item of the Managed Service for Prometheus instance.
+     *
      * @var URL
      */
     public $URL;
 
     /**
+     * @description The username.
+     *
      * @var username
      */
     public $username;
 
     /**
+     * @description The ID of the vSwitch with which the Managed Service for Prometheus instance is associated.
+     *
      * @var vSwitchId
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC to which the Managed Service for Prometheus instance belongs.
+     *
      * @var vpcId
      */
     public $vpcId;
