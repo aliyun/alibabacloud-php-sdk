@@ -16,6 +16,8 @@ class sources extends Model
     public $rotate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $URI;

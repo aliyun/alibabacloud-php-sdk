@@ -27,6 +27,8 @@ class CreateFileCompressionTaskRequest extends Model
     public $notification;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -46,6 +48,8 @@ class CreateFileCompressionTaskRequest extends Model
     public $sources;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://test-bucket/test-target-object.zip
      *
      * @var string

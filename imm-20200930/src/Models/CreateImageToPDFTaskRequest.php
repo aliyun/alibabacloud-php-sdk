@@ -20,6 +20,8 @@ class CreateImageToPDFTaskRequest extends Model
     public $notification;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
@@ -27,6 +29,8 @@ class CreateImageToPDFTaskRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var sources[]
      */
     public $sources;
@@ -37,6 +41,8 @@ class CreateImageToPDFTaskRequest extends Model
     public $tags;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $targetURI;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssumeRoleChainNode extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1023210024677934
      *
      * @var string
@@ -16,6 +18,8 @@ class AssumeRoleChainNode extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-role
      *
      * @var string
@@ -23,6 +27,8 @@ class AssumeRoleChainNode extends Model
     public $role;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user
      *
      * @var string

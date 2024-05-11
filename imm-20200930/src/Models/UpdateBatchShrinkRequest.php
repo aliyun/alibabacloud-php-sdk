@@ -14,6 +14,8 @@ class UpdateBatchShrinkRequest extends Model
     public $actionsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example batch-4eb9223f-3e88-42d3-a578-3f2852******
      *
      * @var string
@@ -26,6 +28,8 @@ class UpdateBatchShrinkRequest extends Model
     public $inputShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

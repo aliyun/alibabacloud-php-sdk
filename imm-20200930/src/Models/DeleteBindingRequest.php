@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBindingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dataset001
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteBindingRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteBindingRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://examplebucket
      *
      * @var string

@@ -26,6 +26,8 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string

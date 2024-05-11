@@ -14,6 +14,8 @@ class ExtractDocumentTextShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -26,6 +28,8 @@ class ExtractDocumentTextShrinkRequest extends Model
     public $sourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://test-bucket/test-object
      *
      * @var string

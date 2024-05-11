@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FuzzyQueryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -37,6 +39,8 @@ class FuzzyQueryRequest extends Model
     public $order;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
@@ -44,6 +48,8 @@ class FuzzyQueryRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $query;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteProjectRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string

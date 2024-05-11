@@ -14,6 +14,8 @@ class AttachOSSBucketRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example examplebucket
      *
      * @var string
@@ -21,6 +23,8 @@ class AttachOSSBucketRequest extends Model
     public $OSSBucket;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string

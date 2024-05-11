@@ -44,6 +44,8 @@ class CreateDatasetRequest extends Model
     public $datasetMaxTotalFileSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dataset001
      *
      * @var string
@@ -58,6 +60,8 @@ class CreateDatasetRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;

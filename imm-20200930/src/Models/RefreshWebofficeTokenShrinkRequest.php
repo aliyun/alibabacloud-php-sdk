@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshWebofficeTokenShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 99d1b8b478b641c1b3372f5bd6********
      *
      * @var string
@@ -21,6 +23,8 @@ class RefreshWebofficeTokenShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -28,6 +32,8 @@ class RefreshWebofficeTokenShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example a730ae0d7c6a487d87c661d199********
      *
      * @var string

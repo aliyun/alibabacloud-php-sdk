@@ -28,6 +28,8 @@ class UpdateStoryShrinkRequest extends Model
     public $customLabelsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testdata
      *
      * @var string
@@ -35,6 +37,8 @@ class UpdateStoryShrinkRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testid
      *
      * @var string
@@ -42,6 +46,8 @@ class UpdateStoryShrinkRequest extends Model
     public $objectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string

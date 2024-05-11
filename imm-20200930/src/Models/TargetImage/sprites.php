@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sprites extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $format;
@@ -64,6 +66,8 @@ class sprites extends Model
     public $tileWidth;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $URI;

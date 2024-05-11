@@ -15,6 +15,8 @@ class actions extends Model
     public $fastFailPolicy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example doc/convert
      *
      * @var string

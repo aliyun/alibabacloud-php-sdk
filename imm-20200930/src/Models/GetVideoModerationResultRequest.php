@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetVideoModerationResultRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
@@ -16,6 +18,8 @@ class GetVideoModerationResultRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VideoModeration-d0f0df1d-531d-4ab4-b353-e7f475******
      *
      * @var string
@@ -23,6 +27,8 @@ class GetVideoModerationResultRequest extends Model
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VideoModeration
      *
      * @var string

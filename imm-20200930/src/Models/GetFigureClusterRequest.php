@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFigureClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dataset001
      *
      * @var string
@@ -16,6 +18,8 @@ class GetFigureClusterRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Cluster-1f2e1a2c-d5ee-4bc5-84f6-fef94ea****
      *
      * @var string
@@ -23,6 +27,8 @@ class GetFigureClusterRequest extends Model
     public $objectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string

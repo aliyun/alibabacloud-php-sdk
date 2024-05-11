@@ -21,6 +21,8 @@ class AddImageMosaicShrinkRequest extends Model
     public $imageFormat;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;
@@ -33,16 +35,22 @@ class AddImageMosaicShrinkRequest extends Model
     public $quality;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourceURI;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $targetURI;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $targetsShrink;

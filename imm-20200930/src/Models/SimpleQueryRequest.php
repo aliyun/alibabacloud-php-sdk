@@ -15,6 +15,8 @@ class SimpleQueryRequest extends Model
     public $aggregations;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -41,6 +43,8 @@ class SimpleQueryRequest extends Model
     public $order;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

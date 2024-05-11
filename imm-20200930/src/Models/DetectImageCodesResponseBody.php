@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectImageCodesResponseBody extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var Codes[]
      */
     public $codes;

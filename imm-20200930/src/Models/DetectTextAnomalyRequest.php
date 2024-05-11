@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectTextAnomalyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example content
      *
      * @var string
@@ -16,6 +18,8 @@ class DetectTextAnomalyRequest extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string

@@ -14,6 +14,8 @@ class DetectImageTextsRequest extends Model
     public $credentialConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
@@ -21,6 +23,8 @@ class DetectImageTextsRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://test-bucket/test-object.jpg
      *
      * @var string

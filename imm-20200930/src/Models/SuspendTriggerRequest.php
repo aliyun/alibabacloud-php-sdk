@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SuspendTriggerRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example trigger-9f72636a-0f0c-4baf-ae78-38b27b******
      *
      * @var string
@@ -16,6 +18,8 @@ class SuspendTriggerRequest extends Model
     public $id;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

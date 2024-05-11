@@ -14,6 +14,8 @@ class CompareImageFacesShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

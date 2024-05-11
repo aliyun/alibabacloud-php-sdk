@@ -48,6 +48,9 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateCustomizedStoryShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDatasetResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDecodeBlindWatermarkTaskRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDecodeBlindWatermarkTaskResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateDecodeBlindWatermarkTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFacesSearchingTaskShrinkRequest;
@@ -145,6 +148,8 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\DetectMediaMetaResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectMediaMetaShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectTextAnomalyRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\DetectTextAnomalyResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\EncodeBlindWatermarkRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\EncodeBlindWatermarkResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ExtractDocumentTextRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ExtractDocumentTextResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ExtractDocumentTextShrinkRequest;
@@ -163,6 +168,10 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetBindingResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetDatasetResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetDecodeBlindWatermarkResultRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetDecodeBlindWatermarkResultResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetDRMLicenseRequest;
+use AlibabaCloud\SDK\Imm\V20200930\Models\GetDRMLicenseResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFigureClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\GetFileMetaRequest;
@@ -300,10 +309,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param AddImageMosaicRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 图片打马赛克算子
+     *  *
+     * @param AddImageMosaicRequest $tmpReq  AddImageMosaicRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddImageMosaicResponse
+     * @return AddImageMosaicResponse AddImageMosaicResponse
      */
     public function addImageMosaicWithOptions($tmpReq, $runtime)
     {
@@ -357,9 +368,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param AddImageMosaicRequest $request
+     * @summary 图片打马赛克算子
+     *  *
+     * @param AddImageMosaicRequest $request AddImageMosaicRequest
      *
-     * @return AddImageMosaicResponse
+     * @return AddImageMosaicResponse AddImageMosaicResponse
      */
     public function addImageMosaic($request)
     {
@@ -369,10 +382,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param AddStoryFilesRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 为故事新增文件
+     *  *
+     * @param AddStoryFilesRequest $tmpReq  AddStoryFilesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddStoryFilesResponse
+     * @return AddStoryFilesResponse AddStoryFilesResponse
      */
     public function addStoryFilesWithOptions($tmpReq, $runtime)
     {
@@ -414,9 +429,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param AddStoryFilesRequest $request
+     * @summary 为故事新增文件
+     *  *
+     * @param AddStoryFilesRequest $request AddStoryFilesRequest
      *
-     * @return AddStoryFilesResponse
+     * @return AddStoryFilesResponse AddStoryFilesResponse
      */
     public function addStoryFiles($request)
     {
@@ -426,10 +443,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param AttachOSSBucketRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 绑定ossbucket
+     *  *
+     * @param AttachOSSBucketRequest $request AttachOSSBucketRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachOSSBucketResponse
+     * @return AttachOSSBucketResponse AttachOSSBucketResponse
      */
     public function attachOSSBucketWithOptions($request, $runtime)
     {
@@ -463,9 +482,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param AttachOSSBucketRequest $request
+     * @summary 绑定ossbucket
+     *  *
+     * @param AttachOSSBucketRequest $request AttachOSSBucketRequest
      *
-     * @return AttachOSSBucketResponse
+     * @return AttachOSSBucketResponse AttachOSSBucketResponse
      */
     public function attachOSSBucket($request)
     {
@@ -475,10 +496,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteFileMetaRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 批量删除文件元信息
+     *  *
+     * @param BatchDeleteFileMetaRequest $tmpReq  BatchDeleteFileMetaRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeleteFileMetaResponse
+     * @return BatchDeleteFileMetaResponse BatchDeleteFileMetaResponse
      */
     public function batchDeleteFileMetaWithOptions($tmpReq, $runtime)
     {
@@ -517,9 +540,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteFileMetaRequest $request
+     * @summary 批量删除文件元信息
+     *  *
+     * @param BatchDeleteFileMetaRequest $request BatchDeleteFileMetaRequest
      *
-     * @return BatchDeleteFileMetaResponse
+     * @return BatchDeleteFileMetaResponse BatchDeleteFileMetaResponse
      */
     public function batchDeleteFileMeta($request)
     {
@@ -529,10 +554,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param BatchGetFigureClusterRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary 批量获取分组信息
+     *  *
+     * @param BatchGetFigureClusterRequest $tmpReq  BatchGetFigureClusterRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGetFigureClusterResponse
+     * @return BatchGetFigureClusterResponse BatchGetFigureClusterResponse
      */
     public function batchGetFigureClusterWithOptions($tmpReq, $runtime)
     {
@@ -571,9 +598,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param BatchGetFigureClusterRequest $request
+     * @summary 批量获取分组信息
+     *  *
+     * @param BatchGetFigureClusterRequest $request BatchGetFigureClusterRequest
      *
-     * @return BatchGetFigureClusterResponse
+     * @return BatchGetFigureClusterResponse BatchGetFigureClusterResponse
      */
     public function batchGetFigureCluster($request)
     {
@@ -583,10 +612,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param BatchGetFileMetaRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 批量获取文件元信息
+     *  *
+     * @param BatchGetFileMetaRequest $tmpReq  BatchGetFileMetaRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGetFileMetaResponse
+     * @return BatchGetFileMetaResponse BatchGetFileMetaResponse
      */
     public function batchGetFileMetaWithOptions($tmpReq, $runtime)
     {
@@ -625,9 +656,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param BatchGetFileMetaRequest $request
+     * @summary 批量获取文件元信息
+     *  *
+     * @param BatchGetFileMetaRequest $request BatchGetFileMetaRequest
      *
-     * @return BatchGetFileMetaResponse
+     * @return BatchGetFileMetaResponse BatchGetFileMetaResponse
      */
     public function batchGetFileMeta($request)
     {
@@ -637,10 +670,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param BatchIndexFileMetaRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary 批量索引文件元信息
+     *  *
+     * @param BatchIndexFileMetaRequest $tmpReq  BatchIndexFileMetaRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchIndexFileMetaResponse
+     * @return BatchIndexFileMetaResponse BatchIndexFileMetaResponse
      */
     public function batchIndexFileMetaWithOptions($tmpReq, $runtime)
     {
@@ -666,6 +701,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
         }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -685,9 +723,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param BatchIndexFileMetaRequest $request
+     * @summary 批量索引文件元信息
+     *  *
+     * @param BatchIndexFileMetaRequest $request BatchIndexFileMetaRequest
      *
-     * @return BatchIndexFileMetaResponse
+     * @return BatchIndexFileMetaResponse BatchIndexFileMetaResponse
      */
     public function batchIndexFileMeta($request)
     {
@@ -697,10 +737,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateFileMetaRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 批量更新文件元信息
+     *  *
+     * @param BatchUpdateFileMetaRequest $tmpReq  BatchUpdateFileMetaRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchUpdateFileMetaResponse
+     * @return BatchUpdateFileMetaResponse BatchUpdateFileMetaResponse
      */
     public function batchUpdateFileMetaWithOptions($tmpReq, $runtime)
     {
@@ -739,9 +781,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param BatchUpdateFileMetaRequest $request
+     * @summary 批量更新文件元信息
+     *  *
+     * @param BatchUpdateFileMetaRequest $request BatchUpdateFileMetaRequest
      *
-     * @return BatchUpdateFileMetaResponse
+     * @return BatchUpdateFileMetaResponse BatchUpdateFileMetaResponse
      */
     public function batchUpdateFileMeta($request)
     {
@@ -751,10 +795,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CompareImageFacesRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 以脸搜分组
+     *  *
+     * @param CompareImageFacesRequest $tmpReq  CompareImageFacesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CompareImageFacesResponse
+     * @return CompareImageFacesResponse CompareImageFacesResponse
      */
     public function compareImageFacesWithOptions($tmpReq, $runtime)
     {
@@ -796,9 +842,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CompareImageFacesRequest $request
+     * @summary 以脸搜分组
+     *  *
+     * @param CompareImageFacesRequest $request CompareImageFacesRequest
      *
-     * @return CompareImageFacesResponse
+     * @return CompareImageFacesResponse CompareImageFacesResponse
      */
     public function compareImageFaces($request)
     {
@@ -808,10 +856,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateArchiveFileInspectionTaskRequest $tmpReq
-     * @param RuntimeOptions                         $runtime
+     * @summary 创建查看压缩包内文件列表任务
+     *  *
+     * @param CreateArchiveFileInspectionTaskRequest $tmpReq  CreateArchiveFileInspectionTaskRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateArchiveFileInspectionTaskResponse
+     * @return CreateArchiveFileInspectionTaskResponse CreateArchiveFileInspectionTaskResponse
      */
     public function createArchiveFileInspectionTaskWithOptions($tmpReq, $runtime)
     {
@@ -862,9 +912,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateArchiveFileInspectionTaskRequest $request
+     * @summary 创建查看压缩包内文件列表任务
+     *  *
+     * @param CreateArchiveFileInspectionTaskRequest $request CreateArchiveFileInspectionTaskRequest
      *
-     * @return CreateArchiveFileInspectionTaskResponse
+     * @return CreateArchiveFileInspectionTaskResponse CreateArchiveFileInspectionTaskResponse
      */
     public function createArchiveFileInspectionTask($request)
     {
@@ -874,10 +926,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateBatchRequest $tmpReq
-     * @param RuntimeOptions     $runtime
+     * @summary 创建数据接入
+     *  *
+     * @param CreateBatchRequest $tmpReq  CreateBatchRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBatchResponse
+     * @return CreateBatchResponse CreateBatchResponse
      */
     public function createBatchWithOptions($tmpReq, $runtime)
     {
@@ -934,9 +988,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateBatchRequest $request
+     * @summary 创建数据接入
+     *  *
+     * @param CreateBatchRequest $request CreateBatchRequest
      *
-     * @return CreateBatchResponse
+     * @return CreateBatchResponse CreateBatchResponse
      */
     public function createBatch($request)
     {
@@ -946,10 +1002,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateBindingRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 创建绑定
+     *  *
+     * @param CreateBindingRequest $request CreateBindingRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBindingResponse
+     * @return CreateBindingResponse CreateBindingResponse
      */
     public function createBindingWithOptions($request, $runtime)
     {
@@ -983,9 +1041,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateBindingRequest $request
+     * @summary 创建绑定
+     *  *
+     * @param CreateBindingRequest $request CreateBindingRequest
      *
-     * @return CreateBindingResponse
+     * @return CreateBindingResponse CreateBindingResponse
      */
     public function createBinding($request)
     {
@@ -995,10 +1055,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateCompressPointCloudTaskRequest $tmpReq
-     * @param RuntimeOptions                      $runtime
+     * @summary 创建点云压缩任务
+     *  *
+     * @param CreateCompressPointCloudTaskRequest $tmpReq  CreateCompressPointCloudTaskRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCompressPointCloudTaskResponse
+     * @return CreateCompressPointCloudTaskResponse CreateCompressPointCloudTaskResponse
      */
     public function createCompressPointCloudTaskWithOptions($tmpReq, $runtime)
     {
@@ -1079,9 +1141,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateCompressPointCloudTaskRequest $request
+     * @summary 创建点云压缩任务
+     *  *
+     * @param CreateCompressPointCloudTaskRequest $request CreateCompressPointCloudTaskRequest
      *
-     * @return CreateCompressPointCloudTaskResponse
+     * @return CreateCompressPointCloudTaskResponse CreateCompressPointCloudTaskResponse
      */
     public function createCompressPointCloudTask($request)
     {
@@ -1091,10 +1155,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomizedStoryRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary 创建自定义故事
+     *  *
+     * @param CreateCustomizedStoryRequest $tmpReq  CreateCustomizedStoryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomizedStoryResponse
+     * @return CreateCustomizedStoryResponse CreateCustomizedStoryResponse
      */
     public function createCustomizedStoryWithOptions($tmpReq, $runtime)
     {
@@ -1154,9 +1220,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomizedStoryRequest $request
+     * @summary 创建自定义故事
+     *  *
+     * @param CreateCustomizedStoryRequest $request CreateCustomizedStoryRequest
      *
-     * @return CreateCustomizedStoryResponse
+     * @return CreateCustomizedStoryResponse CreateCustomizedStoryResponse
      */
     public function createCustomizedStory($request)
     {
@@ -1166,10 +1234,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateDatasetRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 创建数据集
+     *  *
+     * @param CreateDatasetRequest $request CreateDatasetRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDatasetResponse
+     * @return CreateDatasetResponse CreateDatasetResponse
      */
     public function createDatasetWithOptions($request, $runtime)
     {
@@ -1221,9 +1291,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateDatasetRequest $request
+     * @summary 创建数据集
+     *  *
+     * @param CreateDatasetRequest $request CreateDatasetRequest
      *
-     * @return CreateDatasetResponse
+     * @return CreateDatasetResponse CreateDatasetResponse
      */
     public function createDataset($request)
     {
@@ -1233,10 +1305,88 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFacesSearchingTaskRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 提取盲水印
+     *  *
+     * @param CreateDecodeBlindWatermarkTaskRequest $tmpReq  CreateDecodeBlindWatermarkTaskRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFacesSearchingTaskResponse
+     * @return CreateDecodeBlindWatermarkTaskResponse CreateDecodeBlindWatermarkTaskResponse
+     */
+    public function createDecodeBlindWatermarkTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDecodeBlindWatermarkTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->imageQuality)) {
+            $query['ImageQuality'] = $request->imageQuality;
+        }
+        if (!Utils::isUnset($request->model)) {
+            $query['Model'] = $request->model;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $query['Notification'] = $request->notificationShrink;
+        }
+        if (!Utils::isUnset($request->originalImageURI)) {
+            $query['OriginalImageURI'] = $request->originalImageURI;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->strengthLevel)) {
+            $query['StrengthLevel'] = $request->strengthLevel;
+        }
+        if (!Utils::isUnset($request->targetURI)) {
+            $query['TargetURI'] = $request->targetURI;
+        }
+        if (!Utils::isUnset($request->watermarkType)) {
+            $query['WatermarkType'] = $request->watermarkType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDecodeBlindWatermarkTask',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDecodeBlindWatermarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提取盲水印
+     *  *
+     * @param CreateDecodeBlindWatermarkTaskRequest $request CreateDecodeBlindWatermarkTaskRequest
+     *
+     * @return CreateDecodeBlindWatermarkTaskResponse CreateDecodeBlindWatermarkTaskResponse
+     */
+    public function createDecodeBlindWatermarkTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDecodeBlindWatermarkTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 以脸搜图
+     *  *
+     * @param CreateFacesSearchingTaskRequest $tmpReq  CreateFacesSearchingTaskRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateFacesSearchingTaskResponse CreateFacesSearchingTaskResponse
      */
     public function createFacesSearchingTaskWithOptions($tmpReq, $runtime)
     {
@@ -1287,9 +1437,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFacesSearchingTaskRequest $request
+     * @summary 以脸搜图
+     *  *
+     * @param CreateFacesSearchingTaskRequest $request CreateFacesSearchingTaskRequest
      *
-     * @return CreateFacesSearchingTaskResponse
+     * @return CreateFacesSearchingTaskResponse CreateFacesSearchingTaskResponse
      */
     public function createFacesSearchingTask($request)
     {
@@ -1299,10 +1451,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFigureClusteringTaskRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
+     * @summary 聚类
+     *  *
+     * @param CreateFigureClusteringTaskRequest $tmpReq  CreateFigureClusteringTaskRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFigureClusteringTaskResponse
+     * @return CreateFigureClusteringTaskResponse CreateFigureClusteringTaskResponse
      */
     public function createFigureClusteringTaskWithOptions($tmpReq, $runtime)
     {
@@ -1350,9 +1504,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFigureClusteringTaskRequest $request
+     * @summary 聚类
+     *  *
+     * @param CreateFigureClusteringTaskRequest $request CreateFigureClusteringTaskRequest
      *
-     * @return CreateFigureClusteringTaskResponse
+     * @return CreateFigureClusteringTaskResponse CreateFigureClusteringTaskResponse
      */
     public function createFigureClusteringTask($request)
     {
@@ -1362,10 +1518,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFigureClustersMergingTaskRequest $tmpReq
-     * @param RuntimeOptions                         $runtime
+     * @summary 合并聚类
+     *  *
+     * @param CreateFigureClustersMergingTaskRequest $tmpReq  CreateFigureClustersMergingTaskRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFigureClustersMergingTaskResponse
+     * @return CreateFigureClustersMergingTaskResponse CreateFigureClustersMergingTaskResponse
      */
     public function createFigureClustersMergingTaskWithOptions($tmpReq, $runtime)
     {
@@ -1425,9 +1583,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFigureClustersMergingTaskRequest $request
+     * @summary 合并聚类
+     *  *
+     * @param CreateFigureClustersMergingTaskRequest $request CreateFigureClustersMergingTaskRequest
      *
-     * @return CreateFigureClustersMergingTaskResponse
+     * @return CreateFigureClustersMergingTaskResponse CreateFigureClustersMergingTaskResponse
      */
     public function createFigureClustersMergingTask($request)
     {
@@ -1437,10 +1597,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFileCompressionTaskRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary 压缩/打包下载API
+     *  *
+     * @param CreateFileCompressionTaskRequest $tmpReq  CreateFileCompressionTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFileCompressionTaskResponse
+     * @return CreateFileCompressionTaskResponse CreateFileCompressionTaskResponse
      */
     public function createFileCompressionTaskWithOptions($tmpReq, $runtime)
     {
@@ -1500,9 +1662,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFileCompressionTaskRequest $request
+     * @summary 压缩/打包下载API
+     *  *
+     * @param CreateFileCompressionTaskRequest $request CreateFileCompressionTaskRequest
      *
-     * @return CreateFileCompressionTaskResponse
+     * @return CreateFileCompressionTaskResponse CreateFileCompressionTaskResponse
      */
     public function createFileCompressionTask($request)
     {
@@ -1512,10 +1676,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFileUncompressionTaskRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * @summary 在线解压API
+     *  *
+     * @param CreateFileUncompressionTaskRequest $tmpReq  CreateFileUncompressionTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFileUncompressionTaskResponse
+     * @return CreateFileUncompressionTaskResponse CreateFileUncompressionTaskResponse
      */
     public function createFileUncompressionTaskWithOptions($tmpReq, $runtime)
     {
@@ -1575,9 +1741,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateFileUncompressionTaskRequest $request
+     * @summary 在线解压API
+     *  *
+     * @param CreateFileUncompressionTaskRequest $request CreateFileUncompressionTaskRequest
      *
-     * @return CreateFileUncompressionTaskResponse
+     * @return CreateFileUncompressionTaskResponse CreateFileUncompressionTaskResponse
      */
     public function createFileUncompressionTask($request)
     {
@@ -1587,10 +1755,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateImageModerationTaskRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary 创建图片检测
+     *  *
+     * @param CreateImageModerationTaskRequest $tmpReq  CreateImageModerationTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImageModerationTaskResponse
+     * @return CreateImageModerationTaskResponse CreateImageModerationTaskResponse
      */
     public function createImageModerationTaskWithOptions($tmpReq, $runtime)
     {
@@ -1656,9 +1826,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateImageModerationTaskRequest $request
+     * @summary 创建图片检测
+     *  *
+     * @param CreateImageModerationTaskRequest $request CreateImageModerationTaskRequest
      *
-     * @return CreateImageModerationTaskResponse
+     * @return CreateImageModerationTaskResponse CreateImageModerationTaskResponse
      */
     public function createImageModerationTask($request)
     {
@@ -1668,10 +1840,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateImageSplicingTaskRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary 图片拼接
+     *  *
+     * @param CreateImageSplicingTaskRequest $tmpReq  CreateImageSplicingTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImageSplicingTaskResponse
+     * @return CreateImageSplicingTaskResponse CreateImageSplicingTaskResponse
      */
     public function createImageSplicingTaskWithOptions($tmpReq, $runtime)
     {
@@ -1755,9 +1929,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateImageSplicingTaskRequest $request
+     * @summary 图片拼接
+     *  *
+     * @param CreateImageSplicingTaskRequest $request CreateImageSplicingTaskRequest
      *
-     * @return CreateImageSplicingTaskResponse
+     * @return CreateImageSplicingTaskResponse CreateImageSplicingTaskResponse
      */
     public function createImageSplicingTask($request)
     {
@@ -1767,10 +1943,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateImageToPDFTaskRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary 图片转PDF
+     *  *
+     * @param CreateImageToPDFTaskRequest $tmpReq  CreateImageToPDFTaskRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImageToPDFTaskResponse
+     * @return CreateImageToPDFTaskResponse CreateImageToPDFTaskResponse
      */
     public function createImageToPDFTaskWithOptions($tmpReq, $runtime)
     {
@@ -1830,9 +2008,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateImageToPDFTaskRequest $request
+     * @summary 图片转PDF
+     *  *
+     * @param CreateImageToPDFTaskRequest $request CreateImageToPDFTaskRequest
      *
-     * @return CreateImageToPDFTaskResponse
+     * @return CreateImageToPDFTaskResponse CreateImageToPDFTaskResponse
      */
     public function createImageToPDFTask($request)
     {
@@ -1842,10 +2022,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateLocationDateClusteringTaskRequest $tmpReq
-     * @param RuntimeOptions                          $runtime
+     * @summary 创建时空聚类任务
+     *  *
+     * @param CreateLocationDateClusteringTaskRequest $tmpReq  CreateLocationDateClusteringTaskRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLocationDateClusteringTaskResponse
+     * @return CreateLocationDateClusteringTaskResponse CreateLocationDateClusteringTaskResponse
      */
     public function createLocationDateClusteringTaskWithOptions($tmpReq, $runtime)
     {
@@ -1905,9 +2087,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateLocationDateClusteringTaskRequest $request
+     * @summary 创建时空聚类任务
+     *  *
+     * @param CreateLocationDateClusteringTaskRequest $request CreateLocationDateClusteringTaskRequest
      *
-     * @return CreateLocationDateClusteringTaskResponse
+     * @return CreateLocationDateClusteringTaskResponse CreateLocationDateClusteringTaskResponse
      */
     public function createLocationDateClusteringTask($request)
     {
@@ -1917,10 +2101,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateMediaConvertTaskRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary 创建转码服务
+     *  *
+     * @param CreateMediaConvertTaskRequest $tmpReq  CreateMediaConvertTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMediaConvertTaskResponse
+     * @return CreateMediaConvertTaskResponse CreateMediaConvertTaskResponse
      */
     public function createMediaConvertTaskWithOptions($tmpReq, $runtime)
     {
@@ -1986,9 +2172,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateMediaConvertTaskRequest $request
+     * @summary 创建转码服务
+     *  *
+     * @param CreateMediaConvertTaskRequest $request CreateMediaConvertTaskRequest
      *
-     * @return CreateMediaConvertTaskResponse
+     * @return CreateMediaConvertTaskResponse CreateMediaConvertTaskResponse
      */
     public function createMediaConvertTask($request)
     {
@@ -1998,10 +2186,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateOfficeConversionTaskRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
+     * @summary 创建文档转换任务
+     *  *
+     * @param CreateOfficeConversionTaskRequest $tmpReq  CreateOfficeConversionTaskRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOfficeConversionTaskResponse
+     * @return CreateOfficeConversionTaskResponse CreateOfficeConversionTaskResponse
      */
     public function createOfficeConversionTaskWithOptions($tmpReq, $runtime)
     {
@@ -2133,9 +2323,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateOfficeConversionTaskRequest $request
+     * @summary 创建文档转换任务
+     *  *
+     * @param CreateOfficeConversionTaskRequest $request CreateOfficeConversionTaskRequest
      *
-     * @return CreateOfficeConversionTaskResponse
+     * @return CreateOfficeConversionTaskResponse CreateOfficeConversionTaskResponse
      */
     public function createOfficeConversionTask($request)
     {
@@ -2145,10 +2337,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 创建项目
+     *  *
+     * @param CreateProjectRequest $request CreateProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProjectWithOptions($request, $runtime)
     {
@@ -2203,9 +2397,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectRequest $request
+     * @summary 创建项目
+     *  *
+     * @param CreateProjectRequest $request CreateProjectRequest
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProject($request)
     {
@@ -2215,10 +2411,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateSimilarImageClusteringTaskRequest $tmpReq
-     * @param RuntimeOptions                          $runtime
+     * @summary 创建相似图片聚类任务
+     *  *
+     * @param CreateSimilarImageClusteringTaskRequest $tmpReq  CreateSimilarImageClusteringTaskRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSimilarImageClusteringTaskResponse
+     * @return CreateSimilarImageClusteringTaskResponse CreateSimilarImageClusteringTaskResponse
      */
     public function createSimilarImageClusteringTaskWithOptions($tmpReq, $runtime)
     {
@@ -2266,9 +2464,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateSimilarImageClusteringTaskRequest $request
+     * @summary 创建相似图片聚类任务
+     *  *
+     * @param CreateSimilarImageClusteringTaskRequest $request CreateSimilarImageClusteringTaskRequest
      *
-     * @return CreateSimilarImageClusteringTaskResponse
+     * @return CreateSimilarImageClusteringTaskResponse CreateSimilarImageClusteringTaskResponse
      */
     public function createSimilarImageClusteringTask($request)
     {
@@ -2278,10 +2478,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateStoryRequest $tmpReq
-     * @param RuntimeOptions     $runtime
+     * @summary 创建一个 Story
+     *  *
+     * @param CreateStoryRequest $tmpReq  CreateStoryRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateStoryResponse
+     * @return CreateStoryResponse CreateStoryResponse
      */
     public function createStoryWithOptions($tmpReq, $runtime)
     {
@@ -2373,9 +2575,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateStoryRequest $request
+     * @summary 创建一个 Story
+     *  *
+     * @param CreateStoryRequest $request CreateStoryRequest
      *
-     * @return CreateStoryResponse
+     * @return CreateStoryResponse CreateStoryResponse
      */
     public function createStory($request)
     {
@@ -2385,10 +2589,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateTriggerRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 创建数据接入
+     *  *
+     * @param CreateTriggerRequest $tmpReq  CreateTriggerRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTriggerResponse
+     * @return CreateTriggerResponse CreateTriggerResponse
      */
     public function createTriggerWithOptions($tmpReq, $runtime)
     {
@@ -2445,9 +2651,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateTriggerRequest $request
+     * @summary 创建数据接入
+     *  *
+     * @param CreateTriggerRequest $request CreateTriggerRequest
      *
-     * @return CreateTriggerResponse
+     * @return CreateTriggerResponse CreateTriggerResponse
      */
     public function createTrigger($request)
     {
@@ -2457,10 +2665,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateVideoLabelClassificationTaskRequest $tmpReq
-     * @param RuntimeOptions                            $runtime
+     * @summary 检测视频中的内容
+     *  *
+     * @param CreateVideoLabelClassificationTaskRequest $tmpReq  CreateVideoLabelClassificationTaskRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVideoLabelClassificationTaskResponse
+     * @return CreateVideoLabelClassificationTaskResponse CreateVideoLabelClassificationTaskResponse
      */
     public function createVideoLabelClassificationTaskWithOptions($tmpReq, $runtime)
     {
@@ -2514,9 +2724,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateVideoLabelClassificationTaskRequest $request
+     * @summary 检测视频中的内容
+     *  *
+     * @param CreateVideoLabelClassificationTaskRequest $request CreateVideoLabelClassificationTaskRequest
      *
-     * @return CreateVideoLabelClassificationTaskResponse
+     * @return CreateVideoLabelClassificationTaskResponse CreateVideoLabelClassificationTaskResponse
      */
     public function createVideoLabelClassificationTask($request)
     {
@@ -2526,10 +2738,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateVideoModerationTaskRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary 创建视频检测
+     *  *
+     * @param CreateVideoModerationTaskRequest $tmpReq  CreateVideoModerationTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVideoModerationTaskResponse
+     * @return CreateVideoModerationTaskResponse CreateVideoModerationTaskResponse
      */
     public function createVideoModerationTaskWithOptions($tmpReq, $runtime)
     {
@@ -2595,9 +2809,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param CreateVideoModerationTaskRequest $request
+     * @summary 创建视频检测
+     *  *
+     * @param CreateVideoModerationTaskRequest $request CreateVideoModerationTaskRequest
      *
-     * @return CreateVideoModerationTaskResponse
+     * @return CreateVideoModerationTaskResponse CreateVideoModerationTaskResponse
      */
     public function createVideoModerationTask($request)
     {
@@ -2607,10 +2823,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteBatchRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 删除数据接入实例
+     *  *
+     * @param DeleteBatchRequest $request DeleteBatchRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBatchResponse
+     * @return DeleteBatchResponse DeleteBatchResponse
      */
     public function deleteBatchWithOptions($request, $runtime)
     {
@@ -2641,9 +2859,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteBatchRequest $request
+     * @summary 删除数据接入实例
+     *  *
+     * @param DeleteBatchRequest $request DeleteBatchRequest
      *
-     * @return DeleteBatchResponse
+     * @return DeleteBatchResponse DeleteBatchResponse
      */
     public function deleteBatch($request)
     {
@@ -2653,10 +2873,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteBindingRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 删除绑定
+     *  *
+     * @param DeleteBindingRequest $request DeleteBindingRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBindingResponse
+     * @return DeleteBindingResponse DeleteBindingResponse
      */
     public function deleteBindingWithOptions($request, $runtime)
     {
@@ -2690,9 +2912,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteBindingRequest $request
+     * @summary 删除绑定
+     *  *
+     * @param DeleteBindingRequest $request DeleteBindingRequest
      *
-     * @return DeleteBindingResponse
+     * @return DeleteBindingResponse DeleteBindingResponse
      */
     public function deleteBinding($request)
     {
@@ -2702,10 +2926,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatasetRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 删除媒体集
+     *  *
+     * @param DeleteDatasetRequest $request DeleteDatasetRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDatasetResponse
+     * @return DeleteDatasetResponse DeleteDatasetResponse
      */
     public function deleteDatasetWithOptions($request, $runtime)
     {
@@ -2736,9 +2962,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatasetRequest $request
+     * @summary 删除媒体集
+     *  *
+     * @param DeleteDatasetRequest $request DeleteDatasetRequest
      *
-     * @return DeleteDatasetResponse
+     * @return DeleteDatasetResponse DeleteDatasetResponse
      */
     public function deleteDataset($request)
     {
@@ -2748,10 +2976,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileMetaRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除文件元信息
+     *  *
+     * @param DeleteFileMetaRequest $request DeleteFileMetaRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFileMetaResponse
+     * @return DeleteFileMetaResponse DeleteFileMetaResponse
      */
     public function deleteFileMetaWithOptions($request, $runtime)
     {
@@ -2785,9 +3015,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileMetaRequest $request
+     * @summary 删除文件元信息
+     *  *
+     * @param DeleteFileMetaRequest $request DeleteFileMetaRequest
      *
-     * @return DeleteFileMetaResponse
+     * @return DeleteFileMetaResponse DeleteFileMetaResponse
      */
     public function deleteFileMeta($request)
     {
@@ -2797,10 +3029,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteLocationDateClusterRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 删除时空聚类
+     *  *
+     * @param DeleteLocationDateClusterRequest $request DeleteLocationDateClusterRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLocationDateClusterResponse
+     * @return DeleteLocationDateClusterResponse DeleteLocationDateClusterResponse
      */
     public function deleteLocationDateClusterWithOptions($request, $runtime)
     {
@@ -2836,9 +3070,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteLocationDateClusterRequest $request
+     * @summary 删除时空聚类
+     *  *
+     * @param DeleteLocationDateClusterRequest $request DeleteLocationDateClusterRequest
      *
-     * @return DeleteLocationDateClusterResponse
+     * @return DeleteLocationDateClusterResponse DeleteLocationDateClusterResponse
      */
     public function deleteLocationDateCluster($request)
     {
@@ -2848,10 +3084,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteProjectRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 删除项目
+     *  *
+     * @param DeleteProjectRequest $request DeleteProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProjectResponse
+     * @return DeleteProjectResponse DeleteProjectResponse
      */
     public function deleteProjectWithOptions($request, $runtime)
     {
@@ -2879,9 +3117,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteProjectRequest $request
+     * @summary 删除项目
+     *  *
+     * @param DeleteProjectRequest $request DeleteProjectRequest
      *
-     * @return DeleteProjectResponse
+     * @return DeleteProjectResponse DeleteProjectResponse
      */
     public function deleteProject($request)
     {
@@ -2891,10 +3131,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteStoryRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 删除一个 Story
+     *  *
+     * @param DeleteStoryRequest $request DeleteStoryRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteStoryResponse
+     * @return DeleteStoryResponse DeleteStoryResponse
      */
     public function deleteStoryWithOptions($request, $runtime)
     {
@@ -2928,9 +3170,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteStoryRequest $request
+     * @summary 删除一个 Story
+     *  *
+     * @param DeleteStoryRequest $request DeleteStoryRequest
      *
-     * @return DeleteStoryResponse
+     * @return DeleteStoryResponse DeleteStoryResponse
      */
     public function deleteStory($request)
     {
@@ -2940,10 +3184,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteTriggerRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 删除数据接入实例
+     *  *
+     * @param DeleteTriggerRequest $request DeleteTriggerRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTriggerResponse
+     * @return DeleteTriggerResponse DeleteTriggerResponse
      */
     public function deleteTriggerWithOptions($request, $runtime)
     {
@@ -2974,9 +3220,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DeleteTriggerRequest $request
+     * @summary 删除数据接入实例
+     *  *
+     * @param DeleteTriggerRequest $request DeleteTriggerRequest
      *
-     * @return DeleteTriggerResponse
+     * @return DeleteTriggerResponse DeleteTriggerResponse
      */
     public function deleteTrigger($request)
     {
@@ -2986,10 +3234,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetachOSSBucketRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 解绑ossbucket
+     *  *
+     * @param DetachOSSBucketRequest $request DetachOSSBucketRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachOSSBucketResponse
+     * @return DetachOSSBucketResponse DetachOSSBucketResponse
      */
     public function detachOSSBucketWithOptions($request, $runtime)
     {
@@ -3017,9 +3267,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetachOSSBucketRequest $request
+     * @summary 解绑ossbucket
+     *  *
+     * @param DetachOSSBucketRequest $request DetachOSSBucketRequest
      *
-     * @return DetachOSSBucketResponse
+     * @return DetachOSSBucketResponse DetachOSSBucketResponse
      */
     public function detachOSSBucket($request)
     {
@@ -3029,10 +3281,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageBodiesRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 人体检测算子
+     *  *
+     * @param DetectImageBodiesRequest $tmpReq  DetectImageBodiesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectImageBodiesResponse
+     * @return DetectImageBodiesResponse DetectImageBodiesResponse
      */
     public function detectImageBodiesWithOptions($tmpReq, $runtime)
     {
@@ -3074,9 +3328,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageBodiesRequest $request
+     * @summary 人体检测算子
+     *  *
+     * @param DetectImageBodiesRequest $request DetectImageBodiesRequest
      *
-     * @return DetectImageBodiesResponse
+     * @return DetectImageBodiesResponse DetectImageBodiesResponse
      */
     public function detectImageBodies($request)
     {
@@ -3086,10 +3342,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageCarsRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary 检测图片中车辆信息
+     *  *
+     * @param DetectImageCarsRequest $tmpReq  DetectImageCarsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectImageCarsResponse
+     * @return DetectImageCarsResponse DetectImageCarsResponse
      */
     public function detectImageCarsWithOptions($tmpReq, $runtime)
     {
@@ -3128,9 +3386,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageCarsRequest $request
+     * @summary 检测图片中车辆信息
+     *  *
+     * @param DetectImageCarsRequest $request DetectImageCarsRequest
      *
-     * @return DetectImageCarsResponse
+     * @return DetectImageCarsResponse DetectImageCarsResponse
      */
     public function detectImageCars($request)
     {
@@ -3140,10 +3400,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageCodesRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 获取图片二维码检测
+     *  *
+     * @param DetectImageCodesRequest $tmpReq  DetectImageCodesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectImageCodesResponse
+     * @return DetectImageCodesResponse DetectImageCodesResponse
      */
     public function detectImageCodesWithOptions($tmpReq, $runtime)
     {
@@ -3182,9 +3444,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageCodesRequest $request
+     * @summary 获取图片二维码检测
+     *  *
+     * @param DetectImageCodesRequest $request DetectImageCodesRequest
      *
-     * @return DetectImageCodesResponse
+     * @return DetectImageCodesResponse DetectImageCodesResponse
      */
     public function detectImageCodes($request)
     {
@@ -3194,10 +3458,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageCroppingRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 获取图片裁剪信息
+     *  *
+     * @param DetectImageCroppingRequest $tmpReq  DetectImageCroppingRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectImageCroppingResponse
+     * @return DetectImageCroppingResponse DetectImageCroppingResponse
      */
     public function detectImageCroppingWithOptions($tmpReq, $runtime)
     {
@@ -3239,9 +3505,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageCroppingRequest $request
+     * @summary 获取图片裁剪信息
+     *  *
+     * @param DetectImageCroppingRequest $request DetectImageCroppingRequest
      *
-     * @return DetectImageCroppingResponse
+     * @return DetectImageCroppingResponse DetectImageCroppingResponse
      */
     public function detectImageCropping($request)
     {
@@ -3251,10 +3519,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageFacesRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 获取图片人脸信息
+     *  *
+     * @param DetectImageFacesRequest $tmpReq  DetectImageFacesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectImageFacesResponse
+     * @return DetectImageFacesResponse DetectImageFacesResponse
      */
     public function detectImageFacesWithOptions($tmpReq, $runtime)
     {
@@ -3293,9 +3563,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageFacesRequest $request
+     * @summary 获取图片人脸信息
+     *  *
+     * @param DetectImageFacesRequest $request DetectImageFacesRequest
      *
-     * @return DetectImageFacesResponse
+     * @return DetectImageFacesResponse DetectImageFacesResponse
      */
     public function detectImageFaces($request)
     {
@@ -3305,10 +3577,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageLabelsRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 检测图像中的内容
+     *  *
+     * @param DetectImageLabelsRequest $tmpReq  DetectImageLabelsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectImageLabelsResponse
+     * @return DetectImageLabelsResponse DetectImageLabelsResponse
      */
     public function detectImageLabelsWithOptions($tmpReq, $runtime)
     {
@@ -3350,9 +3624,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageLabelsRequest $request
+     * @summary 检测图像中的内容
+     *  *
+     * @param DetectImageLabelsRequest $request DetectImageLabelsRequest
      *
-     * @return DetectImageLabelsResponse
+     * @return DetectImageLabelsResponse DetectImageLabelsResponse
      */
     public function detectImageLabels($request)
     {
@@ -3362,10 +3638,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageScoreRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 获取图片打分
+     *  *
+     * @param DetectImageScoreRequest $tmpReq  DetectImageScoreRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectImageScoreResponse
+     * @return DetectImageScoreResponse DetectImageScoreResponse
      */
     public function detectImageScoreWithOptions($tmpReq, $runtime)
     {
@@ -3404,9 +3682,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageScoreRequest $request
+     * @summary 获取图片打分
+     *  *
+     * @param DetectImageScoreRequest $request DetectImageScoreRequest
      *
-     * @return DetectImageScoreResponse
+     * @return DetectImageScoreResponse DetectImageScoreResponse
      */
     public function detectImageScore($request)
     {
@@ -3416,10 +3696,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageTextsRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 进行图片光学字符检测
+     *  *
+     * @param DetectImageTextsRequest $tmpReq  DetectImageTextsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectImageTextsResponse
+     * @return DetectImageTextsResponse DetectImageTextsResponse
      */
     public function detectImageTextsWithOptions($tmpReq, $runtime)
     {
@@ -3458,9 +3740,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectImageTextsRequest $request
+     * @summary 进行图片光学字符检测
+     *  *
+     * @param DetectImageTextsRequest $request DetectImageTextsRequest
      *
-     * @return DetectImageTextsResponse
+     * @return DetectImageTextsResponse DetectImageTextsResponse
      */
     public function detectImageTexts($request)
     {
@@ -3470,10 +3754,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectMediaMetaRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary 获取媒体文件信息
+     *  *
+     * @param DetectMediaMetaRequest $tmpReq  DetectMediaMetaRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectMediaMetaResponse
+     * @return DetectMediaMetaResponse DetectMediaMetaResponse
      */
     public function detectMediaMetaWithOptions($tmpReq, $runtime)
     {
@@ -3512,9 +3798,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectMediaMetaRequest $request
+     * @summary 获取媒体文件信息
+     *  *
+     * @param DetectMediaMetaRequest $request DetectMediaMetaRequest
      *
-     * @return DetectMediaMetaResponse
+     * @return DetectMediaMetaResponse DetectMediaMetaResponse
      */
     public function detectMediaMeta($request)
     {
@@ -3524,10 +3812,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectTextAnomalyRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 检测文本
+     *  *
+     * @param DetectTextAnomalyRequest $request DetectTextAnomalyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectTextAnomalyResponse
+     * @return DetectTextAnomalyResponse DetectTextAnomalyResponse
      */
     public function detectTextAnomalyWithOptions($request, $runtime)
     {
@@ -3558,9 +3848,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param DetectTextAnomalyRequest $request
+     * @summary 检测文本
+     *  *
+     * @param DetectTextAnomalyRequest $request DetectTextAnomalyRequest
      *
-     * @return DetectTextAnomalyResponse
+     * @return DetectTextAnomalyResponse DetectTextAnomalyResponse
      */
     public function detectTextAnomaly($request)
     {
@@ -3570,10 +3862,74 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ExtractDocumentTextRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 嵌入图片盲水印算子
+     *  *
+     * @param EncodeBlindWatermarkRequest $request EncodeBlindWatermarkRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExtractDocumentTextResponse
+     * @return EncodeBlindWatermarkResponse EncodeBlindWatermarkResponse
+     */
+    public function encodeBlindWatermarkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->imageQuality)) {
+            $query['ImageQuality'] = $request->imageQuality;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->sourceURI)) {
+            $query['SourceURI'] = $request->sourceURI;
+        }
+        if (!Utils::isUnset($request->strengthLevel)) {
+            $query['StrengthLevel'] = $request->strengthLevel;
+        }
+        if (!Utils::isUnset($request->targetURI)) {
+            $query['TargetURI'] = $request->targetURI;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EncodeBlindWatermark',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EncodeBlindWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 嵌入图片盲水印算子
+     *  *
+     * @param EncodeBlindWatermarkRequest $request EncodeBlindWatermarkRequest
+     *
+     * @return EncodeBlindWatermarkResponse EncodeBlindWatermarkResponse
+     */
+    public function encodeBlindWatermark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->encodeBlindWatermarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提取文档中的文本
+     *  *
+     * @param ExtractDocumentTextRequest $tmpReq  ExtractDocumentTextRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExtractDocumentTextResponse ExtractDocumentTextResponse
      */
     public function extractDocumentTextWithOptions($tmpReq, $runtime)
     {
@@ -3615,9 +3971,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ExtractDocumentTextRequest $request
+     * @summary 提取文档中的文本
+     *  *
+     * @param ExtractDocumentTextRequest $request ExtractDocumentTextRequest
      *
-     * @return ExtractDocumentTextResponse
+     * @return ExtractDocumentTextResponse ExtractDocumentTextResponse
      */
     public function extractDocumentText($request)
     {
@@ -3627,10 +3985,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param FuzzyQueryRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * @summary 对 Dataset 内的元数据进行模糊搜索。
+     *  *
+     * @param FuzzyQueryRequest $tmpReq  FuzzyQueryRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return FuzzyQueryResponse
+     * @return FuzzyQueryResponse FuzzyQueryResponse
      */
     public function fuzzyQueryWithOptions($tmpReq, $runtime)
     {
@@ -3684,9 +4044,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param FuzzyQueryRequest $request
+     * @summary 对 Dataset 内的元数据进行模糊搜索。
+     *  *
+     * @param FuzzyQueryRequest $request FuzzyQueryRequest
      *
-     * @return FuzzyQueryResponse
+     * @return FuzzyQueryResponse FuzzyQueryResponse
      */
     public function fuzzyQuery($request)
     {
@@ -3696,10 +4058,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GenerateVideoPlaylistRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary 创建实时转码任务
+     *  *
+     * @param GenerateVideoPlaylistRequest $tmpReq  GenerateVideoPlaylistRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateVideoPlaylistResponse
+     * @return GenerateVideoPlaylistResponse GenerateVideoPlaylistResponse
      */
     public function generateVideoPlaylistWithOptions($tmpReq, $runtime)
     {
@@ -3777,9 +4141,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GenerateVideoPlaylistRequest $request
+     * @summary 创建实时转码任务
+     *  *
+     * @param GenerateVideoPlaylistRequest $request GenerateVideoPlaylistRequest
      *
-     * @return GenerateVideoPlaylistResponse
+     * @return GenerateVideoPlaylistResponse GenerateVideoPlaylistResponse
      */
     public function generateVideoPlaylist($request)
     {
@@ -3789,10 +4155,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GenerateWebofficeTokenRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary 获取文档预览编辑凭证
+     *  *
+     * @param GenerateWebofficeTokenRequest $tmpReq  GenerateWebofficeTokenRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateWebofficeTokenResponse
+     * @return GenerateWebofficeTokenResponse GenerateWebofficeTokenResponse
      */
     public function generateWebofficeTokenWithOptions($tmpReq, $runtime)
     {
@@ -3882,9 +4250,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GenerateWebofficeTokenRequest $request
+     * @summary 获取文档预览编辑凭证
+     *  *
+     * @param GenerateWebofficeTokenRequest $request GenerateWebofficeTokenRequest
      *
-     * @return GenerateWebofficeTokenResponse
+     * @return GenerateWebofficeTokenResponse GenerateWebofficeTokenResponse
      */
     public function generateWebofficeToken($request)
     {
@@ -3894,10 +4264,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetBatchRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary 获取数据接入实例
+     *  *
+     * @param GetBatchRequest $request GetBatchRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBatchResponse
+     * @return GetBatchResponse GetBatchResponse
      */
     public function getBatchWithOptions($request, $runtime)
     {
@@ -3928,9 +4300,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetBatchRequest $request
+     * @summary 获取数据接入实例
+     *  *
+     * @param GetBatchRequest $request GetBatchRequest
      *
-     * @return GetBatchResponse
+     * @return GetBatchResponse GetBatchResponse
      */
     public function getBatch($request)
     {
@@ -3940,10 +4314,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetBindingRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 获取绑定
+     *  *
+     * @param GetBindingRequest $request GetBindingRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBindingResponse
+     * @return GetBindingResponse GetBindingResponse
      */
     public function getBindingWithOptions($request, $runtime)
     {
@@ -3977,9 +4353,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetBindingRequest $request
+     * @summary 获取绑定
+     *  *
+     * @param GetBindingRequest $request GetBindingRequest
      *
-     * @return GetBindingResponse
+     * @return GetBindingResponse GetBindingResponse
      */
     public function getBinding($request)
     {
@@ -3989,10 +4367,79 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetDatasetRequest $request
-     * @param RuntimeOptions    $runtime
+     * @deprecated OpenAPI GetDRMLicense is deprecated
+     *  *
+     * @summary drmlicense获取
+     *  *
+     * Deprecated
      *
-     * @return GetDatasetResponse
+     * @param GetDRMLicenseRequest $request GetDRMLicenseRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDRMLicenseResponse GetDRMLicenseResponse
+     */
+    public function getDRMLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyId)) {
+            $query['KeyId'] = $request->keyId;
+        }
+        if (!Utils::isUnset($request->notifyEndpoint)) {
+            $query['NotifyEndpoint'] = $request->notifyEndpoint;
+        }
+        if (!Utils::isUnset($request->notifyTopicName)) {
+            $query['NotifyTopicName'] = $request->notifyTopicName;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->protectionSystem)) {
+            $query['ProtectionSystem'] = $request->protectionSystem;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDRMLicense',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDRMLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @deprecated OpenAPI GetDRMLicense is deprecated
+     *  *
+     * @summary drmlicense获取
+     *  *
+     * Deprecated
+     *
+     * @param GetDRMLicenseRequest $request GetDRMLicenseRequest
+     *
+     * @return GetDRMLicenseResponse GetDRMLicenseResponse
+     */
+    public function getDRMLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDRMLicenseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取媒体集信息
+     *  *
+     * @param GetDatasetRequest $request GetDatasetRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDatasetResponse GetDatasetResponse
      */
     public function getDatasetWithOptions($request, $runtime)
     {
@@ -4026,9 +4473,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetDatasetRequest $request
+     * @summary 获取媒体集信息
+     *  *
+     * @param GetDatasetRequest $request GetDatasetRequest
      *
-     * @return GetDatasetResponse
+     * @return GetDatasetResponse GetDatasetResponse
      */
     public function getDataset($request)
     {
@@ -4038,10 +4487,65 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetFigureClusterRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 获取提取水印的结果
+     *  *
+     * @param GetDecodeBlindWatermarkResultRequest $request GetDecodeBlindWatermarkResultRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFigureClusterResponse
+     * @return GetDecodeBlindWatermarkResultResponse GetDecodeBlindWatermarkResultResponse
+     */
+    public function getDecodeBlindWatermarkResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDecodeBlindWatermarkResult',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDecodeBlindWatermarkResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取提取水印的结果
+     *  *
+     * @param GetDecodeBlindWatermarkResultRequest $request GetDecodeBlindWatermarkResultRequest
+     *
+     * @return GetDecodeBlindWatermarkResultResponse GetDecodeBlindWatermarkResultResponse
+     */
+    public function getDecodeBlindWatermarkResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDecodeBlindWatermarkResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取聚类
+     *  *
+     * @param GetFigureClusterRequest $request GetFigureClusterRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetFigureClusterResponse GetFigureClusterResponse
      */
     public function getFigureClusterWithOptions($request, $runtime)
     {
@@ -4075,9 +4579,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetFigureClusterRequest $request
+     * @summary 获取聚类
+     *  *
+     * @param GetFigureClusterRequest $request GetFigureClusterRequest
      *
-     * @return GetFigureClusterResponse
+     * @return GetFigureClusterResponse GetFigureClusterResponse
      */
     public function getFigureCluster($request)
     {
@@ -4087,10 +4593,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetFileMetaRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 获取文件元信息
+     *  *
+     * @param GetFileMetaRequest $request GetFileMetaRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileMetaResponse
+     * @return GetFileMetaResponse GetFileMetaResponse
      */
     public function getFileMetaWithOptions($request, $runtime)
     {
@@ -4124,9 +4632,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetFileMetaRequest $request
+     * @summary 获取文件元信息
+     *  *
+     * @param GetFileMetaRequest $request GetFileMetaRequest
      *
-     * @return GetFileMetaResponse
+     * @return GetFileMetaResponse GetFileMetaResponse
      */
     public function getFileMeta($request)
     {
@@ -4136,10 +4646,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetImageModerationResultRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取图片审核任务结果
+     *  *
+     * @param GetImageModerationResultRequest $request GetImageModerationResultRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImageModerationResultResponse
+     * @return GetImageModerationResultResponse GetImageModerationResultResponse
      */
     public function getImageModerationResultWithOptions($request, $runtime)
     {
@@ -4173,9 +4685,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetImageModerationResultRequest $request
+     * @summary 获取图片审核任务结果
+     *  *
+     * @param GetImageModerationResultRequest $request GetImageModerationResultRequest
      *
-     * @return GetImageModerationResultResponse
+     * @return GetImageModerationResultResponse GetImageModerationResultResponse
      */
     public function getImageModerationResult($request)
     {
@@ -4185,10 +4699,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetOSSBucketAttachmentRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 获取绑定的ossbucket
+     *  *
+     * @param GetOSSBucketAttachmentRequest $request GetOSSBucketAttachmentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOSSBucketAttachmentResponse
+     * @return GetOSSBucketAttachmentResponse GetOSSBucketAttachmentResponse
      */
     public function getOSSBucketAttachmentWithOptions($request, $runtime)
     {
@@ -4216,9 +4732,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetOSSBucketAttachmentRequest $request
+     * @summary 获取绑定的ossbucket
+     *  *
+     * @param GetOSSBucketAttachmentRequest $request GetOSSBucketAttachmentRequest
      *
-     * @return GetOSSBucketAttachmentResponse
+     * @return GetOSSBucketAttachmentResponse GetOSSBucketAttachmentResponse
      */
     public function getOSSBucketAttachment($request)
     {
@@ -4228,10 +4746,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetProjectRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 获取项目信息
+     *  *
+     * @param GetProjectRequest $request GetProjectRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProjectWithOptions($request, $runtime)
     {
@@ -4262,9 +4782,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetProjectRequest $request
+     * @summary 获取项目信息
+     *  *
+     * @param GetProjectRequest $request GetProjectRequest
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProject($request)
     {
@@ -4274,10 +4796,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetStoryRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary 返回一个 Story 的详细信息
+     *  *
+     * @param GetStoryRequest $request GetStoryRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetStoryResponse
+     * @return GetStoryResponse GetStoryResponse
      */
     public function getStoryWithOptions($request, $runtime)
     {
@@ -4311,9 +4835,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetStoryRequest $request
+     * @summary 返回一个 Story 的详细信息
+     *  *
+     * @param GetStoryRequest $request GetStoryRequest
      *
-     * @return GetStoryResponse
+     * @return GetStoryResponse GetStoryResponse
      */
     public function getStory($request)
     {
@@ -4323,10 +4849,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetTaskRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary 获取任务信息
+     *  *
+     * @param GetTaskRequest $request GetTaskRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTaskResponse
+     * @return GetTaskResponse GetTaskResponse
      */
     public function getTaskWithOptions($request, $runtime)
     {
@@ -4363,9 +4891,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetTaskRequest $request
+     * @summary 获取任务信息
+     *  *
+     * @param GetTaskRequest $request GetTaskRequest
      *
-     * @return GetTaskResponse
+     * @return GetTaskResponse GetTaskResponse
      */
     public function getTask($request)
     {
@@ -4375,10 +4905,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetTriggerRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 获取数据接入实例
+     *  *
+     * @param GetTriggerRequest $request GetTriggerRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTriggerResponse
+     * @return GetTriggerResponse GetTriggerResponse
      */
     public function getTriggerWithOptions($request, $runtime)
     {
@@ -4409,9 +4941,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetTriggerRequest $request
+     * @summary 获取数据接入实例
+     *  *
+     * @param GetTriggerRequest $request GetTriggerRequest
      *
-     * @return GetTriggerResponse
+     * @return GetTriggerResponse GetTriggerResponse
      */
     public function getTrigger($request)
     {
@@ -4421,10 +4955,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetVideoLabelClassificationResultRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 获取视频标签检测任务结果
+     *  *
+     * @param GetVideoLabelClassificationResultRequest $request GetVideoLabelClassificationResultRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVideoLabelClassificationResultResponse
+     * @return GetVideoLabelClassificationResultResponse GetVideoLabelClassificationResultResponse
      */
     public function getVideoLabelClassificationResultWithOptions($request, $runtime)
     {
@@ -4458,9 +4994,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetVideoLabelClassificationResultRequest $request
+     * @summary 获取视频标签检测任务结果
+     *  *
+     * @param GetVideoLabelClassificationResultRequest $request GetVideoLabelClassificationResultRequest
      *
-     * @return GetVideoLabelClassificationResultResponse
+     * @return GetVideoLabelClassificationResultResponse GetVideoLabelClassificationResultResponse
      */
     public function getVideoLabelClassificationResult($request)
     {
@@ -4470,10 +5008,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetVideoModerationResultRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取视频审核任务结果
+     *  *
+     * @param GetVideoModerationResultRequest $request GetVideoModerationResultRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVideoModerationResultResponse
+     * @return GetVideoModerationResultResponse GetVideoModerationResultResponse
      */
     public function getVideoModerationResultWithOptions($request, $runtime)
     {
@@ -4507,9 +5047,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param GetVideoModerationResultRequest $request
+     * @summary 获取视频审核任务结果
+     *  *
+     * @param GetVideoModerationResultRequest $request GetVideoModerationResultRequest
      *
-     * @return GetVideoModerationResultResponse
+     * @return GetVideoModerationResultResponse GetVideoModerationResultResponse
      */
     public function getVideoModerationResult($request)
     {
@@ -4519,10 +5061,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param IndexFileMetaRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 添加文件元信息
+     *  *
+     * @param IndexFileMetaRequest $tmpReq  IndexFileMetaRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return IndexFileMetaResponse
+     * @return IndexFileMetaResponse IndexFileMetaResponse
      */
     public function indexFileMetaWithOptions($tmpReq, $runtime)
     {
@@ -4548,6 +5092,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
         }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4567,9 +5114,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param IndexFileMetaRequest $request
+     * @summary 添加文件元信息
+     *  *
+     * @param IndexFileMetaRequest $request IndexFileMetaRequest
      *
-     * @return IndexFileMetaResponse
+     * @return IndexFileMetaResponse IndexFileMetaResponse
      */
     public function indexFileMeta($request)
     {
@@ -4579,10 +5128,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListBatchesRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 列出数据接入实例
+     *  *
+     * @param ListBatchesRequest $request ListBatchesRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBatchesResponse
+     * @return ListBatchesResponse ListBatchesResponse
      */
     public function listBatchesWithOptions($request, $runtime)
     {
@@ -4628,9 +5179,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListBatchesRequest $request
+     * @summary 列出数据接入实例
+     *  *
+     * @param ListBatchesRequest $request ListBatchesRequest
      *
-     * @return ListBatchesResponse
+     * @return ListBatchesResponse ListBatchesResponse
      */
     public function listBatches($request)
     {
@@ -4640,10 +5193,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListBindingsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 列出绑定
+     *  *
+     * @param ListBindingsRequest $request ListBindingsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBindingsResponse
+     * @return ListBindingsResponse ListBindingsResponse
      */
     public function listBindingsWithOptions($request, $runtime)
     {
@@ -4680,9 +5235,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListBindingsRequest $request
+     * @summary 列出绑定
+     *  *
+     * @param ListBindingsRequest $request ListBindingsRequest
      *
-     * @return ListBindingsResponse
+     * @return ListBindingsResponse ListBindingsResponse
      */
     public function listBindings($request)
     {
@@ -4692,10 +5249,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListDatasetsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 列出媒体集列表
+     *  *
+     * @param ListDatasetsRequest $request ListDatasetsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDatasetsResponse
+     * @return ListDatasetsResponse ListDatasetsResponse
      */
     public function listDatasetsWithOptions($request, $runtime)
     {
@@ -4732,9 +5291,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListDatasetsRequest $request
+     * @summary 列出媒体集列表
+     *  *
+     * @param ListDatasetsRequest $request ListDatasetsRequest
      *
-     * @return ListDatasetsResponse
+     * @return ListDatasetsResponse ListDatasetsResponse
      */
     public function listDatasets($request)
     {
@@ -4744,10 +5305,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListProjectsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取项目列表
+     *  *
+     * @param ListProjectsRequest $request ListProjectsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjectsWithOptions($request, $runtime)
     {
@@ -4781,9 +5344,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListProjectsRequest $request
+     * @summary 获取项目列表
+     *  *
+     * @param ListProjectsRequest $request ListProjectsRequest
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjects($request)
     {
@@ -4793,10 +5358,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListRegionsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 获取地区列表
+     *  *
+     * @param ListRegionsRequest $request ListRegionsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegionsWithOptions($request, $runtime)
     {
@@ -4824,9 +5391,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListRegionsRequest $request
+     * @summary 获取地区列表
+     *  *
+     * @param ListRegionsRequest $request ListRegionsRequest
      *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegions($request)
     {
@@ -4836,10 +5405,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListTasksRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary 获取任务信息列表
+     *  *
+     * @param ListTasksRequest $tmpReq  ListTasksRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTasksResponse
+     * @return ListTasksResponse ListTasksResponse
      */
     public function listTasksWithOptions($tmpReq, $runtime)
     {
@@ -4908,9 +5479,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListTasksRequest $request
+     * @summary 获取任务信息列表
+     *  *
+     * @param ListTasksRequest $request ListTasksRequest
      *
-     * @return ListTasksResponse
+     * @return ListTasksResponse ListTasksResponse
      */
     public function listTasks($request)
     {
@@ -4920,10 +5493,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListTriggersRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 列出数据接入实例
+     *  *
+     * @param ListTriggersRequest $request ListTriggersRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTriggersResponse
+     * @return ListTriggersResponse ListTriggersResponse
      */
     public function listTriggersWithOptions($request, $runtime)
     {
@@ -4969,9 +5544,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ListTriggersRequest $request
+     * @summary 列出数据接入实例
+     *  *
+     * @param ListTriggersRequest $request ListTriggersRequest
      *
-     * @return ListTriggersResponse
+     * @return ListTriggersResponse ListTriggersResponse
      */
     public function listTriggers($request)
     {
@@ -4981,10 +5558,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param QueryFigureClustersRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 查询聚类分组
+     *  *
+     * @param QueryFigureClustersRequest $tmpReq  QueryFigureClustersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryFigureClustersResponse
+     * @return QueryFigureClustersResponse QueryFigureClustersResponse
      */
     public function queryFigureClustersWithOptions($tmpReq, $runtime)
     {
@@ -5047,9 +5626,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param QueryFigureClustersRequest $request
+     * @summary 查询聚类分组
+     *  *
+     * @param QueryFigureClustersRequest $request QueryFigureClustersRequest
      *
-     * @return QueryFigureClustersResponse
+     * @return QueryFigureClustersResponse QueryFigureClustersResponse
      */
     public function queryFigureClusters($request)
     {
@@ -5059,10 +5640,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param QueryLocationDateClustersRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary 查找时空分组
+     *  *
+     * @param QueryLocationDateClustersRequest $tmpReq  QueryLocationDateClustersRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryLocationDateClustersResponse
+     * @return QueryLocationDateClustersResponse QueryLocationDateClustersResponse
      */
     public function queryLocationDateClustersWithOptions($tmpReq, $runtime)
     {
@@ -5152,9 +5735,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param QueryLocationDateClustersRequest $request
+     * @summary 查找时空分组
+     *  *
+     * @param QueryLocationDateClustersRequest $request QueryLocationDateClustersRequest
      *
-     * @return QueryLocationDateClustersResponse
+     * @return QueryLocationDateClustersResponse QueryLocationDateClustersResponse
      */
     public function queryLocationDateClusters($request)
     {
@@ -5164,10 +5749,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param QuerySimilarImageClustersRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 查找相似图片分组
+     *  *
+     * @param QuerySimilarImageClustersRequest $request QuerySimilarImageClustersRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySimilarImageClustersResponse
+     * @return QuerySimilarImageClustersResponse QuerySimilarImageClustersResponse
      */
     public function querySimilarImageClustersWithOptions($request, $runtime)
     {
@@ -5213,9 +5800,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param QuerySimilarImageClustersRequest $request
+     * @summary 查找相似图片分组
+     *  *
+     * @param QuerySimilarImageClustersRequest $request QuerySimilarImageClustersRequest
      *
-     * @return QuerySimilarImageClustersResponse
+     * @return QuerySimilarImageClustersResponse QuerySimilarImageClustersResponse
      */
     public function querySimilarImageClusters($request)
     {
@@ -5225,10 +5814,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param QueryStoriesRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 查找 Story
+     *  *
+     * @param QueryStoriesRequest $tmpReq  QueryStoriesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryStoriesResponse
+     * @return QueryStoriesResponse QueryStoriesResponse
      */
     public function queryStoriesWithOptions($tmpReq, $runtime)
     {
@@ -5315,9 +5906,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param QueryStoriesRequest $request
+     * @summary 查找 Story
+     *  *
+     * @param QueryStoriesRequest $request QueryStoriesRequest
      *
-     * @return QueryStoriesResponse
+     * @return QueryStoriesResponse QueryStoriesResponse
      */
     public function queryStories($request)
     {
@@ -5327,10 +5920,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param RefreshWebofficeTokenRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary 刷新文档预览编辑凭证
+     *  *
+     * @param RefreshWebofficeTokenRequest $tmpReq  RefreshWebofficeTokenRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshWebofficeTokenResponse
+     * @return RefreshWebofficeTokenResponse RefreshWebofficeTokenResponse
      */
     public function refreshWebofficeTokenWithOptions($tmpReq, $runtime)
     {
@@ -5372,9 +5967,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param RefreshWebofficeTokenRequest $request
+     * @summary 刷新文档预览编辑凭证
+     *  *
+     * @param RefreshWebofficeTokenRequest $request RefreshWebofficeTokenRequest
      *
-     * @return RefreshWebofficeTokenResponse
+     * @return RefreshWebofficeTokenResponse RefreshWebofficeTokenResponse
      */
     public function refreshWebofficeToken($request)
     {
@@ -5384,10 +5981,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param RemoveStoryFilesRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 为故事移除文件
+     *  *
+     * @param RemoveStoryFilesRequest $tmpReq  RemoveStoryFilesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveStoryFilesResponse
+     * @return RemoveStoryFilesResponse RemoveStoryFilesResponse
      */
     public function removeStoryFilesWithOptions($tmpReq, $runtime)
     {
@@ -5429,9 +6028,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param RemoveStoryFilesRequest $request
+     * @summary 为故事移除文件
+     *  *
+     * @param RemoveStoryFilesRequest $request RemoveStoryFilesRequest
      *
-     * @return RemoveStoryFilesResponse
+     * @return RemoveStoryFilesResponse RemoveStoryFilesResponse
      */
     public function removeStoryFiles($request)
     {
@@ -5441,10 +6042,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ResumeBatchRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 恢复一个挂起的数据接入任务
+     *  *
+     * @param ResumeBatchRequest $request ResumeBatchRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeBatchResponse
+     * @return ResumeBatchResponse ResumeBatchResponse
      */
     public function resumeBatchWithOptions($request, $runtime)
     {
@@ -5475,9 +6078,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ResumeBatchRequest $request
+     * @summary 恢复一个挂起的数据接入任务
+     *  *
+     * @param ResumeBatchRequest $request ResumeBatchRequest
      *
-     * @return ResumeBatchResponse
+     * @return ResumeBatchResponse ResumeBatchResponse
      */
     public function resumeBatch($request)
     {
@@ -5487,10 +6092,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ResumeTriggerRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 恢复一个挂起的数据接入任务
+     *  *
+     * @param ResumeTriggerRequest $request ResumeTriggerRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeTriggerResponse
+     * @return ResumeTriggerResponse ResumeTriggerResponse
      */
     public function resumeTriggerWithOptions($request, $runtime)
     {
@@ -5521,9 +6128,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param ResumeTriggerRequest $request
+     * @summary 恢复一个挂起的数据接入任务
+     *  *
+     * @param ResumeTriggerRequest $request ResumeTriggerRequest
      *
-     * @return ResumeTriggerResponse
+     * @return ResumeTriggerResponse ResumeTriggerResponse
      */
     public function resumeTrigger($request)
     {
@@ -5533,10 +6142,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SearchImageFigureClusterRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 以脸搜分组
+     *  *
+     * @param SearchImageFigureClusterRequest $tmpReq  SearchImageFigureClusterRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchImageFigureClusterResponse
+     * @return SearchImageFigureClusterResponse SearchImageFigureClusterResponse
      */
     public function searchImageFigureClusterWithOptions($tmpReq, $runtime)
     {
@@ -5578,9 +6189,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SearchImageFigureClusterRequest $request
+     * @summary 以脸搜分组
+     *  *
+     * @param SearchImageFigureClusterRequest $request SearchImageFigureClusterRequest
      *
-     * @return SearchImageFigureClusterResponse
+     * @return SearchImageFigureClusterResponse SearchImageFigureClusterResponse
      */
     public function searchImageFigureCluster($request)
     {
@@ -5590,10 +6203,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SemanticQueryRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 通过输入自然语言文字，对 Dataset 内的元数据进行查询与统计分析
+     *  *
+     * @param SemanticQueryRequest $tmpReq  SemanticQueryRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SemanticQueryResponse
+     * @return SemanticQueryResponse SemanticQueryResponse
      */
     public function semanticQueryWithOptions($tmpReq, $runtime)
     {
@@ -5647,9 +6262,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SemanticQueryRequest $request
+     * @summary 通过输入自然语言文字，对 Dataset 内的元数据进行查询与统计分析
+     *  *
+     * @param SemanticQueryRequest $request SemanticQueryRequest
      *
-     * @return SemanticQueryResponse
+     * @return SemanticQueryResponse SemanticQueryResponse
      */
     public function semanticQuery($request)
     {
@@ -5659,10 +6276,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SimpleQueryRequest $tmpReq
-     * @param RuntimeOptions     $runtime
+     * @summary 通过 JSON 结构的查询语言，对 Dataset 内的元数据进行查询与统计分析。
+     *  *
+     * @param SimpleQueryRequest $tmpReq  SimpleQueryRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SimpleQueryResponse
+     * @return SimpleQueryResponse SimpleQueryResponse
      */
     public function simpleQueryWithOptions($tmpReq, $runtime)
     {
@@ -5728,9 +6347,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SimpleQueryRequest $request
+     * @summary 通过 JSON 结构的查询语言，对 Dataset 内的元数据进行查询与统计分析。
+     *  *
+     * @param SimpleQueryRequest $request SimpleQueryRequest
      *
-     * @return SimpleQueryResponse
+     * @return SimpleQueryResponse SimpleQueryResponse
      */
     public function simpleQuery($request)
     {
@@ -5740,10 +6361,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SuspendBatchRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 挂起一个数据接入任务
+     *  *
+     * @param SuspendBatchRequest $request SuspendBatchRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SuspendBatchResponse
+     * @return SuspendBatchResponse SuspendBatchResponse
      */
     public function suspendBatchWithOptions($request, $runtime)
     {
@@ -5774,9 +6397,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SuspendBatchRequest $request
+     * @summary 挂起一个数据接入任务
+     *  *
+     * @param SuspendBatchRequest $request SuspendBatchRequest
      *
-     * @return SuspendBatchResponse
+     * @return SuspendBatchResponse SuspendBatchResponse
      */
     public function suspendBatch($request)
     {
@@ -5786,10 +6411,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SuspendTriggerRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 挂起一个数据接入任务
+     *  *
+     * @param SuspendTriggerRequest $request SuspendTriggerRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SuspendTriggerResponse
+     * @return SuspendTriggerResponse SuspendTriggerResponse
      */
     public function suspendTriggerWithOptions($request, $runtime)
     {
@@ -5820,9 +6447,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param SuspendTriggerRequest $request
+     * @summary 挂起一个数据接入任务
+     *  *
+     * @param SuspendTriggerRequest $request SuspendTriggerRequest
      *
-     * @return SuspendTriggerResponse
+     * @return SuspendTriggerResponse SuspendTriggerResponse
      */
     public function suspendTrigger($request)
     {
@@ -5832,10 +6461,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateBatchRequest $tmpReq
-     * @param RuntimeOptions     $runtime
+     * @summary 更新数据接入实例
+     *  *
+     * @param UpdateBatchRequest $tmpReq  UpdateBatchRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBatchResponse
+     * @return UpdateBatchResponse UpdateBatchResponse
      */
     public function updateBatchWithOptions($tmpReq, $runtime)
     {
@@ -5886,9 +6517,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateBatchRequest $request
+     * @summary 更新数据接入实例
+     *  *
+     * @param UpdateBatchRequest $request UpdateBatchRequest
      *
-     * @return UpdateBatchResponse
+     * @return UpdateBatchResponse UpdateBatchResponse
      */
     public function updateBatch($request)
     {
@@ -5898,10 +6531,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateDatasetRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 更新媒体集
+     *  *
+     * @param UpdateDatasetRequest $request UpdateDatasetRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDatasetResponse
+     * @return UpdateDatasetResponse UpdateDatasetResponse
      */
     public function updateDatasetWithOptions($request, $runtime)
     {
@@ -5953,9 +6588,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateDatasetRequest $request
+     * @summary 更新媒体集
+     *  *
+     * @param UpdateDatasetRequest $request UpdateDatasetRequest
      *
-     * @return UpdateDatasetResponse
+     * @return UpdateDatasetResponse UpdateDatasetResponse
      */
     public function updateDataset($request)
     {
@@ -5965,10 +6602,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateFigureClusterRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 更新聚类
+     *  *
+     * @param UpdateFigureClusterRequest $tmpReq  UpdateFigureClusterRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFigureClusterResponse
+     * @return UpdateFigureClusterResponse UpdateFigureClusterResponse
      */
     public function updateFigureClusterWithOptions($tmpReq, $runtime)
     {
@@ -6007,9 +6646,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateFigureClusterRequest $request
+     * @summary 更新聚类
+     *  *
+     * @param UpdateFigureClusterRequest $request UpdateFigureClusterRequest
      *
-     * @return UpdateFigureClusterResponse
+     * @return UpdateFigureClusterResponse UpdateFigureClusterResponse
      */
     public function updateFigureCluster($request)
     {
@@ -6019,10 +6660,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileMetaRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 更新文件元信息
+     *  *
+     * @param UpdateFileMetaRequest $tmpReq  UpdateFileMetaRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFileMetaResponse
+     * @return UpdateFileMetaResponse UpdateFileMetaResponse
      */
     public function updateFileMetaWithOptions($tmpReq, $runtime)
     {
@@ -6061,9 +6704,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateFileMetaRequest $request
+     * @summary 更新文件元信息
+     *  *
+     * @param UpdateFileMetaRequest $request UpdateFileMetaRequest
      *
-     * @return UpdateFileMetaResponse
+     * @return UpdateFileMetaResponse UpdateFileMetaResponse
      */
     public function updateFileMeta($request)
     {
@@ -6073,10 +6718,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateLocationDateClusterRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary 更新时空聚类
+     *  *
+     * @param UpdateLocationDateClusterRequest $tmpReq  UpdateLocationDateClusterRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLocationDateClusterResponse
+     * @return UpdateLocationDateClusterResponse UpdateLocationDateClusterResponse
      */
     public function updateLocationDateClusterWithOptions($tmpReq, $runtime)
     {
@@ -6124,9 +6771,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateLocationDateClusterRequest $request
+     * @summary 更新时空聚类
+     *  *
+     * @param UpdateLocationDateClusterRequest $request UpdateLocationDateClusterRequest
      *
-     * @return UpdateLocationDateClusterResponse
+     * @return UpdateLocationDateClusterResponse UpdateLocationDateClusterResponse
      */
     public function updateLocationDateCluster($request)
     {
@@ -6136,10 +6785,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateProjectRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 更新项目
+     *  *
+     * @param UpdateProjectRequest $request UpdateProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectResponse
+     * @return UpdateProjectResponse UpdateProjectResponse
      */
     public function updateProjectWithOptions($request, $runtime)
     {
@@ -6194,9 +6845,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateProjectRequest $request
+     * @summary 更新项目
+     *  *
+     * @param UpdateProjectRequest $request UpdateProjectRequest
      *
-     * @return UpdateProjectResponse
+     * @return UpdateProjectResponse UpdateProjectResponse
      */
     public function updateProject($request)
     {
@@ -6206,10 +6859,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateStoryRequest $tmpReq
-     * @param RuntimeOptions     $runtime
+     * @summary 更新故事
+     *  *
+     * @param UpdateStoryRequest $tmpReq  UpdateStoryRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateStoryResponse
+     * @return UpdateStoryResponse UpdateStoryResponse
      */
     public function updateStoryWithOptions($tmpReq, $runtime)
     {
@@ -6263,9 +6918,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateStoryRequest $request
+     * @summary 更新故事
+     *  *
+     * @param UpdateStoryRequest $request UpdateStoryRequest
      *
-     * @return UpdateStoryResponse
+     * @return UpdateStoryResponse UpdateStoryResponse
      */
     public function updateStory($request)
     {
@@ -6275,10 +6932,12 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateTriggerRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 更新数据接入实例
+     *  *
+     * @param UpdateTriggerRequest $tmpReq  UpdateTriggerRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTriggerResponse
+     * @return UpdateTriggerResponse UpdateTriggerResponse
      */
     public function updateTriggerWithOptions($tmpReq, $runtime)
     {
@@ -6329,9 +6988,11 @@ class Imm extends OpenApiClient
     }
 
     /**
-     * @param UpdateTriggerRequest $request
+     * @summary 更新数据接入实例
+     *  *
+     * @param UpdateTriggerRequest $request UpdateTriggerRequest
      *
-     * @return UpdateTriggerResponse
+     * @return UpdateTriggerResponse UpdateTriggerResponse
      */
     public function updateTrigger($request)
     {

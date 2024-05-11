@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SemanticQueryShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example immDatatest
      *
      * @var string
@@ -35,6 +37,8 @@ class SemanticQueryShrinkRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -42,6 +46,8 @@ class SemanticQueryShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $query;

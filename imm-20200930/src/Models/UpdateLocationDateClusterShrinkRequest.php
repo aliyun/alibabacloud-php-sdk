@@ -19,16 +19,22 @@ class UpdateLocationDateClusterShrinkRequest extends Model
     public $customLabelsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;

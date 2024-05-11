@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileMetaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var InputFile
      */
     public $file;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;

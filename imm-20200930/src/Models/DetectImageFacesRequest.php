@@ -14,6 +14,8 @@ class DetectImageFacesRequest extends Model
     public $credentialConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string

@@ -28,6 +28,8 @@ class CreateMediaConvertTaskRequest extends Model
     public $notification;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -35,6 +37,8 @@ class CreateMediaConvertTaskRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var sources[]
      */
     public $sources;
@@ -47,6 +51,8 @@ class CreateMediaConvertTaskRequest extends Model
     public $tags;
 
     /**
+     * @description This parameter is required.
+     *
      * @var targets[]
      */
     public $targets;

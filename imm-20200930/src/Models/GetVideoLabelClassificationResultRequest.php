@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetVideoLabelClassificationResultRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -16,6 +18,8 @@ class GetVideoLabelClassificationResultRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec****
      *
      * @var string
@@ -23,6 +27,8 @@ class GetVideoLabelClassificationResultRequest extends Model
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VideoLabelClassification
      *
      * @var string

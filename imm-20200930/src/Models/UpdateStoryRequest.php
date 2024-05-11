@@ -29,6 +29,8 @@ class UpdateStoryRequest extends Model
     public $customLabels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testdata
      *
      * @var string
@@ -36,6 +38,8 @@ class UpdateStoryRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testid
      *
      * @var string
@@ -43,6 +47,8 @@ class UpdateStoryRequest extends Model
     public $objectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string

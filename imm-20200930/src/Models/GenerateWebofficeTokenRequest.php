@@ -75,6 +75,8 @@ class GenerateWebofficeTokenRequest extends Model
     public $previewPages;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -89,6 +91,8 @@ class GenerateWebofficeTokenRequest extends Model
     public $referer;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://imm-test/test.pptx
      *
      * @var string

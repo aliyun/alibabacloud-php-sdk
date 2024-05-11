@@ -30,6 +30,8 @@ class ListTriggersRequest extends Model
     public $order;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

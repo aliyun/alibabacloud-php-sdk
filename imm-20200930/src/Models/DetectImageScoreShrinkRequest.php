@@ -14,6 +14,8 @@ class DetectImageScoreShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string

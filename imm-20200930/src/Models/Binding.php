@@ -21,17 +21,17 @@ class Binding extends Model
     /**
      * @var string
      */
-    public $detail;
-
-    /**
-     * @var string
-     */
     public $phase;
 
     /**
      * @var string
      */
     public $projectName;
+
+    /**
+     * @var string
+     */
+    public $reason;
 
     /**
      * @var string
@@ -50,9 +50,9 @@ class Binding extends Model
     protected $_name = [
         'createTime'  => 'CreateTime',
         'datasetName' => 'DatasetName',
-        'detail'      => 'Detail',
         'phase'       => 'Phase',
         'projectName' => 'ProjectName',
+        'reason'      => 'Reason',
         'state'       => 'State',
         'URI'         => 'URI',
         'updateTime'  => 'UpdateTime',
@@ -71,14 +71,14 @@ class Binding extends Model
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
-        if (null !== $this->detail) {
-            $res['Detail'] = $this->detail;
-        }
         if (null !== $this->phase) {
             $res['Phase'] = $this->phase;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -107,14 +107,14 @@ class Binding extends Model
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }
-        if (isset($map['Detail'])) {
-            $model->detail = $map['Detail'];
-        }
         if (isset($map['Phase'])) {
             $model->phase = $map['Phase'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

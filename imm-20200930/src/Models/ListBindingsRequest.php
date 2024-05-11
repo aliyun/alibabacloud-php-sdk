@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBindingsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -30,6 +32,8 @@ class ListBindingsRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

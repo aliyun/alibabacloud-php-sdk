@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFacesSearchingTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -29,6 +31,8 @@ class CreateFacesSearchingTaskRequest extends Model
     public $notification;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

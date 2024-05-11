@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class Runtime extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var Hyperparameters
      */
     public $hyperparameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @var resource
      */
     public $resource;

@@ -30,6 +30,8 @@ class ListDatasetsRequest extends Model
     public $prefix;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

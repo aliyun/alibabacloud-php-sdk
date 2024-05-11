@@ -62,6 +62,8 @@ class CreateImageSplicingTaskRequest extends Model
     public $padding;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
@@ -83,6 +85,8 @@ class CreateImageSplicingTaskRequest extends Model
     public $scaleType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var sources[]
      */
     public $sources;
@@ -93,6 +97,8 @@ class CreateImageSplicingTaskRequest extends Model
     public $tags;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $targetURI;

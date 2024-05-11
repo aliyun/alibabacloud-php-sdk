@@ -14,6 +14,8 @@ class ExtractDocumentTextRequest extends Model
     public $credentialConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -26,6 +28,8 @@ class ExtractDocumentTextRequest extends Model
     public $sourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://test-bucket/test-object
      *
      * @var string

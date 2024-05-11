@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class CreateBatchRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var actions[]
      */
     public $actions;
 
     /**
+     * @description This parameter is required.
+     *
      * @var Input
      */
     public $input;
@@ -26,6 +30,8 @@ class CreateBatchRequest extends Model
     public $notification;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
@@ -33,6 +39,8 @@ class CreateBatchRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example AliyunIMMDefaultRole
      *
      * @var string

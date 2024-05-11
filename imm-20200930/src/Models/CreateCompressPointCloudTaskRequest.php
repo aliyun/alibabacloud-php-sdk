@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCompressPointCloudTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example octree
      *
      * @var string
@@ -36,6 +38,8 @@ class CreateCompressPointCloudTaskRequest extends Model
     public $octreeOption;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $pointCloudFields;
@@ -48,6 +52,8 @@ class CreateCompressPointCloudTaskRequest extends Model
     public $pointCloudFileFormat;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
@@ -55,6 +61,8 @@ class CreateCompressPointCloudTaskRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://test/src/test.pcd
      *
      * @var string
@@ -69,6 +77,8 @@ class CreateCompressPointCloudTaskRequest extends Model
     public $tags;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://test/tgt
      *
      * @var string

@@ -58,6 +58,8 @@ class UpdateProjectRequest extends Model
     public $projectMaxDatasetCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;

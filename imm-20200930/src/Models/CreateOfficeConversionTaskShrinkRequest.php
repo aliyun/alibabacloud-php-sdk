@@ -117,6 +117,8 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -166,6 +168,8 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
     public $sourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://test-bucket/test-object
      *
      * @var string
@@ -187,6 +191,8 @@ class CreateOfficeConversionTaskShrinkRequest extends Model
     public $tagsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example png
      *
      * @var string

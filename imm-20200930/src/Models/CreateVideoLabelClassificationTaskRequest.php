@@ -21,6 +21,8 @@ class CreateVideoLabelClassificationTaskRequest extends Model
     public $notification;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -28,6 +30,8 @@ class CreateVideoLabelClassificationTaskRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://bucket1/object
      *
      * @var string

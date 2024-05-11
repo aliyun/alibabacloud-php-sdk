@@ -14,6 +14,8 @@ class DetectImageCodesRequest extends Model
     public $credentialConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -21,6 +23,8 @@ class DetectImageCodesRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://bucketname/objectname
      *
      * @var string

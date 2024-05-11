@@ -31,6 +31,8 @@ class GenerateVideoPlaylistShrinkRequest extends Model
     public $overwritePolicy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -57,6 +59,8 @@ class GenerateVideoPlaylistShrinkRequest extends Model
     public $sourceSubtitlesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://imm-test/testcases/video.mp4
      *
      * @var string
@@ -71,6 +75,8 @@ class GenerateVideoPlaylistShrinkRequest extends Model
     public $tagsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $targetsShrink;

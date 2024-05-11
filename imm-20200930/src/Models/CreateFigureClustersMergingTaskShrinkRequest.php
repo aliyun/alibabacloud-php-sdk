@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFigureClustersMergingTaskShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dataset001
      *
      * @var string
@@ -33,6 +35,8 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -47,6 +51,8 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     public $tagsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Cluster-4a3a71c1-c092-4788-8826-2f65d17****
      *
      * @var string

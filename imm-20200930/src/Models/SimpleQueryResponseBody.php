@@ -20,6 +20,8 @@ class SimpleQueryResponseBody extends Model
     public $files;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
      *
      * @var string

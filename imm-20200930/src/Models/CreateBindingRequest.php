@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBindingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateBindingRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateBindingRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://examplebucket
      *
      * @var string

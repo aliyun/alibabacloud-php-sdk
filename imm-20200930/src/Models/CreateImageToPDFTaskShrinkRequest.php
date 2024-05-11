@@ -19,6 +19,8 @@ class CreateImageToPDFTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
@@ -26,6 +28,8 @@ class CreateImageToPDFTaskShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourcesShrink;
@@ -36,6 +40,8 @@ class CreateImageToPDFTaskShrinkRequest extends Model
     public $tagsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $targetURI;

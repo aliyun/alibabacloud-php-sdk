@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cover extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example oss://bucket1/cover
      *
      * @var string

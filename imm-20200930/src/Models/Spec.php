@@ -38,6 +38,8 @@ class Spec extends Model
     public $loss;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ClsResNet
      *
      * @var string

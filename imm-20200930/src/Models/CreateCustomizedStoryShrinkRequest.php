@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomizedStoryShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $coverShrink;
@@ -21,6 +23,8 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $customLabelsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dataset001
      *
      * @var string
@@ -28,11 +32,15 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $filesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -40,6 +48,8 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example name1
      *
      * @var string
@@ -47,6 +57,8 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $storyName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Solo
      *
      * @var string
@@ -54,6 +66,8 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $storySubType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PeopleMemory
      *
      * @var string

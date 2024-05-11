@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
+use AlibabaCloud\SDK\Imm\V20200930\Models\Project\tags;
 use AlibabaCloud\Tea\Model;
 
 class Project extends Model
@@ -79,6 +80,11 @@ class Project extends Model
     public $serviceRole;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $templateId;
@@ -107,6 +113,7 @@ class Project extends Model
         'projectName'             => 'ProjectName',
         'projectQueriesPerSecond' => 'ProjectQueriesPerSecond',
         'serviceRole'             => 'ServiceRole',
+        'tags'                    => 'Tags',
         'templateId'              => 'TemplateId',
         'totalFileSize'           => 'TotalFileSize',
         'updateTime'              => 'UpdateTime',
@@ -160,6 +167,15 @@ class Project extends Model
         }
         if (null !== $this->serviceRole) {
             $res['ServiceRole'] = $this->serviceRole;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -223,6 +239,15 @@ class Project extends Model
         }
         if (isset($map['ServiceRole'])) {
             $model->serviceRole = $map['ServiceRole'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

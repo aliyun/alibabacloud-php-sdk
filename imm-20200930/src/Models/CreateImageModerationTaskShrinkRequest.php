@@ -35,6 +35,8 @@ class CreateImageModerationTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -47,6 +49,8 @@ class CreateImageModerationTaskShrinkRequest extends Model
     public $scenesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://test-bucket/test-object
      *
      * @var string

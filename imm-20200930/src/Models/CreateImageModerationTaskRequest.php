@@ -35,6 +35,8 @@ class CreateImageModerationTaskRequest extends Model
     public $notification;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -47,6 +49,8 @@ class CreateImageModerationTaskRequest extends Model
     public $scenes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://test-bucket/test-object
      *
      * @var string

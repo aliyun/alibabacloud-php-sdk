@@ -14,6 +14,8 @@ class SearchImageFigureClusterRequest extends Model
     public $credentialConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -21,6 +23,8 @@ class SearchImageFigureClusterRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

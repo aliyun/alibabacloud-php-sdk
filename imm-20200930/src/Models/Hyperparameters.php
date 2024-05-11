@@ -30,11 +30,15 @@ class Hyperparameters extends Model
     public $dataLoaderWorkers;
 
     /**
+     * @description This parameter is required.
+     *
      * @var CustomParams
      */
     public $evaluator;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $inputSize;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddStoryFilesShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -16,11 +18,15 @@ class AddStoryFilesShrinkRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $filesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testid
      *
      * @var string
@@ -28,6 +34,8 @@ class AddStoryFilesShrinkRequest extends Model
     public $objectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

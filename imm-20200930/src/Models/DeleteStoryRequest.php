@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteStoryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dataset001
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteStoryRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example id1
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteStoryRequest extends Model
     public $objectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string

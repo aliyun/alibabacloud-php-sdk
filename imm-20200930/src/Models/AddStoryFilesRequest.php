@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddStoryFilesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -17,11 +19,15 @@ class AddStoryFilesRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var files[]
      */
     public $files;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testid
      *
      * @var string
@@ -29,6 +35,8 @@ class AddStoryFilesRequest extends Model
     public $objectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

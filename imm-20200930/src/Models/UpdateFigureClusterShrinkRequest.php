@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateFigureClusterShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $figureClusterShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;

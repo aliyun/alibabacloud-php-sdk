@@ -15,6 +15,8 @@ class UpdateTriggerRequest extends Model
     public $actions;
 
     /**
+     * @description This parameter is required.
+     *
      * @example trigger-9f72636a-0f0c-4baf-ae78-38b27b******
      *
      * @var string
@@ -27,6 +29,8 @@ class UpdateTriggerRequest extends Model
     public $input;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

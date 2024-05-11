@@ -26,6 +26,8 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -33,6 +35,8 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourcesShrink;
@@ -45,6 +49,8 @@ class CreateMediaConvertTaskShrinkRequest extends Model
     public $tagsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $targetsShrink;

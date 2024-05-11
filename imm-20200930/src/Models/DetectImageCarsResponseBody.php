@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectImageCarsResponseBody extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var Car[]
      */
     public $cars;

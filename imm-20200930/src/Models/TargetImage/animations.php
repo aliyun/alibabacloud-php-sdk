@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class animations extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $format;
@@ -44,6 +46,8 @@ class animations extends Model
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $URI;

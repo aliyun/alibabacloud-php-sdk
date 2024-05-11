@@ -28,6 +28,8 @@ class CreateStoryShrinkRequest extends Model
     public $customLabelsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -70,6 +72,8 @@ class CreateStoryShrinkRequest extends Model
     public $objectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
@@ -105,6 +109,8 @@ class CreateStoryShrinkRequest extends Model
     public $storySubType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PeopleMemory
      *
      * @var string

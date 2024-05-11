@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSimilarImageClusteringTaskShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $datasetName;
@@ -19,6 +21,8 @@ class CreateSimilarImageClusteringTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;

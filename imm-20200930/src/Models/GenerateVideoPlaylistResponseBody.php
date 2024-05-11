@@ -50,13 +50,6 @@ class GenerateVideoPlaylistResponseBody extends Model
     public $token;
 
     /**
-     * @example oss://bucket_name.oss-cn-bejing.aliyuncs.com/output/media.m3u8
-     *
-     * @var string
-     */
-    public $URI;
-
-    /**
      * @description 转码文件列表。
      *
      * @var videoPlaylist[]
@@ -69,7 +62,6 @@ class GenerateVideoPlaylistResponseBody extends Model
         'requestId'        => 'RequestId',
         'subtitlePlaylist' => 'SubtitlePlaylist',
         'token'            => 'Token',
-        'URI'              => 'URI',
         'videoPlaylist'    => 'VideoPlaylist',
     ];
 
@@ -109,9 +101,6 @@ class GenerateVideoPlaylistResponseBody extends Model
         }
         if (null !== $this->token) {
             $res['Token'] = $this->token;
-        }
-        if (null !== $this->URI) {
-            $res['URI'] = $this->URI;
         }
         if (null !== $this->videoPlaylist) {
             $res['VideoPlaylist'] = [];
@@ -163,9 +152,6 @@ class GenerateVideoPlaylistResponseBody extends Model
         }
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
-        }
-        if (isset($map['URI'])) {
-            $model->URI = $map['URI'];
         }
         if (isset($map['VideoPlaylist'])) {
             if (!empty($map['VideoPlaylist'])) {

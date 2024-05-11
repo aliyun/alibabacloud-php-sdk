@@ -14,6 +14,8 @@ class SimpleQueryShrinkRequest extends Model
     public $aggregationsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -40,6 +42,8 @@ class SimpleQueryShrinkRequest extends Model
     public $order;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

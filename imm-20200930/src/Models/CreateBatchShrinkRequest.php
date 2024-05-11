@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateBatchShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $actionsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $inputShrink;
@@ -24,6 +28,8 @@ class CreateBatchShrinkRequest extends Model
     public $notificationShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
@@ -31,6 +37,8 @@ class CreateBatchShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example AliyunIMMDefaultRole
      *
      * @var string

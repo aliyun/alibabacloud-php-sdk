@@ -14,6 +14,8 @@ class DetectImageLabelsShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immimagetest
      *
      * @var string
@@ -21,6 +23,8 @@ class DetectImageLabelsShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://imm-test/testcases/facetest.jpg
      *
      * @var string

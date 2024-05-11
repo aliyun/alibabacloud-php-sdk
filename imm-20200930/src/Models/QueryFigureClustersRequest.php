@@ -19,6 +19,8 @@ class QueryFigureClustersRequest extends Model
     public $customLabels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -45,6 +47,8 @@ class QueryFigureClustersRequest extends Model
     public $order;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

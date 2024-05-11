@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dateOptions extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -16,11 +18,15 @@ class dateOptions extends Model
     public $gapDays;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $maxDays;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

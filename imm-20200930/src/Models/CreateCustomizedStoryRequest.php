@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomizedStoryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var cover
      */
     public $cover;
@@ -23,6 +25,8 @@ class CreateCustomizedStoryRequest extends Model
     public $customLabels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dataset001
      *
      * @var string
@@ -30,11 +34,15 @@ class CreateCustomizedStoryRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var files[]
      */
     public $files;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -42,6 +50,8 @@ class CreateCustomizedStoryRequest extends Model
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example name1
      *
      * @var string
@@ -49,6 +59,8 @@ class CreateCustomizedStoryRequest extends Model
     public $storyName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Solo
      *
      * @var string
@@ -56,6 +68,8 @@ class CreateCustomizedStoryRequest extends Model
     public $storySubType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PeopleMemory
      *
      * @var string

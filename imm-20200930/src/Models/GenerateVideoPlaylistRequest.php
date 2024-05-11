@@ -33,6 +33,8 @@ class GenerateVideoPlaylistRequest extends Model
     public $overwritePolicy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -59,6 +61,8 @@ class GenerateVideoPlaylistRequest extends Model
     public $sourceSubtitles;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://imm-test/testcases/video.mp4
      *
      * @var string
@@ -73,6 +77,8 @@ class GenerateVideoPlaylistRequest extends Model
     public $tags;
 
     /**
+     * @description This parameter is required.
+     *
      * @var targets[]
      */
     public $targets;

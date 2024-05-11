@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModelSpecification extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var MetaData
      */
     public $metaData;
 
     /**
+     * @description This parameter is required.
+     *
      * @var Spec
      */
     public $spec;

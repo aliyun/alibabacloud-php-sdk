@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFacesSearchingTaskShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -28,6 +30,8 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string

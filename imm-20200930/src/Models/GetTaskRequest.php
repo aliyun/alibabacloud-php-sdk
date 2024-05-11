@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -21,6 +23,8 @@ class GetTaskRequest extends Model
     public $requestDefinition;
 
     /**
+     * @description This parameter is required.
+     *
      * @example c2b277b9-0d30-4882-ad6d-ad661382****
      *
      * @var string
@@ -28,6 +32,8 @@ class GetTaskRequest extends Model
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VideoLabelClassification
      *
      * @var string

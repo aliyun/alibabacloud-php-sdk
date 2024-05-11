@@ -14,21 +14,29 @@ class TrainingSpecification extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @var ModelSpecification
      */
     public $modelSpecification;
 
     /**
+     * @description This parameter is required.
+     *
      * @var Runtime
      */
     public $runtime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://imm-alg-dataset-bj/cifar10/test_index.json
      *
      * @var string
@@ -36,6 +44,8 @@ class TrainingSpecification extends Model
     public $sourceURI;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://imm-alg-dataset-bj/model_training_test/
      *
      * @var string

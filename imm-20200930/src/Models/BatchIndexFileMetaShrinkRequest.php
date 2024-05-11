@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchIndexFileMetaShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-dataset
      *
      * @var string
@@ -16,6 +18,8 @@ class BatchIndexFileMetaShrinkRequest extends Model
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $filesShrink;
@@ -26,16 +30,24 @@ class BatchIndexFileMetaShrinkRequest extends Model
     public $notificationShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
      */
     public $projectName;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
         'datasetName'        => 'DatasetName',
         'filesShrink'        => 'Files',
         'notificationShrink' => 'Notification',
         'projectName'        => 'ProjectName',
+        'userData'           => 'UserData',
     ];
 
     public function validate()
@@ -56,6 +68,9 @@ class BatchIndexFileMetaShrinkRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -80,6 +95,9 @@ class BatchIndexFileMetaShrinkRequest extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

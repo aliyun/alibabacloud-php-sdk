@@ -26,6 +26,8 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string
@@ -38,6 +40,8 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
     public $selectedFilesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://imm-apitest-fxf2/name.zip
      *
      * @var string

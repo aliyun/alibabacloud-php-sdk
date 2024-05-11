@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteFileMetaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $URIs;

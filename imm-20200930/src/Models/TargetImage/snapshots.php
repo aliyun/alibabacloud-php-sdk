@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class snapshots extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $format;
@@ -39,6 +41,8 @@ class snapshots extends Model
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $URI;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFigureClusteringTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dataset001
      *
      * @var string
@@ -21,6 +23,8 @@ class CreateFigureClusteringTaskRequest extends Model
     public $notification;
 
     /**
+     * @description This parameter is required.
+     *
      * @example immtest
      *
      * @var string

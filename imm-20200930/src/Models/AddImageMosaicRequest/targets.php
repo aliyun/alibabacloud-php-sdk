@@ -17,6 +17,8 @@ class targets extends Model
     public $blurRadius;
 
     /**
+     * @description This parameter is required.
+     *
      * @var boundary
      */
     public $boundary;
@@ -43,6 +45,8 @@ class targets extends Model
     public $sigma;
 
     /**
+     * @description This parameter is required.
+     *
      * @example square
      *
      * @var string

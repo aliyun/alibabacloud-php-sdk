@@ -35,6 +35,8 @@ class ListTasksRequest extends Model
     public $order;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;

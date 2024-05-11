@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetProjectRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-project
      *
      * @var string
