@@ -14,6 +14,7 @@ class DeletePrometheusAlertRuleRequest extends Model
      *   `true`: The alert rule was deleted.
      *   `false`: The alert rule failed to be deleted.
      *
+     * This parameter is required.
      * @example 3888704
      *
      * @var int

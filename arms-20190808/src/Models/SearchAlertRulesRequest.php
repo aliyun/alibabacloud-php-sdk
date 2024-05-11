@@ -60,6 +60,7 @@ class SearchAlertRulesRequest extends Model
     /**
      * @description The region ID of the alert data. For more information about the mappings between **RegionId** and **SystemRegionId**, see the detailed description below the table.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -16,6 +16,8 @@ class ListIntegrationRequest extends Model
     public $integrationName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CLOUD_MONITOR
      *
      * @var string
@@ -30,6 +32,8 @@ class ListIntegrationRequest extends Model
     public $isDetail;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +41,8 @@ class ListIntegrationRequest extends Model
     public $page;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

@@ -23,6 +23,8 @@ class GetSourceMapInfoRequest extends Model
     public $edition;
 
     /**
+     * @description This parameter is required.
+     *
      * @example atc889zkcf@d8deedfa9bf****\/0.0.0/test.sourcemap.js
      *
      * @var string

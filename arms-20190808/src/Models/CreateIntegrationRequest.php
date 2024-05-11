@@ -32,6 +32,7 @@ class CreateIntegrationRequest extends Model
     /**
      * @description The name of the alert integration.
      *
+     * This parameter is required.
      * @example CloudMonitor integration
      *
      * @var string
@@ -44,6 +45,7 @@ class CreateIntegrationRequest extends Model
      *   CLOUD_MONITOR: CloudMonitor
      *   LOG_SERVICE: Log Service
      *
+     * This parameter is required.
      * @example CLOUD_MONITOR
      *
      * @var string

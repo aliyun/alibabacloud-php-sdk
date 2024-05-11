@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallCmsExporterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -37,6 +39,8 @@ class InstallCmsExporterRequest extends Model
     public $enableTag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing
      *
      * @var string

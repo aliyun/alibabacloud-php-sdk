@@ -11,6 +11,7 @@ class SendTTSVerifyLinkRequest extends Model
     /**
      * @description The ID of the alert contact.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int
@@ -20,6 +21,7 @@ class SendTTSVerifyLinkRequest extends Model
     /**
      * @description The mobile number of the alert contact.
      *
+     * This parameter is required.
      * @example 1381111****
      *
      * @var string

@@ -11,6 +11,7 @@ class DeletePrometheusIntegrationRequest extends Model
     /**
      * @description The ID of the Prometheus instance. Only a Prometheus instance for Container Service or a Prometheus instance for ECS is supported.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -29,6 +30,7 @@ class DeletePrometheusIntegrationRequest extends Model
     /**
      * @description The type of the integration.
      *
+     * This parameter is required.
      * @example kafka and mysql.
      *
      * @var string
@@ -38,6 +40,7 @@ class DeletePrometheusIntegrationRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

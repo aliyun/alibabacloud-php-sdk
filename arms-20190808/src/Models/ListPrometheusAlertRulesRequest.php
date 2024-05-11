@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusAlertRulesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example c0bad479465464e1d8c1e641b0afb****
      *
      * @var string
@@ -31,6 +33,8 @@ class ListPrometheusAlertRulesRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

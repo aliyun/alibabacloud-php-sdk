@@ -11,6 +11,7 @@ class DeletePrometheusGlobalViewRequest extends Model
     /**
      * @description The ID of the global aggregation instance.
      *
+     * This parameter is required.
      * @example global-v2-cn-1670100631025794-amaykca4
      *
      * @var string
@@ -20,6 +21,7 @@ class DeletePrometheusGlobalViewRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

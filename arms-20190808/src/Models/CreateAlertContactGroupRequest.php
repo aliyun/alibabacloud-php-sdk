@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertContactGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example TestGroup
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateAlertContactGroupRequest extends Model
     public $contactIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

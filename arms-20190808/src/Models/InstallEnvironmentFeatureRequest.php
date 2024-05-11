@@ -20,7 +20,7 @@ class InstallEnvironmentFeatureRequest extends Model
     /**
      * @description The metadata of the feature.
      *
-     * @example {\"continuous\":true,\"dataRevision\":2}
+     * @example {\\"continuous\\":true,\\"dataRevision\\":2}
      *
      * @var string
      */
@@ -29,6 +29,7 @@ class InstallEnvironmentFeatureRequest extends Model
     /**
      * @description The environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -46,7 +47,7 @@ class InstallEnvironmentFeatureRequest extends Model
      *
      *   metric-agent
      *
-     * <!-- -->
+     * This parameter is required.
      * @example metric-agent
      *
      * @var string
@@ -56,6 +57,7 @@ class InstallEnvironmentFeatureRequest extends Model
     /**
      * @description The version of the feature.
      *
+     * This parameter is required.
      * @example 1.1.17
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeAddonReleaseRequest extends Model
     /**
      * @description The environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeAddonReleaseRequest extends Model
     /**
      * @description The name of the add-on release.
      *
+     * This parameter is required.
      * @example agent-822567d4-2449
      *
      * @var string

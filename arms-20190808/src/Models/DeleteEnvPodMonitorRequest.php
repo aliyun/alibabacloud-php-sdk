@@ -11,6 +11,7 @@ class DeleteEnvPodMonitorRequest extends Model
     /**
      * @description Environment instance ID.
      *
+     * This parameter is required.
      * @example env-xxxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteEnvPodMonitorRequest extends Model
     /**
      * @description The namespace where podMonitor is located
      *
+     * This parameter is required.
      * @example arms-prom
      *
      * @var string
@@ -29,6 +31,7 @@ class DeleteEnvPodMonitorRequest extends Model
     /**
      * @description PodMonitor name.
      *
+     * This parameter is required.
      * @example arms-admin-pm1
      *
      * @var string
@@ -38,6 +41,7 @@ class DeleteEnvPodMonitorRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

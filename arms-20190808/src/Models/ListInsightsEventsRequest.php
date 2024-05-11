@@ -11,6 +11,7 @@ class ListInsightsEventsRequest extends Model
     /**
      * @description The end of the time range to query. The value is a timestamp.
      *
+     * This parameter is required.
      * @example 1480607940000
      *
      * @var string
@@ -43,6 +44,7 @@ class ListInsightsEventsRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -52,6 +54,7 @@ class ListInsightsEventsRequest extends Model
     /**
      * @description The start of the time range to query. The value is a timestamp.
      *
+     * This parameter is required.
      * @example 1595174400000
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class availableAssertions extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class availableAssertions extends Model
     public $expect;
 
     /**
+     * @description This parameter is required.
+     *
      * @example eq
      *
      * @var string
@@ -30,6 +34,8 @@ class availableAssertions extends Model
     public $target;
 
     /**
+     * @description This parameter is required.
+     *
      * @example DnsARecord
      *
      * @var string

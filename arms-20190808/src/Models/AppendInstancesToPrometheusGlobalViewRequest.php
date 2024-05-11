@@ -11,7 +11,8 @@ class AppendInstancesToPrometheusGlobalViewRequest extends Model
     /**
      * @description The list of global aggregation instances. The value is a JSON string.
      *
-     * @example \[ { "sourceName": "Data source name- ArmsPrometheus No.1", "sourceType":"AlibabaPrometheus", "userId":"UserID", "clusterId":"ClusterId", }, { "sourceName": "Data source name - MetrcStore No.2", "sourceType":"MetricStore", "dataSource":"Remote read endpoint of the MetricStore", "extras":{ "username":"BasicAuthUsername", "password":"BasicAuthPassword" } }, { "sourceName": "Custom ", "sourceType":"CustomPrometheus", "dataSource":"Remote read endpoint of the self-managed Prometheus data source", "extras":{ "username":"BasicAuthUsername", "password":"BasicAuthPassword" } }, { "sourceName": "Other one ", "sourceType":"Others", "dataSource":"Endpoint of another data source such as Tencent remote read", "headers":{ "AnyHeaderToFill":"Headers to be filled" }, "extras":{ "username":"BasicAuthUsername", "password":"BasicAuthPassword" } } // ....... more addre ]
+     * This parameter is required.
+     * @example [ { "sourceName": "Data source name- ArmsPrometheus No.1", "sourceType":"AlibabaPrometheus", "userId":"UserID", "clusterId":"ClusterId", }, { "sourceName": "Data source name - MetrcStore No.2", "sourceType":"MetricStore", "dataSource":"Remote read endpoint of the MetricStore", "extras":{ "username":"BasicAuthUsername", "password":"BasicAuthPassword" } }, { "sourceName": "Custom ", "sourceType":"CustomPrometheus", "dataSource":"Remote read endpoint of the self-managed Prometheus data source", "extras":{ "username":"BasicAuthUsername", "password":"BasicAuthPassword" } }, { "sourceName": "Other one ", "sourceType":"Others", "dataSource":"Endpoint of another data source such as Tencent remote read", "headers":{ "AnyHeaderToFill":"Headers to be filled" }, "extras":{ "username":"BasicAuthUsername", "password":"BasicAuthPassword" } } // ....... more addre ]
      *
      * @var string
      */
@@ -20,6 +21,7 @@ class AppendInstancesToPrometheusGlobalViewRequest extends Model
     /**
      * @description The ID of the global aggregation instance.
      *
+     * This parameter is required.
      * @example global-v2-cn-1670100631025794-6gjc0qgb
      *
      * @var string
@@ -29,6 +31,7 @@ class AppendInstancesToPrometheusGlobalViewRequest extends Model
     /**
      * @description The name of the global aggregation instance.
      *
+     * This parameter is required.
      * @example zyGlobalView
      *
      * @var string
@@ -38,6 +41,7 @@ class AppendInstancesToPrometheusGlobalViewRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -20,7 +20,7 @@ class DeleteAppListResponseBody extends Model
     /**
      * @description The returned message.
      *
-     * @example "{\"code\":200,\"data\":\"{\\\"code\\\":200,\\\"data\\\":true,\\\"errorCode\\ \":\\\"Deletion of application successful\\\",\\\"Message\\\":\\\"Deletion of application successful\\\",\\\"Successful\\\":true,\ \\"traceId\\\":\\\"0bc1667516940677164677396d0088\\\"}\",\"errorCode\":\"Batch deletion of applications successful\",\"message\":\"Batch deletion of applications successful\ ",\"Success\":true,\"traceId\":\"210f470416940677161213505e0e7a\"}"
+     * @example "{\\"code\\":200,\\"data\\":\\"{\\\\\\"code\\\\\\":200,\\\\\\"data\\\\\\":true,\\\\\\"errorCode\\\\ \\":\\\\\\"Deletion of application successful\\\\\\",\\\\\\"Message\\\\\\":\\\\\\"Deletion of application successful\\\\\\",\\\\\\"Successful\\\\\\":true,\\ \\\\"traceId\\\\\\":\\\\\\"0bc1667516940677164677396d0088\\\\\\"}\\",\\"errorCode\\":\\"Batch deletion of applications successful\\",\\"message\\":\\"Batch deletion of applications successful\\ ",\\"Success\\":true,\\"traceId\\":\\"210f470416940677161213505e0e7a\\"}"
      *
      * @var string
      */

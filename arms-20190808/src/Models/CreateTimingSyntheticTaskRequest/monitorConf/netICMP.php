@@ -37,6 +37,8 @@ class netICMP extends Model
     public $splitPackage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example www.example.com
      *
      * @var string

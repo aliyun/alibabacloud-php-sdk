@@ -25,7 +25,7 @@ class QueryAppMetadataResponseBody extends Model
     /**
      * @description The returned struct.
      *
-     * @example {\"408d5533\": \"SELECT * FROM user_base_info\"}
+     * @example {\\"408d5533\\": \\"SELECT * FROM user_base_info\\"}
      *
      * @var mixed[]
      */

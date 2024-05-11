@@ -20,6 +20,7 @@ class ListPrometheusInstancesRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +33,7 @@ class ListPrometheusInstancesRequest extends Model
      *   true
      *   false
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

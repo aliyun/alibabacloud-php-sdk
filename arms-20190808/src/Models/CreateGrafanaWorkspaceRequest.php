@@ -24,6 +24,8 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10.0.x
      *
      * @var string
@@ -31,6 +33,8 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $grafanaVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example experts_edition
      *
      * @var string
@@ -38,6 +42,8 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $grafanaWorkspaceEdition;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testgrafana
      *
      * @var string
@@ -52,6 +58,8 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

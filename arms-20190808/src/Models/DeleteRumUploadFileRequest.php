@@ -23,6 +23,8 @@ class DeleteRumUploadFileRequest extends Model
     public $pid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

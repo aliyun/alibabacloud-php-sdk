@@ -11,6 +11,7 @@ class DeleteEnvServiceMonitorRequest extends Model
     /**
      * @description Environment instance ID.
      *
+     * This parameter is required.
      * @example env-xxxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteEnvServiceMonitorRequest extends Model
     /**
      * @description The name of the namespace.
      *
+     * This parameter is required.
      * @example arms-prom
      *
      * @var string
@@ -29,6 +31,7 @@ class DeleteEnvServiceMonitorRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +41,7 @@ class DeleteEnvServiceMonitorRequest extends Model
     /**
      * @description ServiceMonitor name.
      *
+     * This parameter is required.
      * @example arms-admin1
      *
      * @var string

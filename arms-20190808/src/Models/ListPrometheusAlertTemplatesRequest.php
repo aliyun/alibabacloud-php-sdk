@@ -16,6 +16,8 @@ class ListPrometheusAlertTemplatesRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

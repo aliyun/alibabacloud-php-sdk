@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customPeriod extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 22
      *
      * @var int
@@ -16,6 +18,8 @@ class customPeriod extends Model
     public $endHour;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8
      *
      * @var int

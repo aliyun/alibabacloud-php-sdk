@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGrafanaWorkspaceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example grafana-rnglkcdrntlhk0****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteGrafanaWorkspaceRequest extends Model
     public $grafanaWorkspaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

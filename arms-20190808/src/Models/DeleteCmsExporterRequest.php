@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCmsExporterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCmsExporterRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

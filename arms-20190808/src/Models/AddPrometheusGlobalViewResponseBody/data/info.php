@@ -11,7 +11,7 @@ class info extends Model
     /**
      * @description The list of instances that failed to be added.
      *
-     * @example \[{"sourceName": "Data source name- ArmsPrometheus","sourceType":"AlibabaPrometheus","userId":"UserID","clusterId":"ClusterId",}]
+     * @example [{"sourceName": "Data source name- ArmsPrometheus","sourceType":"AlibabaPrometheus","userId":"UserID","clusterId":"ClusterId",}]
      *
      * @var string
      */

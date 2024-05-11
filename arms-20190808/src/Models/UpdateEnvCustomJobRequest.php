@@ -29,6 +29,7 @@ class UpdateEnvCustomJobRequest extends Model
     /**
      * @description The name of the custom job.
      *
+     * This parameter is required.
      * @example customJob1
      *
      * @var string
@@ -38,6 +39,7 @@ class UpdateEnvCustomJobRequest extends Model
     /**
      * @description The environment ID.
      *
+     * This parameter is required.
      * @example env-xxxxx
      *
      * @var string
@@ -47,6 +49,7 @@ class UpdateEnvCustomJobRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

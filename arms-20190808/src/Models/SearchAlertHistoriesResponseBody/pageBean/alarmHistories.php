@@ -11,7 +11,7 @@ class alarmHistories extends Model
     /**
      * @description The content of the alert notification.
      *
-     * @example "Alert name: Alert1\nAlert time: 2020-07-24 12:14:00\nAlert content: A total of four alerts are triggered: \*\*\*\*"
+     * @example "Alert name: Alert1\\nAlert time: 2020-07-24 12:14:00\\nAlert content: A total of four alerts are triggered: \\*\\*\\*\\*"
      *
      * @var string
      */

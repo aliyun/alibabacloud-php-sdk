@@ -11,6 +11,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The ID of the new resource group. You can view the available resource groups in the Resource Management console.
      *
+     * This parameter is required.
      * @example rg-aek2vezare****
      *
      * @var string
@@ -20,6 +21,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The region ID of the resource.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,6 +31,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The resource ID.
      *
+     * This parameter is required.
      * @example ggxw4lnjuz@cfd34a78f******
      *
      * @var string

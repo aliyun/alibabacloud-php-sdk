@@ -29,7 +29,7 @@ class traceInfos extends Model
     /**
      * @description The IP address of the host where the application resides.
      *
-     * @example 172.20.**.**
+     * @example 172.20.\*\*.**
      *
      * @var string
      */

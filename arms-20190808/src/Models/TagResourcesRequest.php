@@ -12,6 +12,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource IDs. You can specify a maximum of 50 resource IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -27,6 +28,7 @@ class TagResourcesRequest extends Model
      *   PROMETHEUSALERTRULE: Managed Service for Prometheus alert rule
      *   XTRACEAPP: Managed Service for OpenTelemetry
      *
+     * This parameter is required.
      * @example PROMETHEUS
      *
      * @var string
@@ -36,6 +38,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags to add to the resource. You can specify a maximum of 20 tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

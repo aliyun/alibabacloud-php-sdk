@@ -51,6 +51,8 @@ class GetRumDataForPageRequest extends Model
     public $query;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

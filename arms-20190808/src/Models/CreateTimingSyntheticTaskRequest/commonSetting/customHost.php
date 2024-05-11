@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class customHost extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var hosts[]
      */
     public $hosts;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

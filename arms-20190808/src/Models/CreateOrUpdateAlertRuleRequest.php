@@ -25,7 +25,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
     /**
      * @description The alert contact group ID of the Prometheus alert rule. Valid values:
      *
-     *   \-1: custom PromQL
+     *   \\-1: custom PromQL
      *   1: Kubernetes load
      *   15: Kubernetes node
      *
@@ -50,6 +50,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
     /**
      * @description The name of the alert rule.
      *
+     * This parameter is required.
      * @example Alert Rule Demo
      *
      * @var string
@@ -103,6 +104,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
      *   application monitoring alert
      *   browser monitoring alert
      *
+     * This parameter is required.
      * @example APPLICATION_MONITORING_ALERT_RULE
      *
      * @var string
@@ -112,7 +114,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
     /**
      * @description The annotations of the Prometheus alert rule.
      *
-     * @example \[ { "Value": "PolarDB slow queries", "Name": "\_aliyun_display_name" }
+     * @example [ { "Value": "PolarDB slow queries", "Name": "_aliyun_display_name" }
      *
      * @var string
      */
@@ -214,7 +216,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
     /**
      * @description The alert message of the Prometheus alert rule.
      *
-     * @example Namespace: {{$labels.namespace}} / Pod: {{$labels.pod_name}} / Container: {{$labels.container}} Memory usage exceeds 80%. Current value: {{ printf \\\\\"%.2f\\\\\" $value }}%
+     * @example Namespace: {{$labels.namespace}} / Pod: {{$labels.pod_name}} / Container: {{$labels.container}} Memory usage exceeds 80%. Current value: {{ printf \\\\\\\\\\"%.2f\\\\\\\\\\" $value }}%
      *
      * @var string
      */
@@ -293,6 +295,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

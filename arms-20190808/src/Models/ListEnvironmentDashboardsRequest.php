@@ -20,6 +20,7 @@ class ListEnvironmentDashboardsRequest extends Model
     /**
      * @description The ID of the environment instance.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string

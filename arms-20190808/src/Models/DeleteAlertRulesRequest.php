@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAlertRulesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example [123, 234]
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteAlertRulesRequest extends Model
     public $alertIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

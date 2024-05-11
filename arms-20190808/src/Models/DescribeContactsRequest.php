@@ -38,6 +38,7 @@ class DescribeContactsRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -65,6 +66,7 @@ class DescribeContactsRequest extends Model
     /**
      * @description The number of alert contacts to return on each page.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int

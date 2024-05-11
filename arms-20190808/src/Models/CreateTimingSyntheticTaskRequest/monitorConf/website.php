@@ -102,6 +102,8 @@ class website extends Model
     public $slowElementThreshold;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://www.aliyun.com
      *
      * @var string

@@ -11,6 +11,7 @@ class GetPrometheusMonitoringRequest extends Model
     /**
      * @description The ID of the Prometheus instance.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetPrometheusMonitoringRequest extends Model
     /**
      * @description The name of the monitoring configuration.
      *
+     * This parameter is required.
      * @example customJob1
      *
      * @var string
@@ -29,6 +31,7 @@ class GetPrometheusMonitoringRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -37,7 +40,7 @@ class GetPrometheusMonitoringRequest extends Model
 
     /**
      * @description The type of the monitoring configuration.
-     * Valid values for a Prometheus instance for ECS: customJob and probe.
+     * This parameter is required.
      * @example customJob
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class monitors extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 100023
      *
      * @var string
@@ -16,6 +18,8 @@ class monitors extends Model
     public $cityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class monitors extends Model
     public $clientType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string

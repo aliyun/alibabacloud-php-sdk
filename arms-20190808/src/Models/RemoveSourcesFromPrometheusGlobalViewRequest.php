@@ -11,6 +11,7 @@ class RemoveSourcesFromPrometheusGlobalViewRequest extends Model
     /**
      * @description The ID of the global aggregation instance.
      *
+     * This parameter is required.
      * @example global-v2-cn-1478326682034601-vss8pd0i
      *
      * @var string
@@ -20,6 +21,7 @@ class RemoveSourcesFromPrometheusGlobalViewRequest extends Model
     /**
      * @description The name of the global aggregation instance.
      *
+     * This parameter is required.
      * @example zyGlobalView
      *
      * @var string
@@ -29,6 +31,7 @@ class RemoveSourcesFromPrometheusGlobalViewRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +41,7 @@ class RemoveSourcesFromPrometheusGlobalViewRequest extends Model
     /**
      * @description The list of custom data sources. You can specify multiple data sources and separate them with commas (,).
      *
+     * This parameter is required.
      * @example localPrometheusClusterName,testCumterPrometheusName
      *
      * @var string

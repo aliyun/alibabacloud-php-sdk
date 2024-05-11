@@ -21,6 +21,8 @@ class UpdateGrafanaWorkspaceRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example grafana-cn-4xl3g******
      *
      * @var string
@@ -35,6 +37,8 @@ class UpdateGrafanaWorkspaceRequest extends Model
     public $grafanaWorkspaceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -20,7 +20,7 @@ class customSLSFilters extends Model
     /**
      * @description The logical operator of the filter condition. Valid values:
      *
-     *   \=: equal to
+     *   \\=: equal to
      *   not: not equal to
      *
      * @example =

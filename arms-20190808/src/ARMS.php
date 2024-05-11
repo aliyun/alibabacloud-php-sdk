@@ -587,10 +587,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddAliClusterIdsToPrometheusGlobalViewRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary Adds data sources to a global aggregation instance in Prometheus Service.
+     *  *
+     * @param AddAliClusterIdsToPrometheusGlobalViewRequest $request AddAliClusterIdsToPrometheusGlobalViewRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddAliClusterIdsToPrometheusGlobalViewResponse
+     * @return AddAliClusterIdsToPrometheusGlobalViewResponse AddAliClusterIdsToPrometheusGlobalViewResponse
      */
     public function addAliClusterIdsToPrometheusGlobalViewWithOptions($request, $runtime)
     {
@@ -627,9 +629,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddAliClusterIdsToPrometheusGlobalViewRequest $request
+     * @summary Adds data sources to a global aggregation instance in Prometheus Service.
+     *  *
+     * @param AddAliClusterIdsToPrometheusGlobalViewRequest $request AddAliClusterIdsToPrometheusGlobalViewRequest
      *
-     * @return AddAliClusterIdsToPrometheusGlobalViewResponse
+     * @return AddAliClusterIdsToPrometheusGlobalViewResponse AddAliClusterIdsToPrometheusGlobalViewResponse
      */
     public function addAliClusterIdsToPrometheusGlobalView($request)
     {
@@ -639,10 +643,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddGrafanaRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Integrates the dashboard of Prometheus Service.
+     *  *
+     * @param AddGrafanaRequest $request AddGrafanaRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGrafanaResponse
+     * @return AddGrafanaResponse AddGrafanaResponse
      */
     public function addGrafanaWithOptions($request, $runtime)
     {
@@ -676,9 +682,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddGrafanaRequest $request
+     * @summary Integrates the dashboard of Prometheus Service.
+     *  *
+     * @param AddGrafanaRequest $request AddGrafanaRequest
      *
-     * @return AddGrafanaResponse
+     * @return AddGrafanaResponse AddGrafanaResponse
      */
     public function addGrafana($request)
     {
@@ -688,8 +696,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
-     *   *
+     * @deprecated openAPI AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead
+     *  *
+     * @summary 接入integration
+     *  *
      * Deprecated
      *
      * @param AddIntegrationRequest $request AddIntegrationRequest
@@ -729,8 +739,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
-     *   *
+     * @deprecated openAPI AddIntegration is deprecated, please use ARMS::2019-08-08::InstallAddon instead
+     *  *
+     * @summary 接入integration
+     *  *
      * Deprecated
      *
      * @param AddIntegrationRequest $request AddIntegrationRequest
@@ -745,10 +757,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddPrometheusGlobalViewRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Adds a global aggregation instance in Prometheus Service.
+     *  *
+     * @param AddPrometheusGlobalViewRequest $request AddPrometheusGlobalViewRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddPrometheusGlobalViewResponse
+     * @return AddPrometheusGlobalViewResponse AddPrometheusGlobalViewResponse
      */
     public function addPrometheusGlobalViewWithOptions($request, $runtime)
     {
@@ -788,9 +802,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddPrometheusGlobalViewRequest $request
+     * @summary Adds a global aggregation instance in Prometheus Service.
+     *  *
+     * @param AddPrometheusGlobalViewRequest $request AddPrometheusGlobalViewRequest
      *
-     * @return AddPrometheusGlobalViewResponse
+     * @return AddPrometheusGlobalViewResponse AddPrometheusGlobalViewResponse
      */
     public function addPrometheusGlobalView($request)
     {
@@ -800,10 +816,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddPrometheusGlobalViewByAliClusterIdsRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary Creates a global aggregation instance in Prometheus Service.
+     *  *
+     * @param AddPrometheusGlobalViewByAliClusterIdsRequest $request AddPrometheusGlobalViewByAliClusterIdsRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddPrometheusGlobalViewByAliClusterIdsResponse
+     * @return AddPrometheusGlobalViewByAliClusterIdsResponse AddPrometheusGlobalViewByAliClusterIdsResponse
      */
     public function addPrometheusGlobalViewByAliClusterIdsWithOptions($request, $runtime)
     {
@@ -840,9 +858,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddPrometheusGlobalViewByAliClusterIdsRequest $request
+     * @summary Creates a global aggregation instance in Prometheus Service.
+     *  *
+     * @param AddPrometheusGlobalViewByAliClusterIdsRequest $request AddPrometheusGlobalViewByAliClusterIdsRequest
      *
-     * @return AddPrometheusGlobalViewByAliClusterIdsResponse
+     * @return AddPrometheusGlobalViewByAliClusterIdsResponse AddPrometheusGlobalViewByAliClusterIdsResponse
      */
     public function addPrometheusGlobalViewByAliClusterIds($request)
     {
@@ -852,10 +872,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddPrometheusInstanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates a Prometheus instance for Remote Write.
+     *  *
+     * @param AddPrometheusInstanceRequest $request AddPrometheusInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddPrometheusInstanceResponse
+     * @return AddPrometheusInstanceResponse AddPrometheusInstanceResponse
      */
     public function addPrometheusInstanceWithOptions($request, $runtime)
     {
@@ -889,9 +911,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddPrometheusInstanceRequest $request
+     * @summary Creates a Prometheus instance for Remote Write.
+     *  *
+     * @param AddPrometheusInstanceRequest $request AddPrometheusInstanceRequest
      *
-     * @return AddPrometheusInstanceResponse
+     * @return AddPrometheusInstanceResponse AddPrometheusInstanceResponse
      */
     public function addPrometheusInstance($request)
     {
@@ -901,10 +925,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddPrometheusIntegrationRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Adds an exporter to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param AddPrometheusIntegrationRequest $request AddPrometheusIntegrationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddPrometheusIntegrationResponse
+     * @return AddPrometheusIntegrationResponse AddPrometheusIntegrationResponse
      */
     public function addPrometheusIntegrationWithOptions($request, $runtime)
     {
@@ -941,9 +967,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddPrometheusIntegrationRequest $request
+     * @summary Adds an exporter to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param AddPrometheusIntegrationRequest $request AddPrometheusIntegrationRequest
      *
-     * @return AddPrometheusIntegrationResponse
+     * @return AddPrometheusIntegrationResponse AddPrometheusIntegrationResponse
      */
     public function addPrometheusIntegration($request)
     {
@@ -953,10 +981,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddPrometheusRemoteWriteRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Adds a remote write configuration item to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param AddPrometheusRemoteWriteRequest $request AddPrometheusRemoteWriteRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddPrometheusRemoteWriteResponse
+     * @return AddPrometheusRemoteWriteResponse AddPrometheusRemoteWriteResponse
      */
     public function addPrometheusRemoteWriteWithOptions($request, $runtime)
     {
@@ -992,9 +1022,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddPrometheusRemoteWriteRequest $request
+     * @summary Adds a remote write configuration item to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param AddPrometheusRemoteWriteRequest $request AddPrometheusRemoteWriteRequest
      *
-     * @return AddPrometheusRemoteWriteResponse
+     * @return AddPrometheusRemoteWriteResponse AddPrometheusRemoteWriteResponse
      */
     public function addPrometheusRemoteWrite($request)
     {
@@ -1004,10 +1036,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddRecordingRuleRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates or updates a recording rule.
+     *  *
+     * @param AddRecordingRuleRequest $request AddRecordingRuleRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddRecordingRuleResponse
+     * @return AddRecordingRuleResponse AddRecordingRuleResponse
      */
     public function addRecordingRuleWithOptions($request, $runtime)
     {
@@ -1041,9 +1075,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddRecordingRuleRequest $request
+     * @summary Creates or updates a recording rule.
+     *  *
+     * @param AddRecordingRuleRequest $request AddRecordingRuleRequest
      *
-     * @return AddRecordingRuleResponse
+     * @return AddRecordingRuleResponse AddRecordingRuleResponse
      */
     public function addRecordingRule($request)
     {
@@ -1053,10 +1089,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddTagToFlinkClusterRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Flink集群打标
+     *  *
+     * @param AddTagToFlinkClusterRequest $request AddTagToFlinkClusterRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTagToFlinkClusterResponse
+     * @return AddTagToFlinkClusterResponse AddTagToFlinkClusterResponse
      */
     public function addTagToFlinkClusterWithOptions($request, $runtime)
     {
@@ -1099,9 +1137,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AddTagToFlinkClusterRequest $request
+     * @summary Flink集群打标
+     *  *
+     * @param AddTagToFlinkClusterRequest $request AddTagToFlinkClusterRequest
      *
-     * @return AddTagToFlinkClusterResponse
+     * @return AddTagToFlinkClusterResponse AddTagToFlinkClusterResponse
      */
     public function addTagToFlinkCluster($request)
     {
@@ -1111,10 +1151,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AppendInstancesToPrometheusGlobalViewRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Adds a data source to a global aggregation instance.
+     *  *
+     * @param AppendInstancesToPrometheusGlobalViewRequest $request AppendInstancesToPrometheusGlobalViewRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return AppendInstancesToPrometheusGlobalViewResponse
+     * @return AppendInstancesToPrometheusGlobalViewResponse AppendInstancesToPrometheusGlobalViewResponse
      */
     public function appendInstancesToPrometheusGlobalViewWithOptions($request, $runtime)
     {
@@ -1151,9 +1193,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param AppendInstancesToPrometheusGlobalViewRequest $request
+     * @summary Adds a data source to a global aggregation instance.
+     *  *
+     * @param AppendInstancesToPrometheusGlobalViewRequest $request AppendInstancesToPrometheusGlobalViewRequest
      *
-     * @return AppendInstancesToPrometheusGlobalViewResponse
+     * @return AppendInstancesToPrometheusGlobalViewResponse AppendInstancesToPrometheusGlobalViewResponse
      */
     public function appendInstancesToPrometheusGlobalView($request)
     {
@@ -1163,10 +1207,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ApplyScenarioRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @param ApplyScenarioRequest $tmpReq  ApplyScenarioRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyScenarioResponse
+     * @return ApplyScenarioResponse ApplyScenarioResponse
      */
     public function applyScenarioWithOptions($tmpReq, $runtime)
     {
@@ -1229,9 +1273,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ApplyScenarioRequest $request
+     * @param ApplyScenarioRequest $request ApplyScenarioRequest
      *
-     * @return ApplyScenarioResponse
+     * @return ApplyScenarioResponse ApplyScenarioResponse
      */
     public function applyScenario($request)
     {
@@ -1241,10 +1285,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param BindPrometheusGrafanaInstanceRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Binds a Grafana workspace to a Prometheus instance.
+     *  *
+     * @param BindPrometheusGrafanaInstanceRequest $request BindPrometheusGrafanaInstanceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindPrometheusGrafanaInstanceResponse
+     * @return BindPrometheusGrafanaInstanceResponse BindPrometheusGrafanaInstanceResponse
      */
     public function bindPrometheusGrafanaInstanceWithOptions($request, $runtime)
     {
@@ -1281,9 +1327,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param BindPrometheusGrafanaInstanceRequest $request
+     * @summary Binds a Grafana workspace to a Prometheus instance.
+     *  *
+     * @param BindPrometheusGrafanaInstanceRequest $request BindPrometheusGrafanaInstanceRequest
      *
-     * @return BindPrometheusGrafanaInstanceResponse
+     * @return BindPrometheusGrafanaInstanceResponse BindPrometheusGrafanaInstanceResponse
      */
     public function bindPrometheusGrafanaInstance($request)
     {
@@ -1293,10 +1341,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param BlockAlarmNotificationRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 屏蔽告警通知
+     *  *
+     * @param BlockAlarmNotificationRequest $request BlockAlarmNotificationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return BlockAlarmNotificationResponse
+     * @return BlockAlarmNotificationResponse BlockAlarmNotificationResponse
      */
     public function blockAlarmNotificationWithOptions($request, $runtime)
     {
@@ -1333,9 +1383,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param BlockAlarmNotificationRequest $request
+     * @summary 屏蔽告警通知
+     *  *
+     * @param BlockAlarmNotificationRequest $request BlockAlarmNotificationRequest
      *
-     * @return BlockAlarmNotificationResponse
+     * @return BlockAlarmNotificationResponse BlockAlarmNotificationResponse
      */
     public function blockAlarmNotification($request)
     {
@@ -1345,10 +1397,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ChangeAlarmSeverityRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 修改告警等级
+     *  *
+     * @param ChangeAlarmSeverityRequest $request ChangeAlarmSeverityRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeAlarmSeverityResponse
+     * @return ChangeAlarmSeverityResponse ChangeAlarmSeverityResponse
      */
     public function changeAlarmSeverityWithOptions($request, $runtime)
     {
@@ -1385,9 +1439,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ChangeAlarmSeverityRequest $request
+     * @summary 修改告警等级
+     *  *
+     * @param ChangeAlarmSeverityRequest $request ChangeAlarmSeverityRequest
      *
-     * @return ChangeAlarmSeverityResponse
+     * @return ChangeAlarmSeverityResponse ChangeAlarmSeverityResponse
      */
     public function changeAlarmSeverity($request)
     {
@@ -1397,10 +1453,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Changes the resource group to which a resource belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -1437,9 +1495,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary Changes the resource group to which a resource belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -1449,8 +1509,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to check whether ARMS is available for commercial use in a region.
-     *   *
+     * @summary Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
+     *  *
+     * @description You can call this operation to check whether ARMS is available for commercial use in a region.
+     *  *
      * @param CheckCommercialStatusRequest $request CheckCommercialStatusRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1479,8 +1541,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to check whether ARMS is available for commercial use in a region.
-     *   *
+     * @summary Checks whether Application Real-Time Monitoring Service (ARMS) is available for commercial use in a region.
+     *  *
+     * @description You can call this operation to check whether ARMS is available for commercial use in a region.
+     *  *
      * @param CheckCommercialStatusRequest $request CheckCommercialStatusRequest
      *
      * @return CheckCommercialStatusResponse CheckCommercialStatusResponse
@@ -1493,10 +1557,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CheckServiceStatusRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Checks the status of a service in the current cluster, such as whether the service is activated and whether the payment is overdue.
+     *  *
+     * @param CheckServiceStatusRequest $request CheckServiceStatusRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckServiceStatusResponse
+     * @return CheckServiceStatusResponse CheckServiceStatusResponse
      */
     public function checkServiceStatusWithOptions($request, $runtime)
     {
@@ -1527,9 +1593,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CheckServiceStatusRequest $request
+     * @summary Checks the status of a service in the current cluster, such as whether the service is activated and whether the payment is overdue.
+     *  *
+     * @param CheckServiceStatusRequest $request CheckServiceStatusRequest
      *
-     * @return CheckServiceStatusResponse
+     * @return CheckServiceStatusResponse CheckServiceStatusResponse
      */
     public function checkServiceStatus($request)
     {
@@ -1539,10 +1607,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ClaimAlarmRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 认领告警
+     *  *
+     * @param ClaimAlarmRequest $request ClaimAlarmRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ClaimAlarmResponse
+     * @return ClaimAlarmResponse ClaimAlarmResponse
      */
     public function claimAlarmWithOptions($request, $runtime)
     {
@@ -1576,9 +1646,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ClaimAlarmRequest $request
+     * @summary 认领告警
+     *  *
+     * @param ClaimAlarmRequest $request ClaimAlarmRequest
      *
-     * @return ClaimAlarmResponse
+     * @return ClaimAlarmResponse ClaimAlarmResponse
      */
     public function claimAlarm($request)
     {
@@ -1588,10 +1660,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CloseAlarmRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 关闭告警
+     *  *
+     * @param CloseAlarmRequest $request CloseAlarmRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloseAlarmResponse
+     * @return CloseAlarmResponse CloseAlarmResponse
      */
     public function closeAlarmWithOptions($request, $runtime)
     {
@@ -1628,9 +1702,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CloseAlarmRequest $request
+     * @summary 关闭告警
+     *  *
+     * @param CloseAlarmRequest $request CloseAlarmRequest
      *
-     * @return CloseAlarmResponse
+     * @return CloseAlarmResponse CloseAlarmResponse
      */
     public function closeAlarm($request)
     {
@@ -1640,8 +1716,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary Turns on or off the main switch of an ARMS agent, or queries the status of the main switch.
+     *  *
+     * @description ****
+     *  *
      * @param ConfigAppRequest $request ConfigAppRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -1682,8 +1760,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary Turns on or off the main switch of an ARMS agent, or queries the status of the main switch.
+     *  *
+     * @description ****
+     *  *
      * @param ConfigAppRequest $request ConfigAppRequest
      *
      * @return ConfigAppResponse ConfigAppResponse
@@ -1696,8 +1776,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
-     *   *
+     * @summary Creates an alert contact.
+     *  *
+     * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
+     *  *
      * @param CreateAlertContactRequest $request CreateAlertContactRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1747,8 +1829,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
-     *   *
+     * @summary Creates an alert contact.
+     *  *
+     * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of the Alert Management module.
+     *  *
      * @param CreateAlertContactRequest $request CreateAlertContactRequest
      *
      * @return CreateAlertContactResponse CreateAlertContactResponse
@@ -1761,10 +1845,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateAlertContactGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param CreateAlertContactGroupRequest $request CreateAlertContactGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAlertContactGroupResponse
+     * @return CreateAlertContactGroupResponse CreateAlertContactGroupResponse
      */
     public function createAlertContactGroupWithOptions($request, $runtime)
     {
@@ -1798,9 +1882,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateAlertContactGroupRequest $request
+     * @param CreateAlertContactGroupRequest $request CreateAlertContactGroupRequest
      *
-     * @return CreateAlertContactGroupResponse
+     * @return CreateAlertContactGroupResponse CreateAlertContactGroupResponse
      */
     public function createAlertContactGroup($request)
     {
@@ -1810,10 +1894,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateDispatchRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The operation that you want to perform. Set the value to CreateDispatchRule.
+     *  *
+     * @param CreateDispatchRuleRequest $request CreateDispatchRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDispatchRuleResponse
+     * @return CreateDispatchRuleResponse CreateDispatchRuleResponse
      */
     public function createDispatchRuleWithOptions($request, $runtime)
     {
@@ -1844,9 +1930,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateDispatchRuleRequest $request
+     * @summary The operation that you want to perform. Set the value to CreateDispatchRule.
+     *  *
+     * @param CreateDispatchRuleRequest $request CreateDispatchRuleRequest
      *
-     * @return CreateDispatchRuleResponse
+     * @return CreateDispatchRuleResponse CreateDispatchRuleResponse
      */
     public function createDispatchRule($request)
     {
@@ -1856,10 +1944,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateEnvCustomJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Creates a custom job for an environment.
+     *  *
+     * @param CreateEnvCustomJobRequest $request CreateEnvCustomJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEnvCustomJobResponse
+     * @return CreateEnvCustomJobResponse CreateEnvCustomJobResponse
      */
     public function createEnvCustomJobWithOptions($request, $runtime)
     {
@@ -1901,9 +1991,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateEnvCustomJobRequest $request
+     * @summary Creates a custom job for an environment.
+     *  *
+     * @param CreateEnvCustomJobRequest $request CreateEnvCustomJobRequest
      *
-     * @return CreateEnvCustomJobResponse
+     * @return CreateEnvCustomJobResponse CreateEnvCustomJobResponse
      */
     public function createEnvCustomJob($request)
     {
@@ -1913,10 +2005,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateEnvPodMonitorRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a PodMonitor for an environment.
+     *  *
+     * @param CreateEnvPodMonitorRequest $request CreateEnvPodMonitorRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEnvPodMonitorResponse
+     * @return CreateEnvPodMonitorResponse CreateEnvPodMonitorResponse
      */
     public function createEnvPodMonitorWithOptions($request, $runtime)
     {
@@ -1958,9 +2052,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateEnvPodMonitorRequest $request
+     * @summary Creates a PodMonitor for an environment.
+     *  *
+     * @param CreateEnvPodMonitorRequest $request CreateEnvPodMonitorRequest
      *
-     * @return CreateEnvPodMonitorResponse
+     * @return CreateEnvPodMonitorResponse CreateEnvPodMonitorResponse
      */
     public function createEnvPodMonitor($request)
     {
@@ -1970,10 +2066,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateEnvServiceMonitorRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a ServiceMonitor for an environment.
+     *  *
+     * @param CreateEnvServiceMonitorRequest $request CreateEnvServiceMonitorRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEnvServiceMonitorResponse
+     * @return CreateEnvServiceMonitorResponse CreateEnvServiceMonitorResponse
      */
     public function createEnvServiceMonitorWithOptions($request, $runtime)
     {
@@ -2015,9 +2113,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateEnvServiceMonitorRequest $request
+     * @summary Creates a ServiceMonitor for an environment.
+     *  *
+     * @param CreateEnvServiceMonitorRequest $request CreateEnvServiceMonitorRequest
      *
-     * @return CreateEnvServiceMonitorResponse
+     * @return CreateEnvServiceMonitorResponse CreateEnvServiceMonitorResponse
      */
     public function createEnvServiceMonitor($request)
     {
@@ -2027,10 +2127,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateEnvironmentRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates an environment instance.
+     *  *
+     * @param CreateEnvironmentRequest $request CreateEnvironmentRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEnvironmentResponse
+     * @return CreateEnvironmentResponse CreateEnvironmentResponse
      */
     public function createEnvironmentWithOptions($request, $runtime)
     {
@@ -2088,9 +2190,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateEnvironmentRequest $request
+     * @summary Creates an environment instance.
+     *  *
+     * @param CreateEnvironmentRequest $request CreateEnvironmentRequest
      *
-     * @return CreateEnvironmentResponse
+     * @return CreateEnvironmentResponse CreateEnvironmentResponse
      */
     public function createEnvironment($request)
     {
@@ -2100,10 +2204,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateGrafanaWorkspaceRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary 创建工作区
+     *  *
+     * @param CreateGrafanaWorkspaceRequest $tmpReq  CreateGrafanaWorkspaceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGrafanaWorkspaceResponse
+     * @return CreateGrafanaWorkspaceResponse CreateGrafanaWorkspaceResponse
      */
     public function createGrafanaWorkspaceWithOptions($tmpReq, $runtime)
     {
@@ -2160,9 +2266,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateGrafanaWorkspaceRequest $request
+     * @summary 创建工作区
+     *  *
+     * @param CreateGrafanaWorkspaceRequest $request CreateGrafanaWorkspaceRequest
      *
-     * @return CreateGrafanaWorkspaceResponse
+     * @return CreateGrafanaWorkspaceResponse CreateGrafanaWorkspaceResponse
      */
     public function createGrafanaWorkspace($request)
     {
@@ -2172,10 +2280,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateIntegrationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates an alert integration.
+     *  *
+     * @param CreateIntegrationRequest $request CreateIntegrationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIntegrationResponse
+     * @return CreateIntegrationResponse CreateIntegrationResponse
      */
     public function createIntegrationWithOptions($request, $runtime)
     {
@@ -2220,9 +2330,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateIntegrationRequest $request
+     * @summary Creates an alert integration.
+     *  *
+     * @param CreateIntegrationRequest $request CreateIntegrationRequest
      *
-     * @return CreateIntegrationResponse
+     * @return CreateIntegrationResponse CreateIntegrationResponse
      */
     public function createIntegration($request)
     {
@@ -2232,10 +2344,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateAlertRuleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates or modifies an alert rule.
+     *  *
+     * @param CreateOrUpdateAlertRuleRequest $request CreateOrUpdateAlertRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateAlertRuleResponse
+     * @return CreateOrUpdateAlertRuleResponse CreateOrUpdateAlertRuleResponse
      */
     public function createOrUpdateAlertRuleWithOptions($request, $runtime)
     {
@@ -2347,9 +2461,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateAlertRuleRequest $request
+     * @summary Creates or modifies an alert rule.
+     *  *
+     * @param CreateOrUpdateAlertRuleRequest $request CreateOrUpdateAlertRuleRequest
      *
-     * @return CreateOrUpdateAlertRuleResponse
+     * @return CreateOrUpdateAlertRuleResponse CreateOrUpdateAlertRuleResponse
      */
     public function createOrUpdateAlertRule($request)
     {
@@ -2359,10 +2475,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateContactRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates or modifies an alert contact.
+     *  *
+     * @param CreateOrUpdateContactRequest $request CreateOrUpdateContactRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateContactResponse
+     * @return CreateOrUpdateContactResponse CreateOrUpdateContactResponse
      */
     public function createOrUpdateContactWithOptions($request, $runtime)
     {
@@ -2416,9 +2534,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateContactRequest $request
+     * @summary Creates or modifies an alert contact.
+     *  *
+     * @param CreateOrUpdateContactRequest $request CreateOrUpdateContactRequest
      *
-     * @return CreateOrUpdateContactResponse
+     * @return CreateOrUpdateContactResponse CreateOrUpdateContactResponse
      */
     public function createOrUpdateContact($request)
     {
@@ -2428,10 +2548,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateContactGroupRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Creates or modifies an alert contact group.
+     *  *
+     * @param CreateOrUpdateContactGroupRequest $request CreateOrUpdateContactGroupRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateContactGroupResponse
+     * @return CreateOrUpdateContactGroupResponse CreateOrUpdateContactGroupResponse
      */
     public function createOrUpdateContactGroupWithOptions($request, $runtime)
     {
@@ -2465,9 +2587,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateContactGroupRequest $request
+     * @summary Creates or modifies an alert contact group.
+     *  *
+     * @param CreateOrUpdateContactGroupRequest $request CreateOrUpdateContactGroupRequest
      *
-     * @return CreateOrUpdateContactGroupResponse
+     * @return CreateOrUpdateContactGroupResponse CreateOrUpdateContactGroupResponse
      */
     public function createOrUpdateContactGroup($request)
     {
@@ -2477,10 +2601,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateEventBridgeIntegrationRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Creates or modifies an EventBridge integration that is used to push notifications.
+     *  *
+     * @param CreateOrUpdateEventBridgeIntegrationRequest $request CreateOrUpdateEventBridgeIntegrationRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateEventBridgeIntegrationResponse
+     * @return CreateOrUpdateEventBridgeIntegrationResponse CreateOrUpdateEventBridgeIntegrationResponse
      */
     public function createOrUpdateEventBridgeIntegrationWithOptions($request, $runtime)
     {
@@ -2532,9 +2658,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateEventBridgeIntegrationRequest $request
+     * @summary Creates or modifies an EventBridge integration that is used to push notifications.
+     *  *
+     * @param CreateOrUpdateEventBridgeIntegrationRequest $request CreateOrUpdateEventBridgeIntegrationRequest
      *
-     * @return CreateOrUpdateEventBridgeIntegrationResponse
+     * @return CreateOrUpdateEventBridgeIntegrationResponse CreateOrUpdateEventBridgeIntegrationResponse
      */
     public function createOrUpdateEventBridgeIntegration($request)
     {
@@ -2544,10 +2672,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateIMRobotRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates or updates an IM chatbot.
+     *  *
+     * @param CreateOrUpdateIMRobotRequest $request CreateOrUpdateIMRobotRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateIMRobotResponse
+     * @return CreateOrUpdateIMRobotResponse CreateOrUpdateIMRobotResponse
      */
     public function createOrUpdateIMRobotWithOptions($request, $runtime)
     {
@@ -2602,9 +2732,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateIMRobotRequest $request
+     * @summary Creates or updates an IM chatbot.
+     *  *
+     * @param CreateOrUpdateIMRobotRequest $request CreateOrUpdateIMRobotRequest
      *
-     * @return CreateOrUpdateIMRobotResponse
+     * @return CreateOrUpdateIMRobotResponse CreateOrUpdateIMRobotResponse
      */
     public function createOrUpdateIMRobot($request)
     {
@@ -2614,10 +2746,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateNotificationPolicyRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Creates or modifies a notification policy.
+     *  *
+     * @param CreateOrUpdateNotificationPolicyRequest $request CreateOrUpdateNotificationPolicyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateNotificationPolicyResponse
+     * @return CreateOrUpdateNotificationPolicyResponse CreateOrUpdateNotificationPolicyResponse
      */
     public function createOrUpdateNotificationPolicyWithOptions($request, $runtime)
     {
@@ -2681,9 +2815,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateNotificationPolicyRequest $request
+     * @summary Creates or modifies a notification policy.
+     *  *
+     * @param CreateOrUpdateNotificationPolicyRequest $request CreateOrUpdateNotificationPolicyRequest
      *
-     * @return CreateOrUpdateNotificationPolicyResponse
+     * @return CreateOrUpdateNotificationPolicyResponse CreateOrUpdateNotificationPolicyResponse
      */
     public function createOrUpdateNotificationPolicy($request)
     {
@@ -2693,10 +2829,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateSilencePolicyRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Creates or modifies a silence policy.
+     *  *
+     * @param CreateOrUpdateSilencePolicyRequest $request CreateOrUpdateSilencePolicyRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateSilencePolicyResponse
+     * @return CreateOrUpdateSilencePolicyResponse CreateOrUpdateSilencePolicyResponse
      */
     public function createOrUpdateSilencePolicyWithOptions($request, $runtime)
     {
@@ -2733,9 +2871,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateSilencePolicyRequest $request
+     * @summary Creates or modifies a silence policy.
+     *  *
+     * @param CreateOrUpdateSilencePolicyRequest $request CreateOrUpdateSilencePolicyRequest
      *
-     * @return CreateOrUpdateSilencePolicyResponse
+     * @return CreateOrUpdateSilencePolicyResponse CreateOrUpdateSilencePolicyResponse
      */
     public function createOrUpdateSilencePolicy($request)
     {
@@ -2745,10 +2885,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateWebhookContactRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Creates or modifies a webhook alert contact.
+     *  *
+     * @param CreateOrUpdateWebhookContactRequest $request CreateOrUpdateWebhookContactRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateWebhookContactResponse
+     * @return CreateOrUpdateWebhookContactResponse CreateOrUpdateWebhookContactResponse
      */
     public function createOrUpdateWebhookContactWithOptions($request, $runtime)
     {
@@ -2797,9 +2939,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateWebhookContactRequest $request
+     * @summary Creates or modifies a webhook alert contact.
+     *  *
+     * @param CreateOrUpdateWebhookContactRequest $request CreateOrUpdateWebhookContactRequest
      *
-     * @return CreateOrUpdateWebhookContactResponse
+     * @return CreateOrUpdateWebhookContactResponse CreateOrUpdateWebhookContactResponse
      */
     public function createOrUpdateWebhookContact($request)
     {
@@ -2809,10 +2953,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreatePrometheusAlertRuleRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 创建Prometheus告警规则
+     *  *
+     * @param CreatePrometheusAlertRuleRequest $request CreatePrometheusAlertRuleRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePrometheusAlertRuleResponse
+     * @return CreatePrometheusAlertRuleResponse CreatePrometheusAlertRuleResponse
      */
     public function createPrometheusAlertRuleWithOptions($request, $runtime)
     {
@@ -2873,9 +3019,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreatePrometheusAlertRuleRequest $request
+     * @summary 创建Prometheus告警规则
+     *  *
+     * @param CreatePrometheusAlertRuleRequest $request CreatePrometheusAlertRuleRequest
      *
-     * @return CreatePrometheusAlertRuleResponse
+     * @return CreatePrometheusAlertRuleResponse CreatePrometheusAlertRuleResponse
      */
     public function createPrometheusAlertRule($request)
     {
@@ -2885,10 +3033,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreatePrometheusInstanceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Creates a Prometheus instance.
+     *  *
+     * @param CreatePrometheusInstanceRequest $request CreatePrometheusInstanceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePrometheusInstanceResponse
+     * @return CreatePrometheusInstanceResponse CreatePrometheusInstanceResponse
      */
     public function createPrometheusInstanceWithOptions($request, $runtime)
     {
@@ -2955,9 +3105,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreatePrometheusInstanceRequest $request
+     * @summary Creates a Prometheus instance.
+     *  *
+     * @param CreatePrometheusInstanceRequest $request CreatePrometheusInstanceRequest
      *
-     * @return CreatePrometheusInstanceResponse
+     * @return CreatePrometheusInstanceResponse CreatePrometheusInstanceResponse
      */
     public function createPrometheusInstance($request)
     {
@@ -2967,10 +3119,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreatePrometheusMonitoringRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Creates a monitoring configuration for a Prometheus instance.
+     *  *
+     * @param CreatePrometheusMonitoringRequest $request CreatePrometheusMonitoringRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePrometheusMonitoringResponse
+     * @return CreatePrometheusMonitoringResponse CreatePrometheusMonitoringResponse
      */
     public function createPrometheusMonitoringWithOptions($request, $runtime)
     {
@@ -3012,9 +3166,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreatePrometheusMonitoringRequest $request
+     * @summary Creates a monitoring configuration for a Prometheus instance.
+     *  *
+     * @param CreatePrometheusMonitoringRequest $request CreatePrometheusMonitoringRequest
      *
-     * @return CreatePrometheusMonitoringResponse
+     * @return CreatePrometheusMonitoringResponse CreatePrometheusMonitoringResponse
      */
     public function createPrometheusMonitoring($request)
     {
@@ -3024,10 +3180,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateRetcodeAppRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates a Browser Monitoring task for an application.
+     *  *
+     * @param CreateRetcodeAppRequest $request CreateRetcodeAppRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRetcodeAppResponse
+     * @return CreateRetcodeAppResponse CreateRetcodeAppResponse
      */
     public function createRetcodeAppWithOptions($request, $runtime)
     {
@@ -3067,9 +3225,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateRetcodeAppRequest $request
+     * @summary Creates a Browser Monitoring task for an application.
+     *  *
+     * @param CreateRetcodeAppRequest $request CreateRetcodeAppRequest
      *
-     * @return CreateRetcodeAppResponse
+     * @return CreateRetcodeAppResponse CreateRetcodeAppResponse
      */
     public function createRetcodeApp($request)
     {
@@ -3079,10 +3239,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateRumAppRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 创建前端监控应用
+     *  *
+     * @param CreateRumAppRequest $request CreateRumAppRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRumAppResponse
+     * @return CreateRumAppResponse CreateRumAppResponse
      */
     public function createRumAppWithOptions($request, $runtime)
     {
@@ -3134,9 +3296,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateRumAppRequest $request
+     * @summary 创建前端监控应用
+     *  *
+     * @param CreateRumAppRequest $request CreateRumAppRequest
      *
-     * @return CreateRumAppResponse
+     * @return CreateRumAppResponse CreateRumAppResponse
      */
     public function createRumApp($request)
     {
@@ -3146,10 +3310,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateRumUploadFileUrlRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 创建前端监控上传oss的URL
+     *  *
+     * @param CreateRumUploadFileUrlRequest $request CreateRumUploadFileUrlRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRumUploadFileUrlResponse
+     * @return CreateRumUploadFileUrlResponse CreateRumUploadFileUrlResponse
      */
     public function createRumUploadFileUrlWithOptions($request, $runtime)
     {
@@ -3198,9 +3364,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateRumUploadFileUrlRequest $request
+     * @summary 创建前端监控上传oss的URL
+     *  *
+     * @param CreateRumUploadFileUrlRequest $request CreateRumUploadFileUrlRequest
      *
-     * @return CreateRumUploadFileUrlResponse
+     * @return CreateRumUploadFileUrlResponse CreateRumUploadFileUrlResponse
      */
     public function createRumUploadFileUrl($request)
     {
@@ -3210,10 +3378,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateSyntheticTaskRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 创建或更新云拨测定时监控任务
+     *  *
+     * @param CreateSyntheticTaskRequest $tmpReq  CreateSyntheticTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSyntheticTaskResponse
+     * @return CreateSyntheticTaskResponse CreateSyntheticTaskResponse
      */
     public function createSyntheticTaskWithOptions($tmpReq, $runtime)
     {
@@ -3306,9 +3476,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateSyntheticTaskRequest $request
+     * @summary 创建或更新云拨测定时监控任务
+     *  *
+     * @param CreateSyntheticTaskRequest $request CreateSyntheticTaskRequest
      *
-     * @return CreateSyntheticTaskResponse
+     * @return CreateSyntheticTaskResponse CreateSyntheticTaskResponse
      */
     public function createSyntheticTask($request)
     {
@@ -3318,10 +3490,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateTimingSyntheticTaskRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary 创建云拨测定时任务
+     *  *
+     * @param CreateTimingSyntheticTaskRequest $tmpReq  CreateTimingSyntheticTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTimingSyntheticTaskResponse
+     * @return CreateTimingSyntheticTaskResponse CreateTimingSyntheticTaskResponse
      */
     public function createTimingSyntheticTaskWithOptions($tmpReq, $runtime)
     {
@@ -3402,9 +3576,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateTimingSyntheticTaskRequest $request
+     * @summary 创建云拨测定时任务
+     *  *
+     * @param CreateTimingSyntheticTaskRequest $request CreateTimingSyntheticTaskRequest
      *
-     * @return CreateTimingSyntheticTaskResponse
+     * @return CreateTimingSyntheticTaskResponse CreateTimingSyntheticTaskResponse
      */
     public function createTimingSyntheticTask($request)
     {
@@ -3414,10 +3590,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateWebhookRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Adds a contact for webhook alerts.
+     *  *
+     * @param CreateWebhookRequest $request CreateWebhookRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateWebhookResponse
+     * @return CreateWebhookResponse CreateWebhookResponse
      */
     public function createWebhookWithOptions($request, $runtime)
     {
@@ -3466,9 +3644,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateWebhookRequest $request
+     * @summary Adds a contact for webhook alerts.
+     *  *
+     * @param CreateWebhookRequest $request CreateWebhookRequest
      *
-     * @return CreateWebhookResponse
+     * @return CreateWebhookResponse CreateWebhookResponse
      */
     public function createWebhook($request)
     {
@@ -3478,10 +3658,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DelAuthTokenRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Disables an authentication token.
+     *  *
+     * @param DelAuthTokenRequest $request DelAuthTokenRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DelAuthTokenResponse
+     * @return DelAuthTokenResponse DelAuthTokenResponse
      */
     public function delAuthTokenWithOptions($request, $runtime)
     {
@@ -3512,9 +3694,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DelAuthTokenRequest $request
+     * @summary Disables an authentication token.
+     *  *
+     * @param DelAuthTokenRequest $request DelAuthTokenRequest
      *
-     * @return DelAuthTokenResponse
+     * @return DelAuthTokenResponse DelAuthTokenResponse
      */
     public function delAuthToken($request)
     {
@@ -3524,10 +3708,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAddonReleaseRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Delete AddonRelease data by AddonRelease name.
+     *  *
+     * @param DeleteAddonReleaseRequest $request DeleteAddonReleaseRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAddonReleaseResponse
+     * @return DeleteAddonReleaseResponse DeleteAddonReleaseResponse
      */
     public function deleteAddonReleaseWithOptions($request, $runtime)
     {
@@ -3564,9 +3750,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAddonReleaseRequest $request
+     * @summary Delete AddonRelease data by AddonRelease name.
+     *  *
+     * @param DeleteAddonReleaseRequest $request DeleteAddonReleaseRequest
      *
-     * @return DeleteAddonReleaseResponse
+     * @return DeleteAddonReleaseResponse DeleteAddonReleaseResponse
      */
     public function deleteAddonRelease($request)
     {
@@ -3576,8 +3764,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * ********
-     *   *
+     * @summary Deletes an DeleteAlertContact contact.
+     *  *
+     * @description ********
+     *  *
      * @param DeleteAlertContactRequest $request DeleteAlertContactRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3612,8 +3802,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * ********
-     *   *
+     * @summary Deletes an DeleteAlertContact contact.
+     *  *
+     * @description ********
+     *  *
      * @param DeleteAlertContactRequest $request DeleteAlertContactRequest
      *
      * @return DeleteAlertContactResponse DeleteAlertContactResponse
@@ -3626,10 +3818,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlertContactGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Deletes an DeleteAlertContactGroup contact group.
+     *  *
+     * @param DeleteAlertContactGroupRequest $request DeleteAlertContactGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAlertContactGroupResponse
+     * @return DeleteAlertContactGroupResponse DeleteAlertContactGroupResponse
      */
     public function deleteAlertContactGroupWithOptions($request, $runtime)
     {
@@ -3660,9 +3854,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlertContactGroupRequest $request
+     * @summary Deletes an DeleteAlertContactGroup contact group.
+     *  *
+     * @param DeleteAlertContactGroupRequest $request DeleteAlertContactGroupRequest
      *
-     * @return DeleteAlertContactGroupResponse
+     * @return DeleteAlertContactGroupResponse DeleteAlertContactGroupResponse
      */
     public function deleteAlertContactGroup($request)
     {
@@ -3672,10 +3868,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlertRuleRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes an alert rule.
+     *  *
+     * @param DeleteAlertRuleRequest $request DeleteAlertRuleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAlertRuleResponse
+     * @return DeleteAlertRuleResponse DeleteAlertRuleResponse
      */
     public function deleteAlertRuleWithOptions($request, $runtime)
     {
@@ -3703,9 +3901,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlertRuleRequest $request
+     * @summary Deletes an alert rule.
+     *  *
+     * @param DeleteAlertRuleRequest $request DeleteAlertRuleRequest
      *
-     * @return DeleteAlertRuleResponse
+     * @return DeleteAlertRuleResponse DeleteAlertRuleResponse
      */
     public function deleteAlertRule($request)
     {
@@ -3715,10 +3915,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlertRulesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DeleteAlertRulesRequest $request DeleteAlertRulesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAlertRulesResponse
+     * @return DeleteAlertRulesResponse DeleteAlertRulesResponse
      */
     public function deleteAlertRulesWithOptions($request, $runtime)
     {
@@ -3749,9 +3949,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlertRulesRequest $request
+     * @param DeleteAlertRulesRequest $request DeleteAlertRulesRequest
      *
-     * @return DeleteAlertRulesResponse
+     * @return DeleteAlertRulesResponse DeleteAlertRulesResponse
      */
     public function deleteAlertRules($request)
     {
@@ -3761,10 +3961,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppListRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes multiple applications at a time based on the process IDs (PIDs).
+     *  *
+     * @param DeleteAppListRequest $request DeleteAppListRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppListResponse
+     * @return DeleteAppListResponse DeleteAppListResponse
      */
     public function deleteAppListWithOptions($request, $runtime)
     {
@@ -3795,9 +3997,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppListRequest $request
+     * @summary Deletes multiple applications at a time based on the process IDs (PIDs).
+     *  *
+     * @param DeleteAppListRequest $request DeleteAppListRequest
      *
-     * @return DeleteAppListResponse
+     * @return DeleteAppListResponse DeleteAppListResponse
      */
     public function deleteAppList($request)
     {
@@ -3807,8 +4011,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
-     *   *
+     * @deprecated openAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
+     *  *
+     * @summary Releases a Prometheus instance for Alibaba Cloud services.
+     *  *
      * Deprecated
      *
      * @param DeleteCmsExporterRequest $request DeleteCmsExporterRequest
@@ -3845,8 +4051,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
-     *   *
+     * @deprecated openAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
+     *  *
+     * @summary Releases a Prometheus instance for Alibaba Cloud services.
+     *  *
      * Deprecated
      *
      * @param DeleteCmsExporterRequest $request DeleteCmsExporterRequest
@@ -3861,10 +4069,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary The ID of the request.
+     *  *
+     * @param DeleteContactRequest $request DeleteContactRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteContactResponse
+     * @return DeleteContactResponse DeleteContactResponse
      */
     public function deleteContactWithOptions($request, $runtime)
     {
@@ -3892,9 +4102,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactRequest $request
+     * @summary The ID of the request.
+     *  *
+     * @param DeleteContactRequest $request DeleteContactRequest
      *
-     * @return DeleteContactResponse
+     * @return DeleteContactResponse DeleteContactResponse
      */
     public function deleteContact($request)
     {
@@ -3904,10 +4116,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactGroupRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes an alert contact group.
+     *  *
+     * @param DeleteContactGroupRequest $request DeleteContactGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteContactGroupResponse
+     * @return DeleteContactGroupResponse DeleteContactGroupResponse
      */
     public function deleteContactGroupWithOptions($request, $runtime)
     {
@@ -3935,9 +4149,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteContactGroupRequest $request
+     * @summary Deletes an alert contact group.
+     *  *
+     * @param DeleteContactGroupRequest $request DeleteContactGroupRequest
      *
-     * @return DeleteContactGroupResponse
+     * @return DeleteContactGroupResponse DeleteContactGroupResponse
      */
     public function deleteContactGroup($request)
     {
@@ -3947,10 +4163,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteDispatchRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DeleteDispatchRuleRequest $request DeleteDispatchRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDispatchRuleResponse
+     * @return DeleteDispatchRuleResponse DeleteDispatchRuleResponse
      */
     public function deleteDispatchRuleWithOptions($request, $runtime)
     {
@@ -3981,9 +4197,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteDispatchRuleRequest $request
+     * @param DeleteDispatchRuleRequest $request DeleteDispatchRuleRequest
      *
-     * @return DeleteDispatchRuleResponse
+     * @return DeleteDispatchRuleResponse DeleteDispatchRuleResponse
      */
     public function deleteDispatchRule($request)
     {
@@ -3993,10 +4209,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnvCustomJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Delete custom jobs for the environment.
+     *  *
+     * @param DeleteEnvCustomJobRequest $request DeleteEnvCustomJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEnvCustomJobResponse
+     * @return DeleteEnvCustomJobResponse DeleteEnvCustomJobResponse
      */
     public function deleteEnvCustomJobWithOptions($request, $runtime)
     {
@@ -4030,9 +4248,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnvCustomJobRequest $request
+     * @summary Delete custom jobs for the environment.
+     *  *
+     * @param DeleteEnvCustomJobRequest $request DeleteEnvCustomJobRequest
      *
-     * @return DeleteEnvCustomJobResponse
+     * @return DeleteEnvCustomJobResponse DeleteEnvCustomJobResponse
      */
     public function deleteEnvCustomJob($request)
     {
@@ -4042,10 +4262,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnvPodMonitorRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Delete the environment PodMonitor.
+     *  *
+     * @param DeleteEnvPodMonitorRequest $request DeleteEnvPodMonitorRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEnvPodMonitorResponse
+     * @return DeleteEnvPodMonitorResponse DeleteEnvPodMonitorResponse
      */
     public function deleteEnvPodMonitorWithOptions($request, $runtime)
     {
@@ -4082,9 +4304,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnvPodMonitorRequest $request
+     * @summary Delete the environment PodMonitor.
+     *  *
+     * @param DeleteEnvPodMonitorRequest $request DeleteEnvPodMonitorRequest
      *
-     * @return DeleteEnvPodMonitorResponse
+     * @return DeleteEnvPodMonitorResponse DeleteEnvPodMonitorResponse
      */
     public function deleteEnvPodMonitor($request)
     {
@@ -4094,10 +4318,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnvServiceMonitorRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Delete the environment ServiceMonitor.
+     *  *
+     * @param DeleteEnvServiceMonitorRequest $request DeleteEnvServiceMonitorRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEnvServiceMonitorResponse
+     * @return DeleteEnvServiceMonitorResponse DeleteEnvServiceMonitorResponse
      */
     public function deleteEnvServiceMonitorWithOptions($request, $runtime)
     {
@@ -4134,9 +4360,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnvServiceMonitorRequest $request
+     * @summary Delete the environment ServiceMonitor.
+     *  *
+     * @param DeleteEnvServiceMonitorRequest $request DeleteEnvServiceMonitorRequest
      *
-     * @return DeleteEnvServiceMonitorResponse
+     * @return DeleteEnvServiceMonitorResponse DeleteEnvServiceMonitorResponse
      */
     public function deleteEnvServiceMonitor($request)
     {
@@ -4146,10 +4374,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnvironmentRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes an environment instance.
+     *  *
+     * @param DeleteEnvironmentRequest $request DeleteEnvironmentRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEnvironmentResponse
+     * @return DeleteEnvironmentResponse DeleteEnvironmentResponse
      */
     public function deleteEnvironmentWithOptions($request, $runtime)
     {
@@ -4183,9 +4413,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnvironmentRequest $request
+     * @summary Deletes an environment instance.
+     *  *
+     * @param DeleteEnvironmentRequest $request DeleteEnvironmentRequest
      *
-     * @return DeleteEnvironmentResponse
+     * @return DeleteEnvironmentResponse DeleteEnvironmentResponse
      */
     public function deleteEnvironment($request)
     {
@@ -4195,10 +4427,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnvironmentFeatureRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 删除feature信息
+     *  *
+     * @param DeleteEnvironmentFeatureRequest $request DeleteEnvironmentFeatureRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEnvironmentFeatureResponse
+     * @return DeleteEnvironmentFeatureResponse DeleteEnvironmentFeatureResponse
      */
     public function deleteEnvironmentFeatureWithOptions($request, $runtime)
     {
@@ -4232,9 +4466,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnvironmentFeatureRequest $request
+     * @summary 删除feature信息
+     *  *
+     * @param DeleteEnvironmentFeatureRequest $request DeleteEnvironmentFeatureRequest
      *
-     * @return DeleteEnvironmentFeatureResponse
+     * @return DeleteEnvironmentFeatureResponse DeleteEnvironmentFeatureResponse
      */
     public function deleteEnvironmentFeature($request)
     {
@@ -4244,10 +4480,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEventBridgeIntegrationRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Deletes an EventBridge integration that is used to push notifications.
+     *  *
+     * @param DeleteEventBridgeIntegrationRequest $request DeleteEventBridgeIntegrationRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEventBridgeIntegrationResponse
+     * @return DeleteEventBridgeIntegrationResponse DeleteEventBridgeIntegrationResponse
      */
     public function deleteEventBridgeIntegrationWithOptions($request, $runtime)
     {
@@ -4275,9 +4513,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteEventBridgeIntegrationRequest $request
+     * @summary Deletes an EventBridge integration that is used to push notifications.
+     *  *
+     * @param DeleteEventBridgeIntegrationRequest $request DeleteEventBridgeIntegrationRequest
      *
-     * @return DeleteEventBridgeIntegrationResponse
+     * @return DeleteEventBridgeIntegrationResponse DeleteEventBridgeIntegrationResponse
      */
     public function deleteEventBridgeIntegration($request)
     {
@@ -4287,10 +4527,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteGrafanaResourceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes Grafana dashboard resources from a cluster monitored by Prometheus Service.
+     *  *
+     * @param DeleteGrafanaResourceRequest $request DeleteGrafanaResourceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGrafanaResourceResponse
+     * @return DeleteGrafanaResourceResponse DeleteGrafanaResourceResponse
      */
     public function deleteGrafanaResourceWithOptions($request, $runtime)
     {
@@ -4326,9 +4568,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteGrafanaResourceRequest $request
+     * @summary Deletes Grafana dashboard resources from a cluster monitored by Prometheus Service.
+     *  *
+     * @param DeleteGrafanaResourceRequest $request DeleteGrafanaResourceRequest
      *
-     * @return DeleteGrafanaResourceResponse
+     * @return DeleteGrafanaResourceResponse DeleteGrafanaResourceResponse
      */
     public function deleteGrafanaResource($request)
     {
@@ -4338,10 +4582,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteGrafanaWorkspaceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 释放工作区
+     *  *
+     * @param DeleteGrafanaWorkspaceRequest $request DeleteGrafanaWorkspaceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGrafanaWorkspaceResponse
+     * @return DeleteGrafanaWorkspaceResponse DeleteGrafanaWorkspaceResponse
      */
     public function deleteGrafanaWorkspaceWithOptions($request, $runtime)
     {
@@ -4372,9 +4618,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteGrafanaWorkspaceRequest $request
+     * @summary 释放工作区
+     *  *
+     * @param DeleteGrafanaWorkspaceRequest $request DeleteGrafanaWorkspaceRequest
      *
-     * @return DeleteGrafanaWorkspaceResponse
+     * @return DeleteGrafanaWorkspaceResponse DeleteGrafanaWorkspaceResponse
      */
     public function deleteGrafanaWorkspace($request)
     {
@@ -4384,10 +4632,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteIMRobotRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes an instant messaging (IM) chatbot.
+     *  *
+     * @param DeleteIMRobotRequest $request DeleteIMRobotRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIMRobotResponse
+     * @return DeleteIMRobotResponse DeleteIMRobotResponse
      */
     public function deleteIMRobotWithOptions($request, $runtime)
     {
@@ -4415,9 +4665,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteIMRobotRequest $request
+     * @summary Deletes an instant messaging (IM) chatbot.
+     *  *
+     * @param DeleteIMRobotRequest $request DeleteIMRobotRequest
      *
-     * @return DeleteIMRobotResponse
+     * @return DeleteIMRobotResponse DeleteIMRobotResponse
      */
     public function deleteIMRobot($request)
     {
@@ -4427,8 +4679,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
-     *   *
+     * @deprecated openAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
+     *  *
+     * @summary Deletes collection rules from an integration.
+     *  *
      * Deprecated
      *
      * @param DeleteIntegrationRequest $request DeleteIntegrationRequest
@@ -4468,8 +4722,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
-     *   *
+     * @deprecated openAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead
+     *  *
+     * @summary Deletes collection rules from an integration.
+     *  *
      * Deprecated
      *
      * @param DeleteIntegrationRequest $request DeleteIntegrationRequest
@@ -4484,10 +4740,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteIntegrationsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes an alert integration.
+     *  *
+     * @param DeleteIntegrationsRequest $request DeleteIntegrationsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIntegrationsResponse
+     * @return DeleteIntegrationsResponse DeleteIntegrationsResponse
      */
     public function deleteIntegrationsWithOptions($request, $runtime)
     {
@@ -4512,9 +4770,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteIntegrationsRequest $request
+     * @summary Deletes an alert integration.
+     *  *
+     * @param DeleteIntegrationsRequest $request DeleteIntegrationsRequest
      *
-     * @return DeleteIntegrationsResponse
+     * @return DeleteIntegrationsResponse DeleteIntegrationsResponse
      */
     public function deleteIntegrations($request)
     {
@@ -4524,10 +4784,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteNotificationPolicyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Indicates whether the notification policy was deleted successfully. Valid values:
+     * *   `true`: The notification policy was deleted successfully.
+     * *   `false`: The notification policy failed to be deleted.
+     *  *
+     * @param DeleteNotificationPolicyRequest $request DeleteNotificationPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNotificationPolicyResponse
+     * @return DeleteNotificationPolicyResponse DeleteNotificationPolicyResponse
      */
     public function deleteNotificationPolicyWithOptions($request, $runtime)
     {
@@ -4555,9 +4819,13 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteNotificationPolicyRequest $request
+     * @summary Indicates whether the notification policy was deleted successfully. Valid values:
+     * *   `true`: The notification policy was deleted successfully.
+     * *   `false`: The notification policy failed to be deleted.
+     *  *
+     * @param DeleteNotificationPolicyRequest $request DeleteNotificationPolicyRequest
      *
-     * @return DeleteNotificationPolicyResponse
+     * @return DeleteNotificationPolicyResponse DeleteNotificationPolicyResponse
      */
     public function deleteNotificationPolicy($request)
     {
@@ -4567,10 +4835,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeletePrometheusAlertRuleRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary The ID of the alert rule. You can call the ListPrometheusAlertRules operation to query the ID of the alert rule.
+     *  *
+     * @param DeletePrometheusAlertRuleRequest $request DeletePrometheusAlertRuleRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePrometheusAlertRuleResponse
+     * @return DeletePrometheusAlertRuleResponse DeletePrometheusAlertRuleResponse
      */
     public function deletePrometheusAlertRuleWithOptions($request, $runtime)
     {
@@ -4601,9 +4871,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeletePrometheusAlertRuleRequest $request
+     * @summary The ID of the alert rule. You can call the ListPrometheusAlertRules operation to query the ID of the alert rule.
+     *  *
+     * @param DeletePrometheusAlertRuleRequest $request DeletePrometheusAlertRuleRequest
      *
-     * @return DeletePrometheusAlertRuleResponse
+     * @return DeletePrometheusAlertRuleResponse DeletePrometheusAlertRuleResponse
      */
     public function deletePrometheusAlertRule($request)
     {
@@ -4613,10 +4885,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeletePrometheusGlobalViewRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Deletes a global aggregation instance from Prometheus Service.
+     *  *
+     * @param DeletePrometheusGlobalViewRequest $request DeletePrometheusGlobalViewRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePrometheusGlobalViewResponse
+     * @return DeletePrometheusGlobalViewResponse DeletePrometheusGlobalViewResponse
      */
     public function deletePrometheusGlobalViewWithOptions($request, $runtime)
     {
@@ -4647,9 +4921,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeletePrometheusGlobalViewRequest $request
+     * @summary Deletes a global aggregation instance from Prometheus Service.
+     *  *
+     * @param DeletePrometheusGlobalViewRequest $request DeletePrometheusGlobalViewRequest
      *
-     * @return DeletePrometheusGlobalViewResponse
+     * @return DeletePrometheusGlobalViewResponse DeletePrometheusGlobalViewResponse
      */
     public function deletePrometheusGlobalView($request)
     {
@@ -4659,10 +4935,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeletePrometheusIntegrationRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Deletes an exporter from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param DeletePrometheusIntegrationRequest $request DeletePrometheusIntegrationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePrometheusIntegrationResponse
+     * @return DeletePrometheusIntegrationResponse DeletePrometheusIntegrationResponse
      */
     public function deletePrometheusIntegrationWithOptions($request, $runtime)
     {
@@ -4699,9 +4977,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeletePrometheusIntegrationRequest $request
+     * @summary Deletes an exporter from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param DeletePrometheusIntegrationRequest $request DeletePrometheusIntegrationRequest
      *
-     * @return DeletePrometheusIntegrationResponse
+     * @return DeletePrometheusIntegrationResponse DeletePrometheusIntegrationResponse
      */
     public function deletePrometheusIntegration($request)
     {
@@ -4711,10 +4991,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeletePrometheusMonitoringRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Deletes the monitoring configuration of a Prometheus instance.
+     *  *
+     * @param DeletePrometheusMonitoringRequest $request DeletePrometheusMonitoringRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePrometheusMonitoringResponse
+     * @return DeletePrometheusMonitoringResponse DeletePrometheusMonitoringResponse
      */
     public function deletePrometheusMonitoringWithOptions($request, $runtime)
     {
@@ -4751,9 +5033,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeletePrometheusMonitoringRequest $request
+     * @summary Deletes the monitoring configuration of a Prometheus instance.
+     *  *
+     * @param DeletePrometheusMonitoringRequest $request DeletePrometheusMonitoringRequest
      *
-     * @return DeletePrometheusMonitoringResponse
+     * @return DeletePrometheusMonitoringResponse DeletePrometheusMonitoringResponse
      */
     public function deletePrometheusMonitoring($request)
     {
@@ -4763,10 +5047,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeletePrometheusRemoteWriteRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Deletes one or more remote write configuration items from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param DeletePrometheusRemoteWriteRequest $request DeletePrometheusRemoteWriteRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePrometheusRemoteWriteResponse
+     * @return DeletePrometheusRemoteWriteResponse DeletePrometheusRemoteWriteResponse
      */
     public function deletePrometheusRemoteWriteWithOptions($request, $runtime)
     {
@@ -4800,9 +5086,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeletePrometheusRemoteWriteRequest $request
+     * @summary Deletes one or more remote write configuration items from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param DeletePrometheusRemoteWriteRequest $request DeletePrometheusRemoteWriteRequest
      *
-     * @return DeletePrometheusRemoteWriteResponse
+     * @return DeletePrometheusRemoteWriteResponse DeletePrometheusRemoteWriteResponse
      */
     public function deletePrometheusRemoteWrite($request)
     {
@@ -4812,10 +5100,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteRetcodeAppRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes a Browser Monitoring task.
+     *  *
+     * @param DeleteRetcodeAppRequest $request DeleteRetcodeAppRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRetcodeAppResponse
+     * @return DeleteRetcodeAppResponse DeleteRetcodeAppResponse
      */
     public function deleteRetcodeAppWithOptions($request, $runtime)
     {
@@ -4852,9 +5142,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteRetcodeAppRequest $request
+     * @summary Deletes a Browser Monitoring task.
+     *  *
+     * @param DeleteRetcodeAppRequest $request DeleteRetcodeAppRequest
      *
-     * @return DeleteRetcodeAppResponse
+     * @return DeleteRetcodeAppResponse DeleteRetcodeAppResponse
      */
     public function deleteRetcodeApp($request)
     {
@@ -4864,10 +5156,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteRumAppRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 删除前端监控应用
+     *  *
+     * @param DeleteRumAppRequest $request DeleteRumAppRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRumAppResponse
+     * @return DeleteRumAppResponse DeleteRumAppResponse
      */
     public function deleteRumAppWithOptions($request, $runtime)
     {
@@ -4901,9 +5195,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteRumAppRequest $request
+     * @summary 删除前端监控应用
+     *  *
+     * @param DeleteRumAppRequest $request DeleteRumAppRequest
      *
-     * @return DeleteRumAppResponse
+     * @return DeleteRumAppResponse DeleteRumAppResponse
      */
     public function deleteRumApp($request)
     {
@@ -4913,10 +5209,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteRumUploadFileRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 删除前端监控在oss中的文件
+     *  *
+     * @param DeleteRumUploadFileRequest $request DeleteRumUploadFileRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRumUploadFileResponse
+     * @return DeleteRumUploadFileResponse DeleteRumUploadFileResponse
      */
     public function deleteRumUploadFileWithOptions($request, $runtime)
     {
@@ -4956,9 +5254,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteRumUploadFileRequest $request
+     * @summary 删除前端监控在oss中的文件
+     *  *
+     * @param DeleteRumUploadFileRequest $request DeleteRumUploadFileRequest
      *
-     * @return DeleteRumUploadFileResponse
+     * @return DeleteRumUploadFileResponse DeleteRumUploadFileResponse
      */
     public function deleteRumUploadFile($request)
     {
@@ -4968,10 +5268,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteScenarioRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DeleteScenarioRequest $request DeleteScenarioRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteScenarioResponse
+     * @return DeleteScenarioResponse DeleteScenarioResponse
      */
     public function deleteScenarioWithOptions($request, $runtime)
     {
@@ -5002,9 +5302,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteScenarioRequest $request
+     * @param DeleteScenarioRequest $request DeleteScenarioRequest
      *
-     * @return DeleteScenarioResponse
+     * @return DeleteScenarioResponse DeleteScenarioResponse
      */
     public function deleteScenario($request)
     {
@@ -5014,10 +5314,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteSilencePolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary The ID of the silence policy.
+     *  *
+     * @param DeleteSilencePolicyRequest $request DeleteSilencePolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSilencePolicyResponse
+     * @return DeleteSilencePolicyResponse DeleteSilencePolicyResponse
      */
     public function deleteSilencePolicyWithOptions($request, $runtime)
     {
@@ -5045,9 +5347,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteSilencePolicyRequest $request
+     * @summary The ID of the silence policy.
+     *  *
+     * @param DeleteSilencePolicyRequest $request DeleteSilencePolicyRequest
      *
-     * @return DeleteSilencePolicyResponse
+     * @return DeleteSilencePolicyResponse DeleteSilencePolicyResponse
      */
     public function deleteSilencePolicy($request)
     {
@@ -5057,10 +5361,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteSourceMapRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary 删除SourceMap
+     *  *
+     * @param DeleteSourceMapRequest $tmpReq  DeleteSourceMapRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSourceMapResponse
+     * @return DeleteSourceMapResponse DeleteSourceMapResponse
      */
     public function deleteSourceMapWithOptions($tmpReq, $runtime)
     {
@@ -5099,9 +5405,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteSourceMapRequest $request
+     * @summary 删除SourceMap
+     *  *
+     * @param DeleteSourceMapRequest $request DeleteSourceMapRequest
      *
-     * @return DeleteSourceMapResponse
+     * @return DeleteSourceMapResponse DeleteSourceMapResponse
      */
     public function deleteSourceMap($request)
     {
@@ -5111,10 +5419,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteSyntheticTaskRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 删除云拨测任务
+     *  *
+     * @param DeleteSyntheticTaskRequest $request DeleteSyntheticTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSyntheticTaskResponse
+     * @return DeleteSyntheticTaskResponse DeleteSyntheticTaskResponse
      */
     public function deleteSyntheticTaskWithOptions($request, $runtime)
     {
@@ -5145,9 +5455,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteSyntheticTaskRequest $request
+     * @summary 删除云拨测任务
+     *  *
+     * @param DeleteSyntheticTaskRequest $request DeleteSyntheticTaskRequest
      *
-     * @return DeleteSyntheticTaskResponse
+     * @return DeleteSyntheticTaskResponse DeleteSyntheticTaskResponse
      */
     public function deleteSyntheticTask($request)
     {
@@ -5157,10 +5469,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteTimingSyntheticTaskRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Deletes a scheduled synthetic monitoring task.
+     *  *
+     * @param DeleteTimingSyntheticTaskRequest $request DeleteTimingSyntheticTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTimingSyntheticTaskResponse
+     * @return DeleteTimingSyntheticTaskResponse DeleteTimingSyntheticTaskResponse
      */
     public function deleteTimingSyntheticTaskWithOptions($request, $runtime)
     {
@@ -5194,9 +5508,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteTimingSyntheticTaskRequest $request
+     * @summary Deletes a scheduled synthetic monitoring task.
+     *  *
+     * @param DeleteTimingSyntheticTaskRequest $request DeleteTimingSyntheticTaskRequest
      *
-     * @return DeleteTimingSyntheticTaskResponse
+     * @return DeleteTimingSyntheticTaskResponse DeleteTimingSyntheticTaskResponse
      */
     public function deleteTimingSyntheticTask($request)
     {
@@ -5206,10 +5522,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteTraceAppRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes an application based on a specified process identifier (PID) and application type.
+     *  *
+     * @param DeleteTraceAppRequest $tmpReq  DeleteTraceAppRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTraceAppResponse
+     * @return DeleteTraceAppResponse DeleteTraceAppResponse
      */
     public function deleteTraceAppWithOptions($tmpReq, $runtime)
     {
@@ -5254,9 +5572,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteTraceAppRequest $request
+     * @summary Deletes an application based on a specified process identifier (PID) and application type.
+     *  *
+     * @param DeleteTraceAppRequest $request DeleteTraceAppRequest
      *
-     * @return DeleteTraceAppResponse
+     * @return DeleteTraceAppResponse DeleteTraceAppResponse
      */
     public function deleteTraceApp($request)
     {
@@ -5266,10 +5586,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteWebhookContactRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes a webhook alert contact.
+     *  *
+     * @param DeleteWebhookContactRequest $request DeleteWebhookContactRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteWebhookContactResponse
+     * @return DeleteWebhookContactResponse DeleteWebhookContactResponse
      */
     public function deleteWebhookContactWithOptions($request, $runtime)
     {
@@ -5297,9 +5619,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteWebhookContactRequest $request
+     * @summary Deletes a webhook alert contact.
+     *  *
+     * @param DeleteWebhookContactRequest $request DeleteWebhookContactRequest
      *
-     * @return DeleteWebhookContactResponse
+     * @return DeleteWebhookContactResponse DeleteWebhookContactResponse
      */
     public function deleteWebhookContact($request)
     {
@@ -5309,10 +5633,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAddonReleaseRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the release information of an add-on by name.
+     *  *
+     * @param DescribeAddonReleaseRequest $request DescribeAddonReleaseRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAddonReleaseResponse
+     * @return DescribeAddonReleaseResponse DescribeAddonReleaseResponse
      */
     public function describeAddonReleaseWithOptions($request, $runtime)
     {
@@ -5346,9 +5672,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAddonReleaseRequest $request
+     * @summary Queries the release information of an add-on by name.
+     *  *
+     * @param DescribeAddonReleaseRequest $request DescribeAddonReleaseRequest
      *
-     * @return DescribeAddonReleaseResponse
+     * @return DescribeAddonReleaseResponse DescribeAddonReleaseResponse
      */
     public function describeAddonRelease($request)
     {
@@ -5358,10 +5686,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeContactGroupsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries an alert contact group.
+     *  *
+     * @param DescribeContactGroupsRequest $request DescribeContactGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContactGroupsResponse
+     * @return DescribeContactGroupsResponse DescribeContactGroupsResponse
      */
     public function describeContactGroupsWithOptions($request, $runtime)
     {
@@ -5404,9 +5734,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeContactGroupsRequest $request
+     * @summary Queries an alert contact group.
+     *  *
+     * @param DescribeContactGroupsRequest $request DescribeContactGroupsRequest
      *
-     * @return DescribeContactGroupsResponse
+     * @return DescribeContactGroupsResponse DescribeContactGroupsResponse
      */
     public function describeContactGroups($request)
     {
@@ -5416,10 +5748,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeContactsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries alert contacts.
+     *  *
+     * @param DescribeContactsRequest $request DescribeContactsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeContactsResponse
+     * @return DescribeContactsResponse DescribeContactsResponse
      */
     public function describeContactsWithOptions($request, $runtime)
     {
@@ -5468,9 +5802,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeContactsRequest $request
+     * @summary Queries alert contacts.
+     *  *
+     * @param DescribeContactsRequest $request DescribeContactsRequest
      *
-     * @return DescribeContactsResponse
+     * @return DescribeContactsResponse DescribeContactsResponse
      */
     public function describeContacts($request)
     {
@@ -5480,10 +5816,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeDispatchRuleRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the information about a dispatch policy.
+     *  *
+     * @param DescribeDispatchRuleRequest $request DescribeDispatchRuleRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDispatchRuleResponse
+     * @return DescribeDispatchRuleResponse DescribeDispatchRuleResponse
      */
     public function describeDispatchRuleWithOptions($request, $runtime)
     {
@@ -5514,9 +5852,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeDispatchRuleRequest $request
+     * @summary Queries the information about a dispatch policy.
+     *  *
+     * @param DescribeDispatchRuleRequest $request DescribeDispatchRuleRequest
      *
-     * @return DescribeDispatchRuleResponse
+     * @return DescribeDispatchRuleResponse DescribeDispatchRuleResponse
      */
     public function describeDispatchRule($request)
     {
@@ -5526,10 +5866,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnvCustomJobRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the details of a custom job for an environment.
+     *  *
+     * @param DescribeEnvCustomJobRequest $request DescribeEnvCustomJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnvCustomJobResponse
+     * @return DescribeEnvCustomJobResponse DescribeEnvCustomJobResponse
      */
     public function describeEnvCustomJobWithOptions($request, $runtime)
     {
@@ -5566,9 +5908,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnvCustomJobRequest $request
+     * @summary Queries the details of a custom job for an environment.
+     *  *
+     * @param DescribeEnvCustomJobRequest $request DescribeEnvCustomJobRequest
      *
-     * @return DescribeEnvCustomJobResponse
+     * @return DescribeEnvCustomJobResponse DescribeEnvCustomJobResponse
      */
     public function describeEnvCustomJob($request)
     {
@@ -5578,10 +5922,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnvPodMonitorRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the PodMonitor details of an environment.
+     *  *
+     * @param DescribeEnvPodMonitorRequest $request DescribeEnvPodMonitorRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnvPodMonitorResponse
+     * @return DescribeEnvPodMonitorResponse DescribeEnvPodMonitorResponse
      */
     public function describeEnvPodMonitorWithOptions($request, $runtime)
     {
@@ -5618,9 +5964,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnvPodMonitorRequest $request
+     * @summary Queries the PodMonitor details of an environment.
+     *  *
+     * @param DescribeEnvPodMonitorRequest $request DescribeEnvPodMonitorRequest
      *
-     * @return DescribeEnvPodMonitorResponse
+     * @return DescribeEnvPodMonitorResponse DescribeEnvPodMonitorResponse
      */
     public function describeEnvPodMonitor($request)
     {
@@ -5630,10 +5978,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnvServiceMonitorRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the ServiceMonitor details of an environment.
+     *  *
+     * @param DescribeEnvServiceMonitorRequest $request DescribeEnvServiceMonitorRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnvServiceMonitorResponse
+     * @return DescribeEnvServiceMonitorResponse DescribeEnvServiceMonitorResponse
      */
     public function describeEnvServiceMonitorWithOptions($request, $runtime)
     {
@@ -5670,9 +6020,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnvServiceMonitorRequest $request
+     * @summary Queries the ServiceMonitor details of an environment.
+     *  *
+     * @param DescribeEnvServiceMonitorRequest $request DescribeEnvServiceMonitorRequest
      *
-     * @return DescribeEnvServiceMonitorResponse
+     * @return DescribeEnvServiceMonitorResponse DescribeEnvServiceMonitorResponse
      */
     public function describeEnvServiceMonitor($request)
     {
@@ -5682,10 +6034,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnvironmentRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the details of an environment.
+     *  *
+     * @param DescribeEnvironmentRequest $request DescribeEnvironmentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnvironmentResponse
+     * @return DescribeEnvironmentResponse DescribeEnvironmentResponse
      */
     public function describeEnvironmentWithOptions($request, $runtime)
     {
@@ -5716,9 +6070,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnvironmentRequest $request
+     * @summary Queries the details of an environment.
+     *  *
+     * @param DescribeEnvironmentRequest $request DescribeEnvironmentRequest
      *
-     * @return DescribeEnvironmentResponse
+     * @return DescribeEnvironmentResponse DescribeEnvironmentResponse
      */
     public function describeEnvironment($request)
     {
@@ -5728,10 +6084,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnvironmentFeatureRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the details of a feature.
+     *  *
+     * @param DescribeEnvironmentFeatureRequest $request DescribeEnvironmentFeatureRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnvironmentFeatureResponse
+     * @return DescribeEnvironmentFeatureResponse DescribeEnvironmentFeatureResponse
      */
     public function describeEnvironmentFeatureWithOptions($request, $runtime)
     {
@@ -5768,9 +6126,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnvironmentFeatureRequest $request
+     * @summary Queries the details of a feature.
+     *  *
+     * @param DescribeEnvironmentFeatureRequest $request DescribeEnvironmentFeatureRequest
      *
-     * @return DescribeEnvironmentFeatureResponse
+     * @return DescribeEnvironmentFeatureResponse DescribeEnvironmentFeatureResponse
      */
     public function describeEnvironmentFeature($request)
     {
@@ -5780,10 +6140,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeIMRobotsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries a list of IM chatbots.
+     *  *
+     * @param DescribeIMRobotsRequest $request DescribeIMRobotsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIMRobotsResponse
+     * @return DescribeIMRobotsResponse DescribeIMRobotsResponse
      */
     public function describeIMRobotsWithOptions($request, $runtime)
     {
@@ -5820,9 +6182,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeIMRobotsRequest $request
+     * @summary Queries a list of IM chatbots.
+     *  *
+     * @param DescribeIMRobotsRequest $request DescribeIMRobotsRequest
      *
-     * @return DescribeIMRobotsResponse
+     * @return DescribeIMRobotsResponse DescribeIMRobotsResponse
      */
     public function describeIMRobots($request)
     {
@@ -5832,10 +6196,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribePrometheusAlertRuleRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the details about an alert rule of Prometheus Service.
+     *  *
+     * @param DescribePrometheusAlertRuleRequest $request DescribePrometheusAlertRuleRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePrometheusAlertRuleResponse
+     * @return DescribePrometheusAlertRuleResponse DescribePrometheusAlertRuleResponse
      */
     public function describePrometheusAlertRuleWithOptions($request, $runtime)
     {
@@ -5866,9 +6232,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribePrometheusAlertRuleRequest $request
+     * @summary Queries the details about an alert rule of Prometheus Service.
+     *  *
+     * @param DescribePrometheusAlertRuleRequest $request DescribePrometheusAlertRuleRequest
      *
-     * @return DescribePrometheusAlertRuleResponse
+     * @return DescribePrometheusAlertRuleResponse DescribePrometheusAlertRuleResponse
      */
     public function describePrometheusAlertRule($request)
     {
@@ -5878,10 +6246,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeTraceLicenseKeyRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeTraceLicenseKeyRequest $request DescribeTraceLicenseKeyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTraceLicenseKeyResponse
+     * @return DescribeTraceLicenseKeyResponse DescribeTraceLicenseKeyResponse
      */
     public function describeTraceLicenseKeyWithOptions($request, $runtime)
     {
@@ -5909,9 +6277,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeTraceLicenseKeyRequest $request
+     * @param DescribeTraceLicenseKeyRequest $request DescribeTraceLicenseKeyRequest
      *
-     * @return DescribeTraceLicenseKeyResponse
+     * @return DescribeTraceLicenseKeyResponse DescribeTraceLicenseKeyResponse
      */
     public function describeTraceLicenseKey($request)
     {
@@ -5921,10 +6289,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebhookContactsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the list of webhook alert contacts.
+     *  *
+     * @param DescribeWebhookContactsRequest $request DescribeWebhookContactsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebhookContactsResponse
+     * @return DescribeWebhookContactsResponse DescribeWebhookContactsResponse
      */
     public function describeWebhookContactsWithOptions($request, $runtime)
     {
@@ -5949,9 +6319,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DescribeWebhookContactsRequest $request
+     * @summary Queries the list of webhook alert contacts.
+     *  *
+     * @param DescribeWebhookContactsRequest $request DescribeWebhookContactsRequest
      *
-     * @return DescribeWebhookContactsResponse
+     * @return DescribeWebhookContactsResponse DescribeWebhookContactsResponse
      */
     public function describeWebhookContacts($request)
     {
@@ -5961,10 +6333,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param EnableMetricRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 开启指标
+     *  *
+     * @param EnableMetricRequest $request EnableMetricRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableMetricResponse
+     * @return EnableMetricResponse EnableMetricResponse
      */
     public function enableMetricWithOptions($request, $runtime)
     {
@@ -5998,9 +6372,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param EnableMetricRequest $request
+     * @summary 开启指标
+     *  *
+     * @param EnableMetricRequest $request EnableMetricRequest
      *
-     * @return EnableMetricResponse
+     * @return EnableMetricResponse EnableMetricResponse
      */
     public function enableMetric($request)
     {
@@ -6010,10 +6386,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetAgentDownloadUrlRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
+     *  *
+     * @param GetAgentDownloadUrlRequest $request GetAgentDownloadUrlRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAgentDownloadUrlResponse
+     * @return GetAgentDownloadUrlResponse GetAgentDownloadUrlResponse
      */
     public function getAgentDownloadUrlWithOptions($request, $runtime)
     {
@@ -6038,9 +6416,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetAgentDownloadUrlRequest $request
+     * @summary Obtains the download URL of the Application Real-Time Monitoring Service (ARMS) agent.
+     *  *
+     * @param GetAgentDownloadUrlRequest $request GetAgentDownloadUrlRequest
      *
-     * @return GetAgentDownloadUrlResponse
+     * @return GetAgentDownloadUrlResponse GetAgentDownloadUrlResponse
      */
     public function getAgentDownloadUrl($request)
     {
@@ -6050,10 +6430,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetAlertRulesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries alert rules.
+     *  *
+     * @param GetAlertRulesRequest $request GetAlertRulesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAlertRulesResponse
+     * @return GetAlertRulesResponse GetAlertRulesResponse
      */
     public function getAlertRulesWithOptions($request, $runtime)
     {
@@ -6108,9 +6490,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetAlertRulesRequest $request
+     * @summary Queries alert rules.
+     *  *
+     * @param GetAlertRulesRequest $request GetAlertRulesRequest
      *
-     * @return GetAlertRulesResponse
+     * @return GetAlertRulesResponse GetAlertRulesResponse
      */
     public function getAlertRules($request)
     {
@@ -6120,10 +6504,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetAppApiByPageRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the API operations of application monitoring by page.
+     *  *
+     * @param GetAppApiByPageRequest $request GetAppApiByPageRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAppApiByPageResponse
+     * @return GetAppApiByPageResponse GetAppApiByPageResponse
      */
     public function getAppApiByPageWithOptions($request, $runtime)
     {
@@ -6169,9 +6555,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetAppApiByPageRequest $request
+     * @summary Queries the API operations of application monitoring by page.
+     *  *
+     * @param GetAppApiByPageRequest $request GetAppApiByPageRequest
      *
-     * @return GetAppApiByPageResponse
+     * @return GetAppApiByPageResponse GetAppApiByPageResponse
      */
     public function getAppApiByPage($request)
     {
@@ -6181,10 +6569,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetAppJVMConfigRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 应用各个实例的JVM配置信息
+     *  *
+     * @param GetAppJVMConfigRequest $request GetAppJVMConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAppJVMConfigResponse
+     * @return GetAppJVMConfigResponse GetAppJVMConfigResponse
      */
     public function getAppJVMConfigWithOptions($request, $runtime)
     {
@@ -6209,9 +6599,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetAppJVMConfigRequest $request
+     * @summary 应用各个实例的JVM配置信息
+     *  *
+     * @param GetAppJVMConfigRequest $request GetAppJVMConfigRequest
      *
-     * @return GetAppJVMConfigResponse
+     * @return GetAppJVMConfigResponse GetAppJVMConfigResponse
      */
     public function getAppJVMConfig($request)
     {
@@ -6221,10 +6613,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetAuthTokenRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Obtains the authentication token for remote read and write over the Internet.
+     *  *
+     * @param GetAuthTokenRequest $request GetAuthTokenRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAuthTokenResponse
+     * @return GetAuthTokenResponse GetAuthTokenResponse
      */
     public function getAuthTokenWithOptions($request, $runtime)
     {
@@ -6255,9 +6649,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetAuthTokenRequest $request
+     * @summary Obtains the authentication token for remote read and write over the Internet.
+     *  *
+     * @param GetAuthTokenRequest $request GetAuthTokenRequest
      *
-     * @return GetAuthTokenResponse
+     * @return GetAuthTokenResponse GetAuthTokenResponse
      */
     public function getAuthToken($request)
     {
@@ -6267,8 +6663,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead.
-     *   *
+     * @deprecated openAPI GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead
+     *  *
+     * @summary Queries the read and write URLs of a CloudMonitor instance, such as Pushgateway and Grafana URLs.
+     *  *
      * Deprecated
      *
      * @param GetCloudClusterAllUrlRequest $request GetCloudClusterAllUrlRequest
@@ -6305,8 +6703,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead.
-     *   *
+     * @deprecated openAPI GetCloudClusterAllUrl is deprecated, please use ARMS::2019-08-08::GetRemoteWriteUrl instead
+     *  *
+     * @summary Queries the read and write URLs of a CloudMonitor instance, such as Pushgateway and Grafana URLs.
+     *  *
      * Deprecated
      *
      * @param GetCloudClusterAllUrlRequest $request GetCloudClusterAllUrlRequest
@@ -6321,10 +6721,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetClusterAllUrlRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
+     *  *
+     * @param GetClusterAllUrlRequest $request GetClusterAllUrlRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetClusterAllUrlResponse
+     * @return GetClusterAllUrlResponse GetClusterAllUrlResponse
      */
     public function getClusterAllUrlWithOptions($request, $runtime)
     {
@@ -6355,9 +6757,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetClusterAllUrlRequest $request
+     * @summary Obtains all the URLs of a cluster, including remote read and write URLs, Pushgateway URLs, and Grafana URLs.
+     *  *
+     * @param GetClusterAllUrlRequest $request GetClusterAllUrlRequest
      *
-     * @return GetClusterAllUrlResponse
+     * @return GetClusterAllUrlResponse GetClusterAllUrlResponse
      */
     public function getClusterAllUrl($request)
     {
@@ -6367,10 +6771,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetCommercialStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 获取商业化状态
+     *  *
+     * @param GetCommercialStatusRequest $request GetCommercialStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCommercialStatusResponse
+     * @return GetCommercialStatusResponse GetCommercialStatusResponse
      */
     public function getCommercialStatusWithOptions($request, $runtime)
     {
@@ -6401,9 +6807,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetCommercialStatusRequest $request
+     * @summary 获取商业化状态
+     *  *
+     * @param GetCommercialStatusRequest $request GetCommercialStatusRequest
      *
-     * @return GetCommercialStatusResponse
+     * @return GetCommercialStatusResponse GetCommercialStatusResponse
      */
     public function getCommercialStatus($request)
     {
@@ -6413,10 +6821,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetExploreUrlRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Enables the Explore feature of Grafana.
+     *  *
+     * @param GetExploreUrlRequest $request GetExploreUrlRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetExploreUrlResponse
+     * @return GetExploreUrlResponse GetExploreUrlResponse
      */
     public function getExploreUrlWithOptions($request, $runtime)
     {
@@ -6453,9 +6863,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetExploreUrlRequest $request
+     * @summary Enables the Explore feature of Grafana.
+     *  *
+     * @param GetExploreUrlRequest $request GetExploreUrlRequest
      *
-     * @return GetExploreUrlResponse
+     * @return GetExploreUrlResponse GetExploreUrlResponse
      */
     public function getExploreUrl($request)
     {
@@ -6465,10 +6877,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetGrafanaWorkspaceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 获取指定工作区
+     *  *
+     * @param GetGrafanaWorkspaceRequest $request GetGrafanaWorkspaceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGrafanaWorkspaceResponse
+     * @return GetGrafanaWorkspaceResponse GetGrafanaWorkspaceResponse
      */
     public function getGrafanaWorkspaceWithOptions($request, $runtime)
     {
@@ -6502,9 +6916,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetGrafanaWorkspaceRequest $request
+     * @summary 获取指定工作区
+     *  *
+     * @param GetGrafanaWorkspaceRequest $request GetGrafanaWorkspaceRequest
      *
-     * @return GetGrafanaWorkspaceResponse
+     * @return GetGrafanaWorkspaceResponse GetGrafanaWorkspaceResponse
      */
     public function getGrafanaWorkspace($request)
     {
@@ -6514,8 +6930,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
-     *   *
+     * @deprecated openAPI GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead
+     *  *
+     * @summary 获取Prometheus中是否已接入某种Integration类型
+     *  *
      * Deprecated
      *
      * @param GetIntegrationStateRequest $request GetIntegrationStateRequest
@@ -6555,8 +6973,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead.
-     *   *
+     * @deprecated openAPI GetIntegrationState is deprecated, please use ARMS::2019-08-08::DescribeAddonRelease instead
+     *  *
+     * @summary 获取Prometheus中是否已接入某种Integration类型
+     *  *
      * Deprecated
      *
      * @param GetIntegrationStateRequest $request GetIntegrationStateRequest
@@ -6571,10 +6991,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetManagedPrometheusStatusRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the status of a Prometheus instance of a serverless Kubernetes (ASK) cluster or Elastic Compute Service (ECS) instance.
+     *  *
+     * @param GetManagedPrometheusStatusRequest $request GetManagedPrometheusStatusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetManagedPrometheusStatusResponse
+     * @return GetManagedPrometheusStatusResponse GetManagedPrometheusStatusResponse
      */
     public function getManagedPrometheusStatusWithOptions($request, $runtime)
     {
@@ -6614,9 +7036,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetManagedPrometheusStatusRequest $request
+     * @summary Queries the status of a Prometheus instance of a serverless Kubernetes (ASK) cluster or Elastic Compute Service (ECS) instance.
+     *  *
+     * @param GetManagedPrometheusStatusRequest $request GetManagedPrometheusStatusRequest
      *
-     * @return GetManagedPrometheusStatusResponse
+     * @return GetManagedPrometheusStatusResponse GetManagedPrometheusStatusResponse
      */
     public function getManagedPrometheusStatus($request)
     {
@@ -6626,10 +7050,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetMultipleTraceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the details of one or more traces.
+     *  *
+     * @param GetMultipleTraceRequest $request GetMultipleTraceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMultipleTraceResponse
+     * @return GetMultipleTraceResponse GetMultipleTraceResponse
      */
     public function getMultipleTraceWithOptions($request, $runtime)
     {
@@ -6666,9 +7092,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetMultipleTraceRequest $request
+     * @summary Queries the details of one or more traces.
+     *  *
+     * @param GetMultipleTraceRequest $request GetMultipleTraceRequest
      *
-     * @return GetMultipleTraceResponse
+     * @return GetMultipleTraceResponse GetMultipleTraceResponse
      */
     public function getMultipleTrace($request)
     {
@@ -6678,10 +7106,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetOnCallSchedulesDetailRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the information about a scheduling policy.
+     *  *
+     * @param GetOnCallSchedulesDetailRequest $request GetOnCallSchedulesDetailRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOnCallSchedulesDetailResponse
+     * @return GetOnCallSchedulesDetailResponse GetOnCallSchedulesDetailResponse
      */
     public function getOnCallSchedulesDetailWithOptions($request, $runtime)
     {
@@ -6706,9 +7136,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetOnCallSchedulesDetailRequest $request
+     * @summary Queries the information about a scheduling policy.
+     *  *
+     * @param GetOnCallSchedulesDetailRequest $request GetOnCallSchedulesDetailRequest
      *
-     * @return GetOnCallSchedulesDetailResponse
+     * @return GetOnCallSchedulesDetailResponse GetOnCallSchedulesDetailResponse
      */
     public function getOnCallSchedulesDetail($request)
     {
@@ -6718,8 +7150,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * None.
-     *   *
+     * @summary Queries the token required for integrating Prometheus Service.
+     *  *
+     * @description None.
+     *  *
      * @param GetPrometheusApiTokenRequest $request GetPrometheusApiTokenRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -6751,8 +7185,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * None.
-     *   *
+     * @summary Queries the token required for integrating Prometheus Service.
+     *  *
+     * @description None.
+     *  *
      * @param GetPrometheusApiTokenRequest $request GetPrometheusApiTokenRequest
      *
      * @return GetPrometheusApiTokenResponse GetPrometheusApiTokenResponse
@@ -6765,10 +7201,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusGlobalViewRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about a global aggregation instance.
+     *  *
+     * @param GetPrometheusGlobalViewRequest $request GetPrometheusGlobalViewRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPrometheusGlobalViewResponse
+     * @return GetPrometheusGlobalViewResponse GetPrometheusGlobalViewResponse
      */
     public function getPrometheusGlobalViewWithOptions($request, $runtime)
     {
@@ -6799,9 +7237,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusGlobalViewRequest $request
+     * @summary Queries the information about a global aggregation instance.
+     *  *
+     * @param GetPrometheusGlobalViewRequest $request GetPrometheusGlobalViewRequest
      *
-     * @return GetPrometheusGlobalViewResponse
+     * @return GetPrometheusGlobalViewResponse GetPrometheusGlobalViewResponse
      */
     public function getPrometheusGlobalView($request)
     {
@@ -6811,10 +7251,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusInstanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the information about a Prometheus instance.
+     *  *
+     * @param GetPrometheusInstanceRequest $request GetPrometheusInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPrometheusInstanceResponse
+     * @return GetPrometheusInstanceResponse GetPrometheusInstanceResponse
      */
     public function getPrometheusInstanceWithOptions($request, $runtime)
     {
@@ -6845,9 +7287,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusInstanceRequest $request
+     * @summary Queries the information about a Prometheus instance.
+     *  *
+     * @param GetPrometheusInstanceRequest $request GetPrometheusInstanceRequest
      *
-     * @return GetPrometheusInstanceResponse
+     * @return GetPrometheusInstanceResponse GetPrometheusInstanceResponse
      */
     public function getPrometheusInstance($request)
     {
@@ -6857,10 +7301,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusIntegrationRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the information about an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param GetPrometheusIntegrationRequest $request GetPrometheusIntegrationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPrometheusIntegrationResponse
+     * @return GetPrometheusIntegrationResponse GetPrometheusIntegrationResponse
      */
     public function getPrometheusIntegrationWithOptions($request, $runtime)
     {
@@ -6897,9 +7343,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusIntegrationRequest $request
+     * @summary Queries the information about an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param GetPrometheusIntegrationRequest $request GetPrometheusIntegrationRequest
      *
-     * @return GetPrometheusIntegrationResponse
+     * @return GetPrometheusIntegrationResponse GetPrometheusIntegrationResponse
      */
     public function getPrometheusIntegration($request)
     {
@@ -6909,10 +7357,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusMonitoringRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the monitoring configuration of a Prometheus instance.
+     *  *
+     * @param GetPrometheusMonitoringRequest $request GetPrometheusMonitoringRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPrometheusMonitoringResponse
+     * @return GetPrometheusMonitoringResponse GetPrometheusMonitoringResponse
      */
     public function getPrometheusMonitoringWithOptions($request, $runtime)
     {
@@ -6949,9 +7399,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusMonitoringRequest $request
+     * @summary Queries the monitoring configuration of a Prometheus instance.
+     *  *
+     * @param GetPrometheusMonitoringRequest $request GetPrometheusMonitoringRequest
      *
-     * @return GetPrometheusMonitoringResponse
+     * @return GetPrometheusMonitoringResponse GetPrometheusMonitoringResponse
      */
     public function getPrometheusMonitoring($request)
     {
@@ -6961,10 +7413,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusRemoteWriteRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param GetPrometheusRemoteWriteRequest $request GetPrometheusRemoteWriteRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPrometheusRemoteWriteResponse
+     * @return GetPrometheusRemoteWriteResponse GetPrometheusRemoteWriteResponse
      */
     public function getPrometheusRemoteWriteWithOptions($request, $runtime)
     {
@@ -6998,9 +7452,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusRemoteWriteRequest $request
+     * @summary Queries a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param GetPrometheusRemoteWriteRequest $request GetPrometheusRemoteWriteRequest
      *
-     * @return GetPrometheusRemoteWriteResponse
+     * @return GetPrometheusRemoteWriteResponse GetPrometheusRemoteWriteResponse
      */
     public function getPrometheusRemoteWrite($request)
     {
@@ -7010,10 +7466,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRecordingRuleRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Obtains the recording rule of a cluster.
+     *  *
+     * @param GetRecordingRuleRequest $request GetRecordingRuleRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRecordingRuleResponse
+     * @return GetRecordingRuleResponse GetRecordingRuleResponse
      */
     public function getRecordingRuleWithOptions($request, $runtime)
     {
@@ -7044,9 +7502,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRecordingRuleRequest $request
+     * @summary Obtains the recording rule of a cluster.
+     *  *
+     * @param GetRecordingRuleRequest $request GetRecordingRuleRequest
      *
-     * @return GetRecordingRuleResponse
+     * @return GetRecordingRuleResponse GetRecordingRuleResponse
      */
     public function getRecordingRule($request)
     {
@@ -7056,10 +7516,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRetcodeAppByPidRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the objects of a Browser Monitoring application by process identifier (PID).
+     *  *
+     * @param GetRetcodeAppByPidRequest $request GetRetcodeAppByPidRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRetcodeAppByPidResponse
+     * @return GetRetcodeAppByPidResponse GetRetcodeAppByPidResponse
      */
     public function getRetcodeAppByPidWithOptions($request, $runtime)
     {
@@ -7084,9 +7546,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRetcodeAppByPidRequest $request
+     * @summary Queries the objects of a Browser Monitoring application by process identifier (PID).
+     *  *
+     * @param GetRetcodeAppByPidRequest $request GetRetcodeAppByPidRequest
      *
-     * @return GetRetcodeAppByPidResponse
+     * @return GetRetcodeAppByPidResponse GetRetcodeAppByPidResponse
      */
     public function getRetcodeAppByPid($request)
     {
@@ -7096,10 +7560,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRetcodeDataByQueryRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 传入SLS查询语句，查询出前端监控数据
+     *  *
+     * @param GetRetcodeDataByQueryRequest $request GetRetcodeDataByQueryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRetcodeDataByQueryResponse
+     * @return GetRetcodeDataByQueryResponse GetRetcodeDataByQueryResponse
      */
     public function getRetcodeDataByQueryWithOptions($request, $runtime)
     {
@@ -7139,9 +7605,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRetcodeDataByQueryRequest $request
+     * @summary 传入SLS查询语句，查询出前端监控数据
+     *  *
+     * @param GetRetcodeDataByQueryRequest $request GetRetcodeDataByQueryRequest
      *
-     * @return GetRetcodeDataByQueryResponse
+     * @return GetRetcodeDataByQueryResponse GetRetcodeDataByQueryResponse
      */
     public function getRetcodeDataByQuery($request)
     {
@@ -7151,10 +7619,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRetcodeLogstoreRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 获取前端监控应用SLS存储的详细信息
+     *  *
+     * @param GetRetcodeLogstoreRequest $request GetRetcodeLogstoreRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRetcodeLogstoreResponse
+     * @return GetRetcodeLogstoreResponse GetRetcodeLogstoreResponse
      */
     public function getRetcodeLogstoreWithOptions($request, $runtime)
     {
@@ -7185,9 +7655,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRetcodeLogstoreRequest $request
+     * @summary 获取前端监控应用SLS存储的详细信息
+     *  *
+     * @param GetRetcodeLogstoreRequest $request GetRetcodeLogstoreRequest
      *
-     * @return GetRetcodeLogstoreResponse
+     * @return GetRetcodeLogstoreResponse GetRetcodeLogstoreResponse
      */
     public function getRetcodeLogstore($request)
     {
@@ -7197,10 +7669,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRetcodeShareUrlRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the logon-free URL of a Browser Monitoring application.
+     *  *
+     * @param GetRetcodeShareUrlRequest $request GetRetcodeShareUrlRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRetcodeShareUrlResponse
+     * @return GetRetcodeShareUrlResponse GetRetcodeShareUrlResponse
      */
     public function getRetcodeShareUrlWithOptions($request, $runtime)
     {
@@ -7228,9 +7702,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRetcodeShareUrlRequest $request
+     * @summary Queries the logon-free URL of a Browser Monitoring application.
+     *  *
+     * @param GetRetcodeShareUrlRequest $request GetRetcodeShareUrlRequest
      *
-     * @return GetRetcodeShareUrlResponse
+     * @return GetRetcodeShareUrlResponse GetRetcodeShareUrlResponse
      */
     public function getRetcodeShareUrl($request)
     {
@@ -7240,10 +7716,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRumAppInfoRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 获取前端监控单个应用信息
+     *  *
+     * @param GetRumAppInfoRequest $request GetRumAppInfoRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRumAppInfoResponse
+     * @return GetRumAppInfoResponse GetRumAppInfoResponse
      */
     public function getRumAppInfoWithOptions($request, $runtime)
     {
@@ -7277,9 +7755,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRumAppInfoRequest $request
+     * @summary 获取前端监控单个应用信息
+     *  *
+     * @param GetRumAppInfoRequest $request GetRumAppInfoRequest
      *
-     * @return GetRumAppInfoResponse
+     * @return GetRumAppInfoResponse GetRumAppInfoResponse
      */
     public function getRumAppInfo($request)
     {
@@ -7289,10 +7769,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRumAppsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 获取前端监控应用列表信息
+     *  *
+     * @param GetRumAppsRequest $request GetRumAppsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRumAppsResponse
+     * @return GetRumAppsResponse GetRumAppsResponse
      */
     public function getRumAppsWithOptions($request, $runtime)
     {
@@ -7335,9 +7817,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRumAppsRequest $request
+     * @summary 获取前端监控应用列表信息
+     *  *
+     * @param GetRumAppsRequest $request GetRumAppsRequest
      *
-     * @return GetRumAppsResponse
+     * @return GetRumAppsResponse GetRumAppsResponse
      */
     public function getRumApps($request)
     {
@@ -7347,10 +7831,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRumDataForPageRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 获取前端监控应用sql查询分页结果
+     *  *
+     * @param GetRumDataForPageRequest $request GetRumDataForPageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRumDataForPageResponse
+     * @return GetRumDataForPageResponse GetRumDataForPageResponse
      */
     public function getRumDataForPageWithOptions($request, $runtime)
     {
@@ -7399,9 +7885,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRumDataForPageRequest $request
+     * @summary 获取前端监控应用sql查询分页结果
+     *  *
+     * @param GetRumDataForPageRequest $request GetRumDataForPageRequest
      *
-     * @return GetRumDataForPageResponse
+     * @return GetRumDataForPageResponse GetRumDataForPageResponse
      */
     public function getRumDataForPage($request)
     {
@@ -7411,10 +7899,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRumExceptionStackRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 获取RUM异常堆栈
+     *  *
+     * @param GetRumExceptionStackRequest $request GetRumExceptionStackRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRumExceptionStackResponse
+     * @return GetRumExceptionStackResponse GetRumExceptionStackResponse
      */
     public function getRumExceptionStackWithOptions($request, $runtime)
     {
@@ -7454,9 +7944,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRumExceptionStackRequest $request
+     * @summary 获取RUM异常堆栈
+     *  *
+     * @param GetRumExceptionStackRequest $request GetRumExceptionStackRequest
      *
-     * @return GetRumExceptionStackResponse
+     * @return GetRumExceptionStackResponse GetRumExceptionStackResponse
      */
     public function getRumExceptionStack($request)
     {
@@ -7466,10 +7958,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRumUploadFilesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 获取前端监控在oss中文件
+     *  *
+     * @param GetRumUploadFilesRequest $request GetRumUploadFilesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRumUploadFilesResponse
+     * @return GetRumUploadFilesResponse GetRumUploadFilesResponse
      */
     public function getRumUploadFilesWithOptions($request, $runtime)
     {
@@ -7503,9 +7997,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetRumUploadFilesRequest $request
+     * @summary 获取前端监控在oss中文件
+     *  *
+     * @param GetRumUploadFilesRequest $request GetRumUploadFilesRequest
      *
-     * @return GetRumUploadFilesResponse
+     * @return GetRumUploadFilesResponse GetRumUploadFilesResponse
      */
     public function getRumUploadFiles($request)
     {
@@ -7515,10 +8011,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetSourceMapInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 获取前端监控上传SourceMap的具体信息
+     *  *
+     * @param GetSourceMapInfoRequest $request GetSourceMapInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSourceMapInfoResponse
+     * @return GetSourceMapInfoResponse GetSourceMapInfoResponse
      */
     public function getSourceMapInfoWithOptions($request, $runtime)
     {
@@ -7561,9 +8059,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetSourceMapInfoRequest $request
+     * @summary 获取前端监控上传SourceMap的具体信息
+     *  *
+     * @param GetSourceMapInfoRequest $request GetSourceMapInfoRequest
      *
-     * @return GetSourceMapInfoResponse
+     * @return GetSourceMapInfoResponse GetSourceMapInfoResponse
      */
     public function getSourceMapInfo($request)
     {
@@ -7573,10 +8073,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetStackRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary Queries the information of a method stack.
+     *  *
+     * @param GetStackRequest $request GetStackRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetStackResponse
+     * @return GetStackResponse GetStackResponse
      */
     public function getStackWithOptions($request, $runtime)
     {
@@ -7619,9 +8121,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetStackRequest $request
+     * @summary Queries the information of a method stack.
+     *  *
+     * @param GetStackRequest $request GetStackRequest
      *
-     * @return GetStackResponse
+     * @return GetStackResponse GetStackResponse
      */
     public function getStack($request)
     {
@@ -7631,10 +8135,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetSyntheticMonitorsRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary Obtains detection points.
+     *  *
+     * @param GetSyntheticMonitorsRequest $tmpReq  GetSyntheticMonitorsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSyntheticMonitorsResponse
+     * @return GetSyntheticMonitorsResponse GetSyntheticMonitorsResponse
      */
     public function getSyntheticMonitorsWithOptions($tmpReq, $runtime)
     {
@@ -7664,9 +8170,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetSyntheticMonitorsRequest $request
+     * @summary Obtains detection points.
+     *  *
+     * @param GetSyntheticMonitorsRequest $request GetSyntheticMonitorsRequest
      *
-     * @return GetSyntheticMonitorsResponse
+     * @return GetSyntheticMonitorsResponse GetSyntheticMonitorsResponse
      */
     public function getSyntheticMonitors($request)
     {
@@ -7676,10 +8184,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetSyntheticTaskDetailRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 获取单个拨测任务的详情
+     *  *
+     * @param GetSyntheticTaskDetailRequest $request GetSyntheticTaskDetailRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSyntheticTaskDetailResponse
+     * @return GetSyntheticTaskDetailResponse GetSyntheticTaskDetailResponse
      */
     public function getSyntheticTaskDetailWithOptions($request, $runtime)
     {
@@ -7710,9 +8220,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetSyntheticTaskDetailRequest $request
+     * @summary 获取单个拨测任务的详情
+     *  *
+     * @param GetSyntheticTaskDetailRequest $request GetSyntheticTaskDetailRequest
      *
-     * @return GetSyntheticTaskDetailResponse
+     * @return GetSyntheticTaskDetailResponse GetSyntheticTaskDetailResponse
      */
     public function getSyntheticTaskDetail($request)
     {
@@ -7722,10 +8234,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetSyntheticTaskListRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 获取拨测任务列表
+     *  *
+     * @param GetSyntheticTaskListRequest $request GetSyntheticTaskListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSyntheticTaskListResponse
+     * @return GetSyntheticTaskListResponse GetSyntheticTaskListResponse
      */
     public function getSyntheticTaskListWithOptions($request, $runtime)
     {
@@ -7777,9 +8291,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetSyntheticTaskListRequest $request
+     * @summary 获取拨测任务列表
+     *  *
+     * @param GetSyntheticTaskListRequest $request GetSyntheticTaskListRequest
      *
-     * @return GetSyntheticTaskListResponse
+     * @return GetSyntheticTaskListResponse GetSyntheticTaskListResponse
      */
     public function getSyntheticTaskList($request)
     {
@@ -7789,10 +8305,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetSyntheticTaskMonitorsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取拨测任务的监测点信息
+     *  *
+     * @param GetSyntheticTaskMonitorsRequest $request GetSyntheticTaskMonitorsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSyntheticTaskMonitorsResponse
+     * @return GetSyntheticTaskMonitorsResponse GetSyntheticTaskMonitorsResponse
      */
     public function getSyntheticTaskMonitorsWithOptions($request, $runtime)
     {
@@ -7820,9 +8338,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetSyntheticTaskMonitorsRequest $request
+     * @summary 获取拨测任务的监测点信息
+     *  *
+     * @param GetSyntheticTaskMonitorsRequest $request GetSyntheticTaskMonitorsRequest
      *
-     * @return GetSyntheticTaskMonitorsResponse
+     * @return GetSyntheticTaskMonitorsResponse GetSyntheticTaskMonitorsResponse
      */
     public function getSyntheticTaskMonitors($request)
     {
@@ -7832,10 +8352,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetTimingSyntheticTaskRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Obtains the details of a synthetic monitoring task.
+     *  *
+     * @param GetTimingSyntheticTaskRequest $request GetTimingSyntheticTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTimingSyntheticTaskResponse
+     * @return GetTimingSyntheticTaskResponse GetTimingSyntheticTaskResponse
      */
     public function getTimingSyntheticTaskWithOptions($request, $runtime)
     {
@@ -7860,9 +8382,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetTimingSyntheticTaskRequest $request
+     * @summary Obtains the details of a synthetic monitoring task.
+     *  *
+     * @param GetTimingSyntheticTaskRequest $request GetTimingSyntheticTaskRequest
      *
-     * @return GetTimingSyntheticTaskResponse
+     * @return GetTimingSyntheticTaskResponse GetTimingSyntheticTaskResponse
      */
     public function getTimingSyntheticTask($request)
     {
@@ -7872,8 +8396,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
-     *   *
+     * @summary Queries the details of a trace.
+     *  *
+     * @description > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
+     *  *
      * @param GetTraceRequest $request GetTraceRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
@@ -7914,8 +8440,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
-     *   *
+     * @summary Queries the details of a trace.
+     *  *
+     * @description > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
+     *  *
      * @param GetTraceRequest $request GetTraceRequest
      *
      * @return GetTraceResponse GetTraceResponse
@@ -7928,10 +8456,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetTraceAppRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the details of an application monitoring task.
+     *  *
+     * @param GetTraceAppRequest $request GetTraceAppRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTraceAppResponse
+     * @return GetTraceAppResponse GetTraceAppResponse
      */
     public function getTraceAppWithOptions($request, $runtime)
     {
@@ -7965,9 +8495,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetTraceAppRequest $request
+     * @summary Queries the details of an application monitoring task.
+     *  *
+     * @param GetTraceAppRequest $request GetTraceAppRequest
      *
-     * @return GetTraceAppResponse
+     * @return GetTraceAppResponse GetTraceAppResponse
      */
     public function getTraceApp($request)
     {
@@ -7977,8 +8509,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
-     *   *
+     * @summary Creates an alert rule based on an alert template.
+     *  *
+     * @description >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
+     *  *
      * @param ImportAppAlertRulesRequest $request ImportAppAlertRulesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -8028,8 +8562,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
-     *   *
+     * @summary Creates an alert rule based on an alert template.
+     *  *
+     * @description >  You can call the **ImportAppAlertRules** operation to import only the alert rules that are generated by Application Real-Time Monitoring Service (ARMS) for application monitoring and browser monitoring. This operation cannot be used to import custom alert rules, alert rules for Prometheus monitoring, or default emergency alert rules.
+     *  *
      * @param ImportAppAlertRulesRequest $request ImportAppAlertRulesRequest
      *
      * @return ImportAppAlertRulesResponse ImportAppAlertRulesResponse
@@ -8042,10 +8578,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param InitEnvironmentRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Initializes an environment instance.
+     *  *
+     * @param InitEnvironmentRequest $request InitEnvironmentRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return InitEnvironmentResponse
+     * @return InitEnvironmentResponse InitEnvironmentResponse
      */
     public function initEnvironmentWithOptions($request, $runtime)
     {
@@ -8085,9 +8623,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param InitEnvironmentRequest $request
+     * @summary Initializes an environment instance.
+     *  *
+     * @param InitEnvironmentRequest $request InitEnvironmentRequest
      *
-     * @return InitEnvironmentResponse
+     * @return InitEnvironmentResponse InitEnvironmentResponse
      */
     public function initEnvironment($request)
     {
@@ -8097,10 +8637,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param InstallAddonRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Installs an add-on.
+     *  *
+     * @param InstallAddonRequest $request InstallAddonRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallAddonResponse
+     * @return InstallAddonResponse InstallAddonResponse
      */
     public function installAddonWithOptions($request, $runtime)
     {
@@ -8149,9 +8691,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param InstallAddonRequest $request
+     * @summary Installs an add-on.
+     *  *
+     * @param InstallAddonRequest $request InstallAddonRequest
      *
-     * @return InstallAddonResponse
+     * @return InstallAddonResponse InstallAddonResponse
      */
     public function installAddon($request)
     {
@@ -8161,8 +8705,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
-     *   *
+     * @deprecated openAPI InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead
+     *  *
+     * @summary Installs the cms-exporter collector.
+     *  *
      * Deprecated
      *
      * @param InstallCmsExporterRequest $request InstallCmsExporterRequest
@@ -8208,8 +8754,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead.
-     *   *
+     * @deprecated openAPI InstallCmsExporter is deprecated, please use ARMS::2019-08-08::InstallAddon instead
+     *  *
+     * @summary Installs the cms-exporter collector.
+     *  *
      * Deprecated
      *
      * @param InstallCmsExporterRequest $request InstallCmsExporterRequest
@@ -8224,10 +8772,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param InstallEnvironmentFeatureRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Installs a feature.
+     *  *
+     * @param InstallEnvironmentFeatureRequest $request InstallEnvironmentFeatureRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallEnvironmentFeatureResponse
+     * @return InstallEnvironmentFeatureResponse InstallEnvironmentFeatureResponse
      */
     public function installEnvironmentFeatureWithOptions($request, $runtime)
     {
@@ -8273,9 +8823,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param InstallEnvironmentFeatureRequest $request
+     * @summary Installs a feature.
+     *  *
+     * @param InstallEnvironmentFeatureRequest $request InstallEnvironmentFeatureRequest
      *
-     * @return InstallEnvironmentFeatureResponse
+     * @return InstallEnvironmentFeatureResponse InstallEnvironmentFeatureResponse
      */
     public function installEnvironmentFeature($request)
     {
@@ -8285,8 +8837,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
-     *   *
+     * @summary Creates a Prometheus instance to monitor a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+     *  *
+     * @description If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
+     *  *
      * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -8345,8 +8899,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
-     *   *
+     * @summary Creates a Prometheus instance to monitor a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+     *  *
+     * @description If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
+     *  *
      * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
      *
      * @return InstallManagedPrometheusResponse InstallManagedPrometheusResponse
@@ -8359,10 +8915,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListActivatedAlertsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the alerts that have been triggered.
+     *  *
+     * @param ListActivatedAlertsRequest $request ListActivatedAlertsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListActivatedAlertsResponse
+     * @return ListActivatedAlertsResponse ListActivatedAlertsResponse
      */
     public function listActivatedAlertsWithOptions($request, $runtime)
     {
@@ -8399,9 +8957,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListActivatedAlertsRequest $request
+     * @summary Queries the alerts that have been triggered.
+     *  *
+     * @param ListActivatedAlertsRequest $request ListActivatedAlertsRequest
      *
-     * @return ListActivatedAlertsResponse
+     * @return ListActivatedAlertsResponse ListActivatedAlertsResponse
      */
     public function listActivatedAlerts($request)
     {
@@ -8411,10 +8971,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListAddonReleasesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Query the Addons installed in the environment.
+     *  *
+     * @param ListAddonReleasesRequest $request ListAddonReleasesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAddonReleasesResponse
+     * @return ListAddonReleasesResponse ListAddonReleasesResponse
      */
     public function listAddonReleasesWithOptions($request, $runtime)
     {
@@ -8448,9 +9010,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListAddonReleasesRequest $request
+     * @summary Query the Addons installed in the environment.
+     *  *
+     * @param ListAddonReleasesRequest $request ListAddonReleasesRequest
      *
-     * @return ListAddonReleasesResponse
+     * @return ListAddonReleasesResponse ListAddonReleasesResponse
      */
     public function listAddonReleases($request)
     {
@@ -8460,10 +9024,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListAddonsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary List of access center products.
+     *  *
+     * @param ListAddonsRequest $request ListAddonsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAddonsResponse
+     * @return ListAddonsResponse ListAddonsResponse
      */
     public function listAddonsWithOptions($request, $runtime)
     {
@@ -8503,9 +9069,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListAddonsRequest $request
+     * @summary List of access center products.
+     *  *
+     * @param ListAddonsRequest $request ListAddonsRequest
      *
-     * @return ListAddonsResponse
+     * @return ListAddonsResponse ListAddonsResponse
      */
     public function listAddons($request)
     {
@@ -8515,10 +9083,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListAlertEventsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries historical alert events.
+     *  *
+     * @param ListAlertEventsRequest $request ListAlertEventsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAlertEventsResponse
+     * @return ListAlertEventsResponse ListAlertEventsResponse
      */
     public function listAlertEventsWithOptions($request, $runtime)
     {
@@ -8535,6 +9105,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->page)) {
             $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->showNotificationPolicies)) {
+            $query['ShowNotificationPolicies'] = $request->showNotificationPolicies;
         }
         if (!Utils::isUnset($request->size)) {
             $query['Size'] = $request->size;
@@ -8564,9 +9137,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListAlertEventsRequest $request
+     * @summary Queries historical alert events.
+     *  *
+     * @param ListAlertEventsRequest $request ListAlertEventsRequest
      *
-     * @return ListAlertEventsResponse
+     * @return ListAlertEventsResponse ListAlertEventsResponse
      */
     public function listAlertEvents($request)
     {
@@ -8576,10 +9151,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListAlertsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries the alert sending history.
+     *  *
+     * @param ListAlertsRequest $request ListAlertsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAlertsResponse
+     * @return ListAlertsResponse ListAlertsResponse
      */
     public function listAlertsWithOptions($request, $runtime)
     {
@@ -8640,9 +9217,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListAlertsRequest $request
+     * @summary Queries the alert sending history.
+     *  *
+     * @param ListAlertsRequest $request ListAlertsRequest
      *
-     * @return ListAlertsResponse
+     * @return ListAlertsResponse ListAlertsResponse
      */
     public function listAlerts($request)
     {
@@ -8652,10 +9231,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListClusterFromGrafanaRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries all Grafana dashboards in a specified region.
+     *  *
+     * @param ListClusterFromGrafanaRequest $request ListClusterFromGrafanaRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterFromGrafanaResponse
+     * @return ListClusterFromGrafanaResponse ListClusterFromGrafanaResponse
      */
     public function listClusterFromGrafanaWithOptions($request, $runtime)
     {
@@ -8683,9 +9264,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListClusterFromGrafanaRequest $request
+     * @summary Queries all Grafana dashboards in a specified region.
+     *  *
+     * @param ListClusterFromGrafanaRequest $request ListClusterFromGrafanaRequest
      *
-     * @return ListClusterFromGrafanaResponse
+     * @return ListClusterFromGrafanaResponse ListClusterFromGrafanaResponse
      */
     public function listClusterFromGrafana($request)
     {
@@ -8695,8 +9278,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead.
-     *   *
+     * @deprecated openAPI ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead
+     *  *
+     * @summary 查询Cms安装信息
+     *  *
      * Deprecated
      *
      * @param ListCmsInstancesRequest $request ListCmsInstancesRequest
@@ -8736,8 +9321,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @deprecated : ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead.
-     *   *
+     * @deprecated openAPI ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead
+     *  *
+     * @summary 查询Cms安装信息
+     *  *
      * Deprecated
      *
      * @param ListCmsInstancesRequest $request ListCmsInstancesRequest
@@ -8752,8 +9339,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * None.
-     *   *
+     * @summary Queries the Grafana dashboards of a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description None.
+     *  *
      * @param ListDashboardsRequest $request ListDashboardsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -8806,8 +9395,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * None.
-     *   *
+     * @summary Queries the Grafana dashboards of a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description None.
+     *  *
      * @param ListDashboardsRequest $request ListDashboardsRequest
      *
      * @return ListDashboardsResponse ListDashboardsResponse
@@ -8820,10 +9411,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListDashboardsByNameRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Uses Loki data sources and other data sources to create a dashboard in Prometheus Service.
+     *  *
+     * @param ListDashboardsByNameRequest $request ListDashboardsByNameRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDashboardsByNameResponse
+     * @return ListDashboardsByNameResponse ListDashboardsByNameResponse
      */
     public function listDashboardsByNameWithOptions($request, $runtime)
     {
@@ -8875,9 +9468,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListDashboardsByNameRequest $request
+     * @summary Uses Loki data sources and other data sources to create a dashboard in Prometheus Service.
+     *  *
+     * @param ListDashboardsByNameRequest $request ListDashboardsByNameRequest
      *
-     * @return ListDashboardsByNameResponse
+     * @return ListDashboardsByNameResponse ListDashboardsByNameResponse
      */
     public function listDashboardsByName($request)
     {
@@ -8887,10 +9482,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListDispatchRuleRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ListDispatchRuleRequest $request ListDispatchRuleRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDispatchRuleResponse
+     * @return ListDispatchRuleResponse ListDispatchRuleResponse
      */
     public function listDispatchRuleWithOptions($request, $runtime)
     {
@@ -8924,9 +9519,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListDispatchRuleRequest $request
+     * @param ListDispatchRuleRequest $request ListDispatchRuleRequest
      *
-     * @return ListDispatchRuleResponse
+     * @return ListDispatchRuleResponse ListDispatchRuleResponse
      */
     public function listDispatchRule($request)
     {
@@ -8936,10 +9531,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvCustomJobsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the custom jobs of an environment.
+     *  *
+     * @param ListEnvCustomJobsRequest $request ListEnvCustomJobsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEnvCustomJobsResponse
+     * @return ListEnvCustomJobsResponse ListEnvCustomJobsResponse
      */
     public function listEnvCustomJobsWithOptions($request, $runtime)
     {
@@ -8973,9 +9570,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvCustomJobsRequest $request
+     * @summary Queries the custom jobs of an environment.
+     *  *
+     * @param ListEnvCustomJobsRequest $request ListEnvCustomJobsRequest
      *
-     * @return ListEnvCustomJobsResponse
+     * @return ListEnvCustomJobsResponse ListEnvCustomJobsResponse
      */
     public function listEnvCustomJobs($request)
     {
@@ -8985,10 +9584,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvPodMonitorsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the PodMonitors of an environment.
+     *  *
+     * @param ListEnvPodMonitorsRequest $request ListEnvPodMonitorsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEnvPodMonitorsResponse
+     * @return ListEnvPodMonitorsResponse ListEnvPodMonitorsResponse
      */
     public function listEnvPodMonitorsWithOptions($request, $runtime)
     {
@@ -9019,9 +9620,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvPodMonitorsRequest $request
+     * @summary Queries the PodMonitors of an environment.
+     *  *
+     * @param ListEnvPodMonitorsRequest $request ListEnvPodMonitorsRequest
      *
-     * @return ListEnvPodMonitorsResponse
+     * @return ListEnvPodMonitorsResponse ListEnvPodMonitorsResponse
      */
     public function listEnvPodMonitors($request)
     {
@@ -9031,10 +9634,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvServiceMonitorsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the ServiceMonitors of an environment.
+     *  *
+     * @param ListEnvServiceMonitorsRequest $request ListEnvServiceMonitorsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEnvServiceMonitorsResponse
+     * @return ListEnvServiceMonitorsResponse ListEnvServiceMonitorsResponse
      */
     public function listEnvServiceMonitorsWithOptions($request, $runtime)
     {
@@ -9065,9 +9670,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvServiceMonitorsRequest $request
+     * @summary Queries the ServiceMonitors of an environment.
+     *  *
+     * @param ListEnvServiceMonitorsRequest $request ListEnvServiceMonitorsRequest
      *
-     * @return ListEnvServiceMonitorsResponse
+     * @return ListEnvServiceMonitorsResponse ListEnvServiceMonitorsResponse
      */
     public function listEnvServiceMonitors($request)
     {
@@ -9077,10 +9684,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvironmentDashboardsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries information about a dashboard of an environment instance.
+     *  *
+     * @param ListEnvironmentDashboardsRequest $request ListEnvironmentDashboardsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEnvironmentDashboardsResponse
+     * @return ListEnvironmentDashboardsResponse ListEnvironmentDashboardsResponse
      */
     public function listEnvironmentDashboardsWithOptions($request, $runtime)
     {
@@ -9117,9 +9726,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvironmentDashboardsRequest $request
+     * @summary Queries information about a dashboard of an environment instance.
+     *  *
+     * @param ListEnvironmentDashboardsRequest $request ListEnvironmentDashboardsRequest
      *
-     * @return ListEnvironmentDashboardsResponse
+     * @return ListEnvironmentDashboardsResponse ListEnvironmentDashboardsResponse
      */
     public function listEnvironmentDashboards($request)
     {
@@ -9129,10 +9740,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvironmentFeaturesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 环境的feature列表
+     *  *
+     * @param ListEnvironmentFeaturesRequest $request ListEnvironmentFeaturesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEnvironmentFeaturesResponse
+     * @return ListEnvironmentFeaturesResponse ListEnvironmentFeaturesResponse
      */
     public function listEnvironmentFeaturesWithOptions($request, $runtime)
     {
@@ -9163,9 +9776,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvironmentFeaturesRequest $request
+     * @summary 环境的feature列表
+     *  *
+     * @param ListEnvironmentFeaturesRequest $request ListEnvironmentFeaturesRequest
      *
-     * @return ListEnvironmentFeaturesResponse
+     * @return ListEnvironmentFeaturesResponse ListEnvironmentFeaturesResponse
      */
     public function listEnvironmentFeatures($request)
     {
@@ -9175,10 +9790,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvironmentsRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Queries environments.
+     *  *
+     * @param ListEnvironmentsRequest $tmpReq  ListEnvironmentsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEnvironmentsResponse
+     * @return ListEnvironmentsResponse ListEnvironmentsResponse
      */
     public function listEnvironmentsWithOptions($tmpReq, $runtime)
     {
@@ -9229,9 +9846,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEnvironmentsRequest $request
+     * @summary Queries environments.
+     *  *
+     * @param ListEnvironmentsRequest $request ListEnvironmentsRequest
      *
-     * @return ListEnvironmentsResponse
+     * @return ListEnvironmentsResponse ListEnvironmentsResponse
      */
     public function listEnvironments($request)
     {
@@ -9241,10 +9860,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEscalationPoliciesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the information about an escalation policy.
+     *  *
+     * @param ListEscalationPoliciesRequest $request ListEscalationPoliciesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEscalationPoliciesResponse
+     * @return ListEscalationPoliciesResponse ListEscalationPoliciesResponse
      */
     public function listEscalationPoliciesWithOptions($request, $runtime)
     {
@@ -9269,9 +9890,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEscalationPoliciesRequest $request
+     * @summary Queries the information about an escalation policy.
+     *  *
+     * @param ListEscalationPoliciesRequest $request ListEscalationPoliciesRequest
      *
-     * @return ListEscalationPoliciesResponse
+     * @return ListEscalationPoliciesResponse ListEscalationPoliciesResponse
      */
     public function listEscalationPolicies($request)
     {
@@ -9281,10 +9904,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEventBridgeIntegrationsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries EventBridge integrations that are used to push notifications.
+     *  *
+     * @param ListEventBridgeIntegrationsRequest $request ListEventBridgeIntegrationsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEventBridgeIntegrationsResponse
+     * @return ListEventBridgeIntegrationsResponse ListEventBridgeIntegrationsResponse
      */
     public function listEventBridgeIntegrationsWithOptions($request, $runtime)
     {
@@ -9309,9 +9934,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListEventBridgeIntegrationsRequest $request
+     * @summary Queries EventBridge integrations that are used to push notifications.
+     *  *
+     * @param ListEventBridgeIntegrationsRequest $request ListEventBridgeIntegrationsRequest
      *
-     * @return ListEventBridgeIntegrationsResponse
+     * @return ListEventBridgeIntegrationsResponse ListEventBridgeIntegrationsResponse
      */
     public function listEventBridgeIntegrations($request)
     {
@@ -9321,10 +9948,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListGrafanaWorkspaceRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary 获取指定工作区列表
+     *  *
+     * @param ListGrafanaWorkspaceRequest $tmpReq  ListGrafanaWorkspaceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGrafanaWorkspaceResponse
+     * @return ListGrafanaWorkspaceResponse ListGrafanaWorkspaceResponse
      */
     public function listGrafanaWorkspaceWithOptions($tmpReq, $runtime)
     {
@@ -9366,9 +9995,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListGrafanaWorkspaceRequest $request
+     * @summary 获取指定工作区列表
+     *  *
+     * @param ListGrafanaWorkspaceRequest $request ListGrafanaWorkspaceRequest
      *
-     * @return ListGrafanaWorkspaceResponse
+     * @return ListGrafanaWorkspaceResponse ListGrafanaWorkspaceResponse
      */
     public function listGrafanaWorkspace($request)
     {
@@ -9378,10 +10009,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListInsightsEventsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the abnormal Insights events within a specified period of time.
+     *  *
+     * @param ListInsightsEventsRequest $request ListInsightsEventsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInsightsEventsResponse
+     * @return ListInsightsEventsResponse ListInsightsEventsResponse
      */
     public function listInsightsEventsWithOptions($request, $runtime)
     {
@@ -9421,9 +10054,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListInsightsEventsRequest $request
+     * @summary Queries the abnormal Insights events within a specified period of time.
+     *  *
+     * @param ListInsightsEventsRequest $request ListInsightsEventsRequest
      *
-     * @return ListInsightsEventsResponse
+     * @return ListInsightsEventsResponse ListInsightsEventsResponse
      */
     public function listInsightsEvents($request)
     {
@@ -9433,10 +10068,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListIntegrationRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary ListIntegration
+     *  *
+     * @param ListIntegrationRequest $request ListIntegrationRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIntegrationResponse
+     * @return ListIntegrationResponse ListIntegrationResponse
      */
     public function listIntegrationWithOptions($request, $runtime)
     {
@@ -9461,9 +10098,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListIntegrationRequest $request
+     * @summary ListIntegration
+     *  *
+     * @param ListIntegrationRequest $request ListIntegrationRequest
      *
-     * @return ListIntegrationResponse
+     * @return ListIntegrationResponse ListIntegrationResponse
      */
     public function listIntegration($request)
     {
@@ -9473,10 +10112,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListNotificationPoliciesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries notification policies based on specified conditions.
+     *  *
+     * @param ListNotificationPoliciesRequest $request ListNotificationPoliciesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNotificationPoliciesResponse
+     * @return ListNotificationPoliciesResponse ListNotificationPoliciesResponse
      */
     public function listNotificationPoliciesWithOptions($request, $runtime)
     {
@@ -9522,9 +10163,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListNotificationPoliciesRequest $request
+     * @summary Queries notification policies based on specified conditions.
+     *  *
+     * @param ListNotificationPoliciesRequest $request ListNotificationPoliciesRequest
      *
-     * @return ListNotificationPoliciesResponse
+     * @return ListNotificationPoliciesResponse ListNotificationPoliciesResponse
      */
     public function listNotificationPolicies($request)
     {
@@ -9534,10 +10177,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListOnCallSchedulesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about a scheduling policy.
+     *  *
+     * @param ListOnCallSchedulesRequest $request ListOnCallSchedulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOnCallSchedulesResponse
+     * @return ListOnCallSchedulesResponse ListOnCallSchedulesResponse
      */
     public function listOnCallSchedulesWithOptions($request, $runtime)
     {
@@ -9562,9 +10207,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListOnCallSchedulesRequest $request
+     * @summary Queries the information about a scheduling policy.
+     *  *
+     * @param ListOnCallSchedulesRequest $request ListOnCallSchedulesRequest
      *
-     * @return ListOnCallSchedulesResponse
+     * @return ListOnCallSchedulesResponse ListOnCallSchedulesResponse
      */
     public function listOnCallSchedules($request)
     {
@@ -9574,10 +10221,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusAlertRulesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary The value of the annotation.
+     *  *
+     * @param ListPrometheusAlertRulesRequest $request ListPrometheusAlertRulesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrometheusAlertRulesResponse
+     * @return ListPrometheusAlertRulesResponse ListPrometheusAlertRulesResponse
      */
     public function listPrometheusAlertRulesWithOptions($request, $runtime)
     {
@@ -9623,9 +10272,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusAlertRulesRequest $request
+     * @summary The value of the annotation.
+     *  *
+     * @param ListPrometheusAlertRulesRequest $request ListPrometheusAlertRulesRequest
      *
-     * @return ListPrometheusAlertRulesResponse
+     * @return ListPrometheusAlertRulesResponse ListPrometheusAlertRulesResponse
      */
     public function listPrometheusAlertRules($request)
     {
@@ -9635,10 +10286,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusAlertTemplatesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary The available memory on node {{ $labels.instance }} is less than 10%. Available memory: {{ $value }}%
+     *  *
+     * @param ListPrometheusAlertTemplatesRequest $request ListPrometheusAlertTemplatesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrometheusAlertTemplatesResponse
+     * @return ListPrometheusAlertTemplatesResponse ListPrometheusAlertTemplatesResponse
      */
     public function listPrometheusAlertTemplatesWithOptions($request, $runtime)
     {
@@ -9669,9 +10322,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusAlertTemplatesRequest $request
+     * @summary The available memory on node {{ $labels.instance }} is less than 10%. Available memory: {{ $value }}%
+     *  *
+     * @param ListPrometheusAlertTemplatesRequest $request ListPrometheusAlertTemplatesRequest
      *
-     * @return ListPrometheusAlertTemplatesResponse
+     * @return ListPrometheusAlertTemplatesResponse ListPrometheusAlertTemplatesResponse
      */
     public function listPrometheusAlertTemplates($request)
     {
@@ -9681,10 +10336,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusGlobalViewRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取账号下聚合实例列表
+     *  *
+     * @param ListPrometheusGlobalViewRequest $request ListPrometheusGlobalViewRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrometheusGlobalViewResponse
+     * @return ListPrometheusGlobalViewResponse ListPrometheusGlobalViewResponse
      */
     public function listPrometheusGlobalViewWithOptions($request, $runtime)
     {
@@ -9712,9 +10369,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusGlobalViewRequest $request
+     * @summary 获取账号下聚合实例列表
+     *  *
+     * @param ListPrometheusGlobalViewRequest $request ListPrometheusGlobalViewRequest
      *
-     * @return ListPrometheusGlobalViewResponse
+     * @return ListPrometheusGlobalViewResponse ListPrometheusGlobalViewResponse
      */
     public function listPrometheusGlobalView($request)
     {
@@ -9724,10 +10383,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusInstanceByTagAndResourceGroupIdRequest $request
-     * @param RuntimeOptions                                       $runtime
+     * @summary Queries Prometheus instances by tag and resource group.
+     *  *
+     * @param ListPrometheusInstanceByTagAndResourceGroupIdRequest $request ListPrometheusInstanceByTagAndResourceGroupIdRequest
+     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse
+     * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse ListPrometheusInstanceByTagAndResourceGroupIdResponse
      */
     public function listPrometheusInstanceByTagAndResourceGroupIdWithOptions($request, $runtime)
     {
@@ -9761,9 +10422,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusInstanceByTagAndResourceGroupIdRequest $request
+     * @summary Queries Prometheus instances by tag and resource group.
+     *  *
+     * @param ListPrometheusInstanceByTagAndResourceGroupIdRequest $request ListPrometheusInstanceByTagAndResourceGroupIdRequest
      *
-     * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse
+     * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse ListPrometheusInstanceByTagAndResourceGroupIdResponse
      */
     public function listPrometheusInstanceByTagAndResourceGroupId($request)
     {
@@ -9773,10 +10436,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusInstancesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries all Prometheus instances in a region.
+     *  *
+     * @param ListPrometheusInstancesRequest $request ListPrometheusInstancesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrometheusInstancesResponse
+     * @return ListPrometheusInstancesResponse ListPrometheusInstancesResponse
      */
     public function listPrometheusInstancesWithOptions($request, $runtime)
     {
@@ -9810,9 +10475,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusInstancesRequest $request
+     * @summary Queries all Prometheus instances in a region.
+     *  *
+     * @param ListPrometheusInstancesRequest $request ListPrometheusInstancesRequest
      *
-     * @return ListPrometheusInstancesResponse
+     * @return ListPrometheusInstancesResponse ListPrometheusInstancesResponse
      */
     public function listPrometheusInstances($request)
     {
@@ -9822,10 +10489,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusIntegrationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries a list of exporters that are integrated into a Prometheus instance. Only aliyun-cs and ecs instances are supported.
+     *  *
+     * @param ListPrometheusIntegrationRequest $request ListPrometheusIntegrationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrometheusIntegrationResponse
+     * @return ListPrometheusIntegrationResponse ListPrometheusIntegrationResponse
      */
     public function listPrometheusIntegrationWithOptions($request, $runtime)
     {
@@ -9859,9 +10528,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusIntegrationRequest $request
+     * @summary Queries a list of exporters that are integrated into a Prometheus instance. Only aliyun-cs and ecs instances are supported.
+     *  *
+     * @param ListPrometheusIntegrationRequest $request ListPrometheusIntegrationRequest
      *
-     * @return ListPrometheusIntegrationResponse
+     * @return ListPrometheusIntegrationResponse ListPrometheusIntegrationResponse
      */
     public function listPrometheusIntegration($request)
     {
@@ -9871,10 +10542,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusMonitoringRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the monitoring configuration of a Prometheus instance.
+     *  *
+     * @param ListPrometheusMonitoringRequest $request ListPrometheusMonitoringRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrometheusMonitoringResponse
+     * @return ListPrometheusMonitoringResponse ListPrometheusMonitoringResponse
      */
     public function listPrometheusMonitoringWithOptions($request, $runtime)
     {
@@ -9908,9 +10581,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusMonitoringRequest $request
+     * @summary Queries the monitoring configuration of a Prometheus instance.
+     *  *
+     * @param ListPrometheusMonitoringRequest $request ListPrometheusMonitoringRequest
      *
-     * @return ListPrometheusMonitoringResponse
+     * @return ListPrometheusMonitoringResponse ListPrometheusMonitoringResponse
      */
     public function listPrometheusMonitoring($request)
     {
@@ -9920,10 +10595,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusRemoteWritesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the remote write configuration items of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param ListPrometheusRemoteWritesRequest $request ListPrometheusRemoteWritesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrometheusRemoteWritesResponse
+     * @return ListPrometheusRemoteWritesResponse ListPrometheusRemoteWritesResponse
      */
     public function listPrometheusRemoteWritesWithOptions($request, $runtime)
     {
@@ -9954,9 +10631,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListPrometheusRemoteWritesRequest $request
+     * @summary Queries the remote write configuration items of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param ListPrometheusRemoteWritesRequest $request ListPrometheusRemoteWritesRequest
      *
-     * @return ListPrometheusRemoteWritesResponse
+     * @return ListPrometheusRemoteWritesResponse ListPrometheusRemoteWritesResponse
      */
     public function listPrometheusRemoteWrites($request)
     {
@@ -9966,8 +10645,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary Queries the Browser Monitoring tasks in a region.
+     *  *
+     * @description ****
+     *  *
      * @param ListRetcodeAppsRequest $request ListRetcodeAppsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -10005,8 +10686,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary Queries the Browser Monitoring tasks in a region.
+     *  *
+     * @description ****
+     *  *
      * @param ListRetcodeAppsRequest $request ListRetcodeAppsRequest
      *
      * @return ListRetcodeAppsResponse ListRetcodeAppsResponse
@@ -10019,10 +10702,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListScenarioRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param ListScenarioRequest $request ListScenarioRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListScenarioResponse
+     * @return ListScenarioResponse ListScenarioResponse
      */
     public function listScenarioWithOptions($request, $runtime)
     {
@@ -10062,9 +10745,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListScenarioRequest $request
+     * @param ListScenarioRequest $request ListScenarioRequest
      *
-     * @return ListScenarioResponse
+     * @return ListScenarioResponse ListScenarioResponse
      */
     public function listScenario($request)
     {
@@ -10074,10 +10757,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListSilencePoliciesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information of a silence policy list.
+     *  *
+     * @param ListSilencePoliciesRequest $request ListSilencePoliciesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSilencePoliciesResponse
+     * @return ListSilencePoliciesResponse ListSilencePoliciesResponse
      */
     public function listSilencePoliciesWithOptions($request, $runtime)
     {
@@ -10117,9 +10802,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListSilencePoliciesRequest $request
+     * @summary Queries the information of a silence policy list.
+     *  *
+     * @param ListSilencePoliciesRequest $request ListSilencePoliciesRequest
      *
-     * @return ListSilencePoliciesResponse
+     * @return ListSilencePoliciesResponse ListSilencePoliciesResponse
      */
     public function listSilencePolicies($request)
     {
@@ -10129,10 +10816,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListSyntheticDetailRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 查询拨测明细列表
+     *  *
+     * @param ListSyntheticDetailRequest $tmpReq  ListSyntheticDetailRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSyntheticDetailResponse
+     * @return ListSyntheticDetailResponse ListSyntheticDetailResponse
      */
     public function listSyntheticDetailWithOptions($tmpReq, $runtime)
     {
@@ -10168,9 +10857,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListSyntheticDetailRequest $request
+     * @summary 查询拨测明细列表
+     *  *
+     * @param ListSyntheticDetailRequest $request ListSyntheticDetailRequest
      *
-     * @return ListSyntheticDetailResponse
+     * @return ListSyntheticDetailResponse ListSyntheticDetailResponse
      */
     public function listSyntheticDetail($request)
     {
@@ -10180,10 +10871,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListTimingSyntheticTasksRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries scheduled synthetic monitoring tasks.
+     *  *
+     * @param ListTimingSyntheticTasksRequest $tmpReq  ListTimingSyntheticTasksRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTimingSyntheticTasksResponse
+     * @return ListTimingSyntheticTasksResponse ListTimingSyntheticTasksResponse
      */
     public function listTimingSyntheticTasksWithOptions($tmpReq, $runtime)
     {
@@ -10216,9 +10909,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListTimingSyntheticTasksRequest $request
+     * @summary Queries scheduled synthetic monitoring tasks.
+     *  *
+     * @param ListTimingSyntheticTasksRequest $request ListTimingSyntheticTasksRequest
      *
-     * @return ListTimingSyntheticTasksResponse
+     * @return ListTimingSyntheticTasksResponse ListTimingSyntheticTasksResponse
      */
     public function listTimingSyntheticTasks($request)
     {
@@ -10228,10 +10923,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListTraceAppsRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries all Application Monitoring tasks in a specified region.
+     *  *
+     * @param ListTraceAppsRequest $request ListTraceAppsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTraceAppsResponse
+     * @return ListTraceAppsResponse ListTraceAppsResponse
      */
     public function listTraceAppsWithOptions($request, $runtime)
     {
@@ -10271,9 +10968,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListTraceAppsRequest $request
+     * @summary Queries all Application Monitoring tasks in a specified region.
+     *  *
+     * @param ListTraceAppsRequest $request ListTraceAppsRequest
      *
-     * @return ListTraceAppsResponse
+     * @return ListTraceAppsResponse ListTraceAppsResponse
      */
     public function listTraceApps($request)
     {
@@ -10283,10 +10982,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ManageGetRecordingRuleRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Obtains the recording rule of a Prometheus instance.
+     *  *
+     * @param ManageGetRecordingRuleRequest $request ManageGetRecordingRuleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ManageGetRecordingRuleResponse
+     * @return ManageGetRecordingRuleResponse ManageGetRecordingRuleResponse
      */
     public function manageGetRecordingRuleWithOptions($request, $runtime)
     {
@@ -10320,9 +11021,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ManageGetRecordingRuleRequest $request
+     * @summary Obtains the recording rule of a Prometheus instance.
+     *  *
+     * @param ManageGetRecordingRuleRequest $request ManageGetRecordingRuleRequest
      *
-     * @return ManageGetRecordingRuleResponse
+     * @return ManageGetRecordingRuleResponse ManageGetRecordingRuleResponse
      */
     public function manageGetRecordingRule($request)
     {
@@ -10332,10 +11035,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ManageRecordingRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the recording rule of a Prometheus instance.
+     *  *
+     * @param ManageRecordingRuleRequest $request ManageRecordingRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ManageRecordingRuleResponse
+     * @return ManageRecordingRuleResponse ManageRecordingRuleResponse
      */
     public function manageRecordingRuleWithOptions($request, $runtime)
     {
@@ -10372,9 +11077,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ManageRecordingRuleRequest $request
+     * @summary Modifies the recording rule of a Prometheus instance.
+     *  *
+     * @param ManageRecordingRuleRequest $request ManageRecordingRuleRequest
      *
-     * @return ManageRecordingRuleResponse
+     * @return ManageRecordingRuleResponse ManageRecordingRuleResponse
      */
     public function manageRecordingRule($request)
     {
@@ -10384,10 +11091,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param OpenArmsDefaultSLRRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Assigns the service-linked role AliyunServiceRoleForARMS to Application Real-Time Monitoring Service (ARMS).
+     *  *
+     * @param OpenArmsDefaultSLRRequest $request OpenArmsDefaultSLRRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenArmsDefaultSLRResponse
+     * @return OpenArmsDefaultSLRResponse OpenArmsDefaultSLRResponse
      */
     public function openArmsDefaultSLRWithOptions($request, $runtime)
     {
@@ -10415,9 +11124,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param OpenArmsDefaultSLRRequest $request
+     * @summary Assigns the service-linked role AliyunServiceRoleForARMS to Application Real-Time Monitoring Service (ARMS).
+     *  *
+     * @param OpenArmsDefaultSLRRequest $request OpenArmsDefaultSLRRequest
      *
-     * @return OpenArmsDefaultSLRResponse
+     * @return OpenArmsDefaultSLRResponse OpenArmsDefaultSLRResponse
      */
     public function openArmsDefaultSLR($request)
     {
@@ -10427,12 +11138,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
-     *   * *   Application Monitoring: Basic Edition
-     *   * *   Browser Monitoring: Basic Edition
-     *   * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
-     *   * *   Prometheus Service: Pro Edition.
-     *   *
+     * @summary Activates a specified pay-as-you-go sub-service of Application Real-Time Monitoring Service (ARMS).
+     *  *
+     * @description The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+     * *   Application Monitoring: Basic Edition
+     * *   Browser Monitoring: Basic Edition
+     * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
+     * *   Prometheus Service: Pro Edition
+     *  *
      * @param OpenArmsServiceSecondVersionRequest $request OpenArmsServiceSecondVersionRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -10467,12 +11180,14 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
-     *   * *   Application Monitoring: Basic Edition
-     *   * *   Browser Monitoring: Basic Edition
-     *   * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
-     *   * *   Prometheus Service: Pro Edition.
-     *   *
+     * @summary Activates a specified pay-as-you-go sub-service of Application Real-Time Monitoring Service (ARMS).
+     *  *
+     * @description The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+     * *   Application Monitoring: Basic Edition
+     * *   Browser Monitoring: Basic Edition
+     * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
+     * *   Prometheus Service: Pro Edition
+     *  *
      * @param OpenArmsServiceSecondVersionRequest $request OpenArmsServiceSecondVersionRequest
      *
      * @return OpenArmsServiceSecondVersionResponse OpenArmsServiceSecondVersionResponse
@@ -10485,10 +11200,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param OpenVClusterRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Activates a virtual cluster.
+     *  *
+     * @param OpenVClusterRequest $request OpenVClusterRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenVClusterResponse
+     * @return OpenVClusterResponse OpenVClusterResponse
      */
     public function openVClusterWithOptions($request, $runtime)
     {
@@ -10528,9 +11245,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param OpenVClusterRequest $request
+     * @summary Activates a virtual cluster.
+     *  *
+     * @param OpenVClusterRequest $request OpenVClusterRequest
      *
-     * @return OpenVClusterResponse
+     * @return OpenVClusterResponse OpenVClusterResponse
      */
     public function openVCluster($request)
     {
@@ -10540,10 +11259,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param OpenXtraceDefaultSLRRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Activates the service-linked role AliyunServiceRoleForXtrace for Tracing Analysis.
+     *  *
+     * @param OpenXtraceDefaultSLRRequest $request OpenXtraceDefaultSLRRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenXtraceDefaultSLRResponse
+     * @return OpenXtraceDefaultSLRResponse OpenXtraceDefaultSLRResponse
      */
     public function openXtraceDefaultSLRWithOptions($request, $runtime)
     {
@@ -10571,9 +11292,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param OpenXtraceDefaultSLRRequest $request
+     * @summary Activates the service-linked role AliyunServiceRoleForXtrace for Tracing Analysis.
+     *  *
+     * @param OpenXtraceDefaultSLRRequest $request OpenXtraceDefaultSLRRequest
      *
-     * @return OpenXtraceDefaultSLRResponse
+     * @return OpenXtraceDefaultSLRResponse OpenXtraceDefaultSLRResponse
      */
     public function openXtraceDefaultSLR($request)
     {
@@ -10583,10 +11306,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryAppMetadataRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the encoding mapping content based on the metadata IDs and metadata type.
+     *  *
+     * @param QueryAppMetadataRequest $request QueryAppMetadataRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAppMetadataResponse
+     * @return QueryAppMetadataResponse QueryAppMetadataResponse
      */
     public function queryAppMetadataWithOptions($request, $runtime)
     {
@@ -10611,9 +11336,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryAppMetadataRequest $request
+     * @summary Queries the encoding mapping content based on the metadata IDs and metadata type.
+     *  *
+     * @param QueryAppMetadataRequest $request QueryAppMetadataRequest
      *
-     * @return QueryAppMetadataResponse
+     * @return QueryAppMetadataResponse QueryAppMetadataResponse
      */
     public function queryAppMetadata($request)
     {
@@ -10623,10 +11350,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryAppTopologyRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 查询应用拓扑
+     *  *
+     * @param QueryAppTopologyRequest $tmpReq  QueryAppTopologyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAppTopologyResponse
+     * @return QueryAppTopologyResponse QueryAppTopologyResponse
      */
     public function queryAppTopologyWithOptions($tmpReq, $runtime)
     {
@@ -10686,9 +11415,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryAppTopologyRequest $request
+     * @summary 查询应用拓扑
+     *  *
+     * @param QueryAppTopologyRequest $request QueryAppTopologyRequest
      *
-     * @return QueryAppTopologyResponse
+     * @return QueryAppTopologyResponse QueryAppTopologyResponse
      */
     public function queryAppTopology($request)
     {
@@ -10698,10 +11429,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryCommercialUsageRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param QueryCommercialUsageRequest $request QueryCommercialUsageRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCommercialUsageResponse
+     * @return QueryCommercialUsageResponse QueryCommercialUsageResponse
      */
     public function queryCommercialUsageWithOptions($request, $runtime)
     {
@@ -10756,9 +11487,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryCommercialUsageRequest $request
+     * @param QueryCommercialUsageRequest $request QueryCommercialUsageRequest
      *
-     * @return QueryCommercialUsageResponse
+     * @return QueryCommercialUsageResponse QueryCommercialUsageResponse
      */
     public function queryCommercialUsage($request)
     {
@@ -10768,10 +11499,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryMetricByPageRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries an Application Monitoring metric or a Browser Monitoring metric.
+     *  *
+     * @param QueryMetricByPageRequest $request QueryMetricByPageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMetricByPageResponse
+     * @return QueryMetricByPageResponse QueryMetricByPageResponse
      */
     public function queryMetricByPageWithOptions($request, $runtime)
     {
@@ -10832,9 +11565,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryMetricByPageRequest $request
+     * @summary Queries an Application Monitoring metric or a Browser Monitoring metric.
+     *  *
+     * @param QueryMetricByPageRequest $request QueryMetricByPageRequest
      *
-     * @return QueryMetricByPageResponse
+     * @return QueryMetricByPageResponse QueryMetricByPageResponse
      */
     public function queryMetricByPage($request)
     {
@@ -10844,10 +11579,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryPromInstallStatusRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries whether the Prometheus agent is installed on a cluster.
+     *  *
+     * @param QueryPromInstallStatusRequest $request QueryPromInstallStatusRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPromInstallStatusResponse
+     * @return QueryPromInstallStatusResponse QueryPromInstallStatusResponse
      */
     public function queryPromInstallStatusWithOptions($request, $runtime)
     {
@@ -10878,9 +11615,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryPromInstallStatusRequest $request
+     * @summary Queries whether the Prometheus agent is installed on a cluster.
+     *  *
+     * @param QueryPromInstallStatusRequest $request QueryPromInstallStatusRequest
      *
-     * @return QueryPromInstallStatusResponse
+     * @return QueryPromInstallStatusResponse QueryPromInstallStatusResponse
      */
     public function queryPromInstallStatus($request)
     {
@@ -10890,10 +11629,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryReleaseMetricRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary QueryReleaseMetric
+     *  *
+     * @param QueryReleaseMetricRequest $request QueryReleaseMetricRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryReleaseMetricResponse
+     * @return QueryReleaseMetricResponse QueryReleaseMetricResponse
      */
     public function queryReleaseMetricWithOptions($request, $runtime)
     {
@@ -10942,9 +11683,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param QueryReleaseMetricRequest $request
+     * @summary QueryReleaseMetric
+     *  *
+     * @param QueryReleaseMetricRequest $request QueryReleaseMetricRequest
      *
-     * @return QueryReleaseMetricResponse
+     * @return QueryReleaseMetricResponse QueryReleaseMetricResponse
      */
     public function queryReleaseMetric($request)
     {
@@ -10954,10 +11697,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param RemoveAliClusterIdsFromPrometheusGlobalViewRequest $request
-     * @param RuntimeOptions                                     $runtime
+     * @summary Removes data sources from a global aggregation instance in Prometheus Service.
+     *  *
+     * @param RemoveAliClusterIdsFromPrometheusGlobalViewRequest $request RemoveAliClusterIdsFromPrometheusGlobalViewRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveAliClusterIdsFromPrometheusGlobalViewResponse
+     * @return RemoveAliClusterIdsFromPrometheusGlobalViewResponse RemoveAliClusterIdsFromPrometheusGlobalViewResponse
      */
     public function removeAliClusterIdsFromPrometheusGlobalViewWithOptions($request, $runtime)
     {
@@ -10994,9 +11739,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param RemoveAliClusterIdsFromPrometheusGlobalViewRequest $request
+     * @summary Removes data sources from a global aggregation instance in Prometheus Service.
+     *  *
+     * @param RemoveAliClusterIdsFromPrometheusGlobalViewRequest $request RemoveAliClusterIdsFromPrometheusGlobalViewRequest
      *
-     * @return RemoveAliClusterIdsFromPrometheusGlobalViewResponse
+     * @return RemoveAliClusterIdsFromPrometheusGlobalViewResponse RemoveAliClusterIdsFromPrometheusGlobalViewResponse
      */
     public function removeAliClusterIdsFromPrometheusGlobalView($request)
     {
@@ -11006,10 +11753,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param RemoveSourcesFromPrometheusGlobalViewRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Removes custom data sources from a global aggregation instance in Prometheus Service.
+     *  *
+     * @param RemoveSourcesFromPrometheusGlobalViewRequest $request RemoveSourcesFromPrometheusGlobalViewRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveSourcesFromPrometheusGlobalViewResponse
+     * @return RemoveSourcesFromPrometheusGlobalViewResponse RemoveSourcesFromPrometheusGlobalViewResponse
      */
     public function removeSourcesFromPrometheusGlobalViewWithOptions($request, $runtime)
     {
@@ -11046,9 +11795,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param RemoveSourcesFromPrometheusGlobalViewRequest $request
+     * @summary Removes custom data sources from a global aggregation instance in Prometheus Service.
+     *  *
+     * @param RemoveSourcesFromPrometheusGlobalViewRequest $request RemoveSourcesFromPrometheusGlobalViewRequest
      *
-     * @return RemoveSourcesFromPrometheusGlobalViewResponse
+     * @return RemoveSourcesFromPrometheusGlobalViewResponse RemoveSourcesFromPrometheusGlobalViewResponse
      */
     public function removeSourcesFromPrometheusGlobalView($request)
     {
@@ -11058,10 +11809,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param RestartEnvironmentFeatureRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 重新启动 feature信息
+     *  *
+     * @param RestartEnvironmentFeatureRequest $request RestartEnvironmentFeatureRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartEnvironmentFeatureResponse
+     * @return RestartEnvironmentFeatureResponse RestartEnvironmentFeatureResponse
      */
     public function restartEnvironmentFeatureWithOptions($request, $runtime)
     {
@@ -11095,9 +11848,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param RestartEnvironmentFeatureRequest $request
+     * @summary 重新启动 feature信息
+     *  *
+     * @param RestartEnvironmentFeatureRequest $request RestartEnvironmentFeatureRequest
      *
-     * @return RestartEnvironmentFeatureResponse
+     * @return RestartEnvironmentFeatureResponse RestartEnvironmentFeatureResponse
      */
     public function restartEnvironmentFeature($request)
     {
@@ -11107,10 +11862,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SaveTraceAppConfigRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies the settings of Application Monitoring, such as trace sampling and agent switch settings.
+     *  *
+     * @param SaveTraceAppConfigRequest $request SaveTraceAppConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveTraceAppConfigResponse
+     * @return SaveTraceAppConfigResponse SaveTraceAppConfigResponse
      */
     public function saveTraceAppConfigWithOptions($request, $runtime)
     {
@@ -11141,9 +11898,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SaveTraceAppConfigRequest $request
+     * @summary Modifies the settings of Application Monitoring, such as trace sampling and agent switch settings.
+     *  *
+     * @param SaveTraceAppConfigRequest $request SaveTraceAppConfigRequest
      *
-     * @return SaveTraceAppConfigResponse
+     * @return SaveTraceAppConfigResponse SaveTraceAppConfigResponse
      */
     public function saveTraceAppConfig($request)
     {
@@ -11153,8 +11912,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
-     *   *
+     * @summary Queries alert contacts.
+     *  *
+     * @description This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
+     *  *
      * @param SearchAlertContactRequest $request SearchAlertContactRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -11204,8 +11965,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
-     *   *
+     * @summary Queries alert contacts.
+     *  *
+     * @description This operation is no longer maintained. To query alert contacts, call the DescribeContacts operation provided by the new version of Alert Management.
+     *  *
      * @param SearchAlertContactRequest $request SearchAlertContactRequest
      *
      * @return SearchAlertContactResponse SearchAlertContactResponse
@@ -11218,8 +11981,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
-     *   *
+     * @summary Queries alert contact groups.
+     *  *
+     * @description The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
+     *  *
      * @param SearchAlertContactGroupRequest $request SearchAlertContactGroupRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -11266,8 +12031,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
-     *   *
+     * @summary Queries alert contact groups.
+     *  *
+     * @description The operation is no longer maintained. Call the DescribeContactGroups operation in the alert management module to query alert contact groups.
+     *  *
      * @param SearchAlertContactGroupRequest $request SearchAlertContactGroupRequest
      *
      * @return SearchAlertContactGroupResponse SearchAlertContactGroupResponse
@@ -11280,8 +12047,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
-     *   *
+     * @summary Queries the alert records of an alert rule.
+     *  *
+     * @description This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
+     *  *
      * @param SearchAlertHistoriesRequest $request SearchAlertHistoriesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -11331,8 +12100,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
-     *   *
+     * @summary Queries the alert records of an alert rule.
+     *  *
+     * @description This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
+     *  *
      * @param SearchAlertHistoriesRequest $request SearchAlertHistoriesRequest
      *
      * @return SearchAlertHistoriesResponse SearchAlertHistoriesResponse
@@ -11345,8 +12116,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
-     *   *
+     * @summary Queries alert rules.
+     *  *
+     * @description The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
+     *  *
      * @param SearchAlertRulesRequest $request SearchAlertRulesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -11408,8 +12181,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
-     *   *
+     * @summary Queries alert rules.
+     *  *
+     * @description The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
+     *  *
      * @param SearchAlertRulesRequest $request SearchAlertRulesRequest
      *
      * @return SearchAlertRulesResponse SearchAlertRulesResponse
@@ -11422,8 +12197,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
-     *   *
+     * @summary Queries alert event records.
+     *  *
+     * @description Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
+     *  *
      * @param SearchEventsRequest $request SearchEventsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -11482,8 +12259,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
-     *   *
+     * @summary Queries alert event records.
+     *  *
+     * @description Alert event records are different from alert notification records. Alert events are recorded every minute after an alert rule filters data. Alert events can be classified based on whether they are triggered or not. If a triggered event is not in the silence period, an alert notification is sent.
+     *  *
      * @param SearchEventsRequest $request SearchEventsRequest
      *
      * @return SearchEventsResponse SearchEventsResponse
@@ -11496,10 +12275,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchRetcodeAppByPageRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries Browser Monitoring tasks by page.
+     *  *
+     * @param SearchRetcodeAppByPageRequest $request SearchRetcodeAppByPageRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchRetcodeAppByPageResponse
+     * @return SearchRetcodeAppByPageResponse SearchRetcodeAppByPageResponse
      */
     public function searchRetcodeAppByPageWithOptions($request, $runtime)
     {
@@ -11545,9 +12326,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchRetcodeAppByPageRequest $request
+     * @summary Queries Browser Monitoring tasks by page.
+     *  *
+     * @param SearchRetcodeAppByPageRequest $request SearchRetcodeAppByPageRequest
      *
-     * @return SearchRetcodeAppByPageResponse
+     * @return SearchRetcodeAppByPageResponse SearchRetcodeAppByPageResponse
      */
     public function searchRetcodeAppByPage($request)
     {
@@ -11557,10 +12340,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchTraceAppByNameRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries Application Monitoring tasks by application name.
+     *  *
+     * @param SearchTraceAppByNameRequest $request SearchTraceAppByNameRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchTraceAppByNameResponse
+     * @return SearchTraceAppByNameResponse SearchTraceAppByNameResponse
      */
     public function searchTraceAppByNameWithOptions($request, $runtime)
     {
@@ -11594,9 +12379,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchTraceAppByNameRequest $request
+     * @summary Queries Application Monitoring tasks by application name.
+     *  *
+     * @param SearchTraceAppByNameRequest $request SearchTraceAppByNameRequest
      *
-     * @return SearchTraceAppByNameResponse
+     * @return SearchTraceAppByNameResponse SearchTraceAppByNameResponse
      */
     public function searchTraceAppByName($request)
     {
@@ -11606,10 +12393,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchTraceAppByPageRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries Application Monitoring tasks by page.
+     *  *
+     * @param SearchTraceAppByPageRequest $request SearchTraceAppByPageRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchTraceAppByPageResponse
+     * @return SearchTraceAppByPageResponse SearchTraceAppByPageResponse
      */
     public function searchTraceAppByPageWithOptions($request, $runtime)
     {
@@ -11652,9 +12441,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchTraceAppByPageRequest $request
+     * @summary Queries Application Monitoring tasks by page.
+     *  *
+     * @param SearchTraceAppByPageRequest $request SearchTraceAppByPageRequest
      *
-     * @return SearchTraceAppByPageResponse
+     * @return SearchTraceAppByPageResponse SearchTraceAppByPageResponse
      */
     public function searchTraceAppByPage($request)
     {
@@ -11664,8 +12455,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](~~175866~~).
-     *   *
+     * @summary Queries traces by time, application name, IP address, span name, and tag.
+     *  *
+     * @description > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](https://help.aliyun.com/document_detail/175866.html).
+     *  *
      * @param SearchTracesRequest $request SearchTracesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -11727,8 +12520,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](~~175866~~).
-     *   *
+     * @summary Queries traces by time, application name, IP address, span name, and tag.
+     *  *
+     * @description > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](https://help.aliyun.com/document_detail/175866.html).
+     *  *
      * @param SearchTracesRequest $request SearchTracesRequest
      *
      * @return SearchTracesResponse SearchTracesResponse
@@ -11741,10 +12536,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchTracesByPageRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries traces by page. You can query traces by time range, application name, IP address, span name, or tag.
+     *  *
+     * @param SearchTracesByPageRequest $request SearchTracesByPageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchTracesByPageResponse
+     * @return SearchTracesByPageResponse SearchTracesByPageResponse
      */
     public function searchTracesByPageWithOptions($request, $runtime)
     {
@@ -11811,9 +12608,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchTracesByPageRequest $request
+     * @summary Queries traces by page. You can query traces by time range, application name, IP address, span name, or tag.
+     *  *
+     * @param SearchTracesByPageRequest $request SearchTracesByPageRequest
      *
-     * @return SearchTracesByPageResponse
+     * @return SearchTracesByPageResponse SearchTracesByPageResponse
      */
     public function searchTracesByPage($request)
     {
@@ -11823,8 +12622,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
-     *   *
+     * @summary Sends a text message to an alert contact to verify the mobile number of the alert contact.
+     *  *
+     * @description After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
+     *  *
      * @param SendTTSVerifyLinkRequest $request SendTTSVerifyLinkRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -11859,8 +12660,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
-     *   *
+     * @summary Sends a text message to an alert contact to verify the mobile number of the alert contact.
+     *  *
+     * @description After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
+     *  *
      * @param SendTTSVerifyLinkRequest $request SendTTSVerifyLinkRequest
      *
      * @return SendTTSVerifyLinkResponse SendTTSVerifyLinkResponse
@@ -11873,10 +12676,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SetRetcodeShareStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Turns on or turns off logon-free sharing for an application monitored by Browser Monitoring.
+     *  *
+     * @param SetRetcodeShareStatusRequest $request SetRetcodeShareStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetRetcodeShareStatusResponse
+     * @return SetRetcodeShareStatusResponse SetRetcodeShareStatusResponse
      */
     public function setRetcodeShareStatusWithOptions($request, $runtime)
     {
@@ -11910,9 +12715,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SetRetcodeShareStatusRequest $request
+     * @summary Turns on or turns off logon-free sharing for an application monitored by Browser Monitoring.
+     *  *
+     * @param SetRetcodeShareStatusRequest $request SetRetcodeShareStatusRequest
      *
-     * @return SetRetcodeShareStatusResponse
+     * @return SetRetcodeShareStatusResponse SetRetcodeShareStatusResponse
      */
     public function setRetcodeShareStatus($request)
     {
@@ -11922,10 +12729,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param StartAlertRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param StartAlertRequest $request StartAlertRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartAlertResponse
+     * @return StartAlertResponse StartAlertResponse
      */
     public function startAlertWithOptions($request, $runtime)
     {
@@ -11956,9 +12763,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param StartAlertRequest $request
+     * @param StartAlertRequest $request StartAlertRequest
      *
-     * @return StartAlertResponse
+     * @return StartAlertResponse StartAlertResponse
      */
     public function startAlert($request)
     {
@@ -11968,10 +12775,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param StartTimingSyntheticTaskRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 启动定时拨测任务
+     *  *
+     * @param StartTimingSyntheticTaskRequest $tmpReq  StartTimingSyntheticTaskRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartTimingSyntheticTaskResponse
+     * @return StartTimingSyntheticTaskResponse StartTimingSyntheticTaskResponse
      */
     public function startTimingSyntheticTaskWithOptions($tmpReq, $runtime)
     {
@@ -12007,9 +12816,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param StartTimingSyntheticTaskRequest $request
+     * @summary 启动定时拨测任务
+     *  *
+     * @param StartTimingSyntheticTaskRequest $request StartTimingSyntheticTaskRequest
      *
-     * @return StartTimingSyntheticTaskResponse
+     * @return StartTimingSyntheticTaskResponse StartTimingSyntheticTaskResponse
      */
     public function startTimingSyntheticTask($request)
     {
@@ -12019,10 +12830,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param StopAlertRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Call StartAlert to stop an alert rule.
+     *  *
+     * @param StopAlertRequest $request StopAlertRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopAlertResponse
+     * @return StopAlertResponse StopAlertResponse
      */
     public function stopAlertWithOptions($request, $runtime)
     {
@@ -12053,9 +12866,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param StopAlertRequest $request
+     * @summary Call StartAlert to stop an alert rule.
+     *  *
+     * @param StopAlertRequest $request StopAlertRequest
      *
-     * @return StopAlertResponse
+     * @return StopAlertResponse StopAlertResponse
      */
     public function stopAlert($request)
     {
@@ -12065,10 +12880,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param StopTimingSyntheticTaskRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Stops scheduled synthetic monitoring tasks.
+     *  *
+     * @param StopTimingSyntheticTaskRequest $tmpReq  StopTimingSyntheticTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopTimingSyntheticTaskResponse
+     * @return StopTimingSyntheticTaskResponse StopTimingSyntheticTaskResponse
      */
     public function stopTimingSyntheticTaskWithOptions($tmpReq, $runtime)
     {
@@ -12104,9 +12921,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param StopTimingSyntheticTaskRequest $request
+     * @summary Stops scheduled synthetic monitoring tasks.
+     *  *
+     * @param StopTimingSyntheticTaskRequest $request StopTimingSyntheticTaskRequest
      *
-     * @return StopTimingSyntheticTaskResponse
+     * @return StopTimingSyntheticTaskResponse StopTimingSyntheticTaskResponse
      */
     public function stopTimingSyntheticTask($request)
     {
@@ -12116,10 +12935,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SwitchSyntheticTaskStatusRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 启动或者禁用云拨测的任务
+     *  *
+     * @param SwitchSyntheticTaskStatusRequest $request SwitchSyntheticTaskStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchSyntheticTaskStatusResponse
+     * @return SwitchSyntheticTaskStatusResponse SwitchSyntheticTaskStatusResponse
      */
     public function switchSyntheticTaskStatusWithOptions($request, $runtime)
     {
@@ -12150,9 +12971,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SwitchSyntheticTaskStatusRequest $request
+     * @summary 启动或者禁用云拨测的任务
+     *  *
+     * @param SwitchSyntheticTaskStatusRequest $request SwitchSyntheticTaskStatusRequest
      *
-     * @return SwitchSyntheticTaskStatusResponse
+     * @return SwitchSyntheticTaskStatusResponse SwitchSyntheticTaskStatusResponse
      */
     public function switchSyntheticTaskStatus($request)
     {
@@ -12162,10 +12985,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SyncRecordingRulesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Synchronizes the aggregation rule of a cluster to other clusters in a region.
+     *  *
+     * @param SyncRecordingRulesRequest $request SyncRecordingRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SyncRecordingRulesResponse
+     * @return SyncRecordingRulesResponse SyncRecordingRulesResponse
      */
     public function syncRecordingRulesWithOptions($request, $runtime)
     {
@@ -12199,9 +13024,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SyncRecordingRulesRequest $request
+     * @summary Synchronizes the aggregation rule of a cluster to other clusters in a region.
+     *  *
+     * @param SyncRecordingRulesRequest $request SyncRecordingRulesRequest
      *
-     * @return SyncRecordingRulesResponse
+     * @return SyncRecordingRulesResponse SyncRecordingRulesResponse
      */
     public function syncRecordingRules($request)
     {
@@ -12211,10 +13038,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Adds tags to ARMS resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -12248,9 +13077,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds tags to ARMS resources.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -12260,8 +13091,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
-     *   *
+     * @summary Removes a Prometheus instance from a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+     *  *
+     * @description Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
+     *  *
      * @param UninstallManagedPrometheusRequest $request UninstallManagedPrometheusRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -12305,8 +13138,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
-     *   *
+     * @summary Removes a Prometheus instance from a serverless Kubernetes (ASK) cluster or an Elastic Compute Service (ECS) instance.
+     *  *
+     * @description Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
+     *  *
      * @param UninstallManagedPrometheusRequest $request UninstallManagedPrometheusRequest
      *
      * @return UninstallManagedPrometheusResponse UninstallManagedPrometheusResponse
@@ -12319,10 +13154,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UninstallPromClusterRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Releases a Prometheus instance.
+     *  *
+     * @param UninstallPromClusterRequest $request UninstallPromClusterRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UninstallPromClusterResponse
+     * @return UninstallPromClusterResponse UninstallPromClusterResponse
      */
     public function uninstallPromClusterWithOptions($request, $runtime)
     {
@@ -12356,9 +13193,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UninstallPromClusterRequest $request
+     * @summary Releases a Prometheus instance.
+     *  *
+     * @param UninstallPromClusterRequest $request UninstallPromClusterRequest
      *
-     * @return UninstallPromClusterResponse
+     * @return UninstallPromClusterResponse UninstallPromClusterResponse
      */
     public function uninstallPromCluster($request)
     {
@@ -12368,10 +13207,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from ARMS resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -12411,9 +13252,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from ARMS resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -12423,8 +13266,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
-     *   *
+     * @summary Updates an alert contact.
+     *  *
+     * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
+     *  *
      * @param UpdateAlertContactRequest $request UpdateAlertContactRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -12474,8 +13319,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
-     *   *
+     * @summary Updates an alert contact.
+     *  *
+     * @description This operation is no longer maintained. To create or modify an alert contact, call the CreateOrUpdateContact operation provided by the new version of Alert Management.
+     *  *
      * @param UpdateAlertContactRequest $request UpdateAlertContactRequest
      *
      * @return UpdateAlertContactResponse UpdateAlertContactResponse
@@ -12488,10 +13335,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlertContactGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Updates UpdateAlertContactGroup alarm contact group.
+     *  *
+     * @param UpdateAlertContactGroupRequest $request UpdateAlertContactGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAlertContactGroupResponse
+     * @return UpdateAlertContactGroupResponse UpdateAlertContactGroupResponse
      */
     public function updateAlertContactGroupWithOptions($request, $runtime)
     {
@@ -12528,9 +13377,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlertContactGroupRequest $request
+     * @summary Updates UpdateAlertContactGroup alarm contact group.
+     *  *
+     * @param UpdateAlertContactGroupRequest $request UpdateAlertContactGroupRequest
      *
-     * @return UpdateAlertContactGroupResponse
+     * @return UpdateAlertContactGroupResponse UpdateAlertContactGroupResponse
      */
     public function updateAlertContactGroup($request)
     {
@@ -12540,10 +13391,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlertRuleRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param UpdateAlertRuleRequest $request UpdateAlertRuleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAlertRuleResponse
+     * @return UpdateAlertRuleResponse UpdateAlertRuleResponse
      */
     public function updateAlertRuleWithOptions($request, $runtime)
     {
@@ -12583,9 +13434,9 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlertRuleRequest $request
+     * @param UpdateAlertRuleRequest $request UpdateAlertRuleRequest
      *
-     * @return UpdateAlertRuleResponse
+     * @return UpdateAlertRuleResponse UpdateAlertRuleResponse
      */
     public function updateAlertRule($request)
     {
@@ -12595,10 +13446,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateDispatchRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The ID of the request.
+     *  *
+     * @param UpdateDispatchRuleRequest $request UpdateDispatchRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDispatchRuleResponse
+     * @return UpdateDispatchRuleResponse UpdateDispatchRuleResponse
      */
     public function updateDispatchRuleWithOptions($request, $runtime)
     {
@@ -12629,9 +13482,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateDispatchRuleRequest $request
+     * @summary The ID of the request.
+     *  *
+     * @param UpdateDispatchRuleRequest $request UpdateDispatchRuleRequest
      *
-     * @return UpdateDispatchRuleResponse
+     * @return UpdateDispatchRuleResponse UpdateDispatchRuleResponse
      */
     public function updateDispatchRule($request)
     {
@@ -12641,10 +13496,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateEnvCustomJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Updates a custom job for an environment.
+     *  *
+     * @param UpdateEnvCustomJobRequest $request UpdateEnvCustomJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEnvCustomJobResponse
+     * @return UpdateEnvCustomJobResponse UpdateEnvCustomJobResponse
      */
     public function updateEnvCustomJobWithOptions($request, $runtime)
     {
@@ -12689,9 +13546,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateEnvCustomJobRequest $request
+     * @summary Updates a custom job for an environment.
+     *  *
+     * @param UpdateEnvCustomJobRequest $request UpdateEnvCustomJobRequest
      *
-     * @return UpdateEnvCustomJobResponse
+     * @return UpdateEnvCustomJobResponse UpdateEnvCustomJobResponse
      */
     public function updateEnvCustomJob($request)
     {
@@ -12701,10 +13560,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateEnvPodMonitorRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Updates the PodMonitor of an environment.
+     *  *
+     * @param UpdateEnvPodMonitorRequest $request UpdateEnvPodMonitorRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEnvPodMonitorResponse
+     * @return UpdateEnvPodMonitorResponse UpdateEnvPodMonitorResponse
      */
     public function updateEnvPodMonitorWithOptions($request, $runtime)
     {
@@ -12752,9 +13613,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateEnvPodMonitorRequest $request
+     * @summary Updates the PodMonitor of an environment.
+     *  *
+     * @param UpdateEnvPodMonitorRequest $request UpdateEnvPodMonitorRequest
      *
-     * @return UpdateEnvPodMonitorResponse
+     * @return UpdateEnvPodMonitorResponse UpdateEnvPodMonitorResponse
      */
     public function updateEnvPodMonitor($request)
     {
@@ -12764,10 +13627,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateEnvServiceMonitorRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Updates the ServiceMonitor of an environment.
+     *  *
+     * @param UpdateEnvServiceMonitorRequest $request UpdateEnvServiceMonitorRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEnvServiceMonitorResponse
+     * @return UpdateEnvServiceMonitorResponse UpdateEnvServiceMonitorResponse
      */
     public function updateEnvServiceMonitorWithOptions($request, $runtime)
     {
@@ -12815,9 +13680,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateEnvServiceMonitorRequest $request
+     * @summary Updates the ServiceMonitor of an environment.
+     *  *
+     * @param UpdateEnvServiceMonitorRequest $request UpdateEnvServiceMonitorRequest
      *
-     * @return UpdateEnvServiceMonitorResponse
+     * @return UpdateEnvServiceMonitorResponse UpdateEnvServiceMonitorResponse
      */
     public function updateEnvServiceMonitor($request)
     {
@@ -12827,10 +13694,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateEnvironmentRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Updates the configuration of an environment.
+     *  *
+     * @param UpdateEnvironmentRequest $request UpdateEnvironmentRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEnvironmentResponse
+     * @return UpdateEnvironmentResponse UpdateEnvironmentResponse
      */
     public function updateEnvironmentWithOptions($request, $runtime)
     {
@@ -12870,9 +13739,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateEnvironmentRequest $request
+     * @summary Updates the configuration of an environment.
+     *  *
+     * @param UpdateEnvironmentRequest $request UpdateEnvironmentRequest
      *
-     * @return UpdateEnvironmentResponse
+     * @return UpdateEnvironmentResponse UpdateEnvironmentResponse
      */
     public function updateEnvironment($request)
     {
@@ -12882,10 +13753,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateGrafanaWorkspaceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 编辑工作区
+     *  *
+     * @param UpdateGrafanaWorkspaceRequest $request UpdateGrafanaWorkspaceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGrafanaWorkspaceResponse
+     * @return UpdateGrafanaWorkspaceResponse UpdateGrafanaWorkspaceResponse
      */
     public function updateGrafanaWorkspaceWithOptions($request, $runtime)
     {
@@ -12925,9 +13798,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateGrafanaWorkspaceRequest $request
+     * @summary 编辑工作区
+     *  *
+     * @param UpdateGrafanaWorkspaceRequest $request UpdateGrafanaWorkspaceRequest
      *
-     * @return UpdateGrafanaWorkspaceResponse
+     * @return UpdateGrafanaWorkspaceResponse UpdateGrafanaWorkspaceResponse
      */
     public function updateGrafanaWorkspace($request)
     {
@@ -12937,10 +13812,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateGrafanaWorkspaceVersionRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 升级指定工作区版本
+     *  *
+     * @param UpdateGrafanaWorkspaceVersionRequest $request UpdateGrafanaWorkspaceVersionRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGrafanaWorkspaceVersionResponse
+     * @return UpdateGrafanaWorkspaceVersionResponse UpdateGrafanaWorkspaceVersionResponse
      */
     public function updateGrafanaWorkspaceVersionWithOptions($request, $runtime)
     {
@@ -12977,9 +13854,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateGrafanaWorkspaceVersionRequest $request
+     * @summary 升级指定工作区版本
+     *  *
+     * @param UpdateGrafanaWorkspaceVersionRequest $request UpdateGrafanaWorkspaceVersionRequest
      *
-     * @return UpdateGrafanaWorkspaceVersionResponse
+     * @return UpdateGrafanaWorkspaceVersionResponse UpdateGrafanaWorkspaceVersionResponse
      */
     public function updateGrafanaWorkspaceVersion($request)
     {
@@ -12989,10 +13868,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateIntegrationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies the information about an integration.
+     *  *
+     * @param UpdateIntegrationRequest $request UpdateIntegrationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIntegrationResponse
+     * @return UpdateIntegrationResponse UpdateIntegrationResponse
      */
     public function updateIntegrationWithOptions($request, $runtime)
     {
@@ -13059,9 +13940,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateIntegrationRequest $request
+     * @summary Modifies the information about an integration.
+     *  *
+     * @param UpdateIntegrationRequest $request UpdateIntegrationRequest
      *
-     * @return UpdateIntegrationResponse
+     * @return UpdateIntegrationResponse UpdateIntegrationResponse
      */
     public function updateIntegration($request)
     {
@@ -13071,10 +13954,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateMetricDropRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 更新删除的metric
+     *  *
+     * @param UpdateMetricDropRequest $request UpdateMetricDropRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMetricDropResponse
+     * @return UpdateMetricDropResponse UpdateMetricDropResponse
      */
     public function updateMetricDropWithOptions($request, $runtime)
     {
@@ -13108,9 +13993,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateMetricDropRequest $request
+     * @summary 更新删除的metric
+     *  *
+     * @param UpdateMetricDropRequest $request UpdateMetricDropRequest
      *
-     * @return UpdateMetricDropResponse
+     * @return UpdateMetricDropResponse UpdateMetricDropResponse
      */
     public function updateMetricDrop($request)
     {
@@ -13120,10 +14007,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusAlertRuleRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 更新Prometheus告警规则
+     *  *
+     * @param UpdatePrometheusAlertRuleRequest $request UpdatePrometheusAlertRuleRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePrometheusAlertRuleResponse
+     * @return UpdatePrometheusAlertRuleResponse UpdatePrometheusAlertRuleResponse
      */
     public function updatePrometheusAlertRuleWithOptions($request, $runtime)
     {
@@ -13187,9 +14076,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusAlertRuleRequest $request
+     * @summary 更新Prometheus告警规则
+     *  *
+     * @param UpdatePrometheusAlertRuleRequest $request UpdatePrometheusAlertRuleRequest
      *
-     * @return UpdatePrometheusAlertRuleResponse
+     * @return UpdatePrometheusAlertRuleResponse UpdatePrometheusAlertRuleResponse
      */
     public function updatePrometheusAlertRule($request)
     {
@@ -13199,10 +14090,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusGlobalViewRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Updates the data sources of Prometheus instance for GlobalView.
+     *  *
+     * @param UpdatePrometheusGlobalViewRequest $request UpdatePrometheusGlobalViewRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePrometheusGlobalViewResponse
+     * @return UpdatePrometheusGlobalViewResponse UpdatePrometheusGlobalViewResponse
      */
     public function updatePrometheusGlobalViewWithOptions($request, $runtime)
     {
@@ -13248,9 +14141,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusGlobalViewRequest $request
+     * @summary Updates the data sources of Prometheus instance for GlobalView.
+     *  *
+     * @param UpdatePrometheusGlobalViewRequest $request UpdatePrometheusGlobalViewRequest
      *
-     * @return UpdatePrometheusGlobalViewResponse
+     * @return UpdatePrometheusGlobalViewResponse UpdatePrometheusGlobalViewResponse
      */
     public function updatePrometheusGlobalView($request)
     {
@@ -13260,10 +14155,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusInstanceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Update Prometheus instance config.
+     *  *
+     * @param UpdatePrometheusInstanceRequest $request UpdatePrometheusInstanceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePrometheusInstanceResponse
+     * @return UpdatePrometheusInstanceResponse UpdatePrometheusInstanceResponse
      */
     public function updatePrometheusInstanceWithOptions($request, $runtime)
     {
@@ -13303,9 +14200,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusInstanceRequest $request
+     * @summary Update Prometheus instance config.
+     *  *
+     * @param UpdatePrometheusInstanceRequest $request UpdatePrometheusInstanceRequest
      *
-     * @return UpdatePrometheusInstanceResponse
+     * @return UpdatePrometheusInstanceResponse UpdatePrometheusInstanceResponse
      */
     public function updatePrometheusInstance($request)
     {
@@ -13315,10 +14214,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusIntegrationRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies the configurations of an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param UpdatePrometheusIntegrationRequest $request UpdatePrometheusIntegrationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePrometheusIntegrationResponse
+     * @return UpdatePrometheusIntegrationResponse UpdatePrometheusIntegrationResponse
      */
     public function updatePrometheusIntegrationWithOptions($request, $runtime)
     {
@@ -13358,9 +14259,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusIntegrationRequest $request
+     * @summary Modifies the configurations of an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param UpdatePrometheusIntegrationRequest $request UpdatePrometheusIntegrationRequest
      *
-     * @return UpdatePrometheusIntegrationResponse
+     * @return UpdatePrometheusIntegrationResponse UpdatePrometheusIntegrationResponse
      */
     public function updatePrometheusIntegration($request)
     {
@@ -13370,10 +14273,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusMonitoringRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Updates the monitoring configuration of a Prometheus instance.
+     *  *
+     * @param UpdatePrometheusMonitoringRequest $request UpdatePrometheusMonitoringRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePrometheusMonitoringResponse
+     * @return UpdatePrometheusMonitoringResponse UpdatePrometheusMonitoringResponse
      */
     public function updatePrometheusMonitoringWithOptions($request, $runtime)
     {
@@ -13415,9 +14320,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusMonitoringRequest $request
+     * @summary Updates the monitoring configuration of a Prometheus instance.
+     *  *
+     * @param UpdatePrometheusMonitoringRequest $request UpdatePrometheusMonitoringRequest
      *
-     * @return UpdatePrometheusMonitoringResponse
+     * @return UpdatePrometheusMonitoringResponse UpdatePrometheusMonitoringResponse
      */
     public function updatePrometheusMonitoring($request)
     {
@@ -13427,10 +14334,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusMonitoringStatusRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Updates the status of the monitoring configuration of a Prometheus instance.
+     *  *
+     * @param UpdatePrometheusMonitoringStatusRequest $request UpdatePrometheusMonitoringStatusRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePrometheusMonitoringStatusResponse
+     * @return UpdatePrometheusMonitoringStatusResponse UpdatePrometheusMonitoringStatusResponse
      */
     public function updatePrometheusMonitoringStatusWithOptions($request, $runtime)
     {
@@ -13470,9 +14379,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusMonitoringStatusRequest $request
+     * @summary Updates the status of the monitoring configuration of a Prometheus instance.
+     *  *
+     * @param UpdatePrometheusMonitoringStatusRequest $request UpdatePrometheusMonitoringStatusRequest
      *
-     * @return UpdatePrometheusMonitoringStatusResponse
+     * @return UpdatePrometheusMonitoringStatusResponse UpdatePrometheusMonitoringStatusResponse
      */
     public function updatePrometheusMonitoringStatus($request)
     {
@@ -13482,10 +14393,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusRemoteWriteRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param UpdatePrometheusRemoteWriteRequest $request UpdatePrometheusRemoteWriteRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePrometheusRemoteWriteResponse
+     * @return UpdatePrometheusRemoteWriteResponse UpdatePrometheusRemoteWriteResponse
      */
     public function updatePrometheusRemoteWriteWithOptions($request, $runtime)
     {
@@ -13524,9 +14437,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrometheusRemoteWriteRequest $request
+     * @summary Modifies a remote write configuration item of a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *  *
+     * @param UpdatePrometheusRemoteWriteRequest $request UpdatePrometheusRemoteWriteRequest
      *
-     * @return UpdatePrometheusRemoteWriteResponse
+     * @return UpdatePrometheusRemoteWriteResponse UpdatePrometheusRemoteWriteResponse
      */
     public function updatePrometheusRemoteWrite($request)
     {
@@ -13536,10 +14451,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateRumAppRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 更新前端监控应用信息
+     *  *
+     * @param UpdateRumAppRequest $request UpdateRumAppRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRumAppResponse
+     * @return UpdateRumAppResponse UpdateRumAppResponse
      */
     public function updateRumAppWithOptions($request, $runtime)
     {
@@ -13591,9 +14508,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateRumAppRequest $request
+     * @summary 更新前端监控应用信息
+     *  *
+     * @param UpdateRumAppRequest $request UpdateRumAppRequest
      *
-     * @return UpdateRumAppResponse
+     * @return UpdateRumAppResponse UpdateRumAppResponse
      */
     public function updateRumApp($request)
     {
@@ -13603,10 +14522,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateRumFileStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 更新Sourcemap文件状态
+     *  *
+     * @param UpdateRumFileStatusRequest $request UpdateRumFileStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRumFileStatusResponse
+     * @return UpdateRumFileStatusResponse UpdateRumFileStatusResponse
      */
     public function updateRumFileStatusWithOptions($request, $runtime)
     {
@@ -13652,9 +14573,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateRumFileStatusRequest $request
+     * @summary 更新Sourcemap文件状态
+     *  *
+     * @param UpdateRumFileStatusRequest $request UpdateRumFileStatusRequest
      *
-     * @return UpdateRumFileStatusResponse
+     * @return UpdateRumFileStatusResponse UpdateRumFileStatusResponse
      */
     public function updateRumFileStatus($request)
     {
@@ -13664,10 +14587,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateTimingSyntheticTaskRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary 更新定时拨测任务
+     *  *
+     * @param UpdateTimingSyntheticTaskRequest $tmpReq  UpdateTimingSyntheticTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTimingSyntheticTaskResponse
+     * @return UpdateTimingSyntheticTaskResponse UpdateTimingSyntheticTaskResponse
      */
     public function updateTimingSyntheticTaskWithOptions($tmpReq, $runtime)
     {
@@ -13745,9 +14670,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateTimingSyntheticTaskRequest $request
+     * @summary 更新定时拨测任务
+     *  *
+     * @param UpdateTimingSyntheticTaskRequest $request UpdateTimingSyntheticTaskRequest
      *
-     * @return UpdateTimingSyntheticTaskResponse
+     * @return UpdateTimingSyntheticTaskResponse UpdateTimingSyntheticTaskResponse
      */
     public function updateTimingSyntheticTask($request)
     {
@@ -13757,8 +14684,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
-     *   *
+     * @summary Modifies the information about a webhook alert contact.
+     *  *
+     * @description This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
+     *  *
      * @param UpdateWebhookRequest $request UpdateWebhookRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -13814,8 +14743,10 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
-     *   *
+     * @summary Modifies the information about a webhook alert contact.
+     *  *
+     * @description This operation is no longer maintained. Call the CreateOrUpdateWebhookContact operation in the new alter management module to create or modify a webhook alert contact.
+     *  *
      * @param UpdateWebhookRequest $request UpdateWebhookRequest
      *
      * @return UpdateWebhookResponse UpdateWebhookResponse
@@ -13828,10 +14759,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpgradeAddonReleaseRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Update the AddonRelease information.
+     *  *
+     * @param UpgradeAddonReleaseRequest $request UpgradeAddonReleaseRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeAddonReleaseResponse
+     * @return UpgradeAddonReleaseResponse UpgradeAddonReleaseResponse
      */
     public function upgradeAddonReleaseWithOptions($request, $runtime)
     {
@@ -13874,9 +14807,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpgradeAddonReleaseRequest $request
+     * @summary Update the AddonRelease information.
+     *  *
+     * @param UpgradeAddonReleaseRequest $request UpgradeAddonReleaseRequest
      *
-     * @return UpgradeAddonReleaseResponse
+     * @return UpgradeAddonReleaseResponse UpgradeAddonReleaseResponse
      */
     public function upgradeAddonRelease($request)
     {
@@ -13886,10 +14821,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpgradeEnvironmentFeatureRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 更新 feature信息
+     *  *
+     * @param UpgradeEnvironmentFeatureRequest $request UpgradeEnvironmentFeatureRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeEnvironmentFeatureResponse
+     * @return UpgradeEnvironmentFeatureResponse UpgradeEnvironmentFeatureResponse
      */
     public function upgradeEnvironmentFeatureWithOptions($request, $runtime)
     {
@@ -13932,9 +14869,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpgradeEnvironmentFeatureRequest $request
+     * @summary 更新 feature信息
+     *  *
+     * @param UpgradeEnvironmentFeatureRequest $request UpgradeEnvironmentFeatureRequest
      *
-     * @return UpgradeEnvironmentFeatureResponse
+     * @return UpgradeEnvironmentFeatureResponse UpgradeEnvironmentFeatureResponse
      */
     public function upgradeEnvironmentFeature($request)
     {
@@ -13944,10 +14883,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UploadRequest  $request
-     * @param RuntimeOptions $runtime
+     * @summary Uploads a SourceMap file to ARMS Browser Monitoring.
+     *  *
+     * @param UploadRequest  $request UploadRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadResponse
+     * @return UploadResponse UploadResponse
      */
     public function uploadWithOptions($request, $runtime)
     {
@@ -13992,9 +14933,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UploadRequest $request
+     * @summary Uploads a SourceMap file to ARMS Browser Monitoring.
+     *  *
+     * @param UploadRequest $request UploadRequest
      *
-     * @return UploadResponse
+     * @return UploadResponse UploadResponse
      */
     public function upload($request)
     {

@@ -30,6 +30,8 @@ class netDNS extends Model
     public $queryMethod;
 
     /**
+     * @description This parameter is required.
+     *
      * @example www.aliyun.com
      *
      * @var string

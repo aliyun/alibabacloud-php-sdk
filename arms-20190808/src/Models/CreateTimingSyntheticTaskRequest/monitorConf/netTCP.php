@@ -23,6 +23,8 @@ class netTCP extends Model
     public $interval;
 
     /**
+     * @description This parameter is required.
+     *
      * @example www.example.com
      *
      * @var string

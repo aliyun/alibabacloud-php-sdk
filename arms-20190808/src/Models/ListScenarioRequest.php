@@ -11,6 +11,7 @@ class ListScenarioRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example b590lhguqs@28f515462******
      *
      * @var string
@@ -20,6 +21,7 @@ class ListScenarioRequest extends Model
     /**
      * @description The name of the business monitoring job.
      *
+     * This parameter is required.
      * @example pro-content
      *
      * @var string

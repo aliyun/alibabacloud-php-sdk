@@ -14,6 +14,7 @@ class DeleteAlertRuleRequest extends Model
      *   `true`: The specified data is deleted.
      *   `false`: The specified data fails to be deleted.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

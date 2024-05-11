@@ -69,7 +69,7 @@ class promClusterList extends Model
     /**
      * @description The extended fields. This parameter is a JSON string.
      *
-     * @example {\"app_id\":\"bbd\",\"task_id\":\"4305ba5bf14942daa6e553ed91f46988\"}
+     * @example {\\"app_id\\":\\"bbd\\",\\"task_id\\":\\"4305ba5bf14942daa6e553ed91f46988\\"}
      *
      * @var string
      */
@@ -126,7 +126,7 @@ class promClusterList extends Model
     /**
      * @description The custom parameter.
      *
-     * @example {\"Option\": [\"betaTestApproved\"]}
+     * @example {\\"Option\\": [\\"betaTestApproved\\"]}
      *
      * @var string
      */

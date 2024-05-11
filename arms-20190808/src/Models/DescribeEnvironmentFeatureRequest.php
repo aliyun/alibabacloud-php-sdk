@@ -16,6 +16,7 @@ class DescribeEnvironmentFeatureRequest extends Model
     /**
      * @description The environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -33,7 +34,7 @@ class DescribeEnvironmentFeatureRequest extends Model
      *
      *   metric-agent
      *
-     * <!-- -->
+     * This parameter is required.
      * @example metric-agent
      *
      * @var string

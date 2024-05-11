@@ -11,6 +11,7 @@ class GetClusterAllUrlRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetClusterAllUrlRequest extends Model
     /**
      * @description The region ID. Default value: cn-hangzhou.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

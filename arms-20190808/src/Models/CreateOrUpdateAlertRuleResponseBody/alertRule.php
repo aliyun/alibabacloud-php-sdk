@@ -28,7 +28,7 @@ class alertRule extends Model
     /**
      * @description The alert contact group ID of the Prometheus alert rule. Valid values:
      *
-     *   \-1: custom PromQL
+     *   \\-1: custom PromQL
      *   1: Kubernetes load
      *   15: Kubernetes node
      *
@@ -139,7 +139,7 @@ class alertRule extends Model
     /**
      * @description The extended fields.
      *
-     * @example {\\"alarmContext\\":\\"{\\\\\"content\\\\\":\\\\Alert name: $Alert name\\\\\\nFilter condition: $Filter condition\\\\\\nAlert time: $Alert time\\\\\\nAlert content: $Alert content\\\\\\nNote: The alert persists before you receive an email that reminds you to clear the alert. You will be reminded of the alert again 24 hours later. \\\\\",\\\\\"subTitle\\\\\":\\\\\"\\\\\"}\\",\\"alertWays\\":\\"\[0,1]\\",\\"contactGroupIds\\":\\"381,5075\\",\\"notice\\":\\"{\\\\\"endTime\\\\\":1480607940000,\\\\\"noticeEndTime\\\\\":1480607940000,\\\\\"noticeStartTime\\\\\":1480521600000,\\\\\"startTime\\\\\":1480521600000}\\"}
+     * @example {\\\\"alarmContext\\\\":\\\\"{\\\\\\\\\\"content\\\\\\\\\\":\\\\\\\\Alert name: $Alert name\\\\\\\\\\\\nFilter condition: $Filter condition\\\\\\\\\\\\nAlert time: $Alert time\\\\\\\\\\\\nAlert content: $Alert content\\\\\\\\\\\\nNote: The alert persists before you receive an email that reminds you to clear the alert. You will be reminded of the alert again 24 hours later. \\\\\\\\\\",\\\\\\\\\\"subTitle\\\\\\\\\\":\\\\\\\\\\"\\\\\\\\\\"}\\\\",\\\\"alertWays\\\\":\\\\"[0,1]\\\\",\\\\"contactGroupIds\\\\":\\\\"381,5075\\\\",\\\\"notice\\\\":\\\\"{\\\\\\\\\\"endTime\\\\\\\\\\":1480607940000,\\\\\\\\\\"noticeEndTime\\\\\\\\\\":1480607940000,\\\\\\\\\\"noticeStartTime\\\\\\\\\\":1480521600000,\\\\\\\\\\"startTime\\\\\\\\\\":1480521600000}\\\\"}
      *
      * @var string
      */
@@ -177,7 +177,7 @@ class alertRule extends Model
     /**
      * @description The alert message of the Prometheus alert rule.
      *
-     * @example Namespace: {{$labels.namespace}} / Pod: {{$labels.pod_name}} / Container: {{$labels.container}} Memory usage exceeds 80%. Current value: {{ printf \\\\\"%.2f\\\\\" $value }}%
+     * @example Namespace: {{$labels.namespace}} / Pod: {{$labels.pod_name}} / Container: {{$labels.container}} Memory usage exceeds 80%. Current value: {{ printf \\\\\\\\\\"%.2f\\\\\\\\\\" $value }}%
      *
      * @var string
      */

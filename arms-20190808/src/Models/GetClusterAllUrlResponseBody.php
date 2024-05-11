@@ -17,7 +17,7 @@ class GetClusterAllUrlResponseBody extends Model
      * @description The response parameters in the JSON format.
      *
      * @example {
-     * "Data": "{\"clusterType\":\"ManagedKubernetes\",\"remoteWriteUrl\":\"http:/" }
+     * "Data": "{\\"clusterType\\":\\"ManagedKubernetes\\",\\"remoteWriteUrl\\":\\"http:/" }
      * @var string
      */
     public $data;

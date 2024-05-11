@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddTagToFlinkClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example c5defa51f******c92bd2ef5fb093269
      *
      * @var string
@@ -16,6 +18,8 @@ class AddTagToFlinkClusterRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ab18f***93744d
      *
      * @var string
@@ -23,6 +27,8 @@ class AddTagToFlinkClusterRequest extends Model
     public $flinkWorkSpaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example flink-demo
      *
      * @var string
@@ -30,6 +36,8 @@ class AddTagToFlinkClusterRequest extends Model
     public $flinkWorkSpaceName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +52,8 @@ class AddTagToFlinkClusterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 198608******7619
      *
      * @var string

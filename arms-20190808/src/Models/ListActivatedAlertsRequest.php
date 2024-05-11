@@ -11,6 +11,7 @@ class ListActivatedAlertsRequest extends Model
     /**
      * @description The number of the page to return. Default value: `1`.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +30,7 @@ class ListActivatedAlertsRequest extends Model
     /**
      * @description The number of entries to return on each page. Default value: `10`.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -38,6 +40,7 @@ class ListActivatedAlertsRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

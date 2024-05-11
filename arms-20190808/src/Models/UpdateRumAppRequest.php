@@ -33,6 +33,8 @@ class UpdateRumAppRequest extends Model
     public $nickname;
 
     /**
+     * @description This parameter is required.
+     *
      * @example b5xxxxs@d8deedfa9bf****
      *
      * @var string
@@ -40,6 +42,8 @@ class UpdateRumAppRequest extends Model
     public $pid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

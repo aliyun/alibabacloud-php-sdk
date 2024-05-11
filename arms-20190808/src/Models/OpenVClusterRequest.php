@@ -11,6 +11,7 @@ class OpenVClusterRequest extends Model
     /**
      * @description The type of the cluster. For cloud services, set this parameter to `cloud-product-prometheus`.
      *
+     * This parameter is required.
      * @example cloud-product-prometheus
      *
      * @var string
@@ -47,6 +48,7 @@ class OpenVClusterRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

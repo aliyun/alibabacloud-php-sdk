@@ -113,7 +113,7 @@ class contacts extends Model
     /**
      * @description The information about the webhook.
      *
-     * @example {\"body\":\"{   \\\"msg_type\\\": \\\"text\\\",   \\\"content\\\": {     \\\"text\\\": \\\"$content\\\"   } }\",\"header\":{\"Arms-Content-Type\":\"json\"},\"method\":\"post\",\"params\":{},\"url\":\"https://***",\"userId\":\"1131971649***\"}",
+     * @example {\\"body\\":\\"{   \\\\\\"msg_type\\\\\\": \\\\\\"text\\\\\\",   \\\\\\"content\\\\\\": {     \\\\\\"text\\\\\\": \\\\\\"$content\\\\\\"   } }\\",\\"header\\":{\\"Arms-Content-Type\\":\\"json\\"},\\"method\\":\\"post\\",\\"params\\":{},\\"url\\":\\"https://***",\\"userId\\":\\"1131971649***\\"}",
      *
      * @var string
      */

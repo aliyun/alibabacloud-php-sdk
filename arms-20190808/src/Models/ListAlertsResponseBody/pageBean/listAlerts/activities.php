@@ -11,7 +11,7 @@ class activities extends Model
     /**
      * @description The content of the alert notification.
      *
-     * @example \[Notification policy: Send notifications to DingTalk groups] Host monitoring. Host IP address: 10.76.XX.XX. Average memory usage of the host in the last 1 minute ≥ 1.0%. Current value: 84.7454%.
+     * @example [Notification policy: Send notifications to DingTalk groups] Host monitoring. Host IP address: 10.76.XX.XX. Average memory usage of the host in the last 1 minute ≥ 1.0%. Current value: 84.7454%.
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class activities extends Model
     /**
      * @description The description of the activity.
      *
-     * @example \[Alert Claimed] The alert is claimed
+     * @example [Alert Claimed] The alert is claimed
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class activities extends Model
     /**
      * @description The name of the handler.
      *
-     * @example O\&M Engineer A
+     * @example O\\&M Engineer A
      *
      * @var string
      */

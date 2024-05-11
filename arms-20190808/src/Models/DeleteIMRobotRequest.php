@@ -11,6 +11,7 @@ class DeleteIMRobotRequest extends Model
     /**
      * @description The ID of the IM chatbot.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

@@ -11,6 +11,7 @@ class QueryAppMetadataRequest extends Model
     /**
      * @description The list of metadata IDs. Separate multiple IDs with commas (,).
      *
+     * This parameter is required.
      * @example 4c9dd447,3c76c565
      *
      * @var string
@@ -20,6 +21,7 @@ class QueryAppMetadataRequest extends Model
     /**
      * @description The metadata type. Valid values: sql: obtains an SQL statement based on sqlId exception: obtains the exception stack based on exceptionId
      *
+     * This parameter is required.
      * @example sql
      *
      * @var string
@@ -29,6 +31,7 @@ class QueryAppMetadataRequest extends Model
     /**
      * @description The process identifier (PID) of the application. For more information about how to obtain the PID, see "Obtain the PID of an application."
      *
+     * This parameter is required.
      * @example ggxw4lnjuz@54364d85b97dc56
      *
      * @var string
@@ -38,6 +41,7 @@ class QueryAppMetadataRequest extends Model
     /**
      * @description The region ID. Default value: cn-hangzhou.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

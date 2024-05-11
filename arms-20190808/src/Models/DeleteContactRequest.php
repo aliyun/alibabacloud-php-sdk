@@ -11,6 +11,7 @@ class DeleteContactRequest extends Model
     /**
      * @description The operation that you want to perform. Set the value to **DeleteContact**.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

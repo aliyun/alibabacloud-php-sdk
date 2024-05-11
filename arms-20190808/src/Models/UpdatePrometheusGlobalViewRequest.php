@@ -20,6 +20,7 @@ class UpdatePrometheusGlobalViewRequest extends Model
     /**
      * @description The ID of the Prometheus instance.
      *
+     * This parameter is required.
      * @example global****
      *
      * @var string
@@ -47,6 +48,7 @@ class UpdatePrometheusGlobalViewRequest extends Model
     /**
      * @description The ID of the region in which the Prometheus instance resides.
      *
+     * This parameter is required.
      * @example cn-shenzhen
      *
      * @var string
@@ -65,6 +67,7 @@ class UpdatePrometheusGlobalViewRequest extends Model
     /**
      * @description The data sources of the Prometheus instance for GlobalView.
      *
+     * This parameter is required.
      * @example [ { "headers":{ }, "regionId":"cn-hangzhou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c39a1048921e04f***********", "sourceName":"arms-luyao-test", "dataSource":"", "userId":"1672753***********" }, { "headers":{ }, "regionId":"cn-beijing", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c6b6485496d5b40***********", "sourceName":"agent-321-test", "dataSource":"", "userId":"1672753***********" }, { "headers":{ }, "regionId":"cn-zhangjiakou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c261a4f3200c446***********", "sourceName":"zaifeng-cardinality-01", "dataSource":"", "userId":"1672753***********" } ]
      *
      * @var string

@@ -11,6 +11,7 @@ class UpdatePrometheusRemoteWriteRequest extends Model
     /**
      * @description The ID of the Prometheus instance.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdatePrometheusRemoteWriteRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,6 +31,7 @@ class UpdatePrometheusRemoteWriteRequest extends Model
     /**
      * @description The name of the remote write configuration item.
      *
+     * This parameter is required.
      * @example rw1
      *
      * @var string
@@ -38,6 +41,7 @@ class UpdatePrometheusRemoteWriteRequest extends Model
     /**
      * @description The remote write configuration. Specify the value in the YAML format.
      *
+     * This parameter is required.
      * @example remote_write:
      * action: keep
      * @var string

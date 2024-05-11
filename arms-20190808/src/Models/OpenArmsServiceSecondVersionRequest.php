@@ -11,6 +11,7 @@ class OpenArmsServiceSecondVersionRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -26,6 +27,7 @@ class OpenArmsServiceSecondVersionRequest extends Model
      *   `prometheus_monitor`: Managed Service for Prometheus
      *   `synthetic_post`: Synthetic Monitoring
      *
+     * This parameter is required.
      * @example arms
      *
      * @var string

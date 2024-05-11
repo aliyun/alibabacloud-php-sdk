@@ -17,6 +17,8 @@ class CreateRumAppRequest extends Model
     public $appGroup;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-app
      *
      * @var string
@@ -36,6 +38,8 @@ class CreateRumAppRequest extends Model
     public $packageName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +54,8 @@ class CreateRumAppRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example web
      *
      * @var string

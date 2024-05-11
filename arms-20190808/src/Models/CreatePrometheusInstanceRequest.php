@@ -54,6 +54,7 @@ class CreatePrometheusInstanceRequest extends Model
      * global-view: Prometheus instance for GlobalView.
      * aliyun-cs(Not supported): Prometheus instance for Container Service for Kubernetes (ACK).
      *
+     * This parameter is required.
      * @example remote-write
      *
      * @var string
@@ -81,6 +82,7 @@ class CreatePrometheusInstanceRequest extends Model
     /**
      * @description The ID of the region. If you use a Prometheus instance to monitor an Alibaba Cloud service in China, this parameter must be set to cn-shanghai.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

@@ -31,6 +31,8 @@ class GetRumAppsRequest extends Model
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

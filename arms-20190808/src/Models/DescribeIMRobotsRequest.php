@@ -11,6 +11,7 @@ class DescribeIMRobotsRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -38,6 +39,7 @@ class DescribeIMRobotsRequest extends Model
     /**
      * @description The number of IM chatbots to return on each page.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int

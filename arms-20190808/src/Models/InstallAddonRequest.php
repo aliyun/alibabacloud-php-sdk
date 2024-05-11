@@ -11,6 +11,7 @@ class InstallAddonRequest extends Model
     /**
      * @description The version of the add-on.
      *
+     * This parameter is required.
      * @example 0.0.1
      *
      * @var string
@@ -38,6 +39,7 @@ class InstallAddonRequest extends Model
     /**
      * @description The environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -47,6 +49,7 @@ class InstallAddonRequest extends Model
     /**
      * @description The name of the add-on.
      *
+     * This parameter is required.
      * @example mysql
      *
      * @var string

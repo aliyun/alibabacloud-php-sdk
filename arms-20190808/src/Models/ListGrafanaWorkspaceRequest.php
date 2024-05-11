@@ -17,6 +17,8 @@ class ListGrafanaWorkspaceRequest extends Model
     public $aliyunLang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

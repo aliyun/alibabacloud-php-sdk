@@ -33,6 +33,7 @@ class SetRetcodeShareStatusRequest extends Model
      *   `true`: Turn on the switch.
      *   `false`: Turn off the switch.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

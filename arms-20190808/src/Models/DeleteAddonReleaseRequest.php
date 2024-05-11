@@ -11,6 +11,7 @@ class DeleteAddonReleaseRequest extends Model
     /**
      * @description Environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -38,6 +39,7 @@ class DeleteAddonReleaseRequest extends Model
     /**
      * @description Name of Release.
      *
+     * This parameter is required.
      * @example agent-822567d4-2449
      *
      * @var string

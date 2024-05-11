@@ -11,6 +11,7 @@ class AddGrafanaRequest extends Model
     /**
      * @description The ID of the Container Service for Kubernetes (ACK) cluster.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -20,6 +21,7 @@ class AddGrafanaRequest extends Model
     /**
      * @description The abbreviation of the software that is supported by Application Real-Time Monitoring Service (ARMS). Valid values (case-insensitive): `ASM`, `IoT`, and `Flink`.
      *
+     * This parameter is required.
      * @example asm
      *
      * @var string
@@ -29,6 +31,7 @@ class AddGrafanaRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

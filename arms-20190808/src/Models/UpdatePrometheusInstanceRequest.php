@@ -20,6 +20,7 @@ class UpdatePrometheusInstanceRequest extends Model
     /**
      * @description The ID of the Prometheus instance.
      *
+     * This parameter is required.
      * @example vpc-xxx
      *
      * @var string
@@ -29,6 +30,7 @@ class UpdatePrometheusInstanceRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

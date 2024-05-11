@@ -11,6 +11,7 @@ class AddIntegrationRequest extends Model
     /**
      * @description The ID of an Alibaba Cloud Container Service for Kubernetes cluster.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -20,6 +21,7 @@ class AddIntegrationRequest extends Model
     /**
      * @description The software abbreviation that is supported by ARMS. Valid values (case-insensitive): `ASM`, `IoT`, and `Flink`.
      *
+     * This parameter is required.
      * @example asm
      *
      * @var string
@@ -29,6 +31,7 @@ class AddIntegrationRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

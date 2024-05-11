@@ -20,7 +20,7 @@ class insightsEvents extends Model
     /**
      * @description The description of the alert event.
      *
-     * @example The overall response time of the \[HTTP] service of the application \[sd] spikes at \[2022-07-27 10:57:00]
+     * @example The overall response time of the [HTTP] service of the application [sd] spikes at [2022-07-27 10:57:00]
      *
      * @var string
      */

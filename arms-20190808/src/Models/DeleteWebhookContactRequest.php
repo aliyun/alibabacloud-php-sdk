@@ -11,6 +11,7 @@ class DeleteWebhookContactRequest extends Model
     /**
      * @description The ID of the webhook alert contact.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

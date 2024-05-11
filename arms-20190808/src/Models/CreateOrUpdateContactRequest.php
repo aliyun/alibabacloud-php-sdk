@@ -23,6 +23,7 @@ class CreateOrUpdateContactRequest extends Model
     /**
      * @description The name of the alert contact.
      *
+     * This parameter is required.
      * @example JohnDoe
      *
      * @var string

@@ -92,7 +92,7 @@ class alertRules extends Model
      *   `1`: overwrites the data by using the value 1
      *   `2`: overwrites the data by using the value null. This value indicates that no alert is triggered if no data exists
      *
-     * @example {\"continuous\":true,\"dataRevision\":2}
+     * @example {\\"continuous\\":true,\\"dataRevision\\":2}
      *
      * @var string
      */

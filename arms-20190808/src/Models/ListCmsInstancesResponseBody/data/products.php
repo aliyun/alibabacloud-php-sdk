@@ -72,7 +72,7 @@ class products extends Model
     public $type;
 
     /**
-     * @example https://g.console.aliyun.com/d/1098370038733503-35894-565/cms-hologres?orgId\u003d9\u0026refresh\u003d60s
+     * @example https://g.console.aliyun.com/d/1098370038733503-35894-565/cms-hologres?orgId\\u003d9\\u0026refresh\\u003d60s
      *
      * @var string
      */

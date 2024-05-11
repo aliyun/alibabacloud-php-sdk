@@ -11,6 +11,7 @@ class DescribeEnvironmentRequest extends Model
     /**
      * @description The ID of the environment instance.
      *
+     * This parameter is required.
      * @example env-xxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeEnvironmentRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,7 +11,7 @@ class ConfigAppResponseBody extends Model
     /**
      * @description The result of turning on or off the main switch of the ARMS agent or the main switch status of the ARMS agent. Indicates whether the request was successful. Valid values: success failed The main switch status of the ARMS agent. Valid values: true false
      *
-     * @example abc@def success\nghi@jkl success\n
+     * @example abc@def success\\nghi@jkl success\\n
      *
      * @var string
      */

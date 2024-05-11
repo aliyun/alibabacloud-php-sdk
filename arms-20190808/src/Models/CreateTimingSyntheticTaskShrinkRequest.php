@@ -24,6 +24,8 @@ class CreateTimingSyntheticTaskShrinkRequest extends Model
     public $customPeriodShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5m
      *
      * @var string
@@ -31,6 +33,8 @@ class CreateTimingSyntheticTaskShrinkRequest extends Model
     public $frequency;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -38,16 +42,22 @@ class CreateTimingSyntheticTaskShrinkRequest extends Model
     public $monitorCategory;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $monitorConfShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $monitorsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example demo-test
      *
      * @var string
@@ -55,6 +65,8 @@ class CreateTimingSyntheticTaskShrinkRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -74,6 +86,8 @@ class CreateTimingSyntheticTaskShrinkRequest extends Model
     public $tagsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4
      *
      * @var int

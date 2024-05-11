@@ -86,7 +86,7 @@ class download extends Model
     public $verifyWay;
 
     /**
-     * @example [{\"src\":\"211.154.166.174\"}]
+     * @example [{\\"src\\":\\"211.154.166.174\\"}]
      *
      * @var string
      */

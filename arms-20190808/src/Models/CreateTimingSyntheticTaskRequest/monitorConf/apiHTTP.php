@@ -44,6 +44,8 @@ class apiHTTP extends Model
     public $requestHeaders;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://www.demo.com/api/list
      *
      * @var string

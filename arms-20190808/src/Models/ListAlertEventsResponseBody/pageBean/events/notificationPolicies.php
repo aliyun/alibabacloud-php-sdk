@@ -2,32 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
+namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertEventsResponseBody\pageBean\events;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteDispatchRuleRequest extends Model
+class notificationPolicies extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 12345
-     *
-     * @var string
+     * @var int
      */
     public $id;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
-    public $regionId;
+    public $name;
     protected $_name = [
-        'id'       => 'Id',
-        'regionId' => 'RegionId',
+        'id'   => 'Id',
+        'name' => 'Name',
     ];
 
     public function validate()
@@ -40,8 +32,8 @@ class DeleteDispatchRuleRequest extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -50,7 +42,7 @@ class DeleteDispatchRuleRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteDispatchRuleRequest
+     * @return notificationPolicies
      */
     public static function fromMap($map = [])
     {
@@ -58,8 +50,8 @@ class DeleteDispatchRuleRequest extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

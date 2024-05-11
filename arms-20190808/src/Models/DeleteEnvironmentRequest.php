@@ -20,6 +20,7 @@ class DeleteEnvironmentRequest extends Model
     /**
      * @description The ID of the environment instance.
      *
+     * This parameter is required.
      * @example env-xxxxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class DeleteEnvironmentRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

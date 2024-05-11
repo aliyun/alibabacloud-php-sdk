@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentFeaturesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example env-xxx
      *
      * @var string

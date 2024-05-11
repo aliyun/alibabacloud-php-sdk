@@ -20,6 +20,7 @@ class ListAddonReleasesRequest extends Model
     /**
      * @description Environment instance ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string

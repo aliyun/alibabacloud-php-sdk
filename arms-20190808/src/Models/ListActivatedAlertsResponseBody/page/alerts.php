@@ -120,7 +120,7 @@ class alerts extends Model
     /**
      * @description The description of the alert.
      *
-     * @example Alarm name: PodRestart_testphp2,\n Pod night-test-group-1-1-5f5d6f4d84-pszns is restart, Value: 133.33%, 1.33%
+     * @example Alarm name: PodRestart_testphp2,\\n Pod night-test-group-1-1-5f5d6f4d84-pszns is restart, Value: 133.33%, 1.33%
      *
      * @var string
      */

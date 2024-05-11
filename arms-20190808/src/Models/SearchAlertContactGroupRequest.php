@@ -27,7 +27,7 @@ class SearchAlertContactGroupRequest extends Model
     public $contactGroupName;
 
     /**
-     * @description The ID of the alert contact. You can call the SearchAlertContact operation to query the contact IDs. For more information, see [SearchAlertContact](~~130703~~).
+     * @description The ID of the alert contact. You can call the SearchAlertContact operation to query the contact IDs. For more information, see [SearchAlertContact](https://help.aliyun.com/document_detail/130703.html).
      *
      * @example 123
      *
@@ -56,6 +56,7 @@ class SearchAlertContactGroupRequest extends Model
     /**
      * @description The ID of the region. Default value: `cn-hangzhou`.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

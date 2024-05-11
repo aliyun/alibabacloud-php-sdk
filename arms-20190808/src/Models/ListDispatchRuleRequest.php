@@ -16,6 +16,8 @@ class ListDispatchRuleRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

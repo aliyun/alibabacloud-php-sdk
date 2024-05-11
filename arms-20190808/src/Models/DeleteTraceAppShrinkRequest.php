@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteTraceAppShrinkRequest extends Model
 {
     /**
-     * @description The ID of the application that you want to delete. You can call the SearchTraceAppByName operation to query the application ID. For more information, see [SearchTraceAppByName](~~130676~~).
+     * @description The ID of the application that you want to delete. You can call the SearchTraceAppByName operation to query the application ID. For more information, see [SearchTraceAppByName](https://help.aliyun.com/document_detail/130676.html).
      *
+     * This parameter is required.
      * @example 5406**
      *
      * @var string
@@ -27,6 +28,7 @@ class DeleteTraceAppShrinkRequest extends Model
     /**
      * @description The PID of the application. For more information about how to query the PID, see [QueryMetricByPage](https://www.alibabacloud.com/help/zh/doc-detail/186100.htm?spm=a2cdw.13409063.0.0.7a72281f0bkTfx#title-imy-7gj-qhr).
      *
+     * This parameter is required.
      * @example 9w0sc5gxxz@edcsd447c2f****
      *
      * @var string
@@ -36,6 +38,7 @@ class DeleteTraceAppShrinkRequest extends Model
     /**
      * @description The ID of the region in which the application is located.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,11 +46,12 @@ class DeleteTraceAppShrinkRequest extends Model
     public $regionId;
 
     /**
-     * @description The type of the application that you want to delete. You can call the SearchTraceAppByName operation to query the application type. For more information, see [SearchTraceAppByName](~~130676~~). Valid values:
+     * @description The type of the application that you want to delete. You can call the SearchTraceAppByName operation to query the application type. For more information, see [SearchTraceAppByName](https://help.aliyun.com/document_detail/130676.html). Valid values:
      *
      *   `TRACE`: Application Monitoring
      *   `RETCODE`: frontend monitoring
      *
+     * This parameter is required.
      * @example TRACE
      *
      * @var string

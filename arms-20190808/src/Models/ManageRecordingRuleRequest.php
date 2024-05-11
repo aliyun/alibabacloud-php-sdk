@@ -11,6 +11,7 @@ class ManageRecordingRuleRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cf09705f5a82f454db0d50420b6b4e904
      *
      * @var string
@@ -20,6 +21,7 @@ class ManageRecordingRuleRequest extends Model
     /**
      * @description The user ID.
      *
+     * This parameter is required.
      * @example 87348589207
      *
      * @var string
@@ -29,6 +31,7 @@ class ManageRecordingRuleRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,7 +41,8 @@ class ManageRecordingRuleRequest extends Model
     /**
      * @description The recording rule.
      *
-     * @example groups:\n- interval: 60s\n  name: auto_analyzer_recording_rule_60s\n  rules:\n  - expr: sum(node_cpu_seconds_total)\n    record: sum:node_cpu_seconds_total:recording_rule_hash_f341458c0f7d\n
+     * This parameter is required.
+     * @example groups:\\n- interval: 60s\\n  name: auto_analyzer_recording_rule_60s\\n  rules:\\n  - expr: sum(node_cpu_seconds_total)\\n    record: sum:node_cpu_seconds_total:recording_rule_hash_f341458c0f7d\\n
      *
      * @var string
      */

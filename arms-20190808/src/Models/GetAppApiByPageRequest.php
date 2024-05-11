@@ -38,6 +38,7 @@ class GetAppApiByPageRequest extends Model
     /**
      * @description The process identifier (PID) of the application. For information about how to obtain a PID, see [Obtain the PID of an application](https://www.alibabacloud.com/help/zh/doc-detail/186100.htm?spm=a2cdw.13409063.0.0.7a72281f0bkTfx#title-imy-7gj-qhr).
      *
+     * This parameter is required.
      * @example a2n80plglh@745eddxxx
      *
      * @var string
@@ -56,6 +57,7 @@ class GetAppApiByPageRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

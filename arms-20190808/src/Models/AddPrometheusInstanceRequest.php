@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddPrometheusInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example notificationpolicy_test
      *
      * @var string
@@ -16,6 +18,8 @@ class AddPrometheusInstanceRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class AddPrometheusInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example RW
      *
      * @var string

@@ -23,6 +23,7 @@ class CreateOrUpdateContactGroupRequest extends Model
     /**
      * @description The name of the alert contact group.
      *
+     * This parameter is required.
      * @example TestGroup
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryReleaseMetricRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example a341a2f2-ed07-4257-aae9-dfb1be******
      *
      * @var string
@@ -30,6 +32,8 @@ class QueryReleaseMetricRequest extends Model
     public $metricType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8b46d03f-5947-449d-90fd-3a96c2******
      *
      * @var string
@@ -44,6 +48,8 @@ class QueryReleaseMetricRequest extends Model
     public $proxyUserId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1632798718632
      *
      * @var int
@@ -51,6 +57,8 @@ class QueryReleaseMetricRequest extends Model
     public $releaseEndTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1632798686692
      *
      * @var int

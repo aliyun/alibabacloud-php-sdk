@@ -16,6 +16,8 @@ class DeleteRumAppRequest extends Model
     public $appGroup;
 
     /**
+     * @description This parameter is required.
+     *
      * @example b590lhguqs@28f515462******
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteRumAppRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

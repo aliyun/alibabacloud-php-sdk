@@ -72,6 +72,7 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
     /**
      * @description The name of the notification policy.
      *
+     * This parameter is required.
      * @example notificationpolicy_test
      *
      * @var string
@@ -81,7 +82,7 @@ class CreateOrUpdateNotificationPolicyRequest extends Model
     /**
      * @description An array of notification rule objects. Format:
      *
-     * }]
+     * This parameter is required.
      * @example {     "notifyStartTime":"00:00",     "notifyEndTime":"23:59",     "notifyChannels":[         "dingTalk",         "email",         "sms",         "tts",         "webhook"     ],     "notifyObjects":[         {             "notifyObjectType":"CONTACT",             "notifyObjectId":123,             "notifyObjectName":"test"         }     ] }
      *
      * @var string

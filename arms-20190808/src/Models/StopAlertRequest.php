@@ -11,6 +11,7 @@ class StopAlertRequest extends Model
     /**
      * @description The ID of the alert rule.
      *
+     * This parameter is required.
      * @example 1610***
      *
      * @var string
@@ -20,6 +21,7 @@ class StopAlertRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

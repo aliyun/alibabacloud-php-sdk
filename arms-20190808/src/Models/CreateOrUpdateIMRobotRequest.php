@@ -59,6 +59,7 @@ class CreateOrUpdateIMRobotRequest extends Model
     /**
      * @description The webhook URL of the IM chatbot.
      *
+     * This parameter is required.
      * @example https://oapi.dingtalk.com/robot/send?access_token=e1a049121******
      *
      * @var string
@@ -77,6 +78,7 @@ class CreateOrUpdateIMRobotRequest extends Model
     /**
      * @description The name of the IM chatbot.
      *
+     * This parameter is required.
      * @example Chatbot name
      *
      * @var string

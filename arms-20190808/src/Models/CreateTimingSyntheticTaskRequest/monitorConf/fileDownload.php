@@ -98,6 +98,8 @@ class fileDownload extends Model
     public $redirection;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://img.alicdn.com/tfs/TB13DzOjXP7gK0jSZFjXXc5aXXa-212-48.png
      *
      * @var string

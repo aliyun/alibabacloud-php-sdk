@@ -11,7 +11,8 @@ class DeletePrometheusRemoteWriteRequest extends Model
     /**
      * @description The ID of the Prometheus instance. Only a Prometheus instance for Container Service or a Prometheus instance for ECS is supported.
      *
-     * @example cc7a37ee31aea4ed1a059eff8034b\*\*\*\* or vpc-xxxx
+     * This parameter is required.
+     * @example cc7a37ee31aea4ed1a059eff8034b\\*\\*\\*\\* or vpc-xxxx
      *
      * @var string
      */
@@ -20,6 +21,7 @@ class DeletePrometheusRemoteWriteRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,6 +31,7 @@ class DeletePrometheusRemoteWriteRequest extends Model
     /**
      * @description The names of the remote write configuration items that you want to delete. Separate configuration items with commas (,).
      *
+     * This parameter is required.
      * @example name1,name2
      *
      * @var string

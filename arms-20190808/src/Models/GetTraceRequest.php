@@ -21,6 +21,7 @@ class GetTraceRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -40,6 +41,7 @@ class GetTraceRequest extends Model
     /**
      * @description The trace ID. You can log on to the ARMS console and obtain the trace ID on the **Trace Query** page or **Interface Snapshot** tab.
      *
+     * This parameter is required.
      * @example ac14001a15954493811405707d****
      *
      * @var string

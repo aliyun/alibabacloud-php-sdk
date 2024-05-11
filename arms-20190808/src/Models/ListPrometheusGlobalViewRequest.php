@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusGlobalViewRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

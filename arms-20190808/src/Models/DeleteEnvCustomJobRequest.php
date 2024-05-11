@@ -11,6 +11,7 @@ class DeleteEnvCustomJobRequest extends Model
     /**
      * @description Custom job name.
      *
+     * This parameter is required.
      * @example job1
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteEnvCustomJobRequest extends Model
     /**
      * @description Environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -29,6 +31,7 @@ class DeleteEnvCustomJobRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

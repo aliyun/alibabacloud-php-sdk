@@ -98,7 +98,7 @@ class spans extends Model
      *   18: SOFARPC provision
      *   11: Distributed Service Framework (DSF) call
      *   12: DSF provision
-     *   \-1: unknown call
+     *   \\-1: unknown call
      *
      * @example 0
      *

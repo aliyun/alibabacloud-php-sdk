@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertEventsResponseBody\pageBean;
 
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertEventsResponseBody\pageBean\events\alarms;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListAlertEventsResponseBody\pageBean\events\notificationPolicies;
 use AlibabaCloud\Tea\Model;
 
 class events extends Model
@@ -28,7 +29,7 @@ class events extends Model
     /**
      * @description The list of annotations.
      *
-     * @example [{\"Name\":\"annotation-a\",\"Value\":\"annotation a value\"}]
+     * @example [{\\"Name\\":\\"annotation-a\\",\\"Value\\":\\"annotation a value\\"}]
      *
      * @var string
      */
@@ -91,11 +92,16 @@ class events extends Model
     /**
      * @description The list of tags.
      *
-     * @example [{\"name\":\"severity\",\"value\":\"error\"}]
+     * @example [{\\"name\\":\\"severity\\",\\"value\\":\\"error\\"}]
      *
      * @var string
      */
     public $labels;
+
+    /**
+     * @var notificationPolicies[]
+     */
+    public $notificationPolicies;
 
     /**
      * @description The time when the alert event was received.
@@ -142,21 +148,28 @@ class events extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var int
+     */
+    public $triggerCount;
     protected $_name = [
-        'alarms'          => 'Alarms',
-        'alertName'       => 'AlertName',
-        'annotations'     => 'Annotations',
-        'description'     => 'Description',
-        'endTime'         => 'EndTime',
-        'generatorURL'    => 'GeneratorURL',
-        'handlerName'     => 'HandlerName',
-        'integrationName' => 'IntegrationName',
-        'integrationType' => 'IntegrationType',
-        'labels'          => 'Labels',
-        'receiveTime'     => 'ReceiveTime',
-        'severity'        => 'Severity',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
+        'alarms'               => 'Alarms',
+        'alertName'            => 'AlertName',
+        'annotations'          => 'Annotations',
+        'description'          => 'Description',
+        'endTime'              => 'EndTime',
+        'generatorURL'         => 'GeneratorURL',
+        'handlerName'          => 'HandlerName',
+        'integrationName'      => 'IntegrationName',
+        'integrationType'      => 'IntegrationType',
+        'labels'               => 'Labels',
+        'notificationPolicies' => 'NotificationPolicies',
+        'receiveTime'          => 'ReceiveTime',
+        'severity'             => 'Severity',
+        'startTime'            => 'StartTime',
+        'status'               => 'Status',
+        'triggerCount'         => 'TriggerCount',
     ];
 
     public function validate()
@@ -202,6 +215,15 @@ class events extends Model
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
+        if (null !== $this->notificationPolicies) {
+            $res['NotificationPolicies'] = [];
+            if (null !== $this->notificationPolicies && \is_array($this->notificationPolicies)) {
+                $n = 0;
+                foreach ($this->notificationPolicies as $item) {
+                    $res['NotificationPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->receiveTime) {
             $res['ReceiveTime'] = $this->receiveTime;
         }
@@ -213,6 +235,9 @@ class events extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->triggerCount) {
+            $res['TriggerCount'] = $this->triggerCount;
         }
 
         return $res;
@@ -262,6 +287,15 @@ class events extends Model
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }
+        if (isset($map['NotificationPolicies'])) {
+            if (!empty($map['NotificationPolicies'])) {
+                $model->notificationPolicies = [];
+                $n                           = 0;
+                foreach ($map['NotificationPolicies'] as $item) {
+                    $model->notificationPolicies[$n++] = null !== $item ? notificationPolicies::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['ReceiveTime'])) {
             $model->receiveTime = $map['ReceiveTime'];
         }
@@ -273,6 +307,9 @@ class events extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TriggerCount'])) {
+            $model->triggerCount = $map['TriggerCount'];
         }
 
         return $model;

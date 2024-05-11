@@ -45,7 +45,7 @@ class InstallManagedPrometheusRequest extends Model
      *
      *   pro
      *
-     * <!-- -->
+     * This parameter is required.
      * @example ask
      *
      * @var string
@@ -91,6 +91,7 @@ class InstallManagedPrometheusRequest extends Model
     /**
      * @description The security group of the ASK cluster or ECS instance.
      *
+     * This parameter is required.
      * @example sg-bp1********
      *
      * @var string
@@ -100,6 +101,7 @@ class InstallManagedPrometheusRequest extends Model
     /**
      * @description The vSwitch used by the ASK cluster or ECS instance.
      *
+     * This parameter is required.
      * @example vsw-bp1*********
      *
      * @var string
@@ -109,6 +111,7 @@ class InstallManagedPrometheusRequest extends Model
     /**
      * @description The virtual private cloud (VPC) where the ASK cluster or ECS instance resides.
      *
+     * This parameter is required.
      * @example vpc-xxxxxx
      *
      * @var string

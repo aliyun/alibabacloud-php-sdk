@@ -11,6 +11,7 @@ class ApplyScenarioShrinkRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example b590lhguqs@28f515462f******
      *
      * @var string
@@ -20,6 +21,7 @@ class ApplyScenarioShrinkRequest extends Model
     /**
      * @description The configuration of the business monitoring job. The value is a JSON string. For more information about this parameter, see the following additional information about the **Config** parameter.
      *
+     * This parameter is required.
      * @example {"rpcType":"0","nameMatchType":"EQUALS","service":"/api/pop/test","operator":"and","filterItems":[{"type":"HttpHeaders","key":"uid","opt":"==","value":"123456789"}],"group":{"type":"HttpRequestParameters","key":"name"}}
      *
      * @var string
@@ -29,6 +31,7 @@ class ApplyScenarioShrinkRequest extends Model
     /**
      * @description The name of the business monitoring job.
      *
+     * This parameter is required.
      * @example ScenarioName
      *
      * @var string
@@ -121,6 +124,7 @@ class ApplyScenarioShrinkRequest extends Model
      *   `true`: update
      *   `false`: insert
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool

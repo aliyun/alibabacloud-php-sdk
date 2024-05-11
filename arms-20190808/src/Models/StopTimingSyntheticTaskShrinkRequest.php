@@ -20,6 +20,7 @@ class StopTimingSyntheticTaskShrinkRequest extends Model
     /**
      * @description The task IDs.
      *
+     * This parameter is required.
      * @var string
      */
     public $taskIdsShrink;

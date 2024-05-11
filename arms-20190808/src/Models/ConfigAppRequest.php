@@ -11,6 +11,7 @@ class ConfigAppRequest extends Model
     /**
      * @description The process identifier (PID) of the application. Separate multiple PIDs with commas (,).
      *
+     * This parameter is required.
      * @example iioe7jcnuk@582846f37******,atc889zkcf@d8deedfa9bf******
      *
      * @var string
@@ -32,6 +33,7 @@ class ConfigAppRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

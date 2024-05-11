@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetRumExceptionStackRequest extends Model
 {
     /**
-     * @example iOSDemo:arm64%3B1489F4D3-6DE2-300C-90E9-E1B869675351%3B0x0000000104064000\nAlibabaCloudRUM:arm64%3BAB7B3A8E-6CEE-325D-BCBB-8DA50E61804F%3B0x0000000106660000\nlibdispatch.dylib:arm
+     * @example iOSDemo:arm64%3B1489F4D3-6DE2-300C-90E9-E1B869675351%3B0x0000000104064000\\nAlibabaCloudRUM:arm64%3BAB7B3A8E-6CEE-325D-BCBB-8DA50E61804F%3B0x0000000106660000\\nlibdispatch.dylib:arm
      *
      * @var string
      */
@@ -30,6 +30,8 @@ class GetRumExceptionStackRequest extends Model
     public $exceptionThreadId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example atxxxxzkcf@d8deedfa9bf****
      *
      * @var string

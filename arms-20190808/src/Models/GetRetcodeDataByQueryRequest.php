@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRetcodeDataByQueryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1668687302
      *
      * @var int
@@ -16,6 +18,8 @@ class GetRetcodeDataByQueryRequest extends Model
     public $from;
 
     /**
+     * @description This parameter is required.
+     *
      * @example atc889zkcf@d8deedfa9bf****
      *
      * @var string
@@ -23,6 +27,8 @@ class GetRetcodeDataByQueryRequest extends Model
     public $pid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example t : pv|select sum(times) as pv , approx_distinct(uid) as uv , (date-date%3600000) as date  group by date
      *
      * @var string
@@ -30,6 +36,8 @@ class GetRetcodeDataByQueryRequest extends Model
     public $query;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +45,8 @@ class GetRetcodeDataByQueryRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1668688000
      *
      * @var int

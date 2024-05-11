@@ -12,6 +12,7 @@ class ListPrometheusInstanceByTagAndResourceGroupIdRequest extends Model
     /**
      * @description The region ID of the Prometheus instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

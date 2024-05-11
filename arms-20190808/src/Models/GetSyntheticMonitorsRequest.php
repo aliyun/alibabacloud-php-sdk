@@ -12,6 +12,7 @@ class GetSyntheticMonitorsRequest extends Model
     /**
      * @description The query conditions.
      *
+     * This parameter is required.
      * @var filter
      */
     public $filter;

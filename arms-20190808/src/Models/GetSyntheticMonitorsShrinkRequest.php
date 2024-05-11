@@ -11,6 +11,7 @@ class GetSyntheticMonitorsShrinkRequest extends Model
     /**
      * @description The query conditions.
      *
+     * This parameter is required.
      * @var string
      */
     public $filterShrink;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SearchAlertHistoriesRequest extends Model
 {
     /**
-     * @description The ID of the alert rule. You can call the SearchAlertRules operation and view the `Id` parameter in the response. For more information, see [SearchAlertRules](~~175825~~).
+     * @description The ID of the alert rule. You can call the SearchAlertRules operation and view the `Id` parameter in the response. For more information, see [SearchAlertRules](https://help.aliyun.com/document_detail/175825.html).
      *
      * @example 123
      *
@@ -65,6 +65,7 @@ class SearchAlertHistoriesRequest extends Model
     /**
      * @description The ID of the region. Default value: `cn-hangzhou`.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

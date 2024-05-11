@@ -20,7 +20,7 @@ class SyncRecordingRulesResponseBody extends Model
     /**
      * @description The struct returned.
      *
-     * @example { "data":\[ "c06ca68cd16f14f52bb07772eda\*\*\*", "c33dd70a0ac184c1b879d807ab2\*\*\*", "c384cf7e4dcb543e6ac8c7d4dd3\*\*\*", "ce30f833bc4a04a56a06b070319\*\*\*" ], "message":"IDs of Clusters to which the aggregation rule failed to be synchronized", "success":true }
+     * @example { "data":[ "c06ca68cd16f14f52bb07772eda\\*\\*\\*", "c33dd70a0ac184c1b879d807ab2\\*\\*\\*", "c384cf7e4dcb543e6ac8c7d4dd3\\*\\*\\*", "ce30f833bc4a04a56a06b070319\\*\\*\\*" ], "message":"IDs of Clusters to which the aggregation rule failed to be synchronized", "success":true }
      *
      * @var string
      */

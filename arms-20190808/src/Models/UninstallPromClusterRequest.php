@@ -20,6 +20,7 @@ class UninstallPromClusterRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c0bad479465464e1d8c1e641b0afb****
      *
      * @var string
@@ -29,6 +30,7 @@ class UninstallPromClusterRequest extends Model
     /**
      * @description The region ID. Default value: cn-hangzhou.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

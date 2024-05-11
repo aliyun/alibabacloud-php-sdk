@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSyntheticTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteSyntheticTaskRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $taskIds;

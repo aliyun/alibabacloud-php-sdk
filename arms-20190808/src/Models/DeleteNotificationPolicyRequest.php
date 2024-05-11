@@ -11,6 +11,7 @@ class DeleteNotificationPolicyRequest extends Model
     /**
      * @description Deletes a notification policy based on its ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

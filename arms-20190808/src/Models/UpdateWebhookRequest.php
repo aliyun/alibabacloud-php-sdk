@@ -11,7 +11,8 @@ class UpdateWebhookRequest extends Model
     /**
      * @description The notification template that is sent when an alert is triggered. This parameter is required if the **Method** parameter is set to **Post**. You can use the $content placeholder to specify the notification content. The content cannot exceed 500 characters in length.
      *
-     * @example { "Alert name":"{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster name":"{{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels.\_aliyun_arms_involvedObject_kind }}", "Application name":"{{ .commonLabels.\_aliyun_arms_involvedObject_name }} {{ end }}", "Notification policy":"{{ .dispatchRuleName }}", "Alert time":"{{ .startTime }}", "Alert content":"{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
+     * This parameter is required.
+     * @example { "Alert name":"{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster name":"{{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}", "Application name":"{{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}", "Notification policy":"{{ .dispatchRuleName }}", "Alert time":"{{ .startTime }}", "Alert content":"{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
      *
      * @var string
      */
@@ -20,6 +21,7 @@ class UpdateWebhookRequest extends Model
     /**
      * @description The ID of the webhook alert contact. You can call the **SearchAlertContact** operation to obtain the ID.
      *
+     * This parameter is required.
      * @example 48716
      *
      * @var int
@@ -29,6 +31,7 @@ class UpdateWebhookRequest extends Model
     /**
      * @description The name of the webhook alert contact.
      *
+     * This parameter is required.
      * @example Webhook alert
      *
      * @var string
@@ -59,6 +62,7 @@ class UpdateWebhookRequest extends Model
      *   `Get`
      *   `Post`
      *
+     * This parameter is required.
      * @example Post
      *
      * @var string
@@ -68,7 +72,7 @@ class UpdateWebhookRequest extends Model
     /**
      * @description The notification template that is sent when an alert is resolved. This parameter is required if the **Method** parameter is set to **Post**. You can use the $content placeholder to specify the notification content. The content cannot exceed 500 characters in length.
      *
-     * @example { "Alert name":"{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster name":"{{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels.\_aliyun_arms_involvedObject_kind }}", "Application name":"{{ .commonLabels.\_aliyun_arms_involvedObject_name }} {{ end }}", "Notification policy":"{{ .dispatchRuleName }}", "Recovery time":"{{ .endTime }}", "Alert content":"{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
+     * @example { "Alert name":"{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster name":"{{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels._aliyun_arms_involvedObject_kind }}", "Application name":"{{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}", "Notification policy":"{{ .dispatchRuleName }}", "Recovery time":"{{ .endTime }}", "Alert content":"{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
      *
      * @var string
      */
@@ -77,6 +81,7 @@ class UpdateWebhookRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -86,6 +91,7 @@ class UpdateWebhookRequest extends Model
     /**
      * @description The URL of the HTTP request method.
      *
+     * This parameter is required.
      * @example https://oapi.dingtalk.com/robot/send?access_token=e1a049121ddbfce1ca963d115ef88cc7219583c4fb79fe6e398fbfb688******
      *
      * @var string

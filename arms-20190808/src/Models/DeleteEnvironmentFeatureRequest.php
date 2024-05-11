@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnvironmentFeatureRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example env-xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteEnvironmentFeatureRequest extends Model
     public $environmentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example metric-agent
      *
      * @var string

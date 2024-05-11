@@ -20,6 +20,8 @@ class QueryCommercialUsageRequest extends Model
     public $dimensions;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1699286400000
      *
      * @var int
@@ -39,6 +41,8 @@ class QueryCommercialUsageRequest extends Model
     public $measures;
 
     /**
+     * @description This parameter is required.
+     *
      * @example USAGEFEE.STAT
      *
      * @var string
@@ -60,6 +64,8 @@ class QueryCommercialUsageRequest extends Model
     public $orderBy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example instantQuery
      *
      * @var string
@@ -67,6 +73,8 @@ class QueryCommercialUsageRequest extends Model
     public $queryType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1699200000000
      *
      * @var int

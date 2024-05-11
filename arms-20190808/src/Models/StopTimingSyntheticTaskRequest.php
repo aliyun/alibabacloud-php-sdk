@@ -20,6 +20,7 @@ class StopTimingSyntheticTaskRequest extends Model
     /**
      * @description The task IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $taskIds;

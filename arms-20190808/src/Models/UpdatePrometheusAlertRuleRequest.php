@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePrometheusAlertRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 3888704
      *
      * @var int
@@ -17,6 +19,8 @@ class UpdatePrometheusAlertRuleRequest extends Model
     public $alertId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Prometheus_Alert
      *
      * @var string
@@ -31,6 +35,8 @@ class UpdatePrometheusAlertRuleRequest extends Model
     public $annotations;
 
     /**
+     * @description This parameter is required.
+     *
      * @example c0bad479465464e1d8c1e641b0afb****
      *
      * @var string
@@ -45,6 +51,8 @@ class UpdatePrometheusAlertRuleRequest extends Model
     public $dispatchRuleId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -52,7 +60,9 @@ class UpdatePrometheusAlertRuleRequest extends Model
     public $duration;
 
     /**
-     * @example 100 * (sum(rate(container_cpu_usage_seconds_total[1m])) by (pod_name) / sum(label_replace(kube_pod_container_resource_limits_cpu_cores, \"pod_name\", \"$1\", \"pod\", \"(.*)\")) by (pod_name))>75
+     * @description This parameter is required.
+     *
+     * @example 100 * (sum(rate(container_cpu_usage_seconds_total[1m])) by (pod_name) / sum(label_replace(kube_pod_container_resource_limits_cpu_cores, \\"pod_name\\", \\"$1\\", \\"pod\\", \\"(.*)\\")) by (pod_name))>75
      *
      * @var string
      */
@@ -66,6 +76,8 @@ class UpdatePrometheusAlertRuleRequest extends Model
     public $labels;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $message;
@@ -78,6 +90,8 @@ class UpdatePrometheusAlertRuleRequest extends Model
     public $notifyType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

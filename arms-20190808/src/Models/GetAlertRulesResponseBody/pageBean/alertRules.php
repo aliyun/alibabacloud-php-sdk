@@ -28,7 +28,7 @@ class alertRules extends Model
     /**
      * @description The ID of the alert contact group to which the alert rule belongs. Valid values:
      *
-     *   \-1: custom PromQL
+     *   \\-1: custom PromQL
      *   1: Kubernetes load
      *   15: Kubernetes node
      *
@@ -140,7 +140,7 @@ class alertRules extends Model
      * @description The extended fields.
      *
      * > For existing Application Monitoring alert rules, the fields contained information such as contacts, alert template, and notification content.
-     * @example {\\"alarmContext\\":\\"{\\\\\"content\\\\\":\\\\Alert name: $Alert name\\\\\\nFilter condition: $Filter condition\\\\\\nAlert time: $Alert time\\\\\\nAlert content: $Alert content\\\\\\nNote: The alert persists before you receive an email that reminds you to clear the alert. You will be reminded of the alert again 24 hours later. \\\\\",\\\\\"subTitle\\\\\":\\\\\"\\\\\"}\\",\\"alertWays\\":\\"\[0,1]\\",\\"contactGroupIds\\":\\"381,5075\\",\\"notice\\":\\"{\\\\\"endTime\\\\\":1480607940000,\\\\\"noticeEndTime\\\\\":1480607940000,\\\\\"noticeStartTime\\\\\":1480521600000,\\\\\"startTime\\\\\":1480521600000}\\"}
+     * @example {\\\\"alarmContext\\\\":\\\\"{\\\\\\\\\\"content\\\\\\\\\\":\\\\\\\\Alert name: $Alert name\\\\\\\\\\\\nFilter condition: $Filter condition\\\\\\\\\\\\nAlert time: $Alert time\\\\\\\\\\\\nAlert content: $Alert content\\\\\\\\\\\\nNote: The alert persists before you receive an email that reminds you to clear the alert. You will be reminded of the alert again 24 hours later. \\\\\\\\\\",\\\\\\\\\\"subTitle\\\\\\\\\\":\\\\\\\\\\"\\\\\\\\\\"}\\\\",\\\\"alertWays\\\\":\\\\"[0,1]\\\\",\\\\"contactGroupIds\\\\":\\\\"381,5075\\\\",\\\\"notice\\\\":\\\\"{\\\\\\\\\\"endTime\\\\\\\\\\":1480607940000,\\\\\\\\\\"noticeEndTime\\\\\\\\\\":1480607940000,\\\\\\\\\\"noticeStartTime\\\\\\\\\\":1480521600000,\\\\\\\\\\"startTime\\\\\\\\\\":1480521600000}\\\\"}
      *
      * @var string
      */

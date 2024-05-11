@@ -20,6 +20,7 @@ class CheckServiceStatusRequest extends Model
     /**
      * @description The service code of an Alibaba Cloud service. The service code of Managed Service for Prometheus is prometheus.
      *
+     * This parameter is required.
      * @example prometheus
      *
      * @var string

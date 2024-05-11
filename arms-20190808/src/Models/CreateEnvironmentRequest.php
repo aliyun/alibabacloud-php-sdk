@@ -30,6 +30,7 @@ class CreateEnvironmentRequest extends Model
     /**
      * @description The ID of the resource bound to the environment, such as the container ID or VPC ID. For a Cloud environment, specify the region ID.
      *
+     * This parameter is required.
      * @example c6e9dec475dca4a50a188411d8cbxxx
      *
      * @var string
@@ -39,6 +40,7 @@ class CreateEnvironmentRequest extends Model
     /**
      * @description The name of the environment.
      *
+     * This parameter is required.
      * @example env1
      *
      * @var string
@@ -52,6 +54,7 @@ class CreateEnvironmentRequest extends Model
      *   ECS: ECS
      *   Cloud: cloud service
      *
+     * This parameter is required.
      * @example ECS, ACK, etc.
      *
      * @var string
@@ -65,6 +68,7 @@ class CreateEnvironmentRequest extends Model
      *   ECS: ECS
      *   Cloud: cloud service
      *
+     * This parameter is required.
      * @example CS
      *
      * @var string
@@ -108,6 +112,7 @@ class CreateEnvironmentRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

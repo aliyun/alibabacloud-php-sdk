@@ -20,6 +20,7 @@ class UpdateEnvServiceMonitorRequest extends Model
     /**
      * @description The YAML configuration string.
      *
+     * This parameter is required.
      * @example Refer to supplementary instructions.
      *
      * @var string
@@ -38,6 +39,7 @@ class UpdateEnvServiceMonitorRequest extends Model
     /**
      * @description The environment ID.
      *
+     * This parameter is required.
      * @example env-xxxxx
      *
      * @var string
@@ -47,6 +49,7 @@ class UpdateEnvServiceMonitorRequest extends Model
     /**
      * @description The namespace where the ServiceMonitor is located.
      *
+     * This parameter is required.
      * @example arms-prom
      *
      * @var string
@@ -56,6 +59,7 @@ class UpdateEnvServiceMonitorRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +69,7 @@ class UpdateEnvServiceMonitorRequest extends Model
     /**
      * @description The name of the ServiceMonitor.
      *
+     * This parameter is required.
      * @example serviceMonitor1
      *
      * @var string

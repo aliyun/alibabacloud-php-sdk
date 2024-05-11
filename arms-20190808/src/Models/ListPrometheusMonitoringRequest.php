@@ -11,6 +11,7 @@ class ListPrometheusMonitoringRequest extends Model
     /**
      * @description The ID of the Prometheus instance.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -20,6 +21,7 @@ class ListPrometheusMonitoringRequest extends Model
     /**
      * @description The region ID. Default value: `cn-hangzhou`.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

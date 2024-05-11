@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloseAlarmRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 163
      *
      * @var int
@@ -23,6 +25,8 @@ class CloseAlarmRequest extends Model
     public $handlerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

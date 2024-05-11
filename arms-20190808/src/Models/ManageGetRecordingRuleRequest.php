@@ -11,6 +11,7 @@ class ManageGetRecordingRuleRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -20,6 +21,7 @@ class ManageGetRecordingRuleRequest extends Model
     /**
      * @description The user ID.
      *
+     * This parameter is required.
      * @example 876345234
      *
      * @var string
@@ -29,6 +31,7 @@ class ManageGetRecordingRuleRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

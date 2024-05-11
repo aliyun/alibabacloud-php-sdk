@@ -29,7 +29,7 @@ class event extends Model
     /**
      * @description The condition of the alert rule.
      *
-     * @example {\"operator\":\"&\",\"rules\":[{\"aggregates\":\"AVG\",\"alias\":\"JVM_线程总数\",\"measure\":\"appstat.jvm.ThreadCount\",\"nValue\":1,\"operator\":\"HOH_DOWN\",\"value\":50.0}]}
+     * @example {\\"operator\\":\\"&\\",\\"rules\\":[{\\"aggregates\\":\\"AVG\\",\\"alias\\":\\"JVM_线程总数\\",\\"measure\\":\\"appstat.jvm.ThreadCount\\",\\"nValue\\":1,\\"operator\\":\\"HOH_DOWN\\",\\"value\\":50.0}]}
      *
      * @var string
      */
@@ -90,7 +90,7 @@ class event extends Model
     /**
      * @description The event content. The parameter value is a JSON string. Each key indicates a dimension and each value indicates the alert content in the dimension.
      *
-     * @example unknow紧急报警\nip：172.27.XX.XX\n应用名 = test\nRegion = cn-shenzhen\n异常信息 = {\"timestamp\"：\"1615447972235\"}
+     * @example unknow紧急报警\\nip：172.27.XX.XX\\n应用名 = test\\nRegion = cn-shenzhen\\n异常信息 = {\\"timestamp\\"：\\"1615447972235\\"}
      *
      * @var string
      */

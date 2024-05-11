@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteSourceMapRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $fidList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example atc889zkcf@d8deedfa9bf****
      *
      * @var string
@@ -21,6 +25,8 @@ class DeleteSourceMapRequest extends Model
     public $pid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -25,6 +25,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource IDs. You can specify a maximum of 50 resource IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -40,6 +41,7 @@ class UntagResourcesRequest extends Model
      *   PROMETHEUSALERTRULE: Managed Service for Prometheus alert rule
      *   XTRACEAPP: Managed Service for OpenTelemetry
      *
+     * This parameter is required.
      * @example PROMETHEUS
      *
      * @var string

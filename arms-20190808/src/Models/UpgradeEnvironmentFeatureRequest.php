@@ -16,6 +16,8 @@ class UpgradeEnvironmentFeatureRequest extends Model
     public $aliyunLang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example env-xxx
      *
      * @var string
@@ -23,6 +25,8 @@ class UpgradeEnvironmentFeatureRequest extends Model
     public $environmentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example metric-agent
      *
      * @var string

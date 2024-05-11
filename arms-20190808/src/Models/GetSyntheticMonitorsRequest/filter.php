@@ -11,6 +11,7 @@ class filter extends Model
     /**
      * @description The type of the monitoring point. Valid values: 1: PC. 2: mobile device.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -20,6 +21,7 @@ class filter extends Model
     /**
      * @description The network type. Valid values: 1: private network. 2: Internet.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,7 +31,7 @@ class filter extends Model
     /**
      * @description The type of the monitoring task. Valid values:
      *
-     * 1: ICMP. 2: TCP. 3: DNS. 4: HTTP. 5: website speed. 6: file download.
+     * This parameter is required.
      * @example 1
      *
      * @var int

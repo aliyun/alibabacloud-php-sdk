@@ -11,6 +11,7 @@ class GetExploreUrlRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c9cc4c5e220f8461f9d71b6ec6e******
      *
      * @var string
@@ -38,6 +39,7 @@ class GetExploreUrlRequest extends Model
     /**
      * @description The type of the Grafana data source.
      *
+     * This parameter is required.
      * @example prometheus
      *
      * @var string

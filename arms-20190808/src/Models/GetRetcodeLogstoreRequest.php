@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRetcodeLogstoreRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example atc889zkcf@d8deedfa9bf****
      *
      * @var string

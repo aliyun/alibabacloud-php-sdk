@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertContactRequest extends Model
 {
     /**
-     * @description The ID of the alert contact to be updated. You can call the SearchAlertContact operation to query the contact ID. For more information, see [SearchAlertContact](~~130703~~).
+     * @description The ID of the alert contact to be updated. You can call the SearchAlertContact operation to query the contact ID. For more information, see [SearchAlertContact](https://help.aliyun.com/document_detail/130703.html).
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int
@@ -27,7 +28,7 @@ class UpdateAlertContactRequest extends Model
     public $contactName;
 
     /**
-     * @description The new webhook URL of the DingTalk chatbot. For more information, see [Configure a DingTalk chatbot to send alert notifications](~~106247~~). You must specify at least one of the following parameters: PhoneNum, Email, and DingRobotWebhookUrl.
+     * @description The new webhook URL of the DingTalk chatbot. For more information, see [Configure a DingTalk chatbot to send alert notifications](https://help.aliyun.com/document_detail/106247.html). You must specify at least one of the following parameters: PhoneNum, Email, and DingRobotWebhookUrl.
      *
      * >  If you do not specify this parameter, the original parameter value is deleted. If you specify this parameter, the original parameter value is updated.
      * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f6****
@@ -59,6 +60,7 @@ class UpdateAlertContactRequest extends Model
     /**
      * @description The ID of the region. Set the value to `cn-hangzhou`.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

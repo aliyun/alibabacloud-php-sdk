@@ -37,6 +37,7 @@ class QueryMetricByPageRequest extends Model
     /**
      * @description The end of the time range to query. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1667546895000
      *
      * @var int
@@ -71,6 +72,7 @@ class QueryMetricByPageRequest extends Model
     /**
      * @description The metric that you want to query. You cannot specify a custom metric. For more information, see the "Application monitoring metrics that can be queried" section.
      *
+     * This parameter is required.
      * @example appstat.host
      *
      * @var string
@@ -111,6 +113,7 @@ class QueryMetricByPageRequest extends Model
     /**
      * @description The start of the time range to query. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1667287695000
      *
      * @var int

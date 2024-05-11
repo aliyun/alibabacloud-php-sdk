@@ -11,7 +11,8 @@ class AddPrometheusRemoteWriteRequest extends Model
     /**
      * @description The ID of the Prometheus instance. Only a Prometheus instance for Container Service or a Prometheus instance for ECS is supported.
      *
-     * @example cc7a37ee31aea4ed1a059eff8034b\*\*\*\* or vpc-xxxxx
+     * This parameter is required.
+     * @example cc7a37ee31aea4ed1a059eff8034b\\*\\*\\*\\* or vpc-xxxxx
      *
      * @var string
      */
@@ -20,6 +21,7 @@ class AddPrometheusRemoteWriteRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,6 +31,7 @@ class AddPrometheusRemoteWriteRequest extends Model
     /**
      * @description The details of the remote write configuration item. Specify the value in the YAML format.
      *
+     * This parameter is required.
      * @example remote_write:
      * action: keep
      * @var string

@@ -20,6 +20,7 @@ class GetSyntheticTaskDetailRequest extends Model
     /**
      * @description 云拨测任务ID。
      *
+     * This parameter is required.
      * @example 123
      *
      * @var string

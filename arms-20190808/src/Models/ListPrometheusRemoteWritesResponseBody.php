@@ -23,9 +23,9 @@ class ListPrometheusRemoteWritesResponseBody extends Model
      *
      * @example [
      * "name": "TiDBxxx",
-     * "yaml": "remote_write:\\n- basic_auth: {password: \"******\", username: xxx}\\n  name: TiDBxxx\\n  write_relabel_configs:\\n  - regex: si-6e2ca86444db4e55a7c1\\n    source_labels: [instance_id]\\n    action: keep\\n    separator: ;\\n    replacement: $1\\n  url: http://xxx:8080/prometheus/xxx/ddd/cn-hangzhou/api/v3/write\\n"
+     * "yaml": "remote_write:\\\\n- basic_auth: {password: \\"******\\", username: xxx}\\\\n  name: TiDBxxx\\\\n  write_relabel_configs:\\\\n  - regex: si-6e2ca86444db4e55a7c1\\\\n    source_labels: [instance_id]\\\\n    action: keep\\\\n    separator: ;\\\\n    replacement: $1\\\\n  url: http://xxx:8080/prometheus/xxx/ddd/cn-hangzhou/api/v3/write\\\\n"
      * "name": "TiDBxxx1",
-     * "yaml": "remote_write:\\n- basic_auth: {password: \"******\", username: xxx}\\n  name: TiDBxxx1\\n  write_relabel_configs:\\n  - regex: si-6e2ca86444db4e55a7c1\\n    source_labels: [instance_id]\\n    action: keep\\n    separator: ;\\n    replacement: $1\\n  url: http://xxx:8080/prometheus/xxx/ddd/cn-hangzhou/api/v3/write\\n"
+     * "yaml": "remote_write:\\\\n- basic_auth: {password: \\"******\\", username: xxx}\\\\n  name: TiDBxxx1\\\\n  write_relabel_configs:\\\\n  - regex: si-6e2ca86444db4e55a7c1\\\\n    source_labels: [instance_id]\\\\n    action: keep\\\\n    separator: ;\\\\n    replacement: $1\\\\n  url: http://xxx:8080/prometheus/xxx/ddd/cn-hangzhou/api/v3/write\\\\n"
      * ]
      * @var data[]
      */

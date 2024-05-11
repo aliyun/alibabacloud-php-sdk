@@ -33,6 +33,7 @@ class CreateOrUpdateSilencePolicyRequest extends Model
     /**
      * @description The name of the silence policy.
      *
+     * This parameter is required.
      * @example silencepolicy_test
      *
      * @var string

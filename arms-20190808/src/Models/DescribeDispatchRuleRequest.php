@@ -11,6 +11,7 @@ class DescribeDispatchRuleRequest extends Model
     /**
      * @description The ID of the dispatch policy.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDispatchRuleRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

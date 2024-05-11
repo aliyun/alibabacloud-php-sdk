@@ -11,6 +11,7 @@ class DeleteAlertContactRequest extends Model
     /**
      * @description The ID of the alert contact.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int
@@ -20,6 +21,7 @@ class DeleteAlertContactRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

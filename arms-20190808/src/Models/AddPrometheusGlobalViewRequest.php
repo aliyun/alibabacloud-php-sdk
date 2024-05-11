@@ -12,6 +12,7 @@ class AddPrometheusGlobalViewRequest extends Model
     /**
      * @description The queried global aggregation instances. The value is a JSON string.
      *
+     * This parameter is required.
      * @example [         {             "sourceName": "Data source name- ArmsPrometheus No.1",             "sourceType":"AlibabaPrometheus",             "userId":"UserID",             "clusterId":"ClusterId",         },         {             "sourceName": "Data source name - MetrcStore No.2",             "sourceType":"MetricStore",             "dataSource":"MetricStore remote read address",             "extras":{                 "username":"BasicAuthUsername",                 "password":"BasicAuthPassword"             }         },         {             "sourceName": "Custom ",             "sourceType":"CustomPrometheus",             "dataSource":"Build your own Prometheus data source remoteread address",             "extras":{                 "username":"BasicAuthUsername",                 "password":"BasicAuthPassword"             }         },         {           	"sourceName": "Other one ",             "sourceType":"Others",             "dataSource":"Other data sources such as Tencent remoteread address",             "headers":{                 "AnyHeaderToFill":"Headers to be populated"             },             "extras":{                 "username":"BasicAuthUsername",                 "password":"BasicAuthPassword"             }         }   // ....... more addre ]
      *
      * @var string
@@ -21,6 +22,7 @@ class AddPrometheusGlobalViewRequest extends Model
     /**
      * @description The name of the aggregation instance.
      *
+     * This parameter is required.
      * @example zyGlobalView
      *
      * @var string
@@ -30,6 +32,7 @@ class AddPrometheusGlobalViewRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

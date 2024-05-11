@@ -11,6 +11,7 @@ class GetManagedPrometheusStatusRequest extends Model
     /**
      * @description The ID of the ASK cluster. This parameter is required if the ClusterType parameter is set to ask.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetManagedPrometheusStatusRequest extends Model
     /**
      * @description The type of the monitoring object. Valid values: ask , acs , one and ecs.
      *
+     * This parameter is required.
      * @example ask
      *
      * @var string
@@ -29,6 +31,7 @@ class GetManagedPrometheusStatusRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

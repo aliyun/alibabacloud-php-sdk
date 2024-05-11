@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCmsInstancesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example n9p9o9o3se
      *
      * @var string
@@ -16,6 +18,8 @@ class ListCmsInstancesRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

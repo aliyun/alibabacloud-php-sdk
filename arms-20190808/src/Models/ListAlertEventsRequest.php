@@ -38,6 +38,7 @@ class ListAlertEventsRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -45,8 +46,14 @@ class ListAlertEventsRequest extends Model
     public $page;
 
     /**
+     * @var bool
+     */
+    public $showNotificationPolicies;
+
+    /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -75,13 +82,14 @@ class ListAlertEventsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'alertName'          => 'AlertName',
-        'endTime'            => 'EndTime',
-        'matchingConditions' => 'MatchingConditions',
-        'page'               => 'Page',
-        'size'               => 'Size',
-        'startTime'          => 'StartTime',
-        'status'             => 'Status',
+        'alertName'                => 'AlertName',
+        'endTime'                  => 'EndTime',
+        'matchingConditions'       => 'MatchingConditions',
+        'page'                     => 'Page',
+        'showNotificationPolicies' => 'ShowNotificationPolicies',
+        'size'                     => 'Size',
+        'startTime'                => 'StartTime',
+        'status'                   => 'Status',
     ];
 
     public function validate()
@@ -102,6 +110,9 @@ class ListAlertEventsRequest extends Model
         }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
+        }
+        if (null !== $this->showNotificationPolicies) {
+            $res['ShowNotificationPolicies'] = $this->showNotificationPolicies;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -135,6 +146,9 @@ class ListAlertEventsRequest extends Model
         }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
+        }
+        if (isset($map['ShowNotificationPolicies'])) {
+            $model->showNotificationPolicies = $map['ShowNotificationPolicies'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];

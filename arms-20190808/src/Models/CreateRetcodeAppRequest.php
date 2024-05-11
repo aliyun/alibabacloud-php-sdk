@@ -12,6 +12,7 @@ class CreateRetcodeAppRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +31,7 @@ class CreateRetcodeAppRequest extends Model
     /**
      * @description The name of the application that is monitored by Browser Monitoring.
      *
+     * This parameter is required.
      * @example SdkTest
      *
      * @var string
@@ -39,6 +41,7 @@ class CreateRetcodeAppRequest extends Model
     /**
      * @description The site type.
      *
+     * This parameter is required.
      * @example mini_dd
      *
      * @var string

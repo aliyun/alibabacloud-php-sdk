@@ -65,6 +65,7 @@ class SearchAlertContactRequest extends Model
     /**
      * @description The ID of the region. Set the value to `cn-hangzhou`.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -41,6 +41,7 @@ class DescribeContactGroupsRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -59,6 +60,7 @@ class DescribeContactGroupsRequest extends Model
     /**
      * @description The number of alert contact groups displayed on each page.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int

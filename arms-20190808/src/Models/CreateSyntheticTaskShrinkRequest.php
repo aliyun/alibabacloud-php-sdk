@@ -24,6 +24,8 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $extendIntervalShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5
      *
      * @var string
@@ -31,6 +33,8 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $intervalTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var string
@@ -38,6 +42,8 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $intervalType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -45,6 +51,8 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $ipType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $monitorListShrink;
@@ -65,6 +73,8 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $protocolShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -72,11 +82,15 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -91,6 +105,8 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $updateTask;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://www.example.com
      *
      * @var string

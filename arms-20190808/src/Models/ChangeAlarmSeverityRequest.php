@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeAlarmSeverityRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 155
      *
      * @var int
@@ -23,6 +25,8 @@ class ChangeAlarmSeverityRequest extends Model
     public $handlerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +34,8 @@ class ChangeAlarmSeverityRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example P1
      *
      * @var string

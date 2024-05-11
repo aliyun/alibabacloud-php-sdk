@@ -11,6 +11,7 @@ class UpgradeAddonReleaseRequest extends Model
     /**
      * @description Version of Addon.
      *
+     * This parameter is required.
      * @example 0.0.2
      *
      * @var string
@@ -29,6 +30,7 @@ class UpgradeAddonReleaseRequest extends Model
     /**
      * @description Environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -47,6 +49,7 @@ class UpgradeAddonReleaseRequest extends Model
     /**
      * @description The name of Release.
      *
+     * This parameter is required.
      * @example mysql-1695372983039
      *
      * @var string
@@ -56,6 +59,7 @@ class UpgradeAddonReleaseRequest extends Model
     /**
      * @description Metadata information.
      *
+     * This parameter is required.
      * @example {"host":"mysql-service.default","port":3306,"username":"root","password":"roots"}
      *
      * @var string

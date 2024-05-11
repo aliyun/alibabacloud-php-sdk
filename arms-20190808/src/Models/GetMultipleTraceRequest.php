@@ -20,6 +20,7 @@ class GetMultipleTraceRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +39,7 @@ class GetMultipleTraceRequest extends Model
     /**
      * @description The trace IDs.
      *
+     * This parameter is required.
      * @example ac1400a115951745017447033d****
      *
      * @var string[]

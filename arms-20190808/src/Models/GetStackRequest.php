@@ -29,6 +29,7 @@ class GetStackRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +39,7 @@ class GetStackRequest extends Model
     /**
      * @description The ID of the remote procedure call (RPC) mode. You can obtain the ID by calling the **GetTrace** operation.
      *
+     * This parameter is required.
      * @example 0.1
      *
      * @var string
@@ -56,6 +58,7 @@ class GetStackRequest extends Model
     /**
      * @description The trace ID. You can log on to the Application Real-Time Monitoring Service (ARMS) console and obtain the trace ID on the **Trace Query** page.
      *
+     * This parameter is required.
      * @example 0a5800611641470044457853******
      *
      * @var string

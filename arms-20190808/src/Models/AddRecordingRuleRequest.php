@@ -11,6 +11,7 @@ class AddRecordingRuleRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -20,6 +21,7 @@ class AddRecordingRuleRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,6 +31,7 @@ class AddRecordingRuleRequest extends Model
     /**
      * @description The custom recording rule. The value is in the YAML format.
      *
+     * This parameter is required.
      * @example groups: - name: "recording_demo"   rules:   - expr: "sum(jvm_memory_max_bytes)"     record: "rate_coredns_demo"
      *
      * @var string

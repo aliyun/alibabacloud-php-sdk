@@ -11,6 +11,7 @@ class UpdatePrometheusMonitoringStatusRequest extends Model
     /**
      * @description The ID of the Prometheus instance.
      *
+     * This parameter is required.
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdatePrometheusMonitoringStatusRequest extends Model
     /**
      * @description The name of the monitoring configuration.
      *
+     * This parameter is required.
      * @example customJob1
      *
      * @var string
@@ -29,6 +31,7 @@ class UpdatePrometheusMonitoringStatusRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +41,7 @@ class UpdatePrometheusMonitoringStatusRequest extends Model
     /**
      * @description The status of the monitoring configuration. Valid values: run and stop.
      *
+     * This parameter is required.
      * @example run
      *
      * @var string
@@ -46,7 +50,7 @@ class UpdatePrometheusMonitoringStatusRequest extends Model
 
     /**
      * @description The type of the monitoring configuration.
-     * The status of probe cannot be modified.
+     * This parameter is required.
      * @example customJob
      *
      * @var string

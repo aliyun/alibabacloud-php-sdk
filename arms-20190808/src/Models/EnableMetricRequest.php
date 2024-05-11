@@ -11,6 +11,7 @@ class EnableMetricRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example ccfa5e34a5c1f4ce6b916a40a12151d88
      *
      * @var string
@@ -29,6 +30,7 @@ class EnableMetricRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
