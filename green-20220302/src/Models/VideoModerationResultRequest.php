@@ -16,7 +16,7 @@ class VideoModerationResultRequest extends Model
     public $service;
 
     /**
-     * @example {\"taskId\":\"au_f_8PoWiZKoLbczp5HRn69VdT-1y8@U5\"}
+     * @example {\\"taskId\\":\\"au_f_8PoWiZKoLbczp5HRn69VdT-1y8@U5\\"}
      *
      * @var string
      */

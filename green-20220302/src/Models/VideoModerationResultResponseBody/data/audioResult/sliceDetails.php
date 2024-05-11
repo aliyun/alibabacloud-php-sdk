@@ -23,7 +23,7 @@ class sliceDetails extends Model
     public $endTimestamp;
 
     /**
-     * @example {\"consoleProduct\":\"slbnext\"}
+     * @example {\\"consoleProduct\\":\\"slbnext\\"}
      *
      * @var string
      */

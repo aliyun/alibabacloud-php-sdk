@@ -16,7 +16,7 @@ class DescribeFileModerationResultRequest extends Model
     public $service;
 
     /**
-     * @example {\"taskId\":\"vi_f_hPgx9PFIQISdlfA888hOFG-1yJq8v\"}
+     * @example {\\"taskId\\":\\"vi_f_hPgx9PFIQISdlfA888hOFG-1yJq8v\\"}
      *
      * @var string
      */

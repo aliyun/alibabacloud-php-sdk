@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody;
 
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\result;
 use AlibabaCloud\Tea\Model;
 
@@ -17,11 +18,17 @@ class data extends Model
     public $dataId;
 
     /**
+     * @var ext
+     */
+    public $ext;
+
+    /**
      * @var result[]
      */
     public $result;
     protected $_name = [
         'dataId' => 'DataId',
+        'ext'    => 'Ext',
         'result' => 'Result',
     ];
 
@@ -34,6 +41,9 @@ class data extends Model
         $res = [];
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
+        }
+        if (null !== $this->ext) {
+            $res['Ext'] = null !== $this->ext ? $this->ext->toMap() : null;
         }
         if (null !== $this->result) {
             $res['Result'] = [];
@@ -58,6 +68,9 @@ class data extends Model
         $model = new self();
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
+        }
+        if (isset($map['Ext'])) {
+            $model->ext = ext::fromMap($map['Ext']);
         }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {

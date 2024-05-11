@@ -99,10 +99,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DescribeFileModerationResultRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 文档审核结果
+     *  *
+     * @param DescribeFileModerationResultRequest $request DescribeFileModerationResultRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFileModerationResultResponse
+     * @return DescribeFileModerationResultResponse DescribeFileModerationResultResponse
      */
     public function describeFileModerationResultWithOptions($request, $runtime)
     {
@@ -133,9 +135,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DescribeFileModerationResultRequest $request
+     * @summary 文档审核结果
+     *  *
+     * @param DescribeFileModerationResultRequest $request DescribeFileModerationResultRequest
      *
-     * @return DescribeFileModerationResultResponse
+     * @return DescribeFileModerationResultResponse DescribeFileModerationResultResponse
      */
     public function describeFileModerationResult($request)
     {
@@ -145,10 +149,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageModerationResultRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 查询异步检测结果
+     *  *
+     * @param DescribeImageModerationResultRequest $request DescribeImageModerationResultRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageModerationResultResponse
+     * @return DescribeImageModerationResultResponse DescribeImageModerationResultResponse
      */
     public function describeImageModerationResultWithOptions($request, $runtime)
     {
@@ -176,9 +182,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageModerationResultRequest $request
+     * @summary 查询异步检测结果
+     *  *
+     * @param DescribeImageModerationResultRequest $request DescribeImageModerationResultRequest
      *
-     * @return DescribeImageModerationResultResponse
+     * @return DescribeImageModerationResultResponse DescribeImageModerationResultResponse
      */
     public function describeImageModerationResult($request)
     {
@@ -188,10 +196,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageResultExtRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查询检测结果辅助信息
+     *  *
+     * @param DescribeImageResultExtRequest $request DescribeImageResultExtRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageResultExtResponse
+     * @return DescribeImageResultExtResponse DescribeImageResultExtResponse
      */
     public function describeImageResultExtWithOptions($request, $runtime)
     {
@@ -222,9 +232,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageResultExtRequest $request
+     * @summary 查询检测结果辅助信息
+     *  *
+     * @param DescribeImageResultExtRequest $request DescribeImageResultExtRequest
      *
-     * @return DescribeImageResultExtResponse
+     * @return DescribeImageResultExtResponse DescribeImageResultExtResponse
      */
     public function describeImageResultExt($request)
     {
@@ -234,9 +246,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询上传token
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUploadTokenResponse
+     * @return DescribeUploadTokenResponse DescribeUploadTokenResponse
      */
     public function describeUploadTokenWithOptions($runtime)
     {
@@ -257,7 +271,9 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @return DescribeUploadTokenResponse
+     * @summary 查询上传token
+     *  *
+     * @return DescribeUploadTokenResponse DescribeUploadTokenResponse
      */
     public function describeUploadToken()
     {
@@ -267,10 +283,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DescribeUrlModerationResultRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 查询 url 检测结果
+     *  *
+     * @param DescribeUrlModerationResultRequest $request DescribeUrlModerationResultRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUrlModerationResultResponse
+     * @return DescribeUrlModerationResultResponse DescribeUrlModerationResultResponse
      */
     public function describeUrlModerationResultWithOptions($request, $runtime)
     {
@@ -298,9 +316,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param DescribeUrlModerationResultRequest $request
+     * @summary 查询 url 检测结果
+     *  *
+     * @param DescribeUrlModerationResultRequest $request DescribeUrlModerationResultRequest
      *
-     * @return DescribeUrlModerationResultResponse
+     * @return DescribeUrlModerationResultResponse DescribeUrlModerationResultResponse
      */
     public function describeUrlModerationResult($request)
     {
@@ -310,10 +330,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param FileModerationRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 文档审核
+     *  *
+     * @param FileModerationRequest $request FileModerationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return FileModerationResponse
+     * @return FileModerationResponse FileModerationResponse
      */
     public function fileModerationWithOptions($request, $runtime)
     {
@@ -344,9 +366,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param FileModerationRequest $request
+     * @summary 文档审核
+     *  *
+     * @param FileModerationRequest $request FileModerationRequest
      *
-     * @return FileModerationResponse
+     * @return FileModerationResponse FileModerationResponse
      */
     public function fileModeration($request)
     {
@@ -356,10 +380,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ImageAsyncModerationRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 图片异步检测
+     *  *
+     * @param ImageAsyncModerationRequest $request ImageAsyncModerationRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImageAsyncModerationResponse
+     * @return ImageAsyncModerationResponse ImageAsyncModerationResponse
      */
     public function imageAsyncModerationWithOptions($request, $runtime)
     {
@@ -390,9 +416,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ImageAsyncModerationRequest $request
+     * @summary 图片异步检测
+     *  *
+     * @param ImageAsyncModerationRequest $request ImageAsyncModerationRequest
      *
-     * @return ImageAsyncModerationResponse
+     * @return ImageAsyncModerationResponse ImageAsyncModerationResponse
      */
     public function imageAsyncModeration($request)
     {
@@ -402,10 +430,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ImageModerationRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 图片审核
+     *  *
+     * @param ImageModerationRequest $request ImageModerationRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImageModerationResponse
+     * @return ImageModerationResponse ImageModerationResponse
      */
     public function imageModerationWithOptions($request, $runtime)
     {
@@ -436,9 +466,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param ImageModerationRequest $request
+     * @summary 图片审核
+     *  *
+     * @param ImageModerationRequest $request ImageModerationRequest
      *
-     * @return ImageModerationResponse
+     * @return ImageModerationResponse ImageModerationResponse
      */
     public function imageModeration($request)
     {
@@ -448,10 +480,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param TextModerationRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 文本审核
+     *  *
+     * @param TextModerationRequest $request TextModerationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return TextModerationResponse
+     * @return TextModerationResponse TextModerationResponse
      */
     public function textModerationWithOptions($request, $runtime)
     {
@@ -482,9 +516,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param TextModerationRequest $request
+     * @summary 文本审核
+     *  *
+     * @param TextModerationRequest $request TextModerationRequest
      *
-     * @return TextModerationResponse
+     * @return TextModerationResponse TextModerationResponse
      */
     public function textModeration($request)
     {
@@ -494,10 +530,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param TextModerationPlusRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 文本检测Plus版
+     *  *
+     * @param TextModerationPlusRequest $request TextModerationPlusRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return TextModerationPlusResponse
+     * @return TextModerationPlusResponse TextModerationPlusResponse
      */
     public function textModerationPlusWithOptions($request, $runtime)
     {
@@ -528,9 +566,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param TextModerationPlusRequest $request
+     * @summary 文本检测Plus版
+     *  *
+     * @param TextModerationPlusRequest $request TextModerationPlusRequest
      *
-     * @return TextModerationPlusResponse
+     * @return TextModerationPlusResponse TextModerationPlusResponse
      */
     public function textModerationPlus($request)
     {
@@ -540,10 +580,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param UrlAsyncModerationRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary url异步检测
+     *  *
+     * @param UrlAsyncModerationRequest $request UrlAsyncModerationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UrlAsyncModerationResponse
+     * @return UrlAsyncModerationResponse UrlAsyncModerationResponse
      */
     public function urlAsyncModerationWithOptions($request, $runtime)
     {
@@ -574,9 +616,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param UrlAsyncModerationRequest $request
+     * @summary url异步检测
+     *  *
+     * @param UrlAsyncModerationRequest $request UrlAsyncModerationRequest
      *
-     * @return UrlAsyncModerationResponse
+     * @return UrlAsyncModerationResponse UrlAsyncModerationResponse
      */
     public function urlAsyncModeration($request)
     {
@@ -586,10 +630,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoModerationRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 视频检测任务提交
+     *  *
+     * @param VideoModerationRequest $request VideoModerationRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return VideoModerationResponse
+     * @return VideoModerationResponse VideoModerationResponse
      */
     public function videoModerationWithOptions($request, $runtime)
     {
@@ -620,9 +666,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoModerationRequest $request
+     * @summary 视频检测任务提交
+     *  *
+     * @param VideoModerationRequest $request VideoModerationRequest
      *
-     * @return VideoModerationResponse
+     * @return VideoModerationResponse VideoModerationResponse
      */
     public function videoModeration($request)
     {
@@ -632,10 +680,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoModerationCancelRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 取消视频直播流检测
+     *  *
+     * @param VideoModerationCancelRequest $request VideoModerationCancelRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return VideoModerationCancelResponse
+     * @return VideoModerationCancelResponse VideoModerationCancelResponse
      */
     public function videoModerationCancelWithOptions($request, $runtime)
     {
@@ -666,9 +716,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoModerationCancelRequest $request
+     * @summary 取消视频直播流检测
+     *  *
+     * @param VideoModerationCancelRequest $request VideoModerationCancelRequest
      *
-     * @return VideoModerationCancelResponse
+     * @return VideoModerationCancelResponse VideoModerationCancelResponse
      */
     public function videoModerationCancel($request)
     {
@@ -678,10 +730,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoModerationResultRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 获取视频检测结果
+     *  *
+     * @param VideoModerationResultRequest $request VideoModerationResultRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return VideoModerationResultResponse
+     * @return VideoModerationResultResponse VideoModerationResultResponse
      */
     public function videoModerationResultWithOptions($request, $runtime)
     {
@@ -712,9 +766,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VideoModerationResultRequest $request
+     * @summary 获取视频检测结果
+     *  *
+     * @param VideoModerationResultRequest $request VideoModerationResultRequest
      *
-     * @return VideoModerationResultResponse
+     * @return VideoModerationResultResponse VideoModerationResultResponse
      */
     public function videoModerationResult($request)
     {
@@ -724,10 +780,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceModerationRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 语音审核
+     *  *
+     * @param VoiceModerationRequest $request VoiceModerationRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceModerationResponse
+     * @return VoiceModerationResponse VoiceModerationResponse
      */
     public function voiceModerationWithOptions($request, $runtime)
     {
@@ -758,9 +816,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceModerationRequest $request
+     * @summary 语音审核
+     *  *
+     * @param VoiceModerationRequest $request VoiceModerationRequest
      *
-     * @return VoiceModerationResponse
+     * @return VoiceModerationResponse VoiceModerationResponse
      */
     public function voiceModeration($request)
     {
@@ -770,10 +830,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceModerationCancelRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 取消检测
+     *  *
+     * @param VoiceModerationCancelRequest $request VoiceModerationCancelRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceModerationCancelResponse
+     * @return VoiceModerationCancelResponse VoiceModerationCancelResponse
      */
     public function voiceModerationCancelWithOptions($request, $runtime)
     {
@@ -804,9 +866,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceModerationCancelRequest $request
+     * @summary 取消检测
+     *  *
+     * @param VoiceModerationCancelRequest $request VoiceModerationCancelRequest
      *
-     * @return VoiceModerationCancelResponse
+     * @return VoiceModerationCancelResponse VoiceModerationCancelResponse
      */
     public function voiceModerationCancel($request)
     {
@@ -816,10 +880,12 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceModerationResultRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 语音检测结果获取接口
+     *  *
+     * @param VoiceModerationResultRequest $request VoiceModerationResultRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return VoiceModerationResultResponse
+     * @return VoiceModerationResultResponse VoiceModerationResultResponse
      */
     public function voiceModerationResultWithOptions($request, $runtime)
     {
@@ -850,9 +916,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * @param VoiceModerationResultRequest $request
+     * @summary 语音检测结果获取接口
+     *  *
+     * @param VoiceModerationResultRequest $request VoiceModerationResultRequest
      *
-     * @return VoiceModerationResultResponse
+     * @return VoiceModerationResultResponse VoiceModerationResultResponse
      */
     public function voiceModerationResult($request)
     {

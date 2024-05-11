@@ -16,7 +16,7 @@ class VideoModerationCancelRequest extends Model
     public $service;
 
     /**
-     * @example {\"taskId\":\"vi_s_4O9gp7GfNQdx9GOqdekFmk-1z2RJT\"}
+     * @example {\\"taskId\\":\\"vi_s_4O9gp7GfNQdx9GOqdekFmk-1z2RJT\\"}
      *
      * @var string
      */

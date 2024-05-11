@@ -16,7 +16,7 @@ class VideoModerationRequest extends Model
     public $service;
 
     /**
-     * @example {\"url\": \"https://talesofai.oss-cn-shanghai.aliyuncs.com/xxx.mp4\", \"dataId\": \"94db0b88-f521-11ed-806e-fae21c1f239c\"}
+     * @example {\\"url\\": \\"https://talesofai.oss-cn-shanghai.aliyuncs.com/xxx.mp4\\", \\"dataId\\": \\"94db0b88-f521-11ed-806e-fae21c1f239c\\"}
      *
      * @var string
      */
