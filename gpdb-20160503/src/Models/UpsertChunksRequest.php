@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpsertChunksRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -17,6 +19,8 @@ class UpsertChunksRequest extends Model
     public $collection;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -38,6 +42,8 @@ class UpsertChunksRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -50,6 +56,8 @@ class UpsertChunksRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

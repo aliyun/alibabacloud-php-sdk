@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCollectionDataMetadataShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     public $collection;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -23,7 +27,7 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @example business_value = \"chat_file_1\"
+     * @example business_value = \\"chat_file_1\\"
      *
      * @var string
      */
@@ -39,6 +43,7 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     /**
      * @description The data that you want to update, which is a JSON string in the MAP format. In the JSON string, key specifies the field name and value specifies the new data value.
      *
+     * This parameter is required.
      * @example {
      * }
      * @var string
@@ -53,6 +58,8 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -67,6 +74,7 @@ class UpdateCollectionDataMetadataShrinkRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,7 +11,7 @@ class DownloadDiagnosisRecordsRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -21,6 +21,7 @@ class DownloadDiagnosisRecordsRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example adbtest
      *
      * @var string
@@ -68,7 +69,7 @@ class DownloadDiagnosisRecordsRequest extends Model
     public $queryCondition;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
      * @example rg-bp67acfmxazb4p****
      *

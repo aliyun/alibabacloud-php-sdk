@@ -11,7 +11,7 @@ class DescribeDBInstancePlansRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -44,7 +44,7 @@ class DescribeDBInstancePlansRequest extends Model
     /**
      * @description The plan ID.
      *
-     * > You can call the [DescribeDBInstancePlans](~~449398~~) operation to query the information about plans, including plan IDs.
+     * > You can call the [DescribeDBInstancePlans](https://help.aliyun.com/document_detail/449398.html) operation to query the information about plans, including plan IDs.
      * @example 1234
      *
      * @var string

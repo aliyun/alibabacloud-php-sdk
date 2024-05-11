@@ -19,6 +19,8 @@ class rows extends Model
     public $metadata;
 
     /**
+     * @description This parameter is required.
+     *
      * @var float[]
      */
     public $vector;

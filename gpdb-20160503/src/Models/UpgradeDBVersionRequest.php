@@ -11,6 +11,7 @@ class UpgradeDBVersionRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example gp-wz9kmr708m155j***
      *
      * @var string

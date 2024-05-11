@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -21,6 +23,8 @@ class QueryContentRequest extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -38,7 +42,7 @@ class QueryContentRequest extends Model
     public $fileUrl;
 
     /**
-     * @example title = \"test\"
+     * @example title = \\"test\\"
      *
      * @var string
      */
@@ -79,6 +83,8 @@ class QueryContentRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -96,6 +102,8 @@ class QueryContentRequest extends Model
     public $recallWindow;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

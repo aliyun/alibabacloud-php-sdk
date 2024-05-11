@@ -32,8 +32,9 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +42,8 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -61,6 +64,7 @@ class UntagResourcesRequest extends Model
      *   `instance`: reserved storage mode
      *   `ALIYUN::GPDB::INSTANCE`: elastic storage mode
      *
+     * This parameter is required.
      * @example instance
      *
      * @var string

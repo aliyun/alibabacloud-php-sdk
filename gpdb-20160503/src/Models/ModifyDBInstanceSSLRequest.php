@@ -20,6 +20,7 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxxxx
      *
      * @var string
@@ -33,6 +34,7 @@ class ModifyDBInstanceSSLRequest extends Model
      *   1: enables SSL encryption.
      *   2: updates SSL encryption.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

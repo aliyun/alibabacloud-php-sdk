@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeIMVInfosRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example gp-xxxxxxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeIMVInfosRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testdb
      *
      * @var string

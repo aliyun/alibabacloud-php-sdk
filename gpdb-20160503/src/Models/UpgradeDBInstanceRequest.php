@@ -29,7 +29,7 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+     * This parameter is required.
      * @example gp-rj***************
      *
      * @var string
@@ -37,7 +37,7 @@ class UpgradeDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The specifications of each compute node. For information about the supported specifications, see [Instance specifications](~~35406~~).
+     * @description The specifications of each compute node. For information about the supported specifications, see [Instance specifications](https://help.aliyun.com/document_detail/35406.html).
      *
      * > This parameter is available only for instances in elastic storage mode.
      * @example 4C16G
@@ -72,7 +72,7 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @description The region ID of the instance.
      *
-     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -80,7 +80,7 @@ class UpgradeDBInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -143,7 +143,7 @@ class UpgradeDBInstanceRequest extends Model
      *
      * >
      *
-     *   The supported changes to compute node configurations vary based on the instance resource type. For more information, see the "[Usage notes](~~50956~~)" section of the Change compute node configurations topic.
+     *   The supported changes to compute node configurations vary based on the instance resource type. For more information, see the "[Usage notes](https://help.aliyun.com/document_detail/50956.html)" section of the Change compute node configurations topic.
      *
      *   After you specify a change type, only the corresponding parameters take effect. For example, if you set **UpgradeType** to 0, the parameter that is used to change the number of compute nodes takes effect, but the parameter that is used to change the number of coordinator nodes does not.
      *   The number of coordinator nodes can be changed only on the China site (aliyun.com).

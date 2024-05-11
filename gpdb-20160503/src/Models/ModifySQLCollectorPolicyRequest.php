@@ -11,6 +11,7 @@ class ModifySQLCollectorPolicyRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifySQLCollectorPolicyRequest extends Model
      *   Enable: enables SQL collection.
      *   Disabled: disables SQL collection.
      *
+     * This parameter is required.
      * @example Enable
      *
      * @var string

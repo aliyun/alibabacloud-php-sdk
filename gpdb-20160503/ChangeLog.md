@@ -1,3 +1,6 @@
+2024-05-11 Version: 1.7.1
+- Generated php 2016-05-03 for gpdb.
+
 2024-05-09 Version: 1.7.0
 - Support API DescribeDBResourceManagementMode.
 

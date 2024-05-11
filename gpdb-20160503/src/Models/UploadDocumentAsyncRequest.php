@@ -23,6 +23,8 @@ class UploadDocumentAsyncRequest extends Model
     public $chunkSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -30,6 +32,8 @@ class UploadDocumentAsyncRequest extends Model
     public $collection;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -51,6 +55,8 @@ class UploadDocumentAsyncRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example mydoc.txt
      *
      * @var string
@@ -58,6 +64,8 @@ class UploadDocumentAsyncRequest extends Model
     public $fileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://xx/mydoc.txt
      *
      * @var string
@@ -77,6 +85,8 @@ class UploadDocumentAsyncRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -89,6 +99,8 @@ class UploadDocumentAsyncRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

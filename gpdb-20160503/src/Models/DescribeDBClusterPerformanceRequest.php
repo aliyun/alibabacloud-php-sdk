@@ -11,7 +11,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query details about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDTHH:mmZ` format.
      *
-     * > The end time must be later than the start time. The maximum time range that can be specified is seven days.
+     * This parameter is required.
      * @example 2021-11-03T15:10Z
      *
      * @var string
@@ -29,8 +29,9 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $endTime;
 
     /**
-     * @description The performance metric that you want to query. Separate multiple values with commas (,). For more information, see [Performance parameters](~~86943~~).
+     * @description The performance metric that you want to query. Separate multiple values with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
      *
+     * This parameter is required.
      * @example adbpg_conn_count
      *
      * @var string
@@ -51,7 +52,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $nodeType;
 
     /**
-     * @description The nodes for which you want to query performance metrics. Separate multiple values with commas (,). Example: `master-10******1,master-10******2`. You can call the [DescribeDBClusterNode](~~390136~~) operation to query the names of nodes.
+     * @description The nodes for which you want to query performance metrics. Separate multiple values with commas (,). Example: `master-10******1,master-10******2`. You can call the [DescribeDBClusterNode](https://help.aliyun.com/document_detail/390136.html) operation to query the names of nodes.
      *
      * You can also filter the nodes based on their metric values. Valid values:
      *
@@ -74,7 +75,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDTHH:mmZ` format.
      *
-     * > You can query monitoring information only within the last 30 days.
+     * This parameter is required.
      * @example 2021-11-03T15:00Z
      *
      * @var string

@@ -12,7 +12,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The ID of the backup set.
      *
-     * >  You can call the [DescribeDataBackups](~~210093~~) operation to query the IDs of all backup sets in the instance.
+     * >  You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the IDs of all backup sets in the instance.
      * @example 1111111111
      *
      * @var string
@@ -20,7 +20,7 @@ class CreateDBInstanceRequest extends Model
     public $backupId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. For more information, see [Ensure idempotence](~~327176~~).
+     * @description The client token that is used to ensure the idempotence of the request. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88**********
      *
@@ -55,7 +55,7 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceCategory;
 
     /**
-     * @description The instance type of the instance. For information, see [Instance types](~~86942~~).
+     * @description The instance type of the instance. For information, see [Instance types](https://help.aliyun.com/document_detail/86942.html).
      *
      * > This parameter must be specified when you create an instance in reserved storage mode.
      * @example gpdb.group.segsdx1
@@ -90,7 +90,7 @@ class CreateDBInstanceRequest extends Model
      * - **Serverless**: Serverless mode.
      * - **Classic**: reserved storage mode.
      *
-     * > This parameter must be specified.
+     * This parameter is required.
      * @example StorageElastic
      *
      * @var string
@@ -128,6 +128,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The database engine of the instance. Set the value to gpdb.
      *
+     * This parameter is required.
      * @example gpdb
      *
      * @var string
@@ -137,7 +138,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The version of the database engine. Valid values:
      *
-     * - 7.0
+     * This parameter is required.
      * @example 6.0
      *
      * @var string
@@ -272,8 +273,9 @@ class CreateDBInstanceRequest extends Model
     public $prodType;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -292,7 +294,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The IP address whitelist of the instance.
      *
-     * A value of 127.0.0.1 specifies that no IP address is allowed for external access. You can call the [ModifySecurityIps](~~86928~~) operation to modify the IP address whitelist after you create an instance.
+     * This parameter is required.
      * @example 127.0.0.1
      *
      * @var string
@@ -364,7 +366,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The ID of the source instance.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-bp***************
      *
      * @var string
@@ -456,8 +458,9 @@ class CreateDBInstanceRequest extends Model
     public $vectorConfigurationStatus;
 
     /**
-     * @description The zone ID of the read-only instance. You can call the [DescribeRegions](~~86912~~) operation to query the most recent zone list.
+     * @description The zone ID of the read-only instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent zone list.
      *
+     * This parameter is required.
      * @example cn-hangzhou-i
      *
      * @var string

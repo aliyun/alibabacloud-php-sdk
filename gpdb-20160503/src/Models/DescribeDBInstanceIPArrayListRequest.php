@@ -21,7 +21,7 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query details about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * This parameter is required.
      * @example gp-bp***************
      *
      * @var string
@@ -29,7 +29,7 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
      * @example rg-bp67acfmxazb4p****
      *

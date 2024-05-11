@@ -28,7 +28,7 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The name of the performance metric. For more information, see [Performance parameters](~~86943~~).
+     * @description The name of the performance metric. For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
      *
      * @var performanceKeys[]
      */

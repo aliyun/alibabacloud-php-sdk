@@ -11,6 +11,7 @@ class ResetAccountPasswordRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example testaccount_1
      *
      * @var string
@@ -20,6 +21,7 @@ class ResetAccountPasswordRequest extends Model
     /**
      * @description The name of the account.
      *
+     * This parameter is required.
      * @example Testaccount_1
      *
      * @var string
@@ -32,6 +34,7 @@ class ResetAccountPasswordRequest extends Model
      *   The instance is in the running state.
      *   The instance is not locked.
      *
+     * This parameter is required.
      * @example gp-t4nf48vf15713****
      *
      * @var string

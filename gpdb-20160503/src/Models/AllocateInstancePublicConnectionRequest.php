@@ -25,6 +25,8 @@ class AllocateInstancePublicConnectionRequest extends Model
      * @description The prefix of the endpoint.
      *
      * Specify a prefix for the endpoint. Example: `gp-bp12ga6v69h86****`. In this example, the endpoint is `gp-bp12ga6v69h86****.gpdb.rds.aliyuncs.com`.
+     *
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -34,7 +36,7 @@ class AllocateInstancePublicConnectionRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -49,6 +51,7 @@ class AllocateInstancePublicConnectionRequest extends Model
     /**
      * @description The port number. Example: 5432.
      *
+     * This parameter is required.
      * @example 5432
      *
      * @var string

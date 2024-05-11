@@ -14,6 +14,7 @@ class SwitchDBInstanceNetTypeRequest extends Model
      *   The prefix can contain lowercase letters, digits, and hyphens (-) and must start with a lowercase letter.
      *   The prefix can be up to 30 characters in length.
      *
+     * This parameter is required.
      * @example test1234
      *
      * @var string
@@ -23,7 +24,7 @@ class SwitchDBInstanceNetTypeRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -33,6 +34,7 @@ class SwitchDBInstanceNetTypeRequest extends Model
     /**
      * @description The port number.
      *
+     * This parameter is required.
      * @example 3306
      *
      * @var string

@@ -11,7 +11,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -21,6 +21,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
      *
+     * This parameter is required.
      * @example 2022-07-09T03:47Z
      *
      * @var string
@@ -28,8 +29,9 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $endTime;
 
     /**
-     * @description The performance metric. Separate multiple values with commas (,). For more information, see [Performance parameters](~~86943~~).
+     * @description The performance metric. Separate multiple values with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
      *
+     * This parameter is required.
      * @example CpuUsage,MemoryUsage,Gpdb_SpaceUsage,Gpdb_IOPS,Gpdb_session
      *
      * @var string
@@ -48,6 +50,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-07-08T03:47Z
      *
      * @var string

@@ -11,7 +11,7 @@ class DescribeSQLLogsV2Request extends Model
     /**
      * @description The ID of instance.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * This parameter is required.
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -133,7 +133,7 @@ class DescribeSQLLogsV2Request extends Model
     /**
      * @description The region ID of the instance.
      *
-     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

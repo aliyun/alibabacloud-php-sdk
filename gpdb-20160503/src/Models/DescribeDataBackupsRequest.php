@@ -11,7 +11,7 @@ class DescribeDataBackupsRequest extends Model
     /**
      * @description The ID of the backup set. If you specify BackupId, the details of the backup set are returned.
      *
-     * > You can call the [DescribeDataBackups](~~210093~~) operation to query the information about all backup sets of an instance, including backup set IDs.
+     * > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the information about all backup sets of an instance, including backup set IDs.
      * @example 327329803
      *
      * @var string
@@ -47,7 +47,7 @@ class DescribeDataBackupsRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * This parameter is required.
      * @example gp-bp***************
      *
      * @var string
@@ -70,6 +70,7 @@ class DescribeDataBackupsRequest extends Model
     /**
      * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2011-06-01T16:00Z
      *
      * @var string
@@ -102,6 +103,7 @@ class DescribeDataBackupsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2011-06-01T15:00Z
      *
      * @var string

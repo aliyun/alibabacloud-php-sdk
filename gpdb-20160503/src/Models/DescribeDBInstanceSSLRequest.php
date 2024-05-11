@@ -11,6 +11,7 @@ class DescribeDBInstanceSSLRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string

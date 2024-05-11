@@ -16,6 +16,8 @@ class ModifyMasterSpecRequest extends Model
     public $DBInstanceDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string

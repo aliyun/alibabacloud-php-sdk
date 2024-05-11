@@ -20,6 +20,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example gp-bp***************
      *
      * @var string
@@ -50,6 +51,7 @@ class ModifyBackupPolicyRequest extends Model
      *   Saturday
      *   Sunday
      *
+     * This parameter is required.
      * @example Tuesday, Thursday, Saturday
      *
      * @var string
@@ -59,6 +61,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The backup window. Specify the backup window in the HH:mmZ-HH:mmZ format. The backup window must be in UTC. Default value: 00:00-01:00.
      *
+     * This parameter is required.
      * @example 15:00Z-16:00Z
      *
      * @var string

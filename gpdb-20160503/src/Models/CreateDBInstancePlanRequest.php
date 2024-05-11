@@ -11,7 +11,7 @@ class CreateDBInstancePlanRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -26,6 +26,7 @@ class CreateDBInstancePlanRequest extends Model
     /**
      * @description The execution information of the plan. Specify the parameter in the JSON format. The parameter value varies based on the values of **PlanType** and **PlanScheduleType**. The following section describes the PlanConfig parameter.
      *
+     * This parameter is required.
      * @example {"pause":{"planCronTime":"0 0 12 1/1 * ? "},"resume":{"planCronTime":"0 0 0 1/1 * ? "}}
      *
      * @var string
@@ -59,6 +60,7 @@ class CreateDBInstancePlanRequest extends Model
     /**
      * @description The name of the plan.
      *
+     * This parameter is required.
      * @example test-plan
      *
      * @var string
@@ -71,6 +73,7 @@ class CreateDBInstancePlanRequest extends Model
      *   **Postpone**: The plan is executed later.
      *   **Regular**: The plan is executed periodically.
      *
+     * This parameter is required.
      * @example Regular
      *
      * @var string
@@ -105,6 +108,7 @@ class CreateDBInstancePlanRequest extends Model
      *
      *   You can specify the value to ModifySpec only for instances in elastic storage mode.
      *
+     * This parameter is required.
      * @example PauseResume
      *
      * @var string

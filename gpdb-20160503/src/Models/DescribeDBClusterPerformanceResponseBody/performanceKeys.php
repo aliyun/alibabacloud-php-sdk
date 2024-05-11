@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class performanceKeys extends Model
 {
     /**
-     * @description The name of the performance metric. For more information, see [Performance parameters](~~86943~~).
+     * @description The name of the performance metric. For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
      *
      * @example adbpg_group_cpu_used_percent
      *

@@ -11,7 +11,7 @@ class InitVectorDatabaseRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -21,6 +21,7 @@ class InitVectorDatabaseRequest extends Model
     /**
      * @description The name of the database account that has the rds_superuser permission.
      *
+     * This parameter is required.
      * @example testaccount
      *
      * @var string
@@ -30,6 +31,7 @@ class InitVectorDatabaseRequest extends Model
     /**
      * @description The password of the database account.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string
@@ -44,7 +46,7 @@ class InitVectorDatabaseRequest extends Model
     /**
      * @description The region ID.
      *
-     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

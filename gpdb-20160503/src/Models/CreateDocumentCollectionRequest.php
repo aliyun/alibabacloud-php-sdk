@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDocumentCollectionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDocumentCollectionRequest extends Model
     public $collection;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -49,6 +53,8 @@ class CreateDocumentCollectionRequest extends Model
     public $hnswM;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testaccount
      *
      * @var string
@@ -56,6 +62,8 @@ class CreateDocumentCollectionRequest extends Model
     public $managerAccount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -103,6 +111,8 @@ class CreateDocumentCollectionRequest extends Model
     public $pqEnable;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

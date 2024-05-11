@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDocumentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDocumentRequest extends Model
     public $collection;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDocumentRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example music.txt
      *
      * @var string
@@ -37,6 +43,8 @@ class DescribeDocumentRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -49,6 +57,8 @@ class DescribeDocumentRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

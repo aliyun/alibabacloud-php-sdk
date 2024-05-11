@@ -23,6 +23,7 @@ class DescribeDataSharePerformanceRequest extends Model
      *   **adbpg_datashare_topic_count**: the number of shared topics.
      *   **adbpg_datashare_data_size_mb**: the amount of data shared.
      *
+     * This parameter is required.
      * @example adbpg_datashare_topic_count
      *
      * @var string
@@ -32,7 +33,7 @@ class DescribeDataSharePerformanceRequest extends Model
     /**
      * @description The region ID of the instance.
      *
-     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

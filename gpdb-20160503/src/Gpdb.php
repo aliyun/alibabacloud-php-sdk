@@ -320,10 +320,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](~~204879~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Allocates a public endpoint for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](https://help.aliyun.com/document_detail/204879.html).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -373,10 +375,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](~~204879~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Allocates a public endpoint for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](https://help.aliyun.com/document_detail/204879.html).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      *
      * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
@@ -389,10 +393,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CancelUploadDocumentJobRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 取消上传文档任务
+     *  *
+     * @param CancelUploadDocumentJobRequest $request CancelUploadDocumentJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelUploadDocumentJobResponse
+     * @return CancelUploadDocumentJobResponse CancelUploadDocumentJobResponse
      */
     public function cancelUploadDocumentJobWithOptions($request, $runtime)
     {
@@ -440,9 +446,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CancelUploadDocumentJobRequest $request
+     * @summary 取消上传文档任务
+     *  *
+     * @param CancelUploadDocumentJobRequest $request CancelUploadDocumentJobRequest
      *
-     * @return CancelUploadDocumentJobResponse
+     * @return CancelUploadDocumentJobResponse CancelUploadDocumentJobResponse
      */
     public function cancelUploadDocumentJob($request)
     {
@@ -452,10 +460,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CancelUpsertCollectionDataJobRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 取消上传数据任务
+     *  *
+     * @param CancelUpsertCollectionDataJobRequest $request CancelUpsertCollectionDataJobRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelUpsertCollectionDataJobResponse
+     * @return CancelUpsertCollectionDataJobResponse CancelUpsertCollectionDataJobResponse
      */
     public function cancelUpsertCollectionDataJobWithOptions($request, $runtime)
     {
@@ -503,9 +513,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CancelUpsertCollectionDataJobRequest $request
+     * @summary 取消上传数据任务
+     *  *
+     * @param CancelUpsertCollectionDataJobRequest $request CancelUpsertCollectionDataJobRequest
      *
-     * @return CancelUpsertCollectionDataJobResponse
+     * @return CancelUpsertCollectionDataJobResponse CancelUpsertCollectionDataJobResponse
      */
     public function cancelUpsertCollectionDataJob($request)
     {
@@ -515,10 +527,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CheckServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries whether a service-linked role is created.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRoleWithOptions($request, $runtime)
     {
@@ -546,9 +560,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CheckServiceLinkedRoleRequest $request
+     * @summary Queries whether a service-linked role is created.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
      *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRole($request)
     {
@@ -558,11 +574,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
-     *   * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](~~50206~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a privileged account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
+     * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateAccountRequest $request CreateAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -612,11 +630,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
-     *   * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](~~50206~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a privileged account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
+     * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateAccountRequest $request CreateAccountRequest
      *
      * @return CreateAccountResponse CreateAccountResponse
@@ -629,10 +649,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateCollectionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 创建Collection
+     *  *
+     * @param CreateCollectionRequest $request CreateCollectionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCollectionResponse
+     * @return CreateCollectionResponse CreateCollectionResponse
      */
     public function createCollectionWithOptions($request, $runtime)
     {
@@ -702,9 +724,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateCollectionRequest $request
+     * @summary 创建Collection
+     *  *
+     * @param CreateCollectionRequest $request CreateCollectionRequest
      *
-     * @return CreateCollectionResponse
+     * @return CreateCollectionResponse CreateCollectionResponse
      */
     public function createCollection($request)
     {
@@ -714,11 +738,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
-     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-     *   *
+     * @summary Creates an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
+     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -867,11 +893,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
-     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-     *   *
+     * @summary Creates an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
+     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      *
      * @return CreateDBInstanceResponse CreateDBInstanceResponse
@@ -884,10 +912,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * *   The plan management feature is supported only for pay-as-you-go instances.
-     *   * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
-     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   *
+     * @summary Creates a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   The plan management feature is supported only for pay-as-you-go instances.
+     * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
+     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *  *
      * @param CreateDBInstancePlanRequest $request CreateDBInstancePlanRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -943,10 +973,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * *   The plan management feature is supported only for pay-as-you-go instances.
-     *   * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
-     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   *
+     * @summary Creates a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   The plan management feature is supported only for pay-as-you-go instances.
+     * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
+     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *  *
      * @param CreateDBInstancePlanRequest $request CreateDBInstancePlanRequest
      *
      * @return CreateDBInstancePlanResponse CreateDBInstancePlanResponse
@@ -959,10 +991,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateDocumentCollectionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 创建知识库
+     *  *
+     * @param CreateDocumentCollectionRequest $request CreateDocumentCollectionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDocumentCollectionResponse
+     * @return CreateDocumentCollectionResponse CreateDocumentCollectionResponse
      */
     public function createDocumentCollectionWithOptions($request, $runtime)
     {
@@ -1032,9 +1066,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateDocumentCollectionRequest $request
+     * @summary 创建知识库
+     *  *
+     * @param CreateDocumentCollectionRequest $request CreateDocumentCollectionRequest
      *
-     * @return CreateDocumentCollectionResponse
+     * @return CreateDocumentCollectionResponse CreateDocumentCollectionResponse
      */
     public function createDocumentCollection($request)
     {
@@ -1044,10 +1080,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateNamespaceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Creates a vector namespace.
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespaceWithOptions($request, $runtime)
     {
@@ -1093,9 +1131,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateNamespaceRequest $request
+     * @summary Creates a vector namespace.
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
      *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespace($request)
     {
@@ -1105,15 +1145,17 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](~~452277~~).
-     *   * ## Precautions
-     *   * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
-     *   * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
-     *   * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
-     *   * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
+     * ## Precautions
+     * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
+     * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
+     * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
+     * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateSampleDataRequest $request CreateSampleDataRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1148,15 +1190,17 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](~~452277~~).
-     *   * ## Precautions
-     *   * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
-     *   * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
-     *   * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
-     *   * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a sample dataset for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](https://help.aliyun.com/document_detail/452277.html).
+     * ## Precautions
+     * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
+     * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
+     * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
+     * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateSampleDataRequest $request CreateSampleDataRequest
      *
      * @return CreateSampleDataResponse CreateSampleDataResponse
@@ -1169,10 +1213,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a service-linked role.
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
@@ -1203,9 +1249,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleRequest $request
+     * @summary Creates a service-linked role.
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
      *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRole($request)
     {
@@ -1215,10 +1263,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateVectorIndexRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 创建向量索引
+     *  *
+     * @param CreateVectorIndexRequest $request CreateVectorIndexRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVectorIndexResponse
+     * @return CreateVectorIndexResponse CreateVectorIndexResponse
      */
     public function createVectorIndexWithOptions($request, $runtime)
     {
@@ -1279,9 +1329,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateVectorIndexRequest $request
+     * @summary 创建向量索引
+     *  *
+     * @param CreateVectorIndexRequest $request CreateVectorIndexRequest
      *
-     * @return CreateVectorIndexResponse
+     * @return CreateVectorIndexResponse CreateVectorIndexResponse
      */
     public function createVectorIndex($request)
     {
@@ -1291,10 +1343,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteCollectionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes a vector collection.
+     *  *
+     * @param DeleteCollectionRequest $request DeleteCollectionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCollectionResponse
+     * @return DeleteCollectionResponse DeleteCollectionResponse
      */
     public function deleteCollectionWithOptions($request, $runtime)
     {
@@ -1337,9 +1391,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteCollectionRequest $request
+     * @summary Deletes a vector collection.
+     *  *
+     * @param DeleteCollectionRequest $request DeleteCollectionRequest
      *
-     * @return DeleteCollectionResponse
+     * @return DeleteCollectionResponse DeleteCollectionResponse
      */
     public function deleteCollection($request)
     {
@@ -1349,10 +1405,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteCollectionDataRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes vector data.
+     *  *
+     * @param DeleteCollectionDataRequest $request DeleteCollectionDataRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCollectionDataResponse
+     * @return DeleteCollectionDataResponse DeleteCollectionDataResponse
      */
     public function deleteCollectionDataWithOptions($request, $runtime)
     {
@@ -1401,9 +1459,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteCollectionDataRequest $request
+     * @summary Deletes vector data.
+     *  *
+     * @param DeleteCollectionDataRequest $request DeleteCollectionDataRequest
      *
-     * @return DeleteCollectionDataResponse
+     * @return DeleteCollectionDataResponse DeleteCollectionDataResponse
      */
     public function deleteCollectionData($request)
     {
@@ -1413,11 +1473,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * *   Subscription instances cannot be manually released. They are automatically released when they expire.
-     *   * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Releases a pay-as-you-go AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   Subscription instances cannot be manually released. They are automatically released when they expire.
+     * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1458,11 +1520,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * *   Subscription instances cannot be manually released. They are automatically released when they expire.
-     *   * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Releases a pay-as-you-go AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description *   Subscription instances cannot be manually released. They are automatically released when they expire.
+     * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      *
      * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
@@ -1475,10 +1539,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes a plan from an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteDBInstancePlanRequest $request DeleteDBInstancePlanRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1516,10 +1582,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes a plan from an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteDBInstancePlanRequest $request DeleteDBInstancePlanRequest
      *
      * @return DeleteDBInstancePlanResponse DeleteDBInstancePlanResponse
@@ -1532,10 +1600,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDocumentRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除文档
+     *  *
+     * @param DeleteDocumentRequest $request DeleteDocumentRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDocumentResponse
+     * @return DeleteDocumentResponse DeleteDocumentResponse
      */
     public function deleteDocumentWithOptions($request, $runtime)
     {
@@ -1581,9 +1651,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDocumentRequest $request
+     * @summary 删除文档
+     *  *
+     * @param DeleteDocumentRequest $request DeleteDocumentRequest
      *
-     * @return DeleteDocumentResponse
+     * @return DeleteDocumentResponse DeleteDocumentResponse
      */
     public function deleteDocument($request)
     {
@@ -1593,10 +1665,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDocumentCollectionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 删除知识库
+     *  *
+     * @param DeleteDocumentCollectionRequest $request DeleteDocumentCollectionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDocumentCollectionResponse
+     * @return DeleteDocumentCollectionResponse DeleteDocumentCollectionResponse
      */
     public function deleteDocumentCollectionWithOptions($request, $runtime)
     {
@@ -1639,9 +1713,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDocumentCollectionRequest $request
+     * @summary 删除知识库
+     *  *
+     * @param DeleteDocumentCollectionRequest $request DeleteDocumentCollectionRequest
      *
-     * @return DeleteDocumentCollectionResponse
+     * @return DeleteDocumentCollectionResponse DeleteDocumentCollectionResponse
      */
     public function deleteDocumentCollection($request)
     {
@@ -1651,10 +1727,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes a namespace.
+     *  *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespaceWithOptions($request, $runtime)
     {
@@ -1697,9 +1775,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
+     * @summary Deletes a namespace.
+     *  *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespace($request)
     {
@@ -1709,10 +1789,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteVectorIndexRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes a vector index.
+     *  *
+     * @param DeleteVectorIndexRequest $request DeleteVectorIndexRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVectorIndexResponse
+     * @return DeleteVectorIndexResponse DeleteVectorIndexResponse
      */
     public function deleteVectorIndexWithOptions($request, $runtime)
     {
@@ -1758,9 +1840,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteVectorIndexRequest $request
+     * @summary Deletes a vector index.
+     *  *
+     * @param DeleteVectorIndexRequest $request DeleteVectorIndexRequest
      *
-     * @return DeleteVectorIndexResponse
+     * @return DeleteVectorIndexResponse DeleteVectorIndexResponse
      */
     public function deleteVectorIndex($request)
     {
@@ -1770,10 +1854,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
-     *   * ## Limit
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
+     * ## Limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1808,10 +1894,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
-     *   * ## Limit
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about database accounts for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
+     * ## Limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
      * @return DescribeAccountsResponse DescribeAccountsResponse
@@ -1824,10 +1912,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveSQLRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取实例活跃的SQL列表
+     *  *
+     * @param DescribeActiveSQLRecordsRequest $request DescribeActiveSQLRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveSQLRecordsResponse
+     * @return DescribeActiveSQLRecordsResponse DescribeActiveSQLRecordsResponse
      */
     public function describeActiveSQLRecordsWithOptions($request, $runtime)
     {
@@ -1879,9 +1969,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveSQLRecordsRequest $request
+     * @summary 获取实例活跃的SQL列表
+     *  *
+     * @param DescribeActiveSQLRecordsRequest $request DescribeActiveSQLRecordsRequest
      *
-     * @return DescribeActiveSQLRecordsResponse
+     * @return DescribeActiveSQLRecordsResponse DescribeActiveSQLRecordsResponse
      */
     public function describeActiveSQLRecords($request)
     {
@@ -1891,8 +1983,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
-     *   *
+     * @summary Queries the information about available resources of AnalyticDB for PostgreSQL.
+     *  *
+     * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
+     *  *
      * @param DescribeAvailableResourcesRequest $request DescribeAvailableResourcesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -1930,8 +2024,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
-     *   *
+     * @summary Queries the information about available resources of AnalyticDB for PostgreSQL.
+     *  *
+     * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
+     *  *
      * @param DescribeAvailableResourcesRequest $request DescribeAvailableResourcesRequest
      *
      * @return DescribeAvailableResourcesResponse DescribeAvailableResourcesResponse
@@ -1944,10 +2040,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](~~210095~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the backup policy of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1979,10 +2077,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](~~210095~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the backup policy of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](https://help.aliyun.com/document_detail/210095.html).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
      * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
@@ -1995,10 +2095,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeCollectionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the information about a vector collection.
+     *  *
+     * @param DescribeCollectionRequest $request DescribeCollectionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCollectionResponse
+     * @return DescribeCollectionResponse DescribeCollectionResponse
      */
     public function describeCollectionWithOptions($request, $runtime)
     {
@@ -2041,9 +2143,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeCollectionRequest $request
+     * @summary Queries the information about a vector collection.
+     *  *
+     * @param DescribeCollectionRequest $request DescribeCollectionRequest
      *
-     * @return DescribeCollectionResponse
+     * @return DescribeCollectionResponse DescribeCollectionResponse
      */
     public function describeCollection($request)
     {
@@ -2053,11 +2157,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description ##
+     * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBClusterNodeRequest $request DescribeDBClusterNodeRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2092,11 +2198,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description ##
+     * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBClusterNodeRequest $request DescribeDBClusterNodeRequest
      *
      * @return DescribeDBClusterNodeResponse DescribeDBClusterNodeResponse
@@ -2109,8 +2217,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can query monitoring information only within the last 30 days.
-     *   *
+     * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     *  *
+     * @description You can query monitoring information only within the last 30 days.
+     *  *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2160,8 +2270,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can query monitoring information only within the last 30 days.
-     *   *
+     * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     *  *
+     * @description You can query monitoring information only within the last 30 days.
+     *  *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      *
      * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
@@ -2174,11 +2286,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description ##
+     * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -2216,11 +2330,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description ##
+     * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      *
      * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
@@ -2233,10 +2349,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about data bloat for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstanceDataBloatRequest $request DescribeDBInstanceDataBloatRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -2274,10 +2392,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about data bloat for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstanceDataBloatRequest $request DescribeDBInstanceDataBloatRequest
      *
      * @return DescribeDBInstanceDataBloatResponse DescribeDBInstanceDataBloatResponse
@@ -2290,10 +2410,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about data skew for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstanceDataSkewRequest $request DescribeDBInstanceDataSkewRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -2331,10 +2453,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about data skew for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstanceDataSkewRequest $request DescribeDBInstanceDataSkewRequest
      *
      * @return DescribeDBInstanceDataSkewResponse DescribeDBInstanceDataSkewResponse
@@ -2347,8 +2471,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
-     *   *
+     * @summary Queries the information about nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
      * @param DescribeDBInstanceDiagnosisSummaryRequest $request DescribeDBInstanceDiagnosisSummaryRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -2395,8 +2521,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
-     *   *
+     * @summary Queries the information about nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
+     *  *
      * @param DescribeDBInstanceDiagnosisSummaryRequest $request DescribeDBInstanceDiagnosisSummaryRequest
      *
      * @return DescribeDBInstanceDiagnosisSummaryResponse DescribeDBInstanceDiagnosisSummaryResponse
@@ -2409,10 +2537,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the error logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstanceErrorLogRequest $request DescribeDBInstanceErrorLogRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -2471,10 +2601,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the error logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstanceErrorLogRequest $request DescribeDBInstanceErrorLogRequest
      *
      * @return DescribeDBInstanceErrorLogResponse DescribeDBInstanceErrorLogResponse
@@ -2487,10 +2619,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstanceIPArrayListRequest $request DescribeDBInstanceIPArrayListRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -2528,10 +2662,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstanceIPArrayListRequest $request DescribeDBInstanceIPArrayListRequest
      *
      * @return DescribeDBInstanceIPArrayListResponse DescribeDBInstanceIPArrayListResponse
@@ -2544,9 +2680,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   *
+     * @summary Queries the index usage of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
+     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
      * @param DescribeDBInstanceIndexUsageRequest $request DescribeDBInstanceIndexUsageRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2584,9 +2722,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   *
+     * @summary Queries the index usage of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
+     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
      * @param DescribeDBInstanceIndexUsageRequest $request DescribeDBInstanceIndexUsageRequest
      *
      * @return DescribeDBInstanceIndexUsageResponse DescribeDBInstanceIndexUsageResponse
@@ -2599,10 +2739,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceNetInfoRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the connection information of an instance.
+     *  *
+     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceNetInfoResponse
+     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfoWithOptions($request, $runtime)
     {
@@ -2633,9 +2775,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceNetInfoRequest $request
+     * @summary Queries the connection information of an instance.
+     *  *
+     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
      *
-     * @return DescribeDBInstanceNetInfoResponse
+     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfo($request)
     {
@@ -2645,10 +2789,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancePerformanceRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     *  *
+     * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstancePerformanceResponse
+     * @return DescribeDBInstancePerformanceResponse DescribeDBInstancePerformanceResponse
      */
     public function describeDBInstancePerformanceWithOptions($request, $runtime)
     {
@@ -2688,9 +2834,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancePerformanceRequest $request
+     * @summary Queries the information about performance metrics of an AnalyticDB for PostgreSQL instance within a time range.
+     *  *
+     * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
      *
-     * @return DescribeDBInstancePerformanceResponse
+     * @return DescribeDBInstancePerformanceResponse DescribeDBInstancePerformanceResponse
      */
     public function describeDBInstancePerformance($request)
     {
@@ -2700,10 +2848,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about plans for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstancePlansRequest $request DescribeDBInstancePlansRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -2753,10 +2903,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about plans for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstancePlansRequest $request DescribeDBInstancePlansRequest
      *
      * @return DescribeDBInstancePlansResponse DescribeDBInstancePlansResponse
@@ -2769,10 +2921,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceSSLRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the SSL information about an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceSSLResponse
+     * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
      */
     public function describeDBInstanceSSLWithOptions($request, $runtime)
     {
@@ -2800,9 +2954,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceSSLRequest $request
+     * @summary Queries the SSL information about an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
      *
-     * @return DescribeDBInstanceSSLResponse
+     * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
      */
     public function describeDBInstanceSSL($request)
     {
@@ -2812,10 +2968,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceSupportMaxPerformanceRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary 查询实例最大吞吐和IOPS
+     *  *
+     * @param DescribeDBInstanceSupportMaxPerformanceRequest $request DescribeDBInstanceSupportMaxPerformanceRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceSupportMaxPerformanceResponse
+     * @return DescribeDBInstanceSupportMaxPerformanceResponse DescribeDBInstanceSupportMaxPerformanceResponse
      */
     public function describeDBInstanceSupportMaxPerformanceWithOptions($request, $runtime)
     {
@@ -2846,9 +3004,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceSupportMaxPerformanceRequest $request
+     * @summary 查询实例最大吞吐和IOPS
+     *  *
+     * @param DescribeDBInstanceSupportMaxPerformanceRequest $request DescribeDBInstanceSupportMaxPerformanceRequest
      *
-     * @return DescribeDBInstanceSupportMaxPerformanceResponse
+     * @return DescribeDBInstanceSupportMaxPerformanceResponse DescribeDBInstanceSupportMaxPerformanceResponse
      */
     public function describeDBInstanceSupportMaxPerformance($request)
     {
@@ -2858,11 +3018,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of AnalyticDB for PostgreSQL instances.
+     *  *
+     * @description ##
+     * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstancesRequest $tmpReq  DescribeDBInstancesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2947,11 +3109,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of AnalyticDB for PostgreSQL instances.
+     *  *
+     * @description ##
+     * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
      *
      * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
@@ -2964,16 +3128,24 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBResourceManagementModeRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 获取资源管理模式
+     *  *
+     * @param DescribeDBResourceManagementModeRequest $request DescribeDBResourceManagementModeRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBResourceManagementModeResponse
+     * @return DescribeDBResourceManagementModeResponse DescribeDBResourceManagementModeResponse
      */
     public function describeDBResourceManagementModeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2981,7 +3153,7 @@ class Gpdb extends OpenApiClient
             'version'     => '2016-05-03',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2992,9 +3164,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBResourceManagementModeRequest $request
+     * @summary 获取资源管理模式
+     *  *
+     * @param DescribeDBResourceManagementModeRequest $request DescribeDBResourceManagementModeRequest
      *
-     * @return DescribeDBResourceManagementModeResponse
+     * @return DescribeDBResourceManagementModeResponse DescribeDBResourceManagementModeResponse
      */
     public function describeDBResourceManagementMode($request)
     {
@@ -3004,10 +3178,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBVersionInfosRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the information about minor versions of AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param DescribeDBVersionInfosRequest $request DescribeDBVersionInfosRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBVersionInfosResponse
+     * @return DescribeDBVersionInfosResponse DescribeDBVersionInfosResponse
      */
     public function describeDBVersionInfosWithOptions($request, $runtime)
     {
@@ -3047,9 +3223,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBVersionInfosRequest $request
+     * @summary Queries the information about minor versions of AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param DescribeDBVersionInfosRequest $request DescribeDBVersionInfosRequest
      *
-     * @return DescribeDBVersionInfosResponse
+     * @return DescribeDBVersionInfosResponse DescribeDBVersionInfosResponse
      */
     public function describeDBVersionInfos($request)
     {
@@ -3059,8 +3237,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
-     *   *
+     * @summary Queries a list of backup sets of full backup or point-in-time backup for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
+     *  *
      * @param DescribeDataBackupsRequest $request DescribeDataBackupsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -3116,8 +3296,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
-     *   *
+     * @summary Queries a list of backup sets of full backup or point-in-time backup for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
+     *  *
      * @param DescribeDataBackupsRequest $request DescribeDataBackupsRequest
      *
      * @return DescribeDataBackupsResponse DescribeDataBackupsResponse
@@ -3130,10 +3312,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataReDistributeInfoRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     *  *
+     * @param DescribeDataReDistributeInfoRequest $request DescribeDataReDistributeInfoRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataReDistributeInfoResponse
+     * @return DescribeDataReDistributeInfoResponse DescribeDataReDistributeInfoResponse
      */
     public function describeDataReDistributeInfoWithOptions($request, $runtime)
     {
@@ -3164,9 +3348,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataReDistributeInfoRequest $request
+     * @summary Queries the data redistribution information about an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     *  *
+     * @param DescribeDataReDistributeInfoRequest $request DescribeDataReDistributeInfoRequest
      *
-     * @return DescribeDataReDistributeInfoResponse
+     * @return DescribeDataReDistributeInfoResponse DescribeDataReDistributeInfoResponse
      */
     public function describeDataReDistributeInfo($request)
     {
@@ -3176,8 +3362,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Data sharing is supported only for instances in Serverless mode.
-     *   *
+     * @summary Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+     *  *
+     * @description Data sharing is supported only for instances in Serverless mode.
+     *  *
      * @param DescribeDataShareInstancesRequest $request DescribeDataShareInstancesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -3224,8 +3412,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Data sharing is supported only for instances in Serverless mode.
-     *   *
+     * @summary Queries the state of data sharing for AnalyticDB for PostgreSQL instances.
+     *  *
+     * @description Data sharing is supported only for instances in Serverless mode.
+     *  *
      * @param DescribeDataShareInstancesRequest $request DescribeDataShareInstancesRequest
      *
      * @return DescribeDataShareInstancesResponse DescribeDataShareInstancesResponse
@@ -3238,10 +3428,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about data sharing performance metrics.
+     *  *
+     * @description You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDataSharePerformanceRequest $request DescribeDataSharePerformanceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -3285,10 +3477,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about data sharing performance metrics.
+     *  *
+     * @description You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDataSharePerformanceRequest $request DescribeDataSharePerformanceRequest
      *
      * @return DescribeDataSharePerformanceResponse DescribeDataSharePerformanceResponse
@@ -3301,10 +3495,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDiagnosisDimensionsRequest $request DescribeDiagnosisDimensionsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -3336,10 +3532,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries all databases and database accounts for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDiagnosisDimensionsRequest $request DescribeDiagnosisDimensionsRequest
      *
      * @return DescribeDiagnosisDimensionsResponse DescribeDiagnosisDimensionsResponse
@@ -3352,10 +3550,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details of query execution on an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDiagnosisMonitorPerformanceRequest $request DescribeDiagnosisMonitorPerformanceRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -3402,10 +3602,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details of query execution on an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDiagnosisMonitorPerformanceRequest $request DescribeDiagnosisMonitorPerformanceRequest
      *
      * @return DescribeDiagnosisMonitorPerformanceResponse DescribeDiagnosisMonitorPerformanceResponse
@@ -3418,10 +3620,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about SQL queries for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDiagnosisRecordsRequest $request DescribeDiagnosisRecordsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -3480,10 +3684,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about SQL queries for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDiagnosisRecordsRequest $request DescribeDiagnosisRecordsRequest
      *
      * @return DescribeDiagnosisRecordsResponse DescribeDiagnosisRecordsResponse
@@ -3496,9 +3702,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   *
+     * @summary Queries the information about a query for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
      * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -3536,9 +3744,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   *
+     * @summary Queries the information about a query for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
      * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
      *
      * @return DescribeDiagnosisSQLInfoResponse DescribeDiagnosisSQLInfoResponse
@@ -3551,10 +3761,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDocumentRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 获取文档详情
+     *  *
+     * @param DescribeDocumentRequest $request DescribeDocumentRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDocumentResponse
+     * @return DescribeDocumentResponse DescribeDocumentResponse
      */
     public function describeDocumentWithOptions($request, $runtime)
     {
@@ -3600,9 +3812,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDocumentRequest $request
+     * @summary 获取文档详情
+     *  *
+     * @param DescribeDocumentRequest $request DescribeDocumentRequest
      *
-     * @return DescribeDocumentResponse
+     * @return DescribeDocumentResponse DescribeDocumentResponse
      */
     public function describeDocument($request)
     {
@@ -3612,9 +3826,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   *
+     * @summary Queries the download records of query diagnostic information for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
+     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
      * @param DescribeDownloadRecordsRequest $request DescribeDownloadRecordsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3646,9 +3862,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   *
+     * @summary Queries the download records of query diagnostic information for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You must call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/447700.html) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
+     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     *  *
      * @param DescribeDownloadRecordsRequest $request DescribeDownloadRecordsRequest
      *
      * @return DescribeDownloadRecordsResponse DescribeDownloadRecordsResponse
@@ -3661,10 +3879,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDownloadSQLLogsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDownloadSQLLogsRequest $request DescribeDownloadSQLLogsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDownloadSQLLogsResponse
+     * @return DescribeDownloadSQLLogsResponse DescribeDownloadSQLLogsResponse
      */
     public function describeDownloadSQLLogsWithOptions($request, $runtime)
     {
@@ -3692,9 +3912,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDownloadSQLLogsRequest $request
+     * @summary Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeDownloadSQLLogsRequest $request DescribeDownloadSQLLogsRequest
      *
-     * @return DescribeDownloadSQLLogsResponse
+     * @return DescribeDownloadSQLLogsResponse DescribeDownloadSQLLogsResponse
      */
     public function describeDownloadSQLLogs($request)
     {
@@ -3704,10 +3926,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the health status of an AnalyticDB for PostgreSQL instance and its nodes.
+     *  *
+     * @description This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeHealthStatusRequest $request DescribeHealthStatusRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -3742,10 +3966,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the health status of an AnalyticDB for PostgreSQL instance and its nodes.
+     *  *
+     * @description This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeHealthStatusRequest $request DescribeHealthStatusRequest
      *
      * @return DescribeHealthStatusResponse DescribeHealthStatusResponse
@@ -3758,10 +3984,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeIMVInfosRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询实时物化视图信息
+     *  *
+     * @param DescribeIMVInfosRequest $request DescribeIMVInfosRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIMVInfosResponse
+     * @return DescribeIMVInfosResponse DescribeIMVInfosResponse
      */
     public function describeIMVInfosWithOptions($request, $runtime)
     {
@@ -3795,9 +4023,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeIMVInfosRequest $request
+     * @summary 查询实时物化视图信息
+     *  *
+     * @param DescribeIMVInfosRequest $request DescribeIMVInfosRequest
      *
-     * @return DescribeIMVInfosResponse
+     * @return DescribeIMVInfosResponse DescribeIMVInfosResponse
      */
     public function describeIMVInfos($request)
     {
@@ -3807,10 +4037,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogBackupsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries a list of log backups.
+     *  *
+     * @param DescribeLogBackupsRequest $request DescribeLogBackupsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogBackupsResponse
+     * @return DescribeLogBackupsResponse DescribeLogBackupsResponse
      */
     public function describeLogBackupsWithOptions($request, $runtime)
     {
@@ -3850,9 +4082,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogBackupsRequest $request
+     * @summary Queries a list of log backups.
+     *  *
+     * @param DescribeLogBackupsRequest $request DescribeLogBackupsRequest
      *
-     * @return DescribeLogBackupsResponse
+     * @return DescribeLogBackupsResponse DescribeLogBackupsResponse
      */
     public function describeLogBackups($request)
     {
@@ -3862,10 +4096,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeModifyParameterLogRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeModifyParameterLogRequest $request DescribeModifyParameterLogRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeModifyParameterLogResponse
+     * @return DescribeModifyParameterLogResponse DescribeModifyParameterLogResponse
      */
     public function describeModifyParameterLogWithOptions($request, $runtime)
     {
@@ -3899,9 +4135,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeModifyParameterLogRequest $request
+     * @summary Queries the parameter modification logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeModifyParameterLogRequest $request DescribeModifyParameterLogRequest
      *
-     * @return DescribeModifyParameterLogResponse
+     * @return DescribeModifyParameterLogResponse DescribeModifyParameterLogResponse
      */
     public function describeModifyParameterLog($request)
     {
@@ -3911,10 +4149,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the information about a namespace.
+     *  *
+     * @param DescribeNamespaceRequest $request DescribeNamespaceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNamespaceResponse
+     * @return DescribeNamespaceResponse DescribeNamespaceResponse
      */
     public function describeNamespaceWithOptions($request, $runtime)
     {
@@ -3957,9 +4197,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceRequest $request
+     * @summary Queries the information about a namespace.
+     *  *
+     * @param DescribeNamespaceRequest $request DescribeNamespaceRequest
      *
-     * @return DescribeNamespaceResponse
+     * @return DescribeNamespaceResponse DescribeNamespaceResponse
      */
     public function describeNamespace($request)
     {
@@ -3969,10 +4211,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about configuration parameters for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeParametersRequest $request DescribeParametersRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -4004,10 +4248,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about configuration parameters for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeParametersRequest $request DescribeParametersRequest
      *
      * @return DescribeParametersResponse DescribeParametersResponse
@@ -4020,10 +4266,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of vSwitches.
+     *  *
+     * @description When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeRdsVSwitchsRequest $request DescribeRdsVSwitchsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -4079,10 +4327,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of vSwitches.
+     *  *
+     * @description When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeRdsVSwitchsRequest $request DescribeRdsVSwitchsRequest
      *
      * @return DescribeRdsVSwitchsResponse DescribeRdsVSwitchsResponse
@@ -4095,10 +4345,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of VPCs.
+     *  *
+     * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeRdsVpcsRequest $request DescribeRdsVpcsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4151,10 +4403,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of VPCs.
+     *  *
+     * @description When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeRdsVpcsRequest $request DescribeRdsVpcsRequest
      *
      * @return DescribeRdsVpcsResponse DescribeRdsVpcsResponse
@@ -4167,10 +4421,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
-     *   * ## Limit
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of regions and zones where AnalyticDB for PostgreSQL is available.
+     *  *
+     * @description Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
+     * ## Limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4202,10 +4458,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
-     *   * ## Limit
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries a list of regions and zones where AnalyticDB for PostgreSQL is available.
+     *  *
+     * @description Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
+     * ## Limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
      * @return DescribeRegionsResponse DescribeRegionsResponse
@@ -4218,8 +4476,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is not available for instances in reserved storage mode.
-     *   *
+     * @summary Queries the number of audit logs for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not available for instances in reserved storage mode.
+     *  *
      * @param DescribeSQLLogCountRequest $request DescribeSQLLogCountRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -4287,8 +4547,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is not available for instances in reserved storage mode.
-     *   *
+     * @summary Queries the number of audit logs for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not available for instances in reserved storage mode.
+     *  *
      * @param DescribeSQLLogCountRequest $request DescribeSQLLogCountRequest
      *
      * @return DescribeSQLLogCountResponse DescribeSQLLogCountResponse
@@ -4301,8 +4563,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](~~453722~~) operation.
-     *   *
+     * @summary Queries the SQL execution logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](https://help.aliyun.com/document_detail/453722.html) operation.
+     *  *
      * @param DescribeSQLLogsRequest $request DescribeSQLLogsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4376,8 +4640,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](~~453722~~) operation.
-     *   *
+     * @summary Queries the SQL execution logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description > This operation is no longer used. To query SQL execution logs, call the [DescribeSQLLogsV2](https://help.aliyun.com/document_detail/453722.html) operation.
+     *  *
      * @param DescribeSQLLogsRequest $request DescribeSQLLogsRequest
      *
      * @return DescribeSQLLogsResponse DescribeSQLLogsResponse
@@ -4390,10 +4656,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries SQL logs within a specific time range.
+     *  *
+     * @description You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeSQLLogsV2Request $request DescribeSQLLogsV2Request
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -4473,10 +4741,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries SQL logs within a specific time range.
+     *  *
+     * @description You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeSQLLogsV2Request $request DescribeSQLLogsV2Request
      *
      * @return DescribeSQLLogsV2Response DescribeSQLLogsV2Response
@@ -4489,8 +4759,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries whether a sample dataset is loaded to an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeSampleDataRequest $request DescribeSampleDataRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -4525,8 +4797,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries whether a sample dataset is loaded to an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeSampleDataRequest $request DescribeSampleDataRequest
      *
      * @return DescribeSampleDataResponse DescribeSampleDataResponse
@@ -4539,10 +4813,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSupportFeaturesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeSupportFeaturesRequest $request DescribeSupportFeaturesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSupportFeaturesResponse
+     * @return DescribeSupportFeaturesResponse DescribeSupportFeaturesResponse
      */
     public function describeSupportFeaturesWithOptions($request, $runtime)
     {
@@ -4573,9 +4849,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSupportFeaturesRequest $request
+     * @summary Queries the features that are supported by an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DescribeSupportFeaturesRequest $request DescribeSupportFeaturesRequest
      *
-     * @return DescribeSupportFeaturesResponse
+     * @return DescribeSupportFeaturesResponse DescribeSupportFeaturesResponse
      */
     public function describeSupportFeatures($request)
     {
@@ -4585,10 +4863,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries a list of tags for AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
@@ -4634,9 +4914,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
+     * @summary Queries a list of tags for AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -4646,10 +4928,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserEncryptionKeyListRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries a list of Key Management Service (KMS) keys.
+     *  *
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyListWithOptions($request, $runtime)
     {
@@ -4683,9 +4967,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserEncryptionKeyListRequest $request
+     * @summary Queries a list of Key Management Service (KMS) keys.
+     *  *
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
      *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyList($request)
     {
@@ -4695,10 +4981,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about a lock-waiting query for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeWaitingSQLInfoRequest $request DescribeWaitingSQLInfoRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -4736,10 +5024,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about a lock-waiting query for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeWaitingSQLInfoRequest $request DescribeWaitingSQLInfoRequest
      *
      * @return DescribeWaitingSQLInfoResponse DescribeWaitingSQLInfoResponse
@@ -4752,10 +5042,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the lock diagnostic records of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeWaitingSQLRecordsRequest $request DescribeWaitingSQLRecordsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -4814,10 +5106,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the lock diagnostic records of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeWaitingSQLRecordsRequest $request DescribeWaitingSQLRecordsRequest
      *
      * @return DescribeWaitingSQLRecordsResponse DescribeWaitingSQLRecordsResponse
@@ -4830,11 +5124,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](~~447712~~) operation to query download records and download URLs.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Downloads the query diagnostic information of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to query download records and download URLs.
+     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DownloadDiagnosisRecordsRequest $request DownloadDiagnosisRecordsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -4887,11 +5183,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](~~447712~~) operation to query download records and download URLs.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Downloads the query diagnostic information of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to query download records and download URLs.
+     * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DownloadDiagnosisRecordsRequest $request DownloadDiagnosisRecordsRequest
      *
      * @return DownloadDiagnosisRecordsResponse DownloadDiagnosisRecordsResponse
@@ -4904,10 +5202,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DownloadSQLLogsRecordsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Download the slow query logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DownloadSQLLogsRecordsRequest $request DownloadSQLLogsRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DownloadSQLLogsRecordsResponse
+     * @return DownloadSQLLogsRecordsResponse DownloadSQLLogsRecordsResponse
      */
     public function downloadSQLLogsRecordsWithOptions($request, $runtime)
     {
@@ -4980,9 +5280,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DownloadSQLLogsRecordsRequest $request
+     * @summary Download the slow query logs of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param DownloadSQLLogsRecordsRequest $request DownloadSQLLogsRecordsRequest
      *
-     * @return DownloadSQLLogsRecordsResponse
+     * @return DownloadSQLLogsRecordsResponse DownloadSQLLogsRecordsResponse
      */
     public function downloadSQLLogsRecords($request)
     {
@@ -4992,10 +5294,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param GetUploadDocumentJobRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询上传文档任务的状态
+     *  *
+     * @param GetUploadDocumentJobRequest $request GetUploadDocumentJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUploadDocumentJobResponse
+     * @return GetUploadDocumentJobResponse GetUploadDocumentJobResponse
      */
     public function getUploadDocumentJobWithOptions($request, $runtime)
     {
@@ -5043,9 +5347,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param GetUploadDocumentJobRequest $request
+     * @summary 查询上传文档任务的状态
+     *  *
+     * @param GetUploadDocumentJobRequest $request GetUploadDocumentJobRequest
      *
-     * @return GetUploadDocumentJobResponse
+     * @return GetUploadDocumentJobResponse GetUploadDocumentJobResponse
      */
     public function getUploadDocumentJob($request)
     {
@@ -5055,10 +5361,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param GetUpsertCollectionDataJobRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 查询上传向量任务结果
+     *  *
+     * @param GetUpsertCollectionDataJobRequest $request GetUpsertCollectionDataJobRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUpsertCollectionDataJobResponse
+     * @return GetUpsertCollectionDataJobResponse GetUpsertCollectionDataJobResponse
      */
     public function getUpsertCollectionDataJobWithOptions($request, $runtime)
     {
@@ -5106,9 +5414,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param GetUpsertCollectionDataJobRequest $request
+     * @summary 查询上传向量任务结果
+     *  *
+     * @param GetUpsertCollectionDataJobRequest $request GetUpsertCollectionDataJobRequest
      *
-     * @return GetUpsertCollectionDataJobResponse
+     * @return GetUpsertCollectionDataJobResponse GetUpsertCollectionDataJobResponse
      */
     public function getUpsertCollectionDataJob($request)
     {
@@ -5118,10 +5428,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param GrantCollectionRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Grants vector collection permissions to a namespace.
+     *  *
+     * @param GrantCollectionRequest $request GrantCollectionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantCollectionResponse
+     * @return GrantCollectionResponse GrantCollectionResponse
      */
     public function grantCollectionWithOptions($request, $runtime)
     {
@@ -5173,9 +5485,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param GrantCollectionRequest $request
+     * @summary Grants vector collection permissions to a namespace.
+     *  *
+     * @param GrantCollectionRequest $request GrantCollectionRequest
      *
-     * @return GrantCollectionResponse
+     * @return GrantCollectionResponse GrantCollectionResponse
      */
     public function grantCollection($request)
     {
@@ -5185,10 +5499,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param HandleActiveSQLRecordRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 处理指定的查询SQL
+     *  *
+     * @param HandleActiveSQLRecordRequest $request HandleActiveSQLRecordRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return HandleActiveSQLRecordResponse
+     * @return HandleActiveSQLRecordResponse HandleActiveSQLRecordResponse
      */
     public function handleActiveSQLRecordWithOptions($request, $runtime)
     {
@@ -5222,9 +5538,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param HandleActiveSQLRecordRequest $request
+     * @summary 处理指定的查询SQL
+     *  *
+     * @param HandleActiveSQLRecordRequest $request HandleActiveSQLRecordRequest
      *
-     * @return HandleActiveSQLRecordResponse
+     * @return HandleActiveSQLRecordResponse HandleActiveSQLRecordResponse
      */
     public function handleActiveSQLRecord($request)
     {
@@ -5234,10 +5552,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param InitVectorDatabaseRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Initializes vector databases.
+     *  *
+     * @param InitVectorDatabaseRequest $request InitVectorDatabaseRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return InitVectorDatabaseResponse
+     * @return InitVectorDatabaseResponse InitVectorDatabaseResponse
      */
     public function initVectorDatabaseWithOptions($request, $runtime)
     {
@@ -5277,9 +5597,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param InitVectorDatabaseRequest $request
+     * @summary Initializes vector databases.
+     *  *
+     * @param InitVectorDatabaseRequest $request InitVectorDatabaseRequest
      *
-     * @return InitVectorDatabaseResponse
+     * @return InitVectorDatabaseResponse InitVectorDatabaseResponse
      */
     public function initVectorDatabase($request)
     {
@@ -5289,10 +5611,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ListCollectionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a list of vector collections.
+     *  *
+     * @param ListCollectionsRequest $request ListCollectionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCollectionsResponse
+     * @return ListCollectionsResponse ListCollectionsResponse
      */
     public function listCollectionsWithOptions($request, $runtime)
     {
@@ -5332,9 +5656,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ListCollectionsRequest $request
+     * @summary Queries a list of vector collections.
+     *  *
+     * @param ListCollectionsRequest $request ListCollectionsRequest
      *
-     * @return ListCollectionsResponse
+     * @return ListCollectionsResponse ListCollectionsResponse
      */
     public function listCollections($request)
     {
@@ -5344,10 +5670,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ListDocumentCollectionsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 获取知识库列表
+     *  *
+     * @param ListDocumentCollectionsRequest $request ListDocumentCollectionsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDocumentCollectionsResponse
+     * @return ListDocumentCollectionsResponse ListDocumentCollectionsResponse
      */
     public function listDocumentCollectionsWithOptions($request, $runtime)
     {
@@ -5387,9 +5715,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ListDocumentCollectionsRequest $request
+     * @summary 获取知识库列表
+     *  *
+     * @param ListDocumentCollectionsRequest $request ListDocumentCollectionsRequest
      *
-     * @return ListDocumentCollectionsResponse
+     * @return ListDocumentCollectionsResponse ListDocumentCollectionsResponse
      */
     public function listDocumentCollections($request)
     {
@@ -5399,10 +5729,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ListDocumentsRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 查询文档列表
+     *  *
+     * @param ListDocumentsRequest $request ListDocumentsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDocumentsResponse
+     * @return ListDocumentsResponse ListDocumentsResponse
      */
     public function listDocumentsWithOptions($request, $runtime)
     {
@@ -5445,9 +5777,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ListDocumentsRequest $request
+     * @summary 查询文档列表
+     *  *
+     * @param ListDocumentsRequest $request ListDocumentsRequest
      *
-     * @return ListDocumentsResponse
+     * @return ListDocumentsResponse ListDocumentsResponse
      */
     public function listDocuments($request)
     {
@@ -5457,10 +5791,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ListNamespacesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries a list of namespaces.
+     *  *
+     * @param ListNamespacesRequest $request ListNamespacesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNamespacesResponse
+     * @return ListNamespacesResponse ListNamespacesResponse
      */
     public function listNamespacesWithOptions($request, $runtime)
     {
@@ -5500,9 +5836,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ListNamespacesRequest $request
+     * @summary Queries a list of namespaces.
+     *  *
+     * @param ListNamespacesRequest $request ListNamespacesRequest
      *
-     * @return ListNamespacesResponse
+     * @return ListNamespacesResponse ListNamespacesResponse
      */
     public function listNamespaces($request)
     {
@@ -5512,10 +5850,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -5567,9 +5907,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries a list of tags that are added to AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -5579,10 +5921,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
@@ -5616,9 +5960,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
+     * @summary Modifies the description of a database account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -5628,10 +5974,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Configures the backup policy of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
@@ -5674,9 +6022,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
+     * @summary Configures the backup policy of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -5686,10 +6036,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
+     *  *
+     * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceConfigResponse
+     * @return ModifyDBInstanceConfigResponse ModifyDBInstanceConfigResponse
      */
     public function modifyDBInstanceConfigWithOptions($request, $runtime)
     {
@@ -5729,9 +6081,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConfigRequest $request
+     * @summary Changes the threshold of computing resources and the wait period of idle resources for an AnalyticDB for PostgreSQL instance in Serverless automatic scheduling mode.
+     *  *
+     * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
      *
-     * @return ModifyDBInstanceConfigResponse
+     * @return ModifyDBInstanceConfigResponse ModifyDBInstanceConfigResponse
      */
     public function modifyDBInstanceConfig($request)
     {
@@ -5741,10 +6095,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConnectionStringRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Changes the endpoint of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionStringWithOptions($request, $runtime)
     {
@@ -5781,9 +6137,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConnectionStringRequest $request
+     * @summary Changes the endpoint of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionString($request)
     {
@@ -5793,10 +6151,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Changes the description of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -5834,10 +6194,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Changes the description of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
      *
      * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
@@ -5850,10 +6212,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the maintenance window of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -5894,10 +6258,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the maintenance window of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
      *
      * @return ModifyDBInstanceMaintainTimeResponse ModifyDBInstanceMaintainTimeResponse
@@ -5910,8 +6276,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~).
-     *   *
+     * @summary Moves an AnalyticDB for PostgreSQL instance to a resource group.
+     *  *
+     * @description Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
      * @param ModifyDBInstanceResourceGroupRequest $request ModifyDBInstanceResourceGroupRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -5961,8 +6329,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~).
-     *   *
+     * @summary Moves an AnalyticDB for PostgreSQL instance to a resource group.
+     *  *
+     * @description Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
      * @param ModifyDBInstanceResourceGroupRequest $request ModifyDBInstanceResourceGroupRequest
      *
      * @return ModifyDBInstanceResourceGroupResponse ModifyDBInstanceResourceGroupResponse
@@ -5975,10 +6345,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceSSLRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Enables, disables, or updates SSL encryption for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyDBInstanceSSLRequest $request ModifyDBInstanceSSLRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceSSLResponse
+     * @return ModifyDBInstanceSSLResponse ModifyDBInstanceSSLResponse
      */
     public function modifyDBInstanceSSLWithOptions($request, $runtime)
     {
@@ -6012,9 +6384,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceSSLRequest $request
+     * @summary Enables, disables, or updates SSL encryption for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyDBInstanceSSLRequest $request ModifyDBInstanceSSLRequest
      *
-     * @return ModifyDBInstanceSSLResponse
+     * @return ModifyDBInstanceSSLResponse ModifyDBInstanceSSLResponse
      */
     public function modifyDBInstanceSSL($request)
     {
@@ -6024,10 +6398,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyMasterSpecRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 修改master规格
+     *  *
+     * @param ModifyMasterSpecRequest $request ModifyMasterSpecRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMasterSpecResponse
+     * @return ModifyMasterSpecResponse ModifyMasterSpecResponse
      */
     public function modifyMasterSpecWithOptions($request, $runtime)
     {
@@ -6064,9 +6440,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyMasterSpecRequest $request
+     * @summary 修改master规格
+     *  *
+     * @param ModifyMasterSpecRequest $request ModifyMasterSpecRequest
      *
-     * @return ModifyMasterSpecResponse
+     * @return ModifyMasterSpecResponse ModifyMasterSpecResponse
      */
     public function modifyMasterSpec($request)
     {
@@ -6076,10 +6454,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configuration parameters of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyParametersRequest $request ModifyParametersRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -6117,10 +6497,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configuration parameters of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyParametersRequest $request ModifyParametersRequest
      *
      * @return ModifyParametersResponse ModifyParametersResponse
@@ -6133,10 +6515,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifySQLCollectorPolicyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifySQLCollectorPolicyRequest $request ModifySQLCollectorPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySQLCollectorPolicyResponse
+     * @return ModifySQLCollectorPolicyResponse ModifySQLCollectorPolicyResponse
      */
     public function modifySQLCollectorPolicyWithOptions($request, $runtime)
     {
@@ -6167,9 +6551,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifySQLCollectorPolicyRequest $request
+     * @summary Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifySQLCollectorPolicyRequest $request ModifySQLCollectorPolicyRequest
      *
-     * @return ModifySQLCollectorPolicyResponse
+     * @return ModifySQLCollectorPolicyResponse ModifySQLCollectorPolicyResponse
      */
     public function modifySQLCollectorPolicy($request)
     {
@@ -6179,10 +6565,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -6229,10 +6617,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the IP address whitelist of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *
      * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
@@ -6245,10 +6635,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyVectorConfigurationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyVectorConfigurationRequest $request ModifyVectorConfigurationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyVectorConfigurationResponse
+     * @return ModifyVectorConfigurationResponse ModifyVectorConfigurationResponse
      */
     public function modifyVectorConfigurationWithOptions($request, $runtime)
     {
@@ -6282,9 +6674,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyVectorConfigurationRequest $request
+     * @summary Modifies the vector engine optimization configuration of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ModifyVectorConfigurationRequest $request ModifyVectorConfigurationRequest
      *
-     * @return ModifyVectorConfigurationResponse
+     * @return ModifyVectorConfigurationResponse ModifyVectorConfigurationResponse
      */
     public function modifyVectorConfiguration($request)
     {
@@ -6294,12 +6688,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
-     *   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Pauses an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
+     * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param PauseInstanceRequest $request PauseInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -6334,12 +6730,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
-     *   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Pauses an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
+     * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param PauseInstanceRequest $request PauseInstanceRequest
      *
      * @return PauseInstanceResponse PauseInstanceResponse
@@ -6352,10 +6750,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param QueryCollectionDataRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 查询向量数据
+     *  *
+     * @param QueryCollectionDataRequest $tmpReq  QueryCollectionDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCollectionDataResponse
+     * @return QueryCollectionDataResponse QueryCollectionDataResponse
      */
     public function queryCollectionDataWithOptions($tmpReq, $runtime)
     {
@@ -6439,9 +6839,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param QueryCollectionDataRequest $request
+     * @summary 查询向量数据
+     *  *
+     * @param QueryCollectionDataRequest $request QueryCollectionDataRequest
      *
-     * @return QueryCollectionDataResponse
+     * @return QueryCollectionDataResponse QueryCollectionDataResponse
      */
     public function queryCollectionData($request)
     {
@@ -6451,10 +6853,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param QueryContentRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 查询
+     *  *
+     * @param QueryContentRequest $tmpReq  QueryContentRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryContentResponse
+     * @return QueryContentResponse QueryContentResponse
      */
     public function queryContentWithOptions($tmpReq, $runtime)
     {
@@ -6544,9 +6948,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param QueryContentRequest $request
+     * @summary 查询
+     *  *
+     * @param QueryContentRequest $request QueryContentRequest
      *
-     * @return QueryContentResponse
+     * @return QueryContentResponse QueryContentResponse
      */
     public function queryContent($request)
     {
@@ -6634,10 +7040,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param RebalanceDBInstanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Rebalances an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param RebalanceDBInstanceRequest $request RebalanceDBInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RebalanceDBInstanceResponse
+     * @return RebalanceDBInstanceResponse RebalanceDBInstanceResponse
      */
     public function rebalanceDBInstanceWithOptions($request, $runtime)
     {
@@ -6668,9 +7076,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param RebalanceDBInstanceRequest $request
+     * @summary Rebalances an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param RebalanceDBInstanceRequest $request RebalanceDBInstanceRequest
      *
-     * @return RebalanceDBInstanceResponse
+     * @return RebalanceDBInstanceResponse RebalanceDBInstanceResponse
      */
     public function rebalanceDBInstance($request)
     {
@@ -6680,10 +7090,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Releases the public endpoint of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
@@ -6717,9 +7129,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstancePublicConnectionRequest $request
+     * @summary Releases the public endpoint of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnection($request)
     {
@@ -6729,10 +7143,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
@@ -6766,9 +7182,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
+     * @summary Resets the password of a database account for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -6778,10 +7196,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ResetIMVMonitorDataRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 重置IMV统计信息
+     *  *
+     * @param ResetIMVMonitorDataRequest $request ResetIMVMonitorDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetIMVMonitorDataResponse
+     * @return ResetIMVMonitorDataResponse ResetIMVMonitorDataResponse
      */
     public function resetIMVMonitorDataWithOptions($request, $runtime)
     {
@@ -6812,9 +7232,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ResetIMVMonitorDataRequest $request
+     * @summary 重置IMV统计信息
+     *  *
+     * @param ResetIMVMonitorDataRequest $request ResetIMVMonitorDataRequest
      *
-     * @return ResetIMVMonitorDataResponse
+     * @return ResetIMVMonitorDataResponse ResetIMVMonitorDataResponse
      */
     public function resetIMVMonitorData($request)
     {
@@ -6824,10 +7246,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
-     *   * ## Limit
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Restarts an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
+     * ## Limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -6862,10 +7286,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
-     *   * ## Limit
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Restarts an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
+     * ## Limit
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
      *
      * @return RestartDBInstanceResponse RestartDBInstanceResponse
@@ -6878,12 +7304,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
-     *   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Resumes an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
+     * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ResumeInstanceRequest $request ResumeInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -6918,12 +7346,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
-     *   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Resumes an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
+     * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](https://help.aliyun.com/document_detail/277424.html) and [Update the minor engine version](https://help.aliyun.com/document_detail/139271.html).
+     * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ResumeInstanceRequest $request ResumeInstanceRequest
      *
      * @return ResumeInstanceResponse ResumeInstanceResponse
@@ -6936,10 +7366,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables or disables a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param SetDBInstancePlanStatusRequest $request SetDBInstancePlanStatusRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -6980,10 +7412,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables or disables a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param SetDBInstancePlanStatusRequest $request SetDBInstancePlanStatusRequest
      *
      * @return SetDBInstancePlanStatusResponse SetDBInstancePlanStatusResponse
@@ -6996,10 +7430,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-     *   *
+     * @summary Enables or disables data sharing for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *  *
      * @param SetDataShareInstanceRequest $tmpReq  SetDataShareInstanceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -7045,10 +7481,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
-     *   *
+     * @summary Enables or disables data sharing for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *  *
      * @param SetDataShareInstanceRequest $request SetDataShareInstanceRequest
      *
      * @return SetDataShareInstanceResponse SetDataShareInstanceResponse
@@ -7061,10 +7499,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param SwitchDBInstanceNetTypeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Switches the internal or public endpoint for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param SwitchDBInstanceNetTypeRequest $request SwitchDBInstanceNetTypeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchDBInstanceNetTypeResponse
+     * @return SwitchDBInstanceNetTypeResponse SwitchDBInstanceNetTypeResponse
      */
     public function switchDBInstanceNetTypeWithOptions($request, $runtime)
     {
@@ -7098,9 +7538,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param SwitchDBInstanceNetTypeRequest $request
+     * @summary Switches the internal or public endpoint for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param SwitchDBInstanceNetTypeRequest $request SwitchDBInstanceNetTypeRequest
      *
-     * @return SwitchDBInstanceNetTypeResponse
+     * @return SwitchDBInstanceNetTypeResponse SwitchDBInstanceNetTypeResponse
      */
     public function switchDBInstanceNetType($request)
     {
@@ -7110,10 +7552,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Creates and adds tags to AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -7162,9 +7606,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Creates and adds tags to AnalyticDB for PostgreSQL instances.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -7174,10 +7620,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param UnloadSampleDataRequest $request UnloadSampleDataRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -7212,10 +7660,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Releases a sample dataset from an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param UnloadSampleDataRequest $request UnloadSampleDataRequest
      *
      * @return UnloadSampleDataResponse UnloadSampleDataResponse
@@ -7228,10 +7678,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -7283,9 +7735,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -7295,10 +7749,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateCollectionDataMetadataRequest $tmpReq
-     * @param RuntimeOptions                      $runtime
+     * @summary 更新Collection Data的Metadata数据
+     *  *
+     * @param UpdateCollectionDataMetadataRequest $tmpReq  UpdateCollectionDataMetadataRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCollectionDataMetadataResponse
+     * @return UpdateCollectionDataMetadataResponse UpdateCollectionDataMetadataResponse
      */
     public function updateCollectionDataMetadataWithOptions($tmpReq, $runtime)
     {
@@ -7358,9 +7814,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateCollectionDataMetadataRequest $request
+     * @summary 更新Collection Data的Metadata数据
+     *  *
+     * @param UpdateCollectionDataMetadataRequest $request UpdateCollectionDataMetadataRequest
      *
-     * @return UpdateCollectionDataMetadataResponse
+     * @return UpdateCollectionDataMetadataResponse UpdateCollectionDataMetadataResponse
      */
     public function updateCollectionDataMetadata($request)
     {
@@ -7370,10 +7828,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param UpdateDBInstancePlanRequest $request UpdateDBInstancePlanRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -7426,10 +7886,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies a plan for an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
+     * ## Limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param UpdateDBInstancePlanRequest $request UpdateDBInstancePlanRequest
      *
      * @return UpdateDBInstancePlanResponse UpdateDBInstancePlanResponse
@@ -7442,9 +7904,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is not available for instances in reserved storage mode.
-     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   *
+     * @summary Changes the configurations of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not available for instances in reserved storage mode.
+     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *  *
      * @param UpgradeDBInstanceRequest $request UpgradeDBInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -7515,9 +7979,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is not available for instances in reserved storage mode.
-     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   *
+     * @summary Changes the configurations of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description This operation is not available for instances in reserved storage mode.
+     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *  *
      * @param UpgradeDBInstanceRequest $request UpgradeDBInstanceRequest
      *
      * @return UpgradeDBInstanceResponse UpgradeDBInstanceResponse
@@ -7530,10 +7996,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBVersionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param UpgradeDBVersionRequest $request UpgradeDBVersionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeDBVersionResponse
+     * @return UpgradeDBVersionResponse UpgradeDBVersionResponse
      */
     public function upgradeDBVersionWithOptions($request, $runtime)
     {
@@ -7579,9 +8047,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBVersionRequest $request
+     * @summary Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @param UpgradeDBVersionRequest $request UpgradeDBVersionRequest
      *
-     * @return UpgradeDBVersionResponse
+     * @return UpgradeDBVersionResponse UpgradeDBVersionResponse
      */
     public function upgradeDBVersion($request)
     {
@@ -7591,10 +8061,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UploadDocumentAsyncRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 异步上传文档
+     *  *
+     * @param UploadDocumentAsyncRequest $tmpReq  UploadDocumentAsyncRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadDocumentAsyncResponse
+     * @return UploadDocumentAsyncResponse UploadDocumentAsyncResponse
      */
     public function uploadDocumentAsyncWithOptions($tmpReq, $runtime)
     {
@@ -7677,9 +8149,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UploadDocumentAsyncRequest $request
+     * @summary 异步上传文档
+     *  *
+     * @param UploadDocumentAsyncRequest $request UploadDocumentAsyncRequest
      *
-     * @return UploadDocumentAsyncResponse
+     * @return UploadDocumentAsyncResponse UploadDocumentAsyncResponse
      */
     public function uploadDocumentAsync($request)
     {
@@ -7767,10 +8241,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpsertChunksRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 上传切分后的文本
+     *  *
+     * @param UpsertChunksRequest $tmpReq  UpsertChunksRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpsertChunksResponse
+     * @return UpsertChunksResponse UpsertChunksResponse
      */
     public function upsertChunksWithOptions($tmpReq, $runtime)
     {
@@ -7826,9 +8302,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpsertChunksRequest $request
+     * @summary 上传切分后的文本
+     *  *
+     * @param UpsertChunksRequest $request UpsertChunksRequest
      *
-     * @return UpsertChunksResponse
+     * @return UpsertChunksResponse UpsertChunksResponse
      */
     public function upsertChunks($request)
     {
@@ -7838,10 +8316,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpsertCollectionDataRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary Uploads vector data to a vector collection.
+     *  *
+     * @param UpsertCollectionDataRequest $tmpReq  UpsertCollectionDataRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpsertCollectionDataResponse
+     * @return UpsertCollectionDataResponse UpsertCollectionDataResponse
      */
     public function upsertCollectionDataWithOptions($tmpReq, $runtime)
     {
@@ -7894,9 +8374,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpsertCollectionDataRequest $request
+     * @summary Uploads vector data to a vector collection.
+     *  *
+     * @param UpsertCollectionDataRequest $request UpsertCollectionDataRequest
      *
-     * @return UpsertCollectionDataResponse
+     * @return UpsertCollectionDataResponse UpsertCollectionDataResponse
      */
     public function upsertCollectionData($request)
     {
@@ -7906,10 +8388,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpsertCollectionDataAsyncRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 上传向量数据异步接口
+     *  *
+     * @param UpsertCollectionDataAsyncRequest $request UpsertCollectionDataAsyncRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpsertCollectionDataAsyncResponse
+     * @return UpsertCollectionDataAsyncResponse UpsertCollectionDataAsyncResponse
      */
     public function upsertCollectionDataAsyncWithOptions($request, $runtime)
     {
@@ -7957,9 +8441,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpsertCollectionDataAsyncRequest $request
+     * @summary 上传向量数据异步接口
+     *  *
+     * @param UpsertCollectionDataAsyncRequest $request UpsertCollectionDataAsyncRequest
      *
-     * @return UpsertCollectionDataAsyncResponse
+     * @return UpsertCollectionDataAsyncResponse UpsertCollectionDataAsyncResponse
      */
     public function upsertCollectionDataAsync($request)
     {

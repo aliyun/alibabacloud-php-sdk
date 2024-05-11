@@ -13,9 +13,10 @@ class ModifyAccountDescriptionRequest extends Model
      *
      *   The description must start with a letter.
      *   The description cannot start with `http://` or `https://`.
-     *   The description can contain letters, underscores (\_), hyphens (-), and digits.
+     *   The description can contain letters, underscores (_), hyphens (-), and digits.
      *   The description must be 2 to 256 characters in length.
      *
+     * This parameter is required.
      * @example testAccoutdescribe
      *
      * @var string
@@ -25,6 +26,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The name of the database account.
      *
+     * This parameter is required.
      * @example testAccout
      *
      * @var string
@@ -34,7 +36,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string

@@ -11,7 +11,7 @@ class SetDataShareInstanceRequest extends Model
     /**
      * @description The ID of the AnalyticDB for PostgreSQL instance in Serverless mode.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * This parameter is required.
      * @var string[]
      */
     public $instanceList;
@@ -22,6 +22,7 @@ class SetDataShareInstanceRequest extends Model
      *   **add**: enables data sharing.
      *   **remove**: disables data sharing.
      *
+     * This parameter is required.
      * @example add
      *
      * @var string
@@ -36,7 +37,7 @@ class SetDataShareInstanceRequest extends Model
     /**
      * @description The ID of the region.
      *
-     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

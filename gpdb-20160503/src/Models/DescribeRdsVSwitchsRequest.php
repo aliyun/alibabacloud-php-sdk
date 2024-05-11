@@ -21,7 +21,7 @@ class DescribeRdsVSwitchsRequest extends Model
     /**
      * @description The ID of the region.
      *
-     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list and zone list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list and zone list.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,7 +57,7 @@ class DescribeRdsVSwitchsRequest extends Model
      *
      * >
      *
-     *   You can call the [DescribeRdsVpcs](~~208327~~) operation to query the available VPC IDs.
+     *   You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query the available VPC IDs.
      *
      *   This parameter must be specified.
      *
@@ -70,7 +70,7 @@ class DescribeRdsVSwitchsRequest extends Model
     /**
      * @description The ID of the zone.
      *
-     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list and zone list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list and zone list.
      * @example cn-hangzhou-h
      *
      * @var string

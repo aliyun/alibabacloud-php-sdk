@@ -29,6 +29,7 @@ class DescribeUserEncryptionKeyListRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example ap-southeast-1
      *
      * @var string

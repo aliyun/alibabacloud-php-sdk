@@ -11,7 +11,7 @@ class ModifyParametersRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * This parameter is required.
      * @example gp-bp***************
      *
      * @var string
@@ -33,7 +33,7 @@ class ModifyParametersRequest extends Model
     /**
      * @description The name and value of the parameter to be modified. Specify the parameter in the `<Parameter name>:<Parameter value>` format.
      *
-     * You can call the [DescribeParameters](~~208310~~) operation to query the parameters that can be modified.
+     * This parameter is required.
      * @example {"statement_timeout":"11800010"}
      *
      * @var string

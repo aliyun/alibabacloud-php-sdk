@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class UpsertCollectionDataAsyncAdvanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -17,6 +19,8 @@ class UpsertCollectionDataAsyncAdvanceRequest extends Model
     public $collection;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -24,6 +28,8 @@ class UpsertCollectionDataAsyncAdvanceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://xx/vectors.jsonl
      *
      * @var Stream
@@ -38,6 +44,8 @@ class UpsertCollectionDataAsyncAdvanceRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -50,6 +58,8 @@ class UpsertCollectionDataAsyncAdvanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

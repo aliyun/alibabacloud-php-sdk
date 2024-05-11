@@ -11,6 +11,7 @@ class GrantCollectionRequest extends Model
     /**
      * @description The name of the collection.
      *
+     * This parameter is required.
      * @example document
      *
      * @var string
@@ -20,7 +21,7 @@ class GrantCollectionRequest extends Model
     /**
      * @description The ID of the instance in reserved storage mode.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -30,6 +31,7 @@ class GrantCollectionRequest extends Model
     /**
      * @description The name of the namespace to which you want to grant the vector collection permissions.
      *
+     * This parameter is required.
      * @example othernamespace
      *
      * @var string
@@ -43,6 +45,7 @@ class GrantCollectionRequest extends Model
      *   ro: the read-only permission.
      *   none: the delete permission.
      *
+     * This parameter is required.
      * @example rw
      *
      * @var string
@@ -52,6 +55,7 @@ class GrantCollectionRequest extends Model
     /**
      * @description The name of the manager account that has the rds_superuser permission.
      *
+     * This parameter is required.
      * @example testaccount
      *
      * @var string
@@ -61,6 +65,7 @@ class GrantCollectionRequest extends Model
     /**
      * @description The password of the manager account.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string
@@ -84,7 +89,7 @@ class GrantCollectionRequest extends Model
     /**
      * @description The region ID of the instance.
      *
-     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

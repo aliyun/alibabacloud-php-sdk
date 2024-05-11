@@ -11,7 +11,7 @@ class DescribeDBInstanceAttributeRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+     * This parameter is required.
      * @example gp-bp13ue79qk8y1****
      *
      * @var string

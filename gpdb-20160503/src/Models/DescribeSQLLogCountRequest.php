@@ -11,7 +11,7 @@ class DescribeSQLLogCountRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * This parameter is required.
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -30,7 +30,7 @@ class DescribeSQLLogCountRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
-     * > The end time must be later than the start time. The maximum time range that can be specified is seven days.
+     * This parameter is required.
      * @example 2020-12-14T11:22Z
      *
      * @var string
@@ -128,6 +128,7 @@ class DescribeSQLLogCountRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-12-12T11:22Z
      *
      * @var string

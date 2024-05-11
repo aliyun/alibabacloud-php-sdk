@@ -37,7 +37,7 @@ class collectionList extends Model
     public $fullTextRetrievalFields;
 
     /**
-     * @example {\"page\": \"int\", \"title\": \"text\"}
+     * @example {\\"page\\": \\"int\\", \\"title\\": \\"text\\"}
      *
      * @var string
      */

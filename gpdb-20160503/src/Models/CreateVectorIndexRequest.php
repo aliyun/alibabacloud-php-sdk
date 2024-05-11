@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVectorIndexRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateVectorIndexRequest extends Model
     public $collection;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateVectorIndexRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1024
      *
      * @var int
@@ -40,6 +46,8 @@ class CreateVectorIndexRequest extends Model
     public $hnswM;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testaccount
      *
      * @var string
@@ -47,6 +55,8 @@ class CreateVectorIndexRequest extends Model
     public $managerAccount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -80,6 +90,8 @@ class CreateVectorIndexRequest extends Model
     public $pqEnable;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

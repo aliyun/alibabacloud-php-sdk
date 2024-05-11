@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCollectionDataShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example document
      *
      * @var string
@@ -23,6 +25,8 @@ class QueryCollectionDataShrinkRequest extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -69,6 +73,8 @@ class QueryCollectionDataShrinkRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testpassword
      *
      * @var string
@@ -91,6 +97,8 @@ class QueryCollectionDataShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -98,6 +106,8 @@ class QueryCollectionDataShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

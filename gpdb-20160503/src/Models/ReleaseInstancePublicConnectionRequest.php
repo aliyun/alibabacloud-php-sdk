@@ -24,6 +24,8 @@ class ReleaseInstancePublicConnectionRequest extends Model
      * @description The public endpoint of the instance.
      *
      * You can log on to the AnalyticDB for PostgreSQL console and go to the **Basic Information** page of the instance to view the **public endpoint** in the **Database Connection** section.
+     *
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****.gpdb.rds.aliyuncs.com
      *
      * @var string
@@ -33,7 +35,7 @@ class ReleaseInstancePublicConnectionRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string

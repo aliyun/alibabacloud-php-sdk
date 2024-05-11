@@ -12,7 +12,7 @@ class DBInstance extends Model
     /**
      * @description An invalid parameter. It is no longer returned when you call this operation.
      *
-     * You can call the [DescribeDBInstanceAttribute](~~86910~~) operation to query the access mode of an instance.
+     * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the access mode of an instance.
      * @example null
      *
      * @var string
@@ -86,7 +86,7 @@ class DBInstance extends Model
     public $DBInstanceNetType;
 
     /**
-     * @description The state of the instance. For more information, see [Instance statuses](~~86944~~).
+     * @description The state of the instance. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/86944.html).
      *
      * @example Running
      *

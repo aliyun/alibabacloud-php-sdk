@@ -37,7 +37,7 @@ class DescribeDBVersionInfosRequest extends Model
     /**
      * @description The region ID of the instance.
      *
-     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -45,7 +45,7 @@ class DescribeDBVersionInfosRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
      * @example rg-bp67acfmxazb4p****
      *

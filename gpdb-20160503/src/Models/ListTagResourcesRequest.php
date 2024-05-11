@@ -29,8 +29,9 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -62,6 +63,7 @@ class ListTagResourcesRequest extends Model
      *   `instance`: reserved storage mode
      *   `ALIYUN::GPDB::INSTANCE`: elastic storage mode
      *
+     * This parameter is required.
      * @example instance
      *
      * @var string

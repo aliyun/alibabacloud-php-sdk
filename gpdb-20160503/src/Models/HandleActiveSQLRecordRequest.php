@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class HandleActiveSQLRecordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -23,6 +25,8 @@ class HandleActiveSQLRecordRequest extends Model
     public $operateType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example "3003925,3003928"
      *
      * @var string

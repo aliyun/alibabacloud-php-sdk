@@ -11,7 +11,7 @@ class ModifyDBInstanceMaintainTimeRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * This parameter is required.
      * @example gp-bp***************
      *
      * @var string
@@ -21,6 +21,7 @@ class ModifyDBInstanceMaintainTimeRequest extends Model
     /**
      * @description The end time of the maintenance window. The end time must be later than the start time. Specify the time in the HH:mmZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 03:00Z
      *
      * @var string
@@ -39,6 +40,7 @@ class ModifyDBInstanceMaintainTimeRequest extends Model
     /**
      * @description The start time of the maintenance window. Specify the time in the HH:mmZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 02:00Z
      *
      * @var string

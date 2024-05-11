@@ -11,7 +11,7 @@ class DescribeHealthStatusRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -19,8 +19,9 @@ class DescribeHealthStatusRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The performance metric that you want to query. Separate multiple values with commas (,). For more information, see [Performance parameters](~~86943~~).
+     * @description The performance metric that you want to query. Separate multiple values with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
      *
+     * This parameter is required.
      * @example node_master_status,node_master_connection_status,node_segment_connection_status,node_segment_disk_status
      *
      * @var string

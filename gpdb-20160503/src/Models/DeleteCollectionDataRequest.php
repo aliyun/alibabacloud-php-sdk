@@ -11,6 +11,7 @@ class DeleteCollectionDataRequest extends Model
     /**
      * @description The name of the collection.
      *
+     * This parameter is required.
      * @example document
      *
      * @var string
@@ -38,7 +39,7 @@ class DeleteCollectionDataRequest extends Model
     /**
      * @description The instance ID.
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -57,6 +58,7 @@ class DeleteCollectionDataRequest extends Model
     /**
      * @description The password of the namespace.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string
@@ -71,7 +73,7 @@ class DeleteCollectionDataRequest extends Model
     /**
      * @description The region ID of the instance.
      *
-     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

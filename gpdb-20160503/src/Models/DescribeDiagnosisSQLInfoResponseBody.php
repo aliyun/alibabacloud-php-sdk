@@ -47,7 +47,7 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     /**
      * @description The information about the operator.
      *
-     * @example {\"children\":********\"startTime\":1660719602199}
+     * @example {\\"children\\":********\\"startTime\\":1660719602199}
      *
      * @var string
      */
@@ -83,7 +83,7 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     /**
      * @description The sequence of metrics.
      *
-     * @example {\"costSort\":******:\"Seq Scan-9\",\"value\":0.0}]}
+     * @example {\\"costSort\\":******:\\"Seq Scan-9\\",\\"value\\":0.0}]}
      *
      * @var string
      */

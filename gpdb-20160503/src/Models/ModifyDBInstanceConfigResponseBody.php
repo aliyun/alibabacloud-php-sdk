@@ -20,7 +20,7 @@ class ModifyDBInstanceConfigResponseBody extends Model
     /**
      * @description The error message returned if the operation fails.
      *
-     * @example \"error message\"
+     * @example \\"error message\\"
      *
      * @var string
      */
