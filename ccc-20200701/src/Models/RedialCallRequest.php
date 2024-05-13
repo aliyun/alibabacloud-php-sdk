@@ -28,6 +28,8 @@ class RedialCallRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example abc
      *
      * @var string

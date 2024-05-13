@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartPredictiveCallRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1312353****
      *
      * @var string
@@ -16,6 +18,8 @@ class StartPredictiveCallRequest extends Model
     public $callee;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0109810****
      *
      * @var string
@@ -23,6 +27,8 @@ class StartPredictiveCallRequest extends Model
     public $caller;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9774c36c-12fe-4e37-adce-89bc77ce****
      *
      * @var string
@@ -35,6 +41,8 @@ class StartPredictiveCallRequest extends Model
     public $contactFlowVariables;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

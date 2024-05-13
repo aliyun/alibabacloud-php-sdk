@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBlacklistCallTaggingsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -16,6 +18,8 @@ class ListBlacklistCallTaggingsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [{"number":"1521083xxxx","jobId":"job-481841171213393920"}]
      *
      * @var string

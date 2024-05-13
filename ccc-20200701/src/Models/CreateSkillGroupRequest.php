@@ -14,11 +14,15 @@ class CreateSkillGroupRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -31,6 +35,8 @@ class CreateSkillGroupRequest extends Model
     public $mediaType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example skillgroup
      *
      * @var string

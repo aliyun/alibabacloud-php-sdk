@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAudioFileRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example c1a06b46-302a-4c6e-928b-a43c0df485cf
      *
      * @var string
@@ -16,6 +18,8 @@ class GetAudioFileRequest extends Model
     public $audioResourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

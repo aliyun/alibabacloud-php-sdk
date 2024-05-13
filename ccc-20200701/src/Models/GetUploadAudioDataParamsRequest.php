@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUploadAudioDataParamsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example job-38860977107324****
      *
      * @var string

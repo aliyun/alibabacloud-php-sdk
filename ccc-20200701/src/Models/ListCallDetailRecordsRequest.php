@@ -86,6 +86,8 @@ class ListCallDetailRecordsRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -100,6 +102,8 @@ class ListCallDetailRecordsRequest extends Model
     public $orderByField;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -107,6 +111,8 @@ class ListCallDetailRecordsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int

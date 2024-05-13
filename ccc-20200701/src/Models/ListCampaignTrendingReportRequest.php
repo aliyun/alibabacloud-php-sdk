@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCampaignTrendingReportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 6badb397-a8b5-40b6-21019d382a09
      *
      * @var string
@@ -23,6 +25,8 @@ class ListCampaignTrendingReportRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

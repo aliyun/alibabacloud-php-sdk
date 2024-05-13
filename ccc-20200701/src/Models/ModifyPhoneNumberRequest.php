@@ -16,6 +16,8 @@ class ModifyPhoneNumberRequest extends Model
     public $contactFlowId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +25,8 @@ class ModifyPhoneNumberRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0102134****
      *
      * @var string
@@ -30,6 +34,8 @@ class ModifyPhoneNumberRequest extends Model
     public $number;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Bidirection
      *
      * @var string

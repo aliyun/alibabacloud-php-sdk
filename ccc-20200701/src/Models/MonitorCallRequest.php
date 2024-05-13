@@ -16,6 +16,8 @@ class MonitorCallRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +25,8 @@ class MonitorCallRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent2@ccc-test
      *
      * @var string

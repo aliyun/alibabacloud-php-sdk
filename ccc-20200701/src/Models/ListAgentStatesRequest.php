@@ -23,6 +23,8 @@ class ListAgentStatesRequest extends Model
     public $excludeOfflineUsers;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

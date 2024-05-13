@@ -37,6 +37,8 @@ class ListAttemptsRequest extends Model
     public $caller;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6badb397-a8b5-40b6-21019d382a09
      *
      * @var string
@@ -44,6 +46,8 @@ class ListAttemptsRequest extends Model
     public $campaignId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60ecb1a2-4480-4d01-bede-c5b7655bfadf
      *
      * @var string
@@ -70,6 +74,8 @@ class ListAttemptsRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -77,6 +83,8 @@ class ListAttemptsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -84,6 +92,8 @@ class ListAttemptsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int

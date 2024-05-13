@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendDtmfSignalingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ch:customer:0108989****->1318888****:1609234221870:job-6573574060089****
      *
      * @var string
@@ -23,6 +25,8 @@ class SendDtmfSignalingRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5
      *
      * @var string
@@ -30,6 +34,8 @@ class SendDtmfSignalingRequest extends Model
     public $dtmf;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -37,6 +43,8 @@ class SendDtmfSignalingRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example job-6573574060089****
      *
      * @var string

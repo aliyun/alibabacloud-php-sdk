@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PickOutboundNumbersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1388888****
      *
      * @var string
@@ -23,6 +25,8 @@ class PickOutboundNumbersRequest extends Model
     public $count;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -30,6 +34,8 @@ class PickOutboundNumbersRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["skillgroup@ccc-test"]
      *
      * @var string

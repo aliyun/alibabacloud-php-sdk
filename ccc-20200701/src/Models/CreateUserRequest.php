@@ -21,11 +21,15 @@ class CreateUserRequest extends Model
     public $displayId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example username@example.com
      *
      * @var string
@@ -33,6 +37,8 @@ class CreateUserRequest extends Model
     public $email;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -40,6 +46,8 @@ class CreateUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent
      *
      * @var string
@@ -66,6 +74,8 @@ class CreateUserRequest extends Model
     public $resetPassword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Agent@ccc-test
      *
      * @var string

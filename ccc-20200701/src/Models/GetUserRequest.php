@@ -16,6 +16,8 @@ class GetUserRequest extends Model
     public $extension;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

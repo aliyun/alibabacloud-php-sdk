@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveRTCStatsV2Request extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 257e73de-1ee8-123b-0b9a-00163e0a****
      *
      * @var string
@@ -16,11 +18,15 @@ class SaveRTCStatsV2Request extends Model
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $generalInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["47.101.XX.XX","44368","47.104.XX.XX","37947"]
      *
      * @var string
@@ -28,6 +34,8 @@ class SaveRTCStatsV2Request extends Model
     public $googAddress;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -35,6 +43,8 @@ class SaveRTCStatsV2Request extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["1","1649328987","40","PCMU","383560","89","49","ssrc_1649328987_recv","2022-03-15T09:52:08.820Z","","0","20000"]
      *
      * @var string
@@ -42,6 +52,8 @@ class SaveRTCStatsV2Request extends Model
     public $receiverReport;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["11090","2055127460","0","2236","384592","ssrc_2055127460_send","2022-03-15T09:52:08.820Z","1"]
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMultiChannelRecordingsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example job-25920271311543****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListMultiChannelRecordingsRequest extends Model
     public $contactId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

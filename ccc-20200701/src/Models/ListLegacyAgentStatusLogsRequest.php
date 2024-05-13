@@ -16,6 +16,8 @@ class ListLegacyAgentStatusLogsRequest extends Model
     public $agentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1657879880010
      *
      * @var int
@@ -23,6 +25,8 @@ class ListLegacyAgentStatusLogsRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -30,6 +34,8 @@ class ListLegacyAgentStatusLogsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +43,8 @@ class ListLegacyAgentStatusLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -44,6 +52,8 @@ class ListLegacyAgentStatusLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1657778840011
      *
      * @var int

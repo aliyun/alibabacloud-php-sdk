@@ -16,6 +16,8 @@ class ChangeWorkModeRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -44,6 +46,8 @@ class ChangeWorkModeRequest extends Model
     public $userId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ON_SITE
      *
      * @var string

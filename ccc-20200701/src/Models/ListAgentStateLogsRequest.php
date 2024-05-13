@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAgentStateLogsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example agent@ccc-test
      *
      * @var string
@@ -23,6 +25,8 @@ class ListAgentStateLogsRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

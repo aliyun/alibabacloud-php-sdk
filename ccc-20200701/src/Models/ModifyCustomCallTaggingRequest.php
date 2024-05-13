@@ -21,6 +21,8 @@ class ModifyCustomCallTaggingRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -28,6 +30,8 @@ class ModifyCustomCallTaggingRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1312121****
      *
      * @var string

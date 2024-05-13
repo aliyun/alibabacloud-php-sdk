@@ -31,6 +31,8 @@ class ModifyUserRequest extends Model
     public $force;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -57,6 +59,8 @@ class ModifyUserRequest extends Model
     public $roleId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user-test@ccc-test
      *
      * @var string
@@ -64,6 +68,8 @@ class ModifyUserRequest extends Model
     public $userId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ON_SITE
      *
      * @var string

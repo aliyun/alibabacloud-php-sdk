@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveTerminalLogRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example CCCClient
      *
      * @var string
@@ -16,6 +18,8 @@ class SaveTerminalLogRequest extends Model
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e13c9740-1e37-123b-21b6-00163e352f9
      *
      * @var string
@@ -23,6 +27,8 @@ class SaveTerminalLogRequest extends Model
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example none
      *
      * @var string
@@ -30,6 +36,8 @@ class SaveTerminalLogRequest extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class SaveTerminalLogRequest extends Model
     public $dataType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -44,6 +54,8 @@ class SaveTerminalLogRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example job-b8b0ca63-330c-4e65-8ae3-9de2c7ce7683
      *
      * @var string
@@ -58,6 +70,8 @@ class SaveTerminalLogRequest extends Model
     public $methodName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var string
@@ -65,6 +79,8 @@ class SaveTerminalLogRequest extends Model
     public $status;
 
     /**
+     * @description This parameter is required.
+     *
      * @example none
      *
      * @var string

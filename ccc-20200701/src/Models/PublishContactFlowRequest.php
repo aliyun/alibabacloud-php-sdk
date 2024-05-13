@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PublishContactFlowRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example b0a063bf-f138-42a4-ad9f-9babe3ec1a9e
      *
      * @var string
@@ -16,6 +18,8 @@ class PublishContactFlowRequest extends Model
     public $contactFlowId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0e0b8e78-af3e-4360-a5c5-f9bb5c2b8af2
      *
      * @var string
@@ -23,6 +27,8 @@ class PublishContactFlowRequest extends Model
     public $draftId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

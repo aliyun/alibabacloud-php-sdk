@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartPrivacyCallRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ALIPUBB7A727C170949
      *
      * @var string
@@ -16,6 +18,8 @@ class StartPrivacyCallRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1888888****
      *
      * @var string
@@ -23,6 +27,8 @@ class StartPrivacyCallRequest extends Model
     public $callee;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0109810****
      *
      * @var string
@@ -30,6 +36,8 @@ class StartPrivacyCallRequest extends Model
     public $caller;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTurnCredentialsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

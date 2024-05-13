@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteContactFlowRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0f87c997-b0c1-41d4-9e9e-1b791de6ad1f
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteContactFlowRequest extends Model
     public $contactFlowId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

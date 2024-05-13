@@ -16,6 +16,8 @@ class StartBack2BackCallRequest extends Model
     public $additionalBroker;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0102157****
      *
      * @var string
@@ -23,6 +25,8 @@ class StartBack2BackCallRequest extends Model
     public $broker;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1372168****
      *
      * @var string
@@ -30,6 +34,8 @@ class StartBack2BackCallRequest extends Model
     public $callee;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1391814****
      *
      * @var string
@@ -37,6 +43,8 @@ class StartBack2BackCallRequest extends Model
     public $caller;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

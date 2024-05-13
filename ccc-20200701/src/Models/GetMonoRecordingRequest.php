@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMonoRecordingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example job-6538214103689****
      *
      * @var string
@@ -21,6 +23,8 @@ class GetMonoRecordingRequest extends Model
     public $expireSeconds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveBlacklistCallTaggingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +25,8 @@ class RemoveBlacklistCallTaggingRequest extends Model
     public $jobId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1312121****
      *
      * @var string

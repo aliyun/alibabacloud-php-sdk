@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddSkillGroupsToUserRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -16,6 +18,8 @@ class AddSkillGroupsToUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [{"skillGroupId":"test1@ccc-test","skillLevel":5},{"skillGroupId":"test2@ccc-test","skillLevel":5}]
      *
      * @var string
@@ -23,6 +27,8 @@ class AddSkillGroupsToUserRequest extends Model
     public $skillLevelList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent@ccc-test
      *
      * @var string

@@ -16,6 +16,8 @@ class RemovePhoneNumbersRequest extends Model
     public $force;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +25,8 @@ class RemovePhoneNumbersRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["0101234****","0105678****"]
      *
      * @var string

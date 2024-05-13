@@ -14,6 +14,8 @@ class ModifyInstanceRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateConfigItemsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example [{"name":"ShowCalledID","value":"-1"},{"name":"ShowCalleeID","value":"1"},{"name":"AllowHangup","value":"0"},{"name":"AutoAnswerCall","value":"-1"},{"name":"AllowAudioDownload","value":"1"},{"name":"AllowChooseSignedSkillGroup","value":"1"}]
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateConfigItemsRequest extends Model
     public $configItems;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateConfigItemsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateConfigItemsRequest extends Model
     public $objectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example INSTANCE
      *
      * @var string

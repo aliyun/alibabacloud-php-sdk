@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCasesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 6badb397-a8b5-40b6-21019d382a09
      *
      * @var string
@@ -16,6 +18,8 @@ class ListCasesRequest extends Model
     public $campaignId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +27,8 @@ class ListCasesRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListCasesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int

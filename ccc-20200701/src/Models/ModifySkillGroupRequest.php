@@ -19,6 +19,8 @@ class ModifySkillGroupRequest extends Model
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -26,6 +28,8 @@ class ModifySkillGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example skillgroup@ccc-test
      *
      * @var string

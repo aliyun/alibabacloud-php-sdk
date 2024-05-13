@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCampaignShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example [{"beginTime":"00:00:00","endTime":"23:00:00" }]
      *
      * @var string
@@ -28,6 +30,8 @@ class CreateCampaignShrinkRequest extends Model
     public $caseListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example c1f2bc75-422e-43c7-9c9d9d95633a
      *
      * @var string
@@ -35,6 +39,8 @@ class CreateCampaignShrinkRequest extends Model
     public $contactFlowId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1634313600000
      *
      * @var string
@@ -47,6 +53,8 @@ class CreateCampaignShrinkRequest extends Model
     public $executingUntilTimeout;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -54,6 +62,8 @@ class CreateCampaignShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -61,6 +71,8 @@ class CreateCampaignShrinkRequest extends Model
     public $maxAttemptCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -68,6 +80,8 @@ class CreateCampaignShrinkRequest extends Model
     public $minAttemptInterval;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-campaign
      *
      * @var string
@@ -75,6 +89,8 @@ class CreateCampaignShrinkRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example skillgroup@ccc-test
      *
      * @var string
@@ -92,6 +108,8 @@ class CreateCampaignShrinkRequest extends Model
     public $simulationParameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1634140800000
      *
      * @var string
@@ -99,6 +117,8 @@ class CreateCampaignShrinkRequest extends Model
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"ratio":1}
      *
      * @var string
@@ -106,6 +126,8 @@ class CreateCampaignShrinkRequest extends Model
     public $strategyParameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PACING
      *
      * @var string

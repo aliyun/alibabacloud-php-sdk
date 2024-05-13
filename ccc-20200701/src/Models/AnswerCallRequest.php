@@ -16,6 +16,8 @@ class AnswerCallRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +25,8 @@ class AnswerCallRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example job-65382141036853491
      *
      * @var string

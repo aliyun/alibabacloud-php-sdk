@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCallDetailRecordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example job-10963442671187****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetCallDetailRecordRequest extends Model
     public $contactId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

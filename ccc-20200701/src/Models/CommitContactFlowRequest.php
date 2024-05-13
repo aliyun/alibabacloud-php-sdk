@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CommitContactFlowRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 7d706489-d06d-4a92-8666-8c9dba2c5cb1
      *
      * @var string
@@ -16,11 +18,15 @@ class CommitContactFlowRequest extends Model
     public $contactFlowId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $definition;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -28,6 +34,8 @@ class CommitContactFlowRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example b28f74ca-5846-4496-8bbd-34fb1750798c
      *
      * @var string
@@ -35,6 +43,8 @@ class CommitContactFlowRequest extends Model
     public $draftId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

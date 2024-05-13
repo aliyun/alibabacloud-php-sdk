@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSkillGroupStatesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

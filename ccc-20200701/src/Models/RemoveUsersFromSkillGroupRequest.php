@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveUsersFromSkillGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -16,6 +18,8 @@ class RemoveUsersFromSkillGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example skillgroup@ccc-test
      *
      * @var string
@@ -23,6 +27,8 @@ class RemoveUsersFromSkillGroupRequest extends Model
     public $skillGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["agent1@ccc-test","agent2@ccc-test"]
      *
      * @var string

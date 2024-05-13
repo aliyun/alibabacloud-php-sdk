@@ -23,6 +23,8 @@ class ListCampaignsRequest extends Model
     public $actualStartTimeTo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -37,6 +39,8 @@ class ListCampaignsRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +48,8 @@ class ListCampaignsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

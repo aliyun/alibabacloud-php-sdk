@@ -16,6 +16,8 @@ class SwitchToConferenceRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +25,8 @@ class SwitchToConferenceRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example job-24114064019637****
      *
      * @var string

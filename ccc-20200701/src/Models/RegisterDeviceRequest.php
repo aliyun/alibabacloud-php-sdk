@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegisterDeviceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-device
      *
      * @var string
@@ -16,6 +18,8 @@ class RegisterDeviceRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +27,8 @@ class RegisterDeviceRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example password
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetNumberLocationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -16,6 +18,8 @@ class GetNumberLocationRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1312121****
      *
      * @var string

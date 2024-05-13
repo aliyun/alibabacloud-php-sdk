@@ -16,6 +16,8 @@ class AddPhoneNumbersRequest extends Model
     public $contactFlowId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -37,6 +39,8 @@ class AddPhoneNumbersRequest extends Model
     public $numberList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Bidirection
      *
      * @var string

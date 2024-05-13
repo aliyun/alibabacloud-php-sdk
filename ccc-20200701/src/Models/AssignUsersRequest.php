@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssignUsersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -16,6 +18,8 @@ class AssignUsersRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["28036411123456****","29234301123456****"]
      *
      * @var string
@@ -23,6 +27,8 @@ class AssignUsersRequest extends Model
     public $ramIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Agent@ccc-test
      *
      * @var string
@@ -37,6 +43,8 @@ class AssignUsersRequest extends Model
     public $skillLevelList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ON_SITE
      *
      * @var string

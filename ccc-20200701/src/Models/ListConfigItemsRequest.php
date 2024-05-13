@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListConfigItemsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -16,6 +18,8 @@ class ListConfigItemsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +27,8 @@ class ListConfigItemsRequest extends Model
     public $objectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example INSTANCE
      *
      * @var string

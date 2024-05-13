@@ -16,6 +16,8 @@ class ImportDoNotCallNumbersRequest extends Model
     public $filePath;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

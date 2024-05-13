@@ -16,6 +16,8 @@ class ListPhoneNumbersOfSkillGroupRequest extends Model
     public $active;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +25,8 @@ class ListPhoneNumbersOfSkillGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +34,8 @@ class ListPhoneNumbersOfSkillGroupRequest extends Model
     public $isMember;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +43,8 @@ class ListPhoneNumbersOfSkillGroupRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +59,8 @@ class ListPhoneNumbersOfSkillGroupRequest extends Model
     public $searchPattern;
 
     /**
+     * @description This parameter is required.
+     *
      * @example skillgroup@ccc-test
      *
      * @var string

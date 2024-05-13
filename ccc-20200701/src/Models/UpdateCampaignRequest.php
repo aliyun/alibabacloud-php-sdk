@@ -16,6 +16,8 @@ class UpdateCampaignRequest extends Model
     public $callableTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ab11908b-6ebc-4b0c-b51e-3e17c7060
      *
      * @var string
@@ -37,6 +39,8 @@ class UpdateCampaignRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

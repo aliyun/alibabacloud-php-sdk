@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BridgeRtcCallRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $callee;
@@ -19,11 +21,15 @@ class BridgeRtcCallRequest extends Model
     public $caller;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

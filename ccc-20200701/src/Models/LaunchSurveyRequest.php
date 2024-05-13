@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LaunchSurveyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4685b65a-eb8f-11ec-8ea0-0242ac120002
      *
      * @var string
@@ -28,6 +30,8 @@ class LaunchSurveyRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -35,6 +39,8 @@ class LaunchSurveyRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example job-6580466654649****
      *
      * @var string

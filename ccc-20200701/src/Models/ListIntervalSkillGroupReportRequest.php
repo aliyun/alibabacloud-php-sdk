@@ -16,6 +16,8 @@ class ListIntervalSkillGroupReportRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -35,6 +37,8 @@ class ListIntervalSkillGroupReportRequest extends Model
     public $mediaType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example skg-default@ccc-test
      *
      * @var string

@@ -16,6 +16,8 @@ class ListAgentSummaryReportsSinceMidnightRequest extends Model
     public $agentIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

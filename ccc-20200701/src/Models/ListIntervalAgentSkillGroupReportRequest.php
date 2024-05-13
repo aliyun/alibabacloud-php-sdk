@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListIntervalAgentSkillGroupReportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example agent@ccc-test
      *
      * @var string
@@ -23,6 +25,8 @@ class ListIntervalAgentSkillGroupReportRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -37,6 +41,8 @@ class ListIntervalAgentSkillGroupReportRequest extends Model
     public $interval;
 
     /**
+     * @description This parameter is required.
+     *
      * @example skg-default@ccc-test
      *
      * @var string

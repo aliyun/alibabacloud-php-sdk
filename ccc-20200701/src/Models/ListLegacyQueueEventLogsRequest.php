@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLegacyQueueEventLogsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1658026180018
      *
      * @var int
@@ -16,6 +18,8 @@ class ListLegacyQueueEventLogsRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +27,8 @@ class ListLegacyQueueEventLogsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListLegacyQueueEventLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -44,6 +52,8 @@ class ListLegacyQueueEventLogsRequest extends Model
     public $skillGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1657939540015
      *
      * @var int

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetVideoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

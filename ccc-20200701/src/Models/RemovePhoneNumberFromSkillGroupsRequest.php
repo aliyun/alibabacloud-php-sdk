@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemovePhoneNumberFromSkillGroupsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -16,6 +18,8 @@ class RemovePhoneNumberFromSkillGroupsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0101234****
      *
      * @var string
@@ -23,6 +27,8 @@ class RemovePhoneNumberFromSkillGroupsRequest extends Model
     public $number;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
      *
      * @var string

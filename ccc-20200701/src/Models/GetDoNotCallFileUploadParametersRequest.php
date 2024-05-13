@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDoNotCallFileUploadParametersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example blacklist.xlsx
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDoNotCallFileUploadParametersRequest extends Model
     public $fileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

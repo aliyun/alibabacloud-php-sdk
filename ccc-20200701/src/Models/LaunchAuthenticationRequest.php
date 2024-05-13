@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LaunchAuthenticationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example af145gfc-1108-4d55-8fca-f719bd512ebb
      *
      * @var string
@@ -28,6 +30,8 @@ class LaunchAuthenticationRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -35,6 +39,8 @@ class LaunchAuthenticationRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example job-6538214103685****
      *
      * @var string

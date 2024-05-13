@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetEarlyMediaRecordingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example job-6538214103689****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetEarlyMediaRecordingRequest extends Model
     public $contactId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

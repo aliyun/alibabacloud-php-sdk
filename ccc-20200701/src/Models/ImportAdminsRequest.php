@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ImportAdminsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -16,6 +18,8 @@ class ImportAdminsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["26972543893791****"]
      *
      * @var string

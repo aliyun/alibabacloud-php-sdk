@@ -14,6 +14,8 @@ class GetLoginDetailsRequest extends Model
     public $chatDeviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

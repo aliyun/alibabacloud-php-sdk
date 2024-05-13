@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPersonalNumbersOfUserRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -16,6 +18,8 @@ class ListPersonalNumbersOfUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class ListPersonalNumbersOfUserRequest extends Model
     public $isMember;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListPersonalNumbersOfUserRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +52,8 @@ class ListPersonalNumbersOfUserRequest extends Model
     public $searchPattern;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user-test@ccc-test
      *
      * @var string

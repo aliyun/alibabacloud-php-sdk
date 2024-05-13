@@ -19,6 +19,8 @@ class SignInGroupRequest extends Model
     public $chatDeviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example device
      *
      * @var string
@@ -26,6 +28,8 @@ class SignInGroupRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -33,6 +37,8 @@ class SignInGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["skillgroup1@ccc-test","skillgroup2@ccc-test"]
      *
      * @var string

@@ -16,6 +16,8 @@ class ListPhoneNumbersRequest extends Model
     public $active;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +25,8 @@ class ListPhoneNumbersRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +34,8 @@ class ListPhoneNumbersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int

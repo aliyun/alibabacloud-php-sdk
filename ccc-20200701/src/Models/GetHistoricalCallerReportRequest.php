@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetHistoricalCallerReportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1900000****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetHistoricalCallerReportRequest extends Model
     public $callingNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +27,8 @@ class GetHistoricalCallerReportRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1646841600000
      *
      * @var int
@@ -30,6 +36,8 @@ class GetHistoricalCallerReportRequest extends Model
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1646928000000
      *
      * @var int

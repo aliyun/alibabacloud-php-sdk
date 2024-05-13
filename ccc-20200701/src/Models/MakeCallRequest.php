@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MakeCallRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1318888****
      *
      * @var string
@@ -30,6 +32,8 @@ class MakeCallRequest extends Model
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

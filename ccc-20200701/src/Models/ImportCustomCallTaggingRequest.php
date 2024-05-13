@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ImportCustomCallTaggingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example temp/ImportCustomCallTagging.xlsx
      *
      * @var string
@@ -16,6 +18,8 @@ class ImportCustomCallTaggingRequest extends Model
     public $filePath;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

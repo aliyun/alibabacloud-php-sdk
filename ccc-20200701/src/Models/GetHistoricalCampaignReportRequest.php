@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetHistoricalCampaignReportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4fc85829-f6fc-476e-9c0d-c350184e36f1
      *
      * @var string
@@ -16,6 +18,8 @@ class GetHistoricalCampaignReportRequest extends Model
     public $campaignId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

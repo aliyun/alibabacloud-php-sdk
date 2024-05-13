@@ -21,6 +21,8 @@ class AnalyzeConversationRequest extends Model
     public $fieldListJson;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9cfad875-6260-4a53-ab6e-b13e3fb31f7d
      *
      * @var string

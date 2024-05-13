@@ -14,6 +14,8 @@ class AddNumbersToSkillGroupRequest extends Model
     public $instNumberGroupIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -28,6 +30,8 @@ class AddNumbersToSkillGroupRequest extends Model
     public $numberList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example skillgroup@ccc-test
      *
      * @var string

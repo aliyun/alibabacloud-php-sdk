@@ -19,6 +19,8 @@ class RemoveUsersRequest extends Model
     public $force;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

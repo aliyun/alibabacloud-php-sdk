@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveWebRtcInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example e13c9740-1e37-123b-21b6-00163e352f9
      *
      * @var string
@@ -16,6 +18,8 @@ class SaveWebRtcInfoRequest extends Model
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"media_source":{},"remote_inbound_rtp":{},"outbound_rtp":{},"inbound_rtp":{},"remote_outbound_rtp":{},"candidate":{},"basic":{"callId":"e13c9740-1e37-123b-21b6-00163e352f9","timestamp":"1647262108395","callStartTime":"1647262108393","uid":"user-test","access_point":"shanghai","browser":"90","ip":"127.0.0.1"}}
      *
      * @var string
@@ -23,6 +27,8 @@ class SaveWebRtcInfoRequest extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4
      *
      * @var string
@@ -30,6 +36,8 @@ class SaveWebRtcInfoRequest extends Model
     public $contentType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -37,6 +45,8 @@ class SaveWebRtcInfoRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example job-b8b0ca63-330c-4e65-8ae3-9de2c7ce7683
      *
      * @var string

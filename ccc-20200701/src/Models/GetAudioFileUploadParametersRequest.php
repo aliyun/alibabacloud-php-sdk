@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAudioFileUploadParametersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-file.wav
      *
      * @var string
@@ -16,6 +18,8 @@ class GetAudioFileUploadParametersRequest extends Model
     public $audioFileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

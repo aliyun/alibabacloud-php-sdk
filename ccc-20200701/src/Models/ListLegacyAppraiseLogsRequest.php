@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLegacyAppraiseLogsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1620273600000
      *
      * @var int
@@ -16,6 +18,8 @@ class ListLegacyAppraiseLogsRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -23,6 +27,8 @@ class ListLegacyAppraiseLogsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class ListLegacyAppraiseLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +45,8 @@ class ListLegacyAppraiseLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1604638129000
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAudioFileRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example d5cd7a94-3b6a-47d2-b7fd-0b1cd839bf77
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteAudioFileRequest extends Model
     public $audioResourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

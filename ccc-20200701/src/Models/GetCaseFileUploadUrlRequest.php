@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCaseFileUploadUrlRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example case.csv
      *
      * @var string
@@ -16,6 +18,8 @@ class GetCaseFileUploadUrlRequest extends Model
     public $fileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

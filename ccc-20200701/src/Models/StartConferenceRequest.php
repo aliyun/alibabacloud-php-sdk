@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartConferenceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -16,6 +18,8 @@ class StartConferenceRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ["8045****","1317511****"]
      *
      * @var string

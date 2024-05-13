@@ -16,6 +16,8 @@ class GetInstanceTrendingReportRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

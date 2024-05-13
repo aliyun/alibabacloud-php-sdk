@@ -30,6 +30,8 @@ class ListRealtimeAgentStatesRequest extends Model
     public $callTypeList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -44,6 +46,8 @@ class ListRealtimeAgentStatesRequest extends Model
     public $outboundScenario;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +55,8 @@ class ListRealtimeAgentStatesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

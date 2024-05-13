@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataChannelCredentialsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

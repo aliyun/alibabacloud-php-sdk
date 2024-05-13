@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RestoreArchivedRecordingsRequest extends Model
 {
     /**
-     * @example [\"job-216750038017142784\"]
+     * @example [\\"job-216750038017142784\\"]
      *
      * @var string
      */
     public $contactIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateContactFlowRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $definition;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1.0
      *
      * @var string
@@ -21,6 +25,8 @@ class CreateContactFlowRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -28,11 +34,15 @@ class CreateContactFlowRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MAIN_FLOW
      *
      * @var string

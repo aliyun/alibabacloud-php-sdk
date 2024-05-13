@@ -16,6 +16,8 @@ class ListHistoricalSkillGroupReportRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
@@ -28,6 +30,8 @@ class ListHistoricalSkillGroupReportRequest extends Model
     public $mediaType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +39,8 @@ class ListHistoricalSkillGroupReportRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int

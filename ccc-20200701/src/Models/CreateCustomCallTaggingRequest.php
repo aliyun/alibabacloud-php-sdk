@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomCallTaggingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $customNumberList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc-test
      *
      * @var string
