@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeBgpPackByIpRequest extends Model
 {
     /**
+     * @description The region ID of the asset to query.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $ddosRegionId;
 
     /**
+     * @description The IP address of the asset to query.
+     *
+     * This parameter is required.
+     * @example 118.31.XX.XX
+     *
      * @var string
      */
     public $ip;

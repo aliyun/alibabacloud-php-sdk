@@ -9,16 +9,35 @@ use AlibabaCloud\Tea\Model;
 class ddosCredit extends Model
 {
     /**
+     * @description The time period after which blackhole filtering is automatically deactivated in the specified region. Unit: minutes.
+     *
+     * @example 150
+     *
      * @var int
      */
     public $blackholeTime;
 
     /**
+     * @description The security credit score. The full score is **1000**.
+     *
+     * @example 550
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @description The security credit level. Valid values:
+     *
+     *   **A**: outstanding
+     *   **B**: excellent
+     *   **C**: good
+     *   **D**: average
+     *   **E**: poor
+     *   **F**: poorer
+     *
+     * @example D
+     *
      * @var string
      */
     public $scoreLevel;

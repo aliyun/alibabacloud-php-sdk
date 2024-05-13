@@ -10,21 +10,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeBgpPackByIpResponseBody extends Model
 {
     /**
+     * @description The HTTP status code of the request.
+     *
+     * For more information about status codes, see [Common parameters](https://help.aliyun.com/document_detail/118841.html).
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The configurations of the instance that is associated with the asset.
+     *
      * @var ddosbgpInfo
      */
     public $ddosbgpInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E46A08E4-A1CD-5BE9-B580-C4D6E9BC5484
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

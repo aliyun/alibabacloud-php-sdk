@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDefenseThresholdRequest extends Model
+class ModifyIpDefenseThresholdRequest extends Model
 {
     /**
      * @description Specifies the traffic scrubbing threshold. Unit: Mbit/s. The traffic scrubbing threshold cannot exceed the peak inbound or outbound Internet traffic, whichever is larger, of the asset.
@@ -23,7 +23,7 @@ class ModifyDefenseThresholdRequest extends Model
     public $bps;
 
     /**
-     * @description The region ID of the asset for which you want to change the scrubbing thresholds.
+     * @description The region ID of the asset.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -59,6 +59,7 @@ class ModifyDefenseThresholdRequest extends Model
     /**
      * @description The IP address of the asset.
      *
+     * This parameter is required.
      * @example 192.0.XX.XX
      *
      * @var string
@@ -68,10 +69,9 @@ class ModifyDefenseThresholdRequest extends Model
     /**
      * @description Specifies whether to automatically adjust the scrubbing threshold based on the traffic load on the asset. Valid values:
      *
-     *   **true**: automatically adjusts the scrubbing thresholds. You do not need to configure the **Bps** and **Pps** parameters.
-     *   **false**: The scrubbing threshold is not automatically adjusted. You must configure the **Bps** and **Pps** parameters.
+     *   **true**: automatically adjusts the scrubbing threshold. You do not need to configure the **Bps** and **Pps** parameters.
+     *   **false**: The scrubbing threshold is not automatically adjusted. You must configure the **Bps** and **Pps** parameters. This is the default value.
      *
-     * Default value: false.
      * @example false
      *
      * @var bool
@@ -136,7 +136,7 @@ class ModifyDefenseThresholdRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDefenseThresholdRequest
+     * @return ModifyIpDefenseThresholdRequest
      */
     public static function fromMap($map = [])
     {

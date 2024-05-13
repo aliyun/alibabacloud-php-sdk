@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosThresholdRequest extends Model
 {
     /**
+     * @description The region ID of the asset.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $ddosRegionId;
 
     /**
+     * @description The type of the threshold. Valid values:
+     *
+     *   **defense**: traffic scrubbing threshold
+     *   **blackhole**: DDoS mitigation threshold
+     *
+     * This parameter is required.
+     * @example defense
+     *
      * @var string
      */
     public $ddosType;
 
     /**
+     * @description The ID of asset N to query.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **ecs**: ECS instance
+     *   **slb**: SLB instance
+     *   **eip**: EIP
+     *
+     * This parameter is required.
+     * @example ecs
+     *
      * @var string
      */
     public $instanceType;

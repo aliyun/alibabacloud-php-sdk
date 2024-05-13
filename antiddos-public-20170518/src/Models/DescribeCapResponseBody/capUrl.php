@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class capUrl extends Model
 {
     /**
+     * @description The download link to the traffic data.
+     *
+     * @example http://beaver-pack****.oss-cn-hangzhou.aliyuncs.com/ddos-2021112511-121.89.XX.XX.cap?Expires=1637824408&OSSAccessKeyId=LTAIXu2lJhw3****&Signature=KKSzOMSUajtwcqfqxkU1nK69d4****
+     *
      * @var string
      */
     public $url;

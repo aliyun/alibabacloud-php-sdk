@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeCapResponseBody extends Model
 {
     /**
+     * @description The download link to the traffic data that is captured when a DDoS attack event occurs.
+     *
      * @var capUrl
      */
     public $capUrl;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example C728D7E9-9A39-52E0-966B-5C33118BDBB0
+     *
      * @var string
      */
     public $requestId;

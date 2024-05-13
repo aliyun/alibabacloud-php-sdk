@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1cb6x80tfgocid****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example launch-advisor-2021****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   ecs: ECS instance
+     *   slb: SLB instance
+     *   EIP: EIP
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The IP address of the asset.
+     *
+     * @example 121.199.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The region to which the public IP address of the asset belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;

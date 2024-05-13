@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosEventListRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The region ID of the asset to query.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $ddosRegionId;
 
     /**
+     * @description The ID of asset to query.
+     *
+     * This parameter is required.
+     * @example i-bp10bclrt56fblts****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the asset to query. Valid values:
+     *
+     *   **ecs**: ECS instance
+     *   **slb**: SLB instance
+     *   **eip**: EIP
+     *
+     * This parameter is required.
+     * @example ecs
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The IP address of the asset to query.
+     *
+     * @example 121.199.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

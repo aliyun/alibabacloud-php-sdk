@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsResponseBody extends Model
 {
     /**
+     * @description An array consisting of regions in which Anti-DDoS Origin Basic is available.
+     *
      * @var regions
      */
     public $regions;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5093C7EE-8E27-5FC9-9B88-40626BA540C0
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosCountRequest extends Model
 {
     /**
+     * @description The region ID of the asset to query.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $ddosRegionId;
 
     /**
+     * @description The type of the asset to query. Valid values:
+     *
+     *   **ecs**: ECS instance
+     *   **slb**: SLB instance
+     *   **eip**: EIP
+     *
+     * This parameter is required.
+     * @example ecs
+     *
      * @var string
      */
     public $instanceType;

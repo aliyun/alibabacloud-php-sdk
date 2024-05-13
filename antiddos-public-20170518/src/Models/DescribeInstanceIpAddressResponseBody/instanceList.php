@@ -10,26 +10,51 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1cb6x80tfgocid****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example launch-advisor-2021****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The DDoS mitigation status of the instance. Valid values:
+     *
+     *   **normal**: normal
+     *   **abnormal**: under DDoS attacks
+     *
+     * @example normal
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **ecs**: ECS instance
+     *   **slb**: SLB instance
+     *   **eip**: EIP
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description An array that consists of the details of the asset.
+     *
      * @var ipAddressConfig[]
      */
     public $ipAddressConfig;

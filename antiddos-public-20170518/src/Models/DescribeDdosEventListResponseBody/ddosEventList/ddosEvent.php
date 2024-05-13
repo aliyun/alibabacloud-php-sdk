@@ -9,31 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ddosEvent extends Model
 {
     /**
+     * @description The status of the DDoS attack event. Valid values:
+     *
+     *   **mitigating**: indicates that traffic scrubbing is in progress.
+     *   **blackholed**: indicates that blackhole filtering is triggered for the asset.
+     *   **normal**: indicates that the DDoS attack event ends.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $ddosStatus;
 
     /**
+     * @description The type of the DDoS attack event. Valid values:
+     *
+     *   **defense**: an attack event that triggers traffic scrubbing
+     *   **blackhole**: an attack event that triggers blackhole filtering
+     *
+     * @example blackhole
+     *
      * @var string
      */
     public $ddosType;
 
     /**
+     * @description The time of the last attack. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * > This parameter is returned only when the asset is attacked multiple times within a DDoS attack event.
+     * @example 1637817679000
+     *
      * @var int
      */
     public $delayTime;
 
     /**
+     * @description The end time of the DDoS attack event. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1637817679000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The start time of the DDoS attack event. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1637812279000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The time when blackhole filtering is deactivated. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * > This parameter is returned only when the value of the **DdosType** parameter is **blackhole**.
+     * @example 1637814079000
+     *
      * @var int
      */
     public $unBlackholeTime;

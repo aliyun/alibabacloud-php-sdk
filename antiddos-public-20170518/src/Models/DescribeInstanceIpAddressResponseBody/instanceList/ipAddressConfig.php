@@ -9,46 +9,97 @@ use AlibabaCloud\Tea\Model;
 class ipAddressConfig extends Model
 {
     /**
+     * @description The basic protection threshold for the asset. Unit: Mbit/s.
+     *
+     * @example 5200
+     *
      * @var int
      */
     public $blackholeThreshold;
 
     /**
+     * @description The traffic scrubbing threshold for the asset. Unit: Mbit/s.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $defenseBpsThreshold;
 
     /**
+     * @description The packet scrubbing threshold for the asset. Unit: packets per second (pps).
+     *
+     * @example 70000
+     *
      * @var int
      */
     public $defensePpsThreshold;
 
     /**
+     * @description The burstable protection threshold for the asset. Unit: Mbit/s.
+     *
+     * @example 12310
+     *
      * @var int
      */
     public $elasticThreshold;
 
     /**
+     * @description The IP address of the asset.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $instanceIp;
 
     /**
+     * @description The DDoS mitigation status of the asset. Valid values:
+     *
+     *   **defense**: indicates that traffic scrubbing is performed on the asset.
+     *   **blackhole**: indicates that blackhole filtering is triggered for the asset.
+     *   **normal**: indicates that no DDoS attacks are launched against the asset.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $ipStatus;
 
     /**
+     * @description The IP protocol that is supported by the asset. Valid values:
+     *
+     *   **v4**: IPv4
+     *   **v6**: IPv6
+     *
+     * @example v4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @description Indicates whether the asset is added to the instance. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isBgppack;
 
     /**
+     * @var int
+     */
+    public $isFullProtection;
+
+    /**
+     * @description The region code of the asset.
+     *
+     * @example cn-hangzhou-dg-a01
+     *
      * @var string
      */
     public $regionId;
@@ -61,6 +112,7 @@ class ipAddressConfig extends Model
         'ipStatus'            => 'IpStatus',
         'ipVersion'           => 'IpVersion',
         'isBgppack'           => 'IsBgppack',
+        'isFullProtection'    => 'IsFullProtection',
         'regionId'            => 'RegionId',
     ];
 
@@ -94,6 +146,9 @@ class ipAddressConfig extends Model
         }
         if (null !== $this->isBgppack) {
             $res['IsBgppack'] = $this->isBgppack;
+        }
+        if (null !== $this->isFullProtection) {
+            $res['IsFullProtection'] = $this->isFullProtection;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -133,6 +188,9 @@ class ipAddressConfig extends Model
         }
         if (isset($map['IsBgppack'])) {
             $model->isBgppack = $map['IsBgppack'];
+        }
+        if (isset($map['IsFullProtection'])) {
+            $model->isFullProtection = $map['IsFullProtection'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

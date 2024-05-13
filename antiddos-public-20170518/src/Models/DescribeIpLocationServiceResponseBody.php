@@ -10,14 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpLocationServiceResponseBody extends Model
 {
     /**
-     * @description instance model
+     * @description The details of the asset.
      *
      * @var instance
      */
     public $instance;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example C728D7E9-9A39-52E0-966B-5C33118BDBB0
      *
      * @var string
      */

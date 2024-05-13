@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosCountResponseBody extends Model
 {
     /**
+     * @description The number of assets that are under DDoS attacks.
+     *
      * @var ddosCount
      */
     public $ddosCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7D66C762-324E-51CE-B461-2007996087B2
+     *
      * @var string
      */
     public $requestId;

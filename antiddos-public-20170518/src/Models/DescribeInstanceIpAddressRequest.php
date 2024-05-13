@@ -9,41 +9,82 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceIpAddressRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The region ID of the asset.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $ddosRegionId;
 
     /**
+     * @description The DDoS mitigation status of the asset. Valid values:
+     *
+     *   **defense**: queries assets for which traffic scrubbing is performed.
+     *   **blackhole**: queries assets for which blackhole filtering is triggered.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $ddosStatus;
 
     /**
+     * @description The ID of the instance to which the asset is added.
+     *
+     * @example i-bp1cb6x80tfgocid****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IP address of the asset.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $instanceIp;
 
     /**
+     * @description The name of the asset.
+     *
+     * @example launch-advisor-2021****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **ecs**: ECS instance
+     *   **slb**: SLB instance
+     *   **eip**: EIP
+     *
+     * This parameter is required.
+     * @example ecs
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

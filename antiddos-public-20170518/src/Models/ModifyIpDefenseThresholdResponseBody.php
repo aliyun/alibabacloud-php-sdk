@@ -6,9 +6,13 @@ namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyDdosStatusResponseBody extends Model
+class ModifyIpDefenseThresholdResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example BC0607F8-A9F3-5E11-977B-D59CD58C64ED
+     *
      * @var string
      */
     public $requestId;
@@ -33,7 +37,7 @@ class ModifyDdosStatusResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyDdosStatusResponseBody
+     * @return ModifyIpDefenseThresholdResponseBody
      */
     public static function fromMap($map = [])
     {

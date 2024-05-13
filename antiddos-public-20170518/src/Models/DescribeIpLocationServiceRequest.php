@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpLocationServiceRequest extends Model
 {
     /**
+     * @description The IP address of the asset to query.
+     *
+     * This parameter is required.
+     * @example 121.199.XX.XX
+     *
      * @var string
      */
     public $internetIp;

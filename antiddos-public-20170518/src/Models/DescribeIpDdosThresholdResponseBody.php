@@ -10,13 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpDdosThresholdResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 025F1688-680B-551A-9A8E-1A0D796315CF
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the details of the threshold.
+     *
      * @var threshold
      */
     public $threshold;

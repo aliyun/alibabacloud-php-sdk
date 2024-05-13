@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosCreditResponseBody extends Model
 {
     /**
+     * @description The details of the security credit score of the current Alibaba Cloud account in the specified region.
+     *
      * @var ddosCredit
      */
     public $ddosCredit;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E1F7BD73-8E9D-58D9-8658-CFC97112C641
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

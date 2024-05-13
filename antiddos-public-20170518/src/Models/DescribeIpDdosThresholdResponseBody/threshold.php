@@ -9,46 +9,91 @@ use AlibabaCloud\Tea\Model;
 class threshold extends Model
 {
     /**
+     * @description If the value of the **DdosType** parameter is **defense**, the Bps parameter indicates the current traffic scrubbing threshold. Unit: Mbit/s.
+     *
+     * If the value of the **DdosType** parameter is **blackhole**, the Bps parameter indicates the basic protection threshold. Unit: Mbit/s.
+     * @example 7500
+     *
      * @var int
      */
     public $bps;
 
     /**
+     * @description The type of the threshold. Valid values:
+     *
+     *   **defense**: traffic scrubbing threshold
+     *   **blackhole**: DDoS mitigation threshold
+     *
+     * @example defense
+     *
      * @var string
      */
     public $ddosType;
 
     /**
+     * @description The burstable protection threshold (the maximum DDoS mitigation threshold). Unit: Mbit/s.
+     *
+     * > This parameter is returned only when the value of the **DdosType** parameter is **blackhole**.
+     * @example 12310
+     *
      * @var int
      */
     public $elasticBps;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1i88rqjza51s****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IP address of the asset.
+     *
+     * @example 192.0.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description Indicates whether the threshold is automatically adjusted. Valid values:
+     *
+     *   **true**: The scrubbing thresholds are automatically adjusted based on the traffic load on the asset.
+     *   **false**: The scrubbing thresholds are not automatically adjusted. You must manually specify the scrubbing thresholds.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isAuto;
 
     /**
+     * @description The maximum traffic scrubbing threshold. Unit: Mbit/s.
+     *
+     * @example 7500
+     *
      * @var int
      */
     public $maxBps;
 
     /**
+     * @description The maximum packet scrubbing threshold. Unit: pps.
+     *
+     * @example 5000000
+     *
      * @var int
      */
     public $maxPps;
 
     /**
+     * @description The packet scrubbing threshold. Unit: packets per second (pps).
+     *
+     * > This parameter is returned only when the value of the **DdosType** parameter is **defense**.
+     * @example 5000000
+     *
      * @var int
      */
     public $pps;

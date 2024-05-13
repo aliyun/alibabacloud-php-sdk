@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ddosCount extends Model
 {
     /**
+     * @description The number of assets for which blackhole filtering is triggered.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $blackholeCount;
 
     /**
+     * @description The number of assets for which traffic scrubbing is triggered.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $defenseCount;
 
     /**
+     * @description The total number of assets.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $instacenCount;

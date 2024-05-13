@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceIpAddressResponseBody extends Model
 {
     /**
+     * @description An array that consists of details of the instance.
+     *
      * @var instanceList[]
      */
     public $instanceList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example BC0907F8-A9F3-5E11-977B-D59CD98C64ED
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of the assets.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;

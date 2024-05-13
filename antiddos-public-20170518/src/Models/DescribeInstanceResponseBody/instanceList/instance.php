@@ -9,56 +9,114 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @description The basic protection threshold for the asset. Unit: Mbit/s.
+     *
+     * @example 5200
+     *
      * @var int
      */
     public $blackholeThreshold;
 
     /**
+     * @description The traffic scrubbing threshold for the asset. Unit: Mbit/s.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $defenseBpsThreshold;
 
     /**
+     * @description The packet scrubbing threshold for the asset. Unit: packets per second (pps).
+     *
+     * @example 70000
+     *
      * @var int
      */
     public $defensePpsThreshold;
 
     /**
+     * @description The burstable protection threshold for the asset. Unit: Mbit/s.
+     *
+     * @example 12310
+     *
      * @var int
      */
     public $elasticThreshold;
 
     /**
+     * @description The ID of the asset.
+     *
+     * @example i-bp1cb6x80tfgocid****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IP address of the asset.
+     *
+     * @example 121.199.XX.XX
+     *
      * @var string
      */
     public $instanceIp;
 
     /**
+     * @description The name of the asset.
+     *
+     * @example launch-advisor-2021****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The DDoS mitigation status of the asset. Valid values:
+     *
+     *   **mitigating**: indicates that traffic scrubbing is triggered for the asset.
+     *   **blackholed**: indicates that blackhole filtering is triggered for the asset.
+     *   **normal**: indicates that the instance is normal.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **ecs**: ECS instance
+     *   **slb**: SLB instance
+     *   **eip**: EIP
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The IP protocol that is supported by the asset. Valid values:
+     *
+     *   **v4**: IPv4
+     *   **v6**: IPv6
+     *
+     * @example v4
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @description Indicates whether the asset is associated with an Anti-DDoS Origin Basic instance. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isBgppack;

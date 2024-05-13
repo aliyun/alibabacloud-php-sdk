@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details of the asset.
+     *
      * @var instanceList
      */
     public $instanceList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C728D7E9-9A39-52E0-966B-5C33118BDBB0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of the assets.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;
