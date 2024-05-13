@@ -20,6 +20,7 @@ class AttachClusterToHubRequest extends Model
     /**
      * @description The ID of the task.
      *
+     * This parameter is required.
      * @example cd08d62e6506a4fa5a8c44c19d0fc****
      *
      * @var string
@@ -29,6 +30,7 @@ class AttachClusterToHubRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example ["cdea10134be464ba4acb36cc831a6****"]
      *
      * @var string

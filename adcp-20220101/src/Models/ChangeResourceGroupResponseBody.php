@@ -6,19 +6,18 @@ namespace AlibabaCloud\SDK\Adcp\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribePolicyGovernanceInClusterRequest extends Model
+class ChangeResourceGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the master instance.
+     * @description Id of the request
      *
-     * This parameter is required.
-     * @example c09946603cd764dac96135f51d1ba****
+     * @example 5BE4C329-DCC2-5B61-8F66-112B7D7FC712
      *
      * @var string
      */
-    public $clusterId;
+    public $requestId;
     protected $_name = [
-        'clusterId' => 'ClusterId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -28,8 +27,8 @@ class DescribePolicyGovernanceInClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -38,13 +37,13 @@ class DescribePolicyGovernanceInClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribePolicyGovernanceInClusterRequest
+     * @return ChangeResourceGroupResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

@@ -11,6 +11,7 @@ class DescribePolicyInstancesRequest extends Model
     /**
      * @description The ID of the master instance.
      *
+     * This parameter is required.
      * @example c102fe5f1ee5d4c87a68121a77d8b****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribePolicyInstancesRequest extends Model
     /**
      * @description The name of the policy.
      *
+     * This parameter is required.
      * @example ACKNoEnvVarSecrets
      *
      * @var string

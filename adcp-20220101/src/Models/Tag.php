@@ -6,19 +6,24 @@ namespace AlibabaCloud\SDK\Adcp\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribePolicyGovernanceInClusterRequest extends Model
+class Tag extends Model
 {
     /**
-     * @description The ID of the master instance.
-     *
-     * This parameter is required.
-     * @example c09946603cd764dac96135f51d1ba****
+     * @example env
      *
      * @var string
      */
-    public $clusterId;
+    public $key;
+
+    /**
+     * @example prod
+     *
+     * @var string
+     */
+    public $value;
     protected $_name = [
-        'clusterId' => 'ClusterId',
+        'key'   => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -28,8 +33,11 @@ class DescribePolicyGovernanceInClusterRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -38,13 +46,16 @@ class DescribePolicyGovernanceInClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribePolicyGovernanceInClusterRequest
+     * @return Tag
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

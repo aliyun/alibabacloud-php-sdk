@@ -19,6 +19,7 @@ class GrantUserPermissionsRequest extends Model
     /**
      * @description The ID of the RAM user.
      *
+     * This parameter is required.
      * @example 2367****
      *
      * @var string

@@ -85,6 +85,7 @@ class UpdateHubClusterFeatureRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c46979b1075f04d99b5f2b710393e5****
      *
      * @var string
@@ -138,7 +139,7 @@ class UpdateHubClusterFeatureRequest extends Model
     public $monitorEnabled;
 
     /**
-     * @description The name of the master instance. The name must be 1 to 63 characters in length. It must start with a letter, and can contain letters, digits, underscores (\_), and hyphens (-).
+     * @description The name of the master instance. The name must be 1 to 63 characters in length. It must start with a letter, and can contain letters, digits, underscores (_), and hyphens (-).
      *
      * @example ack-demo
      *

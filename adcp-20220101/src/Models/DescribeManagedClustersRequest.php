@@ -11,6 +11,7 @@ class DescribeManagedClustersRequest extends Model
     /**
      * @description The status of the association between the clusters and Service Mesh (ASM).
      *
+     * This parameter is required.
      * @example c2f41fd4599454a9c9ad8b3daafe873ad
      *
      * @var string

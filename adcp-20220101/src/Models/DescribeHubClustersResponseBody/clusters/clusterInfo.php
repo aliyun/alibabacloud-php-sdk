@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClustersResponseBody\clusters;
 
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClustersResponseBody\clusters\clusterInfo\tags;
 use AlibabaCloud\Tea\Model;
 
 class clusterInfo extends Model
@@ -100,6 +101,11 @@ class clusterInfo extends Model
     public $state;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @description The time when the cluster was last updated.
      *
      * @example 2021-09-02T13:39:50Z
@@ -126,6 +132,7 @@ class clusterInfo extends Model
         'regionId'        => 'RegionId',
         'resourceGroupID' => 'ResourceGroupID',
         'state'           => 'State',
+        'tags'            => 'Tags',
         'updateTime'      => 'UpdateTime',
         'version'         => 'Version',
     ];
@@ -163,6 +170,15 @@ class clusterInfo extends Model
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -208,6 +224,15 @@ class clusterInfo extends Model
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

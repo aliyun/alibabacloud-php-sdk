@@ -11,6 +11,7 @@ class DeleteUserPermissionRequest extends Model
     /**
      * @description The ID of the master instance.
      *
+     * This parameter is required.
      * @example c09946603cd764dac96135f51d1ba****
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteUserPermissionRequest extends Model
     /**
      * @description The ID of the RAM user.
      *
+     * This parameter is required.
      * @example 2176****
      *
      * @var string

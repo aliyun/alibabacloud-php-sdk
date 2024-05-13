@@ -20,7 +20,7 @@ class vSwitches extends Model
     /**
      * @description The zone ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent zone list.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent zone list.
      * @example cn-hangzhou-e
      *
      * @var string

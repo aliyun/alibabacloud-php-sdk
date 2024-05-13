@@ -43,6 +43,7 @@ class permissions extends Model
      *   admin: the administrator role.
      *   dev: the developer role.
      *
+     * This parameter is required.
      * @example dev
      *
      * @var string
@@ -56,6 +57,7 @@ class permissions extends Model
      *   namespace: specifies that the permissions are scoped to a namespace of a cluster.
      *   all-clusters: specifies that the permissions are scoped to all master instances.
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adcp\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateHubClusterRequest extends Model
+class CreateHubClusterShrinkRequest extends Model
 {
     /**
      * @description Specifies whether to expose the API server to the Internet. Valid values:
@@ -104,9 +104,9 @@ class CreateHubClusterRequest extends Model
     public $resourceGroupID;
 
     /**
-     * @var Tag[]
+     * @var string
      */
-    public $tag;
+    public $tagShrink;
 
     /**
      * @description The ID of the vSwitch.
@@ -149,7 +149,7 @@ class CreateHubClusterRequest extends Model
         'profile'                   => 'Profile',
         'regionId'                  => 'RegionId',
         'resourceGroupID'           => 'ResourceGroupID',
-        'tag'                       => 'Tag',
+        'tagShrink'                 => 'Tag',
         'vSwitches'                 => 'VSwitches',
         'vpcId'                     => 'VpcId',
         'workflowScheduleMode'      => 'WorkflowScheduleMode',
@@ -189,14 +189,8 @@ class CreateHubClusterRequest extends Model
         if (null !== $this->resourceGroupID) {
             $res['ResourceGroupID'] = $this->resourceGroupID;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
         if (null !== $this->vSwitches) {
             $res['VSwitches'] = $this->vSwitches;
@@ -214,7 +208,7 @@ class CreateHubClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateHubClusterRequest
+     * @return CreateHubClusterShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -247,13 +241,7 @@ class CreateHubClusterRequest extends Model
             $model->resourceGroupID = $map['ResourceGroupID'];
         }
         if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? Tag::fromMap($item) : $item;
-                }
-            }
+            $model->tagShrink = $map['Tag'];
         }
         if (isset($map['VSwitches'])) {
             $model->vSwitches = $map['VSwitches'];

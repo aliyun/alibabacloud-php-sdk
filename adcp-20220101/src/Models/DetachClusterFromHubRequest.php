@@ -11,6 +11,7 @@ class DetachClusterFromHubRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example cb09fda0dc2f94a8397c76638c7ec****
      *
      * @var string
@@ -20,6 +21,7 @@ class DetachClusterFromHubRequest extends Model
     /**
      * @description The operation that you want to perform. Set the value to **DetachClusterFromHub**.
      *
+     * This parameter is required.
      * @example ["c1c731554c1ec4a1ca9bb690ff9ed****"]
      *
      * @var string

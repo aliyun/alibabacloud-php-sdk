@@ -8,8 +8,11 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\AttachClusterToHubRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\AttachClusterToHubResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\CreateHubClusterShrinkRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DeleteHubClusterShrinkRequest;
@@ -29,6 +32,7 @@ use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterLogsRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClusterLogsResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClustersRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClustersResponse;
+use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeHubClustersShrinkRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersRequest;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribeManagedClustersResponse;
 use AlibabaCloud\SDK\Adcp\V20220101\Models\DescribePoliciesResponse;
@@ -121,10 +125,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param AttachClusterToHubRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary You can search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+     *  *
+     * @param AttachClusterToHubRequest $request AttachClusterToHubRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachClusterToHubResponse
+     * @return AttachClusterToHubResponse AttachClusterToHubResponse
      */
     public function attachClusterToHubWithOptions($request, $runtime)
     {
@@ -160,9 +166,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param AttachClusterToHubRequest $request
+     * @summary You can search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+     *  *
+     * @param AttachClusterToHubRequest $request AttachClusterToHubRequest
      *
-     * @return AttachClusterToHubResponse
+     * @return AttachClusterToHubResponse AttachClusterToHubResponse
      */
     public function attachClusterToHub($request)
     {
@@ -172,14 +180,78 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param CreateHubClusterRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 更新资源组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHubClusterResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
-    public function createHubClusterWithOptions($request, $runtime)
+    public function changeResourceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceGroup',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新资源组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     *
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a master instance in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+     *  *
+     * @param CreateHubClusterRequest $tmpReq  CreateHubClusterRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateHubClusterResponse CreateHubClusterResponse
+     */
+    public function createHubClusterWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateHubClusterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
+        }
         $body = [];
         if (!Utils::isUnset($request->apiServerPublicEip)) {
             $body['ApiServerPublicEip'] = $request->apiServerPublicEip;
@@ -218,7 +290,8 @@ class Adcp extends OpenApiClient
             $body['WorkflowScheduleMode'] = $request->workflowScheduleMode;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateHubCluster',
@@ -236,9 +309,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param CreateHubClusterRequest $request
+     * @summary Creates a master instance in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+     *  *
+     * @param CreateHubClusterRequest $request CreateHubClusterRequest
      *
-     * @return CreateHubClusterResponse
+     * @return CreateHubClusterResponse CreateHubClusterResponse
      */
     public function createHubCluster($request)
     {
@@ -248,10 +323,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DeleteHubClusterRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes a master cluster in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+     *  *
+     * @param DeleteHubClusterRequest $tmpReq  DeleteHubClusterRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHubClusterResponse
+     * @return DeleteHubClusterResponse DeleteHubClusterResponse
      */
     public function deleteHubClusterWithOptions($tmpReq, $runtime)
     {
@@ -290,9 +367,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DeleteHubClusterRequest $request
+     * @summary Deletes a master cluster in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+     *  *
+     * @param DeleteHubClusterRequest $request DeleteHubClusterRequest
      *
-     * @return DeleteHubClusterResponse
+     * @return DeleteHubClusterResponse DeleteHubClusterResponse
      */
     public function deleteHubCluster($request)
     {
@@ -302,10 +381,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyInstanceRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes a policy for associated clusters.
+     *  *
+     * @param DeletePolicyInstanceRequest $tmpReq  DeletePolicyInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyInstanceResponse
+     * @return DeletePolicyInstanceResponse DeletePolicyInstanceResponse
      */
     public function deletePolicyInstanceWithOptions($tmpReq, $runtime)
     {
@@ -344,9 +425,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyInstanceRequest $request
+     * @summary Deletes a policy for associated clusters.
+     *  *
+     * @param DeletePolicyInstanceRequest $request DeletePolicyInstanceRequest
      *
-     * @return DeletePolicyInstanceResponse
+     * @return DeletePolicyInstanceResponse DeletePolicyInstanceResponse
      */
     public function deletePolicyInstance($request)
     {
@@ -356,10 +439,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserPermissionRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes the role-based access control (RBAC) permissions of a RAM user.
+     *  *
+     * @param DeleteUserPermissionRequest $request DeleteUserPermissionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserPermissionResponse
+     * @return DeleteUserPermissionResponse DeleteUserPermissionResponse
      */
     public function deleteUserPermissionWithOptions($request, $runtime)
     {
@@ -390,9 +475,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserPermissionRequest $request
+     * @summary Deletes the role-based access control (RBAC) permissions of a RAM user.
+     *  *
+     * @param DeleteUserPermissionRequest $request DeleteUserPermissionRequest
      *
-     * @return DeleteUserPermissionResponse
+     * @return DeleteUserPermissionResponse DeleteUserPermissionResponse
      */
     public function deleteUserPermission($request)
     {
@@ -402,10 +489,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DeployPolicyInstanceRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary Deploys a policy instance in the clusters that are associated with a master instance.
+     *  *
+     * @param DeployPolicyInstanceRequest $tmpReq  DeployPolicyInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeployPolicyInstanceResponse
+     * @return DeployPolicyInstanceResponse DeployPolicyInstanceResponse
      */
     public function deployPolicyInstanceWithOptions($tmpReq, $runtime)
     {
@@ -453,9 +542,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DeployPolicyInstanceRequest $request
+     * @summary Deploys a policy instance in the clusters that are associated with a master instance.
+     *  *
+     * @param DeployPolicyInstanceRequest $request DeployPolicyInstanceRequest
      *
-     * @return DeployPolicyInstanceResponse
+     * @return DeployPolicyInstanceResponse DeployPolicyInstanceResponse
      */
     public function deployPolicyInstance($request)
     {
@@ -465,10 +556,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeHubClusterDetailsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the details of a master instance in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+     *  *
+     * @param DescribeHubClusterDetailsRequest $request DescribeHubClusterDetailsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHubClusterDetailsResponse
+     * @return DescribeHubClusterDetailsResponse DescribeHubClusterDetailsResponse
      */
     public function describeHubClusterDetailsWithOptions($request, $runtime)
     {
@@ -496,9 +589,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeHubClusterDetailsRequest $request
+     * @summary Queries the details of a master instance in Alibaba Cloud Distributed Cloud Container Platform (ACK One).
+     *  *
+     * @param DescribeHubClusterDetailsRequest $request DescribeHubClusterDetailsRequest
      *
-     * @return DescribeHubClusterDetailsResponse
+     * @return DescribeHubClusterDetailsResponse DescribeHubClusterDetailsResponse
      */
     public function describeHubClusterDetails($request)
     {
@@ -508,10 +603,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeHubClusterKubeconfigRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the kubeconfig file of a master instance.
+     *  *
+     * @param DescribeHubClusterKubeconfigRequest $request DescribeHubClusterKubeconfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHubClusterKubeconfigResponse
+     * @return DescribeHubClusterKubeconfigResponse DescribeHubClusterKubeconfigResponse
      */
     public function describeHubClusterKubeconfigWithOptions($request, $runtime)
     {
@@ -542,9 +639,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeHubClusterKubeconfigRequest $request
+     * @summary Queries the kubeconfig file of a master instance.
+     *  *
+     * @param DescribeHubClusterKubeconfigRequest $request DescribeHubClusterKubeconfigRequest
      *
-     * @return DescribeHubClusterKubeconfigResponse
+     * @return DescribeHubClusterKubeconfigResponse DescribeHubClusterKubeconfigResponse
      */
     public function describeHubClusterKubeconfig($request)
     {
@@ -554,10 +653,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeHubClusterLogsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查查HUB集群日志
+     *  *
+     * @param DescribeHubClusterLogsRequest $request DescribeHubClusterLogsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHubClusterLogsResponse
+     * @return DescribeHubClusterLogsResponse DescribeHubClusterLogsResponse
      */
     public function describeHubClusterLogsWithOptions($request, $runtime)
     {
@@ -585,9 +686,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeHubClusterLogsRequest $request
+     * @summary 查查HUB集群日志
+     *  *
+     * @param DescribeHubClusterLogsRequest $request DescribeHubClusterLogsRequest
      *
-     * @return DescribeHubClusterLogsResponse
+     * @return DescribeHubClusterLogsResponse DescribeHubClusterLogsResponse
      */
     public function describeHubClusterLogs($request)
     {
@@ -597,20 +700,30 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeHubClustersRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the Distributed Cloud Container Platform for Kubernetes (ACK One) clusters that are created by the current user.
+     *  *
+     * @param DescribeHubClustersRequest $tmpReq  DescribeHubClustersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHubClustersResponse
+     * @return DescribeHubClustersResponse DescribeHubClustersResponse
      */
-    public function describeHubClustersWithOptions($request, $runtime)
+    public function describeHubClustersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DescribeHubClustersShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->profile)) {
             $query['Profile'] = $request->profile;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -631,9 +744,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeHubClustersRequest $request
+     * @summary Queries the Distributed Cloud Container Platform for Kubernetes (ACK One) clusters that are created by the current user.
+     *  *
+     * @param DescribeHubClustersRequest $request DescribeHubClustersRequest
      *
-     * @return DescribeHubClustersResponse
+     * @return DescribeHubClustersResponse DescribeHubClustersResponse
      */
     public function describeHubClusters($request)
     {
@@ -643,10 +758,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeManagedClustersRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Alibaba Cloud CLI allows you to search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+     *  *
+     * @param DescribeManagedClustersRequest $request DescribeManagedClustersRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeManagedClustersResponse
+     * @return DescribeManagedClustersResponse DescribeManagedClustersResponse
      */
     public function describeManagedClustersWithOptions($request, $runtime)
     {
@@ -674,9 +791,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeManagedClustersRequest $request
+     * @summary Alibaba Cloud CLI allows you to search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+     *  *
+     * @param DescribeManagedClustersRequest $request DescribeManagedClustersRequest
      *
-     * @return DescribeManagedClustersResponse
+     * @return DescribeManagedClustersResponse DescribeManagedClustersResponse
      */
     public function describeManagedClusters($request)
     {
@@ -686,9 +805,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries a list of policies.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePoliciesResponse
+     * @return DescribePoliciesResponse DescribePoliciesResponse
      */
     public function describePoliciesWithOptions($runtime)
     {
@@ -709,7 +830,9 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @return DescribePoliciesResponse
+     * @summary Queries a list of policies.
+     *  *
+     * @return DescribePoliciesResponse DescribePoliciesResponse
      */
     public function describePolicies()
     {
@@ -719,10 +842,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyDetailsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries detailed information about a policy.
+     *  *
+     * @param DescribePolicyDetailsRequest $request DescribePolicyDetailsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyDetailsResponse
+     * @return DescribePolicyDetailsResponse DescribePolicyDetailsResponse
      */
     public function describePolicyDetailsWithOptions($request, $runtime)
     {
@@ -750,9 +875,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyDetailsRequest $request
+     * @summary Queries detailed information about a policy.
+     *  *
+     * @param DescribePolicyDetailsRequest $request DescribePolicyDetailsRequest
      *
-     * @return DescribePolicyDetailsResponse
+     * @return DescribePolicyDetailsResponse DescribePolicyDetailsResponse
      */
     public function describePolicyDetails($request)
     {
@@ -762,10 +889,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyGovernanceInClusterRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries detailed information about the policies used by the clusters that are associated with a master instance.
+     *  *
+     * @param DescribePolicyGovernanceInClusterRequest $request DescribePolicyGovernanceInClusterRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyGovernanceInClusterResponse
+     * @return DescribePolicyGovernanceInClusterResponse DescribePolicyGovernanceInClusterResponse
      */
     public function describePolicyGovernanceInClusterWithOptions($request, $runtime)
     {
@@ -793,9 +922,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyGovernanceInClusterRequest $request
+     * @summary Queries detailed information about the policies used by the clusters that are associated with a master instance.
+     *  *
+     * @param DescribePolicyGovernanceInClusterRequest $request DescribePolicyGovernanceInClusterRequest
      *
-     * @return DescribePolicyGovernanceInClusterResponse
+     * @return DescribePolicyGovernanceInClusterResponse DescribePolicyGovernanceInClusterResponse
      */
     public function describePolicyGovernanceInCluster($request)
     {
@@ -805,10 +936,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyInstancesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries policy instances that are deployed in the clusters associated with a master instance.
+     *  *
+     * @param DescribePolicyInstancesRequest $request DescribePolicyInstancesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyInstancesResponse
+     * @return DescribePolicyInstancesResponse DescribePolicyInstancesResponse
      */
     public function describePolicyInstancesWithOptions($request, $runtime)
     {
@@ -839,9 +972,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyInstancesRequest $request
+     * @summary Queries policy instances that are deployed in the clusters associated with a master instance.
+     *  *
+     * @param DescribePolicyInstancesRequest $request DescribePolicyInstancesRequest
      *
-     * @return DescribePolicyInstancesResponse
+     * @return DescribePolicyInstancesResponse DescribePolicyInstancesResponse
      */
     public function describePolicyInstances($request)
     {
@@ -851,10 +986,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyInstancesStatusRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries detailed information about policy instances that are deployed in the clusters associated with a master instance.
+     *  *
+     * @param DescribePolicyInstancesStatusRequest $request DescribePolicyInstancesStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyInstancesStatusResponse
+     * @return DescribePolicyInstancesStatusResponse DescribePolicyInstancesStatusResponse
      */
     public function describePolicyInstancesStatusWithOptions($request, $runtime)
     {
@@ -882,9 +1019,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribePolicyInstancesStatusRequest $request
+     * @summary Queries detailed information about policy instances that are deployed in the clusters associated with a master instance.
+     *  *
+     * @param DescribePolicyInstancesStatusRequest $request DescribePolicyInstancesStatusRequest
      *
-     * @return DescribePolicyInstancesStatusResponse
+     * @return DescribePolicyInstancesStatusResponse DescribePolicyInstancesStatusResponse
      */
     public function describePolicyInstancesStatus($request)
     {
@@ -894,10 +1033,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 查询地域列表
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -922,9 +1063,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary 查询地域列表
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -934,10 +1077,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserPermissionsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Query the permissions of a Resource Access Management (RAM) user.
+     *  *
+     * @param DescribeUserPermissionsRequest $request DescribeUserPermissionsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserPermissionsResponse
+     * @return DescribeUserPermissionsResponse DescribeUserPermissionsResponse
      */
     public function describeUserPermissionsWithOptions($request, $runtime)
     {
@@ -965,9 +1110,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserPermissionsRequest $request
+     * @summary Query the permissions of a Resource Access Management (RAM) user.
+     *  *
+     * @param DescribeUserPermissionsRequest $request DescribeUserPermissionsRequest
      *
-     * @return DescribeUserPermissionsResponse
+     * @return DescribeUserPermissionsResponse DescribeUserPermissionsResponse
      */
     public function describeUserPermissions($request)
     {
@@ -977,10 +1124,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DetachClusterFromHubRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Alibaba Cloud CLI allows you to search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+     *  *
+     * @param DetachClusterFromHubRequest $request DetachClusterFromHubRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachClusterFromHubResponse
+     * @return DetachClusterFromHubResponse DetachClusterFromHubResponse
      */
     public function detachClusterFromHubWithOptions($request, $runtime)
     {
@@ -1016,9 +1165,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param DetachClusterFromHubRequest $request
+     * @summary Alibaba Cloud CLI allows you to search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
+     *  *
+     * @param DetachClusterFromHubRequest $request DetachClusterFromHubRequest
      *
-     * @return DetachClusterFromHubResponse
+     * @return DetachClusterFromHubResponse DetachClusterFromHubResponse
      */
     public function detachClusterFromHub($request)
     {
@@ -1028,10 +1179,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param GrantUserPermissionRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Schema of Response
+     *  *
+     * @param GrantUserPermissionRequest $request GrantUserPermissionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantUserPermissionResponse
+     * @return GrantUserPermissionResponse GrantUserPermissionResponse
      */
     public function grantUserPermissionWithOptions($request, $runtime)
     {
@@ -1074,9 +1227,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param GrantUserPermissionRequest $request
+     * @summary Schema of Response
+     *  *
+     * @param GrantUserPermissionRequest $request GrantUserPermissionRequest
      *
-     * @return GrantUserPermissionResponse
+     * @return GrantUserPermissionResponse GrantUserPermissionResponse
      */
     public function grantUserPermission($request)
     {
@@ -1086,8 +1241,10 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @deprecated : GrantUserPermissions is deprecated, please use adcp::2022-01-01::GrantUserPermission instead.
-     *   *
+     * @deprecated openAPI GrantUserPermissions is deprecated, please use adcp::2022-01-01::GrantUserPermission instead
+     *  *
+     * @summary Grant permissions to a Resource Access Management (RAM) user.
+     *  *
      * Deprecated
      *
      * @param GrantUserPermissionsRequest $tmpReq  GrantUserPermissionsRequest
@@ -1129,8 +1286,10 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @deprecated : GrantUserPermissions is deprecated, please use adcp::2022-01-01::GrantUserPermission instead.
-     *   *
+     * @deprecated openAPI GrantUserPermissions is deprecated, please use adcp::2022-01-01::GrantUserPermission instead
+     *  *
+     * @summary Grant permissions to a Resource Access Management (RAM) user.
+     *  *
      * Deprecated
      *
      * @param GrantUserPermissionsRequest $request GrantUserPermissionsRequest
@@ -1145,10 +1304,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param UpdateHubClusterFeatureRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Updates the configurations of a Container Service for Kubernetes (ACK) cluster that serves as a master instance.
+     *  *
+     * @param UpdateHubClusterFeatureRequest $tmpReq  UpdateHubClusterFeatureRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateHubClusterFeatureResponse
+     * @return UpdateHubClusterFeatureResponse UpdateHubClusterFeatureResponse
      */
     public function updateHubClusterFeatureWithOptions($tmpReq, $runtime)
     {
@@ -1235,9 +1396,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param UpdateHubClusterFeatureRequest $request
+     * @summary Updates the configurations of a Container Service for Kubernetes (ACK) cluster that serves as a master instance.
+     *  *
+     * @param UpdateHubClusterFeatureRequest $request UpdateHubClusterFeatureRequest
      *
-     * @return UpdateHubClusterFeatureResponse
+     * @return UpdateHubClusterFeatureResponse UpdateHubClusterFeatureResponse
      */
     public function updateHubClusterFeature($request)
     {
@@ -1247,10 +1410,12 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserPermissionRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Updates the role-based access control (RBAC) permissions of a RAM user.
+     *  *
+     * @param UpdateUserPermissionRequest $request UpdateUserPermissionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserPermissionResponse
+     * @return UpdateUserPermissionResponse UpdateUserPermissionResponse
      */
     public function updateUserPermissionWithOptions($request, $runtime)
     {
@@ -1290,9 +1455,11 @@ class Adcp extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserPermissionRequest $request
+     * @summary Updates the role-based access control (RBAC) permissions of a RAM user.
+     *  *
+     * @param UpdateUserPermissionRequest $request UpdateUserPermissionRequest
      *
-     * @return UpdateUserPermissionResponse
+     * @return UpdateUserPermissionResponse UpdateUserPermissionResponse
      */
     public function updateUserPermission($request)
     {

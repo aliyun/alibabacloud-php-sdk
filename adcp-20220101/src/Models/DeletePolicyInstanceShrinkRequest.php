@@ -11,6 +11,7 @@ class DeletePolicyInstanceShrinkRequest extends Model
     /**
      * @description The ID of the master instance.
      *
+     * This parameter is required.
      * @example c09946603cd764dac96135f51d1ba****
      *
      * @var string
@@ -27,6 +28,7 @@ class DeletePolicyInstanceShrinkRequest extends Model
     /**
      * @description The name of the policy.
      *
+     * This parameter is required.
      * @example ACKNoEnvVarSecrets
      *
      * @var string

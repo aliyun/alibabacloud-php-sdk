@@ -11,6 +11,7 @@ class DeleteHubClusterShrinkRequest extends Model
     /**
      * @description The ID of the master instance.
      *
+     * This parameter is required.
      * @example cd90dd24a86fd42f895a1b77df620****
      *
      * @var string

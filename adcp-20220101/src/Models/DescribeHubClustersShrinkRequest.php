@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adcp\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeHubClustersRequest extends Model
+class DescribeHubClustersShrinkRequest extends Model
 {
     /**
      * @description The configurations of the cluster.
@@ -27,13 +27,13 @@ class DescribeHubClustersRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @var Tag[]
+     * @var string
      */
-    public $tag;
+    public $tagShrink;
     protected $_name = [
         'profile'         => 'Profile',
         'resourceGroupId' => 'ResourceGroupId',
-        'tag'             => 'Tag',
+        'tagShrink'       => 'Tag',
     ];
 
     public function validate()
@@ -49,14 +49,8 @@ class DescribeHubClustersRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
 
         return $res;
@@ -65,7 +59,7 @@ class DescribeHubClustersRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeHubClustersRequest
+     * @return DescribeHubClustersShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -77,13 +71,7 @@ class DescribeHubClustersRequest extends Model
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? Tag::fromMap($item) : $item;
-                }
-            }
+            $model->tagShrink = $map['Tag'];
         }
 
         return $model;

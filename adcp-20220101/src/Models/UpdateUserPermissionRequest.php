@@ -11,6 +11,7 @@ class UpdateUserPermissionRequest extends Model
     /**
      * @description The ID of the master instance.
      *
+     * This parameter is required.
      * @example c8e28143817db4b039b8548d7c899****
      *
      * @var string
@@ -32,6 +33,7 @@ class UpdateUserPermissionRequest extends Model
      *   admin: the administrator role.
      *   dev: the developer role.
      *
+     * This parameter is required.
      * @example admin
      *
      * @var string
@@ -44,6 +46,7 @@ class UpdateUserPermissionRequest extends Model
      *   cluster: specifies that the permissions are scoped to a master instance.
      *   namespace: specifies that the permissions are scoped to a namespace of a cluster.
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string
@@ -53,6 +56,7 @@ class UpdateUserPermissionRequest extends Model
     /**
      * @description The ID of the RAM user.
      *
+     * This parameter is required.
      * @example 2176****
      *
      * @var string

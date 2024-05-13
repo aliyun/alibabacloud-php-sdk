@@ -11,6 +11,7 @@ class GrantUserPermissionRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example c102fe5f1ee5d4c87a68121a77d8b****
      *
      * @var string
@@ -41,6 +42,7 @@ class GrantUserPermissionRequest extends Model
      *   admin: the administrator role.
      *   dev: the developer role.
      *
+     * This parameter is required.
      * @example admin
      *
      * @var string
@@ -53,6 +55,7 @@ class GrantUserPermissionRequest extends Model
      *   cluster: specifies that the permissions are scoped to a master instance.
      *   namespace: specifies that the permissions are scoped to a namespace of a cluster.
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string
@@ -62,6 +65,7 @@ class GrantUserPermissionRequest extends Model
     /**
      * @description The ID of the RAM user or RAM role.
      *
+     * This parameter is required.
      * @example 2176****
      *
      * @var string

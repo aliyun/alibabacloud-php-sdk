@@ -11,6 +11,7 @@ class DescribeHubClusterLogsRequest extends Model
     /**
      * @description The ID of the master instance.
      *
+     * This parameter is required.
      * @example c9cb1d933b2ab47ff9cd25571477dc8f2
      *
      * @var string
