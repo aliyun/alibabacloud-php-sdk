@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGeneratedContentShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example xxx_efm
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateGeneratedContentShrinkRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
@@ -43,6 +47,8 @@ class CreateGeneratedContentShrinkRequest extends Model
     public $prompt;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xxx
      *
      * @var string
@@ -50,6 +56,8 @@ class CreateGeneratedContentShrinkRequest extends Model
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;

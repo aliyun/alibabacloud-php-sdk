@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExportIntervenesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example fed6555ec9e24b92aeecc34be484b887_p_efm
      *
      * @var string

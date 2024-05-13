@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMaterialDocumentShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 67c520d1fa43455ea44fb69fa402d54d_p_beebot_public
      *
      * @var string
@@ -26,6 +28,8 @@ class UpdateMaterialDocumentShrinkRequest extends Model
     public $docKeywordsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example image
      *
      * @var string
@@ -45,6 +49,8 @@ class UpdateMaterialDocumentShrinkRequest extends Model
     public $htmlContent;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 44
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateUploadConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example xxxxx_p_efm
      *
      * @var string
@@ -23,6 +25,8 @@ class GenerateUploadConfigRequest extends Model
     public $fileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example datasetUpload
      *
      * @var string

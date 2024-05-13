@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetInterveneImportTaskInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 67c520d1fa43455ea44fb69fa402d54d_p_beebot_public
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class paragraphList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 一直忧伤的猫
      *
      * @var string
@@ -16,6 +18,8 @@ class paragraphList extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

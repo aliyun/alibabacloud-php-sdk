@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InsertInterveneGlobalReplyShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example xxx_efm
      *
      * @var string

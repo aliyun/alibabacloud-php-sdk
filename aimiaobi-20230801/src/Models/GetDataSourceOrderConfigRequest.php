@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataSourceOrderConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example d9a1f6146a37446495d9985c2e7b267e_p_outbound_public
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDataSourceOrderConfigRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example miaobi
      *
      * @var string

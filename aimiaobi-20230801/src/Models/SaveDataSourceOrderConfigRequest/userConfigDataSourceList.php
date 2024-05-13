@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userConfigDataSourceList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example QuarkCommonNews
      *
      * @var string
@@ -21,6 +23,8 @@ class userConfigDataSourceList extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -28,6 +32,8 @@ class userConfigDataSourceList extends Model
     public $number;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SystemSearch
      *
      * @var string

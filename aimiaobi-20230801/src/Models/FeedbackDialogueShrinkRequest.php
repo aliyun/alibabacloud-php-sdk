@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FeedbackDialogueShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example fcb14f25c9ee41ccad33a049de8f941b_p_outbound_public
      *
      * @var string
@@ -49,6 +51,8 @@ class FeedbackDialogueShrinkRequest extends Model
     public $ratingTagsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 75bf82fa-b71b-45d7-ae40-0b00e496cd9e
      *
      * @var string

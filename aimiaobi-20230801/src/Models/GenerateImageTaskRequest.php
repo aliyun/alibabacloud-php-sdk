@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateImageTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example e1be065b-adc3-435e-bd01-1c18c5ed75d3
      *
      * @var string
@@ -17,6 +19,8 @@ class GenerateImageTaskRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e1be065b-adc3-435e-bd01-1c18c5ed75d3
      *
      * @var string
@@ -24,11 +28,15 @@ class GenerateImageTaskRequest extends Model
     public $articleTaskId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var paragraphList[]
      */
     public $paragraphList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1024*1024
      *
      * @var string
@@ -36,6 +44,8 @@ class GenerateImageTaskRequest extends Model
     public $size;
 
     /**
+     * @description This parameter is required.
+     *
      * @example <auto>
      *
      * @var string

@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneratedContentShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateTokenRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateTokenResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTextRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleRequest;
@@ -41,6 +43,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateUploadConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTextRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentRequest;
@@ -72,6 +76,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAsyncTasksResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAsyncTasksShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBuildConfigsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListBuildConfigsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomTextRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDialoguesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDialoguesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneratedContentsRequest;
@@ -94,6 +100,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListVersionsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListVersionsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveCustomTextRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveDataSourceOrderConfigRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveDataSourceOrderConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SaveDataSourceOrderConfigShrinkRequest;
@@ -105,6 +113,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateCustomTextRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateCustomTextResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneratedContentShrinkRequest;
@@ -151,10 +161,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param CancelAsyncTaskRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 取消异步任务
+     *  *
+     * @param CancelAsyncTaskRequest $request CancelAsyncTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelAsyncTaskResponse
+     * @return CancelAsyncTaskResponse CancelAsyncTaskResponse
      */
     public function cancelAsyncTaskWithOptions($request, $runtime)
     {
@@ -187,9 +199,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param CancelAsyncTaskRequest $request
+     * @summary 取消异步任务
+     *  *
+     * @param CancelAsyncTaskRequest $request CancelAsyncTaskRequest
      *
-     * @return CancelAsyncTaskResponse
+     * @return CancelAsyncTaskResponse CancelAsyncTaskResponse
      */
     public function cancelAsyncTask($request)
     {
@@ -199,10 +213,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ClearIntervenesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 清除所有干预内容
+     *  *
+     * @param ClearIntervenesRequest $request ClearIntervenesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ClearIntervenesResponse
+     * @return ClearIntervenesResponse ClearIntervenesResponse
      */
     public function clearIntervenesWithOptions($request, $runtime)
     {
@@ -230,9 +246,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ClearIntervenesRequest $request
+     * @summary 清除所有干预内容
+     *  *
+     * @param ClearIntervenesRequest $request ClearIntervenesRequest
      *
-     * @return ClearIntervenesResponse
+     * @return ClearIntervenesResponse ClearIntervenesResponse
      */
     public function clearIntervenes($request)
     {
@@ -242,10 +260,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param CreateGeneratedContentRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary 文档管理-创建
+     *  *
+     * @param CreateGeneratedContentRequest $tmpReq  CreateGeneratedContentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGeneratedContentResponse
+     * @return CreateGeneratedContentResponse CreateGeneratedContentResponse
      */
     public function createGeneratedContentWithOptions($tmpReq, $runtime)
     {
@@ -304,9 +324,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param CreateGeneratedContentRequest $request
+     * @summary 文档管理-创建
+     *  *
+     * @param CreateGeneratedContentRequest $request CreateGeneratedContentRequest
      *
-     * @return CreateGeneratedContentResponse
+     * @return CreateGeneratedContentResponse CreateGeneratedContentResponse
      */
     public function createGeneratedContent($request)
     {
@@ -316,10 +338,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param CreateTokenRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 获取授权token
+     *  *
+     * @param CreateTokenRequest $request CreateTokenRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTokenResponse
+     * @return CreateTokenResponse CreateTokenResponse
      */
     public function createTokenWithOptions($request, $runtime)
     {
@@ -347,9 +371,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param CreateTokenRequest $request
+     * @summary 获取授权token
+     *  *
+     * @param CreateTokenRequest $request CreateTokenRequest
      *
-     * @return CreateTokenResponse
+     * @return CreateTokenResponse CreateTokenResponse
      */
     public function createToken($request)
     {
@@ -359,10 +385,67 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param DeleteGeneratedContentRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 删除自定义文本
+     *  *
+     * @param DeleteCustomTextRequest $request DeleteCustomTextRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGeneratedContentResponse
+     * @return DeleteCustomTextResponse DeleteCustomTextResponse
+     */
+    public function deleteCustomTextWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $body['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomText',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除自定义文本
+     *  *
+     * @param DeleteCustomTextRequest $request DeleteCustomTextRequest
+     *
+     * @return DeleteCustomTextResponse DeleteCustomTextResponse
+     */
+    public function deleteCustomText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomTextWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 文档管理-删除。
+     *  *
+     * @param DeleteGeneratedContentRequest $request DeleteGeneratedContentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteGeneratedContentResponse DeleteGeneratedContentResponse
      */
     public function deleteGeneratedContentWithOptions($request, $runtime)
     {
@@ -395,9 +478,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param DeleteGeneratedContentRequest $request
+     * @summary 文档管理-删除。
+     *  *
+     * @param DeleteGeneratedContentRequest $request DeleteGeneratedContentRequest
      *
-     * @return DeleteGeneratedContentResponse
+     * @return DeleteGeneratedContentResponse DeleteGeneratedContentResponse
      */
     public function deleteGeneratedContent($request)
     {
@@ -407,10 +492,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param DeleteInterveneRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 删除干预规则
+     *  *
+     * @param DeleteInterveneRuleRequest $request DeleteInterveneRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInterveneRuleResponse
+     * @return DeleteInterveneRuleResponse DeleteInterveneRuleResponse
      */
     public function deleteInterveneRuleWithOptions($request, $runtime)
     {
@@ -443,9 +530,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param DeleteInterveneRuleRequest $request
+     * @summary 删除干预规则
+     *  *
+     * @param DeleteInterveneRuleRequest $request DeleteInterveneRuleRequest
      *
-     * @return DeleteInterveneRuleResponse
+     * @return DeleteInterveneRuleResponse DeleteInterveneRuleResponse
      */
     public function deleteInterveneRule($request)
     {
@@ -455,10 +544,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param DeleteMaterialByIdRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 根据ID删除素材
+     *  *
+     * @param DeleteMaterialByIdRequest $request DeleteMaterialByIdRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMaterialByIdResponse
+     * @return DeleteMaterialByIdResponse DeleteMaterialByIdResponse
      */
     public function deleteMaterialByIdWithOptions($request, $runtime)
     {
@@ -491,9 +582,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param DeleteMaterialByIdRequest $request
+     * @summary 根据ID删除素材
+     *  *
+     * @param DeleteMaterialByIdRequest $request DeleteMaterialByIdRequest
      *
-     * @return DeleteMaterialByIdResponse
+     * @return DeleteMaterialByIdResponse DeleteMaterialByIdResponse
      */
     public function deleteMaterialById($request)
     {
@@ -503,10 +596,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ExportGeneratedContentRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 文档管理-导出。
+     *  *
+     * @param ExportGeneratedContentRequest $request ExportGeneratedContentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportGeneratedContentResponse
+     * @return ExportGeneratedContentResponse ExportGeneratedContentResponse
      */
     public function exportGeneratedContentWithOptions($request, $runtime)
     {
@@ -539,9 +634,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ExportGeneratedContentRequest $request
+     * @summary 文档管理-导出。
+     *  *
+     * @param ExportGeneratedContentRequest $request ExportGeneratedContentRequest
      *
-     * @return ExportGeneratedContentResponse
+     * @return ExportGeneratedContentResponse ExportGeneratedContentResponse
      */
     public function exportGeneratedContent($request)
     {
@@ -551,10 +648,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ExportIntervenesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 导出所有干预内容
+     *  *
+     * @param ExportIntervenesRequest $request ExportIntervenesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportIntervenesResponse
+     * @return ExportIntervenesResponse ExportIntervenesResponse
      */
     public function exportIntervenesWithOptions($request, $runtime)
     {
@@ -582,9 +681,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ExportIntervenesRequest $request
+     * @summary 导出所有干预内容
+     *  *
+     * @param ExportIntervenesRequest $request ExportIntervenesRequest
      *
-     * @return ExportIntervenesResponse
+     * @return ExportIntervenesResponse ExportIntervenesResponse
      */
     public function exportIntervenes($request)
     {
@@ -594,10 +695,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param FeedbackDialogueRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 反馈某次生成的结果
+     *  *
+     * @param FeedbackDialogueRequest $tmpReq  FeedbackDialogueRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return FeedbackDialogueResponse
+     * @return FeedbackDialogueResponse FeedbackDialogueResponse
      */
     public function feedbackDialogueWithOptions($tmpReq, $runtime)
     {
@@ -653,9 +756,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param FeedbackDialogueRequest $request
+     * @summary 反馈某次生成的结果
+     *  *
+     * @param FeedbackDialogueRequest $request FeedbackDialogueRequest
      *
-     * @return FeedbackDialogueResponse
+     * @return FeedbackDialogueResponse FeedbackDialogueResponse
      */
     public function feedbackDialogue($request)
     {
@@ -665,10 +770,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param FetchImageTaskRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @param FetchImageTaskRequest $tmpReq  FetchImageTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return FetchImageTaskResponse
+     * @return FetchImageTaskResponse FetchImageTaskResponse
      */
     public function fetchImageTaskWithOptions($tmpReq, $runtime)
     {
@@ -709,9 +814,9 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param FetchImageTaskRequest $request
+     * @param FetchImageTaskRequest $request FetchImageTaskRequest
      *
-     * @return FetchImageTaskResponse
+     * @return FetchImageTaskResponse FetchImageTaskResponse
      */
     public function fetchImageTask($request)
     {
@@ -721,10 +826,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GenerateFileUrlByKeyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 生成临时可访问的公开url
+     *  *
+     * @param GenerateFileUrlByKeyRequest $request GenerateFileUrlByKeyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateFileUrlByKeyResponse
+     * @return GenerateFileUrlByKeyResponse GenerateFileUrlByKeyResponse
      */
     public function generateFileUrlByKeyWithOptions($request, $runtime)
     {
@@ -760,9 +867,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GenerateFileUrlByKeyRequest $request
+     * @summary 生成临时可访问的公开url
+     *  *
+     * @param GenerateFileUrlByKeyRequest $request GenerateFileUrlByKeyRequest
      *
-     * @return GenerateFileUrlByKeyResponse
+     * @return GenerateFileUrlByKeyResponse GenerateFileUrlByKeyResponse
      */
     public function generateFileUrlByKey($request)
     {
@@ -772,10 +881,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GenerateImageTaskRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 智能配图，图片生成任务
+     *  *
+     * @param GenerateImageTaskRequest $tmpReq  GenerateImageTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateImageTaskResponse
+     * @return GenerateImageTaskResponse GenerateImageTaskResponse
      */
     public function generateImageTaskWithOptions($tmpReq, $runtime)
     {
@@ -822,9 +933,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GenerateImageTaskRequest $request
+     * @summary 智能配图，图片生成任务
+     *  *
+     * @param GenerateImageTaskRequest $request GenerateImageTaskRequest
      *
-     * @return GenerateImageTaskResponse
+     * @return GenerateImageTaskResponse GenerateImageTaskResponse
      */
     public function generateImageTask($request)
     {
@@ -834,10 +947,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GenerateUploadConfigRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 生成上传配置
+     *  *
+     * @param GenerateUploadConfigRequest $request GenerateUploadConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateUploadConfigResponse
+     * @return GenerateUploadConfigResponse GenerateUploadConfigResponse
      */
     public function generateUploadConfigWithOptions($request, $runtime)
     {
@@ -873,9 +988,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GenerateUploadConfigRequest $request
+     * @summary 生成上传配置
+     *  *
+     * @param GenerateUploadConfigRequest $request GenerateUploadConfigRequest
      *
-     * @return GenerateUploadConfigResponse
+     * @return GenerateUploadConfigResponse GenerateUploadConfigResponse
      */
     public function generateUploadConfig($request)
     {
@@ -885,10 +1002,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GenerateViewPointRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 视角生成
+     *  *
+     * @param GenerateViewPointRequest $tmpReq  GenerateViewPointRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateViewPointResponse
+     * @return GenerateViewPointResponse GenerateViewPointResponse
      */
     public function generateViewPointWithOptions($tmpReq, $runtime)
     {
@@ -926,9 +1045,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GenerateViewPointRequest $request
+     * @summary 视角生成
+     *  *
+     * @param GenerateViewPointRequest $request GenerateViewPointRequest
      *
-     * @return GenerateViewPointResponse
+     * @return GenerateViewPointResponse GenerateViewPointResponse
      */
     public function generateViewPoint($request)
     {
@@ -938,10 +1059,67 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetDataSourceOrderConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取自定义文本
+     *  *
+     * @param GetCustomTextRequest $request GetCustomTextRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataSourceOrderConfigResponse
+     * @return GetCustomTextResponse GetCustomTextResponse
+     */
+    public function getCustomTextWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $body['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCustomText',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取自定义文本
+     *  *
+     * @param GetCustomTextRequest $request GetCustomTextRequest
+     *
+     * @return GetCustomTextResponse GetCustomTextResponse
+     */
+    public function getCustomText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomTextWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取系统数据源配置和个人配置
+     *  *
+     * @param GetDataSourceOrderConfigRequest $request GetDataSourceOrderConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataSourceOrderConfigResponse GetDataSourceOrderConfigResponse
      */
     public function getDataSourceOrderConfigWithOptions($request, $runtime)
     {
@@ -974,9 +1152,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetDataSourceOrderConfigRequest $request
+     * @summary 获取系统数据源配置和个人配置
+     *  *
+     * @param GetDataSourceOrderConfigRequest $request GetDataSourceOrderConfigRequest
      *
-     * @return GetDataSourceOrderConfigResponse
+     * @return GetDataSourceOrderConfigResponse GetDataSourceOrderConfigResponse
      */
     public function getDataSourceOrderConfig($request)
     {
@@ -986,10 +1166,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetGeneratedContentRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 文档管理-查询详情。
+     *  *
+     * @param GetGeneratedContentRequest $request GetGeneratedContentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGeneratedContentResponse
+     * @return GetGeneratedContentResponse GetGeneratedContentResponse
      */
     public function getGeneratedContentWithOptions($request, $runtime)
     {
@@ -1022,9 +1204,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetGeneratedContentRequest $request
+     * @summary 文档管理-查询详情。
+     *  *
+     * @param GetGeneratedContentRequest $request GetGeneratedContentRequest
      *
-     * @return GetGeneratedContentResponse
+     * @return GetGeneratedContentResponse GetGeneratedContentResponse
      */
     public function getGeneratedContent($request)
     {
@@ -1034,10 +1218,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetInterveneGlobalReplyRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 获得干预全局回复
+     *  *
+     * @param GetInterveneGlobalReplyRequest $request GetInterveneGlobalReplyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInterveneGlobalReplyResponse
+     * @return GetInterveneGlobalReplyResponse GetInterveneGlobalReplyResponse
      */
     public function getInterveneGlobalReplyWithOptions($request, $runtime)
     {
@@ -1065,9 +1251,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetInterveneGlobalReplyRequest $request
+     * @summary 获得干预全局回复
+     *  *
+     * @param GetInterveneGlobalReplyRequest $request GetInterveneGlobalReplyRequest
      *
-     * @return GetInterveneGlobalReplyResponse
+     * @return GetInterveneGlobalReplyResponse GetInterveneGlobalReplyResponse
      */
     public function getInterveneGlobalReply($request)
     {
@@ -1077,10 +1265,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetInterveneImportTaskInfoRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 获得导入任务信息
+     *  *
+     * @param GetInterveneImportTaskInfoRequest $request GetInterveneImportTaskInfoRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInterveneImportTaskInfoResponse
+     * @return GetInterveneImportTaskInfoResponse GetInterveneImportTaskInfoResponse
      */
     public function getInterveneImportTaskInfoWithOptions($request, $runtime)
     {
@@ -1113,9 +1303,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetInterveneImportTaskInfoRequest $request
+     * @summary 获得导入任务信息
+     *  *
+     * @param GetInterveneImportTaskInfoRequest $request GetInterveneImportTaskInfoRequest
      *
-     * @return GetInterveneImportTaskInfoResponse
+     * @return GetInterveneImportTaskInfoResponse GetInterveneImportTaskInfoResponse
      */
     public function getInterveneImportTaskInfo($request)
     {
@@ -1125,10 +1317,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetInterveneRuleDetailRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 获得干预项规则详情
+     *  *
+     * @param GetInterveneRuleDetailRequest $request GetInterveneRuleDetailRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInterveneRuleDetailResponse
+     * @return GetInterveneRuleDetailResponse GetInterveneRuleDetailResponse
      */
     public function getInterveneRuleDetailWithOptions($request, $runtime)
     {
@@ -1161,9 +1355,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetInterveneRuleDetailRequest $request
+     * @summary 获得干预项规则详情
+     *  *
+     * @param GetInterveneRuleDetailRequest $request GetInterveneRuleDetailRequest
      *
-     * @return GetInterveneRuleDetailResponse
+     * @return GetInterveneRuleDetailResponse GetInterveneRuleDetailResponse
      */
     public function getInterveneRuleDetail($request)
     {
@@ -1173,10 +1369,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetInterveneTemplateFileUrlRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 获得干预导入模版文件下载地址
+     *  *
+     * @param GetInterveneTemplateFileUrlRequest $request GetInterveneTemplateFileUrlRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInterveneTemplateFileUrlResponse
+     * @return GetInterveneTemplateFileUrlResponse GetInterveneTemplateFileUrlResponse
      */
     public function getInterveneTemplateFileUrlWithOptions($request, $runtime)
     {
@@ -1204,9 +1402,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetInterveneTemplateFileUrlRequest $request
+     * @summary 获得干预导入模版文件下载地址
+     *  *
+     * @param GetInterveneTemplateFileUrlRequest $request GetInterveneTemplateFileUrlRequest
      *
-     * @return GetInterveneTemplateFileUrlResponse
+     * @return GetInterveneTemplateFileUrlResponse GetInterveneTemplateFileUrlResponse
      */
     public function getInterveneTemplateFileUrl($request)
     {
@@ -1216,10 +1416,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetMaterialByIdRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 根据ID获取素材内容
+     *  *
+     * @param GetMaterialByIdRequest $request GetMaterialByIdRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMaterialByIdResponse
+     * @return GetMaterialByIdResponse GetMaterialByIdResponse
      */
     public function getMaterialByIdWithOptions($request, $runtime)
     {
@@ -1252,9 +1454,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetMaterialByIdRequest $request
+     * @summary 根据ID获取素材内容
+     *  *
+     * @param GetMaterialByIdRequest $request GetMaterialByIdRequest
      *
-     * @return GetMaterialByIdResponse
+     * @return GetMaterialByIdResponse GetMaterialByIdResponse
      */
     public function getMaterialById($request)
     {
@@ -1264,10 +1468,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetPropertiesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 获取当前用户的配置
+     *  *
+     * @param GetPropertiesRequest $request GetPropertiesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPropertiesResponse
+     * @return GetPropertiesResponse GetPropertiesResponse
      */
     public function getPropertiesWithOptions($request, $runtime)
     {
@@ -1295,9 +1501,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param GetPropertiesRequest $request
+     * @summary 获取当前用户的配置
+     *  *
+     * @param GetPropertiesRequest $request GetPropertiesRequest
      *
-     * @return GetPropertiesResponse
+     * @return GetPropertiesResponse GetPropertiesResponse
      */
     public function getProperties($request)
     {
@@ -1307,10 +1515,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ImportInterveneFileRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 导入干预文件
+     *  *
+     * @param ImportInterveneFileRequest $request ImportInterveneFileRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportInterveneFileResponse
+     * @return ImportInterveneFileResponse ImportInterveneFileResponse
      */
     public function importInterveneFileWithOptions($request, $runtime)
     {
@@ -1349,9 +1559,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ImportInterveneFileRequest $request
+     * @summary 导入干预文件
+     *  *
+     * @param ImportInterveneFileRequest $request ImportInterveneFileRequest
      *
-     * @return ImportInterveneFileResponse
+     * @return ImportInterveneFileResponse ImportInterveneFileResponse
      */
     public function importInterveneFile($request)
     {
@@ -1361,10 +1573,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ImportInterveneFileAsyncRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 异步导入干预文件
+     *  *
+     * @param ImportInterveneFileAsyncRequest $request ImportInterveneFileAsyncRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportInterveneFileAsyncResponse
+     * @return ImportInterveneFileAsyncResponse ImportInterveneFileAsyncResponse
      */
     public function importInterveneFileAsyncWithOptions($request, $runtime)
     {
@@ -1403,9 +1617,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ImportInterveneFileAsyncRequest $request
+     * @summary 异步导入干预文件
+     *  *
+     * @param ImportInterveneFileAsyncRequest $request ImportInterveneFileAsyncRequest
      *
-     * @return ImportInterveneFileAsyncResponse
+     * @return ImportInterveneFileAsyncResponse ImportInterveneFileAsyncResponse
      */
     public function importInterveneFileAsync($request)
     {
@@ -1415,10 +1631,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param InsertInterveneGlobalReplyRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
+     * @summary 设置干预全局回复
+     *  *
+     * @param InsertInterveneGlobalReplyRequest $tmpReq  InsertInterveneGlobalReplyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return InsertInterveneGlobalReplyResponse
+     * @return InsertInterveneGlobalReplyResponse InsertInterveneGlobalReplyResponse
      */
     public function insertInterveneGlobalReplyWithOptions($tmpReq, $runtime)
     {
@@ -1456,9 +1674,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param InsertInterveneGlobalReplyRequest $request
+     * @summary 设置干预全局回复
+     *  *
+     * @param InsertInterveneGlobalReplyRequest $request InsertInterveneGlobalReplyRequest
      *
-     * @return InsertInterveneGlobalReplyResponse
+     * @return InsertInterveneGlobalReplyResponse InsertInterveneGlobalReplyResponse
      */
     public function insertInterveneGlobalReply($request)
     {
@@ -1468,10 +1688,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param InsertInterveneRuleRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 插入干预规则
+     *  *
+     * @param InsertInterveneRuleRequest $tmpReq  InsertInterveneRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return InsertInterveneRuleResponse
+     * @return InsertInterveneRuleResponse InsertInterveneRuleResponse
      */
     public function insertInterveneRuleWithOptions($tmpReq, $runtime)
     {
@@ -1509,9 +1731,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param InsertInterveneRuleRequest $request
+     * @summary 插入干预规则
+     *  *
+     * @param InsertInterveneRuleRequest $request InsertInterveneRuleRequest
      *
-     * @return InsertInterveneRuleResponse
+     * @return InsertInterveneRuleResponse InsertInterveneRuleResponse
      */
     public function insertInterveneRule($request)
     {
@@ -1521,10 +1745,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListAsyncTasksRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 查询任务列表
+     *  *
+     * @param ListAsyncTasksRequest $tmpReq  ListAsyncTasksRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAsyncTasksResponse
+     * @return ListAsyncTasksResponse ListAsyncTasksResponse
      */
     public function listAsyncTasksWithOptions($tmpReq, $runtime)
     {
@@ -1592,9 +1818,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListAsyncTasksRequest $request
+     * @summary 查询任务列表
+     *  *
+     * @param ListAsyncTasksRequest $request ListAsyncTasksRequest
      *
-     * @return ListAsyncTasksResponse
+     * @return ListAsyncTasksResponse ListAsyncTasksResponse
      */
     public function listAsyncTasks($request)
     {
@@ -1604,10 +1832,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListBuildConfigsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 获取系统自定义预设
+     *  *
+     * @param ListBuildConfigsRequest $request ListBuildConfigsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBuildConfigsResponse
+     * @return ListBuildConfigsResponse ListBuildConfigsResponse
      */
     public function listBuildConfigsWithOptions($request, $runtime)
     {
@@ -1640,9 +1870,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListBuildConfigsRequest $request
+     * @summary 获取系统自定义预设
+     *  *
+     * @param ListBuildConfigsRequest $request ListBuildConfigsRequest
      *
-     * @return ListBuildConfigsResponse
+     * @return ListBuildConfigsResponse ListBuildConfigsResponse
      */
     public function listBuildConfigs($request)
     {
@@ -1652,10 +1884,64 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListDialoguesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 自定义文本列表
+     *  *
+     * @param ListCustomTextRequest $request ListCustomTextRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDialoguesResponse
+     * @return ListCustomTextResponse ListCustomTextResponse
+     */
+    public function listCustomTextWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $body['CommodityCode'] = $request->commodityCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomText',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 自定义文本列表
+     *  *
+     * @param ListCustomTextRequest $request ListCustomTextRequest
+     *
+     * @return ListCustomTextResponse ListCustomTextResponse
+     */
+    public function listCustomText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomTextWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 生成历史列表
+     *  *
+     * @param ListDialoguesRequest $request ListDialoguesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDialoguesResponse ListDialoguesResponse
      */
     public function listDialoguesWithOptions($request, $runtime)
     {
@@ -1703,9 +1989,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListDialoguesRequest $request
+     * @summary 生成历史列表
+     *  *
+     * @param ListDialoguesRequest $request ListDialoguesRequest
      *
-     * @return ListDialoguesResponse
+     * @return ListDialoguesResponse ListDialoguesResponse
      */
     public function listDialogues($request)
     {
@@ -1715,10 +2003,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListGeneratedContentsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 文档管理-列表。
+     *  *
+     * @param ListGeneratedContentsRequest $request ListGeneratedContentsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGeneratedContentsResponse
+     * @return ListGeneratedContentsResponse ListGeneratedContentsResponse
      */
     public function listGeneratedContentsWithOptions($request, $runtime)
     {
@@ -1766,9 +2056,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListGeneratedContentsRequest $request
+     * @summary 文档管理-列表。
+     *  *
+     * @param ListGeneratedContentsRequest $request ListGeneratedContentsRequest
      *
-     * @return ListGeneratedContentsResponse
+     * @return ListGeneratedContentsResponse ListGeneratedContentsResponse
      */
     public function listGeneratedContents($request)
     {
@@ -1778,10 +2070,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListHotNewsWithTypeRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 获取分类的热点新闻
+     *  *
+     * @param ListHotNewsWithTypeRequest $tmpReq  ListHotNewsWithTypeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHotNewsWithTypeResponse
+     * @return ListHotNewsWithTypeResponse ListHotNewsWithTypeResponse
      */
     public function listHotNewsWithTypeWithOptions($tmpReq, $runtime)
     {
@@ -1828,9 +2122,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListHotNewsWithTypeRequest $request
+     * @summary 获取分类的热点新闻
+     *  *
+     * @param ListHotNewsWithTypeRequest $request ListHotNewsWithTypeRequest
      *
-     * @return ListHotNewsWithTypeResponse
+     * @return ListHotNewsWithTypeResponse ListHotNewsWithTypeResponse
      */
     public function listHotNewsWithType($request)
     {
@@ -1840,10 +2136,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListInterveneCntRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 获得干预项目数量列表
+     *  *
+     * @param ListInterveneCntRequest $request ListInterveneCntRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInterveneCntResponse
+     * @return ListInterveneCntResponse ListInterveneCntResponse
      */
     public function listInterveneCntWithOptions($request, $runtime)
     {
@@ -1879,9 +2177,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListInterveneCntRequest $request
+     * @summary 获得干预项目数量列表
+     *  *
+     * @param ListInterveneCntRequest $request ListInterveneCntRequest
      *
-     * @return ListInterveneCntResponse
+     * @return ListInterveneCntResponse ListInterveneCntResponse
      */
     public function listInterveneCnt($request)
     {
@@ -1891,10 +2191,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListInterveneImportTasksRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 获得导入任务列表
+     *  *
+     * @param ListInterveneImportTasksRequest $request ListInterveneImportTasksRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInterveneImportTasksResponse
+     * @return ListInterveneImportTasksResponse ListInterveneImportTasksResponse
      */
     public function listInterveneImportTasksWithOptions($request, $runtime)
     {
@@ -1930,9 +2232,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListInterveneImportTasksRequest $request
+     * @summary 获得导入任务列表
+     *  *
+     * @param ListInterveneImportTasksRequest $request ListInterveneImportTasksRequest
      *
-     * @return ListInterveneImportTasksResponse
+     * @return ListInterveneImportTasksResponse ListInterveneImportTasksResponse
      */
     public function listInterveneImportTasks($request)
     {
@@ -1942,10 +2246,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListInterveneRulesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 获得干预规则列表
+     *  *
+     * @param ListInterveneRulesRequest $request ListInterveneRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInterveneRulesResponse
+     * @return ListInterveneRulesResponse ListInterveneRulesResponse
      */
     public function listInterveneRulesWithOptions($request, $runtime)
     {
@@ -1981,9 +2287,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListInterveneRulesRequest $request
+     * @summary 获得干预规则列表
+     *  *
+     * @param ListInterveneRulesRequest $request ListInterveneRulesRequest
      *
-     * @return ListInterveneRulesResponse
+     * @return ListInterveneRulesResponse ListInterveneRulesResponse
      */
     public function listInterveneRules($request)
     {
@@ -1993,10 +2301,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListIntervenesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 获得干预项列表
+     *  *
+     * @param ListIntervenesRequest $request ListIntervenesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIntervenesResponse
+     * @return ListIntervenesResponse ListIntervenesResponse
      */
     public function listIntervenesWithOptions($request, $runtime)
     {
@@ -2041,9 +2351,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListIntervenesRequest $request
+     * @summary 获得干预项列表
+     *  *
+     * @param ListIntervenesRequest $request ListIntervenesRequest
      *
-     * @return ListIntervenesResponse
+     * @return ListIntervenesResponse ListIntervenesResponse
      */
     public function listIntervenes($request)
     {
@@ -2053,10 +2365,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListMaterialDocumentsRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary 查询素材列表
+     *  *
+     * @param ListMaterialDocumentsRequest $tmpReq  ListMaterialDocumentsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMaterialDocumentsResponse
+     * @return ListMaterialDocumentsResponse ListMaterialDocumentsResponse
      */
     public function listMaterialDocumentsWithOptions($tmpReq, $runtime)
     {
@@ -2139,9 +2453,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListMaterialDocumentsRequest $request
+     * @summary 查询素材列表
+     *  *
+     * @param ListMaterialDocumentsRequest $request ListMaterialDocumentsRequest
      *
-     * @return ListMaterialDocumentsResponse
+     * @return ListMaterialDocumentsResponse ListMaterialDocumentsResponse
      */
     public function listMaterialDocuments($request)
     {
@@ -2151,10 +2467,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListVersionsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取系统所有实例信息
+     *  *
+     * @param ListVersionsRequest $request ListVersionsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListVersionsResponse
+     * @return ListVersionsResponse ListVersionsResponse
      */
     public function listVersionsWithOptions($request, $runtime)
     {
@@ -2182,9 +2500,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param ListVersionsRequest $request
+     * @summary 获取系统所有实例信息
+     *  *
+     * @param ListVersionsRequest $request ListVersionsRequest
      *
-     * @return ListVersionsResponse
+     * @return ListVersionsResponse ListVersionsResponse
      */
     public function listVersions($request)
     {
@@ -2194,10 +2514,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param QueryAsyncTaskRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 根据taskId查询异步任务状态
+     *  *
+     * @param QueryAsyncTaskRequest $request QueryAsyncTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAsyncTaskResponse
+     * @return QueryAsyncTaskResponse QueryAsyncTaskResponse
      */
     public function queryAsyncTaskWithOptions($request, $runtime)
     {
@@ -2230,9 +2552,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param QueryAsyncTaskRequest $request
+     * @summary 根据taskId查询异步任务状态
+     *  *
+     * @param QueryAsyncTaskRequest $request QueryAsyncTaskRequest
      *
-     * @return QueryAsyncTaskResponse
+     * @return QueryAsyncTaskResponse QueryAsyncTaskResponse
      */
     public function queryAsyncTask($request)
     {
@@ -2242,10 +2566,70 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param SaveDataSourceOrderConfigRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary 保存自定义文本
+     *  *
+     * @param SaveCustomTextRequest $request SaveCustomTextRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveDataSourceOrderConfigResponse
+     * @return SaveCustomTextResponse SaveCustomTextResponse
+     */
+    public function saveCustomTextWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $body['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveCustomText',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 保存自定义文本
+     *  *
+     * @param SaveCustomTextRequest $request SaveCustomTextRequest
+     *
+     * @return SaveCustomTextResponse SaveCustomTextResponse
+     */
+    public function saveCustomText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveCustomTextWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 保存用户的信源配置
+     *  *
+     * @param SaveDataSourceOrderConfigRequest $tmpReq  SaveDataSourceOrderConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SaveDataSourceOrderConfigResponse SaveDataSourceOrderConfigResponse
      */
     public function saveDataSourceOrderConfigWithOptions($tmpReq, $runtime)
     {
@@ -2286,9 +2670,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param SaveDataSourceOrderConfigRequest $request
+     * @summary 保存用户的信源配置
+     *  *
+     * @param SaveDataSourceOrderConfigRequest $request SaveDataSourceOrderConfigRequest
      *
-     * @return SaveDataSourceOrderConfigResponse
+     * @return SaveDataSourceOrderConfigResponse SaveDataSourceOrderConfigResponse
      */
     public function saveDataSourceOrderConfig($request)
     {
@@ -2298,10 +2684,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param SaveMaterialDocumentRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary 保存素材
+     *  *
+     * @param SaveMaterialDocumentRequest $tmpReq  SaveMaterialDocumentRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveMaterialDocumentResponse
+     * @return SaveMaterialDocumentResponse SaveMaterialDocumentResponse
      */
     public function saveMaterialDocumentWithOptions($tmpReq, $runtime)
     {
@@ -2375,9 +2763,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param SaveMaterialDocumentRequest $request
+     * @summary 保存素材
+     *  *
+     * @param SaveMaterialDocumentRequest $request SaveMaterialDocumentRequest
      *
-     * @return SaveMaterialDocumentResponse
+     * @return SaveMaterialDocumentResponse SaveMaterialDocumentResponse
      */
     public function saveMaterialDocument($request)
     {
@@ -2387,10 +2777,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param SearchNewsRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * @summary 新闻检索
+     *  *
+     * @param SearchNewsRequest $tmpReq  SearchNewsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchNewsResponse
+     * @return SearchNewsResponse SearchNewsResponse
      */
     public function searchNewsWithOptions($tmpReq, $runtime)
     {
@@ -2443,9 +2835,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param SearchNewsRequest $request
+     * @summary 新闻检索
+     *  *
+     * @param SearchNewsRequest $request SearchNewsRequest
      *
-     * @return SearchNewsResponse
+     * @return SearchNewsResponse SearchNewsResponse
      */
     public function searchNews($request)
     {
@@ -2455,10 +2849,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param SubmitAsyncTaskRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 提交异步任务
+     *  *
+     * @param SubmitAsyncTaskRequest $request SubmitAsyncTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitAsyncTaskResponse
+     * @return SubmitAsyncTaskResponse SubmitAsyncTaskResponse
      */
     public function submitAsyncTaskWithOptions($request, $runtime)
     {
@@ -2500,9 +2896,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param SubmitAsyncTaskRequest $request
+     * @summary 提交异步任务
+     *  *
+     * @param SubmitAsyncTaskRequest $request SubmitAsyncTaskRequest
      *
-     * @return SubmitAsyncTaskResponse
+     * @return SubmitAsyncTaskResponse SubmitAsyncTaskResponse
      */
     public function submitAsyncTask($request)
     {
@@ -2512,10 +2910,73 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param UpdateGeneratedContentRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary 更新自定义文本
+     *  *
+     * @param UpdateCustomTextRequest $request UpdateCustomTextRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGeneratedContentResponse
+     * @return UpdateCustomTextResponse UpdateCustomTextResponse
+     */
+    public function updateCustomTextWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $body['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['Title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomText',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCustomTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新自定义文本
+     *  *
+     * @param UpdateCustomTextRequest $request UpdateCustomTextRequest
+     *
+     * @return UpdateCustomTextResponse UpdateCustomTextResponse
+     */
+    public function updateCustomText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomTextWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 文档管理-更新。
+     *  *
+     * @param UpdateGeneratedContentRequest $tmpReq  UpdateGeneratedContentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateGeneratedContentResponse UpdateGeneratedContentResponse
      */
     public function updateGeneratedContentWithOptions($tmpReq, $runtime)
     {
@@ -2568,9 +3029,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param UpdateGeneratedContentRequest $request
+     * @summary 文档管理-更新。
+     *  *
+     * @param UpdateGeneratedContentRequest $request UpdateGeneratedContentRequest
      *
-     * @return UpdateGeneratedContentResponse
+     * @return UpdateGeneratedContentResponse UpdateGeneratedContentResponse
      */
     public function updateGeneratedContent($request)
     {
@@ -2580,10 +3043,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param UpdateMaterialDocumentRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary 根据ID更新素材
+     *  *
+     * @param UpdateMaterialDocumentRequest $tmpReq  UpdateMaterialDocumentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMaterialDocumentResponse
+     * @return UpdateMaterialDocumentResponse UpdateMaterialDocumentResponse
      */
     public function updateMaterialDocumentWithOptions($tmpReq, $runtime)
     {
@@ -2657,9 +3122,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * @param UpdateMaterialDocumentRequest $request
+     * @summary 根据ID更新素材
+     *  *
+     * @param UpdateMaterialDocumentRequest $request UpdateMaterialDocumentRequest
      *
-     * @return UpdateMaterialDocumentResponse
+     * @return UpdateMaterialDocumentResponse UpdateMaterialDocumentResponse
      */
     public function updateMaterialDocument($request)
     {

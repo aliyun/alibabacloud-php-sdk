@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetGeneratedContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example xxxxx_p_efm
      *
      * @var string
@@ -16,6 +18,8 @@ class GetGeneratedContentRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

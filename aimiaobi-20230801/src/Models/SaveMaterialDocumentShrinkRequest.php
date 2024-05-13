@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveMaterialDocumentShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example c160c841c8e54295bf2f441432785944_p_efm
      *
      * @var string
@@ -33,6 +35,8 @@ class SaveMaterialDocumentShrinkRequest extends Model
     public $docKeywordsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example excel
      *
      * @var string

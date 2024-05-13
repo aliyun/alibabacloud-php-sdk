@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGeneratedContentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example xxxxx_p_efm
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteGeneratedContentRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 99
      *
      * @var int

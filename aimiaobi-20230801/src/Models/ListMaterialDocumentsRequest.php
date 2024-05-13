@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMaterialDocumentsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 33a2658aaabf4c24b45d50e575125311_p_beebot_public
      *
      * @var string

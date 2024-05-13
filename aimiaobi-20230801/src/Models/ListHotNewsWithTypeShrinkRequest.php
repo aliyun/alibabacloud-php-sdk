@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListHotNewsWithTypeShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example c160c841c8e54295bf2f441432785944_p_efm
      *
      * @var string

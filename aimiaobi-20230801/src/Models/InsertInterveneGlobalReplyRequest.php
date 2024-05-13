@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class InsertInterveneGlobalReplyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example xxx_efm
      *
      * @var string

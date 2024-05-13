@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMaterialByIdRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cd327c3d5d5e44159cc716e23bfa530e_p_beebot_public
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteMaterialByIdRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveDataSourceOrderConfigShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example c160c841c8e54295bf2f441432785944_p_efm
      *
      * @var string
@@ -16,6 +18,8 @@ class SaveDataSourceOrderConfigShrinkRequest extends Model
     public $agentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example miaobi
      *
      * @var string
@@ -23,6 +27,8 @@ class SaveDataSourceOrderConfigShrinkRequest extends Model
     public $productCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userConfigDataSourceListShrink;
