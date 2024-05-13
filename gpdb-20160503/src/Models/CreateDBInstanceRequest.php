@@ -294,7 +294,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The IP address whitelist of the instance.
      *
-     * This parameter is required.
+     * A value of 127.0.0.1 specifies that no IP address is allowed for external access. You can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist after you create an instance.
      * @example 127.0.0.1
      *
      * @var string
