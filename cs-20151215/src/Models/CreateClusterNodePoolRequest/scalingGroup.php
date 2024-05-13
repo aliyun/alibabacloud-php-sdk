@@ -114,7 +114,7 @@ class scalingGroup extends Model
      *   `PrePaid`: the subscription billing method.
      *   `PostPaid`: the pay-as-you-go billing method.
      *
-     * Default value: `PostPaid`.
+     * This parameter is required.
      * @example PrePaid
      *
      * @var string
@@ -124,6 +124,7 @@ class scalingGroup extends Model
     /**
      * @description The instance type of the nodes in the node pool.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $instanceTypes;
@@ -186,7 +187,7 @@ class scalingGroup extends Model
      *
      **Note** `COST_OPTIMIZED` is valid only when multiple instance types are specified or at least one preemptible instance type is specified.
      *
-     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call [RebalanceInstances](~~71516~~) of Auto Scaling to balance the instance distribution among zones.
+     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html) of Auto Scaling to balance the instance distribution among zones.
      *
      * Default value: `PRIORITY`.
      * @example COST_OPTIMIZED
@@ -341,7 +342,7 @@ class scalingGroup extends Model
      *   `SpotWithPriceLimit`: specifies the highest bid.
      *   `SpotAsPriceGo`: automatically submits bids based on the up-to-date market price.
      *
-     * For more information, see [Preemptible instances](~~165053~~).
+     * For more information, see [Preemptible instances](https://help.aliyun.com/document_detail/165053.html).
      * @example NoSpot
      *
      * @var string
@@ -354,7 +355,7 @@ class scalingGroup extends Model
      *   true: enables the burst feature.
      *   false: disables the burst feature.
      *
-     * This parameter is supported only when `SystemDiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
+     * This parameter is supported only when `SystemDiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example true
      *
      * @var bool
@@ -418,7 +419,7 @@ class scalingGroup extends Model
     /**
      * @description The predefined IOPS of a system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}.
      *
-     * This parameter is supported only when `SystemDiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
+     * This parameter is supported only when `SystemDiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 1000
      *
      * @var int
@@ -446,7 +447,7 @@ class scalingGroup extends Model
     /**
      * @description The vSwitch IDs. Valid values: 1 to 8.
      *
-     * >  To ensure high availability, we recommend that you select vSwitches that reside in different zones.
+     * This parameter is required.
      * @var string[]
      */
     public $vswitchIds;

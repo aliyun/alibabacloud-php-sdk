@@ -288,12 +288,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the AttachInstances operation to add existing Elastic Compute Service (ECS) instances to a cluster.
+     *  *
      * @param string                 $ClusterId
-     * @param AttachInstancesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param AttachInstancesRequest $request   AttachInstancesRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return AttachInstancesResponse
+     * @return AttachInstancesResponse AttachInstancesResponse
      */
     public function attachInstancesWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -358,10 +360,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the AttachInstances operation to add existing Elastic Compute Service (ECS) instances to a cluster.
+     *  *
      * @param string                 $ClusterId
-     * @param AttachInstancesRequest $request
+     * @param AttachInstancesRequest $request   AttachInstancesRequest
      *
-     * @return AttachInstancesResponse
+     * @return AttachInstancesResponse AttachInstancesResponse
      */
     public function attachInstances($ClusterId, $request)
     {
@@ -372,13 +376,15 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the AttachInstancesToNodePool operation to add existing nodes to a node pool.
+     *  *
      * @param string                           $ClusterId
      * @param string                           $NodepoolId
-     * @param AttachInstancesToNodePoolRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param AttachInstancesToNodePoolRequest $request    AttachInstancesToNodePoolRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return AttachInstancesToNodePoolResponse
+     * @return AttachInstancesToNodePoolResponse AttachInstancesToNodePoolResponse
      */
     public function attachInstancesToNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
@@ -416,11 +422,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the AttachInstancesToNodePool operation to add existing nodes to a node pool.
+     *  *
      * @param string                           $ClusterId
      * @param string                           $NodepoolId
-     * @param AttachInstancesToNodePoolRequest $request
+     * @param AttachInstancesToNodePoolRequest $request    AttachInstancesToNodePoolRequest
      *
-     * @return AttachInstancesToNodePoolResponse
+     * @return AttachInstancesToNodePoolResponse AttachInstancesToNodePoolResponse
      */
     public function attachInstancesToNodePool($ClusterId, $NodepoolId, $request)
     {
@@ -431,8 +439,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CancelClusterUpgrade is deprecated
+     *  *
+     * @summary You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
+     *  *
      * Deprecated
      *
      * @param string         $ClusterId
@@ -462,8 +472,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CancelClusterUpgrade is deprecated
+     *  *
+     * @summary You can call the CancelClusterUpgrade operation to cancel the update of a cluster.
+     *  *
      * Deprecated
      *
      * @param string $ClusterId
@@ -479,12 +491,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
+     *  *
      * @param string         $clusterId
      * @param string         $componentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CancelComponentUpgradeResponse
+     * @return CancelComponentUpgradeResponse CancelComponentUpgradeResponse
      */
     public function cancelComponentUpgradeWithOptions($clusterId, $componentId, $headers, $runtime)
     {
@@ -507,10 +521,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the CancelComponentUpgrade operation to cancel the update of a component.
+     *  *
      * @param string $clusterId
      * @param string $componentId
      *
-     * @return CancelComponentUpgradeResponse
+     * @return CancelComponentUpgradeResponse CancelComponentUpgradeResponse
      */
     public function cancelComponentUpgrade($clusterId, $componentId)
     {
@@ -521,11 +537,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 取消自动运维执行计划
+     *  *
      * @param string         $planId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelOperationPlanResponse
+     * @return CancelOperationPlanResponse CancelOperationPlanResponse
      */
     public function cancelOperationPlanWithOptions($planId, $headers, $runtime)
     {
@@ -548,9 +566,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 取消自动运维执行计划
+     *  *
      * @param string $planId
      *
-     * @return CancelOperationPlanResponse
+     * @return CancelOperationPlanResponse CancelOperationPlanResponse
      */
     public function cancelOperationPlan($planId)
     {
@@ -561,11 +581,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the CancelTask operation to cancel a task.
+     *  *
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTaskWithOptions($taskId, $headers, $runtime)
     {
@@ -588,9 +610,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the CancelTask operation to cancel a task.
+     *  *
      * @param string $taskId
      *
-     * @return CancelTaskResponse
+     * @return CancelTaskResponse CancelTaskResponse
      */
     public function cancelTask($taskId)
     {
@@ -601,12 +625,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the CancelWorkflow operation to cancel an ongoing workflow.
+     *  *
      * @param string                $workflowName
-     * @param CancelWorkflowRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param CancelWorkflowRequest $request      CancelWorkflowRequest
+     * @param string[]              $headers      map
+     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CancelWorkflowResponse
+     * @return CancelWorkflowResponse CancelWorkflowResponse
      */
     public function cancelWorkflowWithOptions($workflowName, $request, $headers, $runtime)
     {
@@ -635,10 +661,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the CancelWorkflow operation to cancel an ongoing workflow.
+     *  *
      * @param string                $workflowName
-     * @param CancelWorkflowRequest $request
+     * @param CancelWorkflowRequest $request      CancelWorkflowRequest
      *
-     * @return CancelWorkflowResponse
+     * @return CancelWorkflowResponse CancelWorkflowResponse
      */
     public function cancelWorkflow($workflowName, $request)
     {
@@ -649,11 +677,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CheckControlPlaneLogEnableResponse
+     * @return CheckControlPlaneLogEnableResponse CheckControlPlaneLogEnableResponse
      */
     public function checkControlPlaneLogEnableWithOptions($ClusterId, $headers, $runtime)
     {
@@ -676,9 +706,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the current log configuration of control plane components, including the log retention period and the log collection component. Container Service for Kubernetes (ACK) managed clusters can collect the logs of control plane components and deliver the logs to projects in Simple Log Service. These control plane components include Kube API Server, Kube Scheduler, Kube Controller Manager, and Cloud Controller Manager.
+     *  *
      * @param string $ClusterId
      *
-     * @return CheckControlPlaneLogEnableResponse
+     * @return CheckControlPlaneLogEnableResponse CheckControlPlaneLogEnableResponse
      */
     public function checkControlPlaneLogEnable($ClusterId)
     {
@@ -689,12 +721,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
+     *  *
      * @param string                         $ClusterId
-     * @param CreateAutoscalingConfigRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param CreateAutoscalingConfigRequest $request   CreateAutoscalingConfigRequest
+     * @param string[]                       $headers   map
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateAutoscalingConfigResponse
+     * @return CreateAutoscalingConfigResponse CreateAutoscalingConfigResponse
      */
     public function createAutoscalingConfigWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -762,10 +796,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
+     *  *
      * @param string                         $ClusterId
-     * @param CreateAutoscalingConfigRequest $request
+     * @param CreateAutoscalingConfigRequest $request   CreateAutoscalingConfigRequest
      *
-     * @return CreateAutoscalingConfigResponse
+     * @return CreateAutoscalingConfigResponse CreateAutoscalingConfigResponse
      */
     public function createAutoscalingConfig($ClusterId, $request)
     {
@@ -776,14 +812,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * This topic describes all parameters for creating an ACK cluster. You can create the following types of ACK clusters.
-     *   * *   [Create an ACK managed cluster](~~90776~~)
-     *   * *   [Create an ACK dedicated cluster](~~197620~~)
-     *   * *   [Create an ACK Serverless cluster](~~144246~~)
-     *   * *   [Create an ACK Edge cluster](~~128204~~)
-     *   * *   [Create an ACK Basic cluster that supports sandboxed containers](~~196321~~)
-     *   * *   [Create an ACK Pro cluster that supports sandboxed containers](~~140623~~).
-     *   *
+     * @summary You can call the CreateCluster operation to create a Container Service for Kubernetes (ACK) cluster. ACK clusters include ACK managed clusters, ACK dedicated clusters, ACK Serverless clusters, ACK Edge clusters, ACK clusters that support sandboxed containers, and registered clusters. For more information about how to create different types of ACK clusters, see the following usage notes.
+     *  *
+     * @description This topic describes all parameters for creating an ACK cluster. You can create the following types of ACK clusters.
+     * *   [Create an ACK managed cluster](https://help.aliyun.com/document_detail/90776.html)
+     * *   [Create an ACK dedicated cluster](https://help.aliyun.com/document_detail/197620.html)
+     * *   [Create an ACK Serverless cluster](https://help.aliyun.com/document_detail/144246.html)
+     * *   [Create an ACK Edge cluster](https://help.aliyun.com/document_detail/128204.html)
+     * *   [Create an ACK Basic cluster that supports sandboxed containers](https://help.aliyun.com/document_detail/196321.html)
+     * *   [Create an ACK Pro cluster that supports sandboxed containers](https://help.aliyun.com/document_detail/140623.html)
+     *  *
      * @param CreateClusterRequest $request CreateClusterRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1087,14 +1125,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * This topic describes all parameters for creating an ACK cluster. You can create the following types of ACK clusters.
-     *   * *   [Create an ACK managed cluster](~~90776~~)
-     *   * *   [Create an ACK dedicated cluster](~~197620~~)
-     *   * *   [Create an ACK Serverless cluster](~~144246~~)
-     *   * *   [Create an ACK Edge cluster](~~128204~~)
-     *   * *   [Create an ACK Basic cluster that supports sandboxed containers](~~196321~~)
-     *   * *   [Create an ACK Pro cluster that supports sandboxed containers](~~140623~~).
-     *   *
+     * @summary You can call the CreateCluster operation to create a Container Service for Kubernetes (ACK) cluster. ACK clusters include ACK managed clusters, ACK dedicated clusters, ACK Serverless clusters, ACK Edge clusters, ACK clusters that support sandboxed containers, and registered clusters. For more information about how to create different types of ACK clusters, see the following usage notes.
+     *  *
+     * @description This topic describes all parameters for creating an ACK cluster. You can create the following types of ACK clusters.
+     * *   [Create an ACK managed cluster](https://help.aliyun.com/document_detail/90776.html)
+     * *   [Create an ACK dedicated cluster](https://help.aliyun.com/document_detail/197620.html)
+     * *   [Create an ACK Serverless cluster](https://help.aliyun.com/document_detail/144246.html)
+     * *   [Create an ACK Edge cluster](https://help.aliyun.com/document_detail/128204.html)
+     * *   [Create an ACK Basic cluster that supports sandboxed containers](https://help.aliyun.com/document_detail/196321.html)
+     * *   [Create an ACK Pro cluster that supports sandboxed containers](https://help.aliyun.com/document_detail/140623.html)
+     *  *
      * @param CreateClusterRequest $request CreateClusterRequest
      *
      * @return CreateClusterResponse CreateClusterResponse
@@ -1108,12 +1148,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the CreateClusterNodePool operation to create a node pool for a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                       $ClusterId
-     * @param CreateClusterNodePoolRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param CreateClusterNodePoolRequest $request   CreateClusterNodePoolRequest
+     * @param string[]                     $headers   map
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterNodePoolResponse
+     * @return CreateClusterNodePoolResponse CreateClusterNodePoolResponse
      */
     public function createClusterNodePoolWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -1172,10 +1214,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the CreateClusterNodePool operation to create a node pool for a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                       $ClusterId
-     * @param CreateClusterNodePoolRequest $request
+     * @param CreateClusterNodePoolRequest $request   CreateClusterNodePoolRequest
      *
-     * @return CreateClusterNodePoolResponse
+     * @return CreateClusterNodePoolResponse CreateClusterNodePoolResponse
      */
     public function createClusterNodePool($ClusterId, $request)
     {
@@ -1186,11 +1230,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeMachineRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary You can call the CreateEdgeMachine operation to activate a cloud-native box.
+     *  *
+     * @param CreateEdgeMachineRequest $request CreateEdgeMachineRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEdgeMachineResponse
+     * @return CreateEdgeMachineResponse CreateEdgeMachineResponse
      */
     public function createEdgeMachineWithOptions($request, $headers, $runtime)
     {
@@ -1225,9 +1271,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeMachineRequest $request
+     * @summary You can call the CreateEdgeMachine operation to activate a cloud-native box.
+     *  *
+     * @param CreateEdgeMachineRequest $request CreateEdgeMachineRequest
      *
-     * @return CreateEdgeMachineResponse
+     * @return CreateEdgeMachineResponse CreateEdgeMachineResponse
      */
     public function createEdgeMachine($request)
     {
@@ -1238,11 +1286,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param CreateKubernetesTriggerRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
+     *  *
+     * @param CreateKubernetesTriggerRequest $request CreateKubernetesTriggerRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateKubernetesTriggerResponse
+     * @return CreateKubernetesTriggerResponse CreateKubernetesTriggerResponse
      */
     public function createKubernetesTriggerWithOptions($request, $headers, $runtime)
     {
@@ -1280,9 +1330,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param CreateKubernetesTriggerRequest $request
+     * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
+     *  *
+     * @param CreateKubernetesTriggerRequest $request CreateKubernetesTriggerRequest
      *
-     * @return CreateKubernetesTriggerResponse
+     * @return CreateKubernetesTriggerResponse CreateKubernetesTriggerResponse
      */
     public function createKubernetesTrigger($request)
     {
@@ -1293,11 +1345,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param CreateTemplateRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+     *  *
+     * @param CreateTemplateRequest $request CreateTemplateRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplateWithOptions($request, $headers, $runtime)
     {
@@ -1338,9 +1392,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param CreateTemplateRequest $request
+     * @summary Creates an orchestration template. An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can use orchestration templates to manage resources in Kubernetes clusters and automate resource deployment, such as pods, Services, Deployments, ConfigMaps, and persistent volumes (PVs).
+     *  *
+     * @param CreateTemplateRequest $request CreateTemplateRequest
      *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplate($request)
     {
@@ -1351,12 +1407,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the CreateTrigger operation to create a trigger for an application.
+     *  *
      * @param string               $clusterId
-     * @param CreateTriggerRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param CreateTriggerRequest $request   CreateTriggerRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateTriggerResponse
+     * @return CreateTriggerResponse CreateTriggerResponse
      */
     public function createTriggerWithOptions($clusterId, $request, $headers, $runtime)
     {
@@ -1394,10 +1452,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the CreateTrigger operation to create a trigger for an application.
+     *  *
      * @param string               $clusterId
-     * @param CreateTriggerRequest $request
+     * @param CreateTriggerRequest $request   CreateTriggerRequest
      *
-     * @return CreateTriggerResponse
+     * @return CreateTriggerResponse CreateTriggerResponse
      */
     public function createTrigger($clusterId, $request)
     {
@@ -1408,11 +1468,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlertContactRequest $tmpReq
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param DeleteAlertContactRequest $tmpReq  DeleteAlertContactRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAlertContactResponse
+     * @return DeleteAlertContactResponse DeleteAlertContactResponse
      */
     public function deleteAlertContactWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1446,9 +1506,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlertContactRequest $request
+     * @param DeleteAlertContactRequest $request DeleteAlertContactRequest
      *
-     * @return DeleteAlertContactResponse
+     * @return DeleteAlertContactResponse DeleteAlertContactResponse
      */
     public function deleteAlertContact($request)
     {
@@ -1459,11 +1519,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlertContactGroupRequest $tmpReq
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param DeleteAlertContactGroupRequest $tmpReq  DeleteAlertContactGroupRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAlertContactGroupResponse
+     * @return DeleteAlertContactGroupResponse DeleteAlertContactGroupResponse
      */
     public function deleteAlertContactGroupWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1497,9 +1557,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlertContactGroupRequest $request
+     * @param DeleteAlertContactGroupRequest $request DeleteAlertContactGroupRequest
      *
-     * @return DeleteAlertContactGroupResponse
+     * @return DeleteAlertContactGroupResponse DeleteAlertContactGroupResponse
      */
     public function deleteAlertContactGroup($request)
     {
@@ -1510,12 +1570,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteCluster operation to delete a cluster by cluster ID and release all nodes in the cluster.
+     *  *
      * @param string               $ClusterId
-     * @param DeleteClusterRequest $tmpReq
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param DeleteClusterRequest $tmpReq    DeleteClusterRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteClusterWithOptions($ClusterId, $tmpReq, $headers, $runtime)
     {
@@ -1561,10 +1623,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteCluster operation to delete a cluster by cluster ID and release all nodes in the cluster.
+     *  *
      * @param string               $ClusterId
-     * @param DeleteClusterRequest $request
+     * @param DeleteClusterRequest $request   DeleteClusterRequest
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteCluster($ClusterId, $request)
     {
@@ -1575,13 +1639,15 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteClusterNodepool operation to delete a node pool by node pool ID.
+     *  *
      * @param string                       $ClusterId
      * @param string                       $NodepoolId
-     * @param DeleteClusterNodepoolRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DeleteClusterNodepoolRequest $request    DeleteClusterNodepoolRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterNodepoolResponse
+     * @return DeleteClusterNodepoolResponse DeleteClusterNodepoolResponse
      */
     public function deleteClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
@@ -1610,11 +1676,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteClusterNodepool operation to delete a node pool by node pool ID.
+     *  *
      * @param string                       $ClusterId
      * @param string                       $NodepoolId
-     * @param DeleteClusterNodepoolRequest $request
+     * @param DeleteClusterNodepoolRequest $request    DeleteClusterNodepoolRequest
      *
-     * @return DeleteClusterNodepoolResponse
+     * @return DeleteClusterNodepoolResponse DeleteClusterNodepoolResponse
      */
     public function deleteClusterNodepool($ClusterId, $NodepoolId, $request)
     {
@@ -1625,9 +1693,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
-     *   *
+     * @summary Removes nodes from a Container Service for Kubernetes (ACK) cluster. When you remove nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes. When you remove nodes, pods on the nodes are migrated. This may adversely affect your businesses. We recommend that you back up data and perform this operation during off-peak hours.
+     *  *
+     * @description >
+     * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
+     *  *
      * @param string                    $ClusterId
      * @param DeleteClusterNodesRequest $request   DeleteClusterNodesRequest
      * @param string[]                  $headers   map
@@ -1668,9 +1738,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
-     *   *
+     * @summary Removes nodes from a Container Service for Kubernetes (ACK) cluster. When you remove nodes, you can specify whether to release the Elastic Compute Service (ECS) instances and drain the nodes. When you remove nodes, pods on the nodes are migrated. This may adversely affect your businesses. We recommend that you back up data and perform this operation during off-peak hours.
+     *  *
+     * @description >
+     * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
+     *  *
      * @param string                    $ClusterId
      * @param DeleteClusterNodesRequest $request   DeleteClusterNodesRequest
      *
@@ -1685,12 +1757,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteEdgeMachine operation to delete a cloud-native box.
+     *  *
      * @param string                   $edgeMachineid
-     * @param DeleteEdgeMachineRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param DeleteEdgeMachineRequest $request       DeleteEdgeMachineRequest
+     * @param string[]                 $headers       map
+     * @param RuntimeOptions           $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DeleteEdgeMachineResponse
+     * @return DeleteEdgeMachineResponse DeleteEdgeMachineResponse
      */
     public function deleteEdgeMachineWithOptions($edgeMachineid, $request, $headers, $runtime)
     {
@@ -1719,10 +1793,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteEdgeMachine operation to delete a cloud-native box.
+     *  *
      * @param string                   $edgeMachineid
-     * @param DeleteEdgeMachineRequest $request
+     * @param DeleteEdgeMachineRequest $request       DeleteEdgeMachineRequest
      *
-     * @return DeleteEdgeMachineResponse
+     * @return DeleteEdgeMachineResponse DeleteEdgeMachineResponse
      */
     public function deleteEdgeMachine($edgeMachineid, $request)
     {
@@ -1733,11 +1809,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
+     *  *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteKubernetesTriggerResponse
+     * @return DeleteKubernetesTriggerResponse DeleteKubernetesTriggerResponse
      */
     public function deleteKubernetesTriggerWithOptions($Id, $headers, $runtime)
     {
@@ -1760,9 +1838,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
+     *  *
      * @param string $Id
      *
-     * @return DeleteKubernetesTriggerResponse
+     * @return DeleteKubernetesTriggerResponse DeleteKubernetesTriggerResponse
      */
     public function deleteKubernetesTrigger($Id)
     {
@@ -1773,13 +1853,15 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param DeletePolicyInstanceRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DeletePolicyInstanceRequest $request    DeletePolicyInstanceRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyInstanceResponse
+     * @return DeletePolicyInstanceResponse DeletePolicyInstanceResponse
      */
     public function deletePolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime)
     {
@@ -1808,11 +1890,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Deletes policy instances in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param DeletePolicyInstanceRequest $request
+     * @param DeletePolicyInstanceRequest $request    DeletePolicyInstanceRequest
      *
-     * @return DeletePolicyInstanceResponse
+     * @return DeletePolicyInstanceResponse DeletePolicyInstanceResponse
      */
     public function deletePolicyInstance($clusterId, $policyName, $request)
     {
@@ -1823,11 +1907,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteTemplate operation to delete an orchestration template by template ID.
+     *  *
      * @param string         $TemplateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($TemplateId, $headers, $runtime)
     {
@@ -1850,9 +1936,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteTemplate operation to delete an orchestration template by template ID.
+     *  *
      * @param string $TemplateId
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplate($TemplateId)
     {
@@ -1863,12 +1951,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteTrigger operation to delete an application trigger.
+     *  *
      * @param string         $clusterId
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteTriggerResponse
+     * @return DeleteTriggerResponse DeleteTriggerResponse
      */
     public function deleteTriggerWithOptions($clusterId, $Id, $headers, $runtime)
     {
@@ -1891,10 +1981,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeleteTrigger operation to delete an application trigger.
+     *  *
      * @param string $clusterId
      * @param string $Id
      *
-     * @return DeleteTriggerResponse
+     * @return DeleteTriggerResponse DeleteTriggerResponse
      */
     public function deleteTrigger($clusterId, $Id)
     {
@@ -1905,13 +1997,15 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeployPolicyInstance operation to deploy a policy instance in a cluster.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param DeployPolicyInstanceRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DeployPolicyInstanceRequest $request    DeployPolicyInstanceRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeployPolicyInstanceResponse
+     * @return DeployPolicyInstanceResponse DeployPolicyInstanceResponse
      */
     public function deployPolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime)
     {
@@ -1946,11 +2040,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DeployPolicyInstance operation to deploy a policy instance in a cluster.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param DeployPolicyInstanceRequest $request
+     * @param DeployPolicyInstanceRequest $request    DeployPolicyInstanceRequest
      *
-     * @return DeployPolicyInstanceResponse
+     * @return DeployPolicyInstanceResponse DeployPolicyInstanceResponse
      */
     public function deployPolicyInstance($clusterId, $policyName, $request)
     {
@@ -1961,11 +2057,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescirbeWorkflow operation to query detailed information about a workflow.
+     *  *
      * @param string         $workflowName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DescirbeWorkflowResponse
+     * @return DescirbeWorkflowResponse DescirbeWorkflowResponse
      */
     public function descirbeWorkflowWithOptions($workflowName, $headers, $runtime)
     {
@@ -1988,9 +2086,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescirbeWorkflow operation to query detailed information about a workflow.
+     *  *
      * @param string $workflowName
      *
-     * @return DescirbeWorkflowResponse
+     * @return DescirbeWorkflowResponse DescirbeWorkflowResponse
      */
     public function descirbeWorkflow($workflowName)
     {
@@ -2001,12 +2101,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 查询指定集群组件
+     *  *
      * @param string               $addonName
-     * @param DescribeAddonRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param DescribeAddonRequest $request   DescribeAddonRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeAddonResponse
+     * @return DescribeAddonResponse DescribeAddonResponse
      */
     public function describeAddonWithOptions($addonName, $request, $headers, $runtime)
     {
@@ -2053,10 +2155,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 查询指定集群组件
+     *  *
      * @param string               $addonName
-     * @param DescribeAddonRequest $request
+     * @param DescribeAddonRequest $request   DescribeAddonRequest
      *
-     * @return DescribeAddonResponse
+     * @return DescribeAddonResponse DescribeAddonResponse
      */
     public function describeAddon($addonName, $request)
     {
@@ -2067,8 +2171,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeAddons is deprecated
+     *  *
+     * @summary You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
+     *  *
      * Deprecated
      *
      * @param DescribeAddonsRequest $request DescribeAddonsRequest
@@ -2116,8 +2222,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeAddons is deprecated
+     *  *
+     * @summary You can call the DescribeAddons operation to query the details about all components that are supported by Container Service for Kubernetes (ACK).
+     *  *
      * Deprecated
      *
      * @param DescribeAddonsRequest $request DescribeAddonsRequest
@@ -2133,8 +2241,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterAddonInstance is deprecated
+     *  *
+     * @summary You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
+     *  *
      * Deprecated
      *
      * @param string         $ClusterID
@@ -2165,8 +2275,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterAddonInstance is deprecated
+     *  *
+     * @summary You can call the DescribeClusterAddonInstance operation to query the information about a cluster component, including the version, status, and configuration of the component.
+     *  *
      * Deprecated
      *
      * @param string $ClusterID
@@ -2183,8 +2295,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterAddonMetadata is deprecated
+     *  *
+     * @summary You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
+     *  *
      * Deprecated
      *
      * @param string                              $clusterId
@@ -2222,8 +2336,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterAddonMetadata is deprecated
+     *  *
+     * @summary You can call the DescribeClusterAddonMetadata operation to query the metadata of a component version. The metadata includes the component version and available parameters.
+     *  *
      * Deprecated
      *
      * @param string                              $clusterId
@@ -2241,8 +2357,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterAddonUpgradeStatus is deprecated
+     *  *
+     * @summary You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
+     *  *
      * Deprecated
      *
      * @param string         $ClusterId
@@ -2273,8 +2391,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterAddonUpgradeStatus is deprecated
+     *  *
+     * @summary You can call the DescribeClusterAddonUpgradeStatus operation to query the update progress of a cluster component.
+     *  *
      * Deprecated
      *
      * @param string $ClusterId
@@ -2291,8 +2411,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterAddonsUpgradeStatus is deprecated
+     *  *
+     * @summary You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
+     *  *
      * Deprecated
      *
      * @param string                                    $ClusterId
@@ -2334,8 +2456,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterAddonsUpgradeStatus is deprecated
+     *  *
+     * @summary You can call the DescribeClusterAddonsUpgradeStatus operation to query the update progress of a component by component name.
+     *  *
      * Deprecated
      *
      * @param string                                    $ClusterId
@@ -2352,8 +2476,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterAddonsVersion is deprecated
+     *  *
+     * @summary You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
+     *  *
      * Deprecated
      *
      * @param string         $ClusterId
@@ -2383,8 +2509,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterAddonsVersion is deprecated
+     *  *
+     * @summary You can call the DescribeClusterAddonsVersion operation to query the details about all components in a cluster by cluster ID.
+     *  *
      * Deprecated
      *
      * @param string $ClusterId
@@ -2400,12 +2528,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the script that is used to add existing nodes to a Container Service for Kubernetes (ACK) cluster. You can manually add existing Elastic Compute Service (ECS) instances to an ACK cluster as worker nodes or re-add the worker nodes that you have removed to a node pool.
+     *  *
      * @param string                              $ClusterId
-     * @param DescribeClusterAttachScriptsRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeClusterAttachScriptsRequest $request   DescribeClusterAttachScriptsRequest
+     * @param string[]                            $headers   map
+     * @param RuntimeOptions                      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAttachScriptsResponse
+     * @return DescribeClusterAttachScriptsResponse DescribeClusterAttachScriptsResponse
      */
     public function describeClusterAttachScriptsWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -2449,10 +2579,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the script that is used to add existing nodes to a Container Service for Kubernetes (ACK) cluster. You can manually add existing Elastic Compute Service (ECS) instances to an ACK cluster as worker nodes or re-add the worker nodes that you have removed to a node pool.
+     *  *
      * @param string                              $ClusterId
-     * @param DescribeClusterAttachScriptsRequest $request
+     * @param DescribeClusterAttachScriptsRequest $request   DescribeClusterAttachScriptsRequest
      *
-     * @return DescribeClusterAttachScriptsResponse
+     * @return DescribeClusterAttachScriptsResponse DescribeClusterAttachScriptsResponse
      */
     public function describeClusterAttachScripts($ClusterId, $request)
     {
@@ -2463,11 +2595,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterDetail operation to query the details of a Container Service for Kubernetes (ACK) cluster by cluster ID.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterDetailResponse
+     * @return DescribeClusterDetailResponse DescribeClusterDetailResponse
      */
     public function describeClusterDetailWithOptions($ClusterId, $headers, $runtime)
     {
@@ -2490,9 +2624,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterDetail operation to query the details of a Container Service for Kubernetes (ACK) cluster by cluster ID.
+     *  *
      * @param string $ClusterId
      *
-     * @return DescribeClusterDetailResponse
+     * @return DescribeClusterDetailResponse DescribeClusterDetailResponse
      */
     public function describeClusterDetail($ClusterId)
     {
@@ -2503,12 +2639,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries events and event details in a Container Service for Kubernetes (ACK) cluster, including the severity level, status, and start time of each event. Events are generated when clusters created, modified, and updated, node pools are created and scaled out, and components are installed.
+     *  *
      * @param string                       $ClusterId
-     * @param DescribeClusterEventsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DescribeClusterEventsRequest $request   DescribeClusterEventsRequest
+     * @param string[]                     $headers   map
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterEventsResponse
+     * @return DescribeClusterEventsResponse DescribeClusterEventsResponse
      */
     public function describeClusterEventsWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -2543,10 +2681,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries events and event details in a Container Service for Kubernetes (ACK) cluster, including the severity level, status, and start time of each event. Events are generated when clusters created, modified, and updated, node pools are created and scaled out, and components are installed.
+     *  *
      * @param string                       $ClusterId
-     * @param DescribeClusterEventsRequest $request
+     * @param DescribeClusterEventsRequest $request   DescribeClusterEventsRequest
      *
-     * @return DescribeClusterEventsResponse
+     * @return DescribeClusterEventsResponse DescribeClusterEventsResponse
      */
     public function describeClusterEvents($ClusterId, $request)
     {
@@ -2557,11 +2697,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the cluster log to help analyze cluster issues and locate the cause.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterLogsResponse
+     * @return DescribeClusterLogsResponse DescribeClusterLogsResponse
      */
     public function describeClusterLogsWithOptions($ClusterId, $headers, $runtime)
     {
@@ -2584,9 +2726,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the cluster log to help analyze cluster issues and locate the cause.
+     *  *
      * @param string $ClusterId
      *
-     * @return DescribeClusterLogsResponse
+     * @return DescribeClusterLogsResponse DescribeClusterLogsResponse
      */
     public function describeClusterLogs($ClusterId)
     {
@@ -2597,12 +2741,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterNodePoolDetail.html operation to query the details about a node pool in a cluster by node pool ID.
+     *  *
      * @param string         $ClusterId
      * @param string         $NodepoolId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterNodePoolDetailResponse
+     * @return DescribeClusterNodePoolDetailResponse DescribeClusterNodePoolDetailResponse
      */
     public function describeClusterNodePoolDetailWithOptions($ClusterId, $NodepoolId, $headers, $runtime)
     {
@@ -2625,10 +2771,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterNodePoolDetail.html operation to query the details about a node pool in a cluster by node pool ID.
+     *  *
      * @param string $ClusterId
      * @param string $NodepoolId
      *
-     * @return DescribeClusterNodePoolDetailResponse
+     * @return DescribeClusterNodePoolDetailResponse DescribeClusterNodePoolDetailResponse
      */
     public function describeClusterNodePoolDetail($ClusterId, $NodepoolId)
     {
@@ -2639,12 +2787,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterNodePools operation to query node pools in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                          $ClusterId
-     * @param DescribeClusterNodePoolsRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeClusterNodePoolsRequest $request   DescribeClusterNodePoolsRequest
+     * @param string[]                        $headers   map
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterNodePoolsResponse
+     * @return DescribeClusterNodePoolsResponse DescribeClusterNodePoolsResponse
      */
     public function describeClusterNodePoolsWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -2673,10 +2823,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterNodePools operation to query node pools in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                          $ClusterId
-     * @param DescribeClusterNodePoolsRequest $request
+     * @param DescribeClusterNodePoolsRequest $request   DescribeClusterNodePoolsRequest
      *
-     * @return DescribeClusterNodePoolsResponse
+     * @return DescribeClusterNodePoolsResponse DescribeClusterNodePoolsResponse
      */
     public function describeClusterNodePools($ClusterId, $request)
     {
@@ -2687,12 +2839,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterNodes operation to query the details about all nodes in a cluster by cluster ID.
+     *  *
      * @param string                      $ClusterId
-     * @param DescribeClusterNodesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DescribeClusterNodesRequest $request   DescribeClusterNodesRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterNodesResponse
+     * @return DescribeClusterNodesResponse DescribeClusterNodesResponse
      */
     public function describeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -2733,10 +2887,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterNodes operation to query the details about all nodes in a cluster by cluster ID.
+     *  *
      * @param string                      $ClusterId
-     * @param DescribeClusterNodesRequest $request
+     * @param DescribeClusterNodesRequest $request   DescribeClusterNodesRequest
      *
-     * @return DescribeClusterNodesResponse
+     * @return DescribeClusterNodesResponse DescribeClusterNodesResponse
      */
     public function describeClusterNodes($ClusterId, $request)
     {
@@ -2747,12 +2903,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterResources operation to query all resources in a cluster by cluster ID.
+     *  *
      * @param string                          $ClusterId
-     * @param DescribeClusterResourcesRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeClusterResourcesRequest $request   DescribeClusterResourcesRequest
+     * @param string[]                        $headers   map
+     * @param RuntimeOptions                  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterResourcesResponse
+     * @return DescribeClusterResourcesResponse DescribeClusterResourcesResponse
      */
     public function describeClusterResourcesWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -2781,10 +2939,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterResources operation to query all resources in a cluster by cluster ID.
+     *  *
      * @param string                          $ClusterId
-     * @param DescribeClusterResourcesRequest $request
+     * @param DescribeClusterResourcesRequest $request   DescribeClusterResourcesRequest
      *
-     * @return DescribeClusterResourcesResponse
+     * @return DescribeClusterResourcesResponse DescribeClusterResourcesResponse
      */
     public function describeClusterResources($ClusterId, $request)
     {
@@ -2795,12 +2955,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries tasks in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                      $clusterId
-     * @param DescribeClusterTasksRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DescribeClusterTasksRequest $request   DescribeClusterTasksRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterTasksResponse
+     * @return DescribeClusterTasksResponse DescribeClusterTasksResponse
      */
     public function describeClusterTasksWithOptions($clusterId, $request, $headers, $runtime)
     {
@@ -2832,10 +2994,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries tasks in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                      $clusterId
-     * @param DescribeClusterTasksRequest $request
+     * @param DescribeClusterTasksRequest $request   DescribeClusterTasksRequest
      *
-     * @return DescribeClusterTasksResponse
+     * @return DescribeClusterTasksResponse DescribeClusterTasksResponse
      */
     public function describeClusterTasks($clusterId, $request)
     {
@@ -2846,9 +3010,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****The default validity period of a kubeconfig file is 3 years. Two months before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the secret is valid for 3 years. The previous kubeconfig secret remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
-     *   *
+     * @summary Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+     *  *
+     * @description **
+     * ****The default validity period of a kubeconfig file is 3 years. Two months before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the secret is valid for 3 years. The previous kubeconfig secret remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+     *  *
      * @param string                               $ClusterId
      * @param DescribeClusterUserKubeconfigRequest $request   DescribeClusterUserKubeconfigRequest
      * @param string[]                             $headers   map
@@ -2886,9 +3052,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****The default validity period of a kubeconfig file is 3 years. Two months before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the secret is valid for 3 years. The previous kubeconfig secret remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
-     *   *
+     * @summary Kubeconfig files store identity and authentication information that is used by clients to access Container Service for Kubernetes (ACK) clusters. To use a kubectl client to manage an ACK cluster, you need to use the corresponding kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+     *  *
+     * @description **
+     * ****The default validity period of a kubeconfig file is 3 years. Two months before a kubeconfig file expires, you can renew it in the Container Service for Kubernetes (ACK) console or by calling API operations. After a kubeconfig file is renewed, the secret is valid for 3 years. The previous kubeconfig secret remains valid until expiration. We recommend that you renew your kubeconfig file at the earliest opportunity.
+     *  *
      * @param string                               $ClusterId
      * @param DescribeClusterUserKubeconfigRequest $request   DescribeClusterUserKubeconfigRequest
      *
@@ -2903,8 +3071,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterV2UserKubeconfig is deprecated
+     *  *
+     * @summary 获取集群kubeconfig接口
+     *  *
      * Deprecated
      *
      * @param string                                 $ClusterId
@@ -2941,8 +3111,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusterV2UserKubeconfig is deprecated
+     *  *
+     * @summary 获取集群kubeconfig接口
+     *  *
      * Deprecated
      *
      * @param string                                 $ClusterId
@@ -2959,11 +3131,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterVuls operation to query the vulnerability information of a cluster.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterVulsResponse
+     * @return DescribeClusterVulsResponse DescribeClusterVulsResponse
      */
     public function describeClusterVulsWithOptions($clusterId, $headers, $runtime)
     {
@@ -2986,9 +3160,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeClusterVuls operation to query the vulnerability information of a cluster.
+     *  *
      * @param string $clusterId
      *
-     * @return DescribeClusterVulsResponse
+     * @return DescribeClusterVulsResponse DescribeClusterVulsResponse
      */
     public function describeClusterVuls($clusterId)
     {
@@ -2999,8 +3175,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusters is deprecated
+     *  *
+     * @summary You can call the DescribeClusters operation to query all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+     *  *
      * Deprecated
      *
      * @param DescribeClustersRequest $request DescribeClustersRequest
@@ -3039,8 +3217,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeClusters is deprecated
+     *  *
+     * @summary You can call the DescribeClusters operation to query all the clusters that belong to the current Alibaba Cloud account, including Kubernetes clusters and Swarm clusters.
+     *  *
      * Deprecated
      *
      * @param DescribeClustersRequest $request DescribeClustersRequest
@@ -3056,11 +3236,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeClustersV1Request $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary You can call the DescribeClustersV1 operation to query the details about all Container Service for Kubernetes (ACK) clusters.
+     *  *
+     * @param DescribeClustersV1Request $request DescribeClustersV1Request
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClustersV1Response
+     * @return DescribeClustersV1Response DescribeClustersV1Response
      */
     public function describeClustersV1WithOptions($request, $headers, $runtime)
     {
@@ -3110,9 +3292,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeClustersV1Request $request
+     * @summary You can call the DescribeClustersV1 operation to query the details about all Container Service for Kubernetes (ACK) clusters.
+     *  *
+     * @param DescribeClustersV1Request $request DescribeClustersV1Request
      *
-     * @return DescribeClustersV1Response
+     * @return DescribeClustersV1Response DescribeClustersV1Response
      */
     public function describeClustersV1($request)
     {
@@ -3123,11 +3307,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
+     *  *
      * @param string         $edgeMachineid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DescribeEdgeMachineActiveProcessResponse
+     * @return DescribeEdgeMachineActiveProcessResponse DescribeEdgeMachineActiveProcessResponse
      */
     public function describeEdgeMachineActiveProcessWithOptions($edgeMachineid, $headers, $runtime)
     {
@@ -3150,9 +3336,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
+     *  *
      * @param string $edgeMachineid
      *
-     * @return DescribeEdgeMachineActiveProcessResponse
+     * @return DescribeEdgeMachineActiveProcessResponse DescribeEdgeMachineActiveProcessResponse
      */
     public function describeEdgeMachineActiveProcess($edgeMachineid)
     {
@@ -3163,10 +3351,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEdgeMachineModelsResponse
+     * @return DescribeEdgeMachineModelsResponse DescribeEdgeMachineModelsResponse
      */
     public function describeEdgeMachineModelsWithOptions($headers, $runtime)
     {
@@ -3189,7 +3379,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @return DescribeEdgeMachineModelsResponse
+     * @summary You can call the DescribeEdgeMachineModels operation to query the cloud-native box models.
+     *  *
+     * @return DescribeEdgeMachineModelsResponse DescribeEdgeMachineModelsResponse
      */
     public function describeEdgeMachineModels()
     {
@@ -3200,11 +3392,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
+     *  *
      * @param string         $edgeMachineid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers       map
+     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
      *
-     * @return DescribeEdgeMachineTunnelConfigDetailResponse
+     * @return DescribeEdgeMachineTunnelConfigDetailResponse DescribeEdgeMachineTunnelConfigDetailResponse
      */
     public function describeEdgeMachineTunnelConfigDetailWithOptions($edgeMachineid, $headers, $runtime)
     {
@@ -3227,9 +3421,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeEdgeMachineTunnelConfigDetail operation to obtain the SSH token of a cloud-native box.
+     *  *
      * @param string $edgeMachineid
      *
-     * @return DescribeEdgeMachineTunnelConfigDetailResponse
+     * @return DescribeEdgeMachineTunnelConfigDetailResponse DescribeEdgeMachineTunnelConfigDetailResponse
      */
     public function describeEdgeMachineTunnelConfigDetail($edgeMachineid)
     {
@@ -3240,11 +3436,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEdgeMachinesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
+     *  *
+     * @param DescribeEdgeMachinesRequest $request DescribeEdgeMachinesRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEdgeMachinesResponse
+     * @return DescribeEdgeMachinesResponse DescribeEdgeMachinesResponse
      */
     public function describeEdgeMachinesWithOptions($request, $headers, $runtime)
     {
@@ -3288,9 +3486,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEdgeMachinesRequest $request
+     * @summary You can call the DescribeEdgeMachines operation to query a list of cloud-native boxes.
+     *  *
+     * @param DescribeEdgeMachinesRequest $request DescribeEdgeMachinesRequest
      *
-     * @return DescribeEdgeMachinesResponse
+     * @return DescribeEdgeMachinesResponse DescribeEdgeMachinesResponse
      */
     public function describeEdgeMachines($request)
     {
@@ -3301,11 +3501,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Queries detailed information about a type of events, including the severity level, status, and start time of each event. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
+     *  *
+     * @param DescribeEventsRequest $request DescribeEventsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventsResponse
+     * @return DescribeEventsResponse DescribeEventsResponse
      */
     public function describeEventsWithOptions($request, $headers, $runtime)
     {
@@ -3343,9 +3545,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventsRequest $request
+     * @summary Queries detailed information about a type of events, including the severity level, status, and start time of each event. Events are generated when clusters are created, modified, and updated, node pools are created and scaled out, and components are installed.
+     *  *
+     * @param DescribeEventsRequest $request DescribeEventsRequest
      *
-     * @return DescribeEventsResponse
+     * @return DescribeEventsResponse DescribeEventsResponse
      */
     public function describeEvents($request)
     {
@@ -3356,8 +3560,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * For more information, see [Register an external Kubernetes cluster](~~121053~~).
-     *   *
+     * @summary You can call the DescribeExternalAgent operation to query the agent configurations of a registered cluster by cluster ID.
+     *  *
+     * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
+     *  *
      * @param string                       $ClusterId
      * @param DescribeExternalAgentRequest $request   DescribeExternalAgentRequest
      * @param string[]                     $headers   map
@@ -3395,8 +3601,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * For more information, see [Register an external Kubernetes cluster](~~121053~~).
-     *   *
+     * @summary You can call the DescribeExternalAgent operation to query the agent configurations of a registered cluster by cluster ID.
+     *  *
+     * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
+     *  *
      * @param string                       $ClusterId
      * @param DescribeExternalAgentRequest $request   DescribeExternalAgentRequest
      *
@@ -3411,11 +3619,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeKubernetesVersionMetadataRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+     *  *
+     * @param DescribeKubernetesVersionMetadataRequest $request DescribeKubernetesVersionMetadataRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeKubernetesVersionMetadataResponse
+     * @return DescribeKubernetesVersionMetadataResponse DescribeKubernetesVersionMetadataResponse
      */
     public function describeKubernetesVersionMetadataWithOptions($request, $headers, $runtime)
     {
@@ -3459,9 +3669,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeKubernetesVersionMetadataRequest $request
+     * @summary Queries the detailed information about Kubernetes versions, including the version number, release date, expiration date, compatible OSs, and runtime.
+     *  *
+     * @param DescribeKubernetesVersionMetadataRequest $request DescribeKubernetesVersionMetadataRequest
      *
-     * @return DescribeKubernetesVersionMetadataResponse
+     * @return DescribeKubernetesVersionMetadataResponse DescribeKubernetesVersionMetadataResponse
      */
     public function describeKubernetesVersionMetadata($request)
     {
@@ -3472,13 +3684,15 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
+     *  *
      * @param string                      $clusterId
      * @param string                      $nodepoolId
-     * @param DescribeNodePoolVulsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param DescribeNodePoolVulsRequest $request    DescribeNodePoolVulsRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeNodePoolVulsResponse
+     * @return DescribeNodePoolVulsResponse DescribeNodePoolVulsResponse
      */
     public function describeNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
     {
@@ -3507,11 +3721,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the vulnerability information of a node pool, such as vulnerability names and severity levels, by specifying the ID of the node pool. We recommend that you periodically scan node pools for vulnerabilities to enhance cluster security.
+     *  *
      * @param string                      $clusterId
      * @param string                      $nodepoolId
-     * @param DescribeNodePoolVulsRequest $request
+     * @param DescribeNodePoolVulsRequest $request    DescribeNodePoolVulsRequest
      *
-     * @return DescribeNodePoolVulsResponse
+     * @return DescribeNodePoolVulsResponse DescribeNodePoolVulsResponse
      */
     public function describeNodePoolVuls($clusterId, $nodepoolId, $request)
     {
@@ -3522,10 +3738,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary You can call the DescribePolicies operation to query a list of policies.
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePoliciesResponse
+     * @return DescribePoliciesResponse DescribePoliciesResponse
      */
     public function describePoliciesWithOptions($headers, $runtime)
     {
@@ -3548,7 +3766,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @return DescribePoliciesResponse
+     * @summary You can call the DescribePolicies operation to query a list of policies.
+     *  *
+     * @return DescribePoliciesResponse DescribePoliciesResponse
      */
     public function describePolicies()
     {
@@ -3559,11 +3779,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Container security policies for Container Service for Kubernetes (ACK) clusters offer a variety of built-in policies, including cis-k8s, infra, k8s-general, and PodSecurityPolicy. You can use these policies to ensure the security of containers running in a production environment. You can call the DescribePolicyDetails operation to query information about a policy, such as the content, action, and severity level of the policy.
+     *  *
      * @param string         $policyName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyDetailsResponse
+     * @return DescribePolicyDetailsResponse DescribePolicyDetailsResponse
      */
     public function describePolicyDetailsWithOptions($policyName, $headers, $runtime)
     {
@@ -3586,9 +3808,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Container security policies for Container Service for Kubernetes (ACK) clusters offer a variety of built-in policies, including cis-k8s, infra, k8s-general, and PodSecurityPolicy. You can use these policies to ensure the security of containers running in a production environment. You can call the DescribePolicyDetails operation to query information about a policy, such as the content, action, and severity level of the policy.
+     *  *
      * @param string $policyName
      *
-     * @return DescribePolicyDetailsResponse
+     * @return DescribePolicyDetailsResponse DescribePolicyDetailsResponse
      */
     public function describePolicyDetails($policyName)
     {
@@ -3599,11 +3823,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribePolicyGovernanceInCluster operation to query information about policies in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyGovernanceInClusterResponse
+     * @return DescribePolicyGovernanceInClusterResponse DescribePolicyGovernanceInClusterResponse
      */
     public function describePolicyGovernanceInClusterWithOptions($clusterId, $headers, $runtime)
     {
@@ -3626,9 +3852,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribePolicyGovernanceInCluster operation to query information about policies in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string $clusterId
      *
-     * @return DescribePolicyGovernanceInClusterResponse
+     * @return DescribePolicyGovernanceInClusterResponse DescribePolicyGovernanceInClusterResponse
      */
     public function describePolicyGovernanceInCluster($clusterId)
     {
@@ -3639,12 +3867,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
+     *  *
      * @param string                         $clusterId
-     * @param DescribePolicyInstancesRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param DescribePolicyInstancesRequest $request   DescribePolicyInstancesRequest
+     * @param string[]                       $headers   map
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyInstancesResponse
+     * @return DescribePolicyInstancesResponse DescribePolicyInstancesResponse
      */
     public function describePolicyInstancesWithOptions($clusterId, $request, $headers, $runtime)
     {
@@ -3676,10 +3906,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the detailed information about policy instances of the specified type in a Container Service for Kubernetes (ACK) cluster, such as the policy description and severity level. You can choose a type of security policy for an ACK cluster, specify the action and applicable scope of the policy, and then create and deploy a policy instance.
+     *  *
      * @param string                         $clusterId
-     * @param DescribePolicyInstancesRequest $request
+     * @param DescribePolicyInstancesRequest $request   DescribePolicyInstancesRequest
      *
-     * @return DescribePolicyInstancesResponse
+     * @return DescribePolicyInstancesResponse DescribePolicyInstancesResponse
      */
     public function describePolicyInstances($clusterId, $request)
     {
@@ -3690,11 +3922,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribePolicyInstancesStatusResponse
+     * @return DescribePolicyInstancesStatusResponse DescribePolicyInstancesStatusResponse
      */
     public function describePolicyInstancesStatusWithOptions($clusterId, $headers, $runtime)
     {
@@ -3717,9 +3951,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the deployment of policy instances in the current Container Service for Kubernetes (ACK) cluster, including the number of policy instances of each type and the number of policy types of each severity level.
+     *  *
      * @param string $clusterId
      *
-     * @return DescribePolicyInstancesStatusResponse
+     * @return DescribePolicyInstancesStatusResponse DescribePolicyInstancesStatusResponse
      */
     public function describePolicyInstancesStatus($clusterId)
     {
@@ -3730,9 +3966,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****Only Alibaba Cloud accounts can call this API operation.
-     *   *
+     * @summary You can use an Alibaba Cloud account to call the DescribeSubaccountK8sClusterUserConfig operation to obtain the cluster kubeconfig file of a RAM user or RAM role.
+     *  *
+     * @description **
+     * ****Only Alibaba Cloud accounts can call this API operation.
+     *  *
      * @param string                                        $ClusterId
      * @param string                                        $Uid
      * @param DescribeSubaccountK8sClusterUserConfigRequest $request   DescribeSubaccountK8sClusterUserConfigRequest
@@ -3771,9 +4009,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****Only Alibaba Cloud accounts can call this API operation.
-     *   *
+     * @summary You can use an Alibaba Cloud account to call the DescribeSubaccountK8sClusterUserConfig operation to obtain the cluster kubeconfig file of a RAM user or RAM role.
+     *  *
+     * @description **
+     * ****Only Alibaba Cloud accounts can call this API operation.
+     *  *
      * @param string                                        $ClusterId
      * @param string                                        $Uid
      * @param DescribeSubaccountK8sClusterUserConfigRequest $request   DescribeSubaccountK8sClusterUserConfigRequest
@@ -3789,11 +4029,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries detailed information about a task, such as the task type, status, and progress.
+     *  *
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTaskInfoResponse
+     * @return DescribeTaskInfoResponse DescribeTaskInfoResponse
      */
     public function describeTaskInfoWithOptions($taskId, $headers, $runtime)
     {
@@ -3816,9 +4058,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries detailed information about a task, such as the task type, status, and progress.
+     *  *
      * @param string $taskId
      *
-     * @return DescribeTaskInfoResponse
+     * @return DescribeTaskInfoResponse DescribeTaskInfoResponse
      */
     public function describeTaskInfo($taskId)
     {
@@ -3829,12 +4073,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+     *  *
      * @param string                           $TemplateId
-     * @param DescribeTemplateAttributeRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeTemplateAttributeRequest $request    DescribeTemplateAttributeRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DescribeTemplateAttributeResponse
+     * @return DescribeTemplateAttributeResponse DescribeTemplateAttributeResponse
      */
     public function describeTemplateAttributeWithOptions($TemplateId, $request, $headers, $runtime)
     {
@@ -3863,10 +4109,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+     *  *
      * @param string                           $TemplateId
-     * @param DescribeTemplateAttributeRequest $request
+     * @param DescribeTemplateAttributeRequest $request    DescribeTemplateAttributeRequest
      *
-     * @return DescribeTemplateAttributeResponse
+     * @return DescribeTemplateAttributeResponse DescribeTemplateAttributeResponse
      */
     public function describeTemplateAttribute($TemplateId, $request)
     {
@@ -3877,11 +4125,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplatesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+     *  *
+     * @param DescribeTemplatesRequest $request DescribeTemplatesRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTemplatesResponse
+     * @return DescribeTemplatesResponse DescribeTemplatesResponse
      */
     public function describeTemplatesWithOptions($request, $headers, $runtime)
     {
@@ -3916,9 +4166,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplatesRequest $request
+     * @summary An orchestration template defines and describes a group of Kubernetes resources. It declaratively describes the configuration of an application or how an application runs. You can call the DescribeTemplates API operation to query orchestration templates and their detailed information, including access permissions, YAML content, and labels.
+     *  *
+     * @param DescribeTemplatesRequest $request DescribeTemplatesRequest
      *
-     * @return DescribeTemplatesResponse
+     * @return DescribeTemplatesResponse DescribeTemplatesResponse
      */
     public function describeTemplates($request)
     {
@@ -3929,12 +4181,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeTrigger operation to query triggers.
+     *  *
      * @param string                 $clusterId
-     * @param DescribeTriggerRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DescribeTriggerRequest $request   DescribeTriggerRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeTriggerResponse
+     * @return DescribeTriggerResponse DescribeTriggerResponse
      */
     public function describeTriggerWithOptions($clusterId, $request, $headers, $runtime)
     {
@@ -3972,10 +4226,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the DescribeTrigger operation to query triggers.
+     *  *
      * @param string                 $clusterId
-     * @param DescribeTriggerRequest $request
+     * @param DescribeTriggerRequest $request   DescribeTriggerRequest
      *
-     * @return DescribeTriggerResponse
+     * @return DescribeTriggerResponse DescribeTriggerResponse
      */
     public function describeTrigger($clusterId, $request)
     {
@@ -3986,11 +4242,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the Role-Based Access Control (RBAC) permissions that are granted to the current Resource Access Management (RAM) user or RAM role on a Container Service for Kubernetes (ACK) cluster. You can use Kubernetes namespaces to limit users from accessing resources in an ACK cluster. Users that are granted RBAC permissions only on one namespace cannot access resources in other namespaces.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserClusterNamespacesResponse
+     * @return DescribeUserClusterNamespacesResponse DescribeUserClusterNamespacesResponse
      */
     public function describeUserClusterNamespacesWithOptions($ClusterId, $headers, $runtime)
     {
@@ -4013,9 +4271,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries the Role-Based Access Control (RBAC) permissions that are granted to the current Resource Access Management (RAM) user or RAM role on a Container Service for Kubernetes (ACK) cluster. You can use Kubernetes namespaces to limit users from accessing resources in an ACK cluster. Users that are granted RBAC permissions only on one namespace cannot access resources in other namespaces.
+     *  *
      * @param string $ClusterId
      *
-     * @return DescribeUserClusterNamespacesResponse
+     * @return DescribeUserClusterNamespacesResponse DescribeUserClusterNamespacesResponse
      */
     public function describeUserClusterNamespaces($ClusterId)
     {
@@ -4026,11 +4286,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
+     *  *
      * @param string         $uid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserPermissionResponse
+     * @return DescribeUserPermissionResponse DescribeUserPermissionResponse
      */
     public function describeUserPermissionWithOptions($uid, $headers, $runtime)
     {
@@ -4053,9 +4315,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary In an Container Service for Kubernetes (ACK) cluster, you can create and specify different Resource Access Management (RAM) users or roles to have different access permissions. This ensures access control and resource isolation. You can call the DescribeUserPermission operation to query the permissions that are granted to a RAM user or RAM role on ACK clusters, including the resources that are allowed to access, the scope of the permissions, the predefined role, and the permission source.
+     *  *
      * @param string $uid
      *
-     * @return DescribeUserPermissionResponse
+     * @return DescribeUserPermissionResponse DescribeUserPermissionResponse
      */
     public function describeUserPermission($uid)
     {
@@ -4066,10 +4330,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserQuotaResponse
+     * @return DescribeUserQuotaResponse DescribeUserQuotaResponse
      */
     public function describeUserQuotaWithOptions($headers, $runtime)
     {
@@ -4092,7 +4358,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @return DescribeUserQuotaResponse
+     * @summary Queries quotas related to Container Service for Kubernetes (ACK) clusters, node pools, and nodes. To increase a quota, submit an application in the Quota Center console.
+     *  *
+     * @return DescribeUserQuotaResponse DescribeUserQuotaResponse
      */
     public function describeUserQuota()
     {
@@ -4103,10 +4371,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary You can call the DescribeWorkflows operation to query all workflows.
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWorkflowsResponse
+     * @return DescribeWorkflowsResponse DescribeWorkflowsResponse
      */
     public function describeWorkflowsWithOptions($headers, $runtime)
     {
@@ -4129,7 +4399,9 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @return DescribeWorkflowsResponse
+     * @summary You can call the DescribeWorkflows operation to query all workflows.
+     *  *
+     * @return DescribeWorkflowsResponse DescribeWorkflowsResponse
      */
     public function describeWorkflows()
     {
@@ -4140,13 +4412,15 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
+     *  *
      * @param string                           $clusterid
      * @param string                           $edgeMachineid
-     * @param EdgeClusterAddEdgeMachineRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param EdgeClusterAddEdgeMachineRequest $request       EdgeClusterAddEdgeMachineRequest
+     * @param string[]                         $headers       map
+     * @param RuntimeOptions                   $runtime       runtime options for this request RuntimeOptions
      *
-     * @return EdgeClusterAddEdgeMachineResponse
+     * @return EdgeClusterAddEdgeMachineResponse EdgeClusterAddEdgeMachineResponse
      */
     public function edgeClusterAddEdgeMachineWithOptions($clusterid, $edgeMachineid, $request, $headers, $runtime)
     {
@@ -4181,11 +4455,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
+     *  *
      * @param string                           $clusterid
      * @param string                           $edgeMachineid
-     * @param EdgeClusterAddEdgeMachineRequest $request
+     * @param EdgeClusterAddEdgeMachineRequest $request       EdgeClusterAddEdgeMachineRequest
      *
-     * @return EdgeClusterAddEdgeMachineResponse
+     * @return EdgeClusterAddEdgeMachineResponse EdgeClusterAddEdgeMachineResponse
      */
     public function edgeClusterAddEdgeMachine($clusterid, $edgeMachineid, $request)
     {
@@ -4196,11 +4472,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
-     *   * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
-     *   * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
-     *   * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
-     *   *
+     * @summary Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
+     *  *
+     * @description 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
+     * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
+     * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
+     * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+     *  *
      * @param string                 $clusterId
      * @param string                 $nodepoolId
      * @param FixNodePoolVulsRequest $request    FixNodePoolVulsRequest
@@ -4245,11 +4523,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
-     *   * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
-     *   * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
-     *   * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
-     *   *
+     * @summary Patches node vulnerabilities in a node pool to enhance node security. Cloud Security provided by Alibaba Cloud periodically scans Elastic Compute Service (ECS) instances for vulnerabilities and provides suggestions on how to patch the detected vulnerabilities. Vulnerability patching may require node restarts. Make sure that your cluster has sufficient idle nodes for node draining.
+     *  *
+     * @description 1.  The Common Vulnerabilities and Exposures (CVE) patching feature is developed based on Security Center. To use this feature, you must purchase the Security Center Ultimate Edition that supports Container Service for Kubernetes (ACK).
+     * 2.  ACK may need to restart nodes to patch certain vulnerabilities. ACK drains a node before the node restarts. Make sure that the ACK cluster has sufficient idle nodes to host the pods evicted from the trained nodes. For example, you can scale out a node pool before you patch vulnerabilities for the nodes in the node pool.
+     * 3.  Security Center ensures the compatibility of CVE patches. We recommend that you check the compatibility of a CVE patch with your application before you install the patch. You can pause or cancel a CVE patching task anytime.
+     * 4.  CVE patching is a progressive task that consists of multiple batches. After you pause or cancel a CVE patching task, ACK continues to process the dispatched batches. Only the batches that have not been dispatched are paused or canceled.
+     *  *
      * @param string                 $clusterId
      * @param string                 $nodepoolId
      * @param FixNodePoolVulsRequest $request    FixNodePoolVulsRequest
@@ -4265,12 +4545,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
+     *  *
      * @param string         $clusterId
      * @param string         $instanceName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetClusterAddonInstanceResponse
+     * @return GetClusterAddonInstanceResponse GetClusterAddonInstanceResponse
      */
     public function getClusterAddonInstanceWithOptions($clusterId, $instanceName, $headers, $runtime)
     {
@@ -4293,10 +4575,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the GetClusterAddonInstance operation to query the information of a component instance in a cluster, including the version, configurations, and log status of the component instance.
+     *  *
      * @param string $clusterId
      * @param string $instanceName
      *
-     * @return GetClusterAddonInstanceResponse
+     * @return GetClusterAddonInstanceResponse GetClusterAddonInstanceResponse
      */
     public function getClusterAddonInstance($clusterId, $instanceName)
     {
@@ -4307,12 +4591,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
+     *  *
      * @param string         $clusterId
      * @param string         $checkId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetClusterCheckResponse
+     * @return GetClusterCheckResponse GetClusterCheckResponse
      */
     public function getClusterCheckWithOptions($clusterId, $checkId, $headers, $runtime)
     {
@@ -4335,10 +4621,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Queries a cluster check task by cluster ID and task ID. You can view the status, check items, creation time, and end time of the task. Container Intelligence Service (CIS) provides a variety of Kubernetes cluster check features, including cluster update check, cluster migration check, component installation check, component update check, and node pool check.
+     *  *
      * @param string $clusterId
      * @param string $checkId
      *
-     * @return GetClusterCheckResponse
+     * @return GetClusterCheckResponse GetClusterCheckResponse
      */
     public function getClusterCheck($clusterId, $checkId)
     {
@@ -4349,12 +4637,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
+     *  *
      * @param string                      $ClusterId
-     * @param GetKubernetesTriggerRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param GetKubernetesTriggerRequest $request   GetKubernetesTriggerRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetKubernetesTriggerResponse
+     * @return GetKubernetesTriggerResponse GetKubernetesTriggerResponse
      */
     public function getKubernetesTriggerWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -4392,10 +4682,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
+     *  *
      * @param string                      $ClusterId
-     * @param GetKubernetesTriggerRequest $request
+     * @param GetKubernetesTriggerRequest $request   GetKubernetesTriggerRequest
      *
-     * @return GetKubernetesTriggerResponse
+     * @return GetKubernetesTriggerResponse GetKubernetesTriggerResponse
      */
     public function getKubernetesTrigger($ClusterId, $request)
     {
@@ -4406,11 +4698,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetUpgradeStatusResponse
+     * @return GetUpgradeStatusResponse GetUpgradeStatusResponse
      */
     public function getUpgradeStatusWithOptions($ClusterId, $headers, $runtime)
     {
@@ -4433,9 +4727,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the GetUpgradeStatus operation to query the update progress of a cluster by cluster ID.
+     *  *
      * @param string $ClusterId
      *
-     * @return GetUpgradeStatusResponse
+     * @return GetUpgradeStatusResponse GetUpgradeStatusResponse
      */
     public function getUpgradeStatus($ClusterId)
     {
@@ -4446,11 +4742,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * ****
-     *   * *   Make sure that you have granted the RAM user at least read-only permissions on the desired ACK clusters in the RAM console. Otherwise, the `ErrorRamPolicyConfig` error code is returned. For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](~~86485~~).
-     *   * *   If you use a RAM user to call this API operation, make sure that the RAM user is authorized to modify the permissions of other RAM users on the desired ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](~~119035~~).
-     *   * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
-     *   *
+     * @summary You can call the GrantPermissions operation to grant a Resource Access Management (RAM) user the permissions to manage Container Service for Kubernetes (ACK) clusters.
+     *  *
+     * @description ****
+     * *   Make sure that you have granted the RAM user at least read-only permissions on the desired ACK clusters in the RAM console. Otherwise, the `ErrorRamPolicyConfig` error code is returned. For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](https://help.aliyun.com/document_detail/86485.html).
+     * *   If you use a RAM user to call this API operation, make sure that the RAM user is authorized to modify the permissions of other RAM users on the desired ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
+     * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
+     *  *
      * @param string                  $uid
      * @param GrantPermissionsRequest $request GrantPermissionsRequest
      * @param string[]                $headers map
@@ -4481,11 +4779,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * ****
-     *   * *   Make sure that you have granted the RAM user at least read-only permissions on the desired ACK clusters in the RAM console. Otherwise, the `ErrorRamPolicyConfig` error code is returned. For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](~~86485~~).
-     *   * *   If you use a RAM user to call this API operation, make sure that the RAM user is authorized to modify the permissions of other RAM users on the desired ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](~~119035~~).
-     *   * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
-     *   *
+     * @summary You can call the GrantPermissions operation to grant a Resource Access Management (RAM) user the permissions to manage Container Service for Kubernetes (ACK) clusters.
+     *  *
+     * @description ****
+     * *   Make sure that you have granted the RAM user at least read-only permissions on the desired ACK clusters in the RAM console. Otherwise, the `ErrorRamPolicyConfig` error code is returned. For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](https://help.aliyun.com/document_detail/86485.html).
+     * *   If you use a RAM user to call this API operation, make sure that the RAM user is authorized to modify the permissions of other RAM users on the desired ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` error code is returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](https://help.aliyun.com/document_detail/119035.html).
+     * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
+     *  *
      * @param string                  $uid
      * @param GrantPermissionsRequest $request GrantPermissionsRequest
      *
@@ -4500,12 +4800,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Installs a component by specifying the name and version of the component. To enhance Kubernetes capabilities, you can install a variety of components in Container Service for Kubernetes (ACK) clusters, such as fully-managed core components and application, logging and monitoring, network, storage, and security group components.
+     *  *
      * @param string                      $ClusterId
-     * @param InstallClusterAddonsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param InstallClusterAddonsRequest $request   InstallClusterAddonsRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return InstallClusterAddonsResponse
+     * @return InstallClusterAddonsResponse InstallClusterAddonsResponse
      */
     public function installClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -4530,10 +4832,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Installs a component by specifying the name and version of the component. To enhance Kubernetes capabilities, you can install a variety of components in Container Service for Kubernetes (ACK) clusters, such as fully-managed core components and application, logging and monitoring, network, storage, and security group components.
+     *  *
      * @param string                      $ClusterId
-     * @param InstallClusterAddonsRequest $request
+     * @param InstallClusterAddonsRequest $request   InstallClusterAddonsRequest
      *
-     * @return InstallClusterAddonsResponse
+     * @return InstallClusterAddonsResponse InstallClusterAddonsResponse
      */
     public function installClusterAddons($ClusterId, $request)
     {
@@ -4544,11 +4848,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param ListAddonsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary You can call the ListAddons operation to query all available components in a cluster. You can query all available components in a cluster by specifying the ID of the cluster. You can also specify parameters such as the region, cluster type, cluster subtype (profile), cluster specification, and cluster version to get a list of available components in clusters that meet the conditions.
+     *  *
+     * @param ListAddonsRequest $request ListAddonsRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAddonsResponse
+     * @return ListAddonsResponse ListAddonsResponse
      */
     public function listAddonsWithOptions($request, $headers, $runtime)
     {
@@ -4592,9 +4898,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param ListAddonsRequest $request
+     * @summary You can call the ListAddons operation to query all available components in a cluster. You can query all available components in a cluster by specifying the ID of the cluster. You can also specify parameters such as the region, cluster type, cluster subtype (profile), cluster specification, and cluster version to get a list of available components in clusters that meet the conditions.
+     *  *
+     * @param ListAddonsRequest $request ListAddonsRequest
      *
-     * @return ListAddonsResponse
+     * @return ListAddonsResponse ListAddonsResponse
      */
     public function listAddons($request)
     {
@@ -4605,11 +4913,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ListClusterAddonInstances operation to query information about the components that are installed in a cluster.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListClusterAddonInstancesResponse
+     * @return ListClusterAddonInstancesResponse ListClusterAddonInstancesResponse
      */
     public function listClusterAddonInstancesWithOptions($clusterId, $headers, $runtime)
     {
@@ -4632,9 +4942,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ListClusterAddonInstances operation to query information about the components that are installed in a cluster.
+     *  *
      * @param string $clusterId
      *
-     * @return ListClusterAddonInstancesResponse
+     * @return ListClusterAddonInstancesResponse ListClusterAddonInstancesResponse
      */
     public function listClusterAddonInstances($clusterId)
     {
@@ -4645,12 +4957,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
+     *  *
      * @param string                   $clusterId
-     * @param ListClusterChecksRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListClusterChecksRequest $request   ListClusterChecksRequest
+     * @param string[]                 $headers   map
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListClusterChecksResponse
+     * @return ListClusterChecksResponse ListClusterChecksResponse
      */
     public function listClusterChecksWithOptions($clusterId, $request, $headers, $runtime)
     {
@@ -4682,10 +4996,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ListClusterChecks operation to query all the cluster check results of a cluster.
+     *  *
      * @param string                   $clusterId
-     * @param ListClusterChecksRequest $request
+     * @param ListClusterChecksRequest $request   ListClusterChecksRequest
      *
-     * @return ListClusterChecksResponse
+     * @return ListClusterChecksResponse ListClusterChecksResponse
      */
     public function listClusterChecks($clusterId, $request)
     {
@@ -4696,11 +5012,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param ListOperationPlansRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 获取自动运维执行计划列表
+     *  *
+     * @param ListOperationPlansRequest $request ListOperationPlansRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOperationPlansResponse
+     * @return ListOperationPlansResponse ListOperationPlansResponse
      */
     public function listOperationPlansWithOptions($request, $headers, $runtime)
     {
@@ -4732,9 +5050,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param ListOperationPlansRequest $request
+     * @summary 获取自动运维执行计划列表
+     *  *
+     * @param ListOperationPlansRequest $request ListOperationPlansRequest
      *
-     * @return ListOperationPlansResponse
+     * @return ListOperationPlansResponse ListOperationPlansResponse
      */
     public function listOperationPlans($request)
     {
@@ -4745,11 +5065,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $tmpReq
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+     *  *
+     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
@@ -4798,9 +5120,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries resource labels and the detailed information, such as the key-value pairs of the labels and the clusters to which the labels are added. You can use labels to classify and manage Container Service for Kubernetes (ACK) clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -4811,12 +5135,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Container Service for Kubernetes (ACK) Pro clusters are developed based on ACK Basic clusters. ACK Pro clusters provide all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. In addition, ACK Pro clusters provide you with enhanced reliability, security, and schedulability. ACK Pro clusters are covered by the SLA that supports compensation clauses. ACK Pro clusters are suitable for large-scale businesses that require high stability and security in production environments. We recommend that you migrate from ACK Basic clusters to ACK Pro clusters.
+     *  *
      * @param string                $clusterId
-     * @param MigrateClusterRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param MigrateClusterRequest $request   MigrateClusterRequest
+     * @param string[]              $headers   map
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return MigrateClusterResponse
+     * @return MigrateClusterResponse MigrateClusterResponse
      */
     public function migrateClusterWithOptions($clusterId, $request, $headers, $runtime)
     {
@@ -4848,10 +5174,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Container Service for Kubernetes (ACK) Pro clusters are developed based on ACK Basic clusters. ACK Pro clusters provide all benefits of ACK managed clusters, such as fully-managed control planes and control plane high availability. In addition, ACK Pro clusters provide you with enhanced reliability, security, and schedulability. ACK Pro clusters are covered by the SLA that supports compensation clauses. ACK Pro clusters are suitable for large-scale businesses that require high stability and security in production environments. We recommend that you migrate from ACK Basic clusters to ACK Pro clusters.
+     *  *
      * @param string                $clusterId
-     * @param MigrateClusterRequest $request
+     * @param MigrateClusterRequest $request   MigrateClusterRequest
      *
-     * @return MigrateClusterResponse
+     * @return MigrateClusterResponse MigrateClusterResponse
      */
     public function migrateCluster($clusterId, $request)
     {
@@ -4862,12 +5190,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ModifyCluster operation to modify the cluster configurations by cluster ID.
+     *  *
      * @param string               $ClusterId
-     * @param ModifyClusterRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ModifyClusterRequest $request   ModifyClusterRequest
+     * @param string[]             $headers   map
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterResponse
+     * @return ModifyClusterResponse ModifyClusterResponse
      */
     public function modifyClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -4935,10 +5265,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ModifyCluster operation to modify the cluster configurations by cluster ID.
+     *  *
      * @param string               $ClusterId
-     * @param ModifyClusterRequest $request
+     * @param ModifyClusterRequest $request   ModifyClusterRequest
      *
-     * @return ModifyClusterResponse
+     * @return ModifyClusterResponse ModifyClusterResponse
      */
     public function modifyCluster($ClusterId, $request)
     {
@@ -4949,11 +5281,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
-     *   * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
-     *   * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
-     *   * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
-     *   *
+     * @summary Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
+     *  *
+     * @description You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
+     * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
+     * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
+     * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
+     *  *
      * @param string                    $clusterId
      * @param string                    $componentId
      * @param ModifyClusterAddonRequest $request     ModifyClusterAddonRequest
@@ -4989,11 +5323,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
-     *   * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
-     *   * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
-     *   * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
-     *   *
+     * @summary Modifies the configuration of a cluster component. This operation may affect your businesses. We recommend that you assess the impact, back up data, and perform the operation during off-peak hours.
+     *  *
+     * @description You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
+     * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
+     * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
+     * After you call this operation, the component may be redeployed and restarted. We recommend that you assess the impact before you call this operation.
+     *  *
      * @param string                    $clusterId
      * @param string                    $componentId
      * @param ModifyClusterAddonRequest $request     ModifyClusterAddonRequest
@@ -5009,12 +5345,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
+     *  *
      * @param string                            $ClusterId
-     * @param ModifyClusterConfigurationRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param ModifyClusterConfigurationRequest $request   ModifyClusterConfigurationRequest
+     * @param string[]                          $headers   map
+     * @param RuntimeOptions                    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterConfigurationResponse
+     * @return ModifyClusterConfigurationResponse ModifyClusterConfigurationResponse
      */
     public function modifyClusterConfigurationWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -5043,10 +5381,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
+     *  *
      * @param string                            $ClusterId
-     * @param ModifyClusterConfigurationRequest $request
+     * @param ModifyClusterConfigurationRequest $request   ModifyClusterConfigurationRequest
      *
-     * @return ModifyClusterConfigurationResponse
+     * @return ModifyClusterConfigurationResponse ModifyClusterConfigurationResponse
      */
     public function modifyClusterConfiguration($ClusterId, $request)
     {
@@ -5057,13 +5397,15 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ModifyClusterNodePool operation to modify the configuration of a node pool with the specified node pool ID.
+     *  *
      * @param string                       $ClusterId
      * @param string                       $NodepoolId
-     * @param ModifyClusterNodePoolRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ModifyClusterNodePoolRequest $request    ModifyClusterNodePoolRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterNodePoolResponse
+     * @return ModifyClusterNodePoolResponse ModifyClusterNodePoolResponse
      */
     public function modifyClusterNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
@@ -5113,11 +5455,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ModifyClusterNodePool operation to modify the configuration of a node pool with the specified node pool ID.
+     *  *
      * @param string                       $ClusterId
      * @param string                       $NodepoolId
-     * @param ModifyClusterNodePoolRequest $request
+     * @param ModifyClusterNodePoolRequest $request    ModifyClusterNodePoolRequest
      *
-     * @return ModifyClusterNodePoolResponse
+     * @return ModifyClusterNodePoolResponse ModifyClusterNodePoolResponse
      */
     public function modifyClusterNodePool($ClusterId, $NodepoolId, $request)
     {
@@ -5128,12 +5472,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the labels of a Container Service for Kubernetes (ACK) cluster. You can use labels (key-value pairs) to classify and manage ACK clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+     *  *
      * @param string                   $ClusterId
-     * @param ModifyClusterTagsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ModifyClusterTagsRequest $request   ModifyClusterTagsRequest
+     * @param string[]                 $headers   map
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterTagsResponse
+     * @return ModifyClusterTagsResponse ModifyClusterTagsResponse
      */
     public function modifyClusterTagsWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -5158,10 +5504,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the labels of a Container Service for Kubernetes (ACK) cluster. You can use labels (key-value pairs) to classify and manage ACK clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+     *  *
      * @param string                   $ClusterId
-     * @param ModifyClusterTagsRequest $request
+     * @param ModifyClusterTagsRequest $request   ModifyClusterTagsRequest
      *
-     * @return ModifyClusterTagsResponse
+     * @return ModifyClusterTagsResponse ModifyClusterTagsResponse
      */
     public function modifyClusterTags($ClusterId, $request)
     {
@@ -5172,8 +5520,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
-     *   *
+     * @summary Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
+     *  *
+     * @description >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
+     *  *
      * @param string                          $ClusterId
      * @param string                          $NodepoolId
      * @param ModifyNodePoolNodeConfigRequest $request    ModifyNodePoolNodeConfigRequest
@@ -5215,8 +5565,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
-     *   *
+     * @summary Modifies the configuration of a node pool, such as the kubelet configuration and node rolling update configuration. After you modify the node pool configuration, nodes are batch updated and the kubelet on each node is restarted. This may adversely affect the nodes and workloads. We recommend that you perform this operation during off-peak hours.
+     *  *
+     * @description >  Container Service for Kubernetes (ACK) allows you to modify the kubelet configuration of nodes in a node pool. After you modify the kubelet configuration, the new configuration immediately takes effect on existing nodes in the node pool and is automatically applied to newly added nodes.
+     *  *
      * @param string                          $ClusterId
      * @param string                          $NodepoolId
      * @param ModifyNodePoolNodeConfigRequest $request    ModifyNodePoolNodeConfigRequest
@@ -5232,13 +5584,15 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ModifyPolicyInstance operation to update policy instances in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param ModifyPolicyInstanceRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ModifyPolicyInstanceRequest $request    ModifyPolicyInstanceRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ModifyPolicyInstanceResponse
+     * @return ModifyPolicyInstanceResponse ModifyPolicyInstanceResponse
      */
     public function modifyPolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime)
     {
@@ -5276,11 +5630,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ModifyPolicyInstance operation to update policy instances in a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * @param string                      $clusterId
      * @param string                      $policyName
-     * @param ModifyPolicyInstanceRequest $request
+     * @param ModifyPolicyInstanceRequest $request    ModifyPolicyInstanceRequest
      *
-     * @return ModifyPolicyInstanceResponse
+     * @return ModifyPolicyInstanceResponse ModifyPolicyInstanceResponse
      */
     public function modifyPolicyInstance($clusterId, $policyName, $request)
     {
@@ -5291,9 +5647,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * *   You can activate ACK by using Alibaba Cloud accounts.
-     *   * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
-     *   *
+     * @summary You can call the OpenAckService operation to activate Container Service for Kubernetes (ACK).
+     *  *
+     * @description *   You can activate ACK by using Alibaba Cloud accounts.
+     * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
+     *  *
      * @param OpenAckServiceRequest $request OpenAckServiceRequest
      * @param string[]              $headers map
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -5327,9 +5685,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * *   You can activate ACK by using Alibaba Cloud accounts.
-     *   * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
-     *   *
+     * @summary You can call the OpenAckService operation to activate Container Service for Kubernetes (ACK).
+     *  *
+     * @description *   You can activate ACK by using Alibaba Cloud accounts.
+     * *   To activate ACK by using RAM users, you need to grant the AdministratorAccess permission to the RAM users.
+     *  *
      * @param OpenAckServiceRequest $request OpenAckServiceRequest
      *
      * @return OpenAckServiceResponse OpenAckServiceResponse
@@ -5343,8 +5703,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI PauseClusterUpgrade is deprecated
+     *  *
+     * @summary You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * Deprecated
      *
      * @param string         $ClusterId
@@ -5374,8 +5736,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI PauseClusterUpgrade is deprecated
+     *  *
+     * @summary You can call the PauseClusterUpgrade operation to pause the update of a Container Service for Kubernetes (ACK) cluster.
+     *  *
      * Deprecated
      *
      * @param string $ClusterId
@@ -5391,12 +5755,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
+     *  *
      * @param string         $clusterid
      * @param string         $componentid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return PauseComponentUpgradeResponse
+     * @return PauseComponentUpgradeResponse PauseComponentUpgradeResponse
      */
     public function pauseComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
     {
@@ -5419,10 +5785,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the PauseComponentUpgrade operation to pause the update of a component.
+     *  *
      * @param string $clusterid
      * @param string $componentid
      *
-     * @return PauseComponentUpgradeResponse
+     * @return PauseComponentUpgradeResponse PauseComponentUpgradeResponse
      */
     public function pauseComponentUpgrade($clusterid, $componentid)
     {
@@ -5433,11 +5801,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Pauses an on-going task.
+     *  *
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return PauseTaskResponse
+     * @return PauseTaskResponse PauseTaskResponse
      */
     public function pauseTaskWithOptions($taskId, $headers, $runtime)
     {
@@ -5460,9 +5830,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Pauses an on-going task.
+     *  *
      * @param string $taskId
      *
-     * @return PauseTaskResponse
+     * @return PauseTaskResponse PauseTaskResponse
      */
     public function pauseTask($taskId)
     {
@@ -5473,13 +5845,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * ****
-     *   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
-     *   * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
-     *   * *   Nodes remain in the Unschedulable state when they are being removed.
-     *   * *   You can remove only worker nodes. You cannot remove master nodes.
-     *   *
+     * @deprecated OpenAPI RemoveClusterNodes is deprecated
+     *  *
+     * @summary You can call the RemoveClusterNodes operation to remove nodes from a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description ****
+     * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+     * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+     * *   Nodes remain in the Unschedulable state when they are being removed.
+     * *   You can remove only worker nodes. You cannot remove master nodes.
+     *  *
      * Deprecated
      *
      * @param string                    $ClusterId
@@ -5522,13 +5897,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * ****
-     *   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
-     *   * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
-     *   * *   Nodes remain in the Unschedulable state when they are being removed.
-     *   * *   You can remove only worker nodes. You cannot remove master nodes.
-     *   *
+     * @deprecated OpenAPI RemoveClusterNodes is deprecated
+     *  *
+     * @summary You can call the RemoveClusterNodes operation to remove nodes from a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @description ****
+     * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+     * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+     * *   Nodes remain in the Unschedulable state when they are being removed.
+     * *   You can remove only worker nodes. You cannot remove master nodes.
+     *  *
      * Deprecated
      *
      * @param string                    $ClusterId
@@ -5545,10 +5923,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****
-     *   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
-     *   *
+     * @summary Removes nodes from a node pool.
+     *  *
+     * @description **
+     * ****
+     * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $NodepoolId
      * @param RemoveNodePoolNodesRequest $tmpReq     RemoveNodePoolNodesRequest
@@ -5604,10 +5984,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****
-     *   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
-     *   *
+     * @summary Removes nodes from a node pool.
+     *  *
+     * @description **
+     * ****
+     * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
+     *  *
      * @param string                     $ClusterId
      * @param string                     $NodepoolId
      * @param RemoveNodePoolNodesRequest $request    RemoveNodePoolNodesRequest
@@ -5623,11 +6005,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the RemoveWorkflow operation to delete a workflow.
+     *  *
      * @param string         $workflowName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers      map
+     * @param RuntimeOptions $runtime      runtime options for this request RuntimeOptions
      *
-     * @return RemoveWorkflowResponse
+     * @return RemoveWorkflowResponse RemoveWorkflowResponse
      */
     public function removeWorkflowWithOptions($workflowName, $headers, $runtime)
     {
@@ -5650,9 +6034,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the RemoveWorkflow operation to delete a workflow.
+     *  *
      * @param string $workflowName
      *
-     * @return RemoveWorkflowResponse
+     * @return RemoveWorkflowResponse RemoveWorkflowResponse
      */
     public function removeWorkflow($workflowName)
     {
@@ -5663,13 +6049,15 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the RepairClusterNodePool operation to fix issues on specified nodes in a managed node pool.
+     *  *
      * @param string                       $clusterId
      * @param string                       $nodepoolId
-     * @param RepairClusterNodePoolRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param RepairClusterNodePoolRequest $request    RepairClusterNodePoolRequest
+     * @param string[]                     $headers    map
+     * @param RuntimeOptions               $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RepairClusterNodePoolResponse
+     * @return RepairClusterNodePoolResponse RepairClusterNodePoolResponse
      */
     public function repairClusterNodePoolWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
     {
@@ -5701,11 +6089,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the RepairClusterNodePool operation to fix issues on specified nodes in a managed node pool.
+     *  *
      * @param string                       $clusterId
      * @param string                       $nodepoolId
-     * @param RepairClusterNodePoolRequest $request
+     * @param RepairClusterNodePoolRequest $request    RepairClusterNodePoolRequest
      *
-     * @return RepairClusterNodePoolResponse
+     * @return RepairClusterNodePoolResponse RepairClusterNodePoolResponse
      */
     public function repairClusterNodePool($clusterId, $nodepoolId, $request)
     {
@@ -5716,12 +6106,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
+     *  *
      * @param string         $clusterid
      * @param string         $componentid
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ResumeComponentUpgradeResponse
+     * @return ResumeComponentUpgradeResponse ResumeComponentUpgradeResponse
      */
     public function resumeComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime)
     {
@@ -5744,10 +6136,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ResumeComponentUpgrade operation to resume the update of a component.
+     *  *
      * @param string $clusterid
      * @param string $componentid
      *
-     * @return ResumeComponentUpgradeResponse
+     * @return ResumeComponentUpgradeResponse ResumeComponentUpgradeResponse
      */
     public function resumeComponentUpgrade($clusterid, $componentid)
     {
@@ -5758,11 +6152,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ResumeTask operation to resume a task.
+     *  *
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeTaskResponse
+     * @return ResumeTaskResponse ResumeTaskResponse
      */
     public function resumeTaskWithOptions($taskId, $headers, $runtime)
     {
@@ -5785,9 +6181,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ResumeTask operation to resume a task.
+     *  *
      * @param string $taskId
      *
-     * @return ResumeTaskResponse
+     * @return ResumeTaskResponse ResumeTaskResponse
      */
     public function resumeTask($taskId)
     {
@@ -5798,8 +6196,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ResumeUpgradeCluster is deprecated
+     *  *
+     * @summary You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
+     *  *
      * Deprecated
      *
      * @param string         $ClusterId
@@ -5829,8 +6229,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ResumeUpgradeCluster is deprecated
+     *  *
+     * @summary You can call the ResumeUpgradeCluster operation to resume the update of a cluster by cluster ID.
+     *  *
      * Deprecated
      *
      * @param string $ClusterId
@@ -5846,12 +6248,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the RunClusterCheck operation to initiate cluster checks, such as cluster update prechecks.
+     *  *
      * @param string                 $clusterId
-     * @param RunClusterCheckRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param RunClusterCheckRequest $request   RunClusterCheckRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return RunClusterCheckResponse
+     * @return RunClusterCheckResponse RunClusterCheckResponse
      */
     public function runClusterCheckWithOptions($clusterId, $request, $headers, $runtime)
     {
@@ -5886,10 +6290,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the RunClusterCheck operation to initiate cluster checks, such as cluster update prechecks.
+     *  *
      * @param string                 $clusterId
-     * @param RunClusterCheckRequest $request
+     * @param RunClusterCheckRequest $request   RunClusterCheckRequest
      *
-     * @return RunClusterCheckResponse
+     * @return RunClusterCheckResponse RunClusterCheckResponse
      */
     public function runClusterCheck($clusterId, $request)
     {
@@ -5900,8 +6306,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ScaleCluster is deprecated
+     *  *
+     * @summary 扩容Kubernetes集群
+     *  *
      * Deprecated
      *
      * @param string              $ClusterId
@@ -5992,8 +6400,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ScaleCluster is deprecated
+     *  *
+     * @summary 扩容Kubernetes集群
+     *  *
      * Deprecated
      *
      * @param string              $ClusterId
@@ -6010,13 +6420,15 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ScaleClusterNodePool operation to scale out a node pool by node pool ID.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $NodepoolId
-     * @param ScaleClusterNodePoolRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ScaleClusterNodePoolRequest $request    ScaleClusterNodePoolRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ScaleClusterNodePoolResponse
+     * @return ScaleClusterNodePoolResponse ScaleClusterNodePoolResponse
      */
     public function scaleClusterNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
@@ -6045,11 +6457,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the ScaleClusterNodePool operation to scale out a node pool by node pool ID.
+     *  *
      * @param string                      $ClusterId
      * @param string                      $NodepoolId
-     * @param ScaleClusterNodePoolRequest $request
+     * @param ScaleClusterNodePoolRequest $request    ScaleClusterNodePoolRequest
      *
-     * @return ScaleClusterNodePoolResponse
+     * @return ScaleClusterNodePoolResponse ScaleClusterNodePoolResponse
      */
     public function scaleClusterNodePool($ClusterId, $NodepoolId, $request)
     {
@@ -6060,9 +6474,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to a Container Service for Kubernetes (ACK) cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](~~184928~~).
-     *   *
+     * @summary You can call the ScaleOutCluster operation to scale out a cluster by cluster ID.
+     *  *
+     * @description **
+     * ****The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to a Container Service for Kubernetes (ACK) cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](https://help.aliyun.com/document_detail/184928.html).
+     *  *
      * @param string                 $ClusterId
      * @param ScaleOutClusterRequest $request   ScaleOutClusterRequest
      * @param string[]               $headers   map
@@ -6157,9 +6573,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to a Container Service for Kubernetes (ACK) cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](~~184928~~).
-     *   *
+     * @summary You can call the ScaleOutCluster operation to scale out a cluster by cluster ID.
+     *  *
+     * @description **
+     * ****The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to a Container Service for Kubernetes (ACK) cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](https://help.aliyun.com/document_detail/184928.html).
+     *  *
      * @param string                 $ClusterId
      * @param ScaleOutClusterRequest $request   ScaleOutClusterRequest
      *
@@ -6174,11 +6592,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary The cluster ID.
+     *  *
      * @param string         $clusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ScanClusterVulsResponse
+     * @return ScanClusterVulsResponse ScanClusterVulsResponse
      */
     public function scanClusterVulsWithOptions($clusterId, $headers, $runtime)
     {
@@ -6201,9 +6621,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary The cluster ID.
+     *  *
      * @param string $clusterId
      *
-     * @return ScanClusterVulsResponse
+     * @return ScanClusterVulsResponse ScanClusterVulsResponse
      */
     public function scanClusterVuls($clusterId)
     {
@@ -6215,11 +6637,11 @@ class CS extends OpenApiClient
 
     /**
      * @param string            $ClusterId
-     * @param StartAlertRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param StartAlertRequest $request   StartAlertRequest
+     * @param string[]          $headers   map
+     * @param RuntimeOptions    $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StartAlertResponse
+     * @return StartAlertResponse StartAlertResponse
      */
     public function startAlertWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -6252,9 +6674,9 @@ class CS extends OpenApiClient
 
     /**
      * @param string            $ClusterId
-     * @param StartAlertRequest $request
+     * @param StartAlertRequest $request   StartAlertRequest
      *
-     * @return StartAlertResponse
+     * @return StartAlertResponse StartAlertResponse
      */
     public function startAlert($ClusterId, $request)
     {
@@ -6265,11 +6687,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param StartWorkflowRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary You can call the StartWorkflow operation to create a workflow.
+     *  *
+     * @param StartWorkflowRequest $request StartWorkflowRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartWorkflowResponse
+     * @return StartWorkflowResponse StartWorkflowResponse
      */
     public function startWorkflowWithOptions($request, $headers, $runtime)
     {
@@ -6352,9 +6776,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param StartWorkflowRequest $request
+     * @summary You can call the StartWorkflow operation to create a workflow.
+     *  *
+     * @param StartWorkflowRequest $request StartWorkflowRequest
      *
-     * @return StartWorkflowResponse
+     * @return StartWorkflowResponse StartWorkflowResponse
      */
     public function startWorkflow($request)
     {
@@ -6365,12 +6791,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
+     *  *
      * @param string           $ClusterId
-     * @param StopAlertRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param StopAlertRequest $request   StopAlertRequest
+     * @param string[]         $headers   map
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StopAlertResponse
+     * @return StopAlertResponse StopAlertResponse
      */
     public function stopAlertWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -6402,10 +6830,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the StopAlert operation to disable an alert rule or an alert rule set in the alert center of Container Service for Kubernetes (ACK).
+     *  *
      * @param string           $ClusterId
-     * @param StopAlertRequest $request
+     * @param StopAlertRequest $request   StopAlertRequest
      *
-     * @return StopAlertResponse
+     * @return StopAlertResponse StopAlertResponse
      */
     public function stopAlert($ClusterId, $request)
     {
@@ -6416,11 +6846,13 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Synchronizes the information about a node pool, including the metadata and node information of the node pool.
+     *  *
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return SyncClusterNodePoolResponse
+     * @return SyncClusterNodePoolResponse SyncClusterNodePoolResponse
      */
     public function syncClusterNodePoolWithOptions($ClusterId, $headers, $runtime)
     {
@@ -6443,9 +6875,11 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Synchronizes the information about a node pool, including the metadata and node information of the node pool.
+     *  *
      * @param string $ClusterId
      *
-     * @return SyncClusterNodePoolResponse
+     * @return SyncClusterNodePoolResponse SyncClusterNodePoolResponse
      */
     public function syncClusterNodePool($ClusterId)
     {
@@ -6456,11 +6890,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Adds labels to a Container Service for Kubernetes (ACK) cluster. You can use labels to classify and manage ACK clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -6498,9 +6934,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds labels to a Container Service for Kubernetes (ACK) cluster. You can use labels to classify and manage ACK clusters in order to meet monitoring, cost analysis, and tenant isolation requirements.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -6511,12 +6949,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the UnInstallClusterAddons operation to uninstall the components in a cluster by component names.
+     *  *
      * @param string                        $ClusterId
-     * @param UnInstallClusterAddonsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UnInstallClusterAddonsRequest $request   UnInstallClusterAddonsRequest
+     * @param string[]                      $headers   map
+     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UnInstallClusterAddonsResponse
+     * @return UnInstallClusterAddonsResponse UnInstallClusterAddonsResponse
      */
     public function unInstallClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -6541,10 +6981,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the UnInstallClusterAddons operation to uninstall the components in a cluster by component names.
+     *  *
      * @param string                        $ClusterId
-     * @param UnInstallClusterAddonsRequest $request
+     * @param UnInstallClusterAddonsRequest $request   UnInstallClusterAddonsRequest
      *
-     * @return UnInstallClusterAddonsResponse
+     * @return UnInstallClusterAddonsResponse UnInstallClusterAddonsResponse
      */
     public function unInstallClusterAddons($ClusterId, $request)
     {
@@ -6555,11 +6997,13 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $tmpReq
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Removes labels from a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param UntagResourcesRequest $tmpReq  UntagResourcesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
@@ -6608,9 +7052,11 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes labels from a Container Service for Kubernetes (ACK) cluster.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -6622,10 +7068,10 @@ class CS extends OpenApiClient
 
     /**
      * @param string         $ClusterId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateContactGroupForAlertResponse
+     * @return UpdateContactGroupForAlertResponse UpdateContactGroupForAlertResponse
      */
     public function updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime)
     {
@@ -6650,7 +7096,7 @@ class CS extends OpenApiClient
     /**
      * @param string $ClusterId
      *
-     * @return UpdateContactGroupForAlertResponse
+     * @return UpdateContactGroupForAlertResponse UpdateContactGroupForAlertResponse
      */
     public function updateContactGroupForAlert($ClusterId)
     {
@@ -6661,12 +7107,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the UpdateControlPlaneLog operation to modify the log collection configurations for control plane components in a Container Service for Kubernetes (ACK) managed cluster.
+     *  *
      * @param string                       $ClusterId
-     * @param UpdateControlPlaneLogRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateControlPlaneLogRequest $request   UpdateControlPlaneLogRequest
+     * @param string[]                     $headers   map
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateControlPlaneLogResponse
+     * @return UpdateControlPlaneLogResponse UpdateControlPlaneLogResponse
      */
     public function updateControlPlaneLogWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -6704,10 +7152,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the UpdateControlPlaneLog operation to modify the log collection configurations for control plane components in a Container Service for Kubernetes (ACK) managed cluster.
+     *  *
      * @param string                       $ClusterId
-     * @param UpdateControlPlaneLogRequest $request
+     * @param UpdateControlPlaneLogRequest $request   UpdateControlPlaneLogRequest
      *
-     * @return UpdateControlPlaneLogResponse
+     * @return UpdateControlPlaneLogResponse UpdateControlPlaneLogResponse
      */
     public function updateControlPlaneLog($ClusterId, $request)
     {
@@ -6718,10 +7168,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****
-     *   * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
-     *   *
+     * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
+     *  *
+     * @description **
+     * ****
+     * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+     *  *
      * @param string                                  $ClusterId
      * @param UpdateK8sClusterUserConfigExpireRequest $request   UpdateK8sClusterUserConfigExpireRequest
      * @param string[]                                $headers   map
@@ -6759,10 +7211,12 @@ class CS extends OpenApiClient
     }
 
     /**
-     * **
-     *   * ****
-     *   * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
-     *   *
+     * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
+     *  *
+     * @description **
+     * ****
+     * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+     *  *
      * @param string                                  $ClusterId
      * @param UpdateK8sClusterUserConfigExpireRequest $request   UpdateK8sClusterUserConfigExpireRequest
      *
@@ -6777,12 +7231,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the UpdateTemplate operation to update an orchestration template by template ID.
+     *  *
      * @param string                $TemplateId
-     * @param UpdateTemplateRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateTemplateRequest $request    UpdateTemplateRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplateWithOptions($TemplateId, $request, $headers, $runtime)
     {
@@ -6823,10 +7279,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the UpdateTemplate operation to update an orchestration template by template ID.
+     *  *
      * @param string                $TemplateId
-     * @param UpdateTemplateRequest $request
+     * @param UpdateTemplateRequest $request    UpdateTemplateRequest
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplate($TemplateId, $request)
     {
@@ -6837,12 +7295,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 更新指定RAM用户/角色的RBAC权限
+     *  *
      * @param string                       $uid
-     * @param UpdateUserPermissionsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateUserPermissionsRequest $request UpdateUserPermissionsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserPermissionsResponse
+     * @return UpdateUserPermissionsResponse UpdateUserPermissionsResponse
      */
     public function updateUserPermissionsWithOptions($uid, $request, $headers, $runtime)
     {
@@ -6872,10 +7332,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 更新指定RAM用户/角色的RBAC权限
+     *  *
      * @param string                       $uid
-     * @param UpdateUserPermissionsRequest $request
+     * @param UpdateUserPermissionsRequest $request UpdateUserPermissionsRequest
      *
-     * @return UpdateUserPermissionsResponse
+     * @return UpdateUserPermissionsResponse UpdateUserPermissionsResponse
      */
     public function updateUserPermissions($uid, $request)
     {
@@ -6886,12 +7348,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the UpgradeCluster operation to upgrade a cluster by cluster ID.
+     *  *
      * @param string                $ClusterId
-     * @param UpgradeClusterRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpgradeClusterRequest $request   UpgradeClusterRequest
+     * @param string[]              $headers   map
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpgradeClusterResponse
+     * @return UpgradeClusterResponse UpgradeClusterResponse
      */
     public function upgradeClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -6929,10 +7393,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary You can call the UpgradeCluster operation to upgrade a cluster by cluster ID.
+     *  *
      * @param string                $ClusterId
-     * @param UpgradeClusterRequest $request
+     * @param UpgradeClusterRequest $request   UpgradeClusterRequest
      *
-     * @return UpgradeClusterResponse
+     * @return UpgradeClusterResponse UpgradeClusterResponse
      */
     public function upgradeCluster($ClusterId, $request)
     {
@@ -6943,12 +7409,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
+     *  *
      * @param string                      $ClusterId
-     * @param UpgradeClusterAddonsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param UpgradeClusterAddonsRequest $request   UpgradeClusterAddonsRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpgradeClusterAddonsResponse
+     * @return UpgradeClusterAddonsResponse UpgradeClusterAddonsResponse
      */
     public function upgradeClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -6973,10 +7441,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary Updates cluster components to use new features and patch vulnerabilities. You must update cluster components one after one and update a component only after the previous one is successfully updated. Before you update a component, we recommend that you read the update notes for each component. Cluster component updates may affect your businesses. Assess the impact, back up data, and perform the update during off-peak hours.
+     *  *
      * @param string                      $ClusterId
-     * @param UpgradeClusterAddonsRequest $request
+     * @param UpgradeClusterAddonsRequest $request   UpgradeClusterAddonsRequest
      *
-     * @return UpgradeClusterAddonsResponse
+     * @return UpgradeClusterAddonsResponse UpgradeClusterAddonsResponse
      */
     public function upgradeClusterAddons($ClusterId, $request)
     {
@@ -6987,8 +7457,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
-     *   *
+     * @summary You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+     *  *
+     * @description This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+     *  *
      * @param string                        $ClusterId
      * @param string                        $NodepoolId
      * @param UpgradeClusterNodepoolRequest $request    UpgradeClusterNodepoolRequest
@@ -7042,8 +7514,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
-     *   *
+     * @summary You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+     *  *
+     * @description This operation allows you to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+     *  *
      * @param string                        $ClusterId
      * @param string                        $NodepoolId
      * @param UpgradeClusterNodepoolRequest $request    UpgradeClusterNodepoolRequest

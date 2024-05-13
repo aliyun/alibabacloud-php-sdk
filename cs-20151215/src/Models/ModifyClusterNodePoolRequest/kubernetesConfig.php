@@ -77,7 +77,7 @@ class kubernetesConfig extends Model
     public $unschedulable;
 
     /**
-     * @description The user-defined data of the node pool. For more information, see [Prepare user data](~~49121~~).
+     * @description The user-defined data of the node pool. For more information, see [Prepare user data](https://help.aliyun.com/document_detail/49121.html).
      *
      * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi
      *

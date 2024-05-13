@@ -11,6 +11,7 @@ class DescribeTriggerRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example web-server
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeTriggerRequest extends Model
     /**
      * @description The namespace to which the application belongs.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string

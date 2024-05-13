@@ -47,7 +47,7 @@ class body extends Model
      * @description The type of predefined role. Valid values:
      *
      *   `admin`: administrator
-     *   `ops`: O\&M engineer
+     *   `ops`: O\\&M engineer
      *   `dev`: developer
      *   `restricted`: restricted user
      *   `custom`: custom role

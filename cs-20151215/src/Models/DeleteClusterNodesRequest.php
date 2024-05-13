@@ -24,6 +24,7 @@ class DeleteClusterNodesRequest extends Model
     /**
      * @description The list of nodes to be removed. You need to specify the name of the nodes used in the cluster, for example, `cn-hangzhou.192.168.0.70`.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $nodes;

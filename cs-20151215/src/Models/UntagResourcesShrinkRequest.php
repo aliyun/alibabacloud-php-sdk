@@ -23,6 +23,7 @@ class UntagResourcesShrinkRequest extends Model
     /**
      * @description The region ID of the resources.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +33,7 @@ class UntagResourcesShrinkRequest extends Model
     /**
      * @description The list of resource IDs.
      *
+     * This parameter is required.
      * @var string
      */
     public $resourceIdsShrink;
@@ -39,6 +41,7 @@ class UntagResourcesShrinkRequest extends Model
     /**
      * @description The type of resource. Set the value to `CLUSTER`.
      *
+     * This parameter is required.
      * @example CLUSTER
      *
      * @var string
@@ -48,6 +51,7 @@ class UntagResourcesShrinkRequest extends Model
     /**
      * @description The list of keys of the labels that you want to remove.
      *
+     * This parameter is required.
      * @var string
      */
     public $tagKeysShrink;

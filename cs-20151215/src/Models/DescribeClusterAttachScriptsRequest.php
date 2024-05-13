@@ -62,7 +62,7 @@ class DescribeClusterAttachScriptsRequest extends Model
      * @description The node configurations for the existing instance that you want to add as a node.
      *
      * >  This parameter is required if you want to add the existing node to an ACK Edge cluster.
-     * @example {\"enableIptables\": true,\"manageRuntime\": true,\"quiet\": true,\"allowedClusterAddons\": [\"kube-proxy\",\"flannel\",\"coredns\"]}
+     * @example {\\"enableIptables\\": true,\\"manageRuntime\\": true,\\"quiet\\": true,\\"allowedClusterAddons\\": [\\"kube-proxy\\",\\"flannel\\",\\"coredns\\"]}
      *
      * @var string
      */

@@ -20,6 +20,7 @@ class CheckControlPlaneLogEnableResponseBody extends Model
     /**
      * @description The control plane components for which log collection is enabled.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $components;

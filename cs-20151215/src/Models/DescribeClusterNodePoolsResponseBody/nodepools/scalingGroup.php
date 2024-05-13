@@ -180,7 +180,7 @@ class scalingGroup extends Model
      *
      **Note** `COST_OPTIMIZED` takes effect only when multiple instance types or preemptible instances are specified in the auto scaling conflagrations.
      *
-     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](~~71516~~).
+     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
      *
      * @example COST_OPTIMIZED
      *
@@ -353,7 +353,7 @@ class scalingGroup extends Model
      *   SpotWithPriceLimit: a preemptible instance that is configured with the highest bid price.
      *   SpotAsPriceGo: a preemptible instance for which the system automatically bids based on the current market price.
      *
-     * For more information, see [Preemptible instances](~~157759~~).
+     * For more information, see [Preemptible instances](https://help.aliyun.com/document_detail/157759.html).
      * @example NoSpot
      *
      * @var string
@@ -362,7 +362,7 @@ class scalingGroup extends Model
 
     /**
      * @description Specifies whether to enable the burst feature for system disks. Valid values:
-     * This parameter is supported only when SystemDiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks. ](~~368372~~)
+     * This parameter is supported only when SystemDiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks. ](https://help.aliyun.com/document_detail/368372.html)
      * @example true
      *
      * @var bool
@@ -426,7 +426,7 @@ class scalingGroup extends Model
 
     /**
      * @description The predefined IOPS of a system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS} Baseline IOPS = min{1,800 + 50 × Capacity, 50,000}
-     * This parameter is supported only when SystemDiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~).
+     * This parameter is supported only when SystemDiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 1000
      *
      * @var int

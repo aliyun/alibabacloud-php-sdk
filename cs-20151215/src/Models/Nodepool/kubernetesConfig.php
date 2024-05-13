@@ -37,6 +37,8 @@ class kubernetesConfig extends Model
     public $nodeNameMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example docker
      *
      * @var string
@@ -44,6 +46,8 @@ class kubernetesConfig extends Model
     public $runtime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 19.03.5
      *
      * @var string

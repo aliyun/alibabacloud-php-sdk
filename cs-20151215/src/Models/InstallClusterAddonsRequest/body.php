@@ -11,7 +11,7 @@ class body extends Model
     /**
      * @description The custom component settings that you want to use. The value is a JSON string.
      *
-     * @example {\"IngressDashboardEnabled\":\"true\",\"sls_project_name\":\"your_sls_project_name\"}"}
+     * @example {\\"IngressDashboardEnabled\\":\\"true\\",\\"sls_project_name\\":\\"your_sls_project_name\\"}"}
      *
      * @var string
      */
@@ -20,6 +20,7 @@ class body extends Model
     /**
      * @description The component name.
      *
+     * This parameter is required.
      * @example ags-metrics-collector
      *
      * @var string
@@ -29,7 +30,7 @@ class body extends Model
     /**
      * @description The component version.
      *
-     * >  You can call the [DescribeClusterAddonsVersion](~~197434~~) operation to query the version of a component.
+     * This parameter is required.
      * @example v1.0.0.2-cc3b2d6-aliyun
      *
      * @var string

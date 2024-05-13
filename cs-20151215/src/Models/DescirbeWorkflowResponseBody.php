@@ -101,7 +101,7 @@ class DescirbeWorkflowResponseBody extends Model
     /**
      * @description The user input parameters.
      *
-     * @example {\"wgs_oss_region\":\"cn-shenzhen\",\"wgs_fastq_first_name\":\"fastq/huada/MGISEQ-200019SZ0002402\",\"wgs_fastq_second_name\":\"fastq/huada/MGISEQ-200019SZ0002402\",\"wgs_bucket_name\":\"gene-shenzhen\",\"wgs_vcf_file_name\":\"output/vcf/huada.vcf\",\"wgs_bam_file_name\":\"output/bam/huada.bam\",\"wgs_reference_file\":\"hg19\",\"wgs_service\":\"g\"}
+     * @example {\\"wgs_oss_region\\":\\"cn-shenzhen\\",\\"wgs_fastq_first_name\\":\\"fastq/huada/MGISEQ-200019SZ0002402\\",\\"wgs_fastq_second_name\\":\\"fastq/huada/MGISEQ-200019SZ0002402\\",\\"wgs_bucket_name\\":\\"gene-shenzhen\\",\\"wgs_vcf_file_name\\":\\"output/vcf/huada.vcf\\",\\"wgs_bam_file_name\\":\\"output/bam/huada.bam\\",\\"wgs_reference_file\\":\\"hg19\\",\\"wgs_service\\":\\"g\\"}
      *
      * @var string
      */

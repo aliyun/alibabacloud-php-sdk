@@ -11,7 +11,7 @@ class CreateEdgeMachineRequest extends Model
     /**
      * @description The `hostname` of the cloud-native box.
      *
-     * >  After the cloud-native box is activated, the `hostname` is automatically modified. The `hostname` is prefixed with the model and the prefix is followed by a random string.
+     * This parameter is required.
      * @example ACK-B-B010-****
      *
      * @var string
@@ -21,6 +21,7 @@ class CreateEdgeMachineRequest extends Model
     /**
      * @description The model of the cloud-native box.
      *
+     * This parameter is required.
      * @example ACK-V-B010
      *
      * @var string
@@ -30,6 +31,7 @@ class CreateEdgeMachineRequest extends Model
     /**
      * @description The serial number of the cloud-native box.
      *
+     * This parameter is required.
      * @example Q2CB5XZAFBFG****
      *
      * @var string

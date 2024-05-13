@@ -39,7 +39,7 @@ class body extends Model
     public $runtimes;
 
     /**
-     * @description The Kubernetes version that is supported by ACK. For more information, see [Release notes for Kubernetes versions](~~185269~~).
+     * @description The Kubernetes version that is supported by ACK. For more information, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
      *
      * @example 1.16.9-aliyun.1
      *

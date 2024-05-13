@@ -97,7 +97,7 @@ class clusters extends Model
     /**
      * @description The Kubernetes version of the cluster. The Kubernetes versions supported by ACK are the same as the versions of open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not specify this parameter, the latest Kubernetes version is used.
      *
-     * You can create clusters of the latest two Kubernetes versions in the ACK console. You can call the corresponding ACK API operation to create clusters of other Kubernetes versions. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](~~185269~~).
+     * You can create clusters of the latest two Kubernetes versions in the ACK console. You can call the corresponding ACK API operation to create clusters of other Kubernetes versions. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
      * @example 1.16.9-aliyun.1
      *
      * @var string
@@ -114,7 +114,7 @@ class clusters extends Model
     /**
      * @description The endpoint of the cluster API server, including an internal endpoint and a public endpoint.
      *
-     * @example {\"api_server_endpoint\":\"\",\"intranet_api_server_endpoint\":\"https://192.168.0.251:6443\"}
+     * @example {\\"api_server_endpoint\\":\\"\\",\\"intranet_api_server_endpoint\\":\\"https://192.168.0.251:6443\\"}
      *
      * @var string
      */
@@ -123,7 +123,7 @@ class clusters extends Model
     /**
      * @description The metadata of the cluster.
      *
-     * @example {\"Addons\":[{\"config\":***}
+     * @example {\\"Addons\\":[{\\"config\\":***}
      *
      * @var string
      */
@@ -249,7 +249,7 @@ class clusters extends Model
      *   172.16-31.0.0/12-16
      *   192.168.0.0/16
      *
-     * For more information, see [Plan CIDR blocks for an ACK cluster](~~86500~~).
+     * For more information, see [Plan CIDR blocks for an ACK cluster](https://help.aliyun.com/document_detail/86500.html).
      * @example 172.21.0.0/16
      *
      * @var string

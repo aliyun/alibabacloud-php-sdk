@@ -11,6 +11,7 @@ class nodepoolInfo extends Model
     /**
      * @description The name of the node pool.
      *
+     * This parameter is required.
      * @example cluster-demo
      *
      * @var string

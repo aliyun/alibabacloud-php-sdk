@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubaccountK8sClusterUserConfigResponseBody extends Model
 {
     /**
-     * @description The cluster kubeconfig file. For more information about the content of the kubeconfig file, see [Configure cluster credentials](~~86494~~).
+     * @description The cluster kubeconfig file. For more information about the content of the kubeconfig file, see [Configure cluster credentials](https://help.aliyun.com/document_detail/86494.html).
      *
+     * This parameter is required.
      * @example apiVersion: v1****
      *
      * @var string

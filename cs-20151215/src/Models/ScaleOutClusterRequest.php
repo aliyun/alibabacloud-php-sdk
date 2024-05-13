@@ -25,6 +25,7 @@ class ScaleOutClusterRequest extends Model
     /**
      * @description The number of worker nodes that you want to add.
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -45,7 +46,7 @@ class ScaleOutClusterRequest extends Model
     public $cpuPolicy;
 
     /**
-     * @description Specifies a custom image for nodes. By default, the image provided by Container Service for Kubernetes (ACK) is used. You can select a custom image to replace the default image. For more information, see [Custom images](~~146647~~).
+     * @description Specifies a custom image for nodes. By default, the image provided by Container Service for Kubernetes (ACK) is used. You can select a custom image to replace the default image. For more information, see [Custom images](https://help.aliyun.com/document_detail/146647.html).
      *
      * @example m-bp16z7xko3vvv8gt****
      *
@@ -56,6 +57,7 @@ class ScaleOutClusterRequest extends Model
     /**
      * @description The name of the key pair. You must set this parameter or the `login_password` parameter.
      *
+     * This parameter is required.
      * @example secrity-key
      *
      * @var string
@@ -65,6 +67,7 @@ class ScaleOutClusterRequest extends Model
     /**
      * @description The password for SSH logon. You must set this parameter or the `key_pair` parameter. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
      *
+     * This parameter is required.
      * @example Hello@1234
      *
      * @var string
@@ -103,7 +106,7 @@ class ScaleOutClusterRequest extends Model
     public $taints;
 
     /**
-     * @description The user data of the node pool. For more information, see [Generate user-defined data](~~49121~~).
+     * @description The user data of the node pool. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
      *
      * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFD****
      *
@@ -114,6 +117,7 @@ class ScaleOutClusterRequest extends Model
     /**
      * @description The IDs of the vSwitches. You can select one to three vSwitches when you create a cluster. We recommend that you select vSwitches in different zones to ensure high availability.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $vswitchIds;
@@ -164,6 +168,7 @@ class ScaleOutClusterRequest extends Model
     /**
      * @description The instance configurations of worker nodes.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $workerInstanceTypes;
@@ -195,7 +200,7 @@ class ScaleOutClusterRequest extends Model
      *   `cloud_ssd`: standard SSD.
      *   `cloud_essd`: enhanced SSD (ESSD).
      *
-     * Default value: `cloud_ssd`.
+     * This parameter is required.
      * @example cloud_efficiency
      *
      * @var string
@@ -205,7 +210,7 @@ class ScaleOutClusterRequest extends Model
     /**
      * @description The size of the system disk that you want to use for worker nodes. Unit: GiB.
      *
-     * Default value: `120`.
+     * This parameter is required.
      * @example 120
      *
      * @var int

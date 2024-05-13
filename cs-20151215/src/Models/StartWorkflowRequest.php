@@ -177,6 +177,7 @@ class StartWorkflowRequest extends Model
     /**
      * @description The type of workflow. Valid values: wgs and mapping.
      *
+     * This parameter is required.
      * @example mapping
      *
      * @var string

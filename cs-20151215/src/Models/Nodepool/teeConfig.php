@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class teeConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool

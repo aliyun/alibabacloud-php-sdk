@@ -53,7 +53,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $created;
 
     /**
-     * @description The current Kubernetes version of the cluster. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](~~185269~~).
+     * @description The current Kubernetes version of the cluster. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
      *
      * @example 1.16.6-aliyun.1
      *
@@ -108,7 +108,7 @@ class DescribeClusterDetailResponseBody extends Model
     /**
      * @description The endpoints of the cluster, including an internal endpoint and a public endpoint.
      *
-     * @example {\"intranet_api_server_endpoint\":\"https://192.168.0.251:6443\"***}
+     * @example {\\"intranet_api_server_endpoint\\":\\"https://192.168.0.251:6443\\"***}
      *
      * @var string
      */
@@ -117,7 +117,7 @@ class DescribeClusterDetailResponseBody extends Model
     /**
      * @description The metadata of the cluster.
      *
-     * @example \"Addons\":***
+     * @example \\"Addons\\":***
      *
      * @var string
      */
@@ -238,7 +238,7 @@ class DescribeClusterDetailResponseBody extends Model
      *   172.16-31.0.0/12-16
      *   192.168.0.0/16
      *
-     * For more information, see [Plan CIDR blocks for an ACK cluster](~~186964~~).
+     * For more information, see [Plan CIDR blocks for an ACK cluster](https://help.aliyun.com/document_detail/186964.html).
      * @example 172.20.0.0/16
      *
      * @var string

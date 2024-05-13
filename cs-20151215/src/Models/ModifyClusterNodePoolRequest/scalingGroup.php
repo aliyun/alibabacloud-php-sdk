@@ -151,7 +151,7 @@ class scalingGroup extends Model
      *
      **Note** `COST_OPTIMIZED` is valid only when multiple instance types are specified or at least one preemptible instance type is specified.
      *
-     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to the insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](~~71516~~).
+     *   `BALANCE`: ECS instances are evenly distributed across multiple zones specified by the scaling group. If ECS instances become imbalanced among multiple zones due to the insufficient inventory, you can call the `RebalanceInstances` operation of Auto Scaling to balance the instance distribution among zones. For more information, see [RebalanceInstances](https://help.aliyun.com/document_detail/71516.html).
      *
      * Default value: `PRIORITY`.
      * @example BALANCE
@@ -275,7 +275,7 @@ class scalingGroup extends Model
      *   `SpotWithPriceLimit`: specifies the highest bid for the preemptible instance.
      *   `SpotAsPriceGo`: automatically submits bids based on the up-to-date market price.
      *
-     * For more information, see [Preemptible instances](~~157759~~).
+     * For more information, see [Preemptible instances](https://help.aliyun.com/document_detail/157759.html).
      * @example SpotWithPriceLimit
      *
      * @var string
@@ -339,7 +339,7 @@ class scalingGroup extends Model
     public $systemDiskKmsKeyId;
 
     /**
-     * @description The performance level (PL) of the system disk that you want to use for the node. This parameter takes effect only for enhanced SSDs. You can specify a higher PL if you increase the size of the system disk. For more information, see [ESSDs](~~122389~~).
+     * @description The performance level (PL) of the system disk that you want to use for the node. This parameter takes effect only for enhanced SSDs. You can specify a higher PL if you increase the size of the system disk. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      *
      * @example PL1
      *

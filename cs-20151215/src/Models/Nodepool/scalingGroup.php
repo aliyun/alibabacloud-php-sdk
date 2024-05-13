@@ -67,6 +67,8 @@ class scalingGroup extends Model
     public $imageType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PostPaid
      *
      * @var string
@@ -74,6 +76,8 @@ class scalingGroup extends Model
     public $instanceChargeType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $instanceTypes;
@@ -275,6 +279,8 @@ class scalingGroup extends Model
     public $tags;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $vswitchIds;

@@ -23,6 +23,7 @@ class RunClusterCheckRequest extends Model
     /**
      * @description The check method.
      *
+     * This parameter is required.
      * @example ClusterUpgrade
      *
      * @var string

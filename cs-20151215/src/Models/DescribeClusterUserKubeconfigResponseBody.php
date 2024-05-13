@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterUserKubeconfigResponseBody extends Model
 {
     /**
-     * @description The kubeconfig file of the cluster. For more information about the content of the kubeconfig file, see [Configure cluster credentials](~~86494~~).
+     * @description The kubeconfig file of the cluster. For more information about the content of the kubeconfig file, see [Configure cluster credentials](https://help.aliyun.com/document_detail/86494.html).
      *
      * @example apiVersion: v1****
      *

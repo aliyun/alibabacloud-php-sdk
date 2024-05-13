@@ -21,26 +21,26 @@ class CreateClusterRequest extends Model
      *
      **Network plug-in**: required. The Flannel and Terway plug-ins are supported. Select one of the plug-ins for the cluster.
      *
-     *   Specify the Flannel plug-in in the following format: \[{"name":"flannel","config":""}].
-     *   Specify the Flannel plug-in in the following format: \[{"name": "terway-eniip","config": ""}].
+     *   Specify the Flannel plug-in in the following format: [{"name":"flannel","config":""}].
+     *   Specify the Flannel plug-in in the following format: [{"name": "terway-eniip","config": ""}].
      *
      **Volume plug-in**: optional. Only the `CSI` plug-in is supported.
      *
-     * Specify the `CSI` plug-in in the following format: \[{"name":"csi-plugin","config": ""},{"name": "csi-provisioner","config": ""}].
+     * Specify the `CSI` plug-in in the following format: [{"name":"csi-plugin","config": ""},{"name": "csi-provisioner","config": ""}].
      *
      **Simple Log Service component**: optional. We recommend that you enable Simple Log Service. If Simple Log Service is disabled, you cannot use the cluster auditing feature.
      *
-     *   To use an existing `Simple Log Service project`, specify the value in the following format: \[{"name": "logtail-ds","config": "{"IngressDashboardEnabled":"true","sls_project_name":"your_sls_project_name"}"}].
-     *   To create a `Simple Log Service project`, specify the value in the following format: \[{"name": "logtail-ds","config": "{"IngressDashboardEnabled":"true"}"}].
+     *   To use an existing `Simple Log Service project`, specify the value in the following format: [{"name": "logtail-ds","config": "{"IngressDashboardEnabled":"true","sls_project_name":"your_sls_project_name"}"}].
+     *   To create a `Simple Log Service project`, specify the value in the following format: [{"name": "logtail-ds","config": "{"IngressDashboardEnabled":"true"}"}].
      *
      **Ingress controller**: optional. By default, the `nginx-ingress-controller` component is installed in ACK dedicated clusters.
      *
-     *   To install nginx-ingress-controller and enable Internet access, specify the value in the following format: \[{"name":"nginx-ingress-controller","config":"{"IngressSlbNetworkType":"internet"}"}].
-     *   To disable the system to automatically install nginx-ingress-controller, specify the value in the following format: \[{"name": "nginx-ingress-controller","config": "","disabled": true}].
+     *   To install nginx-ingress-controller and enable Internet access, specify the value in the following format: [{"name":"nginx-ingress-controller","config":"{"IngressSlbNetworkType":"internet"}"}].
+     *   To disable the system to automatically install nginx-ingress-controller, specify the value in the following format: [{"name": "nginx-ingress-controller","config": "","disabled": true}].
      *
      **Event center**: optional. By default, the event center feature is enabled.
      *
-     * To enable the ack-node-problem-detector component, specify the value in the following format: \[{"name":"ack-node-problem-detector","config":"{"sls_project_name":"your_sls_project_name"}"}].
+     * To enable the ack-node-problem-detector component, specify the value in the following format: [{"name":"ack-node-problem-detector","config":"{"sls_project_name":"your_sls_project_name"}"}].
      * @var Addon[]
      */
     public $addons;
@@ -48,7 +48,7 @@ class CreateClusterRequest extends Model
     /**
      * @description Service accounts provide identities for pods when pods communicate with the `API server` of the cluster. `api-audiences` are used by the `API server` to check whether the `tokens` of requests are legitimate.`` Separate multiple `audiences` with commas (,).
      *
-     * For more information about `ServiceAccount`, see [Enable service account token volume projection](~~160384~~).
+     * For more information about `ServiceAccount`, see [Enable service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
      * @example kubernetes.default.svc
      *
      * @var string
@@ -117,6 +117,7 @@ class CreateClusterRequest extends Model
      *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless clusters (Basic and Pro), ACK Edge clusters (Basic and Pro), and ACK Lingjun clusters (Pro).
      *   `ExternalKubernetes`: registered cluster.
      *
+     * This parameter is required.
      * @example Kubernetes
      *
      * @var string
@@ -219,7 +220,7 @@ class CreateClusterRequest extends Model
     public $enableRrsa;
 
     /**
-     * @description The ID of a key that is managed by Key Management Service (KMS). The key is used to encrypt data disks. For more information, see [KMS](~~28935~~).
+     * @description The ID of a key that is managed by Key Management Service (KMS). The key is used to encrypt data disks. For more information, see [KMS](https://help.aliyun.com/document_detail/28935.html).
      *
      * >  The key can be used only in ACK Pro clusters.
      * @example 0fe64791-55eb-4fc7-84c5-c6c7cdca****
@@ -259,7 +260,7 @@ class CreateClusterRequest extends Model
     public $formatDisk;
 
     /**
-     * @description Specifies a custom image for nodes. By default, the image provided by ACK is used. You can select a custom image to replace the default image. For more information, see [Custom images](~~146647~~).
+     * @description Specifies a custom image for nodes. By default, the image provided by ACK is used. You can select a custom image to replace the default image. For more information, see [Custom images](https://help.aliyun.com/document_detail/146647.html).
      *
      * @example m-bp16z7xko3vvv8gt****
      *
@@ -344,7 +345,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The Kubernetes version of the cluster. The Kubernetes versions supported by ACK are the same as the Kubernetes versions supported by open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not configure this parameter, the latest Kubernetes version is used.
      *
-     * You can create clusters of the latest two Kubernetes versions in the ACK console. If you want to create clusters that run earlier Kubernetes versions, use the API. For more information about the Kubernetes versions supported by ACK, see [Release notes on Kubernetes versions](~~185269~~).
+     * You can create clusters of the latest two Kubernetes versions in the ACK console. If you want to create clusters that run earlier Kubernetes versions, use the API. For more information about the Kubernetes versions supported by ACK, see [Release notes on Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
      * @example 1.16.9-aliyun.1
      *
      * @var string
@@ -433,7 +434,7 @@ class CreateClusterRequest extends Model
     public $masterInstanceChargeType;
 
     /**
-     * @description The instance types of master nodes. For more information, see [Overview of instance families](~~25378~~).
+     * @description The instance types of master nodes. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * @var string[]
      */
@@ -474,7 +475,7 @@ class CreateClusterRequest extends Model
     public $masterSystemDiskCategory;
 
     /**
-     * @description The performance level (PL) of the system disk that you want to use for master nodes. This parameter takes effect only for ESSDs. For more information about the relationship between disk PLs and disk sizes, see [ESSDs](~~122389~~).
+     * @description The performance level (PL) of the system disk that you want to use for master nodes. This parameter takes effect only for ESSDs. For more information about the relationship between disk PLs and disk sizes, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      *
      * @example PL1
      *
@@ -512,7 +513,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The name of the cluster.
      *
-     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). The name cannot start with a hyphen (-).
+     * This parameter is required.
      * @example cluster-demo
      *
      * @var string
@@ -680,6 +681,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The ID of the region in which you want to deploy the cluster.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -698,7 +700,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The container runtime. The default container runtime is Docker. containerd and Sandboxed-Container are also supported.
      *
-     * For more information about how to select a proper container runtime, see [How to select between Docker and Sandboxed-Container](~~160313~~).
+     * For more information about how to select a proper container runtime, see [How to select between Docker and Sandboxed-Container](https://help.aliyun.com/document_detail/160313.html).
      * @var Runtime
      */
     public $runtime;
@@ -725,7 +727,7 @@ class CreateClusterRequest extends Model
     /**
      * @description Service accounts provide identities for pods when pods communicate with the `API server` of the cluster. `service-account-issuer` is the issuer of the `serviceaccount token`, which corresponds to the `iss` field in the `token payload`.
      *
-     * For more information about `ServiceAccount`, see [Enable service account token volume projection](~~160384~~).
+     * For more information about `ServiceAccount`, see [Enable service account token volume projection](https://help.aliyun.com/document_detail/160384.html).
      * @example kubernetes.default.svc
      *
      * @var string
@@ -735,7 +737,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The CIDR block of Services. Valid values: 10.0.0.0/16-24, 172.16-31.0.0/16-24, and 192.168.0.0/16-24. The CIDR block of Services cannot overlap with the CIDR block of the VPC (10.1.0.0/21) or the CIDR blocks of existing clusters in the VPC. You cannot modify the CIDR block of Services after the cluster is created.
      *
-     * By default, the CIDR block of Services is set to 172.19.0.0/20.
+     * This parameter is required.
      * @example 172.21.0.0/20
      *
      * @var string
@@ -767,7 +769,7 @@ class CreateClusterRequest extends Model
     public $snatEntry;
 
     /**
-     * @description Specifies whether to enable reinforcement based on Multi-Level Protection Scheme (MLPS). For more information, see [ACK reinforcement based on classified protection](~~196148~~).
+     * @description Specifies whether to enable reinforcement based on Multi-Level Protection Scheme (MLPS). For more information, see [ACK reinforcement based on classified protection](https://help.aliyun.com/document_detail/196148.html).
      *
      * Valid values:
      *
@@ -851,6 +853,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC) in which you want to deploy the cluster. This parameter is required.
      *
+     * This parameter is required.
      * @example vpc-2zeik9h3ahvv2zz95****
      *
      * @var string
@@ -860,6 +863,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The vSwitches that are specified for nodes in the cluster. This parameter is required when you create an ACK managed cluster that does not contain nodes.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $vswitchIds;
@@ -949,7 +953,7 @@ class CreateClusterRequest extends Model
     public $workerPeriodUnit;
 
     /**
-     * @description The category of the system disks for worker nodes. For more information, see [Elastic Block Storage devices](~~63136~~).
+     * @description The category of the system disks for worker nodes. For more information, see [Elastic Block Storage devices](https://help.aliyun.com/document_detail/63136.html).
      *
      * Valid values:
      *
@@ -966,7 +970,7 @@ class CreateClusterRequest extends Model
     public $workerSystemDiskCategory;
 
     /**
-     * @description If the system disk is an ESSD, you can set the PL of the ESSD. For more information, see [ESSDs](~~122389~~).
+     * @description If the system disk is an ESSD, you can set the PL of the ESSD. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      *
      * Valid values:
      *

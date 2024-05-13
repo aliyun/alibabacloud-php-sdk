@@ -18,6 +18,7 @@ class RemoveClusterNodesRequest extends Model
     /**
      * @description The list of nodes to be removed.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $nodes;

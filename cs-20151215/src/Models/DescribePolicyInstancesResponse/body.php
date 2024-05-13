@@ -83,7 +83,7 @@ class body extends Model
     /**
      * @description The applicable scope of the policy instance.
      *
-     * A value of \* indicates all namespaces in the cluster. This is the default value.
+     * A value of \\* indicates all namespaces in the cluster. This is the default value.
      *
      * Multiple namespaces are separated by commas (,).
      * @example *

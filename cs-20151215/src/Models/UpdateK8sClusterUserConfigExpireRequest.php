@@ -11,7 +11,7 @@ class UpdateK8sClusterUserConfigExpireRequest extends Model
     /**
      * @description The validity period of the kubeconfig file. Unit: hours.
      *
-     * > The value of expire_hour must be greater than 0 and equal to or smaller than 876000 (100 years).
+     * This parameter is required.
      * @example 720
      *
      * @var int
@@ -21,6 +21,7 @@ class UpdateK8sClusterUserConfigExpireRequest extends Model
     /**
      * @description The user ID.
      *
+     * This parameter is required.
      * @example The ID of the Resource Access Management (RAM) user that you use.
      *
      * @var string

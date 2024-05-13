@@ -11,6 +11,7 @@ class DescribeClusterAddonsUpgradeStatusRequest extends Model
     /**
      * @description The list of component names.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $componentIds;

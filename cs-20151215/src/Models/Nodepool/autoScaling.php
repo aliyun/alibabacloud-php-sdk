@@ -27,6 +27,8 @@ class autoScaling extends Model
     public $eipInternetChargeType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -43,6 +45,8 @@ class autoScaling extends Model
     public $isBondEip;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -50,6 +54,8 @@ class autoScaling extends Model
     public $maxInstances;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

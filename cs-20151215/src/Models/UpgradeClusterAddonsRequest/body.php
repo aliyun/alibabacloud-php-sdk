@@ -11,6 +11,7 @@ class body extends Model
     /**
      * @description The name of the component.
      *
+     * This parameter is required.
      * @example coredns
      *
      * @var string
@@ -20,7 +21,7 @@ class body extends Model
     /**
      * @description The custom component settings that you want to use. The value is a JSON string.
      *
-     * @example {\"CpuRequest\":\"800m\"}
+     * @example {\\"CpuRequest\\":\\"800m\\"}
      *
      * @var string
      */
@@ -29,6 +30,7 @@ class body extends Model
     /**
      * @description The version to which the component can be updated. You can call the `DescribeClusterAddonsVersion` operation to query the version to which the component can be updated.
      *
+     * This parameter is required.
      * @example 1.6.7
      *
      * @var string

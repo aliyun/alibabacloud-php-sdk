@@ -57,6 +57,7 @@ class AttachInstancesRequest extends Model
     /**
      * @description The ECS instances to be added.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $instances;
@@ -107,7 +108,7 @@ class AttachInstancesRequest extends Model
     public $nodepoolId;
 
     /**
-     * @description The SSH logon password that is used to log on to the ECS instances. You must set login_password or `key_pair`. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. It cannot contain backslashes (\\) or double quotation marks (").
+     * @description The SSH logon password that is used to log on to the ECS instances. You must set login_password or `key_pair`. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. It cannot contain backslashes (\\\\) or double quotation marks (").
      *
      * For security considerations, the password is encrypted during data transfer.
      * @example Hello1234
@@ -143,7 +144,7 @@ class AttachInstancesRequest extends Model
     public $tags;
 
     /**
-     * @description User-defined data. For more information, see [Generate user data](~~49121~~).
+     * @description User-defined data. For more information, see [Generate user data](https://help.aliyun.com/document_detail/49121.html).
      *
      * >  This parameter is not supported if you specify the `nodepool_id` parameter.
      * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi

@@ -20,6 +20,7 @@ class EdgeClusterAddEdgeMachineRequest extends Model
     /**
      * @description The node pool ID.
      *
+     * This parameter is required.
      * @example c26607f52179f4472a0d9723e7595****
      *
      * @var string
@@ -29,7 +30,7 @@ class EdgeClusterAddEdgeMachineRequest extends Model
     /**
      * @description The options that you want to configure.
      *
-     * @example "{\"enableIptables\":true,\"quiet\":true,\"manageRuntime\":true,\"allowedClusterAddons\":[\"kube-proxy\",\"flannel\",\"coredns\"]}"
+     * @example "{\\"enableIptables\\":true,\\"quiet\\":true,\\"manageRuntime\\":true,\\"allowedClusterAddons\\":[\\"kube-proxy\\",\\"flannel\\",\\"coredns\\"]}"
      *
      * @var string
      */

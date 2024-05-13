@@ -20,7 +20,7 @@ class CreateTemplateRequest extends Model
     /**
      * @description The name of the orchestration template.
      *
-     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). It cannot start with a hyphen (-).
+     * This parameter is required.
      * @example service-account-template
      *
      * @var string
@@ -39,7 +39,8 @@ class CreateTemplateRequest extends Model
     /**
      * @description The template content in the YAML format.
      *
-     * @example apiVersion: v1\nkind: ServiceAccount\nmetadata:\n  name: test-sa
+     * This parameter is required.
+     * @example apiVersion: v1\\nkind: ServiceAccount\\nmetadata:\\n  name: test-sa
      *
      * @var string
      */

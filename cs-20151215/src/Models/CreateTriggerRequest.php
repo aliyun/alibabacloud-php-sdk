@@ -11,7 +11,7 @@ class CreateTriggerRequest extends Model
     /**
      * @description The action that the trigger performs. Set the value to redeploy.
      *
-     * `redeploy`: redeploys the resources specified by `project_id`.
+     * This parameter is required.
      * @example redeploy
      *
      * @var string
@@ -21,6 +21,7 @@ class CreateTriggerRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example c5cdf7e3938bc4f8eb0e44b21a80f****
      *
      * @var string
@@ -30,7 +31,7 @@ class CreateTriggerRequest extends Model
     /**
      * @description The name of the trigger project.
      *
-     * Example: `default/test-app`.
+     * This parameter is required.
      * @example default/test-app
      *
      * @var string

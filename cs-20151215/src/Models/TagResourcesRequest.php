@@ -11,6 +11,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The region ID of the resource.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -20,6 +21,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The list of resource IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceIds;
@@ -27,6 +29,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The type of resource that you want to label. Set the value to `CLUSTER`.
      *
+     * This parameter is required.
      * @example CLUSTER
      *
      * @var string
@@ -40,6 +43,7 @@ class TagResourcesRequest extends Model
      *   The label value must not start with `aliyun` or `acs:`.
      *   The label value must not contain `http://` or `https://`.
      *
+     * This parameter is required.
      * @var Tag[]
      */
     public $tags;

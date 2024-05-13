@@ -13,6 +13,7 @@ class body extends Model
      *
      *   When the `role_type` parameter is set to `all-clusters`, this parameter is set to an empty string.
      *
+     * This parameter is required.
      * @example c796c60***
      *
      * @var string
@@ -50,11 +51,12 @@ class body extends Model
      * @description The predefined role name. Valid values:
      *
      *   `admin`: administrator
-     *   `ops`: O\&M engineer
+     *   `ops`: O\\&M engineer
      *   `dev`: developer
      *   `restricted`: restricted user
      *   The custom cluster role.
      *
+     * This parameter is required.
      * @example ops
      *
      * @var string
@@ -68,6 +70,7 @@ class body extends Model
      *   `namespace`: specifies that the permissions are scoped to a namespace of a cluster.
      *   `all-clusters`: specifies that the permissions are scoped to all clusters.
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string

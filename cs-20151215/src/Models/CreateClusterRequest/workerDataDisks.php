@@ -11,6 +11,7 @@ class workerDataDisks extends Model
     /**
      * @description The type of a data disk.
      *
+     * This parameter is required.
      * @example cloud_essd
      *
      * @var string
@@ -31,7 +32,7 @@ class workerDataDisks extends Model
     public $encrypted;
 
     /**
-     * @description The PL of the data disk. This parameter takes effect only for ESSDs. You can specify a higher PL if you increase the size of a data disk. For more information, see [ESSDs](~~122389~~).
+     * @description The PL of the data disk. This parameter takes effect only for ESSDs. You can specify a higher PL if you increase the size of a data disk. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      *
      * @example PL1
      *
@@ -42,6 +43,7 @@ class workerDataDisks extends Model
     /**
      * @description The size of the data disk. Valid values: 40 to 32767. Unit: GiB.
      *
+     * This parameter is required.
      * @example 120
      *
      * @var string

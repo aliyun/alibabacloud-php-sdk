@@ -20,6 +20,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -29,6 +30,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The list of cluster IDs.
      *
+     * This parameter is required.
      * @example ["xxxxx","xxxxxx"]
      *
      * @var string[]
@@ -38,6 +40,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to `CLUSTER`.
      *
+     * This parameter is required.
      * @example CLUSTER
      *
      * @var string
@@ -47,7 +50,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The list of labels that you want to query. You can specify at most 20 labels.
      *
-     * @example [{\"key\":\"env\",\"value\",\"dev\"},{\"key\":\"dev\", \"value\":\"IT\"}]
+     * @example [{\\"key\\":\\"env\\",\\"value\\",\\"dev\\"},{\\"key\\":\\"dev\\", \\"value\\":\\"IT\\"}]
      *
      * @var Tag[]
      */

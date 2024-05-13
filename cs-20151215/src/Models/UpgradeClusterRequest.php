@@ -41,7 +41,7 @@ class UpgradeClusterRequest extends Model
     public $nextVersion;
 
     /**
-     * @description The current Kubernetes version of the cluster. For more information, see [Kubernetes versions](~~185269~~).
+     * @description The current Kubernetes version of the cluster. For more information, see [Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
      *
      * @example 1.14.8-aliyun.1
      *

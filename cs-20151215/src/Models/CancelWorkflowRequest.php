@@ -11,6 +11,7 @@ class CancelWorkflowRequest extends Model
     /**
      * @description The operation that you want to perform. Set the value to cancel.
      *
+     * This parameter is required.
      * @example cancel
      *
      * @var string

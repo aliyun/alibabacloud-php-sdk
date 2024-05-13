@@ -59,6 +59,7 @@ class DescribeAddonsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string

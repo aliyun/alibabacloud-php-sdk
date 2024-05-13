@@ -11,6 +11,7 @@ class GetKubernetesTriggerRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example web-server
      *
      * @var string
@@ -20,6 +21,7 @@ class GetKubernetesTriggerRequest extends Model
     /**
      * @description The namespace name.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string

@@ -38,7 +38,7 @@ class body extends Model
     /**
      * @description The template content in the YAML format.
      *
-     * @example apiVersion: V1\n***
+     * @example apiVersion: V1\\n***
      *
      * @var string
      */

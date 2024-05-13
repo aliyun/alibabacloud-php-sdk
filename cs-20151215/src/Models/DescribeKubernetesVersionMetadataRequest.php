@@ -15,6 +15,7 @@ class DescribeKubernetesVersionMetadataRequest extends Model
      *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Pro clusters, ACK Basic clusters, ACK Serverless Pro clusters, ACK Serverless Basic clusters, ACK Edge Pro clusters, and ACK Edge Basic clusters.
      *   `ExternalKubernetes`: registered cluster.
      *
+     * This parameter is required.
      * @example Kubernetes
      *
      * @var string
@@ -24,7 +25,7 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     /**
      * @description The Kubernetes version of the cluster. The Kubernetes versions supported by ACK are the same as the Kubernetes versions supported by open source Kubernetes. We recommend that you specify the latest Kubernetes version. If you do not set this parameter, the latest Kubernetes version is used.
      *
-     * You can create ACK clusters of the latest two Kubernetes versions in the ACK console. You can call the specific ACK API operation to create clusters of other Kubernetes versions. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](~~185269~~).
+     * You can create ACK clusters of the latest two Kubernetes versions in the ACK console. You can call the specific ACK API operation to create clusters of other Kubernetes versions. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
      * @example 1.16.9-aliyun.1
      *
      * @var string
@@ -61,6 +62,7 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
