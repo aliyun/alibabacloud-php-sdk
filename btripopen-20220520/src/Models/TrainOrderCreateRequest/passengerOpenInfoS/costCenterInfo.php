@@ -66,7 +66,7 @@ class costCenterInfo extends Model
     /**
      * @var string
      */
-    public $projectName;
+    public $projectTitle;
     protected $_name = [
         'cascadeDeptName' => 'cascade_dept_name',
         'costCenterId'    => 'cost_center_id',
@@ -77,7 +77,7 @@ class costCenterInfo extends Model
         'invoiceId'       => 'invoice_id',
         'invoiceTitle'    => 'invoice_title',
         'projectCode'     => 'project_code',
-        'projectName'     => 'project_name',
+        'projectTitle'    => 'project_title',
     ];
 
     public function validate()
@@ -114,8 +114,8 @@ class costCenterInfo extends Model
         if (null !== $this->projectCode) {
             $res['project_code'] = $this->projectCode;
         }
-        if (null !== $this->projectName) {
-            $res['project_name'] = $this->projectName;
+        if (null !== $this->projectTitle) {
+            $res['project_title'] = $this->projectTitle;
         }
 
         return $res;
@@ -156,8 +156,8 @@ class costCenterInfo extends Model
         if (isset($map['project_code'])) {
             $model->projectCode = $map['project_code'];
         }
-        if (isset($map['project_name'])) {
-            $model->projectName = $map['project_name'];
+        if (isset($map['project_title'])) {
+            $model->projectTitle = $map['project_title'];
         }
 
         return $model;
