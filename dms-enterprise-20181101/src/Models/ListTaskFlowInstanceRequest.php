@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowInstanceRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the ID of the task flow.
+     * @description The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to obtain the ID of the task flow.
      *
+     * This parameter is required.
      * @example 7***
      *
      * @var int
@@ -20,6 +21,7 @@ class ListTaskFlowInstanceRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +31,7 @@ class ListTaskFlowInstanceRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -74,7 +77,7 @@ class ListTaskFlowInstanceRequest extends Model
     public $status;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *

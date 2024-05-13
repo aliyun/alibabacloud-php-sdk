@@ -11,7 +11,7 @@ class logicTableRouteConfig extends Model
     /**
      * @description The routing algorithm expression.
      *
-     * @example #id#%16\t
+     * @example #id#%16\\t
      *
      * @var string
      */

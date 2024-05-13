@@ -21,6 +21,7 @@ class DeleteUserRequest extends Model
     /**
      * @description The unique ID (UID) of Alibaba Cloud account to delete.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var string

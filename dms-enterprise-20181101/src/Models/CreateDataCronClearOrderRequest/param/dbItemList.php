@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class dbItemList extends Model
 {
     /**
-     * @description The ID of the database. You can call the [SearchDatabases](~~141876~~) operation to query the ID of the database.
+     * @description The ID of the database. You can call the [SearchDatabases](https://help.aliyun.com/document_detail/141876.html) operation to query the ID of the database.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -23,6 +24,7 @@ class dbItemList extends Model
      *   **true**: The database is a logical database.
      *   **false**: The database is not a logical database.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool

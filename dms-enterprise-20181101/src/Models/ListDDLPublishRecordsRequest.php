@@ -11,7 +11,7 @@ class ListDDLPublishRecordsRequest extends Model
     /**
      * @description The ID of the ticket.
      *
-     * > You can create a schema design ticket in the Data Management (DMS) console. For more information, see [Design schemas](~~69711~~). You can also call the [CreateOrder](~~144649~~) operation to create a schema design ticket and obtain the ID of the ticket.
+     * This parameter is required.
      * @example 3214325
      *
      * @var int
@@ -21,7 +21,7 @@ class ListDDLPublishRecordsRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > To view the ID of the tenant, log on to the DMS console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](~~181330~~).
+     * > To view the ID of the tenant, log on to the DMS console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
      * @example 1
      *
      * @var int

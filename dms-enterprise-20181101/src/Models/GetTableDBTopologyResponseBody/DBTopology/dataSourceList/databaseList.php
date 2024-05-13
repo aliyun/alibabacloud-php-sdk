@@ -28,7 +28,7 @@ class databaseList extends Model
     public $dbName;
 
     /**
-     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
      *
      * @example MySQL
      *
@@ -48,7 +48,7 @@ class databaseList extends Model
      *   **pet**: stress testing environment
      *   **stag**: staging environment
      *
-     * > For more information, see [Change the environment type of an instance](~~163309~~).
+     * > For more information, see [Change the environment type of an instance](https://help.aliyun.com/document_detail/163309.html).
      * @example pre
      *
      * @var string

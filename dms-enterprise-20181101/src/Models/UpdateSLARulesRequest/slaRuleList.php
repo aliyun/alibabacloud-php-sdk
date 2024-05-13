@@ -11,6 +11,7 @@ class slaRuleList extends Model
     /**
      * @description The ID of the task flow.
      *
+     * This parameter is required.
      * @example 15***
      *
      * @var int
@@ -20,6 +21,7 @@ class slaRuleList extends Model
     /**
      * @description The timeout period. Unit: minutes.
      *
+     * This parameter is required.
      * @example 1080
      *
      * @var int
@@ -41,6 +43,7 @@ class slaRuleList extends Model
      *   **0**: SLA rules for task flows
      *   **1**: SLA rules for nodes
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

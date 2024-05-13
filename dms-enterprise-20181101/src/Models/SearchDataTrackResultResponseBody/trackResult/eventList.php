@@ -68,7 +68,7 @@ class eventList extends Model
     /**
      * @description The SQL statements used to roll back the data change.
      *
-     * @example -- Timestamp:2023-04-23 10:25:47 #1\r\nUPDATE `dc_test`.`tb_chunk_dml` SET `id`=1 , `gmt_create`=\"2021-09-30T00:00:00\" , `content`=\"2023-03-30 14:51:50\" , `c1`=\"2023-04-17 13:42:03\" , `c_id`=1 , `c13425`=\"b\\\"\" , `c432532535`= null , `c1432`= null , `c143243253`= null , `c1432535`= null , `c43125325`= null , `c3425325`= null WHERE  (`id`=1)"
+     * @example -- Timestamp:2023-04-23 10:25:47 #1\\r\\nUPDATE `dc_test`.`tb_chunk_dml` SET `id`=1 , `gmt_create`=\\"2021-09-30T00:00:00\\" , `content`=\\"2023-03-30 14:51:50\\" , `c1`=\\"2023-04-17 13:42:03\\" , `c_id`=1 , `c13425`=\\"b\\\\\\"\\" , `c432532535`= null , `c1432`= null , `c143243253`= null , `c1432535`= null , `c43125325`= null , `c3425325`= null WHERE  (`id`=1)"
      *
      * @var string
      */

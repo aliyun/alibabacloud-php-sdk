@@ -11,6 +11,7 @@ class GetDataArchiveOrderDetailRequest extends Model
     /**
      * @description The IDs of data archiving tickets.
      *
+     * This parameter is required.
      * @example 868****
      *
      * @var int
@@ -20,7 +21,7 @@ class GetDataArchiveOrderDetailRequest extends Model
     /**
      * @description The tenant ID.
      *
-     * >  To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
+     * >  To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
      * @example 5***
      *
      * @var int

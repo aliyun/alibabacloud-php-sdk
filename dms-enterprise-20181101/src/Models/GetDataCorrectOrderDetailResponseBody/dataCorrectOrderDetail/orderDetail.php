@@ -47,7 +47,7 @@ class orderDetail extends Model
     /**
      * @description The executed SQL statements.
      *
-     * @example update t1 set name = \"xxx\" where id <= 100
+     * @example update t1 set name = \\"xxx\\" where id <= 100
      *
      * @var string
      */

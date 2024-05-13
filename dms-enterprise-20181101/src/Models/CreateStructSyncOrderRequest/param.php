@@ -26,6 +26,7 @@ class param extends Model
     /**
      * @description The information about the base database.
      *
+     * This parameter is required.
      * @var source
      */
     public $source;
@@ -40,6 +41,7 @@ class param extends Model
     /**
      * @description The information about the database to which you want to synchronize the schema of a table.
      *
+     * This parameter is required.
      * @var target
      */
     public $target;

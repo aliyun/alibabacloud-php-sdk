@@ -18,7 +18,7 @@ class dataCronClearConfig extends Model
     public $cronCallTimes;
 
     /**
-     * @description The crontab expression that you can use to run the task at a specified time. For more information, see [Crontab expression](~~206581~~).
+     * @description The crontab expression that you can use to run the task at a specified time. For more information, see [Crontab expression](https://help.aliyun.com/document_detail/206581.html).
      *
      * @example 0 0 23 ? * 7,1
      *

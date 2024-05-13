@@ -11,6 +11,7 @@ class CreateDataTrackOrderShrinkRequest extends Model
     /**
      * @description The purpose or objective of the data tracking ticket. This parameter is used to help reduce unnecessary communication.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateDataTrackOrderShrinkRequest extends Model
     /**
      * @description The parameters of the ticket.
      *
+     * This parameter is required.
      * @var string
      */
     public $paramShrink;
@@ -32,7 +34,7 @@ class CreateDataTrackOrderShrinkRequest extends Model
     public $relatedUserListShrink;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
      *
      * @example 3***
      *

@@ -125,7 +125,7 @@ class column extends Model
      *   SENSITIVE: The column is a sensitive column.
      *   CONFIDENTIAL: The column is a confidential column.
      *
-     * > For more information, see [Sensitivity levels of fields](~~66091~~).
+     * > For more information, see [Sensitivity levels of fields](https://help.aliyun.com/document_detail/66091.html).
      * @example INNER
      *
      * @var string

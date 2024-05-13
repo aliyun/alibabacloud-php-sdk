@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetProxyRequest extends Model
 {
     /**
-     * @description The ID of the secure access proxy. You can call the [ListProxies](~~295371~~) operation to query the ID of the secure access proxy.
+     * @description The ID of the secure access proxy. You can call the [ListProxies](https://help.aliyun.com/document_detail/295371.html) operation to query the ID of the secure access proxy.
      *
+     * This parameter is required.
      * @example 4**
      *
      * @var int
@@ -18,7 +19,7 @@ class GetProxyRequest extends Model
     public $proxyId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *

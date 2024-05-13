@@ -72,14 +72,14 @@ class dataArchiveOrderDetail extends Model
     public $pluginExtraData;
 
     /**
-     * @description The ticket creation parameter. The value is a JSON string. For more information, see [PluginType parameter](~~429109~~).
+     * @description The ticket creation parameter. The value is a JSON string. For more information, see [PluginType parameter](https://help.aliyun.com/document_detail/429109.html).
      *
      * @var pluginParam
      */
     public $pluginParam;
 
     /**
-     * @description The plug-in type that corresponds to the type of the ticket. The plug-in type for data archiving is DATA_ARCHIVE. For more information, see [PluginType parameter](~~429109~~).
+     * @description The plug-in type that corresponds to the type of the ticket. The plug-in type for data archiving is DATA_ARCHIVE. For more information, see [PluginType parameter](https://help.aliyun.com/document_detail/429109.html).
      *
      * @example DATA_ARCHIVE
      *
@@ -128,7 +128,7 @@ class dataArchiveOrderDetail extends Model
     public $statusDesc;
 
     /**
-     * @description The ID of the approval process. You can call the [GetOrderBaseInfo](~~144642~~) operation to obtain the ID of the approval process.
+     * @description The ID of the approval process. You can call the [GetOrderBaseInfo](https://help.aliyun.com/document_detail/144642.html) operation to obtain the ID of the approval process.
      *
      * @example 29****
      *

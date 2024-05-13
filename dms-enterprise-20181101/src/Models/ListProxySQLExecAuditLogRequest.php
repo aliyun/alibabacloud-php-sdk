@@ -11,6 +11,7 @@ class ListProxySQLExecAuditLogRequest extends Model
     /**
      * @description The end of the time range to query. The value of this parameter must be a timestamp that follows the UNIX time format.
      *
+     * This parameter is required.
      * @example 1636962846000
      *
      * @var int
@@ -84,6 +85,7 @@ class ListProxySQLExecAuditLogRequest extends Model
     /**
      * @description The beginning of the time range to query. The value of this parameter must be a timestamp that follows the UNIX time format.
      *
+     * This parameter is required.
      * @example 1636876446000
      *
      * @var int
@@ -91,7 +93,7 @@ class ListProxySQLExecAuditLogRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
      *
      * @example 14****
      *

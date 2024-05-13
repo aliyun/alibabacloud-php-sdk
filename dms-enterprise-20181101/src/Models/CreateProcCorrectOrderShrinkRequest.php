@@ -16,6 +16,8 @@ class CreateProcCorrectOrderShrinkRequest extends Model
     public $attachmentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateProcCorrectOrderShrinkRequest extends Model
     public $comment;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $paramShrink;

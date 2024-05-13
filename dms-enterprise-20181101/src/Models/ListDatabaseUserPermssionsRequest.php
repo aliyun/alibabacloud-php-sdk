@@ -11,6 +11,7 @@ class ListDatabaseUserPermssionsRequest extends Model
     /**
      * @description The ID of the database.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var string
@@ -51,6 +52,7 @@ class ListDatabaseUserPermssionsRequest extends Model
      *   TABLE: permissions on tables
      *   COLUMN: permissions on fields
      *
+     * This parameter is required.
      * @example DATABASE
      *
      * @var string
@@ -60,7 +62,7 @@ class ListDatabaseUserPermssionsRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](~~181330~~).
+     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
      * @example -1
      *
      * @var int

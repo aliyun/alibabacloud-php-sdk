@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveColumnsRequest extends Model
 {
     /**
-     * @description The name of the field. You can call the [ListColumns](~~141870~~) operation to query the name of the field.
+     * @description The name of the field. You can call the [ListColumns](https://help.aliyun.com/document_detail/141870.html) operation to query the name of the field.
      *
      * @example test_column
      *
@@ -18,9 +18,9 @@ class ListSensitiveColumnsRequest extends Model
     public $columnName;
 
     /**
-     * @description The ID of the database. You can call the [SearchDatabase](~~141876~~) operation to query the ID of the database.
+     * @description The ID of the database. You can call the [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to query the ID of the database.
      *
-     * >  You can also call the [ListDatabases](~~141873~~) operation to query the ID of the physical database and the [ListLogicDatabases](~~141874~~) operation to query the ID of a logical database.
+     * >  You can also call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) operation to query the ID of the physical database and the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) operation to query the ID of a logical database.
      * @example 1860
      *
      * @var int
@@ -58,9 +58,9 @@ class ListSensitiveColumnsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the database. You can call the [SearchDatabase](~~141876~~) operation to query the name of the database.
+     * @description The name of the database. You can call the [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to query the name of the database.
      *
-     * >  You can also call the [ListDatabases](~~141873~~) operation to query the name of a physical database and the [ListLogicDatabases](~~141874~~) operation to query the name of a logical database.
+     * >  You can also call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) operation to query the name of a physical database and the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) operation to query the name of a logical database.
      * @example test_schema
      *
      * @var string
@@ -80,7 +80,7 @@ class ListSensitiveColumnsRequest extends Model
     public $securityLevel;
 
     /**
-     * @description The name of the table. You can call the [ListTables](~~141878~~) operation to query the ID of the table.
+     * @description The name of the table. You can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to query the ID of the table.
      *
      * @example test_table
      *
@@ -91,7 +91,7 @@ class ListSensitiveColumnsRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html) topic.
      * @example 3
      *
      * @var int

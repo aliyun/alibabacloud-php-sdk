@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDBTaskSQLJobDetailRequest extends Model
 {
     /**
-     * @description The ID of the SQL task. You can call the [ListDBTaskSQLJob](~~207049~~) operation to query the SQL task ID.
+     * @description The ID of the SQL task. You can call the [ListDBTaskSQLJob](https://help.aliyun.com/document_detail/207049.html) operation to query the SQL task ID.
      *
+     * This parameter is required.
      * @example 1276****
      *
      * @var int
@@ -36,7 +37,7 @@ class ListDBTaskSQLJobDetailRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
      *
      * @example 3***
      *

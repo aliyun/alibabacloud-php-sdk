@@ -22,13 +22,15 @@ class param extends Model
     /**
      * @description The tables for which you want to clear historical data.
      *
+     * This parameter is required.
      * @var cronClearItemList[]
      */
     public $cronClearItemList;
 
     /**
-     * @description The crontab expression that you can use to run the task at a specified time. For more information, see [Crontab expression](~~206581~~).
+     * @description The crontab expression that you can use to run the task at a specified time. For more information, see [Crontab expression](https://help.aliyun.com/document_detail/206581.html).
      *
+     * This parameter is required.
      * @example 0 0 2 * * ?
      *
      * @var string
@@ -38,6 +40,7 @@ class param extends Model
     /**
      * @description The databases for which you want to clear historical data.
      *
+     * This parameter is required.
      * @var dbItemList[]
      */
     public $dbItemList;
@@ -58,6 +61,7 @@ class param extends Model
      *   **true**: specifies an end time for the task. The task is automatically suspended after this end time.
      *   **false**: does not specify an end time for the task. The task is stopped after the historical data is cleared.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

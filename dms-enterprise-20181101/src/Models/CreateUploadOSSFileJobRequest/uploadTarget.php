@@ -11,6 +11,7 @@ class uploadTarget extends Model
     /**
      * @description The name of the OSS bucket.
      *
+     * This parameter is required.
      * @example test_bucket
      *
      * @var string
@@ -20,6 +21,7 @@ class uploadTarget extends Model
     /**
      * @description The endpoint of the OSS bucket.
      *
+     * This parameter is required.
      * @example http://oss-cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -29,6 +31,7 @@ class uploadTarget extends Model
     /**
      * @description The name of the OSS object.
      *
+     * This parameter is required.
      * @example test.sql
      *
      * @var string

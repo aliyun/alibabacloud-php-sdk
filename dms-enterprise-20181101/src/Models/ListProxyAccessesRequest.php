@@ -11,7 +11,7 @@ class ListProxyAccessesRequest extends Model
     /**
      * @description The ID of the secure access proxy.
      *
-     * >  You can call the [ListProxies](https://www.alibabacloud.com/help/en/data-management-service/latest/listproxies) operation to query the ID of the secure access proxy.
+     * This parameter is required.
      * @example 47
      *
      * @var int

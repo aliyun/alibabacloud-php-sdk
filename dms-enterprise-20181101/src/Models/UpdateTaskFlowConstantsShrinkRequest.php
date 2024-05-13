@@ -16,8 +16,9 @@ class UpdateTaskFlowConstantsShrinkRequest extends Model
     public $dagConstantsShrink;
 
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * @description The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
      *
+     * This parameter is required.
      * @example 3****
      *
      * @var int
@@ -25,7 +26,7 @@ class UpdateTaskFlowConstantsShrinkRequest extends Model
     public $dagId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
      *
      * @example 3***
      *

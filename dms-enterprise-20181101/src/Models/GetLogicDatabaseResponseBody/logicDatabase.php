@@ -37,7 +37,7 @@ class logicDatabase extends Model
     public $databaseIds;
 
     /**
-     * @description The database engine. For more information about the valid values of the DbType parameter, see [DbType parameter](~~198106~~).
+     * @description The database engine. For more information about the valid values of the DbType parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
      *
      * @example POLARDB
      *

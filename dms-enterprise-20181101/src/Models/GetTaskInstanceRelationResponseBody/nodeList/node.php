@@ -72,7 +72,7 @@ class node extends Model
     public $nodeName;
 
     /**
-     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](https://help.aliyun.com/document_detail/424705.html).
      *
      * @example 36
      *

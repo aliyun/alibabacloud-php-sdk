@@ -11,6 +11,7 @@ class edges extends Model
     /**
      * @description The ID of the task flow edge.
      *
+     * This parameter is required.
      * @example 24***
      *
      * @var int
@@ -20,6 +21,7 @@ class edges extends Model
     /**
      * @description The ID of the end node of the edge.
      *
+     * This parameter is required.
      * @example 44***
      *
      * @var int
@@ -29,6 +31,7 @@ class edges extends Model
     /**
      * @description The ID of the start node of the edge.
      *
+     * This parameter is required.
      * @example 44***
      *
      * @var int

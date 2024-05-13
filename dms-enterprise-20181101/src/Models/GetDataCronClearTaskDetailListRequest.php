@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDataCronClearTaskDetailListRequest extends Model
 {
     /**
-     * @description The ID of the ticket. You can query the ticket ID from the response parameters of the [CreateDataCronClearOrder](~~208385~~) operation.
+     * @description The ID of the ticket. You can query the ticket ID from the response parameters of the [CreateDataCronClearOrder](https://help.aliyun.com/document_detail/208385.html) operation.
      *
+     * This parameter is required.
      * @example 432532
      *
      * @var int
@@ -38,7 +39,7 @@ class GetDataCronClearTaskDetailListRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html) topic.
      * @example 12345
      *
      * @var int

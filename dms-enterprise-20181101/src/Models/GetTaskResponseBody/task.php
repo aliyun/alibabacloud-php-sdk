@@ -20,7 +20,7 @@ class task extends Model
     /**
      * @description The position of the node on the Directed Acyclic Graph (DAG).
      *
-     * @example {"{\"x\":0,\"y\":0,\"layoutType\":\"Horizontal\"}",  "id": 51***}
+     * @example {"{\\"x\\":0,\\"y\\":0,\\"layoutType\\":\\"Horizontal\\"}",  "id": 51***}
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class task extends Model
     /**
      * @description The advanced configuration for the node.
      *
-     * @example {\\"dbId\\":39\*\*\*\*,\\"dbType\\":\\"mysql\\",\\"locale\\":\\"zh\\",\\"sql\\":\\"/\* Make sure that the following SQL statements meet your business requirements before submitting the SQL statements for execution. \*\/\\\n\\\nCREATE TABLE IF NOT EXISTS \`momo_weekGather\` (\\\n\\\t\`id\` bigint AUTO_INCREMENT DEFAULT \"0\",\\\n\\\t\`age\` bit NULL,\\\n\\\t\`action\` varchar(150) NULL,\\\n\\\t\`elapse_time\` datetime NULL,\\\n\\\tPRIMARY KEY (\`id\`)\\\n) ENGINE=InnoDB\\\nDEFAULT CHARACTER SET=utf8;\\"}
+     * @example {\\\\"dbId\\\\":39\\*\\*\\*\\*,\\\\"dbType\\\\":\\\\"mysql\\\\",\\\\"locale\\\\":\\\\"zh\\\\",\\\\"sql\\\\":\\\\"/\\* Make sure that the following SQL statements meet your business requirements before submitting the SQL statements for execution. \\*\/\\\\\\n\\\\\\nCREATE TABLE IF NOT EXISTS \\`momo_weekGather\\` (\\\\\\n\\\\\\t\\`id\\` bigint AUTO_INCREMENT DEFAULT \\"0\\",\\\\\\n\\\\\\t\\`age\\` bit NULL,\\\\\\n\\\\\\t\\`action\\` varchar(150) NULL,\\\\\\n\\\\\\t\\`elapse_time\\` datetime NULL,\\\\\\n\\\\\\tPRIMARY KEY (\\`id\\`)\\\\\\n) ENGINE=InnoDB\\\\\\nDEFAULT CHARACTER SET=utf8;\\\\"}
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class task extends Model
     /**
      * @description The configuration for the node.
      *
-     * @example {\"dbList\":[{\"instanceId\":177****}"   }
+     * @example {\\"dbList\\":[{\\"instanceId\\":177****}"   }
      *
      * @var string
      */
@@ -63,7 +63,7 @@ class task extends Model
     public $nodeOutput;
 
     /**
-     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](https://help.aliyun.com/document_detail/424705.html).
      *
      * @example SPARK_SQL
      *
@@ -74,7 +74,7 @@ class task extends Model
     /**
      * @description The time variables configured for the node.
      *
-     * @example {\"variables\":[{\"name\":\"Today\",\"pattern\":\"yyyy-MM-dd|+1d\"}]}
+     * @example {\\"variables\\":[{\\"name\\":\\"Today\\",\\"pattern\\":\\"yyyy-MM-dd|+1d\\"}]}
      *
      * @var string
      */

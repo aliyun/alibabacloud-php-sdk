@@ -35,7 +35,7 @@ class RegisterUserRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * >  To query ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * >  To query ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html) topic.
      * @example -1
      *
      * @var int
@@ -45,6 +45,7 @@ class RegisterUserRequest extends Model
     /**
      * @description The UID of the Alibaba Cloud account of the user that you want to register.
      *
+     * This parameter is required.
      * @example 12345678
      *
      * @var string

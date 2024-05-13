@@ -11,8 +11,8 @@ class ListDataCorrectPreCheckSQLRequest extends Model
     /**
      * @description The ID of the database. The database can be a physical database or a logical database.
      *
-     *   To query the ID of a physical database, call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation.
-     *   To query the ID of a logical database, call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation.
+     *   To query the ID of a physical database, call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
+     *   To query the ID of a logical database, call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
      *
      * @example 1930****
      *
@@ -21,8 +21,9 @@ class ListDataCorrectPreCheckSQLRequest extends Model
     public $dbId;
 
     /**
-     * @description The ID of the data change ticket. You can call the [ListOrders](~~144643~~) operation to query the ID of the data change ticket.
+     * @description The ID of the data change ticket. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to query the ID of the data change ticket.
      *
+     * This parameter is required.
      * @example 453****
      *
      * @var int
@@ -48,7 +49,7 @@ class ListDataCorrectPreCheckSQLRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
      *
      * @example 3***
      *

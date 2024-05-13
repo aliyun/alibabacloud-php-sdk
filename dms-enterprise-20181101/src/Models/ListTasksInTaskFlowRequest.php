@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTasksInTaskFlowRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * @description The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
      *
+     * This parameter is required.
      * @example 32***
      *
      * @var int
@@ -20,7 +21,7 @@ class ListTasksInTaskFlowRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [View information about the current tenant](~~181330~~).
+     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
      * @example 3***
      *
      * @var int

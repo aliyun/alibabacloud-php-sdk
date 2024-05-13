@@ -11,6 +11,7 @@ class CreateTaskFlowRequest extends Model
     /**
      * @description The name of the task flow.
      *
+     * This parameter is required.
      * @example Dag_Name
      *
      * @var string
@@ -36,7 +37,7 @@ class CreateTaskFlowRequest extends Model
     public $scenarioId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
      *
      * @example 3***
      *

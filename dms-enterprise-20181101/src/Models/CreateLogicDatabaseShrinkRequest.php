@@ -11,6 +11,7 @@ class CreateLogicDatabaseShrinkRequest extends Model
     /**
      * @description The alias of the logical database.
      *
+     * This parameter is required.
      * @example test_logic_db
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateLogicDatabaseShrinkRequest extends Model
     /**
      * @description The IDs of the physical databases that compose the logical database. You can specify one or more database IDs. You can call the [ListDatabases](https://www.alibabacloud.com/help/en/data-management-service/latest/listdatabases) or [SearchDatabase](https://www.alibabacloud.com/help/en/data-management-service/latest/searchdatabase) operation to query the IDs of the physical databases.
      *
+     * This parameter is required.
      * @var string
      */
     public $databaseIdsShrink;

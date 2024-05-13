@@ -27,7 +27,7 @@ class SearchTableRequest extends Model
     public $dbType;
 
     /**
-     * @description The type of the environment to which databases belong. For more information, see [Change the environment type of an instance](~~163309~~).
+     * @description The type of the environment to which databases belong. For more information, see [Change the environment type of an instance](https://help.aliyun.com/document_detail/163309.html).
      *
      * @example PRODUCT
      *
@@ -101,7 +101,7 @@ class SearchTableRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](~~181330~~) section of the "Manage DMS tenants" topic.
+     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
      * @example 1
      *
      * @var int

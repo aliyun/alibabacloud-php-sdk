@@ -11,7 +11,7 @@ class GetTableTopologyRequest extends Model
     /**
      * @description The GUID of the table in Data Management (DMS).
      *
-     * > - You can call the [ListTables](~~141878~~) operation with ReturnGuid set to true to query the GUIDs of tables in a specific physical database.
+     * This parameter is required.
      * @example IDB_L_308302.yuyang_test.test_ch
      *
      * @var string
@@ -21,7 +21,7 @@ class GetTableTopologyRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the "View information about the current tenant" section of the [Tenant information](~~181330~~) topic.
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the "View information about the current tenant" section of the [Tenant information](https://help.aliyun.com/document_detail/181330.html) topic.
      * @example 3***
      *
      * @var int

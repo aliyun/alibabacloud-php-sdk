@@ -11,6 +11,7 @@ class DeleteLogicTableRouteConfigRequest extends Model
     /**
      * @description The unique key of the routing algorithm. You can call the [ListLogicTableRouteConfig](https://www.alibabacloud.com/help/en/data-management-service/latest/listlogictablerouteconfig) operation to query the unique key.
      *
+     * This parameter is required.
      * @example id-hash-mod15
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteLogicTableRouteConfigRequest extends Model
     /**
      * @description The ID of the logical table. You can call the [ListLogicTables](https://www.alibabacloud.com/help/en/data-management-service/latest/listlogictables) operation to query the ID of the logical table.
      *
+     * This parameter is required.
      * @example 1****
      *
      * @var int

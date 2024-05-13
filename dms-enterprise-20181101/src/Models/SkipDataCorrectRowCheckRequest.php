@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SkipDataCorrectRowCheckRequest extends Model
 {
     /**
-     * @description The ticket ID. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     * @description The ticket ID. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to obtain the ticket ID.
      *
+     * This parameter is required.
      * @example 420****
      *
      * @var int
@@ -20,6 +21,7 @@ class SkipDataCorrectRowCheckRequest extends Model
     /**
      * @description The reason for skipping the verification on the number of rows in the precheck for data change.
      *
+     * This parameter is required.
      * @example save test time
      *
      * @var string
@@ -27,7 +29,7 @@ class SkipDataCorrectRowCheckRequest extends Model
     public $reason;
 
     /**
-     * @description The tenant ID. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *

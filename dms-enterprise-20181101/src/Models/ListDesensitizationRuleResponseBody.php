@@ -19,6 +19,7 @@ class ListDesensitizationRuleResponseBody extends Model
     /**
      * @description The error code returned if the request failed.
      *
+     * This parameter is required.
      * @example UnknownError
      *
      * @var string

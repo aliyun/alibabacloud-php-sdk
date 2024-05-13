@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
-     * @description The key of the attachment that contains the SQL statements used to change data. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key from the value of the AttachmentKey parameter.
+     * @description The key of the attachment that contains the SQL statements used to change data. You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to obtain the attachment key from the value of the AttachmentKey parameter.
      *
      * >  This parameter is required if you set the **SqlType** parameter to **ATTACHMENT**.
      * @example test.sql
@@ -31,6 +31,7 @@ class param extends Model
     /**
      * @description The databases in which you want to change data.
      *
+     * This parameter is required.
      * @var dbItemList[]
      */
     public $dbItemList;
@@ -38,6 +39,7 @@ class param extends Model
     /**
      * @description The estimated number of data rows to be affected by the data change.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -68,7 +70,7 @@ class param extends Model
     public $execSQL;
 
     /**
-     * @description The key of the attachment that contains the SQL statements used to roll back the data change. You can call the [GetUserUploadFileJob](~~206069~~) operation to the attachment key from the value of the AttachmentKey parameter.
+     * @description The key of the attachment that contains the SQL statements used to roll back the data change. You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to the attachment key from the value of the AttachmentKey parameter.
      *
      * >  This parameter is required if you set the **RollbackSqlType** parameter to **ATTACHMENT**.
      * @example test_rollback.sql
@@ -105,6 +107,7 @@ class param extends Model
      *   **TEXT**: text
      *   **ATTACHMENT**: attachment
      *
+     * This parameter is required.
      * @example TEXT
      *
      * @var string

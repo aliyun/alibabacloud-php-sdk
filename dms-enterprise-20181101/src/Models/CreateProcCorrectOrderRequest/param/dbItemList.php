@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dbItemList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 19721978
      *
      * @var int
@@ -16,6 +18,8 @@ class dbItemList extends Model
     public $dbId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool

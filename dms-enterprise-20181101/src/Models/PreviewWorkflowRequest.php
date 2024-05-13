@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PreviewWorkflowRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1069****
      *
      * @var int

@@ -12,6 +12,7 @@ class AddLhMembersRequest extends Model
     /**
      * @description The information about the users to be added.
      *
+     * This parameter is required.
      * @var members[]
      */
     public $members;
@@ -19,9 +20,10 @@ class AddLhMembersRequest extends Model
     /**
      * @description The ID of the object.
      *
-     *   If the object is a workspace, you can call the [GetLhSpaceByName](~~424379~~) operation to obtain the workspace ID.
-     *   If the object is a task flow, you can call the [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the task flow ID.
+     *   If the object is a workspace, you can call the [GetLhSpaceByName](https://help.aliyun.com/document_detail/424379.html) operation to obtain the workspace ID.
+     *   If the object is a task flow, you can call the [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to obtain the task flow ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -34,6 +36,7 @@ class AddLhMembersRequest extends Model
      *   **0**: workspace
      *   **1**: task flow
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -41,7 +44,7 @@ class AddLhMembersRequest extends Model
     public $objectType;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
      *
      * @example 3000
      *

@@ -83,7 +83,7 @@ class orderBaseInfo extends Model
     public $originAttachmentName;
 
     /**
-     * @description The type of the ticket. For more information about the value of this parameter, see the request parameters of the [CreateOrder](~~465865~~) operation.
+     * @description The type of the ticket. For more information about the value of this parameter, see the request parameters of the [CreateOrder](https://help.aliyun.com/document_detail/465865.html) operation.
      *
      * @example DC_COMMON
      *

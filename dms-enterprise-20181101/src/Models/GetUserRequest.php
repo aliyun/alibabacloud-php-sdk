@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetUserRequest extends Model
 {
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *
@@ -27,7 +27,7 @@ class GetUserRequest extends Model
     public $uid;
 
     /**
-     * @description The ID of the user. You can call the [ListUsers](~~141938~~) operation to query the ID of the user.
+     * @description The ID of the user. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) operation to query the ID of the user.
      *
      * @example 51****
      *

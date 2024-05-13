@@ -15,13 +15,15 @@ class members extends Model
      *   **MEMBER**: workspace member.
      *   **DEVELOPER**: task flow developer. Only a workspace member can be added as a task flow developer.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $roles;
 
     /**
-     * @description The ID of the user to be added. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain the user ID.
+     * @description The ID of the user to be added. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to obtain the user ID.
      *
+     * This parameter is required.
      * @example 15****
      *
      * @var int

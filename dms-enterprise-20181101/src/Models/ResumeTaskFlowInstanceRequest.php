@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ResumeTaskFlowInstanceRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * @description The ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
      *
+     * This parameter is required.
      * @example 11****
      *
      * @var int
@@ -18,8 +19,9 @@ class ResumeTaskFlowInstanceRequest extends Model
     public $dagId;
 
     /**
-     * @description The ID of the execution record of the task flow. You can call the [ListTaskFlowInstance](~~424689~~) operation to query the execution record ID.
+     * @description The ID of the execution record of the task flow. You can call the [ListTaskFlowInstance](https://help.aliyun.com/document_detail/424689.html) operation to query the execution record ID.
      *
+     * This parameter is required.
      * @example 3****
      *
      * @var int
@@ -27,7 +29,7 @@ class ResumeTaskFlowInstanceRequest extends Model
     public $dagInstanceId;
 
     /**
-     * @description The version number of the task flow. You can call the [ListDAGVersions](~~424682~~) operation to query the version number.
+     * @description The version number of the task flow. You can call the [ListDAGVersions](https://help.aliyun.com/document_detail/424682.html) operation to query the version number.
      *
      * @example []
      *
@@ -36,7 +38,7 @@ class ResumeTaskFlowInstanceRequest extends Model
     public $dagVersion;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
      *
      * @example 3***
      *

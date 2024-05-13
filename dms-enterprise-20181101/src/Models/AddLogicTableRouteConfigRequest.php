@@ -11,6 +11,7 @@ class AddLogicTableRouteConfigRequest extends Model
     /**
      * @description The routing algorithm expression. For more information about how to configure a routing algorithm expression, see [Configure a routing algorithm](https://www.alibabacloud.com/help/en/data-management-service/latest/configure-a-routing-algorithm).
      *
+     * This parameter is required.
      * @example #id#%16
      *
      * @var string
@@ -20,7 +21,7 @@ class AddLogicTableRouteConfigRequest extends Model
     /**
      * @description The unique key of the routing algorithm.
      *
-     * > - The unique key of the routing algorithm in the same logical table must be unique.
+     * This parameter is required.
      * @example id-hash-mod16
      *
      * @var string
@@ -30,6 +31,7 @@ class AddLogicTableRouteConfigRequest extends Model
     /**
      * @description The ID of the logical table. You can call the [ListLogicTables](https://www.alibabacloud.com/help/en/data-management-service/latest/listlogictables) operation to query the ID of the logical table.
      *
+     * This parameter is required.
      * @example 4****
      *
      * @var int

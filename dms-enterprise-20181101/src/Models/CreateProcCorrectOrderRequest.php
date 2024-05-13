@@ -17,6 +17,8 @@ class CreateProcCorrectOrderRequest extends Model
     public $attachmentKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -24,6 +26,8 @@ class CreateProcCorrectOrderRequest extends Model
     public $comment;
 
     /**
+     * @description This parameter is required.
+     *
      * @var param
      */
     public $param;

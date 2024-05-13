@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class standardGroup extends Model
 {
     /**
-     * @description The type of the database engine. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The type of the database engine. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
      *
      * @example mysql
      *

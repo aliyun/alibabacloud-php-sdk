@@ -22,6 +22,7 @@ class param extends Model
      *   **adb_mysql**: AnalyticDB for MySQL V3.0 cluster.
      *   **lindorm**: ApsaraDB for Lindorm instance.
      *
+     * This parameter is required.
      * @example mysql
      *
      * @var string
@@ -29,13 +30,18 @@ class param extends Model
     public $archiveMethod;
 
     /**
-     * @description A crontab expression that specifies the scheduling cycle to run the task. For more information, see the [Crontab expressions](~~206581~~) section of the "Create shadow tables for synchronization" topic. This parameter is required if RunMethod is set to schedule.
+     * @description A crontab expression that specifies the scheduling cycle to run the task. For more information, see the [Crontab expressions](https://help.aliyun.com/document_detail/206581.html) section of the "Create shadow tables for synchronization" topic. This parameter is required if RunMethod is set to schedule.
      *
      * @example 00 05 11 * * ?
      *
      * @var string
      */
     public $cronStr;
+
+    /**
+     * @var string
+     */
+    public $databaseId;
 
     /**
      * @description Specifies whether the database is a logical database.
@@ -59,6 +65,7 @@ class param extends Model
      *   **schedule**: The data archiving task is periodically scheduled.
      *   **now**: The data archiving task is immediately run.
      *
+     * This parameter is required.
      * @example now
      *
      * @var string
@@ -72,6 +79,7 @@ class param extends Model
      *   **An empty string**: Set this parameter to an empty string if the source database is an ApsaraDB for Lindorm or ApsaraDB for MongoDB instance.
      *   **Catalog name**: Set this parameter to the catalog name of the source database if the source database is of the three-layer logical schema, such as a PostgreSQL database.
      *
+     * This parameter is required.
      * @example def
      *
      * @var string
@@ -81,6 +89,7 @@ class param extends Model
     /**
      * @description The name of the source instance.
      *
+     * This parameter is required.
      * @example pc-bp1*******
      *
      * @var string
@@ -90,6 +99,7 @@ class param extends Model
     /**
      * @description The schema name of the source database. The schema name of the source database is the same as that of the destination database. If the source database is a MySQL database, this parameter specifies the name of the source database. If the source database is a PostgreSQL database, this parameter specifies the schema name of the source database.
      *
+     * This parameter is required.
      * @example schema_test
      *
      * @var string
@@ -99,6 +109,7 @@ class param extends Model
     /**
      * @description The collection of tables to be archived.
      *
+     * This parameter is required.
      * @var tableIncludes[]
      */
     public $tableIncludes;
@@ -116,6 +127,7 @@ class param extends Model
      *   If the data is archived in an OSS bucket, set the value to the name of the bucket.
      *   If the data is archived in the dedicated storage space, set the value to inner_oss.
      *
+     * This parameter is required.
      * @example am-bp1*********.ads.aliyuncs.com
      *
      * @var string
@@ -131,6 +143,7 @@ class param extends Model
     protected $_name = [
         'archiveMethod'      => 'ArchiveMethod',
         'cronStr'            => 'CronStr',
+        'databaseId'         => 'DatabaseId',
         'logic'              => 'Logic',
         'orderAfter'         => 'OrderAfter',
         'runMethod'          => 'RunMethod',
@@ -155,6 +168,9 @@ class param extends Model
         }
         if (null !== $this->cronStr) {
             $res['CronStr'] = $this->cronStr;
+        }
+        if (null !== $this->databaseId) {
+            $res['DatabaseId'] = $this->databaseId;
         }
         if (null !== $this->logic) {
             $res['Logic'] = $this->logic;
@@ -215,6 +231,9 @@ class param extends Model
         }
         if (isset($map['CronStr'])) {
             $model->cronStr = $map['CronStr'];
+        }
+        if (isset($map['DatabaseId'])) {
+            $model->databaseId = $map['DatabaseId'];
         }
         if (isset($map['Logic'])) {
             $model->logic = $map['Logic'];

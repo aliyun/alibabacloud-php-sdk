@@ -58,7 +58,7 @@ class sensitiveDataAuditLogList extends Model
      *   Object name - object ID
      *   Object name (object ID)
      *
-     * @example Ticket - 1\*\*\*\*
+     * @example Ticket - 1\\*\\*\\*\\*
      *
      * @var string
      */

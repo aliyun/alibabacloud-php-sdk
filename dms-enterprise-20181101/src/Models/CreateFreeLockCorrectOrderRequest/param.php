@@ -30,6 +30,7 @@ class param extends Model
     /**
      * @description The databases in which you want to change data.
      *
+     * This parameter is required.
      * @var dbItemList[]
      */
     public $dbItemList;
@@ -50,6 +51,7 @@ class param extends Model
     /**
      * @description The SQL statements that you want to execute to change data.
      *
+     * This parameter is required.
      * @example delete from base_user where 1 = 1;
      *
      * @var string
@@ -92,6 +94,7 @@ class param extends Model
      *   **TEXT**: text
      *   **ATTACHMENT**: attachment. This value is not supported.
      *
+     * This parameter is required.
      * @example TEXT
      *
      * @var string

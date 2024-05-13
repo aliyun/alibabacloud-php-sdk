@@ -58,7 +58,7 @@ class structSyncJobDetail extends Model
      * @description The type of security rule. Valid values:
      *
      *   **CANNOT_SYNC**: Synchronization cannot be performed.
-     *   **WITH_APPROVE**: The schema synchronization can be performed after the ticket is approved. You can call the [SubmitStructSyncOrderApproval](~~206166~~) operation to submit the ticket for approval.
+     *   **WITH_APPROVE**: The schema synchronization can be performed after the ticket is approved. You can call the [SubmitStructSyncOrderApproval](https://help.aliyun.com/document_detail/206166.html) operation to submit the ticket for approval.
      *   **WITHOUT_APPROVE**: The schema synchronization can be performed without approval.
      *
      * @example WITHOUT_APPROVE

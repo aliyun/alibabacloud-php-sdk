@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetUserUploadFileJobRequest extends Model
 {
     /**
-     * @description The key of the file upload task. The key is returned when you call the [CreateUploadFileJob](~~206059~~) or [CreateUploadOSSFileJob](~~206060~~) operation.
+     * @description The key of the file upload task. The key is returned when you call the [CreateUploadFileJob](https://help.aliyun.com/document_detail/206059.html) or [CreateUploadOSSFileJob](https://help.aliyun.com/document_detail/206060.html) operation.
      *
+     * This parameter is required.
      * @example 65254a49100e
      *
      * @var string
@@ -20,7 +21,7 @@ class GetUserUploadFileJobRequest extends Model
     /**
      * @description The tenant ID.
      *
-     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
+     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
      * @example -1
      *
      * @var int

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetProxyAccessRequest extends Model
 {
     /**
-     * @description The ID that Data Management (DMS) generates after the user is authorized to enable the secure access proxy feature for an instance. The ID is unique in DMS. You can call the [ListProxyAccesses](~~295386~~) operation to query the ID.
+     * @description The ID that Data Management (DMS) generates after the user is authorized to enable the secure access proxy feature for an instance. The ID is unique in DMS. You can call the [ListProxyAccesses](https://help.aliyun.com/document_detail/295386.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,7 +19,7 @@ class GetProxyAccessRequest extends Model
     public $proxyAccessId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
      *
      * @example 3***
      *

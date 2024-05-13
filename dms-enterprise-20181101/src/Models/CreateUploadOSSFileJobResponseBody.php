@@ -27,7 +27,7 @@ class CreateUploadOSSFileJobResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The key of the file upload task. You can query the upload progress and task details. For more information, see [GetUserUploadFileJob](~~206069~~).
+     * @description The key of the file upload task. You can query the upload progress and task details. For more information, see [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html).
      *
      * @example 65254a4c1614235217749100e
      *

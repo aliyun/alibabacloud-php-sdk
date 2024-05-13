@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesensitizationStrategyRequest extends Model
 {
     /**
-     * @description The name of the field. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the field name.
+     * @description The name of the field. You can call the [ListSensitiveColumns](https://help.aliyun.com/document_detail/188103.html) operation to obtain the field name.
      *
-     * >  You can also call the [ListColumns](~~141870~~) operation to obtain the field name.
+     * This parameter is required.
      * @example test_column
      *
      * @var string
@@ -19,8 +19,9 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $columnName;
 
     /**
-     * @description The ID of the database. You can call the [ListDatabases](~~141873~~) operation to obtain the ID.
+     * @description The ID of the database. You can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) operation to obtain the ID.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int
@@ -45,6 +46,7 @@ class ModifyDesensitizationStrategyRequest extends Model
      *   **true**: The database is a physical database.
      *   **false**: The database is a logical database.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -73,14 +75,15 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $ruleId;
 
     /**
-     * @description The name of the database. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the database name.
+     * @description The name of the database. You can call the [ListSensitiveColumns](https://help.aliyun.com/document_detail/188103.html) operation to obtain the database name.
      *
      * >
      *
-     *   If the database is a physical database, you can call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation to obtain the database name.
+     *   If the database is a physical database, you can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the database name.
      *
-     *   If the database is a logical database, you can call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation to obtain the name of the database.
+     *   If the database is a logical database, you can call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the name of the database.
      *
+     * This parameter is required.
      * @example test_schema
      *
      * @var string
@@ -88,9 +91,9 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $schemaName;
 
     /**
-     * @description The name of the table. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the table name.
+     * @description The name of the table. You can call the [ListSensitiveColumns](https://help.aliyun.com/document_detail/188103.html) operation to obtain the table name.
      *
-     * >  You can also call the [ListTables](~~141878~~) operation to obtain the table name.
+     * This parameter is required.
      * @example test_table
      *
      * @var string
@@ -100,7 +103,7 @@ class ModifyDesensitizationStrategyRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~) in the topic "Manage DMS tenants."
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) in the topic "Manage DMS tenants."
      * @example 3***
      *
      * @var int

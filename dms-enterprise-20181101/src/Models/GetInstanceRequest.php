@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceRequest extends Model
 {
     /**
-     * @description The endpoint of the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the endpoint.
+     * @description The endpoint of the database instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the endpoint.
      *
+     * This parameter is required.
      * @example 172.17.XXX.XXX
      *
      * @var string
@@ -18,8 +19,9 @@ class GetInstanceRequest extends Model
     public $host;
 
     /**
-     * @description The port number that is used to connect to the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the port number.
+     * @description The port number that is used to connect to the database instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the port number.
      *
+     * This parameter is required.
      * @example 5432
      *
      * @var int
@@ -27,7 +29,7 @@ class GetInstanceRequest extends Model
     public $port;
 
     /**
-     * @description The system ID (SID) of the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the SID.
+     * @description The system ID (SID) of the database instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) operation to obtain the SID.
      *
      * @example test
      *
@@ -36,7 +38,7 @@ class GetInstanceRequest extends Model
     public $sid;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
      *
      * @example 2***
      *

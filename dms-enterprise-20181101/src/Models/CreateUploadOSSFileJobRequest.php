@@ -12,7 +12,7 @@ class CreateUploadOSSFileJobRequest extends Model
     /**
      * @description The name of the file.
      *
-     * > The file name must end with .txt or .sql. For example, the file name can be text.txt.
+     * This parameter is required.
      * @example test.sql
      *
      * @var string
@@ -27,6 +27,7 @@ class CreateUploadOSSFileJobRequest extends Model
      *   **big-file**: The file is uploaded to import multiple data records at a time.
      *   **sqlreview**: The file is uploaded for SQL review.
      *
+     * This parameter is required.
      * @example datacorrect
      *
      * @var string
@@ -36,7 +37,7 @@ class CreateUploadOSSFileJobRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html) topic.
      * @example -1
      *
      * @var int
@@ -46,6 +47,7 @@ class CreateUploadOSSFileJobRequest extends Model
     /**
      * @description The information about the OSS file to be uploaded.
      *
+     * This parameter is required.
      * @var uploadTarget
      */
     public $uploadTarget;

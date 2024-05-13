@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetStandardGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 242***
      *
      * @var int

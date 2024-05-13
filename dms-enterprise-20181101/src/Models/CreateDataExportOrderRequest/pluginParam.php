@@ -12,6 +12,7 @@ class pluginParam extends Model
     /**
      * @description The estimated number of data rows to be affected.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -21,6 +22,7 @@ class pluginParam extends Model
     /**
      * @description The reason for the export ticket.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -30,6 +32,7 @@ class pluginParam extends Model
     /**
      * @description The database ID.
      *
+     * This parameter is required.
      * @example 18****
      *
      * @var int
@@ -39,6 +42,7 @@ class pluginParam extends Model
     /**
      * @description The SQL statements that can be executed.
      *
+     * This parameter is required.
      * @example SELECT * FROM DMS_test
      * LIMIT 20;
      * @var string
@@ -51,6 +55,7 @@ class pluginParam extends Model
      *   **true**
      *   **false**
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -69,6 +74,7 @@ class pluginParam extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example 132****
      *
      * @var int
@@ -82,6 +88,8 @@ class pluginParam extends Model
      *   **false**
      *
      * > If you set this parameter to **true**, the database that you specify must be a logical database.
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool

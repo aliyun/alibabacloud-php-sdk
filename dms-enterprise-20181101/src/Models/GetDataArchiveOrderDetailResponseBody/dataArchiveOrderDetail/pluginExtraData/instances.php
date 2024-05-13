@@ -18,7 +18,7 @@ class instances extends Model
     public $businessTime;
 
     /**
-     * @description The ID of the task. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * @description The ID of the task. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
      *
      * @example 37***
      *
@@ -85,7 +85,7 @@ class instances extends Model
     /**
      * @description The running details of the task.
      *
-     * @example 2023-05-15 16:37:48[GMT+08:00] INFO - Resource Control is active!\n2023-05-15 16:37:48[GMT+08:00] INFO - Starting job j_4834 at Mon May 15 16:37:48 CST 2023
+     * @example 2023-05-15 16:37:48[GMT+08:00] INFO - Resource Control is active!\\n2023-05-15 16:37:48[GMT+08:00] INFO - Starting job j_4834 at Mon May 15 16:37:48 CST 2023
      *
      * @var string
      */

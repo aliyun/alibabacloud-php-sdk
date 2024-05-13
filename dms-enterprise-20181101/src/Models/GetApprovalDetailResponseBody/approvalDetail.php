@@ -39,7 +39,7 @@ class approvalDetail extends Model
     /**
      * @description The description of the approval process.
      *
-     * @example \[Instance permissions] Application\<br/>Permission type: ⌈Logon⌋\<br/>Application period: 30.0 days\<br/>Background description: \[Instance permissions] logon test\<br/>\<br/>\[Application list]\<br/>\<span style=\"color:red\">product\</span> rm-bp144d5ky4l4rli0417\*\*\*\*.mysql.rds.aliyuncs.com:3306 - PRODUCT\<br/>
+     * @example [Instance permissions] Application\\<br/>Permission type: ⌈Logon⌋\\<br/>Application period: 30.0 days\\<br/>Background description: [Instance permissions] logon test\\<br/>\\<br/>[Application list]\\<br/>\\<span style=\\"color:red\\">product\\</span> rm-bp144d5ky4l4rli0417\\*\\*\\*\\*.mysql.rds.aliyuncs.com:3306 - PRODUCT\\<br/>
      *
      * @var string
      */
@@ -91,7 +91,7 @@ class approvalDetail extends Model
     /**
      * @description The title of the approval process.
      *
-     * @example Permission application ticket - 384\*\*\*\*
+     * @example Permission application ticket - 384\\*\\*\\*\\*
      *
      * @var string
      */

@@ -11,7 +11,7 @@ class task extends Model
     /**
      * @description The position of the node on the Directed Acyclic Graph (DAG).
      *
-     * @example {\"x\":435,\"y\":192,\"layoutType\":\"Horizontal\"}
+     * @example {\\"x\\":435,\\"y\\":192,\\"layoutType\\":\\"Horizontal\\"}
      *
      * @var string
      */
@@ -56,14 +56,14 @@ class task extends Model
     /**
      * @description The output variables for the task.
      *
-     * @example {  "outputs":[{ { "row":0, "column":-1,                  "combiner":"," }            "extractMethod":"{\"row\":0,\"column\":-1,\"combiner\":\",\"}",         "variableName":"var",    "description":"For demo"} ] }
+     * @example {  "outputs":[{ { "row":0, "column":-1,                  "combiner":"," }            "extractMethod":"{\\"row\\":0,\\"column\\":-1,\\"combiner\\":\\",\\"}",         "variableName":"var",    "description":"For demo"} ] }
      *
      * @var string
      */
     public $nodeOutput;
 
     /**
-     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](https://help.aliyun.com/document_detail/424705.html).
      *
      * @example SPARK_SQL
      *
@@ -74,7 +74,7 @@ class task extends Model
     /**
      * @description The time variables configured for the node.
      *
-     * @example {\"variables\":[{\"name\":\"test1\",\"pattern\":\"yyyy-MM-dd
+     * @example {\\"variables\\":[{\\"name\\":\\"test1\\",\\"pattern\\":\\"yyyy-MM-dd
      *
      * @var string
      */

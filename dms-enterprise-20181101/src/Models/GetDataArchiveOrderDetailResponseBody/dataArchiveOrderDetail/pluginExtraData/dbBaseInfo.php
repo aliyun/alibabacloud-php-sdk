@@ -58,9 +58,9 @@ class dbBaseInfo extends Model
     public $clusterNode;
 
     /**
-     * @description The ID of the database. You can call the [SearchDatabase](~~141876~~) operation to query the ID of the database.
+     * @description The ID of the database. You can call the [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to query the ID of the database.
      *
-     * >  You can call the [ListDatabases](~~141873~~) operation to query the ID of a physical database or the [ListLogicDatabases](~~141874~~) operation to query the ID of a logical database.
+     * >  You can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) operation to query the ID of a physical database or the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) operation to query the ID of a logical database.
      * @example 348****
      *
      * @var int
@@ -68,7 +68,7 @@ class dbBaseInfo extends Model
     public $dbId;
 
     /**
-     * @description The type of the database. For information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The type of the database. For information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
      *
      * @example MySQL
      *
@@ -224,7 +224,7 @@ class dbBaseInfo extends Model
     public $logic;
 
     /**
-     * @description The IDs of the owners of the databases, which are stored as an array. You can call the [GetUser](~~147098~~) or [ListUsers](~~141938~~) operation to query the IDs of the owners.
+     * @description The IDs of the owners of the databases, which are stored as an array. You can call the [GetUser](https://help.aliyun.com/document_detail/147098.html) or [ListUsers](https://help.aliyun.com/document_detail/141938.html) operation to query the IDs of the owners.
      *
      * >  The value of OwnerIds is the same as the value of UserId
      * @var int[]

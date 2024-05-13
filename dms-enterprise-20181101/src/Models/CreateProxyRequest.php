@@ -11,6 +11,7 @@ class CreateProxyRequest extends Model
     /**
      * @description The ID of the database instance. You can call the [ListInstances](https://www.alibabacloud.com/help/en/data-management-service/latest/listinstances) or [GetInstance](https://www.alibabacloud.com/help/en/data-management-service/latest/getinstance) operation to query the database instance ID.
      *
+     * This parameter is required.
      * @example 183****
      *
      * @var int
@@ -20,6 +21,7 @@ class CreateProxyRequest extends Model
     /**
      * @description The password of the database account.
      *
+     * This parameter is required.
      * @example ******
      *
      * @var string
@@ -38,6 +40,7 @@ class CreateProxyRequest extends Model
     /**
      * @description The username of the database account.
      *
+     * This parameter is required.
      * @example username
      *
      * @var string

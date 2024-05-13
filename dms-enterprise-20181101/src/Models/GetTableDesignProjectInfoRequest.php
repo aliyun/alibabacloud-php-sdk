@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTableDesignProjectInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 95****
      *
      * @var int

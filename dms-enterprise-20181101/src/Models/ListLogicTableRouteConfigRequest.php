@@ -11,6 +11,7 @@ class ListLogicTableRouteConfigRequest extends Model
     /**
      * @description The ID of the logical table. You can call the [ListLogicTables](https://www.alibabacloud.com/help/en/data-management-service/latest/listlogictables) operation to query the ID of the logical table.
      *
+     * This parameter is required.
      * @example 1****
      *
      * @var int

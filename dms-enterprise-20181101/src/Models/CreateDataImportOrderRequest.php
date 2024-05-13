@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDataImportOrderRequest extends Model
 {
     /**
-     * @description The key of the attachment that provides more instructions for the ticket. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key from the value of the AttachmentKey parameter.
+     * @description The key of the attachment that provides more instructions for the ticket. You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to obtain the attachment key from the value of the AttachmentKey parameter.
      *
      * @example order_attachment.txt
      *
@@ -21,6 +21,7 @@ class CreateDataImportOrderRequest extends Model
     /**
      * @description The purpose or objective of the data import. This parameter is used to help reduce unnecessary communication.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -30,6 +31,7 @@ class CreateDataImportOrderRequest extends Model
     /**
      * @description The parameters of the ticket.
      *
+     * This parameter is required.
      * @var param
      */
     public $param;
@@ -42,7 +44,7 @@ class CreateDataImportOrderRequest extends Model
     public $relatedUserList;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *

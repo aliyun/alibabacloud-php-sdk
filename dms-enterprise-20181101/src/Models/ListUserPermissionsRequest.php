@@ -18,7 +18,7 @@ class ListUserPermissionsRequest extends Model
     public $databaseName;
 
     /**
-     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
      *
      * @example polardb
      *
@@ -82,6 +82,7 @@ class ListUserPermissionsRequest extends Model
      *   COLUMN: permissions on fields
      *   INSTANCE: permissions on instances
      *
+     * This parameter is required.
      * @example DATABASE
      *
      * @var string
@@ -100,7 +101,7 @@ class ListUserPermissionsRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html) topic.
      * @example 3***
      *
      * @var int
@@ -108,9 +109,9 @@ class ListUserPermissionsRequest extends Model
     public $tid;
 
     /**
-     * @description The ID of the user. You can call the [GetUser](~~147098~~) or [ListUsers](~~141938~~) operation to query the ID of the user.
+     * @description The ID of the user. You can call the [GetUser](https://help.aliyun.com/document_detail/147098.html) or [ListUsers](https://help.aliyun.com/document_detail/141938.html) operation to query the ID of the user.
      *
-     * >  The user ID is different from the ID of your Alibaba Cloud account.
+     * This parameter is required.
      * @example 51****
      *
      * @var string

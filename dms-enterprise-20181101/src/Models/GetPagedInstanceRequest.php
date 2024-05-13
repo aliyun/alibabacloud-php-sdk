@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPagedInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 868*****
      *
      * @var int

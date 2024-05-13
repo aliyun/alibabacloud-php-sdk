@@ -29,6 +29,7 @@ class CreateProxyAccessRequest extends Model
     /**
      * @description The ID of the security protection agent. You can call the [ListProxies](https://www.alibabacloud.com/help/en/data-management-service/latest/listproxies) or [GetProxy](https://www.alibabacloud.com/help/en/data-management-service/latest/getproxy) operation to obtain this parameter.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -47,6 +48,7 @@ class CreateProxyAccessRequest extends Model
     /**
      * @description The ID of the user. You can call the [ListUsers](https://www.alibabacloud.com/help/en/data-management-service/latest/listusers) or [GetUser](https://www.alibabacloud.com/help/en/data-management-service/latest/getuser) operation to obtain this parameter.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

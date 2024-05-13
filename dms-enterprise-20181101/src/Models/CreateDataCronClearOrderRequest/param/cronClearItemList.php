@@ -11,6 +11,7 @@ class cronClearItemList extends Model
     /**
      * @description The name of the field.
      *
+     * This parameter is required.
      * @example gmt_create
      *
      * @var string
@@ -29,6 +30,7 @@ class cronClearItemList extends Model
     /**
      * @description The retention period of the historical data. Unit: days. For example, if you set the parameter to 7, DMS deletes the data that is retained for more than seven days.
      *
+     * This parameter is required.
      * @example 7
      *
      * @var int
@@ -36,8 +38,9 @@ class cronClearItemList extends Model
     public $remainDays;
 
     /**
-     * @description The name of the table. You can call the [ListTables](~~141878~~) operation to query the name of the table.
+     * @description The name of the table. You can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to query the name of the table.
      *
+     * This parameter is required.
      * @example t1
      *
      * @var string

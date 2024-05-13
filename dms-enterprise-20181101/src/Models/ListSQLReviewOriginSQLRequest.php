@@ -17,8 +17,9 @@ class ListSQLReviewOriginSQLRequest extends Model
     public $orderActionDetail;
 
     /**
-     * @description The ID of the ticket for the SQL review. You can call the [CreateSQLReviewOrder](~~257777~~) operation to query the ID of the ticket.
+     * @description The ID of the ticket for the SQL review. You can call the [CreateSQLReviewOrder](https://help.aliyun.com/document_detail/257777.html) operation to query the ID of the ticket.
      *
+     * This parameter is required.
      * @example 123321
      *
      * @var int
@@ -26,7 +27,7 @@ class ListSQLReviewOriginSQLRequest extends Model
     public $orderId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~465818~~) operation to query the ID of the tenant.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/465818.html) operation to query the ID of the tenant.
      *
      * @example 1
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SearchDatabaseRequest extends Model
 {
     /**
-     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
      *
      * @example MYSQL
      *
@@ -18,7 +18,7 @@ class SearchDatabaseRequest extends Model
     public $dbType;
 
     /**
-     * @description The environment type of the database. For more information, see [Change the environment type of an instance](~~163309~~).
+     * @description The environment type of the database. For more information, see [Change the environment type of an instance](https://help.aliyun.com/document_detail/163309.html).
      *
      * @example test
      *
@@ -81,7 +81,7 @@ class SearchDatabaseRequest extends Model
     public $searchTarget;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
      *
      * @example 3***
      *

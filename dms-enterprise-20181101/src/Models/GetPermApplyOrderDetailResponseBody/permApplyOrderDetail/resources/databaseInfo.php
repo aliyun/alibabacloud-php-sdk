@@ -27,7 +27,7 @@ class databaseInfo extends Model
     public $dbType;
 
     /**
-     * @description The type of the environment to which the instance belongs. For more information, see [Change the environment type of an instance](~~163309~~).
+     * @description The type of the environment to which the instance belongs. For more information, see [Change the environment type of an instance](https://help.aliyun.com/document_detail/163309.html).
      *
      * @example product
      *

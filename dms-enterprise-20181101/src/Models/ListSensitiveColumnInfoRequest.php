@@ -16,6 +16,8 @@ class ListSensitiveColumnInfoRequest extends Model
     public $columnName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 183****
      *
      * @var int

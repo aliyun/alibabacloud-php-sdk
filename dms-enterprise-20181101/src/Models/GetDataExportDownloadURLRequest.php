@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDataExportDownloadURLRequest extends Model
 {
     /**
-     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     * @description The ID of the ticket. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to obtain the ticket ID.
      *
+     * This parameter is required.
      * @example 546****
      *
      * @var int
@@ -18,7 +19,7 @@ class GetDataExportDownloadURLRequest extends Model
     public $orderId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *

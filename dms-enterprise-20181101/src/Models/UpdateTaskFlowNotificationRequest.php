@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowNotificationRequest extends Model
 {
     /**
-     * @description The unique ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * @description The unique ID of the task flow. You can call the [ListTaskFlow](https://help.aliyun.com/document_detail/424565.html) or [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to query the task flow ID.
      *
+     * This parameter is required.
      * @example 15***
      *
      * @var int
@@ -20,6 +21,7 @@ class UpdateTaskFlowNotificationRequest extends Model
     /**
      * @description Specifies whether to enable notifications for failed task flows. Notifications are disabled by default. You can enable notifications based on your business requirements.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -29,6 +31,7 @@ class UpdateTaskFlowNotificationRequest extends Model
     /**
      * @description Specifies whether to enable SLA global notifications for task flows. Notifications are disabled by default. You can enable notifications based on your business requirements.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -38,6 +41,7 @@ class UpdateTaskFlowNotificationRequest extends Model
     /**
      * @description Specifies whether to enable notifications for successful task flows. Notifications are disabled by default. You can enable notifications based on your business requirements.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -47,7 +51,7 @@ class UpdateTaskFlowNotificationRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
      * @example 3***
      *
      * @var int

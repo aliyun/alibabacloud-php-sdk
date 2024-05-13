@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetApprovalDetailRequest extends Model
 {
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *
@@ -18,8 +18,9 @@ class GetApprovalDetailRequest extends Model
     public $tid;
 
     /**
-     * @description The ID of the approval process. You can call the [GetOrderBaseInfo](~~144642~~) operation to obtain the ID of the approval process.
+     * @description The ID of the approval process. You can call the [GetOrderBaseInfo](https://help.aliyun.com/document_detail/144642.html) operation to obtain the ID of the approval process.
      *
+     * This parameter is required.
      * @example 184****
      *
      * @var int

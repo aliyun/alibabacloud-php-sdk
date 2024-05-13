@@ -114,6 +114,8 @@ class ModifyInstanceRequest extends Model
     public $instanceAlias;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 183****
      *
      * @var string

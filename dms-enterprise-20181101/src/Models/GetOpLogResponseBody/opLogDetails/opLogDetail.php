@@ -17,7 +17,7 @@ class opLogDetail extends Model
      *
      *   This parameter is valid only for operations on the functional modules related to tasks.
      *
-     * @example dmstest_prod_database@dmstest.rds... \[Test instance]
+     * @example dmstest_prod_database@dmstest.rds... [Test instance]
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class opLogDetail extends Model
     /**
      * @description The details of the operation.
      *
-     * @example SELECT * FROM `orders` \n LIMIT 20
+     * @example SELECT * FROM `orders` \\n LIMIT 20
      *
      * @var string
      */

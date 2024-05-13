@@ -124,7 +124,7 @@ class columnList extends Model
      *   **SENSITIVE**: The column is sensitive.
      *   **CONFIDENTIAL**: The column is confidential.
      *
-     * > For more information, see [Sensitivity levels of columns](~~66091~~).
+     * > For more information, see [Sensitivity levels of columns](https://help.aliyun.com/document_detail/66091.html).
      * @example INNER
      *
      * @var string

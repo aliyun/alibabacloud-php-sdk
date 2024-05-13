@@ -29,7 +29,7 @@ class CreateUploadFileJobResponseBody extends Model
     /**
      * @description The key of the task.
      *
-     * >  You can call the [GetUserUploadFileJob](~~206069~~) operation to query the progress and details of the task.
+     * >  You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to query the progress and details of the task.
      * @example 761f18031635736380812****
      *
      * @var string

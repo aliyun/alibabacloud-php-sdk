@@ -20,6 +20,7 @@ class GrantTemplateAuthorityRequest extends Model
     /**
      * @description The time when the permission expires. Specify the time in the yyyy-MM-DD HH:mm:ss format.
      *
+     * This parameter is required.
      * @example 2023-03-08 17:58:53
      *
      * @var string
@@ -29,6 +30,7 @@ class GrantTemplateAuthorityRequest extends Model
     /**
      * @description The ID of the permission template.
      *
+     * This parameter is required.
      * @example 1563
      *
      * @var int
@@ -36,7 +38,7 @@ class GrantTemplateAuthorityRequest extends Model
     public $templateId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
      *
      * @example 3***
      *
@@ -47,6 +49,7 @@ class GrantTemplateAuthorityRequest extends Model
     /**
      * @description The IDs of users to which you want to grant permissions on resources by using the permission template.
      *
+     * This parameter is required.
      * @example [12***,34***,56***]
      *
      * @var string

@@ -18,8 +18,9 @@ class CreateLakeHouseSpaceRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the development database. You can call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation to obtain the ID.
+     * @description The ID of the development database. You can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the ID.
      *
+     * This parameter is required.
      * @example 2435****
      *
      * @var string
@@ -32,6 +33,7 @@ class CreateLakeHouseSpaceRequest extends Model
      *   **14**: AnalyticDB for MySQL
      *   **18**: AnalyticDB for PostgreSQL
      *
+     * This parameter is required.
      * @example 14
      *
      * @var string
@@ -44,6 +46,7 @@ class CreateLakeHouseSpaceRequest extends Model
      *   **0**: basic mode. This mode is unavailable.
      *   **1**: standard mode.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -51,7 +54,7 @@ class CreateLakeHouseSpaceRequest extends Model
     public $mode;
 
     /**
-     * @description The ID of the production database. You can call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation to obtain the ID.
+     * @description The ID of the production database. You can call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the ID.
      *
      * @example 2442****
      *
@@ -63,9 +66,10 @@ class CreateLakeHouseSpaceRequest extends Model
      * @description The configuration of the workspace. Valid values:
      *
      *   **skipManualRunCheck**: No security rule check is required in the trial run phase.
-     *   **skipPublishApprove**: No approval is required for publishing and O\&M.
+     *   **skipPublishApprove**: No approval is required for publishing and O\\&M.
      *
-     * @example {\"skipManualRunCheck\":true,\"skipPublishApprove\":true}
+     * This parameter is required.
+     * @example {\\"skipManualRunCheck\\":true,\\"skipPublishApprove\\":true}
      *
      * @var string
      */
@@ -74,6 +78,7 @@ class CreateLakeHouseSpaceRequest extends Model
     /**
      * @description The name of the workspace.
      *
+     * This parameter is required.
      * @example test_space
      *
      * @var string
@@ -81,7 +86,7 @@ class CreateLakeHouseSpaceRequest extends Model
     public $spaceName;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *

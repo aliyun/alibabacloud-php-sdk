@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDbExportDownloadURLRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 73****
      *
      * @var int

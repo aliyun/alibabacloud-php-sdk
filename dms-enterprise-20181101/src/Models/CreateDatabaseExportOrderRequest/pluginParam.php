@@ -12,6 +12,7 @@ class pluginParam extends Model
     /**
      * @description The reason for the database export.
      *
+     * This parameter is required.
      * @example document_test
      *
      * @var string
@@ -21,6 +22,7 @@ class pluginParam extends Model
     /**
      * @description The configurations for database export.
      *
+     * This parameter is required.
      * @var config
      */
     public $config;
@@ -28,6 +30,7 @@ class pluginParam extends Model
     /**
      * @description The database ID.
      *
+     * This parameter is required.
      * @example 17****
      *
      * @var int
@@ -37,6 +40,7 @@ class pluginParam extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example 137****
      *
      * @var int
@@ -49,6 +53,7 @@ class pluginParam extends Model
      *   **true**
      *   **false**
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -58,6 +63,7 @@ class pluginParam extends Model
     /**
      * @description The name that is used to search for the database.
      *
+     * This parameter is required.
      * @example test@xxx.xxx.xxx.xxx:3306
      *
      * @var string

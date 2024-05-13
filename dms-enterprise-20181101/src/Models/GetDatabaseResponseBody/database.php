@@ -29,7 +29,7 @@ class database extends Model
     public $databaseId;
 
     /**
-     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
      *
      * @example mysql
      *

@@ -11,7 +11,7 @@ class UpdateAuthorityTemplateRequest extends Model
     /**
      * @description The description of the permission template.
      *
-     * >  You must specify the Name or Description parameter. Otherwise, the API call fails.
+     * This parameter is required.
      * @example This template is used for business testing.
      *
      * @var string
@@ -21,7 +21,7 @@ class UpdateAuthorityTemplateRequest extends Model
     /**
      * @description The name of the permission template.
      *
-     * >  You must specify the Name or Description parameter. Otherwise, the API call fails.
+     * This parameter is required.
      * @example Test template.
      *
      * @var string
@@ -31,6 +31,7 @@ class UpdateAuthorityTemplateRequest extends Model
     /**
      * @description The ID of the permission template.
      *
+     * This parameter is required.
      * @example 1563
      *
      * @var int
@@ -38,7 +39,7 @@ class UpdateAuthorityTemplateRequest extends Model
     public $templateId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
      *
      * @example 3***
      *

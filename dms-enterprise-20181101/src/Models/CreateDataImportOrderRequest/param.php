@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
-     * @description The key of the attachment that contains the SQL statements used to import data. You can call the [GetUserUploadFileJob](~~206069~~) operation to the attachment key from the value of the AttachmentKey parameter.
+     * @description The key of the attachment that contains the SQL statements used to import data. You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to the attachment key from the value of the AttachmentKey parameter.
      *
+     * This parameter is required.
      * @example order_text
      *
      * @var string
@@ -43,6 +44,7 @@ class param extends Model
     /**
      * @description The database to which you want to import data. You can specify only one database.
      *
+     * This parameter is required.
      * @var dbItemList[]
      */
     public $dbItemList;
@@ -67,6 +69,7 @@ class param extends Model
      *   **SQL**: an SQL file
      *   **CSV**: a CSV file
      *
+     * This parameter is required.
      * @example CSV
      *
      * @var string
@@ -112,7 +115,7 @@ class param extends Model
     public $insertType;
 
     /**
-     * @description The key of the attachment that contains the SQL statements used to roll back the data import. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key from the value of the AttachmentKey parameter.
+     * @description The key of the attachment that contains the SQL statements used to roll back the data import. You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to obtain the attachment key from the value of the AttachmentKey parameter.
      *
      * >  This parameter is required if you set the **RollbackSqlType** parameter to **ATTACHMENT**.
      * @example rollback.sql

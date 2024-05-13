@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAuthorityTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2592
      *
      * @var int

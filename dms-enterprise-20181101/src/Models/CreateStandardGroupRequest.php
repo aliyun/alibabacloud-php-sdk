@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateStandardGroupRequest extends Model
 {
     /**
-     * @description The type of the database engine. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The type of the database engine. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
      *
+     * This parameter is required.
      * @example mysql
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateStandardGroupRequest extends Model
     /**
      * @description The description of the security rule set.
      *
+     * This parameter is required.
      * @example test_rule
      *
      * @var string
@@ -29,6 +31,7 @@ class CreateStandardGroupRequest extends Model
     /**
      * @description The name of the security rule set.
      *
+     * This parameter is required.
      * @example test_group
      *
      * @var string

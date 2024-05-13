@@ -162,7 +162,7 @@ class taskFlow extends Model
     /**
      * @description Event scheduling configuration, JSON string format.
      *
-     * @example {\"triggerType\":\"1\",\"specificTime\":\"2022-11-15 11:59\"}
+     * @example {\\"triggerType\\":\\"1\\",\\"specificTime\\":\\"2022-11-15 11:59\\"}
      *
      * @var string
      */

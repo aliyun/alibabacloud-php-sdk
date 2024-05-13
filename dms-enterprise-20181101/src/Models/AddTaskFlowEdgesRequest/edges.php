@@ -11,6 +11,7 @@ class edges extends Model
     /**
      * @description The ID of the node where the end node of the edge is located.
      *
+     * This parameter is required.
      * @example 44***
      *
      * @var int
@@ -20,6 +21,7 @@ class edges extends Model
     /**
      * @description The ID of the node where the start node of the edge is located.
      *
+     * This parameter is required.
      * @example 44***
      *
      * @var int

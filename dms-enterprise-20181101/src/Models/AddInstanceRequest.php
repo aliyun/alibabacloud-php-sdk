@@ -16,6 +16,8 @@ class AddInstanceRequest extends Model
     public $dataLinkName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test***
      *
      * @var string
@@ -23,6 +25,8 @@ class AddInstanceRequest extends Model
     public $databasePassword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testsdb
      *
      * @var string
@@ -79,6 +83,8 @@ class AddInstanceRequest extends Model
     public $enableSellStable;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Y
      *
      * @var string
@@ -86,6 +92,8 @@ class AddInstanceRequest extends Model
     public $enableSellTrust;
 
     /**
+     * @description This parameter is required.
+     *
      * @example product
      *
      * @var string
@@ -93,6 +101,8 @@ class AddInstanceRequest extends Model
     public $envType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 86400
      *
      * @var int
@@ -100,6 +110,8 @@ class AddInstanceRequest extends Model
     public $exportTimeout;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 172.XX.XXX.254
      *
      * @var string
@@ -107,11 +119,15 @@ class AddInstanceRequest extends Model
     public $host;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceAlias;
 
     /**
+     * @description This parameter is required.
+     *
      * @example RDS
      *
      * @var string
@@ -119,6 +135,8 @@ class AddInstanceRequest extends Model
     public $instanceSource;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MySQL
      *
      * @var string
@@ -126,6 +144,8 @@ class AddInstanceRequest extends Model
     public $instanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VPC
      *
      * @var string
@@ -133,6 +153,8 @@ class AddInstanceRequest extends Model
     public $networkType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3306
      *
      * @var int
@@ -140,6 +162,8 @@ class AddInstanceRequest extends Model
     public $port;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 7200
      *
      * @var int

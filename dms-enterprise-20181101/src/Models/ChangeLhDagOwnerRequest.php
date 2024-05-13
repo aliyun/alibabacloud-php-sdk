@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeLhDagOwnerRequest extends Model
 {
     /**
-     * @description The ID of the task flow. You can call the [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the task flow ID.
+     * @description The ID of the task flow. You can call the [ListLhTaskFlowAndScenario](https://help.aliyun.com/document_detail/426672.html) operation to obtain the task flow ID.
      *
+     * This parameter is required.
      * @example 9***
      *
      * @var int
@@ -18,8 +19,9 @@ class ChangeLhDagOwnerRequest extends Model
     public $dagId;
 
     /**
-     * @description The ID of the user to be specified as the new owner of the task flow. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain the user ID.
+     * @description The ID of the user to be specified as the new owner of the task flow. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to obtain the user ID.
      *
+     * This parameter is required.
      * @example 50****
      *
      * @var int
@@ -27,7 +29,7 @@ class ChangeLhDagOwnerRequest extends Model
     public $ownerUserId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *

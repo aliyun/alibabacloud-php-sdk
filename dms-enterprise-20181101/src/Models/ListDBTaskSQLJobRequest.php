@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDBTaskSQLJobRequest extends Model
 {
     /**
-     * @description The ID of the SQL task group. You can call the [GetStructSyncJobDetail](~~206160~~) operation to obtain this parameter.
+     * @description The ID of the SQL task group. You can call the [GetStructSyncJobDetail](https://help.aliyun.com/document_detail/206160.html) operation to obtain this parameter.
      *
+     * This parameter is required.
      * @example 1324235
      *
      * @var int
@@ -38,7 +39,7 @@ class ListDBTaskSQLJobRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](~~181330~~).
+     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
      * @example 1
      *
      * @var int

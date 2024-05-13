@@ -64,7 +64,7 @@ class ListOrdersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The type of the tickets that you want to query. For more information, see [PluginType parameter](~~429109~~).
+     * @description The type of the tickets that you want to query. For more information, see [PluginType parameter](https://help.aliyun.com/document_detail/429109.html).
      *
      * @example DC_COMMON
      *
@@ -103,7 +103,7 @@ class ListOrdersRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
      *
      * @example 3000
      *

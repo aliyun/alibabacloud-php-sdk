@@ -20,7 +20,7 @@ class node extends Model
     /**
      * @description The position of the node in the DAG.
      *
-     * @example {\"x\":541,\"y\":322,\"layoutType\":\"Horizontal\"}
+     * @example {\\"x\\":541,\\"y\\":322,\\"layoutType\\":\\"Horizontal\\"}
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class node extends Model
     /**
      * @description The advanced configuration of the node.
      *
-     * @example {\"dbId\":39****,\"dbType\":\"mysql\",\"locale\":\"zh\",\"sql\":\"/*XXXXX*\/\\n\\nCREATE TABLE IF NOT EXISTS `momo_weekGather` (\\n\\t`id` bigint AUTO_INCREMENT DEFAULT \"0\",\\n\\t`age` bit NULL,\\n\\t`action` varchar(150) NULL,\\n\\t`elapse_time` datetime NULL,\\n\\tPRIMARY KEY (`id`)\\n) ENGINE=InnoDB\\nDEFAULT CHARACTER SET=utf8;\"}
+     * @example {\\"dbId\\":39****,\\"dbType\\":\\"mysql\\",\\"locale\\":\\"zh\\",\\"sql\\":\\"/*XXXXX*\/\\\\n\\\\nCREATE TABLE IF NOT EXISTS `momo_weekGather` (\\\\n\\\\t`id` bigint AUTO_INCREMENT DEFAULT \\"0\\",\\\\n\\\\t`age` bit NULL,\\\\n\\\\t`action` varchar(150) NULL,\\\\n\\\\t`elapse_time` datetime NULL,\\\\n\\\\tPRIMARY KEY (`id`)\\\\n) ENGINE=InnoDB\\\\nDEFAULT CHARACTER SET=utf8;\\"}
      *
      * @var string
      */
@@ -63,7 +63,7 @@ class node extends Model
     public $nodeName;
 
     /**
-     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](https://help.aliyun.com/document_detail/424705.html).
      *
      * @example 36
      *
@@ -74,7 +74,7 @@ class node extends Model
     /**
      * @description The time variables for the node.
      *
-     * @example {\"variables\":[{\"name\":\"Today\",\"pattern\":\"yyyy-MM-dd|+1d\"}]}
+     * @example {\\"variables\\":[{\\"name\\":\\"Today\\",\\"pattern\\":\\"yyyy-MM-dd|+1d\\"}]}
      *
      * @var string
      */

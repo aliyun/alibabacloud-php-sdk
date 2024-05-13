@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RetryDataCorrectPreCheckRequest extends Model
 {
     /**
-     * @description The ID of the data change ticket. You can call the [ListOrders](~~144643~~) operation to query the ID of the data change ticket.
+     * @description The ID of the data change ticket. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to query the ID of the data change ticket.
      *
+     * This parameter is required.
      * @example 414****
      *
      * @var int
@@ -18,7 +19,7 @@ class RetryDataCorrectPreCheckRequest extends Model
     public $orderId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
      *
      * @example 3***
      *

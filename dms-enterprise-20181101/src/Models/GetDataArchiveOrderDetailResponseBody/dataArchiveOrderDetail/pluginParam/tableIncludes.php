@@ -20,7 +20,7 @@ class tableIncludes extends Model
     /**
      * @description The filter conditions.
      *
-     * @example id<1000 or gmt_create<\"2023-05-14 16:00:57\"
+     * @example id<1000 or gmt_create<\\"2023-05-14 16:00:57\\"
      *
      * @var string
      */

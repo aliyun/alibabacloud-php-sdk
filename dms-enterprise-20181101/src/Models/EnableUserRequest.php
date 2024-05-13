@@ -11,7 +11,7 @@ class EnableUserRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * >  To obtain the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Tenant information](~~181330~~).
+     * >  To obtain the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Tenant information](https://help.aliyun.com/document_detail/181330.html).
      * @example -1
      *
      * @var int
@@ -21,6 +21,7 @@ class EnableUserRequest extends Model
     /**
      * @description The UID of the Alibaba Cloud account.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var string

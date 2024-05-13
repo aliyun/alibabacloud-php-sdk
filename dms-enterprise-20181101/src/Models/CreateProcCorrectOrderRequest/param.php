@@ -17,6 +17,8 @@ class param extends Model
     public $classify;
 
     /**
+     * @description This parameter is required.
+     *
      * @var dbItemList[]
      */
     public $dbItemList;
@@ -27,6 +29,8 @@ class param extends Model
     public $execMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example DELIMITER ///
      * BEGIN
      * SELECT *  FROM base_user;

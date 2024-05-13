@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDataExportOrderShrinkRequest extends Model
 {
     /**
-     * @description The key of the attachment that provides more instructions for the ticket. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key.
+     * @description The key of the attachment that provides more instructions for the ticket. You can call the [GetUserUploadFileJob](https://help.aliyun.com/document_detail/206069.html) operation to obtain the attachment key.
      *
      * @example order_attachment.txt
      *
@@ -20,6 +20,7 @@ class CreateDataExportOrderShrinkRequest extends Model
     /**
      * @description The purpose or objective of the ticket. This parameter helps reduce unnecessary communication.
      *
+     * This parameter is required.
      * @example business_test
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateDataExportOrderShrinkRequest extends Model
     /**
      * @description The parameters of the ticket.
      *
+     * This parameter is required.
      * @var string
      */
     public $pluginParamShrink;
@@ -52,7 +54,7 @@ class CreateDataExportOrderShrinkRequest extends Model
     /**
      * @description The tenant ID.
      *
-     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the [View information about the current tenant](~~181330~~) section of the "Manage DMS tenants" topic.
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
      * @example 3***
      *
      * @var int

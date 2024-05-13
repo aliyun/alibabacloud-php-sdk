@@ -93,9 +93,9 @@ class lakehouseSpace extends Model
      * @description The configuration of the workspace. Valid values:
      *
      *   **skipManualRunCheck**: No security rule check is required in the trial run phase.
-     *   **skipPublishApprove**: No approval is required for publishing and O\&M.
+     *   **skipPublishApprove**: No approval is required for publishing and O\\&M.
      *
-     * @example {\"skipManualRunCheck\":true,\"skipPublishApprove\":true}
+     * @example {\\"skipManualRunCheck\\":true,\\"skipPublishApprove\\":true}
      *
      * @var string
      */

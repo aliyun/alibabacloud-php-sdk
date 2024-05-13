@@ -11,6 +11,7 @@ class CreatePublishGroupTaskRequest extends Model
     /**
      * @description The ID of the database for which the schema design is executed.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int
@@ -20,6 +21,7 @@ class CreatePublishGroupTaskRequest extends Model
     /**
      * @description Indicates whether the database is a logical database.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -29,7 +31,7 @@ class CreatePublishGroupTaskRequest extends Model
     /**
      * @description The ID of the ticket.
      *
-     * > : You can create a schema design ticket in the DMS console. For more information, see [Design schemas](~~69711~~). You can also create a schema design ticket by calling the [CreateOrder](~~144649~~) operation and obtain the ticket ID.
+     * This parameter is required.
      * @example 142435
      *
      * @var int
@@ -51,6 +53,7 @@ class CreatePublishGroupTaskRequest extends Model
      *   IMMEDIATELY: immediately executes the schema design ticket.
      *   REGULARLY: executes the schema design ticket at a scheduled time.
      *
+     * This parameter is required.
      * @example IMMEDIATELY
      *
      * @var string
@@ -60,7 +63,7 @@ class CreatePublishGroupTaskRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](~~181330~~).
+     * > : To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html).
      * @example -1
      *
      * @var int

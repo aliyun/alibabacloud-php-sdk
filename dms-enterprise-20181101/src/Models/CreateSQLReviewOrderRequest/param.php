@@ -11,14 +11,15 @@ class param extends Model
     /**
      * @description The files to be reviewed. Multiple files can be reviewed at a time.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $attachmentKeyList;
 
     /**
-     * @description The ID of the database. You can call the [SearchDatabases](~~141876~~) operation to query the ID of the database.
+     * @description The ID of the database. You can call the [SearchDatabases](https://help.aliyun.com/document_detail/141876.html) operation to query the ID of the database.
      *
-     * >  You can call this operation to query only physical databases. This operation is unavailable to query logical databases.
+     * This parameter is required.
      * @example 123321
      *
      * @var int
@@ -28,6 +29,7 @@ class param extends Model
     /**
      * @description The name of the project.
      *
+     * This parameter is required.
      * @example SQL review for xxx
      *
      * @var string

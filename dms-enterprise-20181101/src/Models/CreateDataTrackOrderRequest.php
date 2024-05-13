@@ -12,6 +12,7 @@ class CreateDataTrackOrderRequest extends Model
     /**
      * @description The purpose or objective of the data tracking ticket. This parameter is used to help reduce unnecessary communication.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -21,6 +22,7 @@ class CreateDataTrackOrderRequest extends Model
     /**
      * @description The parameters of the ticket.
      *
+     * This parameter is required.
      * @var param
      */
     public $param;
@@ -33,7 +35,7 @@ class CreateDataTrackOrderRequest extends Model
     public $relatedUserList;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
      *
      * @example 3***
      *

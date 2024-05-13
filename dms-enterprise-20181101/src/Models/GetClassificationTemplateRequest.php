@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetClassificationTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 169****
      *
      * @var int

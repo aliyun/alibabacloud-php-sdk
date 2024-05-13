@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeColumnSecurityLevelRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test_column
      *
      * @var string
@@ -16,6 +18,8 @@ class ChangeColumnSecurityLevelRequest extends Model
     public $columnName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 325**
      *
      * @var int
@@ -23,6 +27,8 @@ class ChangeColumnSecurityLevelRequest extends Model
     public $dbId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +36,8 @@ class ChangeColumnSecurityLevelRequest extends Model
     public $isLogic;
 
     /**
+     * @description This parameter is required.
+     *
      * @example S2
      *
      * @var string
@@ -37,6 +45,8 @@ class ChangeColumnSecurityLevelRequest extends Model
     public $newSensitivityLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test_schema
      *
      * @var string
@@ -44,6 +54,8 @@ class ChangeColumnSecurityLevelRequest extends Model
     public $schemaName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test_table
      *
      * @var string

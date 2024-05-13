@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
-     * @description The ID of the database. You can call the [SearchDatabases](~~141876~~) operation to query the ID of the database.
+     * @description The ID of the database. You can call the [SearchDatabases](https://help.aliyun.com/document_detail/141876.html) operation to query the ID of the database.
      *
+     * This parameter is required.
      * @example 432432
      *
      * @var int
@@ -18,8 +19,9 @@ class target extends Model
     public $dbId;
 
     /**
-     * @description The name that is used to search for the database. You can call the [SearchDatabases](~~141876~~) operation to query the name of the database.
+     * @description The name that is used to search for the database. You can call the [SearchDatabases](https://help.aliyun.com/document_detail/141876.html) operation to query the name of the database.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

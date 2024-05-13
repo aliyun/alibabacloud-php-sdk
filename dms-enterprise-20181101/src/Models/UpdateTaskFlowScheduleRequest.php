@@ -53,6 +53,7 @@ class UpdateTaskFlowScheduleRequest extends Model
     /**
      * @description The ID of the task flow.
      *
+     * This parameter is required.
      * @example 7***
      *
      * @var int
@@ -62,6 +63,7 @@ class UpdateTaskFlowScheduleRequest extends Model
     /**
      * @description The event scheduling configuration. The value of this parameter is a JSON string.
      *
+     * This parameter is required.
      * @example ScheduleParam_test
      *
      * @var string
@@ -74,6 +76,7 @@ class UpdateTaskFlowScheduleRequest extends Model
      *   **Enable**
      *   **Disable**
      *
+     * This parameter is required.
      * @example Disable
      *
      * @var bool
@@ -83,7 +86,7 @@ class UpdateTaskFlowScheduleRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > : To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * > : To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
      * @example 3***
      *
      * @var int
@@ -105,6 +108,7 @@ class UpdateTaskFlowScheduleRequest extends Model
      *   **Cron**: The task flow is triggered based on timed scheduling.
      *   **Event**: The task flow is triggered by events.
      *
+     * This parameter is required.
      * @example Event
      *
      * @var string

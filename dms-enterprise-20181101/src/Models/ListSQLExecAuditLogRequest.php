@@ -11,7 +11,7 @@ class ListSQLExecAuditLogRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time supports fuzzy match. Specify the time in the YYYY-MM-DD hh:mm:ss format. We recommend that you use the StartTime and EndTime parameters to specify a time range that does not exceed one day. The returned entries can be displayed by page to improve query efficiency.
+     * This parameter is required.
      * @example 2021-11-08 11:00:00
      *
      * @var string
@@ -88,7 +88,7 @@ class ListSQLExecAuditLogRequest extends Model
     /**
      * @description The beginning of the time range to query.
      *
-     * >  The start time supports fuzzy match. Specify the time in the YYYY-MM-DD hh:mm:ss format.
+     * This parameter is required.
      * @example 2021-11-08 11:04:00
      *
      * @var string
@@ -96,7 +96,7 @@ class ListSQLExecAuditLogRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *

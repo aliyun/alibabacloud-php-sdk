@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetLogicDatabaseRequest extends Model
 {
     /**
-     * @description The ID of the logical database. You can call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation to obtain the ID of the logical database.
+     * @description The ID of the logical database. You can call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the ID of the logical database.
      *
+     * This parameter is required.
      * @example 1***
      *
      * @var string
@@ -20,7 +21,7 @@ class GetLogicDatabaseRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
      * @example 3***
      *
      * @var int

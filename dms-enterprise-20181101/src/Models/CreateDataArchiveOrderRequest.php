@@ -12,6 +12,7 @@ class CreateDataArchiveOrderRequest extends Model
     /**
      * @description The description of the task.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -21,6 +22,7 @@ class CreateDataArchiveOrderRequest extends Model
     /**
      * @description The parameters for archiving data.
      *
+     * This parameter is required.
      * @var param
      */
     public $param;
@@ -51,7 +53,7 @@ class CreateDataArchiveOrderRequest extends Model
     public $relatedUserList;
 
     /**
-     * @description The tenant ID. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *

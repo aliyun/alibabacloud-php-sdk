@@ -36,7 +36,7 @@ class preCheckSQLList extends Model
     public $dbId;
 
     /**
-     * @description The key that is used to query the details of optimization suggestions. You can call the [GetSQLReviewOptimizeDetail](~~265977~~) operation to query the details of optimization suggestions based on the key.
+     * @description The key that is used to query the details of optimization suggestions. You can call the [GetSQLReviewOptimizeDetail](https://help.aliyun.com/document_detail/265977.html) operation to query the details of optimization suggestions based on the key.
      *
      * @example b9e771fc6ec247dea6d06a32c777****
      *

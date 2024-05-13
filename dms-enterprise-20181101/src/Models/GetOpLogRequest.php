@@ -20,6 +20,7 @@ class GetOpLogRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the yyyy-MM-DD HH:mm:ss format.
      *
+     * This parameter is required.
      * @example 2022-03-29 10:00:00
      *
      * @var string
@@ -63,6 +64,7 @@ class GetOpLogRequest extends Model
     /**
      * @description The number of the page to return. Pages start from page 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -76,6 +78,7 @@ class GetOpLogRequest extends Model
      *   50
      *   100
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int
@@ -85,6 +88,7 @@ class GetOpLogRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the yyyy-MM-DD HH:mm:ss format.
      *
+     * This parameter is required.
      * @example 2022-03-23 10:00:00
      *
      * @var string
@@ -92,7 +96,7 @@ class GetOpLogRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
      *
      * @example 3***
      *

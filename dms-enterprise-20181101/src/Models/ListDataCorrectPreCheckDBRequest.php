@@ -11,6 +11,7 @@ class ListDataCorrectPreCheckDBRequest extends Model
     /**
      * @description The ID of the ticket for the data change.
      *
+     * This parameter is required.
      * @example 432****
      *
      * @var int
@@ -37,7 +38,7 @@ class ListDataCorrectPreCheckDBRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the ID of the tenant.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the ID of the tenant.
      *
      * @example 4321****
      *

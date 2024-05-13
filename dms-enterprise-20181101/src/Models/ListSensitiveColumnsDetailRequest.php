@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveColumnsDetailRequest extends Model
 {
     /**
-     * @description The name of the field. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the field.
+     * @description The name of the field. You can call the [ListSensitiveColumns](https://help.aliyun.com/document_detail/188103.html) operation to obtain the name of the field.
      *
-     * >  You can also call the [ListColumns](~~141870~~) operation to obtain the name of the field.
+     * This parameter is required.
      * @example ColumnName_test
      *
      * @var string
@@ -21,8 +21,8 @@ class ListSensitiveColumnsDetailRequest extends Model
     /**
      * @description The ID of the database. The database can be a physical database or a logical database.
      *
-     *   To obtain the ID of a physical database, call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation.
-     *   To obtain the ID of a logical database, call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation.
+     *   To obtain the ID of a physical database, call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
+     *   To obtain the ID of a logical database, call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
      *
      * @example 1860****
      *
@@ -43,10 +43,12 @@ class ListSensitiveColumnsDetailRequest extends Model
     public $logic;
 
     /**
-     * @description The name of the database. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the database.
+     * @description The name of the database. You can call the [ListSensitiveColumns](https://help.aliyun.com/document_detail/188103.html) operation to obtain the name of the database.
      *
-     * > * You can also call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation to obtain the name of a physical database.
-     * > * You can also call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation to obtain the name of a logical database.
+     * > * You can also call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the name of a physical database.
+     * > * You can also call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation to obtain the name of a logical database.
+     *
+     * This parameter is required.
      * @example SchemaName_test
      *
      * @var string
@@ -54,9 +56,9 @@ class ListSensitiveColumnsDetailRequest extends Model
     public $schemaName;
 
     /**
-     * @description The name of the table. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the table.
+     * @description The name of the table. You can call the [ListSensitiveColumns](https://help.aliyun.com/document_detail/188103.html) operation to obtain the name of the table.
      *
-     * >  You can also call the [ListTables](~~141878~~) operation to obtain the name of the table.
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -64,7 +66,7 @@ class ListSensitiveColumnsDetailRequest extends Model
     public $tableName;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
      *
      * @example 3***
      *

@@ -15,7 +15,7 @@ class UpdateInstanceRequest extends Model
      *
      *   This parameter is required if UseDsql is set to 1.
      *
-     *   The name can contain only lowercase letters and underscores (\_).
+     *   The name can contain only lowercase letters and underscores (_).
      *
      *   The name must be unique within a tenant.
      *
@@ -28,6 +28,7 @@ class UpdateInstanceRequest extends Model
     /**
      * @description The password that is used to log on to the database.
      *
+     * This parameter is required.
      * @example ******
      *
      * @var string
@@ -37,6 +38,7 @@ class UpdateInstanceRequest extends Model
     /**
      * @description The account that is used to log on to the database.
      *
+     * This parameter is required.
      * @example dbuser
      *
      * @var string
@@ -44,8 +46,9 @@ class UpdateInstanceRequest extends Model
     public $databaseUser;
 
     /**
-     * @description The ID of the user who assumes the database administrator (DBA) role of the database instance. You can call the [ListUsers](~~141938~~) or [GetInstance](~~141567~~) operation to query the user ID.
+     * @description The ID of the user who assumes the database administrator (DBA) role of the database instance. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the user ID.
      *
+     * This parameter is required.
      * @example 27****
      *
      * @var string
@@ -108,6 +111,7 @@ class UpdateInstanceRequest extends Model
      *   **pet:** stress testing environment
      *   **stag:** staging environment
      *
+     * This parameter is required.
      * @example product
      *
      * @var string
@@ -117,6 +121,7 @@ class UpdateInstanceRequest extends Model
     /**
      * @description The timeout period for exporting data from the database instance.
      *
+     * This parameter is required.
      * @example 600
      *
      * @var int
@@ -126,6 +131,7 @@ class UpdateInstanceRequest extends Model
     /**
      * @description The host address that is used to connect to the database instance.
      *
+     * This parameter is required.
      * @example 192.XXX.0.56
      *
      * @var string
@@ -135,6 +141,7 @@ class UpdateInstanceRequest extends Model
     /**
      * @description The alias of the database instance. Specify an alias that can help you identify the database instance in DMS.
      *
+     * This parameter is required.
      * @example instance_test
      *
      * @var string
@@ -142,8 +149,9 @@ class UpdateInstanceRequest extends Model
     public $instanceAlias;
 
     /**
-     * @description The ID of the database instance. You can call the [GetInstance](~~141567~~) operation to query the instance ID.
+     * @description The ID of the database instance. You can call the [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example 126****
      *
      * @var string
@@ -158,6 +166,7 @@ class UpdateInstanceRequest extends Model
      *   **ECS_OWN:** a self-managed database that is deployed on an Elastic Compute Service (ECS) instance
      *   **VPC_IDC:** a self-managed database instance that is deployed in a data center connected over a virtual private cloud (VPC)
      *
+     * This parameter is required.
      * @example ECS_OWN
      *
      * @var string
@@ -165,8 +174,9 @@ class UpdateInstanceRequest extends Model
     public $instanceSource;
 
     /**
-     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](https://help.aliyun.com/document_detail/198106.html).
      *
+     * This parameter is required.
      * @example mysql
      *
      * @var string
@@ -176,6 +186,7 @@ class UpdateInstanceRequest extends Model
     /**
      * @description The port that is used to connect to the database instance.
      *
+     * This parameter is required.
      * @example 3306
      *
      * @var int
@@ -185,6 +196,7 @@ class UpdateInstanceRequest extends Model
     /**
      * @description The timeout period for querying data in the database instance.
      *
+     * This parameter is required.
      * @example 60
      *
      * @var int
@@ -192,8 +204,9 @@ class UpdateInstanceRequest extends Model
     public $queryTimeout;
 
     /**
-     * @description The name of the security rule set (GroupName) for the instance. You can call the [ListStandardGroups](~~417891~~) or [GetInstance](~~141567~~) operation to query the name of the security rule set.
+     * @description The name of the security rule set (GroupName) for the instance. You can call the [ListStandardGroups](https://help.aliyun.com/document_detail/417891.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the name of the security rule set.
      *
+     * This parameter is required.
      * @example 3****
      *
      * @var string
@@ -223,7 +236,7 @@ class UpdateInstanceRequest extends Model
     public $skipTest;
 
     /**
-     * @description The ID of the classification template. You can call the [ListClassificationTemplates](~~460613~~) operation to query the template ID.
+     * @description The ID of the classification template. You can call the [ListClassificationTemplates](https://help.aliyun.com/document_detail/460613.html) operation to query the template ID.
      *
      * @example 3***
      *
@@ -232,7 +245,7 @@ class UpdateInstanceRequest extends Model
     public $templateId;
 
     /**
-     * @description The type of the classification template. You can call the [ListClassificationTemplates](~~460613~~) operation to query the template type.
+     * @description The type of the classification template. You can call the [ListClassificationTemplates](https://help.aliyun.com/document_detail/460613.html) operation to query the template type.
      *
      * @example INNER
      *
@@ -241,7 +254,7 @@ class UpdateInstanceRequest extends Model
     public $templateType;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
      *
      * @example 3***
      *

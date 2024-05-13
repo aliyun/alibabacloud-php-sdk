@@ -95,7 +95,7 @@ class originSQLList extends Model
     public $SQLName;
 
     /**
-     * @description The key that is used to query the details of optimization suggestions. You can call the [GetSQLReviewOptimizeDetail](https://icms.alibaba-inc.com/content/dms/doc?l=1\&m=61777\&n=2712723\&spm) operation to query the details of optimization suggestions based on the key.
+     * @description The key that is used to query the details of optimization suggestions. You can call the [GetSQLReviewOptimizeDetail](https://icms.alibaba-inc.com/content/dms/doc?l=1\\&m=61777\\&n=2712723\\&spm) operation to query the details of optimization suggestions based on the key.
      *
      * @example a57e54ec5433475ea3082d882fdb89c5
      *

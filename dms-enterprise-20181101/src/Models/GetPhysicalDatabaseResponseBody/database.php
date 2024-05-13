@@ -66,7 +66,7 @@ class database extends Model
     public $encoding;
 
     /**
-     * @description The type of the environment to which the database belongs. For more information, see [Change the environment type of an instance](~~163309~~).
+     * @description The type of the environment to which the database belongs. For more information, see [Change the environment type of an instance](https://help.aliyun.com/document_detail/163309.html).
      *
      * @example product
      *

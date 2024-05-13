@@ -11,6 +11,7 @@ class GetDatabaseRequest extends Model
     /**
      * @description The endpoint that is used to connect to the database.
      *
+     * This parameter is required.
      * @example 192.168.XX.XX
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDatabaseRequest extends Model
     /**
      * @description The port that is used to connect to the database.
      *
+     * This parameter is required.
      * @example 3306
      *
      * @var int
@@ -29,6 +31,7 @@ class GetDatabaseRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example mysql
      *
      * @var string
@@ -46,7 +49,7 @@ class GetDatabaseRequest extends Model
     public $sid;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the ID of the tenant.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the ID of the tenant.
      *
      * @example -1
      *

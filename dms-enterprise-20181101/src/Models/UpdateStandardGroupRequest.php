@@ -11,6 +11,7 @@ class UpdateStandardGroupRequest extends Model
     /**
      * @description The description of the security rule set.
      *
+     * This parameter is required.
      * @example Production Environment test rules
      *
      * @var string
@@ -18,8 +19,9 @@ class UpdateStandardGroupRequest extends Model
     public $description;
 
     /**
-     * @description The security rule set ID. You can call the [ListStandardGroups](~~465940~~) operation to obtain the ID of the security rule set.
+     * @description The security rule set ID. You can call the [ListStandardGroups](https://help.aliyun.com/document_detail/465940.html) operation to obtain the ID of the security rule set.
      *
+     * This parameter is required.
      * @example 242***
      *
      * @var int
@@ -29,6 +31,7 @@ class UpdateStandardGroupRequest extends Model
     /**
      * @description The name of the security rule set.
      *
+     * This parameter is required.
      * @example poc_test
      *
      * @var string
@@ -38,7 +41,7 @@ class UpdateStandardGroupRequest extends Model
     /**
      * @description The tenant ID.
      *
-     * >  To view the tenant ID, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](~~181330~~) section of the "Manage DMS tenants" topic.
+     * >  To view the tenant ID, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
      * @example 23****
      *
      * @var int

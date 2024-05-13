@@ -20,6 +20,7 @@ class CreateAuthorityTemplateRequest extends Model
     /**
      * @description The name of the permission template.
      *
+     * This parameter is required.
      * @example Test template.
      *
      * @var string
@@ -27,7 +28,7 @@ class CreateAuthorityTemplateRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
      *
      * @example 3***
      *

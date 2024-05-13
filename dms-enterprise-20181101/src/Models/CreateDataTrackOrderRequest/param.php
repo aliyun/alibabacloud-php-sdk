@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
-     * @description The ID of the database. You can call the [SearchDatabases](~~141876~~) operation to query the ID of the database.
+     * @description The ID of the database. You can call the [SearchDatabases](https://help.aliyun.com/document_detail/141876.html) operation to query the ID of the database.
      *
-     * > You can call this operation to create a data tracking ticket for only physical databases. This operation is not applicable to logical databases.
+     * This parameter is required.
      * @example 123***
      *
      * @var string
@@ -21,6 +21,7 @@ class param extends Model
     /**
      * @description The end time of the time range in which you want to track data operations. The time must be in the yyyy-MM-dd HH:mm:ss format.
      *
+     * This parameter is required.
      * @example 2023-04-23 10:00:00
      *
      * @var string
@@ -30,6 +31,7 @@ class param extends Model
     /**
      * @description The start time of the time range in which you want to track data operations. The time must be in the yyyy-MM-dd HH:mm:ss format.
      *
+     * This parameter is required.
      * @example 2023-04-23 00:00:00
      *
      * @var string
@@ -39,6 +41,7 @@ class param extends Model
     /**
      * @description The names of the tables for which you want to track data operations.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $tableNames;
@@ -46,6 +49,7 @@ class param extends Model
     /**
      * @description The types of data operations that you want to track.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $trackTypes;

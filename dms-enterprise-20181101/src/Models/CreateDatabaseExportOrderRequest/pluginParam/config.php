@@ -11,6 +11,7 @@ class config extends Model
     /**
      * @description The export options for big data. The options are used to filter the big data to be exported. You can leave this parameter empty.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $dataOption;
@@ -22,6 +23,7 @@ class config extends Model
      *   **STRUCT**: The schema of the database is exported.
      *   **DATA_STRUCT**: The data and schema of the database are exported.
      *
+     * This parameter is required.
      * @example DATA
      *
      * @var string
@@ -38,6 +40,7 @@ class config extends Model
     /**
      * @description The extension options of the SQL script. You can leave this parameter empty.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $SQLExtOption;
@@ -63,6 +66,7 @@ class config extends Model
      *   **CSV**
      *   **XLSX**
      *
+     * This parameter is required.
      * @example SQL
      *
      * @var string

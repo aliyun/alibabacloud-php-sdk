@@ -12,6 +12,7 @@ class CreateSQLReviewOrderRequest extends Model
     /**
      * @description The purpose or objective of the SQL review. This reduces unnecessary communication.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -21,6 +22,7 @@ class CreateSQLReviewOrderRequest extends Model
     /**
      * @description The parameters of the ticket.
      *
+     * This parameter is required.
      * @var param
      */
     public $param;
@@ -33,7 +35,7 @@ class CreateSQLReviewOrderRequest extends Model
     public $relatedUserList;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to obtain the tenant ID.
      *
      * @example 1
      *

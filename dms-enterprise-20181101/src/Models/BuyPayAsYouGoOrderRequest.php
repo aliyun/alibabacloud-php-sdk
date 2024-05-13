@@ -14,6 +14,7 @@ class BuyPayAsYouGoOrderRequest extends Model
      *   **VersionType**: DMS that supports control modes
      *   **SensitiveDataProtection**: DMS that supports sensitive data protection
      *
+     * This parameter is required.
      * @example SensitiveDataProtection
      *
      * @var string
@@ -23,7 +24,7 @@ class BuyPayAsYouGoOrderRequest extends Model
     /**
      * @description The number of database instances that you want to use DMS to manage.
      *
-     * > A quota can be used for only one database instance.
+     * This parameter is required.
      * @example 7
      *
      * @var int
@@ -33,7 +34,7 @@ class BuyPayAsYouGoOrderRequest extends Model
     /**
      * @description The ID of the tenant.
      *
-     * > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * > To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html).
      * @example 3***
      *
      * @var int

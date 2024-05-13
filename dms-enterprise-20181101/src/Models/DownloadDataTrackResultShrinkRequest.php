@@ -55,8 +55,9 @@ class DownloadDataTrackResultShrinkRequest extends Model
     public $filterTypeListShrink;
 
     /**
-     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     * @description The ID of the ticket. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to obtain the ticket ID.
      *
+     * This parameter is required.
      * @example 406****
      *
      * @var int
@@ -69,6 +70,7 @@ class DownloadDataTrackResultShrinkRequest extends Model
      *   **REVERSE**: undoes or rolls back an executed SQL statement, which is equivalent to the UNDO SQL statement.
      *   **FORWARD**: redoes or re-executes an SQL statement that failed to be executed, which is equivalent to the REDO SQL statement.
      *
+     * This parameter is required.
      * @example REVERSE
      *
      * @var string
@@ -76,7 +78,7 @@ class DownloadDataTrackResultShrinkRequest extends Model
     public $rollbackSQLType;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
      *
      * @example 3***
      *
