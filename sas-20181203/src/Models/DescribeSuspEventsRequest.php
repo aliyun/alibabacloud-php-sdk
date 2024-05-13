@@ -309,6 +309,11 @@ class DescribeSuspEventsRequest extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $strictMode;
+
+    /**
      * @description The tactic ID of ATT\\&CK.
      *
      * @example TA0001
@@ -392,6 +397,7 @@ class DescribeSuspEventsRequest extends Model
         'source'                     => 'Source',
         'sourceIp'                   => 'SourceIp',
         'status'                     => 'Status',
+        'strictMode'                 => 'StrictMode',
         'tacticId'                   => 'TacticId',
         'targetType'                 => 'TargetType',
         'timeEnd'                    => 'TimeEnd',
@@ -484,6 +490,9 @@ class DescribeSuspEventsRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->strictMode) {
+            $res['StrictMode'] = $this->strictMode;
         }
         if (null !== $this->tacticId) {
             $res['TacticId'] = $this->tacticId;
@@ -596,6 +605,9 @@ class DescribeSuspEventsRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StrictMode'])) {
+            $model->strictMode = $map['StrictMode'];
         }
         if (isset($map['TacticId'])) {
             $model->tacticId = $map['TacticId'];

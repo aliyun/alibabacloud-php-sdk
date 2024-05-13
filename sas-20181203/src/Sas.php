@@ -18197,6 +18197,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
+        if (!Utils::isUnset($request->strictMode)) {
+            $query['StrictMode'] = $request->strictMode;
+        }
         if (!Utils::isUnset($request->targetType)) {
             $query['TargetType'] = $request->targetType;
         }
