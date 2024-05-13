@@ -49,6 +49,11 @@ class Product extends Model
     public $divisionCode;
 
     /**
+     * @var ProductExtendProperty[]
+     */
+    public $extendProperties;
+
+    /**
      * @example 100+
      *
      * @var string
@@ -152,28 +157,29 @@ class Product extends Model
      */
     public $title;
     protected $_name = [
-        'brandName'      => 'brandName',
-        'canSell'        => 'canSell',
-        'categoryChain'  => 'categoryChain',
-        'categoryLeafId' => 'categoryLeafId',
-        'descPath'       => 'descPath',
-        'divisionCode'   => 'divisionCode',
-        'fuzzyQuantity'  => 'fuzzyQuantity',
-        'images'         => 'images',
-        'picUrl'         => 'picUrl',
-        'productId'      => 'productId',
-        'productSpecs'   => 'productSpecs',
-        'productStatus'  => 'productStatus',
-        'productType'    => 'productType',
-        'properties'     => 'properties',
-        'quantity'       => 'quantity',
-        'requestId'      => 'requestId',
-        'shopId'         => 'shopId',
-        'skus'           => 'skus',
-        'soldQuantity'   => 'soldQuantity',
-        'taxCode'        => 'taxCode',
-        'taxRate'        => 'taxRate',
-        'title'          => 'title',
+        'brandName'        => 'brandName',
+        'canSell'          => 'canSell',
+        'categoryChain'    => 'categoryChain',
+        'categoryLeafId'   => 'categoryLeafId',
+        'descPath'         => 'descPath',
+        'divisionCode'     => 'divisionCode',
+        'extendProperties' => 'extendProperties',
+        'fuzzyQuantity'    => 'fuzzyQuantity',
+        'images'           => 'images',
+        'picUrl'           => 'picUrl',
+        'productId'        => 'productId',
+        'productSpecs'     => 'productSpecs',
+        'productStatus'    => 'productStatus',
+        'productType'      => 'productType',
+        'properties'       => 'properties',
+        'quantity'         => 'quantity',
+        'requestId'        => 'requestId',
+        'shopId'           => 'shopId',
+        'skus'             => 'skus',
+        'soldQuantity'     => 'soldQuantity',
+        'taxCode'          => 'taxCode',
+        'taxRate'          => 'taxRate',
+        'title'            => 'title',
     ];
 
     public function validate()
@@ -206,6 +212,15 @@ class Product extends Model
         }
         if (null !== $this->divisionCode) {
             $res['divisionCode'] = $this->divisionCode;
+        }
+        if (null !== $this->extendProperties) {
+            $res['extendProperties'] = [];
+            if (null !== $this->extendProperties && \is_array($this->extendProperties)) {
+                $n = 0;
+                foreach ($this->extendProperties as $item) {
+                    $res['extendProperties'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->fuzzyQuantity) {
             $res['fuzzyQuantity'] = $this->fuzzyQuantity;
@@ -308,6 +323,15 @@ class Product extends Model
         }
         if (isset($map['divisionCode'])) {
             $model->divisionCode = $map['divisionCode'];
+        }
+        if (isset($map['extendProperties'])) {
+            if (!empty($map['extendProperties'])) {
+                $model->extendProperties = [];
+                $n                       = 0;
+                foreach ($map['extendProperties'] as $item) {
+                    $model->extendProperties[$n++] = null !== $item ? ProductExtendProperty::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['fuzzyQuantity'])) {
             $model->fuzzyQuantity = $map['fuzzyQuantity'];
