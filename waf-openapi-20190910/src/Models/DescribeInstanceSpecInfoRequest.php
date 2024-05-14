@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSpecInfoRequest extends Model
 {
     /**
+     * @example waf-cn-st2225l****
+     *
      * @var string
      */
     public $instanceId;
@@ -16,9 +18,17 @@ class DescribeInstanceSpecInfoRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @example rg-atstuj3rtop****
+     *
+     * @var string
+     */
     public $resourceGroupId;
     protected $_name = [
         'instanceId'      => 'InstanceId',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -31,6 +41,9 @@ class DescribeInstanceSpecInfoRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -49,6 +62,9 @@ class DescribeInstanceSpecInfoRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

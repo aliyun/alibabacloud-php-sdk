@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $accessHeaderMode;
@@ -21,6 +23,8 @@ class domain extends Model
     public $accessHeaders;
 
     /**
+     * @example waf-cloud-dns
+     *
      * @var string
      */
     public $accessType;
@@ -31,56 +35,87 @@ class domain extends Model
     public $cloudNativeInstances;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $clusterType;
 
     /**
+     * @example kdmqyi3ck7xogegxpiyfpb0fj21mgkxn.****.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $connectionTime;
 
     /**
-     * @var string[]
+     * @var int[]
      */
     public $http2Port;
 
     /**
-     * @var string[]
+     * @var int[]
      */
     public $httpPort;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $httpToUserIp;
 
     /**
-     * @var string[]
+     * @var int[]
      */
     public $httpsPort;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $httpsRedirect;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ipFollowStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isAccessProduct;
 
     /**
+     * @var bool
+     */
+    public $keepalive;
+
+    /**
+     * @var int
+     */
+    public $keepaliveRequests;
+
+    /**
+     * @var int
+     */
+    public $keepaliveTimeout;
+
+    /**
+     * @example 2
+     *
      * @var int
      */
     public $loadBalancing;
@@ -91,21 +126,34 @@ class domain extends Model
     public $logHeaders;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $readTime;
 
     /**
+     * @example rg-acfm2mkrunv****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @var bool
+     */
+    public $retry;
+
+    /**
+     * @example waf.example.com
+     *
      * @var string
      */
     public $sniHost;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sniStatus;
@@ -116,11 +164,15 @@ class domain extends Model
     public $sourceIps;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $version;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $writeTime;
@@ -139,10 +191,14 @@ class domain extends Model
         'httpsRedirect'        => 'HttpsRedirect',
         'ipFollowStatus'       => 'IpFollowStatus',
         'isAccessProduct'      => 'IsAccessProduct',
+        'keepalive'            => 'Keepalive',
+        'keepaliveRequests'    => 'KeepaliveRequests',
+        'keepaliveTimeout'     => 'KeepaliveTimeout',
         'loadBalancing'        => 'LoadBalancing',
         'logHeaders'           => 'LogHeaders',
         'readTime'             => 'ReadTime',
         'resourceGroupId'      => 'ResourceGroupId',
+        'retry'                => 'Retry',
         'sniHost'              => 'SniHost',
         'sniStatus'            => 'SniStatus',
         'sourceIps'            => 'SourceIps',
@@ -205,6 +261,15 @@ class domain extends Model
         if (null !== $this->isAccessProduct) {
             $res['IsAccessProduct'] = $this->isAccessProduct;
         }
+        if (null !== $this->keepalive) {
+            $res['Keepalive'] = $this->keepalive;
+        }
+        if (null !== $this->keepaliveRequests) {
+            $res['KeepaliveRequests'] = $this->keepaliveRequests;
+        }
+        if (null !== $this->keepaliveTimeout) {
+            $res['KeepaliveTimeout'] = $this->keepaliveTimeout;
+        }
         if (null !== $this->loadBalancing) {
             $res['LoadBalancing'] = $this->loadBalancing;
         }
@@ -222,6 +287,9 @@ class domain extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->retry) {
+            $res['Retry'] = $this->retry;
         }
         if (null !== $this->sniHost) {
             $res['SniHost'] = $this->sniHost;
@@ -306,6 +374,15 @@ class domain extends Model
         if (isset($map['IsAccessProduct'])) {
             $model->isAccessProduct = $map['IsAccessProduct'];
         }
+        if (isset($map['Keepalive'])) {
+            $model->keepalive = $map['Keepalive'];
+        }
+        if (isset($map['KeepaliveRequests'])) {
+            $model->keepaliveRequests = $map['KeepaliveRequests'];
+        }
+        if (isset($map['KeepaliveTimeout'])) {
+            $model->keepaliveTimeout = $map['KeepaliveTimeout'];
+        }
         if (isset($map['LoadBalancing'])) {
             $model->loadBalancing = $map['LoadBalancing'];
         }
@@ -323,6 +400,9 @@ class domain extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Retry'])) {
+            $model->retry = $map['Retry'];
         }
         if (isset($map['SniHost'])) {
             $model->sniHost = $map['SniHost'];

@@ -9,21 +9,34 @@ use AlibabaCloud\Tea\Model;
 class certificates extends Model
 {
     /**
+     * @example 2329260
+     *
      * @var int
      */
     public $certificateId;
 
     /**
+     * @example *.aliyundoc.com
+     *
      * @var string
      */
     public $certificateName;
 
     /**
+     * @example *.aliyundoc.com
+     *
      * @var string
      */
     public $commonName;
 
     /**
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $isUsing;
@@ -36,6 +49,7 @@ class certificates extends Model
         'certificateId'   => 'CertificateId',
         'certificateName' => 'CertificateName',
         'commonName'      => 'CommonName',
+        'endTime'         => 'EndTime',
         'isUsing'         => 'IsUsing',
         'sans'            => 'Sans',
     ];
@@ -55,6 +69,9 @@ class certificates extends Model
         }
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->isUsing) {
             $res['IsUsing'] = $this->isUsing;
@@ -82,6 +99,9 @@ class certificates extends Model
         }
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
         }
         if (isset($map['IsUsing'])) {
             $model->isUsing = $map['IsUsing'];

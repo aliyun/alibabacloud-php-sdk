@@ -9,41 +9,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeProtectionModuleRulesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ac_highfreq
+     *
      * @var string
      */
     public $defenseType;
 
     /**
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example waf_elasticity-cn-0xldbqt****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example e2ZpbHRlcjp7InJ1bGVJZCI6NDI3NTV9LG9yZGVyQnk6ImdtdF9tb2RpZmllZCIsZGVzYzp0cnVlfQ==
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -55,6 +80,7 @@ class DescribeProtectionModuleRulesRequest extends Model
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'query'           => 'Query',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -85,6 +111,9 @@ class DescribeProtectionModuleRulesRequest extends Model
         }
         if (null !== $this->query) {
             $res['Query'] = $this->query;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -121,6 +150,9 @@ class DescribeProtectionModuleRulesRequest extends Model
         }
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

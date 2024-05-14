@@ -9,91 +9,148 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $accessHeaderMode;
 
     /**
+     * @example ["X-Client-IP"]
+     *
      * @var string
      */
     public $accessHeaders;
 
     /**
+     * @example waf-cloud-dns
+     *
      * @var string
      */
     public $accessType;
 
     /**
+     * @example [{"ProtocolPortConfigs":[{"Ports":[80],"Protocol":"http"}],"RedirectionTypeName":"ALB","InstanceId":"alb-s65nua68wdedsp****","IPAddressList":["182.XX.XX.113"],"CloudNativeProductName":"ALB"}]
+     *
      * @var string
      */
     public $cloudNativeInstances;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $clusterType;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $connectionTime;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example [443]
+     *
      * @var string
      */
     public $http2Port;
 
     /**
+     * @example [80]
+     *
      * @var string
      */
     public $httpPort;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $httpToUserIp;
 
     /**
+     * @example [443]
+     *
      * @var string
      */
     public $httpsPort;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $httpsRedirect;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example waf-cn-7pp26f1****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ipFollowStatus;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $isAccessProduct;
 
     /**
+     * @var bool
+     */
+    public $keepalive;
+
+    /**
+     * @var int
+     */
+    public $keepaliveRequests;
+
+    /**
+     * @var int
+     */
+    public $keepaliveTimeout;
+
+    /**
+     * @example 0
+     *
      * @var int
      */
     public $loadBalancing;
 
     /**
+     * @example [{"k":"ALIWAF-TAG","v":"Yes"}]
+     *
      * @var string
      */
     public $logHeaders;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $readTime;
@@ -101,24 +158,44 @@ class CreateDomainRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @example rg-atstuj3rtop****
+     *
+     * @var string
+     */
     public $resourceGroupId;
 
     /**
+     * @var bool
+     */
+    public $retry;
+
+    /**
+     * @example waf.example.com
+     *
      * @var string
      */
     public $sniHost;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sniStatus;
 
     /**
+     * @example ["39.XX.XX.197"]
+     *
      * @var string
      */
     public $sourceIps;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $writeTime;
@@ -138,10 +215,15 @@ class CreateDomainRequest extends Model
         'instanceId'           => 'InstanceId',
         'ipFollowStatus'       => 'IpFollowStatus',
         'isAccessProduct'      => 'IsAccessProduct',
+        'keepalive'            => 'Keepalive',
+        'keepaliveRequests'    => 'KeepaliveRequests',
+        'keepaliveTimeout'     => 'KeepaliveTimeout',
         'loadBalancing'        => 'LoadBalancing',
         'logHeaders'           => 'LogHeaders',
         'readTime'             => 'ReadTime',
+        'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
+        'retry'                => 'Retry',
         'sniHost'              => 'SniHost',
         'sniStatus'            => 'SniStatus',
         'sourceIps'            => 'SourceIps',
@@ -200,6 +282,15 @@ class CreateDomainRequest extends Model
         if (null !== $this->isAccessProduct) {
             $res['IsAccessProduct'] = $this->isAccessProduct;
         }
+        if (null !== $this->keepalive) {
+            $res['Keepalive'] = $this->keepalive;
+        }
+        if (null !== $this->keepaliveRequests) {
+            $res['KeepaliveRequests'] = $this->keepaliveRequests;
+        }
+        if (null !== $this->keepaliveTimeout) {
+            $res['KeepaliveTimeout'] = $this->keepaliveTimeout;
+        }
         if (null !== $this->loadBalancing) {
             $res['LoadBalancing'] = $this->loadBalancing;
         }
@@ -209,8 +300,14 @@ class CreateDomainRequest extends Model
         if (null !== $this->readTime) {
             $res['ReadTime'] = $this->readTime;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->retry) {
+            $res['Retry'] = $this->retry;
         }
         if (null !== $this->sniHost) {
             $res['SniHost'] = $this->sniHost;
@@ -281,6 +378,15 @@ class CreateDomainRequest extends Model
         if (isset($map['IsAccessProduct'])) {
             $model->isAccessProduct = $map['IsAccessProduct'];
         }
+        if (isset($map['Keepalive'])) {
+            $model->keepalive = $map['Keepalive'];
+        }
+        if (isset($map['KeepaliveRequests'])) {
+            $model->keepaliveRequests = $map['KeepaliveRequests'];
+        }
+        if (isset($map['KeepaliveTimeout'])) {
+            $model->keepaliveTimeout = $map['KeepaliveTimeout'];
+        }
         if (isset($map['LoadBalancing'])) {
             $model->loadBalancing = $map['LoadBalancing'];
         }
@@ -290,8 +396,14 @@ class CreateDomainRequest extends Model
         if (isset($map['ReadTime'])) {
             $model->readTime = $map['ReadTime'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Retry'])) {
+            $model->retry = $map['Retry'];
         }
         if (isset($map['SniHost'])) {
             $model->sniHost = $map['SniHost'];

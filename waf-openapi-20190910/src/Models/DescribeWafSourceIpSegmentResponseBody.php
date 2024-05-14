@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeWafSourceIpSegmentResponseBody extends Model
 {
     /**
+     * @example 39.XXX.XXX.0/24,……,2408:400a:XXXX:XXXX::/56
+     *
      * @var string
      */
     public $ipV6s;
 
     /**
+     * @example 47.XXX.XXX.192/26,……,47.XXX.XXX.0/24
+     *
      * @var string
      */
     public $ips;
 
     /**
+     * @example AB2F5E31-EE96-4FD7-9560-45FF5D5377FF
+     *
      * @var string
      */
     public $requestId;

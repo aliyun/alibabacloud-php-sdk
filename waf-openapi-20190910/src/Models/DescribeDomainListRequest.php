@@ -9,36 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainListRequest extends Model
 {
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example example.com
+     *
      * @var string[]
      */
     public $domainNames;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example waf-cn-7pp26f1****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $isSub;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -49,6 +70,7 @@ class DescribeDomainListRequest extends Model
         'isSub'           => 'IsSub',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -76,6 +98,9 @@ class DescribeDomainListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -111,6 +136,9 @@ class DescribeDomainListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

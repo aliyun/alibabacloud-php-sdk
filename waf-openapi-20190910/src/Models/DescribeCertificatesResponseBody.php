@@ -15,6 +15,8 @@ class DescribeCertificatesResponseBody extends Model
     public $certificates;
 
     /**
+     * @example ECF65091-3704-55D5-BC88-EC208B0E238C
+     *
      * @var string
      */
     public $requestId;

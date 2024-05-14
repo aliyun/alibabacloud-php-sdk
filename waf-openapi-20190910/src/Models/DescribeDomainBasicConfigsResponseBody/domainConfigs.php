@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class domainConfigs extends Model
 {
     /**
+     * @example waf-cloud-dns
+     *
      * @var string
      */
     public $accessType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $aclStatus;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ccMode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ccStatus;
 
     /**
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example WAF
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $version;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $wafMode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $wafStatus;

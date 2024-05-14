@@ -15,6 +15,8 @@ class DescribeDomainResponseBody extends Model
     public $domain;
 
     /**
+     * @example D827FCFE-90A7-4330-9326-D33C8B4C7726
+     *
      * @var string
      */
     public $requestId;

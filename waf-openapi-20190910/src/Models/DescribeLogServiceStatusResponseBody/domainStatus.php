@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class domainStatus extends Model
 {
     /**
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $slsLogActive;

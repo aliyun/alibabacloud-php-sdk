@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class logHeaders extends Model
 {
     /**
+     * @example ALIWAF-TAG
+     *
      * @var string
      */
     public $k;
 
     /**
+     * @example Yes
+     *
      * @var string
      */
     public $v;

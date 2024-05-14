@@ -15,11 +15,15 @@ class DescribeLogServiceStatusResponseBody extends Model
     public $domainStatus;
 
     /**
+     * @example C2E97B3F-1623-4CDF-A7E2-FD9D4CF1027A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

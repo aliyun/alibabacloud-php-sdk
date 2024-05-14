@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class cloudNativeInstances extends Model
 {
     /**
+     * @example ALB
+     *
      * @var string
      */
     public $cloudNativeProductName;
 
     /**
-     * @var string
+     * @example ["39.XX.XX.197"]
+     *
+     * @var string[]
      */
     public $IPAddressList;
 
     /**
+     * @example alb-s65nua68wdedsp****
+     *
      * @var string
      */
     public $instanceId;
@@ -30,6 +36,8 @@ class cloudNativeInstances extends Model
     public $protocolPortConfigs;
 
     /**
+     * @example ALB
+     *
      * @var string
      */
     public $redirectionTypeName;
@@ -85,7 +93,9 @@ class cloudNativeInstances extends Model
             $model->cloudNativeProductName = $map['CloudNativeProductName'];
         }
         if (isset($map['IPAddressList'])) {
-            $model->IPAddressList = $map['IPAddressList'];
+            if (!empty($map['IPAddressList'])) {
+                $model->IPAddressList = $map['IPAddressList'];
+            }
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

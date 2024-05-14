@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class instanceInfo extends Model
 {
     /**
+     * @example 1512921600
+     *
      * @var int
      */
     public $endDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $inDebt;
 
     /**
+     * @example waf-cn-tl32ast****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $payType;
 
     /**
+     * @example cn
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $remainDay;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $subscriptionType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $trial;
 
     /**
+     * @example version_3
+     *
      * @var string
      */
     public $version;

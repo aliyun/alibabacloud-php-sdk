@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class domainConfigs extends Model
 {
     /**
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;

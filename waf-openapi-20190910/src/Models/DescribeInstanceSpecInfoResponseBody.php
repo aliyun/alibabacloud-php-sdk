@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSpecInfoResponseBody extends Model
 {
     /**
+     * @example 1677168000000
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example waf-cn-st2225l****
+     *
      * @var string
      */
     public $instanceId;
@@ -25,6 +29,8 @@ class DescribeInstanceSpecInfoResponseBody extends Model
     public $instanceSpecInfos;
 
     /**
+     * @example E906513E-F6B5-495E-98DC-7BA888671D76
+     *
      * @var string
      */
     public $requestId;

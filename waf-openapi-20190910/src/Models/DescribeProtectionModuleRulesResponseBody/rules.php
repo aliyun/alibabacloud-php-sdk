@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @example {"count":60,"interval":60,"ttl":300}
+     *
      * @var mixed[]
      */
     public $content;
 
     /**
+     * @example 42755
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 1570700044
+     *
      * @var int
      */
     public $time;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $version;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class profile extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $certStatus;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $clusterType;
 
     /**
+     * @example ****dsbpkt75zeiok5mta2j5l7hggcrm.****.com
+     *
      * @var string
      */
     public $cname;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $exclusiveVipStatus;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $GSLBStatus;
@@ -49,21 +59,29 @@ class profile extends Model
     public $httpsPort;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ipv6Status;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $resolvedType;
 
     /**
+     * @example ["39.XX.XX.197"]
+     *
      * @var string[]
      */
     public $rs;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $vipServiceStatus;

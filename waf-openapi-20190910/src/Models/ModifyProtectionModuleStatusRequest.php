@@ -9,29 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ModifyProtectionModuleStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example waf
+     *
      * @var string
      */
     public $defenseType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example www.aliyundoc.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example waf-cn-zz11sr5****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $moduleStatus;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'defenseType'  => 'DefenseType',
-        'domain'       => 'Domain',
-        'instanceId'   => 'InstanceId',
-        'moduleStatus' => 'ModuleStatus',
+        'defenseType'     => 'DefenseType',
+        'domain'          => 'Domain',
+        'instanceId'      => 'InstanceId',
+        'moduleStatus'    => 'ModuleStatus',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -52,6 +80,12 @@ class ModifyProtectionModuleStatusRequest extends Model
         }
         if (null !== $this->moduleStatus) {
             $res['ModuleStatus'] = $this->moduleStatus;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -76,6 +110,12 @@ class ModifyProtectionModuleStatusRequest extends Model
         }
         if (isset($map['ModuleStatus'])) {
             $model->moduleStatus = $map['ModuleStatus'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

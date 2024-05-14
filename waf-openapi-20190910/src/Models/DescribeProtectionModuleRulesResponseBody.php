@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeProtectionModuleRulesResponseBody extends Model
 {
     /**
+     * @example D7861F61-5B61-46CE-A47C-6B19160D5EB0
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class DescribeProtectionModuleRulesResponseBody extends Model
     public $rules;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

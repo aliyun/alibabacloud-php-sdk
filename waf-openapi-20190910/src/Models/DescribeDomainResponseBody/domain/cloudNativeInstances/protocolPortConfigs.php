@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class protocolPortConfigs extends Model
 {
     /**
-     * @var string
+     * @example [80]
+     *
+     * @var int[]
      */
     public $ports;
 
     /**
+     * @example http
+     *
      * @var string
      */
     public $protocol;
@@ -48,7 +52,9 @@ class protocolPortConfigs extends Model
     {
         $model = new self();
         if (isset($map['Ports'])) {
-            $model->ports = $map['Ports'];
+            if (!empty($map['Ports'])) {
+                $model->ports = $map['Ports'];
+            }
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyProtectionModuleRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ac_custom
+     *
      * @var string
      */
     public $defenseType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example waf-cn-0xldbqt****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $lockVersion;
@@ -31,19 +47,39 @@ class ModifyProtectionModuleRuleRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example {"action":"monitor","name":"test","scene":"custom_acl","conditions":[{"opCode":1,"key":"URL","values":"/example"}]}
+     *
+     * @var string
+     */
     public $rule;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 369998
+     *
      * @var int
      */
     public $ruleId;
     protected $_name = [
-        'defenseType' => 'DefenseType',
-        'domain'      => 'Domain',
-        'instanceId'  => 'InstanceId',
-        'lockVersion' => 'LockVersion',
-        'rule'        => 'Rule',
-        'ruleId'      => 'RuleId',
+        'defenseType'     => 'DefenseType',
+        'domain'          => 'Domain',
+        'instanceId'      => 'InstanceId',
+        'lockVersion'     => 'LockVersion',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'rule'            => 'Rule',
+        'ruleId'          => 'RuleId',
     ];
 
     public function validate()
@@ -64,6 +100,12 @@ class ModifyProtectionModuleRuleRequest extends Model
         }
         if (null !== $this->lockVersion) {
             $res['LockVersion'] = $this->lockVersion;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->rule) {
             $res['Rule'] = $this->rule;
@@ -94,6 +136,12 @@ class ModifyProtectionModuleRuleRequest extends Model
         }
         if (isset($map['LockVersion'])) {
             $model->lockVersion = $map['LockVersion'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Rule'])) {
             $model->rule = $map['Rule'];

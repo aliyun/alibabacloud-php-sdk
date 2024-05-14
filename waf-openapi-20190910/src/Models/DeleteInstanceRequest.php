@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example waf_elasticity-cn-0xldbqt****
+     *
      * @var string
      */
     public $instanceId;
@@ -16,9 +20,17 @@ class DeleteInstanceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @example rg-atstuj3rtop****
+     *
+     * @var string
+     */
     public $resourceGroupId;
     protected $_name = [
         'instanceId'      => 'InstanceId',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -31,6 +43,9 @@ class DeleteInstanceRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -49,6 +64,9 @@ class DeleteInstanceRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

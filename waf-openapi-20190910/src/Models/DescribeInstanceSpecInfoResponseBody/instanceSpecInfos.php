@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceSpecInfos extends Model
 {
     /**
+     * @example 103
+     *
      * @var string
      */
     public $code;

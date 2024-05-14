@@ -9,31 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogServiceStatusRequest extends Model
 {
     /**
+     * @example www.aliyun.com
+     *
      * @var string[]
      */
     public $domainNames;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example waf-cn-zz11sr5****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -43,6 +62,7 @@ class DescribeLogServiceStatusRequest extends Model
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'region'          => 'Region',
+        'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
@@ -67,6 +87,9 @@ class DescribeLogServiceStatusRequest extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -99,6 +122,9 @@ class DescribeLogServiceStatusRequest extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

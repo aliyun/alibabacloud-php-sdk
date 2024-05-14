@@ -9,23 +9,47 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogRetrievalStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enabled;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example waf_elasticity-cn-0xldbqt****
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'domain'     => 'Domain',
-        'enabled'    => 'Enabled',
-        'instanceId' => 'InstanceId',
+        'domain'          => 'Domain',
+        'enabled'         => 'Enabled',
+        'instanceId'      => 'InstanceId',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -43,6 +67,12 @@ class ModifyLogRetrievalStatusRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -64,6 +94,12 @@ class ModifyLogRetrievalStatusRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;
