@@ -73,15 +73,21 @@ class body extends Model
      * @var bool
      */
     public $creatable;
+
+    /**
+     * @var string[]
+     */
+    public $upgradableVersions;
     protected $_name = [
-        'capabilities'   => 'capabilities',
-        'images'         => 'images',
-        'metaData'       => 'meta_data',
-        'runtimes'       => 'runtimes',
-        'version'        => 'version',
-        'releaseDate'    => 'release_date',
-        'expirationDate' => 'expiration_date',
-        'creatable'      => 'creatable',
+        'capabilities'       => 'capabilities',
+        'images'             => 'images',
+        'metaData'           => 'meta_data',
+        'runtimes'           => 'runtimes',
+        'version'            => 'version',
+        'releaseDate'        => 'release_date',
+        'expirationDate'     => 'expiration_date',
+        'creatable'          => 'creatable',
+        'upgradableVersions' => 'upgradable_versions',
     ];
 
     public function validate()
@@ -126,6 +132,9 @@ class body extends Model
         }
         if (null !== $this->creatable) {
             $res['creatable'] = $this->creatable;
+        }
+        if (null !== $this->upgradableVersions) {
+            $res['upgradable_versions'] = $this->upgradableVersions;
         }
 
         return $res;
@@ -174,6 +183,11 @@ class body extends Model
         }
         if (isset($map['creatable'])) {
             $model->creatable = $map['creatable'];
+        }
+        if (isset($map['upgradable_versions'])) {
+            if (!empty($map['upgradable_versions'])) {
+                $model->upgradableVersions = $map['upgradable_versions'];
+            }
         }
 
         return $model;

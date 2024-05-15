@@ -3643,6 +3643,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->profile)) {
             $query['Profile'] = $request->profile;
         }
+        if (!Utils::isUnset($request->queryUpgradableVersion)) {
+            $query['QueryUpgradableVersion'] = $request->queryUpgradableVersion;
+        }
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
         }

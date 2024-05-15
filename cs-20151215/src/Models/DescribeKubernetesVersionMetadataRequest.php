@@ -60,6 +60,11 @@ class DescribeKubernetesVersionMetadataRequest extends Model
     public $profile;
 
     /**
+     * @var bool
+     */
+    public $queryUpgradableVersion;
+
+    /**
      * @description The region ID of the cluster.
      *
      * This parameter is required.
@@ -83,12 +88,13 @@ class DescribeKubernetesVersionMetadataRequest extends Model
      */
     public $runtime;
     protected $_name = [
-        'clusterType'       => 'ClusterType',
-        'kubernetesVersion' => 'KubernetesVersion',
-        'mode'              => 'Mode',
-        'profile'           => 'Profile',
-        'region'            => 'Region',
-        'runtime'           => 'runtime',
+        'clusterType'            => 'ClusterType',
+        'kubernetesVersion'      => 'KubernetesVersion',
+        'mode'                   => 'Mode',
+        'profile'                => 'Profile',
+        'queryUpgradableVersion' => 'QueryUpgradableVersion',
+        'region'                 => 'Region',
+        'runtime'                => 'runtime',
     ];
 
     public function validate()
@@ -109,6 +115,9 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         }
         if (null !== $this->profile) {
             $res['Profile'] = $this->profile;
+        }
+        if (null !== $this->queryUpgradableVersion) {
+            $res['QueryUpgradableVersion'] = $this->queryUpgradableVersion;
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
@@ -139,6 +148,9 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         }
         if (isset($map['Profile'])) {
             $model->profile = $map['Profile'];
+        }
+        if (isset($map['QueryUpgradableVersion'])) {
+            $model->queryUpgradableVersion = $map['QueryUpgradableVersion'];
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
