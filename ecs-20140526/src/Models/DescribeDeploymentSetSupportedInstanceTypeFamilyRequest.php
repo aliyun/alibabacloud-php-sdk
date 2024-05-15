@@ -19,8 +19,9 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -40,9 +41,9 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyRequest extends Model
     /**
      * @description The deployment strategy. Valid values:
      *
-     *   Availability: high availability strategy.
-     *   AvailabilityGroup: high availability group strategy.
-     *   LowLatency: low latency strategy.
+     *   Availability: high availability strategy
+     *   AvailabilityGroup: high availability group strategy
+     *   LowLatency: low latency strategy
      *
      * Default value: Availability.
      * @example Availability

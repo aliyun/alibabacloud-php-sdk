@@ -60,7 +60,7 @@ class instance extends Model
     public $cpuOptions;
 
     /**
-     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](~~25696~~).
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
      *
      * @example 2017-12-10T04:04Z
      *
@@ -71,8 +71,8 @@ class instance extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: standard mode. For more information, see the "Standard mode" section in [Overview](~~59977~~).
-     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in [Overview](~~59977~~).
+     *   Standard: standard mode. For more information, see the "Standard mode" section in [Overview](https://help.aliyun.com/document_detail/59977.html).
+     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in [Overview](https://help.aliyun.com/document_detail/59977.html).
      *
      * @example Standard
      *
@@ -158,7 +158,7 @@ class instance extends Model
     public $eipAddress;
 
     /**
-     * @description The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](~~25696~~).
+     * @description The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
      *
      * @example 2017-12-10T04:04Z
      *
@@ -539,7 +539,7 @@ class instance extends Model
     public $spotStrategy;
 
     /**
-     * @description The time when the instance was last started. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](~~25696~~).
+     * @description The time when the instance was last started. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
      *
      * @example 2017-12-10T04:04Z
      *

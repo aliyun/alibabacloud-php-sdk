@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyPairRequest extends Model
 {
     /**
-     * @description The name of the key pair. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the key pair. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
+     * This parameter is required.
      * @example testKeyPairName
      *
      * @var string
@@ -24,8 +25,9 @@ class CreateKeyPairRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region in which to create the key pair. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create the key pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

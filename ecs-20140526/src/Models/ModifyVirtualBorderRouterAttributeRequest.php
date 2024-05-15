@@ -54,6 +54,8 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $peeringSubnetMask;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -74,6 +76,8 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $userCidr;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $vbrId;

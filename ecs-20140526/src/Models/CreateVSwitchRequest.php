@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVSwitchRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cidrBlock;
@@ -54,11 +56,15 @@ class CreateVSwitchRequest extends Model
     public $vSwitchName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $zoneId;

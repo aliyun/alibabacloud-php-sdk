@@ -26,7 +26,7 @@ class agentUpgradeConfig extends Model
     public $enabled;
 
     /**
-     * @description The time zone of the time window.
+     * @description The time zone of the time windows.
      *
      * @example Asia/Shanghai
      *

@@ -11,6 +11,7 @@ class DeleteDeploymentSetRequest extends Model
     /**
      * @description The ID of the deployment set. You cannot delete a deployment set that contains instances.
      *
+     * This parameter is required.
      * @example ds-bp1g5ahlkal88d7x****
      *
      * @var string
@@ -32,8 +33,9 @@ class DeleteDeploymentSetRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the deployment set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the deployment set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

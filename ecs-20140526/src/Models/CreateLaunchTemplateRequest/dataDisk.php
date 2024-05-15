@@ -78,7 +78,7 @@ class dataDisk extends Model
     public $device;
 
     /**
-     * @description The name of data disk N. The name must be 2 to 128 characters in length The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of data disk N. The name must be 2 to 128 characters in length The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example testDataDiskName
      *
@@ -103,7 +103,7 @@ class dataDisk extends Model
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * For information about ESSD performance levels, see [ESSDs](~~122389~~).
+     * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL1
      *
      * @var string
@@ -113,7 +113,7 @@ class dataDisk extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
      *
-     * >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
+     * >  This parameter is available only if you set DataDisk.N.Category to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
      * @example 50000
      *
      * @var int

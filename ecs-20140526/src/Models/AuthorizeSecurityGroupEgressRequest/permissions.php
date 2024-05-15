@@ -73,7 +73,7 @@ class permissions extends Model
     public $destGroupOwnerId;
 
     /**
-     * @description The ID of the destination prefix list to be referenced in security group rule N. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
+     * @description The ID of the destination prefix list to be referenced in security group rule N. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
      *
      * Take note of the following items:
      *

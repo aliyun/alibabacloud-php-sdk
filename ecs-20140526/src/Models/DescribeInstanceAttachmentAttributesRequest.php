@@ -11,6 +11,7 @@ class DescribeInstanceAttachmentAttributesRequest extends Model
     /**
      * @description The IDs of the instances. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
      *
+     * This parameter is required.
      * @example ["i-bp67acfmxazb4****", "i-bp67acfmxazb5****", "i-bp67acfmxazb6****"]
      *
      * @var string
@@ -48,8 +49,9 @@ class DescribeInstanceAttachmentAttributesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the elasticity assurance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the elasticity assurance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

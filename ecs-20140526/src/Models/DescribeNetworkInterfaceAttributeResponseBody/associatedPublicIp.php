@@ -20,7 +20,7 @@ class associatedPublicIp extends Model
     /**
      * @description The EIP.
      *
-     * @example 116.62.**.**
+     * @example 116.62.\*\*.**
      *
      * @var string
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpotAdviceRequest extends Model
 {
     /**
-     * @description The number of vCPUs of the instance type. For more information, see [Instance families](~~25378~~).
+     * @description The number of vCPUs of the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * @example 2
      *
@@ -18,7 +18,7 @@ class DescribeSpotAdviceRequest extends Model
     public $cores;
 
     /**
-     * @description The number of GPUs that a GPU-accelerated instance has. For information about the valid values, see [GPU-accelerated compute optimized instance types](~~108496~~).
+     * @description The number of GPUs that a GPU-accelerated instance has. For information about the valid values, see [GPU-accelerated compute optimized instance types](https://help.aliyun.com/document_detail/108496.html).
      *
      * @example 2
      *
@@ -35,7 +35,7 @@ class DescribeSpotAdviceRequest extends Model
      *   NVIDIA V100
      *   NVIDIA A100
      *
-     * This parameter is left empty by default, which indicates that all GPU types are queried. For more information, see [GPU-accelerated compute optimized instance types](~~108496~~).
+     * This parameter is left empty by default, which indicates that all GPU types are queried. For more information, see [GPU-accelerated compute optimized instance types](https://help.aliyun.com/document_detail/108496.html).
      * @example NVIDIA T4
      *
      * @var string
@@ -47,7 +47,7 @@ class DescribeSpotAdviceRequest extends Model
      *
      *   EntryLevel.
      *   EnterpriseLevel.
-     *   CreditEntryLevel. For more information, see [Overview of burstable instances](~~59977~~).
+     *   CreditEntryLevel. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
      *
      * This parameter is left empty by default, which indicates that instance families at all levels are queried.
      * @example EntryLevel
@@ -57,7 +57,7 @@ class DescribeSpotAdviceRequest extends Model
     public $instanceFamilyLevel;
 
     /**
-     * @description The instance family. For more information, see [Instance families](~~25378~~).
+     * @description The instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * @example ecs.c5
      *
@@ -75,7 +75,7 @@ class DescribeSpotAdviceRequest extends Model
     public $instanceTypes;
 
     /**
-     * @description The memory size of the instance type. Unit: GiB. For more information, see [Instance families](~~25378~~).
+     * @description The memory size of the instance type. Unit: GiB. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * @example 8.0
      *
@@ -84,7 +84,7 @@ class DescribeSpotAdviceRequest extends Model
     public $memory;
 
     /**
-     * @description The minimum number of vCPUs of the instance type. For more information, see [Instance families](~~25378~~).
+     * @description The minimum number of vCPUs of the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * @example 2
      *
@@ -93,7 +93,7 @@ class DescribeSpotAdviceRequest extends Model
     public $minCores;
 
     /**
-     * @description The minimum memory size of the instance type. For more information, see [Instance families](~~25378~~).
+     * @description The minimum memory size of the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * @example 8.0
      *
@@ -112,8 +112,9 @@ class DescribeSpotAdviceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

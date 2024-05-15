@@ -39,6 +39,8 @@ class ModifyVSwitchAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $vSwitchId;

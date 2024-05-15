@@ -21,6 +21,7 @@ class DescribePrefixListAttributesRequest extends Model
     /**
      * @description The time when the prefix list was created.
      *
+     * This parameter is required.
      * @example pl-x1j1k5ykzqlixdcy****
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribePrefixListAttributesRequest extends Model
     /**
      * @description The ID of the prefix list.
      *
+     * This parameter is required.
      * @example cn-chengdu
      *
      * @var string

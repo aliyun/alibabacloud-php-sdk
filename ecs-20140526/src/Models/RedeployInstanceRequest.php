@@ -21,6 +21,7 @@ class RedeployInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-bp1azkttqpldxgted****
      *
      * @var string

@@ -19,7 +19,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $launchConfiguration;
 
     /**
-     * @description The name of the auto provisioning group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the auto provisioning group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example apg-test
      *
@@ -42,7 +42,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $autoProvisioningGroupType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -83,7 +83,7 @@ class CreateAutoProvisioningGroupRequest extends Model
      * @description Specifies whether to release scaled-in instances when the real-time capacity of the auto provisioning group exceeds the target capacity and the group is triggered to scale in. Valid values:
      *
      *   termination: releases the scaled-in instances in the auto provisioning group.
-     *   no-termination: removes the scaled-in instances from the auto provisioning group but does not release them.
+     *   no-termination: only removes the scaled-in instances from the auto provisioning group but does not release the instances.
      *
      * Default value: no-termination.
      * @example termination
@@ -109,7 +109,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $launchTemplateConfig;
 
     /**
-     * @description The ID of the launch template associated with the auto provisioning group. You can call the [DescribeLaunchTemplates](~~73759~~) operation to query available launch templates. When both LaunchTemplateId and `LaunchConfiguration.*` parameters are specified, LaunchTemplateId takes precedence.
+     * @description The ID of the launch template associated with the auto provisioning group. You can call the [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html) operation to query available launch templates. When both LaunchTemplateId and `LaunchConfiguration.*` parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example lt-bp1fgzds4bdogu03****
      *
@@ -118,7 +118,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $launchTemplateId;
 
     /**
-     * @description The version of the launch template associated with the auto provisioning group. You can call the [DescribeLaunchTemplateVersions](~~73761~~) operation to query the versions of available launch templates.
+     * @description The version of the launch template associated with the auto provisioning group. You can call the [DescribeLaunchTemplateVersions](https://help.aliyun.com/document_detail/73761.html) operation to query the versions of available launch templates.
      *
      * Default value: the default version of the launch template.
      * @example 1
@@ -180,8 +180,9 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $payAsYouGoTargetCapacity;
 
     /**
-     * @description The ID of the region in which to create the auto provisioning group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create the auto provisioning group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -296,7 +297,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     /**
      * @description The total target capacity of the auto provisioning group. The value must be a positive integer.
      *
-     * The total target capacity of the auto provisioning group must be greater than or equal to the sum of the target capacity of pay-as-you-go instances specified by `PayAsYouGoTargetCapacity` and the target capacity of preemptible instances specified by `SpotTargetCapacity`.
+     * This parameter is required.
      * @example 60
      *
      * @var string

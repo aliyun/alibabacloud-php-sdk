@@ -30,8 +30,9 @@ class DeleteAutoSnapshotPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the automatic snapshot policy. You can call the [DescribeAutoSnapshotPolicyEx](~~25530~~) operation to query the available automatic snapshot policies.
+     * @description The ID of the automatic snapshot policy. You can call the [DescribeAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25530.html) operation to query the available automatic snapshot policies.
      *
+     * This parameter is required.
      * @example sp-bp14yziiuvu3s6jn****
      *
      * @var string
@@ -39,8 +40,9 @@ class DeleteAutoSnapshotPolicyRequest extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description The region ID of the automatic snapshot policy. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the automatic snapshot policy. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

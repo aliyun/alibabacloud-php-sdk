@@ -39,7 +39,7 @@ class LeaveSecurityGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      *   If you want to remove an instance from a security group, you do not need to specify a region ID.
      *   If you want to remove an ENI from a security group, you must specify the ID of the region in which the ENI resides.
@@ -63,6 +63,7 @@ class LeaveSecurityGroupRequest extends Model
     /**
      * @description The security group ID.
      *
+     * This parameter is required.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string

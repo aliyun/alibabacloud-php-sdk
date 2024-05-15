@@ -19,6 +19,8 @@ class ModifyHaVipAttributeRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $haVipId;
@@ -34,6 +36,8 @@ class ModifyHaVipAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

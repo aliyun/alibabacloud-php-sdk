@@ -55,7 +55,7 @@ class CreateSnapshotGroupRequest extends Model
      *   true
      *   false
      *
-     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](~~193667~~).
+     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example false
      *
      * @var bool
@@ -65,7 +65,7 @@ class CreateSnapshotGroupRequest extends Model
     /**
      * @description The number of days for which the instant access feature is available. Unit: days. Valid values: 1 to 65535.
      *
-     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](~~193667~~).
+     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example 1
      *
      * @var int
@@ -73,7 +73,7 @@ class CreateSnapshotGroupRequest extends Model
     public $instantAccessRetentionDays;
 
     /**
-     * @description The name of the snapshot-consistent group. The name must be 2 to 128 characters in length. The name can contain letters, digits, periods (.), underscores (\_), hyphens (-), and colons (:). It must start with a letter and cannot start with `http://` or `https://`.
+     * @description The name of the snapshot-consistent group. The name must be 2 to 128 characters in length. The name can contain letters, digits, periods (.), underscores (_), hyphens (-), and colons (:). It must start with a letter and cannot start with `http://` or `https://`.
      *
      * @example testName
      *
@@ -92,8 +92,9 @@ class CreateSnapshotGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

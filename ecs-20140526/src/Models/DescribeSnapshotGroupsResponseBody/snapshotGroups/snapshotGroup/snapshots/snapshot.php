@@ -36,7 +36,7 @@ class snapshot extends Model
     /**
      * @description The retention period of the instant access feature. After the retention period ends, the snapshot is automatically released.
      *
-     * >  This parameter is deprecated. The normal snapshots of enhanced SSDs (ESSDs) are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](~~193667~~).
+     * >  This parameter is deprecated. The normal snapshots of enhanced SSDs (ESSDs) are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example 3
      *
      * @var int

@@ -19,7 +19,7 @@ class CopyImageRequest extends Model
     public $destinationDescription;
 
     /**
-     * @description The name of the image copy. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `acs:` or `aliyun`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the image copy. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `acs:` or `aliyun`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (_), and hyphens (-).
      *
      * @example YourImageName
      *
@@ -58,6 +58,7 @@ class CopyImageRequest extends Model
     /**
      * @description The ID of the source custom image.
      *
+     * This parameter is required.
      * @example m-bp1h46wfpjsjastc****
      *
      * @var string
@@ -84,8 +85,9 @@ class CopyImageRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the source custom image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the source custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

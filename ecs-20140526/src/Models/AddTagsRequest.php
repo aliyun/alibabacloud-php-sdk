@@ -15,8 +15,9 @@ class AddTagsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -26,6 +27,7 @@ class AddTagsRequest extends Model
     /**
      * @description The ID of the resource. When the resources are instances, this parameter can be interpreted as InstanceId.
      *
+     * This parameter is required.
      * @example i-bp1gtjxuuvwj17zr****
      *
      * @var string
@@ -58,7 +60,7 @@ class AddTagsRequest extends Model
      *   reservedinstance: reserved instance
      *   snapshotpolicy: automatic snapshot policy
      *
-     * All values must be lowercase.
+     * This parameter is required.
      * @example instance
      *
      * @var string
@@ -68,6 +70,7 @@ class AddTagsRequest extends Model
     /**
      * @description The tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

@@ -34,11 +34,15 @@ class ModifyUserBusinessBehaviorRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $statusKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $statusValue;

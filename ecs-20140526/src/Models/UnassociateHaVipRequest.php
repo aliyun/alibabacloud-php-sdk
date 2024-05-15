@@ -19,11 +19,15 @@ class UnassociateHaVipRequest extends Model
     public $force;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $haVipId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
@@ -39,6 +43,8 @@ class UnassociateHaVipRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

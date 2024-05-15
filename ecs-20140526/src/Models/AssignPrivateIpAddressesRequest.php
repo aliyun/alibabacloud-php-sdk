@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AssignPrivateIpAddressesRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -36,6 +36,7 @@ class AssignPrivateIpAddressesRequest extends Model
     /**
      * @description The ID of the ENI.
      *
+     * This parameter is required.
      * @example eni-bp67acfmxazb4p****
      *
      * @var string
@@ -56,18 +57,19 @@ class AssignPrivateIpAddressesRequest extends Model
      * @description Secondary private IP address N to be automatically assigned from the CIDR block of the vSwitch that is connected to the ENI. Valid values of N:
      *
      *   When the ENI is in the Available (`Available`) state, the valid values of N are 1 to 50.
-     *   When the ENI is in the InUse (`InUse`) state, the valid values of N are subject to the instance type. For more information, see [Overview of instance families](~~25378~~).
+     *   When the ENI is in the InUse (`InUse`) state, the valid values of N are subject to the instance type. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * To assign secondary private IP addresses to the ENI, you must specify `PrivateIpAddress.N` or `SecondaryPrivateIpAddressCount` but not both.
-     * @example 10.1.**.**
+     * @example 10.1.\*\*.**
      *
      * @var string[]
      */
     public $privateIpAddress;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

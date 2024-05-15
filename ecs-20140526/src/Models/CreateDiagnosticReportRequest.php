@@ -27,8 +27,9 @@ class CreateDiagnosticReportRequest extends Model
     public $metricSetId;
 
     /**
-     * @description The ID of the region in which to create a diagnostic report. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create a diagnostic report. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateDiagnosticReportRequest extends Model
     /**
      * @description The ID of the resource.
      *
+     * This parameter is required.
      * @example i-uf6i0tv2refv8wz*****
      *
      * @var string

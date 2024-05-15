@@ -11,6 +11,7 @@ class DescribeAutoProvisioningGroupHistoryRequest extends Model
     /**
      * @description The ID of the auto provisioning group.
      *
+     * This parameter is required.
      * @example apg-bp67acfmxazb4p****
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeAutoProvisioningGroupHistoryRequest extends Model
     public $autoProvisioningGroupId;
 
     /**
-     * @description The end of the time range of the queried data. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The end of the time range of the queried data. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-06-20T15:10:20Z
      *
@@ -63,6 +64,7 @@ class DescribeAutoProvisioningGroupHistoryRequest extends Model
     /**
      * @description The region ID of the auto provisioning group.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -84,7 +86,7 @@ class DescribeAutoProvisioningGroupHistoryRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The beginning of the time range of the queried data. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The beginning of the time range of the queried data. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-04-01T15:10:20Z
      *

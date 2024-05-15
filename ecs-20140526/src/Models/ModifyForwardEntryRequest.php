@@ -19,11 +19,15 @@ class ModifyForwardEntryRequest extends Model
     public $externalPort;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $forwardEntryId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $forwardTableId;
@@ -54,6 +58,8 @@ class ModifyForwardEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

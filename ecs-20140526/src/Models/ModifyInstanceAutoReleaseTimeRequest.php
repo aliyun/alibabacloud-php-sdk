@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAutoReleaseTimeRequest extends Model
 {
     /**
-     * @description The automatic release time of the instance. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @description The automatic release time of the instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
      *
      *   If the value of seconds (`ss`) is not `00`, the time is automatically rounded to the nearest minute based on the value of minutes (`mm`).
      *   The release time must be at least 30 minutes later than the current time.
@@ -25,6 +25,7 @@ class ModifyInstanceAutoReleaseTimeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-bp1env7nl3mijm2t****
      *
      * @var string
@@ -42,7 +43,7 @@ class ModifyInstanceAutoReleaseTimeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExportSnapshotRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ossBucket;
@@ -19,6 +21,8 @@ class ExportSnapshotRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +43,8 @@ class ExportSnapshotRequest extends Model
     public $roleName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $snapshotId;

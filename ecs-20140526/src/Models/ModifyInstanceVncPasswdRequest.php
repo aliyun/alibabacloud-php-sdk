@@ -11,6 +11,7 @@ class ModifyInstanceVncPasswdRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4ph****
      *
      * @var string
@@ -28,8 +29,9 @@ class ModifyInstanceVncPasswdRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -49,6 +51,7 @@ class ModifyInstanceVncPasswdRequest extends Model
     /**
      * @description The new VNC password of the instance.
      *
+     * This parameter is required.
      * @example Ecs123
      *
      * @var string

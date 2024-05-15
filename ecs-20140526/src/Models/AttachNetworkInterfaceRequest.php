@@ -11,6 +11,7 @@ class AttachNetworkInterfaceRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example i-bp16qstyvxj9gpqw****
      *
      * @var string
@@ -20,7 +21,7 @@ class AttachNetworkInterfaceRequest extends Model
     /**
      * @description The index of the network interface controller (NIC).
      *
-     * > The value of this parameter varies based on the instance family of the specified instance. If the instance type of the specified instance does not support NICs, leave this parameter empty. If the instance type of the specified instance supports NICs, set this parameter to a valid value. For information about the valid values of this parameter, see [Instance families](~~25378~~).
+     * > The value of this parameter varies based on the instance family of the specified instance. If the instance type of the specified instance does not support NICs, leave this parameter empty. If the instance type of the specified instance supports NICs, set this parameter to a valid value. For information about the valid values of this parameter, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
      * @example 0
      *
      * @var int
@@ -30,6 +31,7 @@ class AttachNetworkInterfaceRequest extends Model
     /**
      * @description The ID of the ENI.
      *
+     * This parameter is required.
      * @example eni-bp17pdijfczax1huji****
      *
      * @var string
@@ -47,8 +49,9 @@ class AttachNetworkInterfaceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupRuleRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -72,7 +72,7 @@ class ModifySecurityGroupRuleRequest extends Model
     public $ipv6SourceCidrIp;
 
     /**
-     * @description You cannot modify this parameter when you modify a security group rule by specifying its ID.\
+     * @description You cannot modify this parameter when you modify a security group rule by specifying its ID.\\
      * You can add a new rule that meets your business requirements and delete the original rule.
      * @example intranet
      *
@@ -91,7 +91,7 @@ class ModifySecurityGroupRuleRequest extends Model
     public $ownerId;
 
     /**
-     * @description The action of the security group rule that determines whether to allow access. Valid values:
+     * @description The action of the security group rule. Valid values:
      *
      *   accept: allows access.
      *   drop: denies access and returns no responses.
@@ -120,7 +120,7 @@ class ModifySecurityGroupRuleRequest extends Model
     /**
      * @description The priority of the security group rule. Valid values: 1 to 100.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var string
@@ -128,8 +128,9 @@ class ModifySecurityGroupRuleRequest extends Model
     public $priority;
 
     /**
-     * @description The region ID of the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the security group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -149,6 +150,7 @@ class ModifySecurityGroupRuleRequest extends Model
     /**
      * @description The security group ID.
      *
+     * This parameter is required.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -156,7 +158,7 @@ class ModifySecurityGroupRuleRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The security group rule ID.\
+     * @description The security group rule ID.\\
      * This parameter is required when you modify a security group rule based on the security group rule ID.
      * @example sgr-bp67acfmxa123b***
      *
@@ -225,7 +227,7 @@ class ModifySecurityGroupRuleRequest extends Model
     public $sourcePortRange;
 
     /**
-     * @description The ID of the source prefix list to which you want to control access. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
+     * @description The ID of the source prefix list to which you want to control access. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
      *
      * If you specify `SourceCidrIp`, `Ipv6SourceCidrIp`, or `SourceGroupId`, this parameter is ignored.
      * @example pl-x1j1k5ykzqlixdcy****

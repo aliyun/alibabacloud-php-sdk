@@ -27,6 +27,7 @@ class ModifyDiagnosticMetricSetRequest extends Model
     /**
      * @description The ID of the diagnostic metric set.
      *
+     * This parameter is required.
      * @example dms-uf6i0tv2refv8wz*****
      *
      * @var string
@@ -43,8 +44,9 @@ class ModifyDiagnosticMetricSetRequest extends Model
     public $metricSetName;
 
     /**
-     * @description The region ID of the diagnostic metric set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the diagnostic metric set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -30,7 +30,7 @@ class StartInstanceRequest extends Model
      *   true: performs only a dry run. The system checks whether your AccessKey pair is valid, whether RAM users are granted permissions, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
      *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
-     * Default value: false.
+     * This parameter is required.
      * @example i-bp67acfmxazb4p****
      *
      * @var string

@@ -18,7 +18,7 @@ class StartInstancesRequest extends Model
     public $batchOptimization;
 
     /**
-     * @description The region ID of the ECS instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the ECS instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * @example false
      *
@@ -29,6 +29,7 @@ class StartInstancesRequest extends Model
     /**
      * @description The ID of instance N. Valid values of N: 1 to 100.
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4p****
      *
      * @var string[]
@@ -51,7 +52,7 @@ class StartInstancesRequest extends Model
      *   AllTogether: starts all ECS instances at the same time. If all ECS instances are started, a success message is returned. If an ECS instance fails to be started, all the specified instances fail to be started and an error message is returned.
      *   SuccessFirst: separately starts each ECS instance. The response contains the operation results of each ECS instance.
      *
-     * Default value: AllTogether.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

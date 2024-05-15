@@ -11,6 +11,7 @@ class ModifyDedicatedHostClusterAttributeRequest extends Model
     /**
      * @description The ID of the dedicated host cluster.
      *
+     * This parameter is required.
      * @example dc-bp12wlf6am0vz9v2****
      *
      * @var string
@@ -18,7 +19,7 @@ class ModifyDedicatedHostClusterAttributeRequest extends Model
     public $dedicatedHostClusterId;
 
     /**
-     * @description The new name of the dedicated host cluster. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter. The name cannot contain `http://` or `https://`.
+     * @description The new name of the dedicated host cluster. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter. The name cannot contain `http://` or `https://`.
      *
      * @example newClusterName
      *
@@ -46,8 +47,9 @@ class ModifyDedicatedHostClusterAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the dedicated host cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the dedicated host cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -56,7 +56,7 @@ class dataDisk extends Model
     public $device;
 
     /**
-     * @description The name of data disk N. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of data disk N. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example DataDiskName
      *
@@ -103,7 +103,7 @@ class dataDisk extends Model
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * For more information about ESSD performance levels, see [ESSDs](~~122389~~).
+     * For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL2
      *
      * @var string

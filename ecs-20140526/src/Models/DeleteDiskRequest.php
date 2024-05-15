@@ -11,6 +11,7 @@ class DeleteDiskRequest extends Model
     /**
      * @description The ID of the disk that you want to release.
      *
+     * This parameter is required.
      * @example d-bp14k9cxvr5uzy5****
      *
      * @var string

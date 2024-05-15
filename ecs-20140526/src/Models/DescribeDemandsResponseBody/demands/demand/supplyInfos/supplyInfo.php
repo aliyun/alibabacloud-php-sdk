@@ -27,7 +27,7 @@ class supplyInfo extends Model
     public $privatePoolId;
 
     /**
-     * @description The end of the time range during which the filed resources are delivered and available. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The end of the time range during which the filed resources are delivered and available. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-03-03T15:00:00Z
      *
@@ -36,7 +36,7 @@ class supplyInfo extends Model
     public $supplyEndTime;
 
     /**
-     * @description The beginning of the time range during which the filed resources are delivered and available. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The beginning of the time range during which the filed resources are delivered and available. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-03-01T14:00:00Z
      *

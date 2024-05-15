@@ -14,6 +14,8 @@ class DeleteNetworkInterfacePermissionRequest extends Model
     public $force;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $networkInterfacePermissionId;
@@ -29,6 +31,8 @@ class DeleteNetworkInterfacePermissionRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

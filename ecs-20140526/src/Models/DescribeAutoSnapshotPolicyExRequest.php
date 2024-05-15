@@ -40,7 +40,7 @@ class DescribeAutoSnapshotPolicyExRequest extends Model
     /**
      * @description The page number.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -50,7 +50,7 @@ class DescribeAutoSnapshotPolicyExRequest extends Model
     /**
      * @description The number of entries per page.
      *
-     * Default value: 10.
+     * Default value: 10
      * @example 10
      *
      * @var int
@@ -58,8 +58,9 @@ class DescribeAutoSnapshotPolicyExRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the automatic snapshot policy. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the automatic snapshot policy. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

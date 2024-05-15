@@ -21,6 +21,7 @@ class DescribeCloudAssistantSettingsRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,8 +39,9 @@ class DescribeCloudAssistantSettingsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The Cloud Assistant features.
+     * @description The Cloud Assistant configurations.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $settingType;

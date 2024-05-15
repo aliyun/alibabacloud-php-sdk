@@ -17,7 +17,7 @@ class entry extends Model
      *   IP addresses are supported. The system converts IP addresses into CIDR blocks. For example, if you specify 192.168.1.100, the system converts it into the 192.168.1.100/32 CIDR block.
      *   If an IPv6 CIDR block is used, the system converts it into the zero compression format and changes uppercase letters into lowercase ones. For example, if you specify 2001:0DB8:0000:0000:0000:0000:0000:0000/32, the system converts it into 2001:db8::/32.
      *
-     * This parameter is empty by default.
+     * This parameter is required.
      * @example 192.168.1.0/24
      *
      * @var string

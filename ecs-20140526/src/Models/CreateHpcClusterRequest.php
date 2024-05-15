@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateHpcClusterRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate a client token. Make sure that a unique client token is used for each request. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate a client token. Make sure that a unique client token is used for each request. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -28,8 +28,9 @@ class CreateHpcClusterRequest extends Model
     public $description;
 
     /**
-     * @description The name of the HPC cluster. The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * @description The name of the HPC cluster. The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      *
+     * This parameter is required.
      * @example hpc-Cluster-01
      *
      * @var string
@@ -55,8 +56,9 @@ class CreateHpcClusterRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the HPC cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the HPC cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

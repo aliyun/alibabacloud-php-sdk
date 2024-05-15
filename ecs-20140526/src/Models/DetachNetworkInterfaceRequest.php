@@ -11,7 +11,7 @@ class DetachNetworkInterfaceRequest extends Model
     /**
      * @description The ID of the trunk ENI.
      *
-     * >  This parameter is unavailable for use.
+     * This parameter is required.
      * @example i-bp67acfmxazb4p****
      *
      * @var string
@@ -21,6 +21,7 @@ class DetachNetworkInterfaceRequest extends Model
     /**
      * @description The ID of the instance
      *
+     * This parameter is required.
      * @example eni-bp67acfmxazb4p****
      *
      * @var string
@@ -40,6 +41,7 @@ class DetachNetworkInterfaceRequest extends Model
     /**
      * @description The ID of the ENI.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

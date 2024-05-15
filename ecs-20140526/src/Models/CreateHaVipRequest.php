@@ -34,6 +34,8 @@ class CreateHaVipRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +51,8 @@ class CreateHaVipRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $vSwitchId;

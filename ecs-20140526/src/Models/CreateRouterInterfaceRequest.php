@@ -64,6 +64,8 @@ class CreateRouterInterfaceRequest extends Model
     public $oppositeInterfaceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $oppositeRegionId;
@@ -99,6 +101,8 @@ class CreateRouterInterfaceRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -114,21 +118,29 @@ class CreateRouterInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $routerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $routerType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $spec;

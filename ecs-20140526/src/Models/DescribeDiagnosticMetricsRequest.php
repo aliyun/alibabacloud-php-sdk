@@ -41,6 +41,7 @@ class DescribeDiagnosticMetricsRequest extends Model
     /**
      * @description The IDs of diagnostic metrics.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

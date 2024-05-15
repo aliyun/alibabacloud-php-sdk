@@ -33,6 +33,7 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     /**
      * @description The ID of the instance. You can specify up to 100 subscription instance IDs. Separate the instance IDs with commas (,).
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4ph****,i-bp67acfmxazb4pi****
      *
      * @var string
@@ -62,8 +63,9 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

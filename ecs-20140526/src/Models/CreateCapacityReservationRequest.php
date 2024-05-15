@@ -16,7 +16,7 @@ class CreateCapacityReservationRequest extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -35,7 +35,7 @@ class CreateCapacityReservationRequest extends Model
     public $description;
 
     /**
-     * @description The time when the capacity reservation expires. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](~~25696~~).
+     * @description The time when the capacity reservation expires. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
      *
      * @example 2021-10-30T06:32:00Z
      *
@@ -58,6 +58,7 @@ class CreateCapacityReservationRequest extends Model
     /**
      * @description The total number of instances for which the capacity of an instance type is reserved.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -65,8 +66,9 @@ class CreateCapacityReservationRequest extends Model
     public $instanceAmount;
 
     /**
-     * @description The instance type. You can create a capacity reservation to reserve the capacity of only one instance type. You can call the [DescribeInstanceTypes](~~25620~~) operation to query the instance types provided by ECS.
+     * @description The instance type. You can create a capacity reservation to reserve the capacity of only one instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the instance types provided by ECS.
      *
+     * This parameter is required.
      * @example ecs.g6.xlarge
      *
      * @var string
@@ -97,8 +99,9 @@ class CreateCapacityReservationRequest extends Model
     public $platform;
 
     /**
-     * @description The ID of the region in which to create the capacity reservation. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create the capacity reservation. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -144,6 +147,7 @@ class CreateCapacityReservationRequest extends Model
     /**
      * @description The ID of the zone in which you want to create the capacity reservation. A capacity reservation can reserve resources within only one zone.
      *
+     * This parameter is required.
      * @example cn-hangzhou-h
      *
      * @var string[]

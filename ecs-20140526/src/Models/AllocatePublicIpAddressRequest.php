@@ -11,6 +11,7 @@ class AllocatePublicIpAddressRequest extends Model
     /**
      * @description The ID of the instance to which you want to assign a public IP address.
      *
+     * This parameter is required.
      * @example i-bp1gtjxuuvwj17zr****
      *
      * @var string
@@ -20,7 +21,7 @@ class AllocatePublicIpAddressRequest extends Model
     /**
      * @description The public IP address. If you leave this parameter empty, the system randomly assigns a public IP address to the instance.
      *
-     * @example 112.124.**.**
+     * @example 112.124.\*\*.**
      *
      * @var string
      */

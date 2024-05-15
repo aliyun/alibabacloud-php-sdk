@@ -20,6 +20,7 @@ class ModifyImageSharePermissionRequest extends Model
     /**
      * @description The ID of the custom image.
      *
+     * This parameter is required.
      * @example m-bp18ygjuqnwhechc****
      *
      * @var string
@@ -59,8 +60,9 @@ class ModifyImageSharePermissionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the custom image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

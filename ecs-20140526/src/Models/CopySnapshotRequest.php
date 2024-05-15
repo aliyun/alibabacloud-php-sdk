@@ -20,6 +20,7 @@ class CopySnapshotRequest extends Model
     /**
      * @description The ID of the destination region to which to copy the source snapshot.
      *
+     * This parameter is required.
      * @example us-east-1
      *
      * @var string
@@ -29,7 +30,7 @@ class CopySnapshotRequest extends Model
     /**
      * @description The description of the new snapshot. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
      *
-     * This parameter is empty by default.
+     * This parameter is required.
      * @example CopySnapshotDemo
      *
      * @var string
@@ -37,9 +38,9 @@ class CopySnapshotRequest extends Model
     public $destinationSnapshotDescription;
 
     /**
-     * @description The name of the new snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start http:// or https://. The name can contain digits, letters, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the new snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start http:// or https://. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
      *
-     * This parameter is empty by default.
+     * This parameter is required.
      * @example CopySnapshotDemo
      *
      * @var string
@@ -47,7 +48,7 @@ class CopySnapshotRequest extends Model
     public $destinationSnapshotName;
 
     /**
-     * @description > This parameter is not publicly available.
+     * @description >  This parameter is not publicly available.
      *
      * @example null
      *
@@ -83,8 +84,9 @@ class CopySnapshotRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the source snapshot. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the source snapshot. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-chengdu
      *
      * @var string
@@ -123,6 +125,7 @@ class CopySnapshotRequest extends Model
     /**
      * @description The ID of the source snapshot.
      *
+     * This parameter is required.
      * @example s-bp67acfmxazb4p****
      *
      * @var string

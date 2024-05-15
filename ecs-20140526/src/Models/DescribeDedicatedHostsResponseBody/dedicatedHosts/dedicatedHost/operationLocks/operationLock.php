@@ -11,8 +11,8 @@ class operationLock extends Model
     /**
      * @description The reason why the dedicated host was locked. Valid values:
      *
-     *   financial
-     *   security
+     *   financial: The instance was locked due to overdue payments.
+     *   security: The instance was locked due to security reasons.
      *
      * @example financial
      *

@@ -20,7 +20,7 @@ class launchConfiguration extends Model
     public $arn;
 
     /**
-     * @description The automatic release time of the pay-as-you-go instance. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in Coordinated Universal Time (UTC).
+     * @description The automatic release time of the pay-as-you-go instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in Coordinated Universal Time (UTC).
      *
      *   If the value of `ss` is not `00`, the start time is automatically rounded down to the nearest minute based on the value of `mm`.
      *   The specified time must be at least 30 minutes later than the current time.
@@ -35,12 +35,12 @@ class launchConfiguration extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: the standard mode. For more information, see the "Standard mode" section in the [Overview of burstable instances](~~59977~~) topic.
-     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in the [Overview of burstable instances](~~59977~~) topic.
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in the [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html) topic.
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in the [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html) topic.
      *
      * This parameter is empty by default.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example Standard
      *
      * @var string
@@ -70,7 +70,7 @@ class launchConfiguration extends Model
      *   For Windows instances, the hostname must be 2 to 15 characters in length and cannot contain periods (.) or contain only digits. It can contain letters, digits, and hyphens (-).
      *   For instances that run other operating systems such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate a hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
      *   You cannot specify both `LaunchConfiguration.HostName` and `LaunchConfiguration.HostNames.N`. Otherwise, an error is returned.
-     *   When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     *   When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example k8s-node-[1,4]-ecshost
      *
@@ -90,7 +90,7 @@ class launchConfiguration extends Model
     public $hostNames;
 
     /**
-     * @description The name of the image family. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `aliyun` or `acs:`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the image family. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `aliyun` or `acs:`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example hangzhou-daily-update
      *
@@ -99,7 +99,7 @@ class launchConfiguration extends Model
     public $imageFamily;
 
     /**
-     * @description The ID of the image to be used to create the instance. You can call the [DescribeImages](~~25534~~) operation to query available image resources. When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * @description The ID of the image to be used to create the instance. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query available image resources. When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example m-bp1g7004ksh0oeuc****
      *
@@ -108,7 +108,7 @@ class launchConfiguration extends Model
     public $imageId;
 
     /**
-     * @description The instance description. The description must be 2 to 256 characters in length. The description can contain letters and cannot start with `http://` or `https://`. When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * @description The instance description. The description must be 2 to 256 characters in length. The description can contain letters and cannot start with `http://` or `https://`. When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example Instance_Description
      *
@@ -117,11 +117,11 @@ class launchConfiguration extends Model
     public $instanceDescription;
 
     /**
-     * @description The instance name. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The instance name. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
-     * When you batch create instances, you can batch configure sequential names for the instances. For more information, see [Batch configure sequential names or hostnames for multiple instances](~~196048~~).
+     * When you batch create instances, you can batch configure sequential names for the instances. For more information, see [Batch configure sequential names or hostnames for multiple instances](https://help.aliyun.com/document_detail/196048.html).
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example k8s-node-[1,4]-alibabacloud
      *
      * @var string
@@ -136,7 +136,7 @@ class launchConfiguration extends Model
      *
      * >  When the pay-by-traffic billing method for network usage is used, the maximum inbound and outbound bandwidth values are used as the upper limits of bandwidth instead of guaranteed performance specifications. When demands outstrip resource supplies, the maximum bandwidths may be limited. If you want guaranteed bandwidth for your instance, use the pay-by-bandwidth billing method.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example PayByTraffic
      *
      * @var string
@@ -149,7 +149,7 @@ class launchConfiguration extends Model
      *   When the maximum outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10 and the default value is 10.
      *   When the maximum outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the value of `LaunchConfiguration.InternetMaxBandwidthOut`, and the default value is the value of `LaunchConfiguration.InternetMaxBandwidthOut`.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example 10
      *
      * @var int
@@ -161,7 +161,7 @@ class launchConfiguration extends Model
      *
      * Default value: 0.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example 10
      *
      * @var int
@@ -176,7 +176,7 @@ class launchConfiguration extends Model
      *
      * For instances of retired instance types, the default value is none. For instances of other instance types, the default value is optimized.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example optimized
      *
      * @var string
@@ -189,7 +189,7 @@ class launchConfiguration extends Model
      *   For Windows instances, this parameter is ignored. This parameter is empty by default.
      *   By default, password-based logon is disabled for Linux instances.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example KeyPair_Name
      *
      * @var string
@@ -199,7 +199,7 @@ class launchConfiguration extends Model
     /**
      * @description The instance password. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The password can contain the following special characters:
      *
-     * ``( ) ` ~ ! @ # $ % ^ & * - _ + = | { }  ``: ; \" < > , . ? /``  For Windows instances, the password cannot start with a forward slash (/). When both LaunchTemplateId and LaunchConfiguration.* parameters are specified, LaunchTemplateId takes precedence. `
+     * ``( ) ` ~ ! @ # $ % ^ & * - _ + = | { }  ``: ; \\" < > , . ? /``  For Windows instances, the password cannot start with a forward slash (/). When both LaunchTemplateId and LaunchConfiguration.* parameters are specified, LaunchTemplateId takes precedence. `
      * @example EcsV587!
      *
      * @var string
@@ -212,7 +212,7 @@ class launchConfiguration extends Model
      *   true: uses the password preset in the image.
      *   false: does not use the password preset in the image.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example true
      *
      * @var bool
@@ -220,7 +220,7 @@ class launchConfiguration extends Model
     public $passwordInherit;
 
     /**
-     * @description The name of the instance Resource Access Management (RAM) role. You can call the [ListRoles](~~28713~~) operation provided by RAM to query the instance RAM roles that you created. When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * @description The name of the instance Resource Access Management (RAM) role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation provided by RAM to query the instance RAM roles that you created. When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example RAM_Name
      *
@@ -229,7 +229,7 @@ class launchConfiguration extends Model
     public $ramRoleName;
 
     /**
-     * @description The ID of the resource group to which to assign the instance. When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * @description The ID of the resource group to which to assign the instance. When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -243,7 +243,7 @@ class launchConfiguration extends Model
      *   Active: enables security hardening. This value is applicable only to public images.
      *   Deactive: disables security hardening. This value is applicable to all image types.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example Active
      *
      * @var string
@@ -251,7 +251,7 @@ class launchConfiguration extends Model
     public $securityEnhancementStrategy;
 
     /**
-     * @description The ID of the security group to which to assign the instance. When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * @description The ID of the security group to which to assign the instance. When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example sg-bp15ed6xe1yxeycg****
      *
@@ -267,7 +267,7 @@ class launchConfiguration extends Model
     public $securityGroupIds;
 
     /**
-     * @description The information of the system disk on the instance. When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * @description The system disk information of instances. When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @var systemDisk
      */
@@ -283,7 +283,7 @@ class launchConfiguration extends Model
      *
      * For non-I/O optimized instances of retired instance types, the default value is cloud. For other instances, the default value is cloud_efficiency.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example cloud_ssd
      *
      * @var string
@@ -293,7 +293,7 @@ class launchConfiguration extends Model
     /**
      * @description The description of the system disk. The description must be 2 to 256 characters in length. The description can contain letters and cannot start with `http://` or `https://`.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example SystemDisk_Description
      *
      * @var string
@@ -301,11 +301,11 @@ class launchConfiguration extends Model
     public $systemDiskDescription;
 
     /**
-     * @description The name of the system disk. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the system disk. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (_), and hyphens (-).
      *
      * This parameter is empty by default.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example cloud_ssdSystem
      *
      * @var string
@@ -320,9 +320,9 @@ class launchConfiguration extends Model
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * For more information about ESSD performance levels, see [ESSDs](~~122389~~).
+     * For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example PL0
      *
      * @var string
@@ -334,7 +334,7 @@ class launchConfiguration extends Model
      *
      * Default value: 40 or the size of the image specified by LaunchConfiguration.ImageId, whichever is greater.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example 40
      *
      * @var int
@@ -349,7 +349,7 @@ class launchConfiguration extends Model
     public $tag;
 
     /**
-     * @description The instance user data. The user data must be encoded in Base64. The raw data can be up to 16 KB in size. When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * @description The instance user data. The user data must be encoded in Base64. The raw data can be up to 32 KB in size. When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      *
      * @example ZWNobyBoZWxsbyBlY3Mh
      *

@@ -11,6 +11,7 @@ class CreateNetworkInterfacePermissionRequest extends Model
     /**
      * @description The ID of the ENI.
      *
+     * This parameter is required.
      * @example 1234567890
      *
      * @var int
@@ -20,7 +21,7 @@ class CreateNetworkInterfacePermissionRequest extends Model
     /**
      * @description The permission on the ENI. Set the value to InstanceAttach.
      *
-     * InstanceAttach: allows authorized users to attach the ENI to an ECS instance. The ENI and the ECS instance must reside in the same zone.
+     * This parameter is required.
      * @example eni-bp14v2sdd3v8htln****
      *
      * @var string
@@ -40,6 +41,7 @@ class CreateNetworkInterfacePermissionRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example InstanceAttach
      *
      * @var string
@@ -49,6 +51,7 @@ class CreateNetworkInterfacePermissionRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud partner (a certified ISV) or individual user.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

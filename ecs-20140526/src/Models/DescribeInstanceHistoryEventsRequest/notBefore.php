@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class notBefore extends Model
 {
     /**
-     * @description The latest scheduled end time for the system event. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The latest scheduled end time for the system event. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2017-12-01T06:32:31Z
      *
@@ -18,7 +18,7 @@ class notBefore extends Model
     public $end;
 
     /**
-     * @description The earliest scheduled start time for the system event. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The earliest scheduled start time for the system event. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2017-11-30T06:32:31Z
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateStorageSetRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -27,7 +27,7 @@ class CreateStorageSetRequest extends Model
     public $description;
 
     /**
-     * @description The maximum number of partitions supported by the storage set. The value must be greater than or equal to 2 but cannot exceed the quota that you obtained by calling the [DescribeAccountAttributes](~~73772~~) operation.
+     * @description The maximum number of partitions supported by the storage set. The value must be greater than or equal to 2 but cannot exceed the quota that you obtained by calling the [DescribeAccountAttributes](https://help.aliyun.com/document_detail/73772.html) operation.
      *
      * Default value: 2.
      * @example 10
@@ -47,8 +47,9 @@ class CreateStorageSetRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the storage set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the storage set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -66,7 +67,7 @@ class CreateStorageSetRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The name of the storage set. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). The name must start with a letter and cannot start with [http:// or https:// ](http://https://。、（:）、（\_）（-）。).
+     * @description The name of the storage set. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), and hyphens (-). The name must start with a letter and cannot start with [http:// or https:// ](http://https://。、（:）、（_）（-）。).
      *
      * @example testStorageSetName
      *
@@ -75,8 +76,9 @@ class CreateStorageSetRequest extends Model
     public $storageSetName;
 
     /**
-     * @description The zone ID of the storage set. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The zone ID of the storage set. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
      *
+     * This parameter is required.
      * @example cn-hangzhou-g
      *
      * @var string

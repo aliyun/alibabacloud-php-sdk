@@ -34,7 +34,7 @@ class systemDisk extends Model
     public $description;
 
     /**
-     * @description The name of the system disk. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the system disk. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * This parameter is empty by default.
      * @example SystemDiskName
@@ -51,7 +51,7 @@ class systemDisk extends Model
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * For information about ESSD performance levels, see [ESSDs](~~122389~~).
+     * For information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL1
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AttachClassicLinkVpcRequest extends Model
 {
     /**
-     * @description The ID of the instance that is deployed in the classic network. You can call the [DescribeInstances](~~25506~~) operation to query available instances.
+     * @description The ID of the instance that is deployed in the classic network. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query available instances.
      *
+     * This parameter is required.
      * @example i-bp1gtjxuuvwj17zr****
      *
      * @var string
@@ -23,8 +24,9 @@ class AttachClassicLinkVpcRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -42,8 +44,9 @@ class AttachClassicLinkVpcRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the VPC for which the ClassicLink feature is enabled. You can call the [DescribeVpcs](~~35739~~) operation to query available VPCs.
+     * @description The ID of the VPC for which the ClassicLink feature is enabled. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query available VPCs.
      *
+     * This parameter is required.
      * @example vpc-bp1j4z1sr8zxu4l8u****
      *
      * @var string

@@ -32,8 +32,9 @@ class DescribeDiagnosticReportsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID of the diagnostic report. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the diagnostic report. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

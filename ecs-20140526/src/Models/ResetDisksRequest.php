@@ -12,6 +12,7 @@ class ResetDisksRequest extends Model
     /**
      * @description The disks that you want to roll back.
      *
+     * This parameter is required.
      * @var disk[]
      */
     public $disk;
@@ -40,8 +41,9 @@ class ResetDisksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

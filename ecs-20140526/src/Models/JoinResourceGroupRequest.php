@@ -19,7 +19,7 @@ class JoinResourceGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -68,8 +68,10 @@ class JoinResourceGroupRequest extends Model
      *   eni: ENI
      *   keypair: SSH key pair
      *   launchtemplate: launch template
+     *   command: Cloud Assistant command
+     *   activation: activation code of the Cloud Assistant managed instance
      *
-     * These values are case-sensitive.
+     * The values are case-sensitive.
      * @example securitygroup
      *
      * @var string

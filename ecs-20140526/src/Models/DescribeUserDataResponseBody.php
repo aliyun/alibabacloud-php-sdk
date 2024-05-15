@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserDataResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp14bnftyqhxg9ij****
      *
@@ -27,7 +27,7 @@ class DescribeUserDataResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

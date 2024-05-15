@@ -11,6 +11,7 @@ class ConvertNatPublicIpToEipRequest extends Model
     /**
      * @description The ID of the instance whose public IP address you want to convert into an EIP.
      *
+     * This parameter is required.
      * @example i-bp171jr36ge2ulvk****
      *
      * @var string
@@ -23,8 +24,9 @@ class ConvertNatPublicIpToEipRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

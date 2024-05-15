@@ -69,7 +69,7 @@ class networkInterface extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group *N* with which you want to associate the ECS instance. Valid values of *N* vary based on the maximum number of security groups with which the instance can be associated. For more information, see the "Security group limits" section in the [Limits](~~25412~~) topic.
+     * @description The ID of security group *N* with which you want to associate the ECS instance. Valid values of *N* vary based on the maximum number of security groups with which the instance can be associated. For more information, see the "Security group limits" section in the [Limits](https://help.aliyun.com/document_detail/25412.html) topic.
      *
      * >  You cannot specify the **SecurityGroupId** and **SecurityGroupIds.N** parameters at the same time.
      * @var securityGroupIds

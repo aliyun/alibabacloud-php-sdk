@@ -19,7 +19,7 @@ class capacity extends Model
     public $availableLocalStorage;
 
     /**
-     * @description The amount of available memory space. Unit: GiB.
+     * @description The amount of available memory. Unit: GiB.
      *
      * @example 25
      *

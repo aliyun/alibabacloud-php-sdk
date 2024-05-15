@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddBandwidthPackageIpsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bandwidthPackageId;
@@ -19,6 +21,8 @@ class AddBandwidthPackageIpsRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ipCount;
@@ -34,6 +38,8 @@ class AddBandwidthPackageIpsRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

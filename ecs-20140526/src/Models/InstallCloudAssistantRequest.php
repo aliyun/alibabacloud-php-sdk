@@ -11,6 +11,7 @@ class InstallCloudAssistantRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-bp1iudwa5b1tqa****
      *
      * @var string[]
@@ -30,6 +31,7 @@ class InstallCloudAssistantRequest extends Model
     /**
      * @description The IDs of instances. You can specify up to 50 instance IDs in a single request.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

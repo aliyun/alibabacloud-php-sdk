@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveBandwidthPackageIpsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bandwidthPackageId;
@@ -29,11 +31,15 @@ class RemoveBandwidthPackageIpsRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $removedIpAddresses;

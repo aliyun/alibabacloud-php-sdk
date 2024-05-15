@@ -55,6 +55,7 @@ class StopInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4ph****
      *
      * @var string
@@ -84,7 +85,7 @@ class StopInstanceRequest extends Model
     /**
      * @description The stop mode of the pay-as-you-go instance. Valid values:
      *
-     *   StopCharging: economical mode. For information about how `StopCharging` takes effect, see the "Conditions for enabling economical mode" section in [Economical mode](~~63353~~).
+     *   StopCharging: economical mode. For information about how `StopCharging` takes effect, see the "Conditions for enabling economical mode" section in [Economical mode](https://help.aliyun.com/document_detail/63353.html).
      *   KeepCharging: standard mode. You continue to be charged for instances that are stopped in standard mode.
      *
      * Default value: If the conditions for enabling the economical mode are met and you have enabled this mode in the ECS console, the default value is [StopCharging](~~63353#default~~). For more information, see the "Enable economical mode" section in `Economical mode`. Otherwise, the default value is `KeepCharging`.

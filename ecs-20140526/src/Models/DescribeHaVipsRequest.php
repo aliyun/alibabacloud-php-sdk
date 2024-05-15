@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHaVipsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var filter[]
      */
     public $filter;
@@ -35,6 +37,8 @@ class DescribeHaVipsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

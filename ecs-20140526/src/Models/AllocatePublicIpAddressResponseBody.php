@@ -11,7 +11,7 @@ class AllocatePublicIpAddressResponseBody extends Model
     /**
      * @description The public IP address.
      *
-     * @example 112.124.**.**
+     * @example 112.124.\*\*.**
      *
      * @var string
      */

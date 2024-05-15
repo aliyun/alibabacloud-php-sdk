@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class inactiveDisk extends Model
 {
     /**
-     * @description The time when the cloud disk or local disk was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the cloud disk or local disk was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2018-07-27T13:53:25Z
      *
@@ -57,7 +57,7 @@ class inactiveDisk extends Model
     public $deviceType;
 
     /**
-     * @description The time when the cloud disk or local disk was released. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the cloud disk or local disk was released. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-07-27T13:53:25Z
      *

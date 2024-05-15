@@ -26,7 +26,7 @@ class DescribeImagesRequest extends Model
      * @description The architecture of the image. Valid values:
      *
      *   i386
-     *   x86\_64
+     *   x86_64
      *   arm64
      *
      * @example i386
@@ -58,7 +58,7 @@ class DescribeImagesRequest extends Model
     /**
      * @description The name of the image family. You can set this parameter to query images of the specified image family.
      *
-     * >  For information about image families that are associated with Alibaba Cloud official images, see [Overview of public images](~~108393~~).
+     * >  For information about image families that are associated with Alibaba Cloud official images, see [Overview of public images](https://help.aliyun.com/document_detail/108393.html).
      * @example hangzhou-daily-update
      *
      * @var string
@@ -196,8 +196,9 @@ class DescribeImagesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -251,7 +252,7 @@ class DescribeImagesRequest extends Model
      *   Available: The image is available.
      *   UnAvailable: The image is unavailable.
      *   CreateFailed: The image fails to be created.
-     *   Deprecated: The image is no longer used.
+     *   Deprecated: The image is deprecated.
      *
      * Default value: Available. You can specify multiple values for this parameter. Separate the values with commas (,).
      * @example Available

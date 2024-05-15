@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouteEntryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $destinationCidrBlock;
@@ -50,6 +52,8 @@ class DeleteRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $routeTableId;

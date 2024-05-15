@@ -158,7 +158,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     /**
      * @description The private IP address of the ENI.
      *
-     * @example 10.1.**.**
+     * @example 10.1.\*\*.**
      *
      * @var string
      */

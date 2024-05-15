@@ -15,7 +15,8 @@ class SendFileRequest extends Model
      *   If `ContentType` is set to `PlainText`, the Content value is in plaintext.
      *   If `ContentType` is set to `Base64`, the Content value is Base64-encoded.
      *
-     * @example #!/bin/bash  echo "Current User is :"  echo $(ps | grep "$$" | awk \"{print $2}\")  --------  oss://bucketName/objectName
+     * This parameter is required.
+     * @example #!/bin/bash  echo "Current User is :"  echo $(ps | grep "$$" | awk \\"{print $2}\\")  --------  oss://bucketName/objectName
      *
      * @var string
      */
@@ -76,6 +77,7 @@ class SendFileRequest extends Model
     /**
      * @description The ID of instance N to which to send the file. Up to 50 instance IDs can be specified in each request. Valid values of N: 1 to 50.
      *
+     * This parameter is required.
      * @example i-bp185dy2o3o6n****
      *
      * @var string[]
@@ -85,6 +87,7 @@ class SendFileRequest extends Model
     /**
      * @description The name of the file. The name supports all character sets and can be up to 255 characters in length.
      *
+     * This parameter is required.
      * @example file.txt
      *
      * @var string
@@ -115,8 +118,9 @@ class SendFileRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance to which to send the file. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance to which to send the file. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -127,7 +131,7 @@ class SendFileRequest extends Model
      * @description The ID of the resource group. When you specify this parameter, take note of the following items:
      *
      *   The ECS instance specified by the InstanceId parameter must belong to this resource group.
-     *   If you specify this parameter, you can call the [DescribeSendFileResults](~~184117~~) operation to query file sending results in the specified resource group.
+     *   If you specify this parameter, you can call the [DescribeSendFileResults](https://help.aliyun.com/document_detail/184117.html) operation to query file sending results in the specified resource group.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -155,6 +159,7 @@ class SendFileRequest extends Model
     /**
      * @description The destination directory on the instance to which to send the file. If the specified directory does not exist, the system creates the directory on the instance. The value supports all character sets and cannot exceed 255 characters in length.
      *
+     * This parameter is required.
      * @example /home
      *
      * @var string

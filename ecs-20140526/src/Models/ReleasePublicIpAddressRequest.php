@@ -29,7 +29,8 @@ class ReleasePublicIpAddressRequest extends Model
     /**
      * @description The public IP address of the instance.
      *
-     * @example 121.40.**.**
+     * This parameter is required.
+     * @example 121.40.\*\*.**
      *
      * @var string
      */

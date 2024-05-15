@@ -27,6 +27,7 @@ class privatePoolOptions extends Model
      *   Target: specified private pool. You must set the `PrivatePoolOptions.Id` parameter to specify the ID of a private pool.
      *   None: no private pool. The instance starts normally without using private pools.
      *
+     * This parameter is required.
      * @example Open
      *
      * @var string

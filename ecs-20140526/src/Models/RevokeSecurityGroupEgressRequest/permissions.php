@@ -74,7 +74,7 @@ class permissions extends Model
     public $destGroupOwnerId;
 
     /**
-     * @description The ID of the destination prefix list that is referenced in security group rule N. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
+     * @description The ID of the destination prefix list that is referenced in security group rule N. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
      *
      * Take note of the following items:
      *
@@ -154,7 +154,7 @@ class permissions extends Model
     /**
      * @description The range of destination ports that correspond to the transport layer protocol for security group rule N. Valid values:
      *
-     *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \<Start port number>/\<End port number>. Example: 1/200.
+     *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
      *   If you set IpProtocol to ICMP, the port number range is -1/-1.
      *   If you set IpProtocol to GRE, the port number range is -1/-1.
      *   If you set IpProtocol to ALL, the port number range is -1/-1.
@@ -189,7 +189,7 @@ class permissions extends Model
     /**
      * @description The range of source ports that correspond to the transport layer protocol for security group rule N. Valid values:
      *
-     *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \<Start port number>/\<End port number>. Example: 1/200.
+     *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \\<Start port number>/\\<End port number>. Example: 1/200.
      *   If you set IpProtocol to ICMP, the port number range is -1/-1.
      *   If you set IpProtocol to GRE, the port number range is -1/-1.
      *   If you set IpProtocol to ALL, the port number range is -1/-1.

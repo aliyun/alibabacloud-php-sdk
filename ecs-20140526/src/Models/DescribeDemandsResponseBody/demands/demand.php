@@ -80,7 +80,7 @@ class demand extends Model
     public $demandStatus;
 
     /**
-     * @description The time when the demand was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the demand was created. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-02-26T12:00:00Z
      *
@@ -89,7 +89,7 @@ class demand extends Model
     public $demandTime;
 
     /**
-     * @description The expected end time for the purchase of the filed resources. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The expected end time for the purchase of the filed resources. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-03-03T15:00:00Z
      *
@@ -151,7 +151,7 @@ class demand extends Model
     public $periodUnit;
 
     /**
-     * @description The expected start time for the purchase of the filed resources. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The expected start time for the purchase of the filed resources. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-02-27T12:00:00Z
      *

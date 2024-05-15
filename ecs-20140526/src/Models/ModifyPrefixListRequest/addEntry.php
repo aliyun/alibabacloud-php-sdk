@@ -13,10 +13,11 @@ class addEntry extends Model
      *
      * Take note of the following items when you add the entries:
      *
-     *   The total number of entries in the prefix list cannot exceed the maximum number of entries you specified for the prefix list. You can call the [DescribePrefixListAttributes](~~205872~~) operation to query the maximum number of entries that the prefix list can contain.
+     *   The total number of entries in the prefix list cannot exceed the maximum number of entries you specified for the prefix list. You can call the [DescribePrefixListAttributes](https://help.aliyun.com/document_detail/205872.html) operation to query the maximum number of entries that the prefix list can contain.
      *   You cannot specify duplicate CIDR blocks.
      *   The CIDR blocks cannot be the same as the `RemoveEntry.N.Cidr` values.
      *
+     * This parameter is required.
      * @example 192.168.2.0/24
      *
      * @var string

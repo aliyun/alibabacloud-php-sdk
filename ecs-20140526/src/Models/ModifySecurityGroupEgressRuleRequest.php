@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupEgressRuleRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -27,9 +27,9 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $description;
 
     /**
-     * @description The destination IPv4 CIDR block. CIDR blocks and IPv4 addresses are supported.
+     * @description The destination IPv4 CIDR block. IPv4 CIDR blocks and IPv4 addresses are supported.
      *
-     * This parameter is empty by default.
+     * By default, this parameter is left empty.
      * @example 10.0.0.0/8
      *
      * @var string
@@ -68,7 +68,7 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $destGroupOwnerId;
 
     /**
-     * @description The ID of the destination prefix list. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
+     * @description The ID of the destination prefix list. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
      *
      * If you specify `DestCidrIp`, `Ipv6DestCidrIp`, or `DestGroupId`, this parameter is ignored.
      * @example pl-x1j1k5ykzqlixdcy****
@@ -78,13 +78,13 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $destPrefixListId;
 
     /**
-     * @description The transport layer protocol. The values of this parameter are case-insensitive. Valid values:
+     * @description The transport layer protocol of the security group rule. The value of this parameter is case-insensitive. Valid values:
      *
      *   ICMP
      *   GRE
      *   TCP
      *   UDP
-     *   ALL: all protocols are supported.
+     *   ALL: All protocols are supported.
      *
      * @example tcp
      *
@@ -93,9 +93,9 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $ipProtocol;
 
     /**
-     * @description The destination IPv6 CIDR block. CIDR blocks and IPv6 addresses are supported.
+     * @description The destination IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
      *
-     * This parameter is empty by default.
+     * By default, this parameter is left empty.
      * @example 2001:db8:1233:1a00::***
      *
      * @var string
@@ -103,9 +103,9 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $ipv6DestCidrIp;
 
     /**
-     * @description The source IPv6 CIDR block. IPv6 CIDR blocks and addresses are supported.
+     * @description The source IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
      *
-     * This parameter is empty by default.
+     * By default, this parameter is left empty.
      * @example 2001:db8:1234:1a00::***
      *
      * @var string
@@ -113,7 +113,7 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $ipv6SourceCidrIp;
 
     /**
-     * @description You cannot modify this parameter when you modify a security group rule by specifying its ID.\
+     * @description You cannot modify this parameter when you modify a security group rule by specifying its ID.\\
      * You can add a new rule that meets your business requirements and delete the original rule.
      * @example intranet
      *
@@ -132,10 +132,10 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $ownerId;
 
     /**
-     * @description The action of a security group rule that determines whether to allow inbound access. Valid values:
+     * @description The action of the security group rule. Valid values:
      *
-     *   accept: allows inbound access.
-     *   drop: denies inbound access and does not return responses.
+     *   accept: allows access.
+     *   drop: denies access and returns no responses.
      *
      * Default value: accept.
      * @example accept
@@ -145,9 +145,9 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $policy;
 
     /**
-     * @description The range of destination ports that correspond to the transport layer protocol for the security group rule. Valid values:
+     * @description The range of destination ports that correspond to the transport layer protocol. Valid values:
      *
-     *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. The start port number and the end port number are separated by a forward slash (/). Example: 1/200.
+     *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
      *   If you set IpProtocol to ICMP, the port number range is -1/-1.
      *   If you set IpProtocol to GRE, the port number range is -1/-1.
      *   If you set IpProtocol to ALL, the port number range is -1/-1.
@@ -169,8 +169,9 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $priority;
 
     /**
-     * @description The region ID of the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the security group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -190,6 +191,7 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     /**
      * @description The ID of the security group.
      *
+     * This parameter is required.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -197,7 +199,7 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of the security group rule.\
+     * @description The ID of the security group rule.\\
      * This parameter is required when you modify a security group rule based on the security group rule ID.
      * @example sgr-bp67acfmxazb4q****
      *
@@ -206,9 +208,9 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $securityGroupRuleId;
 
     /**
-     * @description The source IPv4 CIDR block. IPv4 CIDR blocks and addresses are supported.
+     * @description The source IPv4 CIDR block. IPv4 CIDR blocks and IPv4 addresses are supported.
      *
-     * This parameter is empty by default.
+     * By default, this parameter is left empty.
      * @example 10.0.0.0/8
      *
      * @var string
@@ -216,9 +218,9 @@ class ModifySecurityGroupEgressRuleRequest extends Model
     public $sourceCidrIp;
 
     /**
-     * @description The range of source ports that correspond to the transport layer protocol for the security group rule. Valid values:
+     * @description The range of source ports that correspond to the transport layer protocol. Valid values:
      *
-     *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. The start port number and the end port number are separated by a forward slash (/). Example: 1/200.
+     *   If you set IpProtocol to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
      *   If you set IpProtocol to ICMP, the port number range is -1/-1.
      *   If you set IpProtocol to GRE, the port number range is -1/-1.
      *   If you set IpProtocol to ALL, the port number range is -1/-1.

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceRequest extends Model
 {
     /**
-     * @description The number of vCPUs of the instance type. For more information, see [Instance families](~~25378~~).
+     * @description The number of vCPUs of the instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * The Cores parameter takes effect only when the DestinationResource parameter is set to InstanceType.
      * @example 2
@@ -54,6 +54,8 @@ class DescribeAvailableResourceRequest extends Model
      *   ddh: dedicated host.
      *
      * For more information about how to configure the DestinationResource parameter, see the **Description** section of this topic.
+     *
+     * This parameter is required.
      * @example InstanceType
      *
      * @var string
@@ -61,7 +63,7 @@ class DescribeAvailableResourceRequest extends Model
     public $destinationResource;
 
     /**
-     * @description The billing method of the resource. For more information, see [Billing overview](~~25398~~). Valid values:
+     * @description The billing method of the resource. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
      *
      *   PrePaid: subscription.
      *   PostPaid: pay-as-you-go.
@@ -74,7 +76,7 @@ class DescribeAvailableResourceRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance types. For more information, see [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the most recent instance type list.
+     * @description The instance types. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list.
      *
      * For more information about how to configure the InstanceType parameter, see the **Description** section of this topic.
      * @example ecs.g5.large
@@ -97,7 +99,7 @@ class DescribeAvailableResourceRequest extends Model
     public $ioOptimized;
 
     /**
-     * @description The memory size of the instance type. Unit: GiB. For more information, see [Instance families](~~25378~~).
+     * @description The memory size of the instance type. Unit: GiB. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * The Memory parameter takes effect only when the DestinationResource parameter is set to InstanceType.
      * @example 8.0
@@ -129,8 +131,9 @@ class DescribeAvailableResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region for which to query resources. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region for which to query resources. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

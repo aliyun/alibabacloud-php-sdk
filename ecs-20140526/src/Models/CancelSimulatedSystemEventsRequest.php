@@ -11,6 +11,7 @@ class CancelSimulatedSystemEventsRequest extends Model
     /**
      * @description The IDs of simulated system events. You can specify up to 100 event IDs in a single request.
      *
+     * This parameter is required.
      * @example e-xhskHun1256****
      *
      * @var string[]
@@ -28,8 +29,9 @@ class CancelSimulatedSystemEventsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

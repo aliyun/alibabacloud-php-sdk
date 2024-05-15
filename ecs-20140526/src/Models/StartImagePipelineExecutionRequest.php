@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class StartImagePipelineExecutionRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -21,6 +21,7 @@ class StartImagePipelineExecutionRequest extends Model
     /**
      * @description The ID of the image template.
      *
+     * This parameter is required.
      * @example ip-2ze5tsl5bp6nf2b3****
      *
      * @var string
@@ -38,8 +39,9 @@ class StartImagePipelineExecutionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

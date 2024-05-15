@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwidthLimitationRequest extends Model
 {
     /**
-     * @description The billing method of the instance. For more information, see [Billing overview](~~25398~~). Valid values:
+     * @description The billing method of the instance. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
      *
      *   PrePaid: subscription
      *   PostPaid: pay-as-you-go
@@ -22,8 +22,9 @@ class DescribeBandwidthLimitationRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance type. For information about the values, see [Overview of ECS instance families](~~25378~~).
+     * @description The instance type. For information about the values, see [Overview of ECS instance families](https://help.aliyun.com/document_detail/25378.html).
      *
+     * This parameter is required.
      * @example ecs.g5.large
      *
      * @var string
@@ -55,8 +56,9 @@ class DescribeBandwidthLimitationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

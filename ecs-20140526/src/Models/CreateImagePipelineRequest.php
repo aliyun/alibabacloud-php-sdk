@@ -24,6 +24,7 @@ class CreateImagePipelineRequest extends Model
      *   If you set `BaseImageType` to IMAGE, set the BaseImage parameter to the ID of a custom image.
      *   If you set `BaseImageType` to IMAGE_FAMILY, set the BaseImage parameter to the name of an image family.
      *
+     * This parameter is required.
      * @example m-bp67acfmxazb4p****
      *
      * @var string
@@ -36,6 +37,7 @@ class CreateImagePipelineRequest extends Model
      *   IMAGE: image
      *   IMAGE_FAMILY: image family
      *
+     * This parameter is required.
      * @example IMAGE
      *
      * @var string
@@ -52,7 +54,7 @@ class CreateImagePipelineRequest extends Model
     public $buildContent;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -83,7 +85,7 @@ class CreateImagePipelineRequest extends Model
     public $description;
 
     /**
-     * @description The prefix of the image name. The prefix must be 2 to 64 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The prefix of the image name. The prefix must be 2 to 64 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * The system generates the final complete image name that consists of the specified prefix and the ID of the build task (`ExecutionId`) in the format of `{ImageName}_{ExecutionId}`.
      * @example testImageName
@@ -93,7 +95,7 @@ class CreateImagePipelineRequest extends Model
     public $imageName;
 
     /**
-     * @description The instance type. You can call the [DescribeInstanceTypes](~~25620~~) to query instance types.
+     * @description The instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query instance types.
      *
      * If you do not configure this parameter, an instance type that provides the fewest vCPUs and memory resources is automatically selected. This configuration is subject to resource availability of instance types. For example, the ecs.g6.large instance type is automatically selected. If available ecs.g6.large resources are insufficient, the ecs.g6.xlarge instance type is selected.
      * @example ecs.g6.large
@@ -113,7 +115,7 @@ class CreateImagePipelineRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description The name of the image template. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The name of the image template. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * > If you do not specify the `Name` parameter, the return value of `ImagePipelineId` is used.
      * @example testImagePipeline
@@ -133,8 +135,9 @@ class CreateImagePipelineRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -190,7 +193,7 @@ class CreateImagePipelineRequest extends Model
     /**
      * @description The ID of the vSwitch.
      *
-     * If you do not specify this parameter, a new VPC and vSwitch are created. Make sure that the VPC quota in your account is sufficient. For more information, see [Limits and quotas](~~27750~~).
+     * If you do not specify this parameter, a new VPC and vSwitch are created. Make sure that the VPC quota in your account is sufficient. For more information, see [Limits and quotas](https://help.aliyun.com/document_detail/27750.html).
      * @example vsw-bp67acfmxazb4p****
      *
      * @var string

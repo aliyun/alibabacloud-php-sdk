@@ -36,6 +36,7 @@ class RebootInstanceRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4ph****
      *
      * @var string

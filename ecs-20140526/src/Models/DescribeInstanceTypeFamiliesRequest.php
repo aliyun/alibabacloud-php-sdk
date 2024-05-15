@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTypeFamiliesRequest extends Model
 {
     /**
-     * @description The generation of the instance family. For more information, see [Overview of instance families](~~25378~~). Valid values:
+     * @description The generation of the instance family. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html). Valid values:
      *
      *   ecs-1: Generation I, which consists of the earliest and cost-effective instance types
      *   ecs-2: Generation II, which provides upgraded software and hardware and higher performance than Generation I
@@ -39,8 +39,9 @@ class DescribeInstanceTypeFamiliesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance family. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance family. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

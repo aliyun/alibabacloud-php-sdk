@@ -18,6 +18,7 @@ class UnassignPrivateIpAddressesRequest extends Model
     /**
      * @description The ID of the ENI.
      *
+     * This parameter is required.
      * @example eni-bp67acfmxazb4ph****
      *
      * @var string
@@ -37,15 +38,16 @@ class UnassignPrivateIpAddressesRequest extends Model
     /**
      * @description Secondary private IP address N to unassign. Valid values of N: 1 to 32.
      *
-     * @example 192.168.**.**
+     * @example 192.168.\*\*.**
      *
      * @var string[]
      */
     public $privateIpAddress;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

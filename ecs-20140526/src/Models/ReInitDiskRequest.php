@@ -21,6 +21,7 @@ class ReInitDiskRequest extends Model
     /**
      * @description The ID of the disk.
      *
+     * This parameter is required.
      * @example d-bp67acfmxazb4ph****
      *
      * @var string
@@ -50,7 +51,7 @@ class ReInitDiskRequest extends Model
     /**
      * @description Specifies whether to reset the password of the instance when you re-initialize its system disk. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
      *
-     * ()`~!@#$%^&*-_+=|{}[]:;\"<>,.?/
+     * ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
      *
      * > If the `Password` parameter is specified, we recommend that you send requests over HTTPS to prevent password leaks.
      * @example EcsV587!

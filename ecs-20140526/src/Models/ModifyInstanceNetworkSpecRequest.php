@@ -32,7 +32,7 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $autoPay;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -41,7 +41,7 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $clientToken;
 
     /**
-     * @description The end time of the temporary bandwidth upgrade. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddThhZ format. The time must be in UTC and accurate to **hours** (hh).
+     * @description The end time of the temporary bandwidth upgrade. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddThhZ format. The time must be in UTC and accurate to **hours** (hh).
      *
      * > The interval between the end time and the start time of the temporary bandwidth upgrade must be greater than or equal to 3 hours.
      * @example 2017-12-06T22Z
@@ -62,6 +62,7 @@ class ModifyInstanceNetworkSpecRequest extends Model
     /**
      * @description The ID of the instance for which you want to modify bandwidth configurations.
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4****
      *
      * @var string
@@ -123,7 +124,7 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The start time of the temporary bandwidth upgrade. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddThh:mmZ format. The time must be in UTC and accurate to **minutes** (mm).
+     * @description The start time of the temporary bandwidth upgrade. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddThh:mmZ format. The time must be in UTC and accurate to **minutes** (mm).
      *
      * @example 2017-12-05T22:40Z
      *

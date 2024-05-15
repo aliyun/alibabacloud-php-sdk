@@ -11,6 +11,7 @@ class DetachKeyPairRequest extends Model
     /**
      * @description The IDs of instances from which you want to unbind the SSH key pair. The value can be a JSON array that consists of up to 50 instance IDs. Separate multiple instance IDs with commas (,).
      *
+     * This parameter is required.
      * @example ["i-bp1d6tsvznfghy7y****", "i-bp1ippxbaql9zet7****", … "i-bp1ib7bcz07l****"]
      *
      * @var string
@@ -20,6 +21,7 @@ class DetachKeyPairRequest extends Model
     /**
      * @description The name of the SSH key pair.
      *
+     * This parameter is required.
      * @example testKeyPairName
      *
      * @var string
@@ -32,8 +34,9 @@ class DetachKeyPairRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the SSH key pair. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the SSH key pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

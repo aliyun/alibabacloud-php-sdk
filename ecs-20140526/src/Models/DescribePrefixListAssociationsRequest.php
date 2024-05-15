@@ -40,6 +40,7 @@ class DescribePrefixListAssociationsRequest extends Model
     /**
      * @description The query token. Set the value to the `NextToken` value returned in the previous call to the DescribePrefixListAssociations operation. Leave this parameter empty the first time you call this operation.
      *
+     * This parameter is required.
      * @example pl-x1j1k5ykzqlixdcy****
      *
      * @var string
@@ -49,6 +50,7 @@ class DescribePrefixListAssociationsRequest extends Model
     /**
      * @description The ID of the prefix list.
      *
+     * This parameter is required.
      * @example cn-chengdu
      *
      * @var string

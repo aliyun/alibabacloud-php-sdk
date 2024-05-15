@@ -73,7 +73,7 @@ class ModifyDiskAttributeRequest extends Model
     public $diskIds;
 
     /**
-     * @description The name of the disk. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the disk. The name must be 2 to 128 characters in length and can contain Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * @example MyDiskName
      *
@@ -82,12 +82,12 @@ class ModifyDiskAttributeRequest extends Model
     public $diskName;
 
     /**
-     * @description Specifies whether to enable the automatic snapshot policy feature for the cloud disk.
+     * @description Specifies whether to enable the automatic snapshot policy feature for the cloud disk. Valid values:
      *
-     *   true: enables the automatic snapshot policy feature for the cloud disk.
-     *   false: disables the automatic snapshot policy feature for the cloud disk.
+     *   true
+     *   false
      *
-     * > By default, the automatic snapshot policy feature is enabled for new disks. You need to only apply an automatic snapshot policy to a disk for the policy to take effect.
+     * >  By default, the automatic snapshot policy feature is enabled for cloud disks. You only need to associate an automatic snapshot policy with a cloud disk before you can use the policy.
      * @example true
      *
      * @var bool
@@ -105,7 +105,7 @@ class ModifyDiskAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the command. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *

@@ -11,6 +11,7 @@ class DescribeDiskMonitorDataRequest extends Model
     /**
      * @description The disk ID.
      *
+     * This parameter is required.
      * @example d-bp1bq5g3dxxo1x4o****
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeDiskMonitorDataRequest extends Model
     public $diskId;
 
     /**
-     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
      *
+     * This parameter is required.
      * @example 2014-07-23T12:09:00Z
      *
      * @var string
@@ -61,8 +63,9 @@ class DescribeDiskMonitorDataRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
      *
+     * This parameter is required.
      * @example 2014-07-23T12:07:00Z
      *
      * @var string

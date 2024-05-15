@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePhysicalConnectionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $accessPointId;
@@ -29,6 +31,8 @@ class CreatePhysicalConnectionRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $lineOperator;
@@ -49,6 +53,8 @@ class CreatePhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $peerLocation;
@@ -64,6 +70,8 @@ class CreatePhysicalConnectionRequest extends Model
     public $redundantPhysicalConnectionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

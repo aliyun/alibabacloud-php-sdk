@@ -23,7 +23,7 @@ class DescribeZonesRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The billing method of resources. For more information, see [Billing overview](~~25398~~). Valid values:
+     * @description The billing method of resources. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
      *
      *   PrePaid: subscription
      *   PostPaid: pay-as-you-go
@@ -46,8 +46,9 @@ class DescribeZonesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,7 +66,7 @@ class DescribeZonesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The bidding policy for pay-as-you-go instances. You can specify this parameter when the `InstanceChargeType` parameter is set to PostPaid. For more information, see [Preemptible instances](~~52088~~). Valid values:
+     * @description The bidding policy for pay-as-you-go instances. You can specify this parameter when the `InstanceChargeType` parameter is set to PostPaid. For more information, see [Preemptible instances](https://help.aliyun.com/document_detail/52088.html). Valid values:
      *
      *   NoSpot: The instances are regular pay-as-you-go instances.
      *   SpotWithPriceLimit: The instances are preemptible instances with user-defined maximum hourly prices.

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMonitorDataRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (`ss`) is not `00`, the time is rounded up to the next minute.
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (`ss`) is not `00`, the time is rounded up to the next minute.
      *
+     * This parameter is required.
      * @example 2014-10-30T08:00:00Z
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeInstanceMonitorDataRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example i-bp1a36962lrhj4ab****
      *
      * @var string
@@ -61,8 +63,9 @@ class DescribeInstanceMonitorDataRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (`ss`) is not `00`, the time is rounded up to the next minute.
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (`ss`) is not `00`, the time is rounded up to the next minute.
      *
+     * This parameter is required.
      * @example 2014-10-29T23:00:00Z
      *
      * @var string

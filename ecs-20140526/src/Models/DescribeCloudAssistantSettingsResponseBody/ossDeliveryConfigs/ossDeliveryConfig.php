@@ -20,8 +20,8 @@ class ossDeliveryConfig extends Model
     /**
      * @description The type of items to be delivered. Valid values:
      *
-     *   SessionManager: session records
-     *   Invocation: task execution records
+     *   SessionManager: session records.
+     *   Invocation: task execution records.
      *
      * @example SessionManager
      *
@@ -51,7 +51,7 @@ class ossDeliveryConfig extends Model
     public $encryptionAlgorithm;
 
     /**
-     * @description The ID of the customer master key (CMK) when EncryptionType is KMS.
+     * @description The ID of the customer master key (CMK) when EncryptionType is set to KMS.
      *
      * @example a807****7a70e
      *
@@ -64,7 +64,7 @@ class ossDeliveryConfig extends Model
      *
      *   Inherit: the encryption method used by the specified bucket.
      *   OssManaged: server-side encryption by using OSS-managed keys (SSE-OSS).
-     *   KMS: server-side encryption by using Key Management Service managed keys (SSE-KMS).
+     *   KMS: server-side encryption with Key Management Service (SSE-KMS).
      *
      * @example Inherit
      *

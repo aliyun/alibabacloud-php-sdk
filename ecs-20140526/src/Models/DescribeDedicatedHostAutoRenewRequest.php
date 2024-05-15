@@ -11,6 +11,7 @@ class DescribeDedicatedHostAutoRenewRequest extends Model
     /**
      * @description The ID of the dedicated host. You can specify up to 100 subscription dedicated host IDs. Separate multiple IDs with commas (,).
      *
+     * This parameter is required.
      * @example dh-bp165p6xk2tlw61e****,dh-bp1f9vxmno****
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeDedicatedHostAutoRenewRequest extends Model
     /**
      * @description The ID of the region where the dedicated host resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

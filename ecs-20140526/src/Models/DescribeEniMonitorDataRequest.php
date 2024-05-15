@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeEniMonitorDataRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
      *
+     * This parameter is required.
      * @example 2018-05-21T12:22:00Z
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeEniMonitorDataRequest extends Model
     /**
      * @description The ID of the instance to which the secondary ENI is bound.
      *
+     * This parameter is required.
      * @example i-bp1a5zr3u7nq9cx****
      *
      * @var string
@@ -60,8 +62,9 @@ class DescribeEniMonitorDataRequest extends Model
     public $period;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -79,8 +82,9 @@ class DescribeEniMonitorDataRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (ss) is not 00, the time is rounded up to the next minute.
      *
+     * This parameter is required.
      * @example 2018-05-21T12:19:00Z
      *
      * @var string

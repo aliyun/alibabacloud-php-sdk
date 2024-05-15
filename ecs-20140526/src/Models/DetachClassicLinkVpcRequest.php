@@ -11,6 +11,7 @@ class DetachClassicLinkVpcRequest extends Model
     /**
      * @description The ID of the classic network-type instance.
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4p****
      *
      * @var string
@@ -25,8 +26,9 @@ class DetachClassicLinkVpcRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the classic network-type instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the classic network-type instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +52,7 @@ class DetachClassicLinkVpcRequest extends Model
     /**
      * @description The ID of the VPC to which the instance is linked.
      *
+     * This parameter is required.
      * @example vpc-bp67acfmxazb4p****
      *
      * @var string

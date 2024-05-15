@@ -47,7 +47,7 @@ class launchTemplateData extends Model
     public $dataDisks;
 
     /**
-     * @description Specifies whether to enable release protection for the instance. This parameter determines whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance. Valid values:
+     * @description Specifies whether to enable release protection for the instance. This parameter determines whether you can use the ECS console or call the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation to release the instance. Valid values:
      *
      * >This parameter is applicable only to pay-as-you-go instances. It can protect instances against manual releases, but not against automatic releases.
      * @example false
@@ -239,7 +239,7 @@ class launchTemplateData extends Model
     /**
      * @description The private IP address to assign to the instance.
      *
-     * @example 10.1.**.**
+     * @example 10.1.\*\*.**
      *
      * @var string
      */
@@ -283,7 +283,7 @@ class launchTemplateData extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security groups to which to assign the instance. The valid values of N are based on the maximum number of security groups to which the instance can belong. For more information, see the "Security group limits" section in [Limits](~~25412~~).
+     * @description The IDs of the security groups to which to assign the instance. The valid values of N are based on the maximum number of security groups to which the instance can belong. For more information, see the "Security group limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
      *
      * > You cannot specify both the `SecurityGroupId` and `SecurityGroupIds.N` parameters.
      * @var securityGroupIds

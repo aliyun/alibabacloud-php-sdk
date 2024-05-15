@@ -60,7 +60,7 @@ class scheduledSystemEventType extends Model
     public $impactLevel;
 
     /**
-     * @description The scheduled O\&M time of the system event. The time is displayed in UTC.
+     * @description The scheduled O\\&M time of the system event. The time is displayed in UTC.
      *
      * @example 2017-12-07T00:00:00Z
      *

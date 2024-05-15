@@ -11,7 +11,7 @@ class DeleteKeyPairsRequest extends Model
     /**
      * @description The names of SSH key pairs. The value can be a JSON array that consists of up to 100 SSH key pair names. Separate the names with commas (,).
      *
-     * >  Before you delete an SSH key pair, you can call the [DescribeKeyPairs](~~51773~~) operation to query existing key pairs.
+     * This parameter is required.
      * @example ["skp-bp67acfmxazb41****", "skp-bp67acfmxazb42****", … "skp-bp67acfmxazb4p3***"]
      *
      * @var string
@@ -24,8 +24,9 @@ class DeleteKeyPairsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

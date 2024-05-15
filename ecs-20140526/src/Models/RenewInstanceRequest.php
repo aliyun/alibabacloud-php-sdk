@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -30,6 +30,7 @@ class RenewInstanceRequest extends Model
     /**
      * @description The ID of the instance that you want to renew.
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4p****
      *
      * @var string

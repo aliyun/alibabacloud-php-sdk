@@ -19,6 +19,8 @@ class ModifyImageShareGroupPermissionRequest extends Model
     public $removeGroup;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $imageId;
@@ -34,6 +36,8 @@ class ModifyImageShareGroupPermissionRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

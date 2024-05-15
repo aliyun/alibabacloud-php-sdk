@@ -11,6 +11,7 @@ class privatePoolOptions extends Model
     /**
      * @description The ID of the capacity reservation.
      *
+     * This parameter is required.
      * @example crp-bp67acfmxazb4****
      *
      * @var string

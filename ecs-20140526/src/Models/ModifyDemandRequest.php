@@ -18,7 +18,7 @@ class ModifyDemandRequest extends Model
     public $amount;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -38,6 +38,7 @@ class ModifyDemandRequest extends Model
     /**
      * @description The ID of the demand that you want to modify.
      *
+     * This parameter is required.
      * @example ed-bp11n21kq00sl71p****
      *
      * @var string
@@ -45,7 +46,7 @@ class ModifyDemandRequest extends Model
     public $demandId;
 
     /**
-     * @description The name of the demand. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with [http:// or https://](http://https://). It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The name of the demand. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with [http:// or https://](http://https://). It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * The default value is the instance type name.
      * @example testDemandName
@@ -55,7 +56,7 @@ class ModifyDemandRequest extends Model
     public $demandName;
 
     /**
-     * @description The end time of the subscription period. Specify the time in the [ISO 8601](~~25696~~)standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
+     * @description The end time of the subscription period. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html)standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
      *
      * in most cases, the interval between StartTime and EndTime cannot be more than 10 days.
      * @example 2019-12-10 12:05:00
@@ -77,7 +78,7 @@ class ModifyDemandRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance type. For more information, see [Instance families](~~25378~~). You can also call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of the specified instance type. To learn how to select instance types, see [Select instance types](~~58291~~).
+     * @description The instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html). You can also call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the performance data of the specified instance type. To learn how to select instance types, see [Select instance types](https://help.aliyun.com/document_detail/58291.html).
      *
      * @example ecs.c6.large
      *
@@ -121,8 +122,9 @@ class ModifyDemandRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -140,7 +142,7 @@ class ModifyDemandRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The start time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
+     * @description The start time of the subscription period. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
      *
      * In most cases, the interval between StartTime and EndTime cannot be more than 10 days.
      * @example 2019-12-01 12:05:00
@@ -150,7 +152,7 @@ class ModifyDemandRequest extends Model
     public $startTime;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The zone ID of the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
      *
      * This parameter is empty by default. If you leave this parameter empty, the system randomly selects a zone.
      * @example cn-hangzhou-g

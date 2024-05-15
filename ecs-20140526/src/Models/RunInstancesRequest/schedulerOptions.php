@@ -16,7 +16,7 @@ class schedulerOptions extends Model
      *   If the specified dedicated host belongs to the specified dedicated host cluster, the instance is preferentially deployed on the specified dedicated host.
      *   If the specified dedicated host does not belong to the specified dedicated host cluster, the instance cannot be created.
      *
-     * You can call the [DescribeDedicatedHostClusters](~~184145~~) operation to query the list of dedicated host cluster IDs.
+     * You can call the [DescribeDedicatedHostClusters](https://help.aliyun.com/document_detail/184145.html) operation to query the list of dedicated host cluster IDs.
      * @example dc-bp12wlf6am0vz9v2****
      *
      * @var string

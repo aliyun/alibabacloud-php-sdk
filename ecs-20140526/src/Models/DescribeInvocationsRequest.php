@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvocationsRequest extends Model
 {
     /**
-     * @description The command ID. You can call the [DescribeCommands](~~64843~~) operation to query all available command IDs.
+     * @description The command ID. You can call the [DescribeCommands](https://help.aliyun.com/document_detail/64843.html) operation to query all available command IDs.
      *
      * @example c-hz0jdfwcsr****
      *
@@ -169,8 +169,9 @@ class DescribeInvocationsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

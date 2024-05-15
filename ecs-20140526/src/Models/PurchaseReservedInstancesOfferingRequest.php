@@ -30,7 +30,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -59,8 +59,9 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $instanceAmount;
 
     /**
-     * @description The type of the reserved instance. For more information, see [Instance family](~~25378~~).
+     * @description The type of the reserved instance. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
      *
+     * This parameter is required.
      * @example ecs.g5.large
      *
      * @var string
@@ -125,8 +126,9 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $platform;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -134,7 +136,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the reserved instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the reserved instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example testReservedInstanceName
      *
@@ -182,7 +184,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $tag;
 
     /**
-     * @description The zone ID of the instance. This parameter is required when `Scope` is set to `Zone`. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The zone ID of the instance. This parameter is required when `Scope` is set to `Zone`. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-g
      *

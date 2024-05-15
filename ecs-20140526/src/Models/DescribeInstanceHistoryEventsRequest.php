@@ -61,7 +61,7 @@ class DescribeInstanceHistoryEventsRequest extends Model
      *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
      *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
      *
-     * >  For more information, see [Overview](~~66574~~). The values of this parameter are applicable only to instance system events, but not to disk system events.
+     * >  For more information, see [Overview](https://help.aliyun.com/document_detail/66574.html). The values of this parameter are applicable only to instance system events, but not to disk system events.
      * @example SystemMaintenance.Reboot
      *
      * @var string
@@ -108,7 +108,7 @@ class DescribeInstanceHistoryEventsRequest extends Model
      *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
      *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
      *
-     * >  For more information, see [Overview](~~66574~~). The values of this parameter are applicable only to instance system events, but not to disk system events.
+     * >  For more information, see [Overview](https://help.aliyun.com/document_detail/66574.html). The values of this parameter are applicable only to instance system events, but not to disk system events.
      * @example SystemMaintenance.Reboot
      *
      * @var string[]
@@ -155,8 +155,9 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the resource. You can call [DescribeRegions](~~25609~~) to query the most recent region list.
+     * @description The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

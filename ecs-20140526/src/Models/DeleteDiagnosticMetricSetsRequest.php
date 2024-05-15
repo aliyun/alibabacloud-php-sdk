@@ -11,6 +11,7 @@ class DeleteDiagnosticMetricSetsRequest extends Model
     /**
      * @description The ID of diagnostic metric set.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $metricSetIds;
@@ -18,6 +19,7 @@ class DeleteDiagnosticMetricSetsRequest extends Model
     /**
      * @description The IDs of diagnostic metric sets. You can specify up to 10 set IDs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

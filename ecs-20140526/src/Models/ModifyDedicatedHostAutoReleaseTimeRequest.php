@@ -25,6 +25,7 @@ class ModifyDedicatedHostAutoReleaseTimeRequest extends Model
     /**
      * @description The ID of the dedicated host.
      *
+     * This parameter is required.
      * @example dh-bp165p6xk2tlw61e****
      *
      * @var string
@@ -42,8 +43,9 @@ class ModifyDedicatedHostAutoReleaseTimeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the dedicated host. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class ModifyLaunchTemplateDefaultVersionRequest extends Model
     /**
      * @description The default version number of the instance launch template.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -46,8 +47,9 @@ class ModifyLaunchTemplateDefaultVersionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the launch template. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the launch template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

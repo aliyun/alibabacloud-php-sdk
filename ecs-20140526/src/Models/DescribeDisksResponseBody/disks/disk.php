@@ -53,7 +53,7 @@ class disk extends Model
      *   true
      *   false
      *
-     * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
+     * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example false
      *
      * @var bool
@@ -95,7 +95,7 @@ class disk extends Model
      *   true: The automatic snapshots of the cloud disk are deleted when the disk is released.
      *   false: The automatic snapshots of the cloud disk are retained when the disk is released.
      *
-     * Snapshots that were created in the Elastic Compute Service (ECS) console or by calling the [CreateSnapshot](~~25524~~) operation are retained and not affected by this parameter.
+     * Snapshots that were created in the Elastic Compute Service (ECS) console or by calling the [CreateSnapshot](https://help.aliyun.com/document_detail/25524.html) operation are retained and not affected by this parameter.
      * @example false
      *
      * @var bool
@@ -340,7 +340,7 @@ class disk extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50 × *Capacity, 50,000}
      *
-     * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
+     * This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 40000
      *
      * @var int

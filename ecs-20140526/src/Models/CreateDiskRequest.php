@@ -36,7 +36,7 @@ class CreateDiskRequest extends Model
     public $burstingEnabled;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -70,7 +70,7 @@ class CreateDiskRequest extends Model
     public $diskCategory;
 
     /**
-     * @description The name of the disk. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the disk. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * This parameter is empty by default.
      * @example testDiskName
@@ -129,7 +129,7 @@ class CreateDiskRequest extends Model
      *   Disabled.
      *   Enabled. Set the value to `Enabled` only for ESSDs.
      *
-     * > Disks for which the multi-attach feature is enabled support only the pay-as-you-go billing method. When `MultiAttach` is set to Enabled, you cannot specify `InstanceId`. You can call the [AttachDisk](~~25515~~) operation to attach disks to instances after the disks are created. Disks for which the multi-attach feature is enabled can be attached only as data disks.
+     * > Disks for which the multi-attach feature is enabled support only the pay-as-you-go billing method. When `MultiAttach` is set to Enabled, you cannot specify `InstanceId`. You can call the [AttachDisk](https://help.aliyun.com/document_detail/25515.html) operation to attach disks to instances after the disks are created. Disks for which the multi-attach feature is enabled can be attached only as data disks.
      * @example Disabled
      *
      * @var string
@@ -154,7 +154,7 @@ class CreateDiskRequest extends Model
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * For more information about ESSD performance levels, see [ESSDs](~~122389~~).
+     * For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL1
      *
      * @var string
@@ -171,8 +171,9 @@ class CreateDiskRequest extends Model
     public $provisionedIops;
 
     /**
-     * @description The ID of the region in which to create the disk. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create the disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -260,7 +261,7 @@ class CreateDiskRequest extends Model
     public $storageSetId;
 
     /**
-     * @description The number of partitions in the storage set. The value must be greater than or equal to 2 but cannot exceed the quota obtained by calling the [DescribeAccountAttributes](~~73772~~)operation.
+     * @description The number of partitions in the storage set. The value must be greater than or equal to 2 but cannot exceed the quota obtained by calling the [DescribeAccountAttributes](https://help.aliyun.com/document_detail/73772.html)operation.
      *
      * Default value: 2.
      * @example 3

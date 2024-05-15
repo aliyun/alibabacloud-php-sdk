@@ -14,7 +14,7 @@ class ModifyInstanceMetadataOptionsRequest extends Model
      *   enabled
      *   disabled
      *
-     * > For more information about instance metadata, see [Overview of ECS instance metadata](~~49122~~).
+     * This parameter is required.
      * @example enabled
      *
      * @var string
@@ -36,7 +36,7 @@ class ModifyInstanceMetadataOptionsRequest extends Model
      *   optional: does not forcefully use the security-enhanced mode (IMDSv2).
      *   required: forcefully uses the security-enhanced mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
      *
-     * > For more information about the modes of accessing instance metadata, see [Access mode of instance metadata](~~150575~~).
+     * > For more information about the modes of accessing instance metadata, see [Access mode of instance metadata](https://help.aliyun.com/document_detail/150575.html).
      * @example optional
      *
      * @var string
@@ -67,8 +67,9 @@ class ModifyInstanceMetadataOptionsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

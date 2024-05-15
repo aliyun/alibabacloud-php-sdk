@@ -90,7 +90,7 @@ class diskMonitorData extends Model
     public $latencyWrite;
 
     /**
-     * @description The timestamp of the monitoring data. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The timestamp of the monitoring data. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2014-07-23T12:07:00Z
      *

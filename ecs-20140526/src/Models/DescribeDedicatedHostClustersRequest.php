@@ -67,8 +67,9 @@ class DescribeDedicatedHostClustersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the dedicated host cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the dedicated host cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -112,7 +113,7 @@ class DescribeDedicatedHostClustersRequest extends Model
     public $tag;
 
     /**
-     * @description The zone ID of the dedicated host cluster. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The zone ID of the dedicated host cluster. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-f
      *

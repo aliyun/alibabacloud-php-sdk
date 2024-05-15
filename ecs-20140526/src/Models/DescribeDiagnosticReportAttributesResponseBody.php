@@ -28,7 +28,7 @@ class DescribeDiagnosticReportAttributesResponseBody extends Model
     public $creationTime;
 
     /**
-     * @description The end of the reporting period of the diagnostic report. The value is the EndTime value that was passed in when you called the [CreateDiagnosticReport](~~442490~~) operation to create the diagnostic report.
+     * @description The end of the reporting period of the diagnostic report. The value is the EndTime value that was passed in when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report.
      *
      * @example 2022-07-11T14:00:00Z
      *
@@ -113,7 +113,7 @@ class DescribeDiagnosticReportAttributesResponseBody extends Model
     public $severity;
 
     /**
-     * @description The beginning of the reporting period of the diagnostic report. The value is the StartTime value that was passed in when you called the [CreateDiagnosticReport](~~442490~~) operation to create the diagnostic report.
+     * @description The beginning of the reporting period of the diagnostic report. The value is the StartTime value that was passed in when you called the [CreateDiagnosticReport](https://help.aliyun.com/document_detail/442490.html) operation to create the diagnostic report.
      *
      * @example 2022-07-11T12:00:00Z
      *

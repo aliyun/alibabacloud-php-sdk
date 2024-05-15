@@ -94,7 +94,7 @@ class permissions extends Model
     /**
      * @description The range of destination ports that correspond to the transport layer protocol of security group rule N. Valid values:
      *
-     *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Specify a port range in the format of \<start port number>/\<end port number>. Example: 1/200.
+     *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Specify a port range in the format of \\<start port number>/\\<end port number>. Example: 1/200.
      *   If the Permissions.N.IpProtocol parameter is set to ICMP, the port range is -1/-1, which indicates all ports.
      *   If the Permissions.N.IpProtocol parameter is set to GRE, the port range is -1/-1, which indicates all ports.
      *   If the Permissions.N.IpProtocol parameter is set to ALL, the port range is -1/-1, which indicates all ports.
@@ -174,7 +174,7 @@ class permissions extends Model
     /**
      * @description The range of source ports that correspond to the transport layer protocol of security group rule N. Valid values:
      *
-     *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Specify a port range in the format of \<start port number>/\<end port number>. Example: 1/200.
+     *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port range is 1 to 65535. Specify a port range in the format of \\<start port number>/\\<end port number>. Example: 1/200.
      *   If the Permissions.N.IpProtocol parameter is set to ICMP, the port range is -1/-1, which indicates all ports.
      *   If the Permissions.N.IpProtocol parameter is set to GRE, the port range is -1/-1, which indicates all ports.
      *   If the Permissions.N.IpProtocol parameter is set to ALL, the port range is -1/-1, which indicates all ports.
@@ -187,7 +187,7 @@ class permissions extends Model
     public $sourcePortRange;
 
     /**
-     * @description The ID of the source prefix list that is referenced in security group rule N. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
+     * @description The ID of the source prefix list that is referenced in security group rule N. You can call the [DescribePrefixLists](https://help.aliyun.com/document_detail/205046.html) operation to query the IDs of available prefix lists.
      *
      * When you specify this parameter, take note of the following items:
      *

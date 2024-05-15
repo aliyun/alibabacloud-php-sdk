@@ -30,6 +30,7 @@ class ModifyDiskSpecRequest extends Model
     /**
      * @description The disk ID.
      *
+     * This parameter is required.
      * @example d-bp131n0q38u3a4zi****
      *
      * @var string
@@ -60,7 +61,7 @@ class ModifyDiskSpecRequest extends Model
     public $ownerId;
 
     /**
-     * @description A collection of disk performance control parameters
+     * @description The disk performance specifications.
      *
      * @var performanceControlOptions
      */
@@ -84,7 +85,7 @@ class ModifyDiskSpecRequest extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
      *
-     * >  This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
+     * >  This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
      * @example 50000
      *
      * @var int

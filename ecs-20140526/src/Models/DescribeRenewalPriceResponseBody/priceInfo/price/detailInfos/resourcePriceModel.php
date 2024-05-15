@@ -37,7 +37,7 @@ class resourcePriceModel extends Model
     public $resource;
 
     /**
-     * @description Details about the pricing rules.
+     * @description The pricing rules.
      *
      * @var subRules
      */

@@ -20,7 +20,7 @@ class privateIpSet extends Model
     /**
      * @description The private IP address of the instance to which the ENI is bound.
      *
-     * @example 172.17.**.**
+     * @example 172.17.\*\*.**
      *
      * @var string
      */

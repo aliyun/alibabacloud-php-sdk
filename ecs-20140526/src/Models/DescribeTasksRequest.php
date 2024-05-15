@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksRequest extends Model
 {
     /**
-     * @description The end point of the time period for which to query created tasks. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The end point of the time period for which to query created tasks. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2020-11-23T15:16:00Z
      *
@@ -48,8 +48,9 @@ class DescribeTasksRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the task. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the task. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -78,7 +79,7 @@ class DescribeTasksRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The start point of the time period for which to query created tasks. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The start point of the time period for which to query created tasks. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2020-11-23T15:10:00Z
      *

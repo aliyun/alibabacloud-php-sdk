@@ -39,7 +39,7 @@ class eipAddress extends Model
     /**
      * @description The EIP.
      *
-     * @example 42.112.**.**
+     * @example 42.112.\*\*.**
      *
      * @var string
      */

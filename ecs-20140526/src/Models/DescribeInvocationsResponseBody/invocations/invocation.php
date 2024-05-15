@@ -189,6 +189,18 @@ class invocation extends Model
     public $tags;
 
     /**
+     * @description Indicates how the task was stopped. Valid values:
+     *
+     *   Process: The process of the command was stopped.
+     *   ProcessTree: The process tree was stopped. In this case, the process of the command and all subprocesses of the process were stopped.
+     *
+     * @example ProcessTree
+     *
+     * @var string
+     */
+    public $terminationMode;
+
+    /**
      * @description Indicates whether the command is to be automatically run.
      *
      * @example false
@@ -241,6 +253,7 @@ class invocation extends Model
         'parameters'         => 'Parameters',
         'repeatMode'         => 'RepeatMode',
         'tags'               => 'Tags',
+        'terminationMode'    => 'TerminationMode',
         'timed'              => 'Timed',
         'timeout'            => 'Timeout',
         'username'           => 'Username',
@@ -301,6 +314,9 @@ class invocation extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->terminationMode) {
+            $res['TerminationMode'] = $this->terminationMode;
         }
         if (null !== $this->timed) {
             $res['Timed'] = $this->timed;
@@ -373,6 +389,9 @@ class invocation extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['TerminationMode'])) {
+            $model->terminationMode = $map['TerminationMode'];
         }
         if (isset($map['Timed'])) {
             $model->timed = $map['Timed'];

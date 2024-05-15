@@ -39,6 +39,8 @@ class EipNotifyPaidRequest extends Model
     public $userCidr;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $data;

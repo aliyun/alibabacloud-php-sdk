@@ -21,7 +21,7 @@ class ModifyDiskChargeTypeRequest extends Model
     public $autoPay;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -44,6 +44,7 @@ class ModifyDiskChargeTypeRequest extends Model
     /**
      * @description The disk IDs. Set this parameter to a JSON array that consists of up to 16 disk IDs. Separate the disk IDs with commas (,).
      *
+     * This parameter is required.
      * @example [“d-bp67acfmxazb4ph****”, “d-bp67acfmxazb4pi****”, … “d-bp67acfmxazb4pj****”]
      *
      * @var string
@@ -53,6 +54,7 @@ class ModifyDiskChargeTypeRequest extends Model
     /**
      * @description The ID of the instance to which disks are attached.
      *
+     * This parameter is required.
      * @example i-bp1i778bq705cvx1****
      *
      * @var string
@@ -70,8 +72,9 @@ class ModifyDiskChargeTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

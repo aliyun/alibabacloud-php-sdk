@@ -64,7 +64,7 @@ class ossDeliveryConfig extends Model
      * @description The prefix of the OSS bucket directory. The prefix must meet the following requirements:
      *
      *   The prefix can be up to 254 characters in length.
-     *   The prefix cannot start with a forward slash (/) or a backslash (\\).
+     *   The prefix cannot start with a forward slash (/) or a backslash (\\\\).
      *
      * Note: If you do not need a directory prefix, specify a pair of double quotation marks ("") for this parameter to clear the directory prefix that you specified.
      * @example sessionmanager/audit

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCommandRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example c-4d34302d02424c5c8e10281e3a31****
      *
      * @var string
@@ -28,6 +30,7 @@ class DeleteCommandRequest extends Model
     /**
      * @description $.parameters[1].schema.enumValueTitles
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

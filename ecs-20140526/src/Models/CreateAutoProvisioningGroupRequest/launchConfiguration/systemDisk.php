@@ -14,14 +14,14 @@ class systemDisk extends Model
     public $burstingEnabled;
 
     /**
-     * @description The algorithm to use to encrypt the system disk. Valid values:
+     * @description The algorithm to use to encrypt system disk N. Valid values:
      *
      *   aes-256
      *   sm4-128
      *
      * Default value: aes-256.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example aes-256
      *
      * @var string
@@ -36,7 +36,7 @@ class systemDisk extends Model
      *
      * Default value: false.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example false
      *
      * @var string
@@ -44,9 +44,9 @@ class systemDisk extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the KMS key to use for the system disk.
+     * @description The ID of the KMS key to use for system disk N.
      *
-     * When both LaunchTemplateId and LaunchConfiguration.\* parameters are specified, LaunchTemplateId takes precedence.
+     * When both LaunchTemplateId and LaunchConfiguration.\\* parameters are specified, LaunchTemplateId takes precedence.
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
      * @var string

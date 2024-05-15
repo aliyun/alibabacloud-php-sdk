@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSecurityGroupRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -39,8 +39,9 @@ class CreateSecurityGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the security group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -67,9 +68,8 @@ class CreateSecurityGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The name of the security group.
+     * @description The name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
      *
-     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-). Default value: null.
      * @example testSecurityGroupName
      *
      * @var string
@@ -80,7 +80,7 @@ class CreateSecurityGroupRequest extends Model
      * @description The type of the security group. Valid values:
      *
      *   normal: basic security group.
-     *   enterprise: advanced security group. For more information, see [Advanced security groups](~~120621~~).
+     *   enterprise: advanced security group. For more information, see [Advanced security groups](https://help.aliyun.com/document_detail/120621.html).
      *
      * @example enterprise
      *
@@ -98,7 +98,7 @@ class CreateSecurityGroupRequest extends Model
     public $serviceManaged;
 
     /**
-     * @description The tags that you want to add to the security group.
+     * @description The tags to add to the security group.
      *
      * @var tag[]
      */

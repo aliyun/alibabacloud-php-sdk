@@ -16,7 +16,7 @@ class DescribeInstanceModificationPriceRequest extends Model
     public $systemDisk;
 
     /**
-     * @description The information about the data disk.
+     * @description The information about data disks.
      *
      * @var dataDisk[]
      */
@@ -25,6 +25,7 @@ class DescribeInstanceModificationPriceRequest extends Model
     /**
      * @description The ID of the instance for which you want to query pricing information for a configuration upgrade.
      *
+     * This parameter is required.
      * @example i-bp1f2o4ldh8l****
      *
      * @var string
@@ -32,7 +33,7 @@ class DescribeInstanceModificationPriceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The new instance type. We recommend that you call the [DescribeResourcesModification](~~66187~~) operation to query the instance types available for configuration upgrades in a specified zone.
+     * @description The new instance type. We recommend that you call the [DescribeResourcesModification](https://help.aliyun.com/document_detail/66187.html) operation to query the instance types available for configuration upgrades in a specified zone.
      *
      * > When you call the DescribeInstanceModificationPrice operation, you must specify at least one of the following parameters: `InstanceType` and `DataDisk.N.*`.
      * @example ecs.g6e.large
@@ -52,8 +53,9 @@ class DescribeInstanceModificationPriceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -30,7 +30,7 @@ class DescribeManagedInstancesRequest extends Model
     /**
      * @description The internal or public IP address of the managed instance.
      *
-     * @example 192.168.**.**
+     * @example 192.168.\*\*.**
      *
      * @var string
      */
@@ -109,7 +109,7 @@ class DescribeManagedInstancesRequest extends Model
     /**
      * @description The region ID of the managed instance. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
      *
-     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

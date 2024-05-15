@@ -11,6 +11,7 @@ class DescribeInstanceVncUrlRequest extends Model
     /**
      * @description The ID of the instance
      *
+     * This parameter is required.
      * @example i-bp1hzoinajzkh91h****
      *
      * @var string
@@ -28,8 +29,9 @@ class DescribeInstanceVncUrlRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

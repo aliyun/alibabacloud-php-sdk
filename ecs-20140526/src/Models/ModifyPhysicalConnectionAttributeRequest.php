@@ -49,6 +49,8 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $peerLocation;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $physicalConnectionId;
@@ -64,6 +66,8 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $redundantPhysicalConnectionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

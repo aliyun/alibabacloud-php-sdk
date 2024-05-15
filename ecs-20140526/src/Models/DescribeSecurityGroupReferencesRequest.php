@@ -21,6 +21,7 @@ class DescribeSecurityGroupReferencesRequest extends Model
     /**
      * @description The region ID of the security group.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -40,6 +41,7 @@ class DescribeSecurityGroupReferencesRequest extends Model
     /**
      * @description The ID of security group N. Valid values of N: 1 to 10.
      *
+     * This parameter is required.
      * @example sg-bp14vtedjtobkvi****
      *
      * @var string[]

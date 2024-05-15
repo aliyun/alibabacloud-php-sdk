@@ -11,6 +11,7 @@ class DescribeInstanceAttributeRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example i-uf6f5trc95ug8t33****
      *
      * @var string

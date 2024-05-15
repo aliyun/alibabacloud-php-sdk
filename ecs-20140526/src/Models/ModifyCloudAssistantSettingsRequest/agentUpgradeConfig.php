@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class agentUpgradeConfig extends Model
 {
     /**
-     * @description The time windows during which Cloud Assistant Agent can be upgraded. The time windows can be accurate to minutes. The default time zone is UTC.
+     * @description The time windows during which Cloud Assistant Agent can be upgraded. The time windows can be accurate to minutes. The Coordinated Universal Time (UTC) time zone is used by default.
      *
-     * For example, \[ "02:00-03:00", "05:00-06:00" ] specifies that Cloud Assistant Agent can be upgraded from 2:00:00 to 3:00:00 and from 5:00:00 to 6:00:00 every day in the UTC time zone.
+     * For example, [ "02:00-03:00", "05:00-06:00" ] specifies that Cloud Assistant Agent can be upgraded from 2:00:00 to 3:00:00 and from 5:00:00 to 6:00:00 every day in the UTC time zone.
      * @var string[]
      */
     public $allowedUpgradeWindow;
@@ -27,10 +27,10 @@ class agentUpgradeConfig extends Model
     public $enabled;
 
     /**
-     * @description The time zone of the time window. Default value: UTC. The following formats are supported:
+     * @description The time zone of the time windows. Default value: UTC. You can specify a time zone in the following forms:
      *
      *   The time zone name. Examples: Asia/Shanghai and America/Los_Angeles.
-     *   The time offset from GMT. Examples: GMT+8:00 (UTC+8) and GMT-7:00 (UTC-7). Do not add leading zeros to the hour value.
+     *   The time offset from GMT. Examples: GMT+8:00 (UTC+8) and GMT-7:00 (UTC-7). You cannot add leading zeros to the hour value.
      *
      * @example Asia/Shanghai
      *

@@ -21,6 +21,7 @@ class DeletePrefixListRequest extends Model
     /**
      * @description The ID of the prefix list.
      *
+     * This parameter is required.
      * @example pl-x1j1k5ykzqlixdcy****
      *
      * @var string
@@ -28,8 +29,9 @@ class DeletePrefixListRequest extends Model
     public $prefixListId;
 
     /**
-     * @description The region ID of the prefix list. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the prefix list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-chengdu
      *
      * @var string

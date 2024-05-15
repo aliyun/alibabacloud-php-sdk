@@ -12,6 +12,7 @@ class CancelImagePipelineExecutionRequest extends Model
     /**
      * @description The ID of the image build task.
      *
+     * This parameter is required.
      * @example exec-5fb8facb8ed7427c****
      *
      * @var string
@@ -29,8 +30,9 @@ class CancelImagePipelineExecutionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the image build task. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the image build task. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

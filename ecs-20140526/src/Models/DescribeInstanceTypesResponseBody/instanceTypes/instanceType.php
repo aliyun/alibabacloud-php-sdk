@@ -115,7 +115,7 @@ class instanceType extends Model
     public $eniTrunkSupported;
 
     /**
-     * @description The number of ERIs.
+     * @description The number of elastic RDMA interfaces (ERIs).
      *
      * >  This parameter is in invitational preview and is not publicly available.
      * @example 0
@@ -134,7 +134,7 @@ class instanceType extends Model
     public $GPUAmount;
 
     /**
-     * @description The amount of GPU memory per GPU. Unit: GiB
+     * @description The amount of GPU memory per GPU. Unit: GiB.
      *
      * @example 32
      *
@@ -208,8 +208,8 @@ class instanceType extends Model
      * @description The level of the instance family. Valid values:
      *
      *   EntryLevel: entry level (shared).
-     *   EnterpriseLevel: enterprise level
-     *   CreditEntryLevel: credit-based entry level For more information, see [Overview](~~59977~~).
+     *   EnterpriseLevel: enterprise level.
+     *   CreditEntryLevel: credit-based entry level. For more information, see [Overview](https://help.aliyun.com/document_detail/59977.html).
      *
      * @example EnterpriseLevel
      *
@@ -263,7 +263,7 @@ class instanceType extends Model
     public $localStorageAmount;
 
     /**
-     * @description The capacity of each local disk. Unit: GiB
+     * @description The capacity of each local disk attached per instance. Unit: GiB.
      *
      * @example 5000
      *
@@ -272,10 +272,10 @@ class instanceType extends Model
     public $localStorageCapacity;
 
     /**
-     * @description The category of local disks. For more information, see [Local disks](~~63138~~). Valid values:
+     * @description The category of local disks. For more information, see [Local disks](https://help.aliyun.com/document_detail/63138.html). Valid values:
      *
-     *   local_hdd_pro: local SATA HDDs, which are attached to d1ne or d1 instances
-     *   local_ssd_pro: local NVMe SSDs, which are attached to i2, i2g, i1, ga1, or gn5 instances
+     *   local_hdd_pro: local SATA HDDs, which are attached to d1ne or d1 instances.
+     *   local_ssd_pro: local NVMe SSDs, which are attached to i2, i2g, i1, ga1, or gn5 instances.
      *
      * @example local_ssd_pro
      *
@@ -293,7 +293,7 @@ class instanceType extends Model
     public $maximumQueueNumberPerEni;
 
     /**
-     * @description The memory size. Unit: GiB
+     * @description The memory size. Unit: GiB.
      *
      * @example 16
      *
@@ -311,7 +311,7 @@ class instanceType extends Model
     public $networkCardQuantity;
 
     /**
-     * @description The information of the network cards.
+     * @description The information about the network cards.
      *
      * @var networkCards
      */
@@ -360,7 +360,7 @@ class instanceType extends Model
     public $primaryEniQueueNumber;
 
     /**
-     * @description The maximum number of QPs per ERI.
+     * @description The maximum number of QP queues per ERI.
      *
      * @example 22
      *
@@ -378,6 +378,8 @@ class instanceType extends Model
     public $secondaryEniQueueNumber;
 
     /**
+     * @description 规格支持的启动模式。
+     *
      * @var supportedBootModes
      */
     public $supportedBootModes;

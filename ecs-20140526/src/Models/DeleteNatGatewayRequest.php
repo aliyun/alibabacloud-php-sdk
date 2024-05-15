@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNatGatewayRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $natGatewayId;
@@ -24,6 +26,8 @@ class DeleteNatGatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

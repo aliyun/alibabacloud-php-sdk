@@ -69,7 +69,7 @@ class DescribeInstancesRequest extends Model
      *   enabled
      *   disabled
      *
-     * >  For more information about instance metadata, see [Overview of ECS instance metadata](~~49122~~).
+     * >  For more information about instance metadata, see [Overview of ECS instance metadata](https://help.aliyun.com/document_detail/49122.html).
      * @example enabled
      *
      * @var string
@@ -91,7 +91,7 @@ class DescribeInstancesRequest extends Model
      *   optional: The security hardening mode (IMDSv2) is not forcefully used.
      *   required: The security hardening mode (IMDSv2) is forcefully used. After you set this parameter to required, you cannot access instance metadata in normal mode.
      *
-     * >  For more information about modes of accessing instance metadata, see [Access mode of instance metadata](~~150575~~).
+     * >  For more information about modes of accessing instance metadata, see [Access mode of instance metadata](https://help.aliyun.com/document_detail/150575.html).
      * @example optional
      *
      * @var string
@@ -138,7 +138,7 @@ class DescribeInstancesRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The name of the instance. Fuzzy search with the asterisk (\*) wildcard characters is supported.
+     * @description The name of the instance. Fuzzy search with the asterisk (\\*) wildcard characters is supported.
      *
      * @example Test
      *
@@ -319,8 +319,9 @@ class DescribeInstancesRequest extends Model
     public $rdmaIpAddresses;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

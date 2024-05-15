@@ -15,7 +15,7 @@ class CreateSnapshotRequest extends Model
      *   Standard: normal snapshot
      *   Flash: local snapshot
      *
-     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](~~193667~~).
+     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example Standard
      *
      * @var string
@@ -44,6 +44,7 @@ class CreateSnapshotRequest extends Model
     /**
      * @description Creates a snapshot for a disk.
      *
+     * This parameter is required.
      * @example d-bp1s5fnvk4gn2tws0****
      *
      * @var string
@@ -56,7 +57,7 @@ class CreateSnapshotRequest extends Model
      *   true: enables the instant access feature. This feature can be enabled only for ESSDs.
      *   false: does not enable the instant access feature. If InstantAccess is set to false, a normal snapshot is created.
      *
-     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](~~193667~~).
+     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example false
      *
      * @var bool
@@ -66,7 +67,7 @@ class CreateSnapshotRequest extends Model
     /**
      * @description The validity period of the instant access feature. When the validity period ends, the feature is disabled and the instant access snapshot is automatically released. This parameter takes effect only when `InstantAccess` is set to true. Unit: days. Valid values: 1 to 65535.
      *
-     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](~~193667~~).
+     * >  This parameter is no longer used. By default, new normal snapshots of ESSDs are upgraded to instant access snapshots free of charge without the need for additional configurations. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example 1
      *
      * @var int
@@ -107,7 +108,7 @@ class CreateSnapshotRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The snapshot name. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The snapshot name. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
      * @example 30
@@ -117,7 +118,7 @@ class CreateSnapshotRequest extends Model
     public $retentionDays;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the snapshot. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * It cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
      * @example testSnapshotName
@@ -136,17 +137,8 @@ class CreateSnapshotRequest extends Model
     public $storageLocationArn;
 
     /**
-     * @description Specifies whether to enable the instant access feature. Valid values:
+     * @description The tags to add to the snapshot.
      *
-     *   true: enables the instant access feature. This feature can be enabled only for enhanced SSDs (ESSDs).
-     *
-     **
-     *
-     **Note**After the instant access feature is enabled, an instant access (IA) snapshot is created and can be used to roll back disks or create disks across zones even when the snapshot is being created. This feature ensures that a new ESSD snapshot is available for use as soon as possible regardless of its size.
-     *
-     *   false: does not enable the instant access feature. If InstantAccess is set to false, a normal snapshot is created.
-     *
-     * > This parameter and the `Category` parameter cannot be specified at the same time. For more information, see the "Description" section of this topic.
      * @var tag[]
      */
     public $tag;

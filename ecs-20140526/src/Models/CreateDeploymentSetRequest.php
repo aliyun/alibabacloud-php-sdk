@@ -18,7 +18,7 @@ class CreateDeploymentSetRequest extends Model
     public $clientToken;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate a client token. Make sure that a unique client token is used for each request. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The name of the deployment set. The name must be 2 to 128 characters in length and can contain Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * @example testDeploymentSetName
      *
@@ -40,7 +40,7 @@ class CreateDeploymentSetRequest extends Model
     public $description;
 
     /**
-     * @description The name of the deployment set. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description >  This parameter is deprecated.
      *
      * @example Default
      *
@@ -49,9 +49,8 @@ class CreateDeploymentSetRequest extends Model
     public $domain;
 
     /**
-     * @description The deployment domain. Set the value to Default.
+     * @description >  This parameter is deprecated.
      *
-     * Default: Instances in the deployment set are distributed only within the current zone.
      * @example host
      *
      * @var string
@@ -72,7 +71,7 @@ class CreateDeploymentSetRequest extends Model
     public $groupCount;
 
     /**
-     * @description The region ID of the deployment set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the deployment set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
      * @example CancelMembershipAndStart
      *
@@ -93,6 +92,7 @@ class CreateDeploymentSetRequest extends Model
     /**
      * @description Creates a deployment set in a specific region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -110,9 +110,13 @@ class CreateDeploymentSetRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The deployment granularity. Set the value to host.
+     * @description The deployment strategy. Valid values:
      *
-     * host: Instances in the deployment set are dispersed at the granularity of hosts.
+     *   Availability: high availability strategy
+     *   AvailabilityGroup: high availability group strategy
+     *   LowLatency: low latency strategy
+     *
+     * Default value: Availability.
      * @example Availability
      *
      * @var string

@@ -29,7 +29,7 @@ class configuration extends Model
     /**
      * @description The zone ID of reserved instance N. Valid values of N: 1 to 100.
      *
-     * You can call the [DescribeZones](~~25609~~) operation to query the most recent zone list.
+     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent zone list.
      * @example testReservedInstanceName
      *
      * @var string
@@ -39,7 +39,7 @@ class configuration extends Model
     /**
      * @description The instance type that reserved instance N can match. Valid values of N: 1 to 100.
      *
-     * > The supported instance types are regularly updated. For more information, see the "Attributes" section of [Overview](~~100370~~).
+     * > The supported instance types are regularly updated. For more information, see the "Attributes" section of [Overview](https://help.aliyun.com/document_detail/100370.html).
      * @example Zone
      *
      * @var string

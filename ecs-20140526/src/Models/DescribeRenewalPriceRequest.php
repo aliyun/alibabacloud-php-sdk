@@ -55,8 +55,9 @@ class DescribeRenewalPriceRequest extends Model
     public $priceUnit;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -66,6 +67,7 @@ class DescribeRenewalPriceRequest extends Model
     /**
      * @description The ID of the resource. If the `ResourceType` parameter is set to`  instance `, the value of the `ResourceId` parameter is the ID of the specified instance.``
      *
+     * This parameter is required.
      * @example i-bp1f2o4ldh8l29zv****
      *
      * @var string

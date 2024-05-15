@@ -18,7 +18,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $systemDisk;
 
     /**
-     * @description The automatic release time of the instance. Specify the time in the [ISO 8601 standard](~~25696~~) in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The automatic release time of the instance. Specify the time in the [ISO 8601 standard](https://help.aliyun.com/document_detail/25696.html) in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      *   If the value of `ss` is not `00`, the time is automatically rounded down to the nearest minute based on the value of `mm`.
      *   The specified time must be at least 30 minutes later than the current time.
@@ -33,8 +33,8 @@ class CreateLaunchTemplateVersionRequest extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](~~59977~~).
-     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](~~59977~~).
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
      *
      * @example Standard
      *
@@ -50,7 +50,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $dataDisk;
 
     /**
-     * @description Specifies whether to enable release protection for the instance. This parameter specifies whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance. Valid values:
+     * @description Specifies whether to enable release protection for the instance. This parameter specifies whether you can use the ECS console or call the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation to release the instance. Valid values:
      *
      *   true
      *   false
@@ -103,7 +103,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $hostName;
 
     /**
-     * @description The ID of the image to use to create the Elastic Compute Service (ECS) instance. You can call the [DescribeImages](~~25534~~) operation to query available images.
+     * @description The ID of the image to use to create the Elastic Compute Service (ECS) instance. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query available images.
      *
      * @example win2008r2_64_ent_sp1_en-us_40G_alibase_20170915.vhd
      *
@@ -134,7 +134,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The name of the instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example testInstanceName
      *
@@ -143,7 +143,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $instanceName;
 
     /**
-     * @description The instance type. For more information, see [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the most recent instance type list.
+     * @description The instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list.
      *
      * @example ecs.g5.large
      *
@@ -219,7 +219,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $keyPairName;
 
     /**
-     * @description The ID of the launch template. For more information, call the [DescribeLaunchTemplates](~~73759~~) operation. You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
+     * @description The ID of the launch template. For more information, call the [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html) operation. You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
      *
      * @example lt-m5eiaupmvm2op9d****
      *
@@ -228,7 +228,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $launchTemplateId;
 
     /**
-     * @description The name of the launch template. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the launch template. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example testLaunchTemplateName
      *
@@ -291,14 +291,14 @@ class CreateLaunchTemplateVersionRequest extends Model
      * @description The private IP address to assign to the instance.
      *
      * To assign a private IP address to an instance of the VPC type, make sure that the IP address is an idle IP address within the CIDR block of the vSwitch specified by the `VSwitchId` parameter.
-     * @example 10.1.**.**
+     * @example 10.1.\*\*.**
      *
      * @var string
      */
     public $privateIpAddress;
 
     /**
-     * @description The name of the instance Resource Access Management (RAM) role. You can call the [ListRoles](~~28713~~) operation provided by RAM to query the instance RAM roles that you created.
+     * @description The name of the instance Resource Access Management (RAM) role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation provided by RAM to query the instance RAM roles that you created.
      *
      * @example testRamRoleName
      *
@@ -307,8 +307,9 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the command. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -357,7 +358,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group N to which to assign the instance. The valid values of N depend on the maximum number of security groups to which the instance can belong. For more information, see [Quantity limits](~~25412~~).
+     * @description The ID of security group N to which to assign the instance. The valid values of N depend on the maximum number of security groups to which the instance can belong. For more information, see [Quantity limits](https://help.aliyun.com/document_detail/25412.html).
      *
      * > The `SecurityGroupId` parameter and the `SecurityGroupIds.N` parameter are mutually exclusive.
      * @example sg-bp15ed6xe1yxeycg7****

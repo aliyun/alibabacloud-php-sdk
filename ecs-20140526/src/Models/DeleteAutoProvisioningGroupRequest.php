@@ -11,6 +11,7 @@ class DeleteAutoProvisioningGroupRequest extends Model
     /**
      * @description The ID of the auto provisioning group.
      *
+     * This parameter is required.
      * @example apg-bpuf6jel2bbl62wh13****
      *
      * @var string
@@ -30,6 +31,7 @@ class DeleteAutoProvisioningGroupRequest extends Model
     /**
      * @description The region ID of the auto provisioning group.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

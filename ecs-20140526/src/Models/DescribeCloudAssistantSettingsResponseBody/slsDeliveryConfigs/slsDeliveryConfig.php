@@ -11,8 +11,8 @@ class slsDeliveryConfig extends Model
     /**
      * @description The type of items to be delivered. Valid values:
      *
-     *   SessionManager: session records
-     *   Invocation: task execution records
+     *   SessionManager: session records.
+     *   Invocation: task execution records.
      *
      * @example SessionManager
      *

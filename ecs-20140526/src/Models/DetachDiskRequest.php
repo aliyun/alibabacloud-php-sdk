@@ -28,6 +28,7 @@ class DetachDiskRequest extends Model
     /**
      * @description The ID of the disk that you want to detach.
      *
+     * This parameter is required.
      * @example d-bp67acfmxazb4p****
      *
      * @var string
@@ -37,6 +38,7 @@ class DetachDiskRequest extends Model
     /**
      * @description The ID of the ECS instance from which you want to detach the disk.
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4p****
      *
      * @var string

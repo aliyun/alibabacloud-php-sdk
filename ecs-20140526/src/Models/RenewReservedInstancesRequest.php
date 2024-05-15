@@ -61,7 +61,7 @@ class RenewReservedInstancesRequest extends Model
     public $period;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example Year
      *
@@ -80,7 +80,7 @@ class RenewReservedInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the reserved instance. You can call the [DescribeReservedInstances](~~100065~~) operation to query the IDs of reserved instances that you purchased.
+     * @description The ID of the reserved instance. You can call the [DescribeReservedInstances](https://help.aliyun.com/document_detail/100065.html) operation to query the IDs of reserved instances that you purchased.
      *
      * You can specify up to 10 IDs of reserved instances in a single request.
      * @var string[]

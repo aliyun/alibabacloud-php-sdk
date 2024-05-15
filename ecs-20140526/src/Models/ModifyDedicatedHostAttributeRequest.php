@@ -33,7 +33,7 @@ class ModifyDedicatedHostAttributeRequest extends Model
      *   on: adds the dedicated host to the resource pool for automatic deployment.
      *   off: does not add the dedicated host to the resource pool for automatic deployment.
      *
-     * For information about automatic deployment, see [Features](~~118938~~).
+     * For information about automatic deployment, see [Features](https://help.aliyun.com/document_detail/118938.html).
      * @example on
      *
      * @var string
@@ -62,6 +62,7 @@ class ModifyDedicatedHostAttributeRequest extends Model
     /**
      * @description The ID of the dedicated host.
      *
+     * This parameter is required.
      * @example dh-bp165p6xk2tlw61e****
      *
      * @var string
@@ -69,7 +70,7 @@ class ModifyDedicatedHostAttributeRequest extends Model
     public $dedicatedHostId;
 
     /**
-     * @description The name of the dedicated host. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. The name can contain digits, letters, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the dedicated host. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
      *
      * @example testDedicatedHostName
      *
@@ -97,8 +98,9 @@ class ModifyDedicatedHostAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the dedicated host. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

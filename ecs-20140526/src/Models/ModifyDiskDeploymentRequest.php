@@ -21,6 +21,7 @@ class ModifyDiskDeploymentRequest extends Model
     /**
      * @description The ID of the disk.
      *
+     * This parameter is required.
      * @example d-bp131n0q38u3a4zi****
      *
      * @var string

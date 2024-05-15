@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBandwidthPackageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bandwidthPackageId;
@@ -24,6 +26,8 @@ class DeleteBandwidthPackageRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

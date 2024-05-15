@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyBandwidthPackageSpecRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bandwidthPackageId;
@@ -29,6 +33,8 @@ class ModifyBandwidthPackageSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

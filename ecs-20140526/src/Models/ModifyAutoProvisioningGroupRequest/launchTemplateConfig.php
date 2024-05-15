@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateConfig extends Model
 {
     /**
-     * @description The instance type in extended configuration N. Valid values of N: 1 to 20. For more information about the valid values of this parameter, see [Instance families](~~25378~~).
+     * @description The instance type in extended configuration N. Valid values of N: 1 to 20. For more information about the valid values of this parameter, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * @example ecs.g5.large
      *

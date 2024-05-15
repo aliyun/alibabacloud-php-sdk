@@ -93,8 +93,9 @@ class DescribeDisksFullStatusRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the EBS device. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the EBS device. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -121,7 +122,7 @@ class DescribeDisksFullStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The lifecycle status of the EBS device. For more information, see [Disk status](~~25689~~). Valid values:
+     * @description The lifecycle status of the EBS device. For more information, see [Disk status](https://help.aliyun.com/document_detail/25689.html). Valid values:
      *
      *   In_use: The EBS device is in use.
      *   Available: The EBS device can be attached.

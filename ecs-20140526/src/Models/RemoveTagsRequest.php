@@ -15,8 +15,9 @@ class RemoveTagsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-shenzhen
      *
      * @var string
@@ -26,6 +27,7 @@ class RemoveTagsRequest extends Model
     /**
      * @description The ID of the resource. For example, if you set ResourceType to instance, you must set this parameter to the ID of the related instance.
      *
+     * This parameter is required.
      * @example s-946ntx4****
      *
      * @var string
@@ -58,7 +60,7 @@ class RemoveTagsRequest extends Model
      *   reservedinstance
      *   snapshotpolicy
      *
-     * All values must be in lowercase.
+     * This parameter is required.
      * @example snapshot
      *
      * @var string

@@ -42,7 +42,7 @@ class eipAddress extends Model
     /**
      * @description The ID of the elastic IP address (EIP).
      *
-     * @example 30.21.**.**
+     * @example 30.21.\*\*.**
      *
      * @var string
      */

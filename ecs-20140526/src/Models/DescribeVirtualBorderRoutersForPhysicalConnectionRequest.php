@@ -30,11 +30,15 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

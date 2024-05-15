@@ -24,11 +24,15 @@ class DeletePhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

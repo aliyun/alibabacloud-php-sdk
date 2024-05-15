@@ -106,7 +106,7 @@ class DescribeNetworkInterfacesRequest extends Model
     /**
      * @description The primary private IPv4 address of the ENI.
      *
-     * @example 192.168.**.**
+     * @example 192.168.\*\*.**
      *
      * @var string
      */
@@ -115,15 +115,16 @@ class DescribeNetworkInterfacesRequest extends Model
     /**
      * @description An array that consists of the secondary private IPv4 addresses of the ENI. You can specify multiple secondary private IPv4 addresses. Valid values of N: 1 to 100.
      *
-     * @example 192.168.**.**
+     * @example 192.168.\*\*.**
      *
      * @var string[]
      */
     public $privateIpAddress;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -154,7 +155,7 @@ class DescribeNetworkInterfacesRequest extends Model
      * @description The ID of the security group to which the secondary ENI belongs.
      *
      *   To query the details of secondary ENIs based on the ID of a security group, specify this parameter.
-     *   To query the details of primary ENIs based on the ID of a security group, call the [DescribeInstances](~~25506~~) operation and specify the `SecurityGroupId` parameter.
+     *   To query the details of primary ENIs based on the ID of a security group, call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation and specify the `SecurityGroupId` parameter.
      *
      * @example sg-bp144yr32sx6ndw****
      *

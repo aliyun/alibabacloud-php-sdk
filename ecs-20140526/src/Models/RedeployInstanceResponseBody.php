@@ -20,7 +20,7 @@ class RedeployInstanceResponseBody extends Model
     /**
      * @description The ID of the redeployment task.
      *
-     * You can call the [DescribeTasks](~~25622~~) operation to query the redeployment result.
+     * You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the redeployment result.
      * @example t-bp10e8orkp8x****
      *
      * @var string

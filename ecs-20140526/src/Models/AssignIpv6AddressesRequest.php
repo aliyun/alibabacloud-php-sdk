@@ -16,7 +16,7 @@ class AssignIpv6AddressesRequest extends Model
     /**
      * @description The IPv6 addresses that you want to assign to the ENI. You can specify up to 10 IPv6 addresses.
      *
-     * Example: Ipv6Address.1=2001:db8:1234:1a00::\*\*\*\*
+     * Example: Ipv6Address.1=2001:db8:1234:1a00::\\*\\*\\*\\*
      *
      * > You must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but cannot specify both.
      * @example 2001:db8:1234:1a00::****
@@ -54,6 +54,7 @@ class AssignIpv6AddressesRequest extends Model
     /**
      * @description The ENI ID.
      *
+     * This parameter is required.
      * @example eni-bp1iqejowblx6h8j****
      *
      * @var string
@@ -71,8 +72,9 @@ class AssignIpv6AddressesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

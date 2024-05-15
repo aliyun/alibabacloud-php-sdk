@@ -13,7 +13,7 @@ class invocation extends Model
     /**
      * @description The content of the file.
      *
-     * @example #!/bin/bash  echo "Current User is :"  echo $(ps | grep "$$" | awk \"{print $2}\")
+     * @example #!/bin/bash  echo "Current User is :"  echo $(ps | grep "$$" | awk \\"{print $2}\\")
      *
      * @var string
      */

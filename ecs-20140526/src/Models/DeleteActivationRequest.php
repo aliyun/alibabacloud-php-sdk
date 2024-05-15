@@ -11,6 +11,7 @@ class DeleteActivationRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
      *
      * @var string
@@ -30,6 +31,7 @@ class DeleteActivationRequest extends Model
     /**
      * @description The ID of the activation code.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

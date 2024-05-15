@@ -11,6 +11,7 @@ class privatePoolOptions extends Model
     /**
      * @description The ID of the elasticity assurance.
      *
+     * This parameter is required.
      * @example eap-bp67acfmxazb4****
      *
      * @var string
@@ -18,7 +19,7 @@ class privatePoolOptions extends Model
     public $id;
 
     /**
-     * @description The name of the elasticity assurance. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the elasticity assurance. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example eapTestName
      *

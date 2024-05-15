@@ -23,8 +23,8 @@ class DeleteInstanceRequest extends Model
     /**
      * @description Specifies whether to forcefully release the instance in the **Running** (`Running`) state. Valid values:
      *
-     *   true: forcefully releases the instance in the **Running** (`Running`) state. This operation is equivalent to performing a hard shut-down. Cache data that is not written to persistent storage will be lost.
-     *   false: normally releases the instance. This value is valid only for instances in the **Stopped** (`Stopped`) state.
+     *   true: forcefully releases the instance in the **Running** (`Running`) state. This operation is equivalent to the power-off operation. Cache data that is not written to persistent storage will be lost.
+     *   false: normally releases the instance. This value is valid only if the instance is in the **Stopped** (`Stopped`) state.
      *
      * Default value: false.
      * @example false
@@ -36,6 +36,7 @@ class DeleteInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-bp1g6zv0ce8oghu7****
      *
      * @var string

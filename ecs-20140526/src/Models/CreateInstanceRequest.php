@@ -72,7 +72,7 @@ class CreateInstanceRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -93,8 +93,8 @@ class CreateInstanceRequest extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: standard mode. For more information, see the "Standard mode" section in the [Overview of burstable instances](~~59977~~) topic.
-     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in the [Burstable instances](~~59977~~) topic.
+     *   Standard: standard mode. For more information, see the "Standard mode" section in the [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html) topic.
+     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in the [Burstable instances](https://help.aliyun.com/document_detail/59977.html) topic.
      *
      * @example Standard
      *
@@ -120,7 +120,7 @@ class CreateInstanceRequest extends Model
     public $dedicatedHostId;
 
     /**
-     * @description Specifies whether to enable release protection for the instance. This parameter indicates whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance.
+     * @description Specifies whether to enable release protection for the instance. This parameter indicates whether you can use the ECS console or call the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation to release the instance.
      *
      *   true: enables release protection.
      *   false (default): disables release protection.
@@ -200,7 +200,7 @@ class CreateInstanceRequest extends Model
      *   enabled
      *   disabled
      *
-     * >  For more information about instance metadata, see [Overview of instance metadata](~~49122~~).
+     * >  For more information about instance metadata, see [Overview of instance metadata](https://help.aliyun.com/document_detail/49122.html).
      * @example enabled
      *
      * @var string
@@ -222,7 +222,7 @@ class CreateInstanceRequest extends Model
      *   optional: does not forcefully use the security hardening mode (IMDSv2).
      *   required: forcefully uses the security hardening mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
      *
-     * >  For more information about the modes of accessing instance metadata, see [Access mode of instance metadata](~~150575~~).
+     * >  For more information about the modes of accessing instance metadata, see [Access mode of instance metadata](https://help.aliyun.com/document_detail/150575.html).
      * @example optional
      *
      * @var string
@@ -253,7 +253,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The internal IP address to assign to the instance.
      *
-     * @example 192.168.**.**
+     * @example 192.168.\*\*.**
      *
      * @var string
      */
@@ -272,7 +272,7 @@ class CreateInstanceRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). If you do not specify this parameter, the instance ID is used as the instance name by default.
+     * @description The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). If you do not specify this parameter, the instance ID is used as the instance name by default.
      *
      * @example 2018-12-06T103200Z
      *
@@ -283,9 +283,10 @@ class CreateInstanceRequest extends Model
     /**
      * @description The instance type.
      *
-     *   Instance type selection: See [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of instance types, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
-     *   Query of available resources: Call the [DescribeAvailableResource](~~66186~~) operation to query resources available in a specific region or zone.
+     *   Instance type selection: See [Instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the performance data of instance types, or see [Best practices for instance type selection](https://help.aliyun.com/document_detail/58291.html) to learn about how to select instance types.
+     *   Query of available resources: Call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to query resources available in a specific region or zone.
      *
+     * This parameter is required.
      * @example ecs.g6.large
      *
      * @var string
@@ -372,7 +373,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The password of the instance. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
      *
-     * ( ) ` ~ ! @ # $ % ^ & * - _ + = | { } [ ] : ; \" < > , . ? /
+     * ( ) ` ~ ! @ # $ % ^ & * - _ + = | { } [ ] : ; \\" < > , . ? /
      *
      * Take note of the following items:
      *
@@ -425,7 +426,7 @@ class CreateInstanceRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The name of the instance Resource Access Management (RAM) role. You can call the [ListRoles](~~28713~~) operation provided by RAM to query the instance RAM roles that you created.
+     * @description The name of the instance Resource Access Management (RAM) role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation provided by RAM to query the instance RAM roles that you created.
      *
      * @example RAMTestName
      *
@@ -434,8 +435,9 @@ class CreateInstanceRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The ID of the region in which to create the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -583,7 +585,7 @@ class CreateInstanceRequest extends Model
     public $userData;
 
     /**
-     * @description The ID of the vSwitch to which to connect the instance. This parameter is required when you create an instance in a VPC. You can call the [DescribeVSwitches](~~35748~~) operation to query available vSwitches.
+     * @description The ID of the vSwitch to which to connect the instance. This parameter is required when you create an instance in a VPC. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query available vSwitches.
      *
      * >  If `VSwitchId` is specified, the zone specified by `ZoneId` must be the zone where the specified vSwitch resides. You can also leave `ZoneId` empty. Then, the system selects the zone where the specified vSwitch resides.
      * @example vsw-bp1s5fnvk4gn2tws0****
@@ -602,7 +604,7 @@ class CreateInstanceRequest extends Model
     public $vlanId;
 
     /**
-     * @description The ID of the zone in which to create the instance. You can call the [DescribeZones](~~25610~~) operation to query the zones in a specific region.
+     * @description The ID of the zone in which to create the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the zones in a specific region.
      *
      * This parameter is empty by default.
      * @example cn-hangzhou-g

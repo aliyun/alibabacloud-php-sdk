@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifySnapshotGroupRequest extends Model
 {
     /**
-     * @description The new name of the snapshot-consistent group. The name must be 2 to 128 characters in length. It can contain letters, digits, periods (.), underscores (\_), hyphens (-), and colons (:). It must start with a letter or a digit and cannot start with `http://` or `https://`.
+     * @description The new name of the snapshot-consistent group. The name must be 2 to 128 characters in length. It can contain letters, digits, periods (.), underscores (_), hyphens (-), and colons (:). It must start with a letter or a digit and cannot start with `http://` or `https://`.
      *
      * @example This is new description
      *
@@ -18,7 +18,7 @@ class ModifySnapshotGroupRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the snapshot-consistent group. You can call the [DescribeSnapshotGroups](~~210940~~) operation to query the IDs of one or more snapshot-consistent groups.
+     * @description The ID of the snapshot-consistent group. You can call the [DescribeSnapshotGroups](https://help.aliyun.com/document_detail/210940.html) operation to query the IDs of one or more snapshot-consistent groups.
      *
      * @example testName02
      *
@@ -39,6 +39,7 @@ class ModifySnapshotGroupRequest extends Model
     /**
      * @description The operation that you want to perform. Set the value to **ModifySnapshotGroup**.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -56,8 +57,9 @@ class ModifySnapshotGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The region ID of the snapshot-consistent group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the snapshot-consistent group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example ssg-j6ciyh3k52qp7ovm****
      *
      * @var string

@@ -16,6 +16,7 @@ class removeEntry extends Model
      *   You cannot specify duplicate CIDR blocks.
      *   The CIDR blocks cannot be the same as the `AddEntry.N.Cidr` values.
      *
+     * This parameter is required.
      * @example 192.168.1.0/24
      *
      * @var string

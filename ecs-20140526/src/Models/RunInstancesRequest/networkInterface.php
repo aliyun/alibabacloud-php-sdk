@@ -86,7 +86,7 @@ class networkInterface extends Model
      *
      *   You can specify network card indexes only for instances of specific instance types.
      *   When NetworkInterface.N.InstanceType is set to Primary, you can set NetworkInterface.N.NetworkCardIndex only to 0 for instance types that support network cards.
-     *   When NetworkInterface.N.InstanceType is set to Secondary or left empty, you can set NetworkInterface.N.NetworkCardIndex based on instance types if the instance types support network cards. For more information, see the [Overview of instance families](~~25378~~) topic.
+     *   When NetworkInterface.N.InstanceType is set to Secondary or left empty, you can set NetworkInterface.N.NetworkCardIndex based on instance types if the instance types support network cards. For more information, see the [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) topic.
      *
      * @example 0
      *
@@ -105,7 +105,7 @@ class networkInterface extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The name of ENI N. The name must be 2 to 128 characters in length and support Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can contain colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The name of ENI N. The name must be 2 to 128 characters in length and support Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can contain colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * Take note of the following items:
      *
@@ -124,7 +124,7 @@ class networkInterface extends Model
      *   Standard: The TCP communication mode is used.
      *   HighPerformance: The Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
      *
-     * >  The number of ERIs on an instance cannot exceed the maximum number of ERIs that the instance type supports. For more information, see [Overview of instance families](~~25378~~).
+     * >  The number of ERIs on an instance cannot exceed the maximum number of ERIs that the instance type supports. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      * @example Standard
      *
      * @var string
@@ -147,11 +147,11 @@ class networkInterface extends Model
      *
      * >
      *
-     *   You can attach only a single secondary ENI when you create an ECS instance. After the instance is created, you can call the [CreateNetworkInterface](~~58504~~) and [AttachNetworkInterface](~~58515~~) operations to attach more secondary ENIs.
+     *   You can attach only a single secondary ENI when you create an ECS instance. After the instance is created, you can call the [CreateNetworkInterface](https://help.aliyun.com/document_detail/58504.html) and [AttachNetworkInterface](https://help.aliyun.com/document_detail/58515.html) operations to attach more secondary ENIs.
      *
      *   The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. You cannot specify the IP addresses. For example, if a vSwitch CIDR block is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
      *
-     * @example 172.16.**.**
+     * @example 172.16.\*\*.**
      *
      * @var string
      */
@@ -164,7 +164,7 @@ class networkInterface extends Model
      *
      *   Valid values of N: 1 and 2. If the value of N is 1, you can configure a primary or secondary ENI. If the value of N is 2, you must configure a primary ENI and a secondary ENI.
      *   The value of this parameter cannot exceed the maximum number of queues per ENI allowed for the instance type.
-     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To learn the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
+     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To learn the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
      *   If this parameter is set and `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot specify `NetworkInterfaceQueueNumber`.
      *
      * @example 8

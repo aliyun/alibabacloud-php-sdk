@@ -44,7 +44,7 @@ class systemDisk extends Model
     public $description;
 
     /**
-     * @description The name of the system disk. The name must be 2 to 128 characters in length and support Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can contain colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The name of the system disk. The name must be 2 to 128 characters in length and support Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can contain colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * @example cloud_ssdSystem
      *
@@ -60,7 +60,7 @@ class systemDisk extends Model
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * For more information about ESSD performance levels, see [ESSDs](~~122389~~).
+     * For more information about ESSD performance levels, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL0
      *
      * @var string
@@ -86,7 +86,7 @@ class systemDisk extends Model
      *   true
      *   false
      *
-     * >  This parameter is available only if you set the `SystemDisk.Category` parameter to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
+     * >  This parameter is available only if you set the `SystemDisk.Category` parameter to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example false
      *
      * @var bool
@@ -127,7 +127,7 @@ class systemDisk extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
      *
-     * >  This parameter is available only if you set the `SystemDisk.Category` parameter to `cloud_auto`. For more information, see [ESSD AutoPL disks](~~368372~~).
+     * >  This parameter is available only if you set the `SystemDisk.Category` parameter to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 40000
      *
      * @var int

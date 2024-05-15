@@ -79,7 +79,7 @@ class DescribeActivationsRequest extends Model
     /**
      * @description The region ID of the command. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
      *
-     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

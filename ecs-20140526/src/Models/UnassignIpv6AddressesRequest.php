@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UnassignIpv6AddressesRequest extends Model
 {
     /**
-     * @description The IPv6 addresses to unassign. You can specify up to 10 IPv6 addresses in a single request.
+     * @description The IPv6 addresses to unassign. Valid values of N: 1 to 10.
      *
      * @example 2001:db8:1234:1a00::***
      *
@@ -18,7 +18,7 @@ class UnassignIpv6AddressesRequest extends Model
     public $ipv6Address;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description The IPv6 prefixes to unassign. Valid values of N: 1 to 10.
      *
      * @var string[]
      */
@@ -27,6 +27,7 @@ class UnassignIpv6AddressesRequest extends Model
     /**
      * @description The ID of the ENI.
      *
+     * This parameter is required.
      * @example eni-bp14v2sdd3v8ht****
      *
      * @var string
@@ -44,8 +45,9 @@ class UnassignIpv6AddressesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

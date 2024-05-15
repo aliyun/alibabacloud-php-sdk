@@ -20,7 +20,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $businessType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -89,7 +89,7 @@ class CreateNetworkInterfaceRequest extends Model
     /**
      * @description IPv6 addresses to assign to the ENI. Valid values of N: 1 to 10.
      *
-     * Example: Ipv6Address.1=2001:db8:1234:1a00::\*\*\*\*
+     * Example: Ipv6Address.1=2001:db8:1234:1a00::\\*\\*\\*\\*
      *
      * >  To assign IPv6 addresses to the ENI, you must specify the `Ipv6Addresses.N` or `Ipv6AddressCount` parameter, but not both.
      * @example 2001:db8:1234:1a00::****
@@ -127,7 +127,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $ipv6PrefixCount;
 
     /**
-     * @description The name of the ENI. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
+     * @description The name of the ENI. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
      *
      * This parameter is empty by default.
      * @example testNetworkInterfaceName
@@ -163,7 +163,7 @@ class CreateNetworkInterfaceRequest extends Model
      * @description The primary private IP address of the ENI.
      *
      * The specified IP address must be an idle IP address within the CIDR block of the vSwitch with which to associate the ENI. If this parameter is not specified, an idle IP address is assigned from within the vSwitch CIDR block at random.
-     * @example 172.17.**.**
+     * @example 172.17.\*\*.**
      *
      * @var string
      */
@@ -173,7 +173,7 @@ class CreateNetworkInterfaceRequest extends Model
      * @description Secondary private IP addresses to assign to the ENI. The IP addresses must be idle IP addresses in the CIDR block of the vSwitch with which to associate the ENI. Valid values of N: 0 to 10.
      *
      * >  To assign secondary private IP addresses to the ENI, you can specify the `PrivateIpAddress.N` or `SecondaryPrivateIpAddressCount` parameter, but not both.
-     * @example 172.17.**.**
+     * @example 172.17.\*\*.**
      *
      * @var string[]
      */
@@ -182,7 +182,7 @@ class CreateNetworkInterfaceRequest extends Model
     /**
      * @description The number of queues supported by the ENI. Valid values: 1 to 2048.
      *
-     * This parameter is left empty by default. If you do not specify this parameter, the default number of queues per ENI for the instance type of an instance is used when you attach the ENI to the instance. To view the default number of queues per ENI for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation and then check the return value of `SecondaryEniQueueNumber`.
+     * This parameter is left empty by default. If you do not specify this parameter, the default number of queues per ENI for the instance type of an instance is used when you attach the ENI to the instance. To view the default number of queues per ENI for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and then check the return value of `SecondaryEniQueueNumber`.
      * @example 1
      *
      * @var int
@@ -199,8 +199,9 @@ class CreateNetworkInterfaceRequest extends Model
     public $queuePairNumber;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -208,7 +209,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which you want to assign the ENI. You can call the [ListResourceGroups](~~158855~~) operation to query the most recent resource group list.
+     * @description The ID of the resource group to which you want to assign the ENI. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the most recent resource group list.
      *
      * @example rg-bp67acfmxazb4ph****
      *
@@ -260,7 +261,7 @@ class CreateNetworkInterfaceRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group N to which to assign the ENI. The security group and the ENI must belong to the same VPC. The valid values of N are determined based on the maximum number of security groups to which an ENI can be assigned. For more information, see [Limits](~~25412~~).
+     * @description The ID of security group N to which to assign the ENI. The security group and the ENI must belong to the same VPC. The valid values of N are determined based on the maximum number of security groups to which an ENI can be assigned. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
      *
      **
      *
@@ -295,6 +296,7 @@ class CreateNetworkInterfaceRequest extends Model
     /**
      * @description The ID of the vSwitch with which to associate the ENI. Private IP addresses are assigned to the ENI from within the CIDR block of the vSwitch.
      *
+     * This parameter is required.
      * @example vsw-bp1s5fnvk4gn2tws03****
      *
      * @var string

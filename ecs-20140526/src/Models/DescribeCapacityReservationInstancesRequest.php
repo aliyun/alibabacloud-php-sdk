@@ -45,7 +45,7 @@ class DescribeCapacityReservationInstancesRequest extends Model
     /**
      * @description The number of entries per page.
      *
-     * Default value: 10.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

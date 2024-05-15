@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostTypesRequest extends Model
 {
     /**
-     * @description The dedicated host type. For more information, see [Dedicated host types](~~68564~~).
+     * @description The dedicated host type. For more information, see [Dedicated host types](https://help.aliyun.com/document_detail/68564.html).
      *
      * @example ddh.sn1ne
      *
@@ -28,8 +28,9 @@ class DescribeDedicatedHostTypesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

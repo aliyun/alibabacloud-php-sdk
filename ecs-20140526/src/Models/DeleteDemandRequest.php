@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDemandRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value that is unique among different requests. The `ClientToken` value can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value that is unique among different requests. The `ClientToken` value can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -20,6 +20,7 @@ class DeleteDemandRequest extends Model
     /**
      * @description The ID of the requirement.
      *
+     * This parameter is required.
      * @example ed-bp11n21kq00sl71p****
      *
      * @var string
@@ -46,8 +47,9 @@ class DeleteDemandRequest extends Model
     public $reason;
 
     /**
-     * @description The region ID of the filed instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the filed instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

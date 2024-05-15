@@ -37,7 +37,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $dedicatedHostName;
 
     /**
-     * @description The dedicated host type. You can call the [DescribeDedicatedHostTypes](~~134240~~) operation to query the most recent list of dedicated host types.
+     * @description The dedicated host type. You can call the [DescribeDedicatedHostTypes](https://help.aliyun.com/document_detail/134240.html) operation to query the most recent list of dedicated host types.
      *
      * @example ddh.g5
      *
@@ -65,6 +65,8 @@ class DescribeDedicatedHostsRequest extends Model
     public $maxResults;
 
     /**
+     * @example e71d8a535bd9cc11
+     *
      * @var string
      */
     public $nextToken;
@@ -90,7 +92,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The page number.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10
@@ -100,8 +102,9 @@ class DescribeDedicatedHostsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the dedicated host. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -129,7 +132,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Whether to display socket capacity information
+     * @description Specifies whether to display socket capacity information.
      *
      * @example true
      *
@@ -161,7 +164,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $tag;
 
     /**
-     * @description The zone ID of the dedicated host. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The zone ID of the dedicated host. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-g
      *

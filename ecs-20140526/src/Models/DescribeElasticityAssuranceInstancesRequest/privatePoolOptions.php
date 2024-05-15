@@ -11,6 +11,7 @@ class privatePoolOptions extends Model
     /**
      * @description The ID of the elasticity assurance.
      *
+     * This parameter is required.
      * @example eap-bp67acfmxazb4****
      *
      * @var string

@@ -103,8 +103,9 @@ class DescribeSecurityGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -112,7 +113,7 @@ class DescribeSecurityGroupsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the security group belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response. You can call the [ListResourceGroups](~~158855~~) operation to query the most recent resource group list.
+     * @description The ID of the resource group to which the security group belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the most recent resource group list.
      *
      * > Resources in the default resource group are displayed in the response regardless of how this parameter is configured.
      * @example rg-bp67acfmxazb4p****

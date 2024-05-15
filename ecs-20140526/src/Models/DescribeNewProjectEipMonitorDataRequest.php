@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeNewProjectEipMonitorDataRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $allocationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $endTime;
@@ -49,6 +53,8 @@ class DescribeNewProjectEipMonitorDataRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $startTime;

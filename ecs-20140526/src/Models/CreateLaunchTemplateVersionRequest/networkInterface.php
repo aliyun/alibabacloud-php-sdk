@@ -56,7 +56,7 @@ class networkInterface extends Model
     /**
      * @description The primary private IP address of the secondary ENI. The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
-     * @example 192.168.**.**
+     * @example 192.168.\*\*.**
      *
      * @var string
      */
@@ -73,7 +73,7 @@ class networkInterface extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security groups to which to assign the secondary ENI. The security group and the secondary ENI must belong to the same VPC. The valid values of N in `SecurityGroupIds.N` vary based on the maximum number of security groups to which a secondary ENI can belong. For more information, see the "Security group limits" section in [Limits](~~25412~~). The value of N in `NetworkInterface.N` cannot be greater than 1.
+     * @description The IDs of the security groups to which to assign the secondary ENI. The security group and the secondary ENI must belong to the same VPC. The valid values of N in `SecurityGroupIds.N` vary based on the maximum number of security groups to which a secondary ENI can belong. For more information, see the "Security group limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html). The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
      * >  You cannot specify both `NetworkInterface.N.SecurityGroupId` and `NetworkInterface.N.SecurityGroupIds.N`.
      * @example sg-bp67acfmxazb4p****

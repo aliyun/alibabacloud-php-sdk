@@ -39,7 +39,7 @@ class JoinSecurityGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      *   If you want to add an instance to a security group, you do not need to specify a region ID.
      *   If you want to add an ENI to a security group, you must specify the region ID of the ENI.
@@ -61,8 +61,9 @@ class JoinSecurityGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the security group. You can call the [DescribeSecurityGroups](~~25556~~) operation to query the most recent security group list.
+     * @description The ID of the security group. You can call the [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) operation to query the most recent security group list.
      *
+     * This parameter is required.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string

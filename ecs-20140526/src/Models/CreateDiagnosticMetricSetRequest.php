@@ -20,6 +20,7 @@ class CreateDiagnosticMetricSetRequest extends Model
     /**
      * @description The ID of diagnostic metric.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $metricIds;
@@ -36,7 +37,7 @@ class CreateDiagnosticMetricSetRequest extends Model
     /**
      * @description The type of the resource.
      *
-     * Default value: instance.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +47,7 @@ class CreateDiagnosticMetricSetRequest extends Model
     /**
      * @description The name of the diagnostic metric set.
      *
+     * This parameter is required.
      * @example instance
      *
      * @var string

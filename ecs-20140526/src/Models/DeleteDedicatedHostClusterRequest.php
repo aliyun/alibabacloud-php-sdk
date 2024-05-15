@@ -11,6 +11,7 @@ class DeleteDedicatedHostClusterRequest extends Model
     /**
      * @description The ID of the dedicated host cluster.
      *
+     * This parameter is required.
      * @example dc-bp12wlf6am0vz9v2****
      *
      * @var string
@@ -28,8 +29,9 @@ class DeleteDedicatedHostClusterRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the dedicated host cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the dedicated host cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

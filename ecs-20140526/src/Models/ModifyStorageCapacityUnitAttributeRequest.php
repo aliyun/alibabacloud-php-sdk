@@ -18,7 +18,7 @@ class ModifyStorageCapacityUnitAttributeRequest extends Model
     public $description;
 
     /**
-     * @description The new name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with [http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).](http://https://。、（:）、（\_）（-）。)
+     * @description The new name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with [http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).](http://https://。、（:）、（_）（-）。)
      *
      * @example testNewScuName
      *
@@ -41,8 +41,9 @@ class ModifyStorageCapacityUnitAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the SCU. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the SCU. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -66,6 +67,7 @@ class ModifyStorageCapacityUnitAttributeRequest extends Model
     /**
      * @description The ID of the SCU.
      *
+     * This parameter is required.
      * @example scu-bp67acfmxazb4p****
      *
      * @var string

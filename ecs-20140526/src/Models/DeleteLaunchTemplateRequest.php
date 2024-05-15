@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteLaunchTemplateRequest extends Model
 {
     /**
-     * @description The ID of the launch template. For more information, see [DescribeLaunchTemplates](~~73759~~).
+     * @description The ID of the launch template. For more information, see [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html).
      *
      * You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
      * @example lt-bp1apo0bbbkuy0rj****
@@ -39,8 +39,9 @@ class DeleteLaunchTemplateRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the launch template. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the launch template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

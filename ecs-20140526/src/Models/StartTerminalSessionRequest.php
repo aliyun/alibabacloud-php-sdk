@@ -21,6 +21,7 @@ class StartTerminalSessionRequest extends Model
     /**
      * @description The instance IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $instanceId;
@@ -46,8 +47,9 @@ class StartTerminalSessionRequest extends Model
     public $portNumber;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -75,7 +77,7 @@ class StartTerminalSessionRequest extends Model
     public $targetServer;
 
     /**
-     * @description 指定连接时的用户名称。
+     * @description The username used for connection establishment.
      *
      * @example testUser
      *

@@ -56,7 +56,7 @@ class DescribePriceRequest extends Model
     public $capacity;
 
     /**
-     * @description The type of the dedicated host. You can call the [DescribeDedicatedHostTypes](~~134240~~) operation to query the most recent list of dedicated host types.
+     * @description The type of the dedicated host. You can call the [DescribeDedicatedHostTypes](https://help.aliyun.com/document_detail/134240.html) operation to query the most recent list of dedicated host types.
      *
      * @example ddh.c5
      *
@@ -65,7 +65,7 @@ class DescribePriceRequest extends Model
     public $dedicatedHostType;
 
     /**
-     * @description The image ID. An image contains the runtime environment to load when an instance is started. You can call the [DescribeImages](~~25534~~) operation to query the available images. If you do not specify this parameter, the system queries the prices of Linux images.
+     * @description The image ID. An image contains the runtime environment to load when an instance is started. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query the available images. If you do not specify this parameter, the system queries the prices of Linux images.
      *
      * @example centos_7_05_64_20G_alibase_20181212.vhd
      *
@@ -107,7 +107,7 @@ class DescribePriceRequest extends Model
     public $instanceNetworkType;
 
     /**
-     * @description The instance type. When `ResourceType` is set to `instance`, you must specify this parameter. For more information, see [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the most recent list of instance types.
+     * @description The instance type. When `ResourceType` is set to `instance`, you must specify this parameter. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent list of instance types.
      *
      * @example ecs.g6.large
      *
@@ -153,7 +153,7 @@ class DescribePriceRequest extends Model
      *   none: The instance is not I/O optimized.
      *   optimized: The instance is I/O optimized.
      *
-     * When the instance type specified by the InstanceType parameter does not belong to [Generation I instance families](~~55263~~), the default value of this parameter is optimized.
+     * When the instance type specified by the InstanceType parameter does not belong to [Generation I instance families](https://help.aliyun.com/document_detail/55263.html), the default value of this parameter is optimized.
      * @example optimized
      *
      * @var string
@@ -237,8 +237,9 @@ class DescribePriceRequest extends Model
     public $priceUnit;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

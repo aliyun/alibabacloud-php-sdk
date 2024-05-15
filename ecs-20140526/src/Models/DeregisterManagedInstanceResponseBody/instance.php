@@ -56,7 +56,7 @@ class instance extends Model
     /**
      * @description The public IP address of the managed instance.
      *
-     * @example 47.8.**.**
+     * @example 47.8.\*\*.**
      *
      * @var string
      */
@@ -65,7 +65,7 @@ class instance extends Model
     /**
      * @description The internal IP address of the managed instance.
      *
-     * @example 10.0.**.**
+     * @example 10.0.\*\*.**
      *
      * @var string
      */

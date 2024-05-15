@@ -14,7 +14,7 @@ class networkOptions extends Model
      *   false: does not enable the Jumbo Frames feature for the instance. The maximum transmission unit (MTU) value of all ENIs on the instance is set to 1500.
      *   true: enables the Jumbo Frames feature for the instance. The MTU value of all ENIs on the instance is set to 8500.
      *
-     * >  The Jumbo Frames feature is supported by only 8th-generation or later instance types. For more information, see [MTUs](~~200512~~).
+     * >  The Jumbo Frames feature is supported by only 8th-generation or later instance types. For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
      * @example false
      *
      * @var bool

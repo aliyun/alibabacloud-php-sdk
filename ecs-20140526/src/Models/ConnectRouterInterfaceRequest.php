@@ -14,6 +14,8 @@ class ConnectRouterInterfaceRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -29,6 +31,8 @@ class ConnectRouterInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $routerInterfaceId;

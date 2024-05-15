@@ -29,6 +29,7 @@ class ModifyReservedInstancesRequest extends Model
     /**
      * @description The IDs of reserved instances. Valid values of N: 1 to 20.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +39,7 @@ class ModifyReservedInstancesRequest extends Model
     /**
      * @description The IDs of reserved instances. Valid values of N: 1 to 20.
      *
+     * This parameter is required.
      * @example ReservedInstanceId.1="ecsri-bp1cx3****",ReservedInstanceId.2="ecsri-bp15xx2****"......
      *
      * @var string[]

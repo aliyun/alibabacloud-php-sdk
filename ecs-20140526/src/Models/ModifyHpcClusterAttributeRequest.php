@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyHpcClusterAttributeRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** value must contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** value must contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotency](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -30,6 +30,7 @@ class ModifyHpcClusterAttributeRequest extends Model
     /**
      * @description The ID of the HPC cluster.
      *
+     * This parameter is required.
      * @example hpc-b8bq705cvx1****
      *
      * @var string
@@ -37,7 +38,7 @@ class ModifyHpcClusterAttributeRequest extends Model
     public $hpcClusterId;
 
     /**
-     * @description The name of the HPC cluster. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with http:// or https://. It can contain letters, digits, underscores (\_), and hyphens (-).
+     * @description The name of the HPC cluster. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with http:// or https://. It can contain letters, digits, underscores (_), and hyphens (-).
      *
      * This parameter is empty by default.
      * @example testName
@@ -61,8 +62,9 @@ class ModifyHpcClusterAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the HPC cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the HPC cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class ModifyInstanceVpcAttributeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-bp1iudwa5b1tqag1****
      *
      * @var string
@@ -31,7 +32,7 @@ class ModifyInstanceVpcAttributeRequest extends Model
      * @description The new private IP address of the instance.
      *
      * By default, if this parameter is not specified, a private IP address is randomly assigned from the CIDR block of the specified vSwitch.
-     * @example 172.17.**.**
+     * @example 172.17.\*\*.**
      *
      * @var string
      */
@@ -51,7 +52,7 @@ class ModifyInstanceVpcAttributeRequest extends Model
      * @description The ID of security group N to which the instance belongs after the VPC is changed. This parameter is required only when the `VpcId` parameter is specified.
      *
      *   The specified security groups must be of the same type.
-     *   You can specify one or more security groups. The valid values of N depend on the maximum number of security groups to which an instance can belong. For more information, see [Limits](~~25412~~).
+     *   You can specify one or more security groups. The valid values of N depend on the maximum number of security groups to which an instance can belong. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
      *   The specified security groups must belong to the VPC specified by the `VpcId` parameter.
      *
      * @example sg-o6w9l8bc8dgmkw87****
@@ -67,6 +68,7 @@ class ModifyInstanceVpcAttributeRequest extends Model
      *   If this parameter is set to the ID of a different vSwitch and the `VpcId` parameter is not specified, the new vSwitch must belong to the same zone and VPC as the current vSwitch.
      *   If the `VpcId` parameter is specified, the vSwitch specified by this parameter must belong to the specified VPC and the same zone as the current vSwitch.
      *
+     * This parameter is required.
      * @example vsw-bp1s5fnvk4gn3tw12****
      *
      * @var string

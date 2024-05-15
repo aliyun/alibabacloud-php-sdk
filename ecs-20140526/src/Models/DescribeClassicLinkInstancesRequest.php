@@ -43,8 +43,9 @@ class DescribeClassicLinkInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instances. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instances. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -62,7 +63,7 @@ class DescribeClassicLinkInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The VPC ID. The ClassicLink feature must be enabled for the specified VPC. For more information, see [Establish a ClassicLink connection](~~65413~~).
+     * @description The VPC ID. The ClassicLink feature must be enabled for the specified VPC. For more information, see [Establish a ClassicLink connection](https://help.aliyun.com/document_detail/65413.html).
      *
      * @example vpc-bp1vwnn14rqpyiczj****
      *

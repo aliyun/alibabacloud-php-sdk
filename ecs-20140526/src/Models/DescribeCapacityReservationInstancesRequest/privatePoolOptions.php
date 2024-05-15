@@ -11,6 +11,7 @@ class privatePoolOptions extends Model
     /**
      * @description The token used to start the next query.
      *
+     * This parameter is required.
      * @example crp-bp67acfmxazb4****
      *
      * @var string

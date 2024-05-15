@@ -20,8 +20,9 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -31,6 +32,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The ID of resource N. Valid values of N: 1 to 50.
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4ph****
      *
      * @var string[]
@@ -63,6 +65,7 @@ class TagResourcesRequest extends Model
      *   command: Cloud Assistant command
      *   invocation: Cloud Assistant command execution result
      *
+     * This parameter is required.
      * @example instance
      *
      * @var string
@@ -72,6 +75,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags to add to the resource.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

@@ -11,6 +11,7 @@ class DisableActivationRequest extends Model
     /**
      * @description The request ID.
      *
+     * This parameter is required.
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
      *
      * @var string
@@ -30,6 +31,7 @@ class DisableActivationRequest extends Model
     /**
      * @description The activation code ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,7 +11,7 @@ class cpuOptions extends Model
     /**
      * @description The number of CPU cores. This parameter cannot be specified but only uses its default value.
      *
-     * For information about the default value, see [Customize CPU options](~~145895~~).
+     * For information about the default value, see [Customize CPU options](https://help.aliyun.com/document_detail/145895.html).
      * @example 2
      *
      * @var int
@@ -45,7 +45,7 @@ class cpuOptions extends Model
      *   ContinuousCoreToHTMapping: The HT technology allows continuous threads to run on the same core in the CPU topology of the instance.``
      *   DiscreteCoreToHTMapping: The HT technology allows discrete threads to run on the same core in the CPU topology of the instance.``
      *
-     * >  This parameter is supported only for specific instance families. For more information about the supported instance families, see [View and modify the CPU topology](~~2636059~~).
+     * >  This parameter is supported only for specific instance families. For more information about the supported instance families, see [View and modify the CPU topology](https://help.aliyun.com/document_detail/2636059.html).
      * @example DiscreteCoreToHTMapping
      *
      * @var string

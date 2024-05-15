@@ -103,7 +103,7 @@ class RunInstancesRequest extends Model
     public $autoPay;
 
     /**
-     * @description The time when to automatically release the pay-as-you-go instance. Specify the time in the [ISO 8601 standard](~~25696~~) in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * @description The time when to automatically release the pay-as-you-go instance. Specify the time in the [ISO 8601 standard](https://help.aliyun.com/document_detail/25696.html) in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
      *   If the value of seconds (`ss`) is not `00`, the start time is automatically rounded to the nearest minute based on the value of minutes (`mm`).
      *   The specified time must be at least 30 minutes later than the current time.
@@ -142,7 +142,7 @@ class RunInstancesRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -153,8 +153,8 @@ class RunInstancesRequest extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](~~59977~~).
-     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Burstable instances](~~59977~~).
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Burstable instances](https://help.aliyun.com/document_detail/59977.html).
      *
      * @example Standard
      *
@@ -172,7 +172,7 @@ class RunInstancesRequest extends Model
     /**
      * @description The ID of the dedicated host on which to create the instance. If you set the `DedicatedHostId` parameter, the `SpotStrategy` and `SpotPriceLimit` parameters are ignored. This is because preemptible instances cannot be created on dedicated hosts.
      *
-     * You can call the [DescribeDedicatedHosts](~~134242~~) operation to query the list of dedicated host IDs.
+     * You can call the [DescribeDedicatedHosts](https://help.aliyun.com/document_detail/134242.html) operation to query the list of dedicated host IDs.
      * @example dh-bp67acfmxazb4p****
      *
      * @var string
@@ -180,7 +180,7 @@ class RunInstancesRequest extends Model
     public $dedicatedHostId;
 
     /**
-     * @description Specifies whether to enable release protection for the instance. This parameter determines whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance. Valid values:
+     * @description Specifies whether to enable release protection for the instance. This parameter determines whether you can use the ECS console or call the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation to release the instance. Valid values:
      *
      *   true: enables release protection for the instance.
      *   false: disables release protection for the instance.
@@ -245,7 +245,7 @@ class RunInstancesRequest extends Model
      *
      * When you create multiple instances, you can perform the following operations:
      *
-     *   Batch configure sequential hostnames for the instances. For more information, see [Batch configure sequential names or hostnames for multiple instances](~~196048~~).
+     *   Batch configure sequential hostnames for the instances. For more information, see [Batch configure sequential names or hostnames for multiple instances](https://help.aliyun.com/document_detail/196048.html).
      *   Use the `HostNames.N` parameter to configure different hostnames for instances. You cannot specify both the `HostName` and `HostNames.N` parameters.
      *
      * @example k8s-node-[1,4]-ecshost
@@ -266,7 +266,7 @@ class RunInstancesRequest extends Model
     /**
      * @description The ID of the high performance computing (HPC) cluster to which the instance belongs.
      *
-     * This parameter is required when you create instances of a Supper Computing Cluster (SCC) instance type. For information about how to create an HPC cluster, see [CreateHpcCluster](~~109138~~).
+     * This parameter is required when you create instances of a Supper Computing Cluster (SCC) instance type. For information about how to create an HPC cluster, see [CreateHpcCluster](https://help.aliyun.com/document_detail/109138.html).
      * @example hpc-bp67acfmxazb4p****
      *
      * @var string
@@ -279,7 +279,7 @@ class RunInstancesRequest extends Model
      *   enabled
      *   disabled
      *
-     * > For more information about instance metadata, see [Overview of ECS instance metadata](~~49122~~).
+     * > For more information about instance metadata, see [Overview of ECS instance metadata](https://help.aliyun.com/document_detail/49122.html).
      * @example enabled
      *
      * @var string
@@ -302,7 +302,7 @@ class RunInstancesRequest extends Model
      *   optional: does not forcefully use the security-enhanced mode (IMDSv2).
      *   required: forcefully uses the security-enhanced mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
      *
-     * > For more information about the modes of accessing instance metadata, see [Access mode of instance metadata](~~150575~~).
+     * > For more information about the modes of accessing instance metadata, see [Access mode of instance metadata](https://help.aliyun.com/document_detail/150575.html).
      * @example optional
      *
      * @var string
@@ -317,7 +317,7 @@ class RunInstancesRequest extends Model
      *   If you do not specify `ImageId` but use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify a launch template that does not have the `ImageId` parameter specified, you can specify ImageFamily.
      *   If you do not specify `ImageId`, `LaunchTemplateId`, or `LaunchTemplateName`, you can specify ImageFamily.
      *
-     * >  For information about image families that are associated with Alibaba Cloud official images, see [Overview of public images](~~108393~~).
+     * >  For information about image families that are associated with Alibaba Cloud official images, see [Overview of public images](https://help.aliyun.com/document_detail/108393.html).
      * @example hangzhou-daily-update
      *
      * @var string
@@ -325,7 +325,7 @@ class RunInstancesRequest extends Model
     public $imageFamily;
 
     /**
-     * @description The ID of the image. You can call the [DescribeImages](~~25534~~) operation to query available images. If you do not use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template and do not set `ImageFamily` to obtain the latest available custom image from a specified image family, you must specify `ImageId`.
+     * @description The ID of the image. You can call the [DescribeImages](https://help.aliyun.com/document_detail/25534.html) operation to query available images. If you do not use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template and do not set `ImageFamily` to obtain the latest available custom image from a specified image family, you must specify `ImageId`.
      *
      * @example aliyun_2_1903_x64_20G_alibase_20200324.vhd
      *
@@ -354,9 +354,9 @@ class RunInstancesRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance name. The name must be 2 to 128 characters in length and support Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can contain colons (:), underscores (\_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
+     * @description The instance name. The name must be 2 to 128 characters in length and support Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can contain colons (:), underscores (_), periods (.), and hyphens (-). The default value of this parameter is the `InstanceId` value.
      *
-     * When you batch create instances, you can batch configure sequential names for the instances. For more information, see [Batch configure sequential names or hostnames for multiple instances](~~196048~~).
+     * When you batch create instances, you can batch configure sequential names for the instances. For more information, see [Batch configure sequential names or hostnames for multiple instances](https://help.aliyun.com/document_detail/196048.html).
      * @example k8s-node-[1,4]-alibabacloud
      *
      * @var string
@@ -366,8 +366,8 @@ class RunInstancesRequest extends Model
     /**
      * @description The instance type. If you do not use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template, you must set the `InstanceType` parameter.
      *
-     *   Select an instance type. See [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of an instance type, or see [Best practices for instance type selection](~~58291~~) to learn about how to select instance types.
-     *   Query available resources. Call the [DescribeAvailableResource](~~66186~~) operation to query available resources in a specific region or zone.
+     *   Select an instance type. See [Instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the performance data of an instance type, or see [Best practices for instance type selection](https://help.aliyun.com/document_detail/58291.html) to learn about how to select instance types.
+     *   Query available resources. Call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to query available resources in a specific region or zone.
      *
      * @example ecs.g6.large
      *
@@ -413,7 +413,7 @@ class RunInstancesRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description Specifies whether the instance is I/O optimized. For instances of [retired instance types](~~55263~~), the default value is none. For instances of other instance types, the default value is optimized. Valid values:
+     * @description Specifies whether the instance is I/O optimized. For instances of [retired instance types](https://help.aliyun.com/document_detail/55263.html), the default value is none. For instances of other instance types, the default value is optimized. Valid values:
      *
      *   none: The instance is not I/O optimized.
      *   optimized: The instance is I/O optimized.
@@ -474,7 +474,7 @@ class RunInstancesRequest extends Model
     public $keyPairName;
 
     /**
-     * @description The ID of the launch template. For more information, call the [DescribeLaunchTemplates](~~73759~~) operation.
+     * @description The ID of the launch template. For more information, call the [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html) operation.
      *
      * To use a launch template to create an instance, you must use the `LaunchTemplateId` or `LaunchTemplateName` parameter to specify the launch template.
      * @example lt-bp1apo0bbbkuy0rj****
@@ -525,7 +525,7 @@ class RunInstancesRequest extends Model
      * @description The number of queues supported by the primary ENI. Take note of the following items:
      *
      *   The value of this parameter cannot exceed the maximum number of queues per ENI allowed for the instance type.
-     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
+     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
      *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot specify `NetworkInterfaceQueueNumber` but can specify `NetworkInterface.N.QueueNumber`.
      *
      * @example 8
@@ -554,7 +554,7 @@ class RunInstancesRequest extends Model
     /**
      * @description The password of the instance. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
      *
-     * ()`~!@#$%^&*-_+=|{}[]:;\"<>,.?/
+     * ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
      *
      * > If the `Password` parameter is specified, we recommend that you send requests over HTTPS to prevent password leaks.
      * @example EcsV587!
@@ -613,14 +613,14 @@ class RunInstancesRequest extends Model
      *   If `NetworkInterface.N.InstanceType` is set to `Primary`, you cannot specify `PrivateIpAddress` but can specify `NetworkInterface.N.PrimaryIpAddress`.
      *
      * >  The first IP address and last three IP addresses of each vSwitch CIDR block are reserved. You cannot specify the IP addresses. For example, if a vSwitch CIDR block is 192.168.1.0/24, the IP addresses 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255 are reserved.
-     * @example 10.1.**.**
+     * @example 10.1.\*\*.**
      *
      * @var string
      */
     public $privateIpAddress;
 
     /**
-     * @description The name of the Resource Access Management (RAM) role. You can call the [ListRoles](~~28713~~) operation provided by RAM to query the instance RAM roles that you created.
+     * @description The name of the Resource Access Management (RAM) role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation provided by RAM to query the instance RAM roles that you created.
      *
      * @example RAM_Name
      *
@@ -629,8 +629,9 @@ class RunInstancesRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The ID of the region in which to create the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -669,7 +670,7 @@ class RunInstancesRequest extends Model
     public $securityEnhancementStrategy;
 
     /**
-     * @description The ID of the security group to which you want to assign the instance. Instances in the same security group can communicate with each other. The maximum number of instances that a security group can contain depends on the type of the security group. For more information, see the "Security group limits" section in [Limits](~~25412~~#SecurityGroupQuota).
+     * @description The ID of the security group to which you want to assign the instance. Instances in the same security group can communicate with each other. The maximum number of instances that a security group can contain depends on the type of the security group. For more information, see the "Security group limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html#SecurityGroupQuota).
      *
      * If you do not use `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template, you must specify SecurityGroupId. Take note of the following items:
      *
@@ -683,7 +684,7 @@ class RunInstancesRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group N to which to assign the instance. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see [Security group limits](~~101348~~).
+     * @description The ID of security group N to which to assign the instance. The valid values of N vary based on the maximum number of security groups to which an instance can belong. For more information, see [Security group limits](https://help.aliyun.com/document_detail/101348.html).
      *
      * Take note of the following items:
      *
@@ -790,7 +791,7 @@ class RunInstancesRequest extends Model
      *   true
      *   false
      *
-     * For more information, see [Batch configure sequential names or hostnames for multiple instances](~~196048~~).
+     * For more information, see [Batch configure sequential names or hostnames for multiple instances](https://help.aliyun.com/document_detail/196048.html).
      * @example true
      *
      * @var bool
@@ -800,7 +801,7 @@ class RunInstancesRequest extends Model
     /**
      * @description The user data of the instance. The user data must be encoded in Base64. The raw data can be up to 16 KB in size.
      *
-     * >  If the instance type supports [user data](~~49121~~), you can use the UserData parameter to pass in user data. We recommend that you do not pass in confidential information (such as passwords or private keys) in plaintext as user data. This is because the system does not encrypt UserData values when API requests are transmitted. If you must pass in confidential information, we recommend that you encrypt and encode the information in Base64, and then decode and decrypt the information in the same way inside the instance.
+     * >  If the instance type supports [user data](https://help.aliyun.com/document_detail/49121.html), you can use the UserData parameter to pass in user data. We recommend that you do not pass in confidential information (such as passwords or private keys) in plaintext as user data. This is because the system does not encrypt UserData values when API requests are transmitted. If you must pass in confidential information, we recommend that you encrypt and encode the information in Base64, and then decode and decrypt the information in the same way inside the instance.
      * @example ZWNobyBoZWxsbyBlY3Mh
      *
      * @var string
@@ -808,7 +809,7 @@ class RunInstancesRequest extends Model
     public $userData;
 
     /**
-     * @description The ID of the vSwitch to which to connect to the instance. You must set this parameter when you create an instance of the VPC type. The specified vSwitch and security group must belong to the same VPC. You can call the [DescribeVSwitches](~~35748~~) operation to query available vSwitches.
+     * @description The ID of the vSwitch to which to connect to the instance. You must set this parameter when you create an instance of the VPC type. The specified vSwitch and security group must belong to the same VPC. You can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query available vSwitches.
      *
      * Take note of the following items:
      *
@@ -822,7 +823,7 @@ class RunInstancesRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the zone in which to create the instance. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The ID of the zone in which to create the instance. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
      *
      * This parameter is empty by default.
      * @example cn-hangzhou-g

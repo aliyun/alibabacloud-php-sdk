@@ -28,7 +28,7 @@ class DescribeKeyPairsRequest extends Model
     public $keyPairFingerPrint;
 
     /**
-     * @description The name of the key pair. You can use the asterisk (\*) symbol as a wildcard in regular expressions to perform a fuzzy search for key pairs. Sample patterns:
+     * @description The name of the key pair. You can use the asterisk (\\*) symbol as a wildcard in regular expressions to perform a fuzzy search for key pairs. Sample patterns:
      *
      *   `*SshKey`: queries key pairs whose names end with SshKey, including the key pair named SshKey.
      *   `SshKey*`: queries key pairs whose names start with SshKey, including the key pair named SshKey.
@@ -67,8 +67,9 @@ class DescribeKeyPairsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the key pair. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the key pair. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

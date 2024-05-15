@@ -15,6 +15,8 @@ class CreateRouteEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $destinationCidrBlock;
@@ -60,6 +62,8 @@ class CreateRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $routeTableId;

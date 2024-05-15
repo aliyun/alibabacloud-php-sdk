@@ -21,7 +21,7 @@ class ModifyInstanceAttributeRequest extends Model
      *   Standard
      *   Unlimited
      *
-     * For more information about the performance modes of burstable instances, see [Overview](~~59977~~).
+     * For more information about the performance modes of burstable instances, see [Overview](https://help.aliyun.com/document_detail/59977.html).
      * @example Standard
      *
      * @var string
@@ -29,7 +29,7 @@ class ModifyInstanceAttributeRequest extends Model
     public $creditSpecification;
 
     /**
-     * @description The release protection attribute of the instance. This parameter specifies whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance.
+     * @description The release protection attribute of the instance. This parameter specifies whether you can use the ECS console or call the [DeleteInstance](https://help.aliyun.com/document_detail/25507.html) operation to release the instance.
      *
      * >  This parameter is applicable only to pay-as-you-go instances. The release protection attribute can protect instances against manual releases, but not against automatic releases.
      * @example false
@@ -39,9 +39,8 @@ class ModifyInstanceAttributeRequest extends Model
     public $deletionProtection;
 
     /**
-     * @description The instance description. The description must be 2 to 256 characters in length, and cannot start with `http://` or `https://`.
+     * @description The description of the instance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
-     * This parameter is empty by default.
      * @example testInstanceDescription
      *
      * @var string
@@ -49,13 +48,9 @@ class ModifyInstanceAttributeRequest extends Model
     public $description;
 
     /**
-     * @description Specifies whether to enable the Jumbo Frame feature for the MTU of the instance.
+     * @description Specifies whether to enable the Jumbo Frames feature for the instance. Valid values:
      *
-     * true
-     *
-     * false
-     *
-     * You can enable the Jumbo Frame feature for only specific instance types. For more information, see [MTUs](~~200512~~).
+     * You can enable the Jumbo Frames feature only for specific instance types. For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
      * @example false
      *
      * @var bool
@@ -65,13 +60,13 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @description The hostname of the instance. Take note of the following items:
      *
-     *   When you modify the hostname of an instance, the instance must not be in the Creating (Pending) or Starting (Starting) state. Otherwise, the new hostname and the configurations in `/etc/hosts` cannot take effect. You can call the [DescribeInstances](~~25506~~) operation to query the state of the instance.
-     *   After you modify the hostname, you must call the [RebootInstance](~~25502~~) operation for the new hostname to take effect.
+     *   When you change the hostname of the instance, the instance cannot be in the Creating (`Pending`) or Starting (`Starting`) state. Otherwise, the new hostname and the configurations in `/etc/hosts` may not take effect. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query the status of the instance.
+     *   After you change the hostname, you must call the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation for the new hostname to take effect.
      *
      * The following limits apply to the hostnames of instances that run different operating systems:
      *
-     *   For Windows Server, the hostname must be 2 to 15 characters in length and can contain letters, digits, and hyphens (-). It cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
-     *   For other operating systems such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate a hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-). The hostname cannot contain consecutive periods (.) or hyphens (-). It cannot start or end with a period (.) or a hyphen (-).
+     *   For Windows Server, the hostname must be 2 to 15 characters in length and can contain letters, digits, and hyphens (-). The hostname cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
+     *   For other operating systems such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate a hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-). The hostname cannot contain consecutive periods (.) or hyphens (-). The hostname cannot start or end with a period (.) or a hyphen (-).
      *
      * @example testHostName
      *
@@ -82,6 +77,7 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4ph****
      *
      * @var string
@@ -89,7 +85,7 @@ class ModifyInstanceAttributeRequest extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example testInstanceName
      *
@@ -117,11 +113,9 @@ class ModifyInstanceAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The password of the instance. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
+     * @description The password of the instance. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
      *
-     * ```
-     *
-     * ()`~!@#$%^&*-_+=|{}[]:;\"<>,.?/
+     * ( ) ` ~ ! @ # $ % ^ & * - _ + = | { } [ ] : ; \\" < > , . ? /
      *
      * >  For security reasons, we recommend that you use HTTPS to send requests if `Password` is specified.
      * @example Test123456
@@ -160,10 +154,10 @@ class ModifyInstanceAttributeRequest extends Model
      * @description The IDs of replacement security groups.
      *
      *   All security group IDs must be unique.
-     *   The instance is moved from the current security groups to the replacement security groups. If you want the instance to remain in the current security groups, you must add the IDs of the current security groups to the list.
+     *   The instance is moved from the current security groups to the replacement security groups. If you want the instance to remain in the current security groups, add the IDs of the current security groups to the list.
      *   You can move the instance to security groups of a different type. However, the list cannot contain the IDs of both basic and advanced security groups.
-     *   The specified security groups and instance must belong to the same virtual private cloud (VPC).
-     *   The valid values of N are based on the maximum number of security groups to which the instance can belong. For more information, see [Limits](~~25412#SecurityGroupQuota1~~).
+     *   The security groups and the instance must belong to the same VPC.
+     *   The valid values of N vary based on the maximum number of security groups to which the instance can belong. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section in the "Limits" topic.
      *   New security groups become valid for the instance after a short latency.
      *
      * @example sg-bp15ed6xe1yxeycg7o****
@@ -173,9 +167,9 @@ class ModifyInstanceAttributeRequest extends Model
     public $securityGroupIds;
 
     /**
-     * @description The user data of the instance. User data must be encoded in Base64.
+     * @description The user data of the instance. The user data must be encoded in Base64.
      *
-     * The size of the user data cannot exceed 16 KB before it is encoded in Base64. We recommend that you do not pass in confidential information such as passwords and private keys in plaintext. If you must pass in confidential information, we recommend that you encrypt and Base64-encode the information before you pass it in. Then, you can decode and decrypt the information in the same way within the instance.
+     * The maximum size of the raw data before encoding is 32 KB. We recommend that you do not pass in confidential information such as passwords and private keys in plaintext. If you must pass in confidential information, we recommend that you encrypt and Base64-encode the information before you pass it in. Then, you can decode and decrypt the information in the same way within the instance.
      * @example ZWNobyBoZWxsbyBlY3Mh
      *
      * @var string

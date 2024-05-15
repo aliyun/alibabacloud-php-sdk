@@ -92,7 +92,7 @@ class DescribeInstanceTypesRequest extends Model
      *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type
      *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type
      *   ECS Bare Metal: ECS Bare Metal Instance type
-     *   Super Computing Cluster: Super Computing Cluster (SCC) instance type
+     *   Super Computing Cluster: SCC instance type
      *   High Performance Compute: high-performance computing instance type
      *
      * @example Big data
@@ -122,9 +122,9 @@ class DescribeInstanceTypesRequest extends Model
     public $instanceTypeFamilies;
 
     /**
-     * @description The instance family to which the instance type belongs. For information about the valid values of this parameter, see [DescribeInstanceTypeFamilies](~~25621~~).
+     * @description The instance family to which the instance type belongs. For information about the valid values of this parameter, see [DescribeInstanceTypeFamilies](https://help.aliyun.com/document_detail/25621.html).
      *
-     * For more information about instance families, see [Instance families](~~25378~~).
+     * For more information about instance families, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
      * @example ecs.g6
      *
      * @var string
@@ -141,7 +141,7 @@ class DescribeInstanceTypesRequest extends Model
     public $instanceTypes;
 
     /**
-     * @description The categories of local disks. Valid values of N: 1 and 2. For more information, see [Local disks](~~63138#section_n2w\_8yc\_5u1~~). Valid values:
+     * @description The categories of local disks. Valid values of N: 1 and 2. For more information, see [Local disks](~~63138#section_n2w_8yc_5u1~~). Valid values:
      *
      *   local_hdd_pro: local SATA HDDs, which are attached to d1ne or d1 instances
      *   local_ssd_pro: local NVMe SSDs, which are attached to i2, i2g, i1, ga1, or gn5 instances
@@ -151,12 +151,12 @@ class DescribeInstanceTypesRequest extends Model
     public $localStorageCategories;
 
     /**
-     * @description The category of local disks. For more information, see [Local disks](~~63138#section_n2w\_8yc\_5u1~~). Valid values:
+     * @description The category of local disks. For more information, see [Local disks](~~63138#section_n2w_8yc_5u1~~). Valid values:
      *
      *   local_hdd_pro: local Serial Advanced Technology Attachment (SATA) HDDs, which are attached to d1ne or d1 instances.
      *   local_ssd_pro: local Non-Volatile Memory Express (NVMe) SSDs, which are attached to i2, i2g, i1, ga1, or gn5 instances.
      *
-     * Enumerated values:
+     * Valid values:
      *
      *   local_hdd_pro
      *   local_ssd_pro

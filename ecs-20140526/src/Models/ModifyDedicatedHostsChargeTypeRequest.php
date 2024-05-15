@@ -22,7 +22,7 @@ class ModifyDedicatedHostsChargeTypeRequest extends Model
     public $autoPay;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example e4567-e89b-12d3-a456-426655440000
      *
@@ -46,6 +46,7 @@ class ModifyDedicatedHostsChargeTypeRequest extends Model
     /**
      * @description The IDs of the dedicated hosts. The value can be a JSON array that consists of up to 20 dedicated host IDs. Separate the IDs with commas (,).
      *
+     * This parameter is required.
      * @example ["dh-bp181e5064b5sotr****","dh-bp18064b5sotrr9c****"]
      *
      * @var string
@@ -111,8 +112,9 @@ class ModifyDedicatedHostsChargeTypeRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The region ID of the dedicated hosts. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the dedicated hosts. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

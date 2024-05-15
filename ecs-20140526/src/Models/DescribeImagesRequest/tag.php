@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The tag N key of the image. Valid values of N: 1 to 20.
      *
-     * Up to 1,000 resources that match the specified tags can be returned in the response. To query more than 1,000 resources that match the specified tags, call the [ListTagResources](~~110425~~) operation.
+     * Up to 1,000 resources that match the specified tags can be returned in the response. To query more than 1,000 resources that match the specified tags, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation.
      * @example TestKey
      *
      * @var string

@@ -11,6 +11,7 @@ class ModifyDeploymentSetAttributeRequest extends Model
     /**
      * @description The ID of the deployment set.
      *
+     * This parameter is required.
      * @example ds-bp1frxuzdg87zh4p****
      *
      * @var string
@@ -18,7 +19,7 @@ class ModifyDeploymentSetAttributeRequest extends Model
     public $deploymentSetId;
 
     /**
-     * @description The new name of the deployment set. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The new name of the deployment set. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example DeploymentSetTestName
      *
@@ -50,8 +51,9 @@ class ModifyDeploymentSetAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the deployment set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the deployment set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -35,7 +35,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $cpu;
 
     /**
-     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](~~25696~~).
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
      *
      * @example 2017-12-10T04:04Z
      *
@@ -81,7 +81,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     /**
      * @description ECS实例是否开启了Jumbo frame特性。 可能值：
      *
-     * 更多信息，请参见[ECS实例MTU](~~200512~~)。
+     * 更多信息，请参见[ECS实例MTU](https://help.aliyun.com/document_detail/200512.html)。
      * @example false
      *
      * @var bool
@@ -89,7 +89,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $enableJumboFrame;
 
     /**
-     * @description The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](~~25696~~).
+     * @description The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
      *
      * @example 2017-12-10T04:04Z
      *

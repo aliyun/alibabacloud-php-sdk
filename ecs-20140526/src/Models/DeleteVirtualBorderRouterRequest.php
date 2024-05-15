@@ -24,6 +24,8 @@ class DeleteVirtualBorderRouterRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +46,8 @@ class DeleteVirtualBorderRouterRequest extends Model
     public $userCidr;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $vbrId;

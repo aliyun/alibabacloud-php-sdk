@@ -11,7 +11,7 @@ class eventTime extends Model
     /**
      * @description The end of the time range to query occurred events.
      *
-     * Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      * @example 2018-05-08T02:48:52Z
      *
      * @var string
@@ -21,7 +21,7 @@ class eventTime extends Model
     /**
      * @description The beginning of the time range to query occurred events.
      *
-     * Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      * @example 2018-05-06T02:43:10Z
      *
      * @var string

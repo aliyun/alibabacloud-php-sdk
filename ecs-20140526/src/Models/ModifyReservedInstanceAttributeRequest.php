@@ -30,6 +30,7 @@ class ModifyReservedInstanceAttributeRequest extends Model
     /**
      * @description The ID of the reserved instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -37,8 +38,9 @@ class ModifyReservedInstanceAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description The new name of the reserved instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The new name of the reserved instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
+     * This parameter is required.
      * @example ecsri-uf61hdhue4kcorqsk****
      *
      * @var string

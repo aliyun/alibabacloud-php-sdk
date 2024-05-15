@@ -9,18 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyCommandRequest extends Model
 {
     /**
-     * @description The command content. The command content can be plaintext or Base64-encoded. Take note of the following items:
-     *
-     *   The Base64-encoded command content can be up to 16 KB in size.
-     *
-     *   If the command content is Base64-encoded, set `ContentEncoding` to Base64.
-     *
-     *   If you set `EnableParameter` to true, the custom parameter feature is enabled and you can specify custom parameters based on the following rules:
-     *
-     *   Specify custom parameters in the `{{}}` format. When parameter names are enclosed in `{{}}`, the spaces and line feeds before and after the parameter names are ignored.
-     *   You can specify up to 20 custom parameters.
-     *   A custom parameter name can contain only letters, digits, underscores (\_), and hyphens (-). The name is not case-sensitive.
-     *   Each custom parameter name cannot exceed 64 bytes in length.
+     * @description >  This parameter is no longer used and does not take effect.
      *
      * @example echo
      *
@@ -29,8 +18,9 @@ class ModifyCommandRequest extends Model
     public $commandContent;
 
     /**
-     * @description The command ID. You can call the [DescribeCommands](~~64843~~) operation to query all available command IDs.
+     * @description The command ID. You can call the [DescribeCommands](https://help.aliyun.com/document_detail/64843.html) operation to query all available command IDs.
      *
+     * This parameter is required.
      * @example c-hz01272yr52****
      *
      * @var string
@@ -66,8 +56,9 @@ class ModifyCommandRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the command. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -94,7 +85,7 @@ class ModifyCommandRequest extends Model
     public $timeout;
 
     /**
-     * @description The working directory of the command.
+     * @description The working directory of the command. The value can be up to 200 characters in length.
      *
      * @example /home/
      *

@@ -14,6 +14,8 @@ class DescribeForwardTableEntriesRequest extends Model
     public $forwardEntryId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $forwardTableId;
@@ -39,6 +41,8 @@ class DescribeForwardTableEntriesRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

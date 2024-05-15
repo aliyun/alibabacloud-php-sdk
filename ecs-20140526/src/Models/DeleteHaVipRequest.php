@@ -14,6 +14,8 @@ class DeleteHaVipRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $haVipId;
@@ -29,6 +31,8 @@ class DeleteHaVipRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;

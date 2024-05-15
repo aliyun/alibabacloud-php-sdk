@@ -16,8 +16,9 @@ class DescribeTaskAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the task. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the task. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -39,8 +40,9 @@ class DescribeTaskAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the task. You can call the [DescribeTasks](~~25622~~) operation to query the list of task IDs.
+     * @description The ID of the task. You can call the [DescribeTasks](https://help.aliyun.com/document_detail/25622.html) operation to query the list of task IDs.
      *
+     * This parameter is required.
      * @example t-ce946ntx4wr****
      *
      * @var string

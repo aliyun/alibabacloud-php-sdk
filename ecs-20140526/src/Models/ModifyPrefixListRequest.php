@@ -39,6 +39,7 @@ class ModifyPrefixListRequest extends Model
     /**
      * @description The ID of the prefix list.
      *
+     * This parameter is required.
      * @example pl-x1j1k5ykzqlixdcy****
      *
      * @var string
@@ -46,7 +47,7 @@ class ModifyPrefixListRequest extends Model
     public $prefixListId;
 
     /**
-     * @description The name of the prefix list. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-). It must start with a letter and cannot start with `http://`, `https://`, `com.aliyun`, or `com.alibabacloud`.
+     * @description The name of the prefix list. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). It must start with a letter and cannot start with `http://`, `https://`, `com.aliyun`, or `com.alibabacloud`.
      *
      * @example PrefixListNameSample
      *
@@ -55,8 +56,9 @@ class ModifyPrefixListRequest extends Model
     public $prefixListName;
 
     /**
-     * @description The region ID of the prefix list. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the prefix list. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-chengdu
      *
      * @var string

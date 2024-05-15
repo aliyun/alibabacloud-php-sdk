@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNatGatewayRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var bandwidthPackage[]
      */
     public $bandwidthPackage;
@@ -40,6 +42,8 @@ class CreateNatGatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -55,6 +59,8 @@ class CreateNatGatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $vpcId;

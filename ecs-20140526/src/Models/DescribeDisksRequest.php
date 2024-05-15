@@ -305,8 +305,9 @@ class DescribeDisksRequest extends Model
     public $portable;
 
     /**
-     * @description The region ID of the disk. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -343,7 +344,7 @@ class DescribeDisksRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The state of the cloud disk. For more information, see [Disk states](~~25689~~). Valid values:
+     * @description The state of the cloud disk. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html). Valid values:
      *
      *   In_use
      *   Available

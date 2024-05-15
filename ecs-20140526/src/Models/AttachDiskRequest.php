@@ -48,7 +48,7 @@ class AttachDiskRequest extends Model
     /**
      * @description The ID of the disk. The disk specified by the `DiskId` parameter and the instance specified by the `InstanceId` parameter must reside in the same zone.
      *
-     * > For more information about the limits on attaching a data disk and a system disk, see the "Usage notes" section of this topic.
+     * This parameter is required.
      * @example d-bp1j4l5axzdy6ftk****
      *
      * @var string
@@ -63,6 +63,7 @@ class AttachDiskRequest extends Model
     /**
      * @description The ID of the instance to which you want to attach the disk.
      *
+     * This parameter is required.
      * @example i-bp1dq5lozx5f4pmd****
      *
      * @var string
@@ -94,7 +95,7 @@ class AttachDiskRequest extends Model
     /**
      * @description The password that is set when you attach the system disk. The password is applicable only to the administrator and root users. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
      *
-     * ()`~!@#$%^&*-_+=|{}[]:;\"<>,.?/
+     * ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
      *
      * > If `Password` is configured, we recommend that you send requests over HTTPS to prevent password leaks.
      * @example EcsV587!

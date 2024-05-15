@@ -26,7 +26,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $assuranceTimes;
 
     /**
-     * @description The client token that you want to use to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that you want to use to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -66,6 +66,7 @@ class CreateElasticityAssuranceRequest extends Model
     /**
      * @description The instance type. An elasticity assurance can be created to reserve the capacity of a single instance type.
      *
+     * This parameter is required.
      * @example ecs.c6.xlarge
      *
      * @var string[]
@@ -109,8 +110,9 @@ class CreateElasticityAssuranceRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The ID of the region in which to create the elasticity assurance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to create the elasticity assurance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -137,7 +139,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The time when the elasticity assurance takes effect. The default value is the time when the CreateElasticityAssurance operation is called to create the elasticity assurance. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](~~25696~~).
+     * @description The time when the elasticity assurance takes effect. The default value is the time when the CreateElasticityAssurance operation is called to create the elasticity assurance. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
      *
      * @example 2020-10-30T06:32:00Z
      *
@@ -155,6 +157,7 @@ class CreateElasticityAssuranceRequest extends Model
     /**
      * @description The ID of the zone in which to create the elasticity assurance. An elasticity assurance can be used to reserve resources within a single zone.
      *
+     * This parameter is required.
      * @example cn-hangzhou-h
      *
      * @var string[]

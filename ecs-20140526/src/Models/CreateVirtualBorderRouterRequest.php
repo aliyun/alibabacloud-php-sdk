@@ -54,11 +54,15 @@ class CreateVirtualBorderRouterRequest extends Model
     public $peeringSubnetMask;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $physicalConnectionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -84,6 +88,8 @@ class CreateVirtualBorderRouterRequest extends Model
     public $vbrOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $vlanId;

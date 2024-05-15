@@ -43,7 +43,7 @@ class DescribeInstanceRamRoleRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the instance RAM role. You can call the [ListRoles](~~28713~~) operation provided by RAM to query the instance RAM roles that you created. You must specify at least one of the `InstanceIds` and `RamRoleName` parameters.
+     * @description The name of the instance RAM role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation provided by RAM to query the instance RAM roles that you created. You must specify at least one of the `InstanceIds` and `RamRoleName` parameters.
      *
      * @example EcsServiceRole-EcsDocGuideTest
      *
@@ -52,8 +52,9 @@ class DescribeInstanceRamRoleRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description The region ID of the instance RAM role. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the instance RAM role. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

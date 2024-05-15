@@ -14,7 +14,7 @@ class image extends Model
      * @description The image architecture. Valid values:
      *
      *   i386
-     *   x86\_64
+     *   x86_64
      *
      * @example x86_64
      *

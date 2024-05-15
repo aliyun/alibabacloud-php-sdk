@@ -60,6 +60,7 @@ class DescribeLaunchTemplatesRequest extends Model
     /**
      * @description The tags of the launch template.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

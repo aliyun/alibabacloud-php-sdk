@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsResponseBody extends Model
 {
     /**
-     * @description The queried dedicated hosts.
+     * @description Information about the dedicated hosts.
      *
      * @var dedicatedHosts
      */
     public $dedicatedHosts;
 
     /**
+     * @example e71d8a535bd9cc11
+     *
      * @var string
      */
     public $nextToken;
