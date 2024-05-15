@@ -30,7 +30,7 @@ class ipCountOrFunctionList extends Model
     public $ipCntOv;
 
     /**
-     * @example [{\"eipCnIpCount\":3,\"eipOvIpCount\":18,\"memberUid\":\"\",\"standardAssetsCnIpCount\":2,\"standardAssetsOvIpCount\":0},{\"eipCnIpCount\":3,\"eipOvIpCount\":0,\"memberUid\":\"1776997906319249\",\"standardAssetsCnIpCount\":0,\"standardAssetsOvIpCount\":0}]
+     * @example [{\\"eipCnIpCount\\":3,\\"eipOvIpCount\\":18,\\"memberUid\\":\\"\\",\\"standardAssetsCnIpCount\\":2,\\"standardAssetsOvIpCount\\":0},{\\"eipCnIpCount\\":3,\\"eipOvIpCount\\":0,\\"memberUid\\":\\"1776997906319249\\",\\"standardAssetsCnIpCount\\":0,\\"standardAssetsOvIpCount\\":0}]
      *
      * @var string
      */

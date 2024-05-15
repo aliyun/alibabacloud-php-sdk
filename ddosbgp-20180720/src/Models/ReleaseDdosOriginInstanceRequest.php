@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseDdosOriginInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ddosorigin_cn-pe335v7gs01
      *
      * @var string

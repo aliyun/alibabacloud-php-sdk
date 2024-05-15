@@ -12,7 +12,7 @@ class DescribePackIpListResponseBody extends Model
     /**
      * @description The HTTP status code of the request.
      *
-     * For more information about status codes, see [Common parameters](~~118841~~).
+     * For more information about status codes, see [Common parameters](https://help.aliyun.com/document_detail/118841.html).
      * @example 200
      *
      * @var string

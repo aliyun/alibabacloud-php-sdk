@@ -20,6 +20,7 @@ class DescribeAssetGroupRequest extends Model
     /**
      * @description The region ID of the asset.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,7 +30,7 @@ class DescribeAssetGroupRequest extends Model
     /**
      * @description The ID of the region in which the instance resides.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +52,7 @@ class DescribeAssetGroupRequest extends Model
      *   **waf**: WAF instance
      *   **ga**: Global Accelerator (GA) instance
      *
+     * This parameter is required.
      * @example waf
      *
      * @var string

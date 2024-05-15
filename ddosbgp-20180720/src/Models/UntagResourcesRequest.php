@@ -20,6 +20,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The ID of the region where the Anti-DDoS Origin Enterprise instances reside.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +37,8 @@ class UntagResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ddosbgp-cn-v0h1fmwbc024
      *
      * @var string[]
@@ -45,6 +48,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The type of the specified resource. Set the value to **INSTANCE**.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

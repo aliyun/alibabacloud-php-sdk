@@ -11,7 +11,7 @@ class DeleteBlackholeRequest extends Model
     /**
      * @description The ID of the Anti-DDoS Origin instance.
      *
-     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+     * This parameter is required.
      * @example ddosbgp-cn-n6w1r7nz****
      *
      * @var string
@@ -21,7 +21,7 @@ class DeleteBlackholeRequest extends Model
     /**
      * @description The IP address for which you want to deactivate blackhole filtering.
      *
-     * >  You can call the [DescribePackIpList](~~118701~~) operation to query all the IP addresses that are protected by the Anti-DDoS Origin instance and the protection status of the IP addresses. For example, you can query whether blackhole filtering is triggered for an IP address.
+     * This parameter is required.
      * @example 47.89.XX.XX
      *
      * @var string
@@ -31,7 +31,7 @@ class DeleteBlackholeRequest extends Model
     /**
      * @description The ID of the region where the Anti-DDoS Origin instance resides.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

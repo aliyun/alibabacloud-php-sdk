@@ -14,7 +14,7 @@ class instances extends Model
      *   **region**: The code of the data center outside the Chinese mainland. The value is of the STRING type. For more information, see **Codes of data centers outside the Chinese mainland**.
      *   **declared**: indicates whether the data center advertised the route. The value is of the STRING type. Valid values: **0** and **1**. The value of 0 indicates that the data center did not advertise the route. The value of 1 indicates that the data center advertised the route.
      *
-     * @example [{\"region\":\"oe24\",\"declared\":0},{\"region\":\"oe26\",\"declared\":0},{\"region\":\"oe28\",\"declared\":0},{\"region\":\"oi39\",\"declared\":0},{\"region\":\"us50\",\"declared\":0},{\"region\":\"jp141\",\"declared\":0}]
+     * @example [{\\"region\\":\\"oe24\\",\\"declared\\":0},{\\"region\\":\\"oe26\\",\\"declared\\":0},{\\"region\\":\\"oe28\\",\\"declared\\":0},{\\"region\\":\\"oi39\\",\\"declared\\":0},{\\"region\\":\\"us50\\",\\"declared\\":0},{\\"region\\":\\"jp141\\",\\"declared\\":0}]
      *
      * @var string
      */

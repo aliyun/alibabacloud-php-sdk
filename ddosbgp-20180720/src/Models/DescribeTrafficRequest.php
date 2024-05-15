@@ -33,7 +33,7 @@ class DescribeTrafficRequest extends Model
     /**
      * @description The ID of the Anti-DDoS Origin instance to query.
      *
-     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+     * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
      *
      * If you specify an on-demand instance, you must configure the **Interval** parameter.
      * @example ddosbgp-cn-n6w203qg****
@@ -54,7 +54,7 @@ class DescribeTrafficRequest extends Model
     /**
      * @description The public IP address of the asset to query. If you do not specify this parameter, the traffic statistics of all public IP addresses that are protected by the Anti-DDoS Origin instance are queried.
      *
-     * >  The public IP address must be a protected object of the Anti-DDoS Origin instance. You can call the [DescribePackIpList](~~118701~~) operation to query all protected objects of the Anti-DDoS Origin instance.
+     * >  The public IP address must be a protected object of the Anti-DDoS Origin instance. You can call the [DescribePackIpList](https://help.aliyun.com/document_detail/118701.html) operation to query all protected objects of the Anti-DDoS Origin instance.
      * @example 39.XX.XX.96
      *
      * @var string
@@ -73,7 +73,7 @@ class DescribeTrafficRequest extends Model
     /**
      * @description The ID of the region where the Anti-DDoS Origin instance resides.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -93,6 +93,7 @@ class DescribeTrafficRequest extends Model
     /**
      * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1619798400
      *
      * @var int

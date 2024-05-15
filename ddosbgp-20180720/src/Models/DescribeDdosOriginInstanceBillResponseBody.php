@@ -24,7 +24,7 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $flowList;
 
     /**
-     * @example {\"cn-hongkong\": 166491566}
+     * @example {\\"cn-hongkong\\": 166491566}
      *
      * @var mixed[]
      */
@@ -50,7 +50,7 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $ipCountOrFunctionList;
 
     /**
-     * @example {\"eipCnIpCount\":6,\"eipOvIpCount\":17,\"standardAssetsCnIpCount\":2,\"standardAssetsOvIpCount\":0}
+     * @example {\\"eipCnIpCount\\":6,\\"eipOvIpCount\\":17,\\"standardAssetsCnIpCount\\":2,\\"standardAssetsOvIpCount\\":0}
      *
      * @var string
      */
@@ -69,7 +69,7 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $standardAssetsFlowList;
 
     /**
-     * @example {\"cn-hongkong\": 166491566}
+     * @example {\\"cn-hongkong\\": 166491566}
      *
      * @var mixed[]
      */

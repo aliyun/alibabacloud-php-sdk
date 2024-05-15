@@ -11,6 +11,7 @@ class DescribeOpEntitiesRequest extends Model
     /**
      * @description The operation that you want to perform. Set the value to **DescribeOpEntities**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -20,6 +21,7 @@ class DescribeOpEntitiesRequest extends Model
     /**
      * @description The details of the operation log.
      *
+     * This parameter is required.
      * @example 1640880000000
      *
      * @var int
@@ -50,7 +52,7 @@ class DescribeOpEntitiesRequest extends Model
     /**
      * @description The ID of the region where the Anti-DDoS Origin instance resides.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example ASC
      *
      * @var string
@@ -60,6 +62,7 @@ class DescribeOpEntitiesRequest extends Model
     /**
      * @description The type of the operation object. The value is fixed as **1**, which indicates Anti-DDoS Origin instances.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -115,6 +118,7 @@ class DescribeOpEntitiesRequest extends Model
     /**
      * @description The sorting method of operation logs. Set the value to **opdate**, which indicates sorting based on the operation time.
      *
+     * This parameter is required.
      * @example 1609430400000
      *
      * @var int

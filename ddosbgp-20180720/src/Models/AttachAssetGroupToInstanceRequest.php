@@ -12,6 +12,7 @@ class AttachAssetGroupToInstanceRequest extends Model
     /**
      * @description The information about the asset to be associated.
      *
+     * This parameter is required.
      * @var assetGroupList[]
      */
     public $assetGroupList;
@@ -19,7 +20,7 @@ class AttachAssetGroupToInstanceRequest extends Model
     /**
      * @description The ID of the instance to query.
      *
-     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances of paid editions.
+     * This parameter is required.
      * @example ddosbgp-cn-n6w1r7nz****
      *
      * @var string
@@ -29,7 +30,7 @@ class AttachAssetGroupToInstanceRequest extends Model
     /**
      * @description The ID of the region in which the instance resides.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeDdosEventRequest extends Model
     /**
      * @description The end time of the DDoS attack event to query. This value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1638288000
      *
      * @var int
@@ -20,7 +21,7 @@ class DescribeDdosEventRequest extends Model
     /**
      * @description The ID of the Anti-DDoS Origin instance to query.
      *
-     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+     * This parameter is required.
      * @example ddosbgp-cn-n6w1r7nz****
      *
      * @var string
@@ -39,6 +40,7 @@ class DescribeDdosEventRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -48,6 +50,7 @@ class DescribeDdosEventRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -57,7 +60,7 @@ class DescribeDdosEventRequest extends Model
     /**
      * @description The ID of the region where the Anti-DDoS Origin instance resides.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -77,6 +80,7 @@ class DescribeDdosEventRequest extends Model
     /**
      * @description The start time of the DDoS attack event to query. This value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1633017600
      *
      * @var int

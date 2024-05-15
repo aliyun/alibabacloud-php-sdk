@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddRdMemberListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var memberList[]
      */
     public $memberList;

@@ -11,6 +11,7 @@ class assetGroupList extends Model
     /**
      * @description The ID of the asset. If the asset is a Web Application Firewall (WAF) instance, specify the ID of the WAF instance.
      *
+     * This parameter is required.
      * @example waf_v2_public_cn-lbj382l****
      *
      * @var string
@@ -20,6 +21,7 @@ class assetGroupList extends Model
     /**
      * @description The region ID of the asset.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +34,7 @@ class assetGroupList extends Model
      *   **waf**: WAF instance
      *   **ga**: Global Accelerator (GA) instance
      *
+     * This parameter is required.
      * @example waf
      *
      * @var string

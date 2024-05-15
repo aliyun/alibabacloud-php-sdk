@@ -12,7 +12,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The ID of the region where the Anti-DDoS Origin instance resides.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +30,8 @@ class TagResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ddosbgp-cn-v0h1fmwb****
      *
      * @var string[]
@@ -39,6 +41,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The type of the resource to which you want to add tags. Set the value to **INSTANCE**, which indicates instances.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class standardAssetsFlowList extends Model
 {
     /**
-     * @example [{\"bytes\":79282719,\"memberUid\":\"\",\"regionFlows\":{\"cn-hangzhou\":[{\"bytes\":79282719,\"instanceId\":\"ddosorigin_cn-u7c3lcr9r02\",\"ip\":\"47.118.168.57\",\"region\":\"cn-hangzhou\"}]}}]
+     * @example [{\\"bytes\\":79282719,\\"memberUid\\":\\"\\",\\"regionFlows\\":{\\"cn-hangzhou\\":[{\\"bytes\\":79282719,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.57\\",\\"region\\":\\"cn-hangzhou\\"}]}}]
      *
      * @var string
      */
     public $memberFlow;
 
     /**
-     * @example {\"cn-hangzhou\":[{\"bytes\":0,\"instanceId\":\"ddosorigin_cn-u7c3lcr9r02\",\"ip\":\"47.118.168.124\",\"region\":\"cn-hangzhou\"}]}
+     * @example {\\"cn-hangzhou\\":[{\\"bytes\\":0,\\"instanceId\\":\\"ddosorigin_cn-u7c3lcr9r02\\",\\"ip\\":\\"47.118.168.124\\",\\"region\\":\\"cn-hangzhou\\"}]}
      *
      * @var string
      */

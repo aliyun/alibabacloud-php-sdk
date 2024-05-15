@@ -29,6 +29,16 @@ class ipList extends Model
     /**
      * @var int
      */
+    public $nsmExpireAt;
+
+    /**
+     * @var int
+     */
+    public $nsmStartAt;
+
+    /**
+     * @var int
+     */
     public $nsmStatus;
 
     /**
@@ -77,13 +87,15 @@ class ipList extends Model
      */
     public $status;
     protected $_name = [
-        'ip'        => 'Ip',
-        'memberUid' => 'MemberUid',
-        'nsmStatus' => 'NsmStatus',
-        'product'   => 'Product',
-        'region'    => 'Region',
-        'remark'    => 'Remark',
-        'status'    => 'Status',
+        'ip'          => 'Ip',
+        'memberUid'   => 'MemberUid',
+        'nsmExpireAt' => 'NsmExpireAt',
+        'nsmStartAt'  => 'NsmStartAt',
+        'nsmStatus'   => 'NsmStatus',
+        'product'     => 'Product',
+        'region'      => 'Region',
+        'remark'      => 'Remark',
+        'status'      => 'Status',
     ];
 
     public function validate()
@@ -98,6 +110,12 @@ class ipList extends Model
         }
         if (null !== $this->memberUid) {
             $res['MemberUid'] = $this->memberUid;
+        }
+        if (null !== $this->nsmExpireAt) {
+            $res['NsmExpireAt'] = $this->nsmExpireAt;
+        }
+        if (null !== $this->nsmStartAt) {
+            $res['NsmStartAt'] = $this->nsmStartAt;
         }
         if (null !== $this->nsmStatus) {
             $res['NsmStatus'] = $this->nsmStatus;
@@ -131,6 +149,12 @@ class ipList extends Model
         }
         if (isset($map['MemberUid'])) {
             $model->memberUid = $map['MemberUid'];
+        }
+        if (isset($map['NsmExpireAt'])) {
+            $model->nsmExpireAt = $map['NsmExpireAt'];
+        }
+        if (isset($map['NsmStartAt'])) {
+            $model->nsmStartAt = $map['NsmStartAt'];
         }
         if (isset($map['NsmStatus'])) {
             $model->nsmStatus = $map['NsmStatus'];

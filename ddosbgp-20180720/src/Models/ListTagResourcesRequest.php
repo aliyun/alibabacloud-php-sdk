@@ -21,7 +21,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The ID of the region where the Anti-DDoS Origin instance resides.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,7 +41,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The IDs of Anti-DDoS Origin Instances to query.
      *
-     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+     * >  You can call the [DescribeInstanceList](https://help.aliyun.com/document_detail/118698.html) operation to query the IDs of all Anti-DDoS Origin instances.
      * @example ddosbgp-cn-v0h1fmwbc024
      *
      * @var string[]
@@ -51,6 +51,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The type of the resource to query. Set the value to **INSTANCE**, which indicates instances.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

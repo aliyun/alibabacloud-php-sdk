@@ -11,7 +11,7 @@ class CreateSchedruleOnDemandRequest extends Model
     /**
      * @description The ID of the on-demand instance.
      *
-     * >  You can call the [DescribeOnDemandInstance](~~152120~~) operation to query the IDs of all on-demand instances.
+     * This parameter is required.
      * @example ddosbgp-cn-z2q1qzxb****
      *
      * @var string
@@ -21,7 +21,7 @@ class CreateSchedruleOnDemandRequest extends Model
     /**
      * @description The region ID of the on-demand instance.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query all regions supported by Anti-DDoS Origin.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query all regions supported by Anti-DDoS Origin.
      * @example cn-zhangjiakou
      *
      * @var string
@@ -31,6 +31,7 @@ class CreateSchedruleOnDemandRequest extends Model
     /**
      * @description The scheduling action. Set the value to **declare**, which indicates that the route is advertised.
      *
+     * This parameter is required.
      * @example declare
      *
      * @var string
@@ -41,6 +42,8 @@ class CreateSchedruleOnDemandRequest extends Model
      * @description If the inbound bandwidth or packets consecutively exceed the threshold for the specified number of times, the scheduling rule is triggered and traffic is rerouted to the on-demand instance. The specified number of times is the value of this parameter.
      *
      * >  The threshold of inbound bandwidth is the value of **RuleConditionMbps**. The threshold of inbound packets is the value of **RuleConditionKpps**.
+     *
+     * This parameter is required.
      * @example 3
      *
      * @var string
@@ -50,6 +53,7 @@ class CreateSchedruleOnDemandRequest extends Model
     /**
      * @description The threshold of inbound packets. Unit: Kpps. Minimum value: **10**.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string
@@ -59,6 +63,7 @@ class CreateSchedruleOnDemandRequest extends Model
     /**
      * @description The threshold of inbound bandwidth. Unit: Mbit/s. Minimum value: **100**.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var string
@@ -68,7 +73,9 @@ class CreateSchedruleOnDemandRequest extends Model
     /**
      * @description The name of the scheduling rule.
      *
-     * The name can contain lowercase letters, digits, hyphens (-), and underscores (\_). The name can be up to 32 characters in length. We recommend that you use the ID of the on-demand instance as the name. Example: `ddosbgp-cn-z2q1qzxb****`.
+     * The name can contain lowercase letters, digits, hyphens (-), and underscores (_). The name can be up to 32 characters in length. We recommend that you use the ID of the on-demand instance as the name. Example: `ddosbgp-cn-z2q1qzxb****`.
+     *
+     * This parameter is required.
      * @example ddosbgp-cn-z2q1qzxb****
      *
      * @var string
@@ -81,6 +88,7 @@ class CreateSchedruleOnDemandRequest extends Model
      *   **on**: enabled
      *   **off**: disabled
      *
+     * This parameter is required.
      * @example on
      *
      * @var string
@@ -93,6 +101,8 @@ class CreateSchedruleOnDemandRequest extends Model
      * If the system detects that DDoS attacks stop, the system no longer reroutes traffic to the on-demand instance from the time you specified. We recommend that you set this parameter to a value that is defined as off-peak hours.
      *
      * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
+     *
+     * This parameter is required.
      * @example 03:00
      *
      * @var string
@@ -114,6 +124,7 @@ class CreateSchedruleOnDemandRequest extends Model
      *   **auto**: The scheduling rule automatically stops.
      *   **manual**: The scheduling rule is manually stopped.
      *
+     * This parameter is required.
      * @example auto
      *
      * @var string
@@ -126,6 +137,8 @@ class CreateSchedruleOnDemandRequest extends Model
      * For example, the value `GMT-08:00` indicates that the time zone is UTC+8.
      *
      * >  This parameter takes effect only when the **RuleUndoMode** parameter is set to **auto**.
+     *
+     * This parameter is required.
      * @example GMT-08:00
      *
      * @var string

@@ -11,6 +11,7 @@ class DettachAssetGroupToInstanceShrinkRequest extends Model
     /**
      * @description The information about the asset that you want to dissociate.
      *
+     * This parameter is required.
      * @var string
      */
     public $assetGroupListShrink;
@@ -18,7 +19,7 @@ class DettachAssetGroupToInstanceShrinkRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances of paid editions.
+     * This parameter is required.
      * @example ddosbgp-xxx
      *
      * @var string
@@ -28,7 +29,7 @@ class DettachAssetGroupToInstanceShrinkRequest extends Model
     /**
      * @description The ID of the region in which the instance resides.
      *
-     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
