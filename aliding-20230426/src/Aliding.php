@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\AddAttendeeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddAttendeeResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddAttendeeShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddAttendeeShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddDriveSpaceHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddDriveSpaceRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddDriveSpaceResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddDriveSpaceShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\AddDriveSpaceShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsResponse;
@@ -89,6 +94,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDeliveryPlanShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDingtalkPersonalTodoTaskHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDingtalkPersonalTodoTaskRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDingtalkPersonalTodoTaskResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDingtalkPersonalTodoTaskShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateDingtalkPersonalTodoTaskShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventResponse;
@@ -182,6 +192,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteColumnsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteColumnsResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteColumnsShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteColumnsShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDriveSpaceHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDriveSpaceRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDriveSpaceResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDriveSpaceShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteDriveSpaceShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteEventHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteEventRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteEventResponse;
@@ -492,6 +507,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDriveSpacesHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDriveSpacesRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDriveSpacesResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDriveSpacesShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDriveSpacesShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsResponse;
@@ -952,6 +972,76 @@ class Aliding extends OpenApiClient
         $headers = new AddAttendeeHeaders([]);
 
         return $this->addAttendeeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 新建钉盘空间
+     *  *
+     * @param AddDriveSpaceRequest $tmpReq    AddDriveSpaceRequest
+     * @param AddDriveSpaceHeaders $tmpHeader AddDriveSpaceHeaders
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return AddDriveSpaceResponse AddDriveSpaceResponse
+     */
+    public function addDriveSpaceWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddDriveSpaceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new AddDriveSpaceShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDriveSpace',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/addDriveSpace',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDriveSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建钉盘空间
+     *  *
+     * @param AddDriveSpaceRequest $request AddDriveSpaceRequest
+     *
+     * @return AddDriveSpaceResponse AddDriveSpaceResponse
+     */
+    public function addDriveSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddDriveSpaceHeaders([]);
+
+        return $this->addDriveSpaceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2194,6 +2284,103 @@ class Aliding extends OpenApiClient
         $headers = new CreateDeliveryPlanHeaders([]);
 
         return $this->createDeliveryPlanWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 委托权限创建钉钉个人待办
+     *  *
+     * @param CreateDingtalkPersonalTodoTaskRequest $tmpReq    CreateDingtalkPersonalTodoTaskRequest
+     * @param CreateDingtalkPersonalTodoTaskHeaders $tmpHeader CreateDingtalkPersonalTodoTaskHeaders
+     * @param RuntimeOptions                        $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return CreateDingtalkPersonalTodoTaskResponse CreateDingtalkPersonalTodoTaskResponse
+     */
+    public function createDingtalkPersonalTodoTaskWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDingtalkPersonalTodoTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new CreateDingtalkPersonalTodoTaskShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->executorIds)) {
+            $request->executorIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executorIds, 'ExecutorIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notifyConfigs)) {
+            $request->notifyConfigsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notifyConfigs, 'NotifyConfigs', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->participantIds)) {
+            $request->participantIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->participantIds, 'ParticipantIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dueTime)) {
+            $body['DueTime'] = $request->dueTime;
+        }
+        if (!Utils::isUnset($request->executorIdsShrink)) {
+            $body['ExecutorIds'] = $request->executorIdsShrink;
+        }
+        if (!Utils::isUnset($request->notifyConfigsShrink)) {
+            $body['NotifyConfigs'] = $request->notifyConfigsShrink;
+        }
+        if (!Utils::isUnset($request->participantIdsShrink)) {
+            $body['ParticipantIds'] = $request->participantIdsShrink;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $body['Subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->userToken)) {
+            $body['UserToken'] = $request->userToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDingtalkPersonalTodoTask',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/task/createDingtalkPersonalTodoTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDingtalkPersonalTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 委托权限创建钉钉个人待办
+     *  *
+     * @param CreateDingtalkPersonalTodoTaskRequest $request CreateDingtalkPersonalTodoTaskRequest
+     *
+     * @return CreateDingtalkPersonalTodoTaskResponse CreateDingtalkPersonalTodoTaskResponse
+     */
+    public function createDingtalkPersonalTodoTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateDingtalkPersonalTodoTaskHeaders([]);
+
+        return $this->createDingtalkPersonalTodoTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3897,6 +4084,76 @@ class Aliding extends OpenApiClient
         $headers = new DeleteColumnsHeaders([]);
 
         return $this->deleteColumnsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除钉盘空间
+     *  *
+     * @param DeleteDriveSpaceRequest $tmpReq    DeleteDriveSpaceRequest
+     * @param DeleteDriveSpaceHeaders $tmpHeader DeleteDriveSpaceHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDriveSpaceResponse DeleteDriveSpaceResponse
+     */
+    public function deleteDriveSpaceWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteDriveSpaceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new DeleteDriveSpaceShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDriveSpace',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/deleteDriveSpace',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDriveSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除钉盘空间
+     *  *
+     * @param DeleteDriveSpaceRequest $request DeleteDriveSpaceRequest
+     *
+     * @return DeleteDriveSpaceResponse DeleteDriveSpaceResponse
+     */
+    public function deleteDriveSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteDriveSpaceHeaders([]);
+
+        return $this->deleteDriveSpaceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -9060,6 +9317,82 @@ class Aliding extends OpenApiClient
         $headers = new ListDentriesHeaders([]);
 
         return $this->listDentriesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取钉盘空间列表
+     *  *
+     * @param ListDriveSpacesRequest $tmpReq    ListDriveSpacesRequest
+     * @param ListDriveSpacesHeaders $tmpHeader ListDriveSpacesHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListDriveSpacesResponse ListDriveSpacesResponse
+     */
+    public function listDriveSpacesWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListDriveSpacesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new ListDriveSpacesShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->spaceType)) {
+            $body['SpaceType'] = $request->spaceType;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDriveSpaces',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/listDriveSpaces',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDriveSpacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取钉盘空间列表
+     *  *
+     * @param ListDriveSpacesRequest $request ListDriveSpacesRequest
+     *
+     * @return ListDriveSpacesResponse ListDriveSpacesResponse
+     */
+    public function listDriveSpaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ListDriveSpacesHeaders([]);
+
+        return $this->listDriveSpacesWithOptions($request, $headers, $runtime);
     }
 
     /**
