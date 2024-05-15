@@ -40,6 +40,8 @@ class input extends Model
     public $sampleRate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn
      *
      * @var string

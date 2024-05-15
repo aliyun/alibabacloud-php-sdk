@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest;
 
+use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\customPrompt;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\extraParams;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\meetingAssistance;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\summarization;
@@ -20,6 +21,16 @@ class parameters extends Model
      * @var bool
      */
     public $autoChaptersEnabled;
+
+    /**
+     * @var customPrompt
+     */
+    public $customPrompt;
+
+    /**
+     * @var bool
+     */
+    public $customPromptEnabled;
 
     /**
      * @var extraParams
@@ -83,6 +94,8 @@ class parameters extends Model
     public $translationEnabled;
     protected $_name = [
         'autoChaptersEnabled'      => 'AutoChaptersEnabled',
+        'customPrompt'             => 'CustomPrompt',
+        'customPromptEnabled'      => 'CustomPromptEnabled',
         'extraParams'              => 'ExtraParams',
         'meetingAssistance'        => 'MeetingAssistance',
         'meetingAssistanceEnabled' => 'MeetingAssistanceEnabled',
@@ -105,6 +118,12 @@ class parameters extends Model
         $res = [];
         if (null !== $this->autoChaptersEnabled) {
             $res['AutoChaptersEnabled'] = $this->autoChaptersEnabled;
+        }
+        if (null !== $this->customPrompt) {
+            $res['CustomPrompt'] = null !== $this->customPrompt ? $this->customPrompt->toMap() : null;
+        }
+        if (null !== $this->customPromptEnabled) {
+            $res['CustomPromptEnabled'] = $this->customPromptEnabled;
         }
         if (null !== $this->extraParams) {
             $res['ExtraParams'] = null !== $this->extraParams ? $this->extraParams->toMap() : null;
@@ -153,6 +172,12 @@ class parameters extends Model
         $model = new self();
         if (isset($map['AutoChaptersEnabled'])) {
             $model->autoChaptersEnabled = $map['AutoChaptersEnabled'];
+        }
+        if (isset($map['CustomPrompt'])) {
+            $model->customPrompt = customPrompt::fromMap($map['CustomPrompt']);
+        }
+        if (isset($map['CustomPromptEnabled'])) {
+            $model->customPromptEnabled = $map['CustomPromptEnabled'];
         }
         if (isset($map['ExtraParams'])) {
             $model->extraParams = extraParams::fromMap($map['ExtraParams']);

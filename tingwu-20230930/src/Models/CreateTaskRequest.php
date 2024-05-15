@@ -35,6 +35,8 @@ class CreateTaskRequest extends Model
     public $operation;
 
     /**
+     * @description This parameter is required.
+     *
      * @example offline
      *
      * @var string

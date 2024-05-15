@@ -16,6 +16,8 @@ class UpdateTranscriptionPhrasesRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example fruit_phrase
      *
      * @var string
@@ -23,6 +25,8 @@ class UpdateTranscriptionPhrasesRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"苹果":3,"西瓜":3}
      *
      * @var string

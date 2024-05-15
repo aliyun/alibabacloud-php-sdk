@@ -56,11 +56,13 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * @param CreateTaskRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 创建听悟任务
+     *  *
+     * @param CreateTaskRequest $request CreateTaskRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTaskResponse
+     * @return CreateTaskResponse CreateTaskResponse
      */
     public function createTaskWithOptions($request, $headers, $runtime)
     {
@@ -103,9 +105,11 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * @param CreateTaskRequest $request
+     * @summary 创建听悟任务
+     *  *
+     * @param CreateTaskRequest $request CreateTaskRequest
      *
-     * @return CreateTaskResponse
+     * @return CreateTaskResponse CreateTaskResponse
      */
     public function createTask($request)
     {
@@ -116,11 +120,13 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * @param CreateTranscriptionPhrasesRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 创建热词词表
+     *  *
+     * @param CreateTranscriptionPhrasesRequest $request CreateTranscriptionPhrasesRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTranscriptionPhrasesResponse
+     * @return CreateTranscriptionPhrasesResponse CreateTranscriptionPhrasesResponse
      */
     public function createTranscriptionPhrasesWithOptions($request, $headers, $runtime)
     {
@@ -155,9 +161,11 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * @param CreateTranscriptionPhrasesRequest $request
+     * @summary 创建热词词表
+     *  *
+     * @param CreateTranscriptionPhrasesRequest $request CreateTranscriptionPhrasesRequest
      *
-     * @return CreateTranscriptionPhrasesResponse
+     * @return CreateTranscriptionPhrasesResponse CreateTranscriptionPhrasesResponse
      */
     public function createTranscriptionPhrases($request)
     {
@@ -168,11 +176,13 @@ class Tingwu extends OpenApiClient
     }
 
     /**
+     * @summary 删除词表
+     *  *
      * @param string         $PhraseId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DeleteTranscriptionPhrasesResponse
+     * @return DeleteTranscriptionPhrasesResponse DeleteTranscriptionPhrasesResponse
      */
     public function deleteTranscriptionPhrasesWithOptions($PhraseId, $headers, $runtime)
     {
@@ -195,9 +205,11 @@ class Tingwu extends OpenApiClient
     }
 
     /**
+     * @summary 删除词表
+     *  *
      * @param string $PhraseId
      *
-     * @return DeleteTranscriptionPhrasesResponse
+     * @return DeleteTranscriptionPhrasesResponse DeleteTranscriptionPhrasesResponse
      */
     public function deleteTranscriptionPhrases($PhraseId)
     {
@@ -208,11 +220,13 @@ class Tingwu extends OpenApiClient
     }
 
     /**
+     * @summary 查询听悟任务信息
+     *  *
      * @param string         $TaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTaskInfoResponse
+     * @return GetTaskInfoResponse GetTaskInfoResponse
      */
     public function getTaskInfoWithOptions($TaskId, $headers, $runtime)
     {
@@ -235,9 +249,11 @@ class Tingwu extends OpenApiClient
     }
 
     /**
+     * @summary 查询听悟任务信息
+     *  *
      * @param string $TaskId
      *
-     * @return GetTaskInfoResponse
+     * @return GetTaskInfoResponse GetTaskInfoResponse
      */
     public function getTaskInfo($TaskId)
     {
@@ -248,11 +264,13 @@ class Tingwu extends OpenApiClient
     }
 
     /**
+     * @summary 查询热词词表信息
+     *  *
      * @param string         $PhraseId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetTranscriptionPhrasesResponse
+     * @return GetTranscriptionPhrasesResponse GetTranscriptionPhrasesResponse
      */
     public function getTranscriptionPhrasesWithOptions($PhraseId, $headers, $runtime)
     {
@@ -275,9 +293,11 @@ class Tingwu extends OpenApiClient
     }
 
     /**
+     * @summary 查询热词词表信息
+     *  *
      * @param string $PhraseId
      *
-     * @return GetTranscriptionPhrasesResponse
+     * @return GetTranscriptionPhrasesResponse GetTranscriptionPhrasesResponse
      */
     public function getTranscriptionPhrases($PhraseId)
     {
@@ -288,10 +308,12 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 列举用户所有热词词表信息
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTranscriptionPhrasesResponse
+     * @return ListTranscriptionPhrasesResponse ListTranscriptionPhrasesResponse
      */
     public function listTranscriptionPhrasesWithOptions($headers, $runtime)
     {
@@ -314,7 +336,9 @@ class Tingwu extends OpenApiClient
     }
 
     /**
-     * @return ListTranscriptionPhrasesResponse
+     * @summary 列举用户所有热词词表信息
+     *  *
+     * @return ListTranscriptionPhrasesResponse ListTranscriptionPhrasesResponse
      */
     public function listTranscriptionPhrases()
     {
@@ -325,12 +349,14 @@ class Tingwu extends OpenApiClient
     }
 
     /**
+     * @summary 更新热词词表
+     *  *
      * @param string                            $PhraseId
-     * @param UpdateTranscriptionPhrasesRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param UpdateTranscriptionPhrasesRequest $request  UpdateTranscriptionPhrasesRequest
+     * @param string[]                          $headers  map
+     * @param RuntimeOptions                    $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateTranscriptionPhrasesResponse
+     * @return UpdateTranscriptionPhrasesResponse UpdateTranscriptionPhrasesResponse
      */
     public function updateTranscriptionPhrasesWithOptions($PhraseId, $request, $headers, $runtime)
     {
@@ -365,10 +391,12 @@ class Tingwu extends OpenApiClient
     }
 
     /**
+     * @summary 更新热词词表
+     *  *
      * @param string                            $PhraseId
-     * @param UpdateTranscriptionPhrasesRequest $request
+     * @param UpdateTranscriptionPhrasesRequest $request  UpdateTranscriptionPhrasesRequest
      *
-     * @return UpdateTranscriptionPhrasesResponse
+     * @return UpdateTranscriptionPhrasesResponse UpdateTranscriptionPhrasesResponse
      */
     public function updateTranscriptionPhrases($PhraseId, $request)
     {
