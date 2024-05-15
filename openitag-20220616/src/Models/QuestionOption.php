@@ -19,11 +19,15 @@ class QuestionOption extends Model
     public $color;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $label;

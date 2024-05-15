@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExportAnnotationsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example oss://***-hz-oss.oss-cn-hangzhou.aliyuncs.com/output/
      *
      * @var string

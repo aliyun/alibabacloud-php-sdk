@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ViewPlugin extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bindField;
@@ -20,11 +22,15 @@ class ViewPlugin extends Model
     public $convertor;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $corsProxy;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $displayOriImg;
@@ -50,6 +56,8 @@ class ViewPlugin extends Model
     public $relationQuestionIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $type;

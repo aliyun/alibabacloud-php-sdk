@@ -28,6 +28,8 @@ class QuestionPlugin extends Model
     public $defaultResult;
 
     /**
+     * @description This parameter is required.
+     *
      * @example True
      *
      * @var bool
@@ -47,6 +49,8 @@ class QuestionPlugin extends Model
     public $hotKeyMap;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 内部单选
      *
      * @var string
@@ -61,6 +65,8 @@ class QuestionPlugin extends Model
     public $markTitleAlias;
 
     /**
+     * @description This parameter is required.
+     *
      * @example False
      *
      * @var bool
@@ -68,6 +74,8 @@ class QuestionPlugin extends Model
     public $mustFill;
 
     /**
+     * @description This parameter is required.
+     *
      * @var QuestionOption[]
      */
     public $options;
@@ -78,6 +86,8 @@ class QuestionPlugin extends Model
     public $preOptions;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $questionId;
@@ -104,6 +114,8 @@ class QuestionPlugin extends Model
     public $selected;
 
     /**
+     * @description This parameter is required.
+     *
      * @example RADIO
      *
      * @var string

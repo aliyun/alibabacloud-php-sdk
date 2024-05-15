@@ -30,6 +30,8 @@ class GetTaskWorkforceResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example success
      *
      * @var string

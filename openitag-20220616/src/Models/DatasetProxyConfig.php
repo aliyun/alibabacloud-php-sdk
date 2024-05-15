@@ -23,6 +23,8 @@ class DatasetProxyConfig extends Model
     public $source;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourceDatasetId;

@@ -35,6 +35,8 @@ class ListJobsResponseBody extends Model
     public $jobs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example success
      *
      * @var string

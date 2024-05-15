@@ -35,6 +35,8 @@ class ListSubtaskItemsResponseBody extends Model
     public $items;
 
     /**
+     * @description This parameter is required.
+     *
      * @example success
      *
      * @var string

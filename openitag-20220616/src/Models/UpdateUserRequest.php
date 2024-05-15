@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ADMIN
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateUserRequest extends Model
     public $role;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user1
      *
      * @var string

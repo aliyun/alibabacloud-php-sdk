@@ -35,6 +35,8 @@ class GetSubtaskItemResponseBody extends Model
     public $item;
 
     /**
+     * @description This parameter is required.
+     *
      * @example success
      *
      * @var string

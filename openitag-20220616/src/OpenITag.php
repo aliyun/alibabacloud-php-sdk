@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\AddWorkNodeWorkforceRequest;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\AddWorkNodeWorkforceResponse;
+use AlibabaCloud\SDK\OpenITag\V20220616\Models\AppendAllDataToTaskRequest;
+use AlibabaCloud\SDK\OpenITag\V20220616\Models\AppendAllDataToTaskResponse;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\CreateTemplateRequest;
@@ -105,14 +107,16 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 增加结点任务人力
+     *  *
      * @param string                      $TenantId
      * @param string                      $TaskId
      * @param string                      $WorkNodeId
-     * @param AddWorkNodeWorkforceRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param AddWorkNodeWorkforceRequest $request    AddWorkNodeWorkforceRequest
+     * @param string[]                    $headers    map
+     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
      *
-     * @return AddWorkNodeWorkforceResponse
+     * @return AddWorkNodeWorkforceResponse AddWorkNodeWorkforceResponse
      */
     public function addWorkNodeWorkforceWithOptions($TenantId, $TaskId, $WorkNodeId, $request, $headers, $runtime)
     {
@@ -141,12 +145,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 增加结点任务人力
+     *  *
      * @param string                      $TenantId
      * @param string                      $TaskId
      * @param string                      $WorkNodeId
-     * @param AddWorkNodeWorkforceRequest $request
+     * @param AddWorkNodeWorkforceRequest $request    AddWorkNodeWorkforceRequest
      *
-     * @return AddWorkNodeWorkforceResponse
+     * @return AddWorkNodeWorkforceResponse AddWorkNodeWorkforceResponse
      */
     public function addWorkNodeWorkforce($TenantId, $TaskId, $WorkNodeId, $request)
     {
@@ -157,12 +163,64 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @param string            $TenantId
-     * @param CreateTaskRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary 数据追加
+     *  *
+     * @param string                     $TenantId
+     * @param string                     $TaskId
+     * @param AppendAllDataToTaskRequest $request  AppendAllDataToTaskRequest
+     * @param string[]                   $headers  map
+     * @param RuntimeOptions             $runtime  runtime options for this request RuntimeOptions
      *
-     * @return CreateTaskResponse
+     * @return AppendAllDataToTaskResponse AppendAllDataToTaskResponse
+     */
+    public function appendAllDataToTaskWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'AppendAllDataToTask',
+            'version'     => '2022-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/appendAllDataToTask',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AppendAllDataToTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 数据追加
+     *  *
+     * @param string                     $TenantId
+     * @param string                     $TaskId
+     * @param AppendAllDataToTaskRequest $request  AppendAllDataToTaskRequest
+     *
+     * @return AppendAllDataToTaskResponse AppendAllDataToTaskResponse
+     */
+    public function appendAllDataToTask($TenantId, $TaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->appendAllDataToTaskWithOptions($TenantId, $TaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建标注任务
+     *  *
+     * @param string            $TenantId
+     * @param CreateTaskRequest $request  CreateTaskRequest
+     * @param string[]          $headers  map
+     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
+     *
+     * @return CreateTaskResponse CreateTaskResponse
      */
     public function createTaskWithOptions($TenantId, $request, $headers, $runtime)
     {
@@ -187,10 +245,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 创建标注任务
+     *  *
      * @param string            $TenantId
-     * @param CreateTaskRequest $request
+     * @param CreateTaskRequest $request  CreateTaskRequest
      *
-     * @return CreateTaskResponse
+     * @return CreateTaskResponse CreateTaskResponse
      */
     public function createTask($TenantId, $request)
     {
@@ -201,12 +261,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 创建标注模版
+     *  *
      * @param string                $TenantId
-     * @param CreateTemplateRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param CreateTemplateRequest $request  CreateTemplateRequest
+     * @param string[]              $headers  map
+     * @param RuntimeOptions        $runtime  runtime options for this request RuntimeOptions
      *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplateWithOptions($TenantId, $request, $headers, $runtime)
     {
@@ -231,10 +293,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 创建标注模版
+     *  *
      * @param string                $TenantId
-     * @param CreateTemplateRequest $request
+     * @param CreateTemplateRequest $request  CreateTemplateRequest
      *
-     * @return CreateTemplateResponse
+     * @return CreateTemplateResponse CreateTemplateResponse
      */
     public function createTemplate($TenantId, $request)
     {
@@ -245,12 +309,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 创建租户内用户
+     *  *
      * @param string            $TenantId
-     * @param CreateUserRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param CreateUserRequest $request  CreateUserRequest
+     * @param string[]          $headers  map
+     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUserWithOptions($TenantId, $request, $headers, $runtime)
     {
@@ -288,10 +354,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 创建租户内用户
+     *  *
      * @param string            $TenantId
-     * @param CreateUserRequest $request
+     * @param CreateUserRequest $request  CreateUserRequest
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUser($TenantId, $request)
     {
@@ -302,12 +370,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 删除任务
+     *  *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DeleteTaskResponse
+     * @return DeleteTaskResponse DeleteTaskResponse
      */
     public function deleteTaskWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -330,10 +400,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 删除任务
+     *  *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return DeleteTaskResponse
+     * @return DeleteTaskResponse DeleteTaskResponse
      */
     public function deleteTask($TenantId, $TaskId)
     {
@@ -344,12 +416,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 删除租户下的单个模板
+     *  *
      * @param string         $TenantId
      * @param string         $TemplateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($TenantId, $TemplateId, $headers, $runtime)
     {
@@ -372,10 +446,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 删除租户下的单个模板
+     *  *
      * @param string $TenantId
      * @param string $TemplateId
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplate($TenantId, $TemplateId)
     {
@@ -386,12 +462,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 删除用户
+     *  *
      * @param string         $TenantId
      * @param string         $UserId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($TenantId, $UserId, $headers, $runtime)
     {
@@ -414,10 +492,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 删除用户
+     *  *
      * @param string $TenantId
      * @param string $UserId
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($TenantId, $UserId)
     {
@@ -428,13 +508,15 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务导出结果
+     *  *
      * @param string                   $TenantId
      * @param string                   $TaskId
-     * @param ExportAnnotationsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ExportAnnotationsRequest $request  ExportAnnotationsRequest
+     * @param string[]                 $headers  map
+     * @param RuntimeOptions           $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ExportAnnotationsResponse
+     * @return ExportAnnotationsResponse ExportAnnotationsResponse
      */
     public function exportAnnotationsWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
     {
@@ -469,11 +551,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务导出结果
+     *  *
      * @param string                   $TenantId
      * @param string                   $TaskId
-     * @param ExportAnnotationsRequest $request
+     * @param ExportAnnotationsRequest $request  ExportAnnotationsRequest
      *
-     * @return ExportAnnotationsResponse
+     * @return ExportAnnotationsResponse ExportAnnotationsResponse
      */
     public function exportAnnotations($TenantId, $TaskId, $request)
     {
@@ -484,13 +568,15 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取异步任务Job
+     *  *
      * @param string         $TenantId
      * @param string         $JobId
-     * @param GetJobRequest  $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param GetJobRequest  $request  GetJobRequest
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetJobResponse
+     * @return GetJobResponse GetJobResponse
      */
     public function getJobWithOptions($TenantId, $JobId, $request, $headers, $runtime)
     {
@@ -519,11 +605,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取异步任务Job
+     *  *
      * @param string        $TenantId
      * @param string        $JobId
-     * @param GetJobRequest $request
+     * @param GetJobRequest $request  GetJobRequest
      *
-     * @return GetJobResponse
+     * @return GetJobResponse GetJobResponse
      */
     public function getJob($TenantId, $JobId, $request)
     {
@@ -534,13 +622,15 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取单个子任务信息
+     *  *
      * @param string         $TenantId
      * @param string         $TaskID
      * @param string         $SubtaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetSubtaskResponse
+     * @return GetSubtaskResponse GetSubtaskResponse
      */
     public function getSubtaskWithOptions($TenantId, $TaskID, $SubtaskId, $headers, $runtime)
     {
@@ -563,11 +653,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取单个子任务信息
+     *  *
      * @param string $TenantId
      * @param string $TaskID
      * @param string $SubtaskId
      *
-     * @return GetSubtaskResponse
+     * @return GetSubtaskResponse GetSubtaskResponse
      */
     public function getSubtask($TenantId, $TaskID, $SubtaskId)
     {
@@ -578,14 +670,16 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取子任务单个ITEM信息
+     *  *
      * @param string         $TenantId
      * @param string         $TaskId
      * @param string         $SubtaskId
      * @param string         $ItemId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetSubtaskItemResponse
+     * @return GetSubtaskItemResponse GetSubtaskItemResponse
      */
     public function getSubtaskItemWithOptions($TenantId, $TaskId, $SubtaskId, $ItemId, $headers, $runtime)
     {
@@ -608,12 +702,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取子任务单个ITEM信息
+     *  *
      * @param string $TenantId
      * @param string $TaskId
      * @param string $SubtaskId
      * @param string $ItemId
      *
-     * @return GetSubtaskItemResponse
+     * @return GetSubtaskItemResponse GetSubtaskItemResponse
      */
     public function getSubtaskItem($TenantId, $TaskId, $SubtaskId, $ItemId)
     {
@@ -624,12 +720,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务状态信息
+     *  *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetTaskResponse
+     * @return GetTaskResponse GetTaskResponse
      */
     public function getTaskWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -652,10 +750,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务状态信息
+     *  *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskResponse
+     * @return GetTaskResponse GetTaskResponse
      */
     public function getTask($TenantId, $TaskId)
     {
@@ -666,13 +766,15 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务统计信息
+     *  *
      * @param string                   $TenantId
      * @param string                   $TaskId
-     * @param GetTaskStatisticsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param GetTaskStatisticsRequest $request  GetTaskStatisticsRequest
+     * @param string[]                 $headers  map
+     * @param RuntimeOptions           $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetTaskStatisticsResponse
+     * @return GetTaskStatisticsResponse GetTaskStatisticsResponse
      */
     public function getTaskStatisticsWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
     {
@@ -701,11 +803,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务统计信息
+     *  *
      * @param string                   $TenantId
      * @param string                   $TaskId
-     * @param GetTaskStatisticsRequest $request
+     * @param GetTaskStatisticsRequest $request  GetTaskStatisticsRequest
      *
-     * @return GetTaskStatisticsResponse
+     * @return GetTaskStatisticsResponse GetTaskStatisticsResponse
      */
     public function getTaskStatistics($TenantId, $TaskId, $request)
     {
@@ -716,12 +820,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务状态信息
+     *  *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetTaskStatusResponse
+     * @return GetTaskStatusResponse GetTaskStatusResponse
      */
     public function getTaskStatusWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -744,10 +850,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务状态信息
+     *  *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskStatusResponse
+     * @return GetTaskStatusResponse GetTaskStatusResponse
      */
     public function getTaskStatus($TenantId, $TaskId)
     {
@@ -758,12 +866,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务模版信息
+     *  *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetTaskTemplateResponse
+     * @return GetTaskTemplateResponse GetTaskTemplateResponse
      */
     public function getTaskTemplateWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -786,10 +896,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务模版信息
+     *  *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskTemplateResponse
+     * @return GetTaskTemplateResponse GetTaskTemplateResponse
      */
     public function getTaskTemplate($TenantId, $TaskId)
     {
@@ -800,12 +912,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务题目信息
+     *  *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetTaskTemplateQuestionsResponse
+     * @return GetTaskTemplateQuestionsResponse GetTaskTemplateQuestionsResponse
      */
     public function getTaskTemplateQuestionsWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -828,10 +942,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务题目信息
+     *  *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskTemplateQuestionsResponse
+     * @return GetTaskTemplateQuestionsResponse GetTaskTemplateQuestionsResponse
      */
     public function getTaskTemplateQuestions($TenantId, $TaskId)
     {
@@ -842,12 +958,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务题目信息
+     *  *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetTaskTemplateViewsResponse
+     * @return GetTaskTemplateViewsResponse GetTaskTemplateViewsResponse
      */
     public function getTaskTemplateViewsWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -870,10 +988,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务题目信息
+     *  *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskTemplateViewsResponse
+     * @return GetTaskTemplateViewsResponse GetTaskTemplateViewsResponse
      */
     public function getTaskTemplateViews($TenantId, $TaskId)
     {
@@ -884,12 +1004,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务人力
+     *  *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetTaskWorkforceResponse
+     * @return GetTaskWorkforceResponse GetTaskWorkforceResponse
      */
     public function getTaskWorkforceWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -912,10 +1034,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务人力
+     *  *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskWorkforceResponse
+     * @return GetTaskWorkforceResponse GetTaskWorkforceResponse
      */
     public function getTaskWorkforce($TenantId, $TaskId)
     {
@@ -926,13 +1050,15 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务人力统计信息
+     *  *
      * @param string                           $TenantId
      * @param string                           $TaskId
-     * @param GetTaskWorkforceStatisticRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param GetTaskWorkforceStatisticRequest $request  GetTaskWorkforceStatisticRequest
+     * @param string[]                         $headers  map
+     * @param RuntimeOptions                   $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetTaskWorkforceStatisticResponse
+     * @return GetTaskWorkforceStatisticResponse GetTaskWorkforceStatisticResponse
      */
     public function getTaskWorkforceStatisticWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
     {
@@ -967,11 +1093,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务人力统计信息
+     *  *
      * @param string                           $TenantId
      * @param string                           $TaskId
-     * @param GetTaskWorkforceStatisticRequest $request
+     * @param GetTaskWorkforceStatisticRequest $request  GetTaskWorkforceStatisticRequest
      *
-     * @return GetTaskWorkforceStatisticResponse
+     * @return GetTaskWorkforceStatisticResponse GetTaskWorkforceStatisticResponse
      */
     public function getTaskWorkforceStatistic($TenantId, $TaskId, $request)
     {
@@ -982,12 +1110,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取租户下单个模板
+     *  *
      * @param string         $TenantId
      * @param string         $TemplateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplateWithOptions($TenantId, $TemplateId, $headers, $runtime)
     {
@@ -1010,10 +1140,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取租户下单个模板
+     *  *
      * @param string $TenantId
      * @param string $TemplateId
      *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplate($TenantId, $TemplateId)
     {
@@ -1024,12 +1156,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取租户下单个模板问题
+     *  *
      * @param string         $TenantId
      * @param string         $TemplateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateQuestionsResponse
+     * @return GetTemplateQuestionsResponse GetTemplateQuestionsResponse
      */
     public function getTemplateQuestionsWithOptions($TenantId, $TemplateId, $headers, $runtime)
     {
@@ -1052,10 +1186,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取租户下单个模板问题
+     *  *
      * @param string $TenantId
      * @param string $TemplateId
      *
-     * @return GetTemplateQuestionsResponse
+     * @return GetTemplateQuestionsResponse GetTemplateQuestionsResponse
      */
     public function getTemplateQuestions($TenantId, $TemplateId)
     {
@@ -1066,12 +1202,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取租户下模板视图
+     *  *
      * @param string         $TenantId
      * @param string         $TemplateId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateViewResponse
+     * @return GetTemplateViewResponse GetTemplateViewResponse
      */
     public function getTemplateViewWithOptions($TenantId, $TemplateId, $headers, $runtime)
     {
@@ -1094,10 +1232,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取租户下模板视图
+     *  *
      * @param string $TenantId
      * @param string $TemplateId
      *
-     * @return GetTemplateViewResponse
+     * @return GetTemplateViewResponse GetTemplateViewResponse
      */
     public function getTemplateView($TenantId, $TemplateId)
     {
@@ -1108,11 +1248,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取租户信息
+     *  *
      * @param string         $TenantId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetTenantResponse
+     * @return GetTenantResponse GetTenantResponse
      */
     public function getTenantWithOptions($TenantId, $headers, $runtime)
     {
@@ -1135,9 +1277,11 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取租户信息
+     *  *
      * @param string $TenantId
      *
-     * @return GetTenantResponse
+     * @return GetTenantResponse GetTenantResponse
      */
     public function getTenant($TenantId)
     {
@@ -1148,12 +1292,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户
+     *  *
      * @param string         $TenantId
      * @param string         $UserId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($TenantId, $UserId, $headers, $runtime)
     {
@@ -1176,10 +1322,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户
+     *  *
      * @param string $TenantId
      * @param string $UserId
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUser($TenantId, $UserId)
     {
@@ -1190,12 +1338,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取异步任务Job列表
+     *  *
      * @param string          $TenantId
-     * @param ListJobsRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @param ListJobsRequest $request  ListJobsRequest
+     * @param string[]        $headers  map
+     * @param RuntimeOptions  $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobsWithOptions($TenantId, $request, $headers, $runtime)
     {
@@ -1230,10 +1380,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取异步任务Job列表
+     *  *
      * @param string          $TenantId
-     * @param ListJobsRequest $request
+     * @param ListJobsRequest $request  ListJobsRequest
      *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobs($TenantId, $request)
     {
@@ -1244,14 +1396,16 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取子任务ITEM列表页信息
+     *  *
      * @param string                  $TenantId
      * @param string                  $TaskID
      * @param string                  $SubtaskId
-     * @param ListSubtaskItemsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param ListSubtaskItemsRequest $request   ListSubtaskItemsRequest
+     * @param string[]                $headers   map
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListSubtaskItemsResponse
+     * @return ListSubtaskItemsResponse ListSubtaskItemsResponse
      */
     public function listSubtaskItemsWithOptions($TenantId, $TaskID, $SubtaskId, $request, $headers, $runtime)
     {
@@ -1283,12 +1437,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取子任务ITEM列表页信息
+     *  *
      * @param string                  $TenantId
      * @param string                  $TaskID
      * @param string                  $SubtaskId
-     * @param ListSubtaskItemsRequest $request
+     * @param ListSubtaskItemsRequest $request   ListSubtaskItemsRequest
      *
-     * @return ListSubtaskItemsResponse
+     * @return ListSubtaskItemsResponse ListSubtaskItemsResponse
      */
     public function listSubtaskItems($TenantId, $TaskID, $SubtaskId, $request)
     {
@@ -1299,13 +1455,15 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取子任务列表页信息
+     *  *
      * @param string              $TenantId
      * @param string              $TaskID
-     * @param ListSubtasksRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param ListSubtasksRequest $request  ListSubtasksRequest
+     * @param string[]            $headers  map
+     * @param RuntimeOptions      $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListSubtasksResponse
+     * @return ListSubtasksResponse ListSubtasksResponse
      */
     public function listSubtasksWithOptions($TenantId, $TaskID, $request, $headers, $runtime)
     {
@@ -1337,11 +1495,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取子任务列表页信息
+     *  *
      * @param string              $TenantId
      * @param string              $TaskID
-     * @param ListSubtasksRequest $request
+     * @param ListSubtasksRequest $request  ListSubtasksRequest
      *
-     * @return ListSubtasksResponse
+     * @return ListSubtasksResponse ListSubtasksResponse
      */
     public function listSubtasks($TenantId, $TaskID, $request)
     {
@@ -1352,12 +1512,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务列表页信息
+     *  *
      * @param string           $TenantId
-     * @param ListTasksRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param ListTasksRequest $request  ListTasksRequest
+     * @param string[]         $headers  map
+     * @param RuntimeOptions   $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListTasksResponse
+     * @return ListTasksResponse ListTasksResponse
      */
     public function listTasksWithOptions($TenantId, $request, $headers, $runtime)
     {
@@ -1389,10 +1551,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务列表页信息
+     *  *
      * @param string           $TenantId
-     * @param ListTasksRequest $request
+     * @param ListTasksRequest $request  ListTasksRequest
      *
-     * @return ListTasksResponse
+     * @return ListTasksResponse ListTasksResponse
      */
     public function listTasks($TenantId, $request)
     {
@@ -1403,12 +1567,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取租户模板信息列表
+     *  *
      * @param string               $TenantId
-     * @param ListTemplatesRequest $tmpReq
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListTemplatesRequest $tmpReq   ListTemplatesRequest
+     * @param string[]             $headers  map
+     * @param RuntimeOptions       $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListTemplatesResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
     public function listTemplatesWithOptions($TenantId, $tmpReq, $headers, $runtime)
     {
@@ -1451,10 +1617,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取租户模板信息列表
+     *  *
      * @param string               $TenantId
-     * @param ListTemplatesRequest $request
+     * @param ListTemplatesRequest $request  ListTemplatesRequest
      *
-     * @return ListTemplatesResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
     public function listTemplates($TenantId, $request)
     {
@@ -1465,11 +1633,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @param ListTenantsRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 获取租户列表
+     *  *
+     * @param ListTenantsRequest $request ListTenantsRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTenantsResponse
+     * @return ListTenantsResponse ListTenantsResponse
      */
     public function listTenantsWithOptions($request, $headers, $runtime)
     {
@@ -1501,9 +1671,11 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @param ListTenantsRequest $request
+     * @summary 获取租户列表
+     *  *
+     * @param ListTenantsRequest $request ListTenantsRequest
      *
-     * @return ListTenantsResponse
+     * @return ListTenantsResponse ListTenantsResponse
      */
     public function listTenants($request)
     {
@@ -1514,12 +1686,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户列表
+     *  *
      * @param string           $TenantId
-     * @param ListUsersRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param ListUsersRequest $request  ListUsersRequest
+     * @param string[]         $headers  map
+     * @param RuntimeOptions   $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($TenantId, $request, $headers, $runtime)
     {
@@ -1551,10 +1725,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户列表
+     *  *
      * @param string           $TenantId
-     * @param ListUsersRequest $request
+     * @param ListUsersRequest $request  ListUsersRequest
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($TenantId, $request)
     {
@@ -1565,14 +1741,16 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 删除结点人力
+     *  *
      * @param string                         $TenantId
      * @param string                         $TaskId
      * @param string                         $WorkNodeId
-     * @param RemoveWorkNodeWorkforceRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param RemoveWorkNodeWorkforceRequest $request    RemoveWorkNodeWorkforceRequest
+     * @param string[]                       $headers    map
+     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RemoveWorkNodeWorkforceResponse
+     * @return RemoveWorkNodeWorkforceResponse RemoveWorkNodeWorkforceResponse
      */
     public function removeWorkNodeWorkforceWithOptions($TenantId, $TaskId, $WorkNodeId, $request, $headers, $runtime)
     {
@@ -1601,12 +1779,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 删除结点人力
+     *  *
      * @param string                         $TenantId
      * @param string                         $TaskId
      * @param string                         $WorkNodeId
-     * @param RemoveWorkNodeWorkforceRequest $request
+     * @param RemoveWorkNodeWorkforceRequest $request    RemoveWorkNodeWorkforceRequest
      *
-     * @return RemoveWorkNodeWorkforceResponse
+     * @return RemoveWorkNodeWorkforceResponse RemoveWorkNodeWorkforceResponse
      */
     public function removeWorkNodeWorkforce($TenantId, $TaskId, $WorkNodeId, $request)
     {
@@ -1617,13 +1797,15 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 更新标注任务基础信息
+     *  *
      * @param string            $TenantId
      * @param string            $TaskId
-     * @param UpdateTaskRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param UpdateTaskRequest $request  UpdateTaskRequest
+     * @param string[]          $headers  map
+     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateTaskResponse
+     * @return UpdateTaskResponse UpdateTaskResponse
      */
     public function updateTaskWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
     {
@@ -1648,11 +1830,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 更新标注任务基础信息
+     *  *
      * @param string            $TenantId
      * @param string            $TaskId
-     * @param UpdateTaskRequest $request
+     * @param UpdateTaskRequest $request  UpdateTaskRequest
      *
-     * @return UpdateTaskResponse
+     * @return UpdateTaskResponse UpdateTaskResponse
      */
     public function updateTask($TenantId, $TaskId, $request)
     {
@@ -1663,13 +1847,15 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 更新任务人力
+     *  *
      * @param string                     $TenantId
      * @param string                     $TaskId
-     * @param UpdateTaskWorkforceRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateTaskWorkforceRequest $request  UpdateTaskWorkforceRequest
+     * @param string[]                   $headers  map
+     * @param RuntimeOptions             $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateTaskWorkforceResponse
+     * @return UpdateTaskWorkforceResponse UpdateTaskWorkforceResponse
      */
     public function updateTaskWorkforceWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
     {
@@ -1698,11 +1884,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 更新任务人力
+     *  *
      * @param string                     $TenantId
      * @param string                     $TaskId
-     * @param UpdateTaskWorkforceRequest $request
+     * @param UpdateTaskWorkforceRequest $request  UpdateTaskWorkforceRequest
      *
-     * @return UpdateTaskWorkforceResponse
+     * @return UpdateTaskWorkforceResponse UpdateTaskWorkforceResponse
      */
     public function updateTaskWorkforce($TenantId, $TaskId, $request)
     {
@@ -1713,13 +1901,15 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 更新标注模版
+     *  *
      * @param string                $TenantId
      * @param string                $TemplateId
-     * @param UpdateTemplateRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateTemplateRequest $request    UpdateTemplateRequest
+     * @param string[]              $headers    map
+     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplateWithOptions($TenantId, $TemplateId, $request, $headers, $runtime)
     {
@@ -1744,11 +1934,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 更新标注模版
+     *  *
      * @param string                $TenantId
      * @param string                $TemplateId
-     * @param UpdateTemplateRequest $request
+     * @param UpdateTemplateRequest $request    UpdateTemplateRequest
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplate($TenantId, $TemplateId, $request)
     {
@@ -1759,12 +1951,14 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 更新租户信息
+     *  *
      * @param string              $TenantId
-     * @param UpdateTenantRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param UpdateTenantRequest $request  UpdateTenantRequest
+     * @param string[]            $headers  map
+     * @param RuntimeOptions      $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateTenantResponse
+     * @return UpdateTenantResponse UpdateTenantResponse
      */
     public function updateTenantWithOptions($TenantId, $request, $headers, $runtime)
     {
@@ -1796,10 +1990,12 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 更新租户信息
+     *  *
      * @param string              $TenantId
-     * @param UpdateTenantRequest $request
+     * @param UpdateTenantRequest $request  UpdateTenantRequest
      *
-     * @return UpdateTenantResponse
+     * @return UpdateTenantResponse UpdateTenantResponse
      */
     public function updateTenant($TenantId, $request)
     {
@@ -1810,13 +2006,15 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 更新用户信息
+     *  *
      * @param string            $TenantId
      * @param string            $UserId
-     * @param UpdateUserRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param UpdateUserRequest $request  UpdateUserRequest
+     * @param string[]          $headers  map
+     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUserWithOptions($TenantId, $UserId, $request, $headers, $runtime)
     {
@@ -1848,11 +2046,13 @@ class OpenITag extends OpenApiClient
     }
 
     /**
+     * @summary 更新用户信息
+     *  *
      * @param string            $TenantId
      * @param string            $UserId
-     * @param UpdateUserRequest $request
+     * @param UpdateUserRequest $request  UpdateUserRequest
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUser($TenantId, $UserId, $request)
     {

@@ -35,6 +35,8 @@ class ExportAnnotationsResponseBody extends Model
     public $flowJob;
 
     /**
+     * @description This parameter is required.
+     *
      * @example success
      *
      * @var string

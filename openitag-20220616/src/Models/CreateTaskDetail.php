@@ -21,11 +21,15 @@ class CreateTaskDetail extends Model
     public $allowAppendData;
 
     /**
+     * @description This parameter is required.
+     *
      * @var TaskAssginConfig
      */
     public $assignConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var DatasetProxyConfig[]
      */
     public $datasetProxyRelations;
@@ -41,6 +45,8 @@ class CreateTaskDetail extends Model
     public $tags;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $taskName;
@@ -51,16 +57,22 @@ class CreateTaskDetail extends Model
     public $taskTemplateConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var taskWorkflow[]
      */
     public $taskWorkflow;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $UUID;

@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\SDK\OpenITag\V20220616\Models\GetTemplateViewResponseBody\viewConfigs;
 use AlibabaCloud\Tea\Model;
 
-class GetTemplateViewResponseBody extends Model
+class AppendAllDataToTaskResponseBody extends Model
 {
     /**
      * @example 0
@@ -17,7 +16,7 @@ class GetTemplateViewResponseBody extends Model
     public $code;
 
     /**
-     * @example ""
+     * @example null
      *
      * @var string
      */
@@ -40,6 +39,8 @@ class GetTemplateViewResponseBody extends Model
     public $message;
 
     /**
+     * @description Id of the request
+     *
      * @example 90ABA848-AD74-1F6E-84BC-4182A7F1F29E
      *
      * @var string
@@ -52,19 +53,13 @@ class GetTemplateViewResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var viewConfigs
-     */
-    public $viewConfigs;
     protected $_name = [
-        'code'        => 'Code',
-        'details'     => 'Details',
-        'errorCode'   => 'ErrorCode',
-        'message'     => 'Message',
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
-        'viewConfigs' => 'ViewConfigs',
+        'code'      => 'Code',
+        'details'   => 'Details',
+        'errorCode' => 'ErrorCode',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -92,9 +87,6 @@ class GetTemplateViewResponseBody extends Model
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->viewConfigs) {
-            $res['ViewConfigs'] = null !== $this->viewConfigs ? $this->viewConfigs->toMap() : null;
-        }
 
         return $res;
     }
@@ -102,7 +94,7 @@ class GetTemplateViewResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetTemplateViewResponseBody
+     * @return AppendAllDataToTaskResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -124,9 +116,6 @@ class GetTemplateViewResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['ViewConfigs'])) {
-            $model->viewConfigs = viewConfigs::fromMap($map['ViewConfigs']);
         }
 
         return $model;

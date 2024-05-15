@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateTaskRequest extends Model
+class AppendAllDataToTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @var UpdateTaskDTO
+     * @var OpenDatasetProxyAppendDataRequest
      */
     public $body;
     protected $_name = [
@@ -35,13 +33,13 @@ class UpdateTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateTaskRequest
+     * @return AppendAllDataToTaskRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
-            $model->body = UpdateTaskDTO::fromMap($map['body']);
+            $model->body = OpenDatasetProxyAppendDataRequest::fromMap($map['body']);
         }
 
         return $model;

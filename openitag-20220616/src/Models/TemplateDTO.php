@@ -25,6 +25,8 @@ class TemplateDTO extends Model
     public $exif;
 
     /**
+     * @description This parameter is required.
+     *
      * @var QuestionPlugin[]
      */
     public $questionConfigs;
@@ -50,11 +52,15 @@ class TemplateDTO extends Model
     public $templateId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var viewConfigs
      */
     public $viewConfigs;

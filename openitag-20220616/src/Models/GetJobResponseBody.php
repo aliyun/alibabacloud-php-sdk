@@ -35,6 +35,8 @@ class GetJobResponseBody extends Model
     public $job;
 
     /**
+     * @description This parameter is required.
+     *
      * @example success
      *
      * @var string
