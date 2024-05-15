@@ -22,6 +22,7 @@ class GetBlockingDetailListRequest extends Model
     /**
      * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1682490480548
      *
      * @var string
@@ -31,6 +32,7 @@ class GetBlockingDetailListRequest extends Model
     /**
      * @description The database instance ID.
      *
+     * This parameter is required.
      * @example rm-t4nfalp2ap421312z
      *
      * @var string
@@ -67,6 +69,7 @@ class GetBlockingDetailListRequest extends Model
     /**
      * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1679429913757
      *
      * @var string

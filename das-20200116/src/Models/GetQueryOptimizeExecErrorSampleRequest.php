@@ -15,6 +15,7 @@ class GetQueryOptimizeExecErrorSampleRequest extends Model
      *   **PolarDBMySQL**
      *   **PostgreSQL**
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -24,6 +25,7 @@ class GetQueryOptimizeExecErrorSampleRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string
@@ -31,8 +33,9 @@ class GetQueryOptimizeExecErrorSampleRequest extends Model
     public $instanceId;
 
     /**
-     * @description The SQL template ID. You can call the [GetQueryOptimizeExecErrorStats](~~405235~~) operation to obtain the SQL template ID.
+     * @description The SQL template ID. You can call the [GetQueryOptimizeExecErrorStats](https://help.aliyun.com/document_detail/405235.html) operation to obtain the SQL template ID.
      *
+     * This parameter is required.
      * @example 2e8147b5ca2dfc640dfd5e43d96a****
      *
      * @var string
@@ -42,6 +45,7 @@ class GetQueryOptimizeExecErrorSampleRequest extends Model
     /**
      * @description The date to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1642953600000
      *
      * @var string

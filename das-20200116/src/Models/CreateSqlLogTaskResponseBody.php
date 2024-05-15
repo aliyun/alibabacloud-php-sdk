@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class CreateSqlLogTaskResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -22,16 +26,32 @@ class CreateSqlLogTaskResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 83D9D59B-057A-54A9-BFF9-CF2B42F05645
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

@@ -15,6 +15,7 @@ class GetQueryOptimizeSolutionRequest extends Model
      *   **PolarDBMySQL**
      *   **PostgreSQL**
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -22,7 +23,7 @@ class GetQueryOptimizeSolutionRequest extends Model
     public $engine;
 
     /**
-     * @description The instance ID. You can call the [GetQueryOptimizeDataStats](~~405261~~) operation to query the instance ID.
+     * @description The instance ID. You can call the [GetQueryOptimizeDataStats](https://help.aliyun.com/document_detail/405261.html) operation to query the instance ID.
      *
      * @example rm-bp1o3z6beqpej****
      *
@@ -31,8 +32,9 @@ class GetQueryOptimizeSolutionRequest extends Model
     public $instanceId;
 
     /**
-     * @description The tag ID. For more information, see [Query governance](~~290038~~).
+     * @description The tag ID. For more information, see [Query governance](https://help.aliyun.com/document_detail/290038.html).
      *
+     * This parameter is required.
      * @example LARGE_ROWS_EXAMINED
      *
      * @var string
@@ -40,8 +42,9 @@ class GetQueryOptimizeSolutionRequest extends Model
     public $ruleIds;
 
     /**
-     * @description The SQL template ID. You can call the [GetQueryOptimizeDataStats](~~405261~~) operation to query the SQL template ID.
+     * @description The SQL template ID. You can call the [GetQueryOptimizeDataStats](https://help.aliyun.com/document_detail/405261.html) operation to query the SQL template ID.
      *
+     * This parameter is required.
      * @example 05fecf7e7b3efd123c4d5197035f****
      *
      * @var string

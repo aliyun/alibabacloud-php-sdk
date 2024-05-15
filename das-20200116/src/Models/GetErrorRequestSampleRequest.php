@@ -30,6 +30,7 @@ class GetErrorRequestSampleRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string
@@ -47,7 +48,7 @@ class GetErrorRequestSampleRequest extends Model
     public $nodeId;
 
     /**
-     * @description The SQL query ID. You can call the [GetAsyncErrorRequestListByCode](~~410746~~) operation to query the ID of the SQL query for which MySQL error code is returned.
+     * @description The SQL query ID. You can call the [GetAsyncErrorRequestListByCode](https://help.aliyun.com/document_detail/410746.html) operation to query the ID of the SQL query for which MySQL error code is returned.
      *
      * @example 2cd4432556c3dab9d825ba363637****
      *

@@ -11,7 +11,7 @@ class UpdateAutoSqlOptimizeStatusRequest extends Model
     /**
      * @description The database instance IDs. Separate multiple IDs with commas (,).
      *
-     * >  You can specify up to 50 instance IDs.
+     * This parameter is required.
      * @example rm-bp10usoc1erj7****,rm-bp10usoc1erj7****
      *
      * @var string
@@ -25,6 +25,7 @@ class UpdateAutoSqlOptimizeStatusRequest extends Model
      *   **1**: **SQL diagnosis and automatic index creation** is specified.
      *   **3**: **SQL diagnosis only** is specified.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

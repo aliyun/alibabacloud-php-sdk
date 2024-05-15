@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The time when the analysis task was complete.
+     *
      * @example 1712751923000
      *
      * @var int
@@ -17,6 +19,8 @@ class list_ extends Model
     public $analysisTaskFinishTime;
 
     /**
+     * @description The status of the analysis task.
+     *
      * @example SCAN_ANALYZE_COMPLETED
      *
      * @var string
@@ -24,6 +28,8 @@ class list_ extends Model
     public $analysisTaskStatus;
 
     /**
+     * @description The time when the task was created.
+     *
      * @example 1681363254423
      *
      * @var int
@@ -31,6 +37,8 @@ class list_ extends Model
     public $createTime;
 
     /**
+     * @description The end of the time range to query.
+     *
      * @example 1705975320000
      *
      * @var int
@@ -38,6 +46,8 @@ class list_ extends Model
     public $end;
 
     /**
+     * @description Indicates whether the task expires.
+     *
      * @example false
      *
      * @var bool
@@ -45,11 +55,15 @@ class list_ extends Model
     public $expire;
 
     /**
+     * @description The filter conditions.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The instance ID.
+     *
      * @example rm-2zew761kf7ho18752
      *
      * @var string
@@ -57,6 +71,8 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @description The number of log records
+     *
      * @example 99999
      *
      * @var int
@@ -64,11 +80,17 @@ class list_ extends Model
     public $logCount;
 
     /**
+     * @description The task name.
+     *
+     * @example test01
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The task progress.
+     *
      * @example 100
      *
      * @var int
@@ -76,6 +98,8 @@ class list_ extends Model
     public $progress;
 
     /**
+     * @description The Object Storage Service (OSS) URL or other information.
+     *
      * @example https://das-sqllog-download-cn-shanghai.oss-cn-shanghai.aliyuncs.com/la
      *
      * @var string
@@ -83,6 +107,8 @@ class list_ extends Model
     public $result;
 
     /**
+     * @description The number of files scanned
+     *
      * @example 3000
      *
      * @var int
@@ -90,6 +116,8 @@ class list_ extends Model
     public $scanFileSize;
 
     /**
+     * @description The beginning of the time range to query.
+     *
      * @example 1683859555482
      *
      * @var int
@@ -97,6 +125,8 @@ class list_ extends Model
     public $start;
 
     /**
+     * @description The status of the task.
+     *
      * @example RUNNING
      *
      * @var string
@@ -104,6 +134,8 @@ class list_ extends Model
     public $status;
 
     /**
+     * @description The task ID.
+     *
      * @example 9a4f5c4494dbd6713185d87a97aa53e8
      *
      * @var string
@@ -111,6 +143,11 @@ class list_ extends Model
     public $taskId;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   Export
+     *   Query
+     *
      * @example Export
      *
      * @var string

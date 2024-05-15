@@ -41,7 +41,7 @@ class GetDasSQLLogHotDataRequest extends Model
     /**
      * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * >  The end time must be later than the start time. The interval between the start time and the end time cannot exceed 24 hours.
+     * This parameter is required.
      * @example 1684820697000
      *
      * @var int
@@ -49,7 +49,7 @@ class GetDasSQLLogHotDataRequest extends Model
     public $end;
 
     /**
-     * @description The error code of SQL execution. You can call the [GetAsyncErrorRequestStatByCode](~~409804~~) operation to query MySQL error codes in SQL Explorer data.
+     * @description The error code of SQL execution. You can call the [GetAsyncErrorRequestStatByCode](https://help.aliyun.com/document_detail/409804.html) operation to query MySQL error codes in SQL Explorer data.
      *
      * @example 1064
      *
@@ -70,6 +70,7 @@ class GetDasSQLLogHotDataRequest extends Model
     /**
      * @description The ID of the database instance.
      *
+     * This parameter is required.
      * @example rm-2ze1jdv45i7l6****
      *
      * @var string
@@ -239,7 +240,7 @@ class GetDasSQLLogHotDataRequest extends Model
     /**
      * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * >  You can query only the data that is generated after the new SQL Explorer and Audit feature is enabled. The start time can be up to seven days earlier than the current time.
+     * This parameter is required.
      * @example 1684734297000
      *
      * @var int

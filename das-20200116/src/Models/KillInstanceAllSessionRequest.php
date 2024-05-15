@@ -20,6 +20,7 @@ class KillInstanceAllSessionRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example r-8vbcyr4sw0c4yc****
      *
      * @var string

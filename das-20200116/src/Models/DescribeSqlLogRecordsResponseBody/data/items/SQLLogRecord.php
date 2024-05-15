@@ -9,166 +9,234 @@ use AlibabaCloud\Tea\Model;
 class SQLLogRecord extends Model
 {
     /**
+     * @example testname
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $collection;
 
     /**
+     * @example 58
+     *
      * @var int
      */
     public $consume;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $cpuTime;
 
     /**
+     * @example testdb
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @example 2023-12-07T02:15:32Z
+     *
      * @var string
      */
     public $executeTime;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $ext;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $frows;
 
     /**
+     * @example 11.197.XX.XX
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $lockTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $logicRead;
 
     /**
+     * @example pi-uf6k5f6g3912i****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example 1701886532000
+     *
      * @var int
      */
     public $originTime;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $parallelDegree;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $parallelQueueTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $physicAsyncRead;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $physicRead;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $physicSyncRead;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $returnRows;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $rows;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $scanRows;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $scnt;
 
     /**
+     * @description SQL ID。
+     *
+     * @example c67649d4a7fb62c4f8c7a447c52b5b17
+     *
      * @var string
      */
     public $sqlId;
 
     /**
+     * @example select resource_id as cluster_id, tpl_name \\n\\tfrom dbfree_alert_resource_tpl_ref\\n\\twhere user_id=? and type=\\"cluster\\" group by resource_id, tpl_name
+     *
      * @var string
      */
     public $sqlText;
 
     /**
+     * @example select
+     *
      * @var string
      */
     public $sqlType;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example None
+     *
      * @var int
      */
     public $threadId;
 
     /**
+     * @example 14c93b7c7bf00000
+     *
      * @var string
      */
     public $traceId;
 
     /**
+     * @example 200000
+     *
      * @var int
      */
     public $trxId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $updateRows;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $useImciEngine;
 
     /**
+     * @example 100.115.XX.XX
+     *
      * @var string
      */
     public $vip;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $writes;

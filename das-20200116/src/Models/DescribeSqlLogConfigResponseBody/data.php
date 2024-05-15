@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The cold storage duration.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class data extends Model
     public $coldEnable;
 
     /**
+     * @description The cold storage duration.
+     *
      * @example 23
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $coldRetention;
 
     /**
+     * @description The time when cold storage was enabled.
+     *
      * @example 1683712800000
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $coldStartTime;
 
     /**
+     * @description The version of the collector.
+     *
      * @example MYSQL_V3
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $collectorVersion;
 
     /**
+     * @description Indicates whether hot storage was enabled.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +54,8 @@ class data extends Model
     public $hotEnable;
 
     /**
+     * @description The hot storage duration.
+     *
      * @example 7
      *
      * @var int
@@ -51,6 +63,8 @@ class data extends Model
     public $hotRetention;
 
     /**
+     * @description The time when hot storage was enabled.
+     *
      * @example 1683712800000
      *
      * @var int
@@ -58,11 +72,17 @@ class data extends Model
     public $hotStartTime;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $logFilter;
 
     /**
+     * @description Indicates whether SQL Explorer and Audit was enabled.
+     *
      * @example true
      *
      * @var bool
@@ -70,6 +90,8 @@ class data extends Model
     public $requestEnable;
 
     /**
+     * @description The time when SQL Explorer and Audit was enabled.
+     *
      * @example 1683712800000
      *
      * @var int
@@ -77,6 +99,9 @@ class data extends Model
     public $requestStartTime;
 
     /**
+     * @description The time when SQL Explorer and Audit was disabled.
+     *
+     * >  If DAS Enterprise Edition V1 was enabled, this parameter indicates the time when DAS Enterprise Edition expired.
      * @example 1715335200000
      *
      * @var int
@@ -84,6 +109,8 @@ class data extends Model
     public $requestStopTime;
 
     /**
+     * @description The storage duration of the SQL Explorer and Audit data.
+     *
      * @example 30
      *
      * @var int
@@ -91,6 +118,8 @@ class data extends Model
     public $retention;
 
     /**
+     * @description Indicates whether DAS Enterprise Edition was enabled.
+     *
      * @example true
      *
      * @var bool
@@ -98,6 +127,8 @@ class data extends Model
     public $sqlLogEnable;
 
     /**
+     * @description The status of data migration.
+     *
      * @example FINISH
      *
      * @var string
@@ -105,6 +136,8 @@ class data extends Model
     public $sqlLogState;
 
     /**
+     * @description The time when SQL Explorer and Audit was enabled.
+     *
      * @example 1683712800000
      *
      * @var int
@@ -112,6 +145,8 @@ class data extends Model
     public $sqlLogVisibleTime;
 
     /**
+     * @description The supported versions of Database Autonomy Service (DAS) Enterprise Edition.
+     *
      * @example SQL_LOG_V3
      *
      * @var string
@@ -119,6 +154,8 @@ class data extends Model
     public $supportVersion;
 
     /**
+     * @description The version of SQL Explorer and Audit.
+     *
      * @example SQL_LOG_V3
      *
      * @var string

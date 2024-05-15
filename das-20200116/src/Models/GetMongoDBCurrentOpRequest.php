@@ -20,6 +20,7 @@ class GetMongoDBCurrentOpRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example dds-uf608087********
      *
      * @var string

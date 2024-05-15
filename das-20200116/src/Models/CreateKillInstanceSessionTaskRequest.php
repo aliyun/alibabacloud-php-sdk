@@ -11,6 +11,7 @@ class CreateKillInstanceSessionTaskRequest extends Model
     /**
      * @description The database account that has the permissions to terminate sessions.
      *
+     * This parameter is required.
      * @example testUser
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateKillInstanceSessionTaskRequest extends Model
     /**
      * @description The password of the database account.
      *
+     * This parameter is required.
      * @example testPassword
      *
      * @var string
@@ -29,8 +31,8 @@ class CreateKillInstanceSessionTaskRequest extends Model
     /**
      * @description The account whose sessions do not need to be terminated.
      *
-     * >  Set this parameter to a JSON array. Separate database accounts with commas (,). Example: \[\"Database account 1\",\"Database account 2\"].
-     * @example [\"db_user1\",\"db_user2\"]
+     * >  Set this parameter to a JSON array. Separate database accounts with commas (,). Example: [\\"Database account 1\\",\\"Database account 2\\"].
+     * @example [\\"db_user1\\",\\"db_user2\\"]
      *
      * @var string
      */
@@ -39,6 +41,7 @@ class CreateKillInstanceSessionTaskRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string
@@ -51,7 +54,9 @@ class CreateKillInstanceSessionTaskRequest extends Model
      *   **true**
      *   **false**
      *
-     * >  If you set this parameter to **true**, sessions of the accounts that are specified by **IgnoredUsers**, sessions of internal O\&M accounts of Alibaba Cloud, and **Binlog Dump** sessions are not terminated.
+     * >  If you set this parameter to **true**, sessions of the accounts that are specified by **IgnoredUsers**, sessions of internal O\\&M accounts of Alibaba Cloud, and **Binlog Dump** sessions are not terminated.
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -71,7 +76,7 @@ class CreateKillInstanceSessionTaskRequest extends Model
     /**
      * @description The IDs of sessions that need to be terminated.
      *
-     * >  Set this parameter to a JSON array. Separate session IDs with commas (,). Example: \[\"Session ID1\",\"Session ID2\"]. If **KillAllSessions** is set to **true**, this parameter does not take effect.
+     * >  Set this parameter to a JSON array. Separate session IDs with commas (,). Example: [\\"Session ID1\\",\\"Session ID2\\"]. If **KillAllSessions** is set to **true**, this parameter does not take effect.
      * @example [10805639,10805623,10805645,10805553,10805566,10805616]
      *
      * @var string

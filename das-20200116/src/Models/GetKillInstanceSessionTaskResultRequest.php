@@ -11,6 +11,7 @@ class GetKillInstanceSessionTaskResultRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze1jdv45i7l6****
      *
      * @var string
@@ -28,8 +29,9 @@ class GetKillInstanceSessionTaskResultRequest extends Model
     public $nodeId;
 
     /**
-     * @description The task ID. You can obtain the task ID from the response parameters of the [CreateKillInstanceSessionTask](~~609246~~) operation.
+     * @description The task ID. You can obtain the task ID from the response parameters of the [CreateKillInstanceSessionTask](https://help.aliyun.com/document_detail/609246.html) operation.
      *
+     * This parameter is required.
      * @example f77d535b45405bd462b21caa3ee8****
      *
      * @var string

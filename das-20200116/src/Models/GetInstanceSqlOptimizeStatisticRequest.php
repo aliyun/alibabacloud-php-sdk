@@ -11,6 +11,7 @@ class GetInstanceSqlOptimizeStatisticRequest extends Model
     /**
      * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1662518540764
      *
      * @var string
@@ -33,7 +34,7 @@ class GetInstanceSqlOptimizeStatisticRequest extends Model
     /**
      * @description The database instance ID.
      *
-     * >  The database instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
+     * This parameter is required.
      * @example pc-wz90h9560rvdz****
      *
      * @var string
@@ -53,6 +54,7 @@ class GetInstanceSqlOptimizeStatisticRequest extends Model
     /**
      * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1661308902060
      *
      * @var string

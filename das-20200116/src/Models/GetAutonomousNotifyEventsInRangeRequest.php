@@ -11,7 +11,7 @@ class GetAutonomousNotifyEventsInRangeRequest extends Model
     /**
      * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * >  The end time must be later than the start time.
+     * This parameter is required.
      * @example 1568265711221
      *
      * @var string
@@ -65,7 +65,7 @@ class GetAutonomousNotifyEventsInRangeRequest extends Model
     public $minLevel;
 
     /**
-     * @description The ID of the node in a PolarDB for MySQL cluster. You can call the [DescribeDBClusters](~~98094~~) operation to query the node ID returned by the DBNodeId response parameter.
+     * @description The ID of the node in a PolarDB for MySQL cluster. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the node ID returned by the DBNodeId response parameter.
      *
      * >  You must specify the node ID if your database instance is a PolarDB for MySQL cluster.
      * @example r-x****-db-0
@@ -95,6 +95,7 @@ class GetAutonomousNotifyEventsInRangeRequest extends Model
     /**
      * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1568269711000
      *
      * @var string

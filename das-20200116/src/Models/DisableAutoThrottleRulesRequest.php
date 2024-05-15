@@ -20,8 +20,8 @@ class DisableAutoThrottleRulesRequest extends Model
     /**
      * @description The database instance IDs.
      *
-     * >  Set this parameter to a JSON array that consists of multiple instance IDs. Separate instance IDs with commas (,). Example: `[\"Instance ID1\",\"Instance ID2\"]`.
-     * @example [\"rm-2ze8g2am97624****\",\"rm-2ze9xrhze0709****\"]
+     * This parameter is required.
+     * @example [\\"rm-2ze8g2am97624****\\",\\"rm-2ze9xrhze0709****\\"]
      *
      * @var string
      */

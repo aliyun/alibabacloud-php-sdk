@@ -18,8 +18,9 @@ class DescribeHotBigKeysRequest extends Model
     public $consoleContext;
 
     /**
-     * @description The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID.
+     * @description The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example r-bp18ff4a195d****
      *
      * @var string
@@ -27,7 +28,7 @@ class DescribeHotBigKeysRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the data shard on the ApsaraDB for Redis instance. You can call the [DescribeRoleZoneInfo](~~190794~~) operation to query the ID.
+     * @description The ID of the data shard on the ApsaraDB for Redis instance. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the ID.
      *
      * @example r-****-db-0
      *

@@ -20,7 +20,7 @@ class DisableAllSqlConcurrencyControlRulesRequest extends Model
     /**
      * @description The instance ID.
      *
-     * >  You must specify this parameter only if your database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
+     * This parameter is required.
      * @example rm-2ze1jdv45i7l6****
      *
      * @var string

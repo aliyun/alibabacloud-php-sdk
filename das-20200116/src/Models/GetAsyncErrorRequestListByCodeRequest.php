@@ -19,7 +19,7 @@ class GetAsyncErrorRequestListByCodeRequest extends Model
     public $end;
 
     /**
-     * @description The error code. You can call the [GetAsyncErrorRequestStatByCode](~~409804~~) operation to query the MySQL error codes that may be generated in the SQL Explorer results of an instance.
+     * @description The error code. You can call the [GetAsyncErrorRequestStatByCode](https://help.aliyun.com/document_detail/409804.html) operation to query the MySQL error codes that may be generated in the SQL Explorer results of an instance.
      *
      * @example 1064
      *
@@ -30,6 +30,7 @@ class GetAsyncErrorRequestListByCodeRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string

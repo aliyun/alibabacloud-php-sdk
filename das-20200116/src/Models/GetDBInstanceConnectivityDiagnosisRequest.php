@@ -11,6 +11,7 @@ class GetDBInstanceConnectivityDiagnosisRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDBInstanceConnectivityDiagnosisRequest extends Model
     /**
      * @description The source IP address.
      *
+     * This parameter is required.
      * @example 47.110.180.62
      *
      * @var string

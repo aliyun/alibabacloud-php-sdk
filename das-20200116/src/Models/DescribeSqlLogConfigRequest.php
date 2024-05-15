@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlLogConfigRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string

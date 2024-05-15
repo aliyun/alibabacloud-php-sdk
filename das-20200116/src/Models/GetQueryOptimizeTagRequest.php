@@ -15,6 +15,7 @@ class GetQueryOptimizeTagRequest extends Model
      *   **PolarDBMySQL**: PolarDB for MySQL
      *   **PostgreSQL**: ApsaraDB RDS for PostgreSQL
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -24,6 +25,7 @@ class GetQueryOptimizeTagRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string
@@ -31,8 +33,9 @@ class GetQueryOptimizeTagRequest extends Model
     public $instanceId;
 
     /**
-     * @description The SQL template ID. You can call the [GetQueryOptimizeDataStats](~~405261~~) operation to query the SQL template ID.
+     * @description The SQL template ID. You can call the [GetQueryOptimizeDataStats](https://help.aliyun.com/document_detail/405261.html) operation to query the SQL template ID.
      *
+     * This parameter is required.
      * @example 29d9fef63e347d39c3436658a5fe5f2b
      *
      * @var string

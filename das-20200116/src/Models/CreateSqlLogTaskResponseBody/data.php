@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the task was created.
+     *
+     * @example 1681363254423
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * @example 1608888296000
+     *
      * @var int
      */
     public $end;
 
     /**
+     * @description The instance ID.
+     *
+     * @example pc-2ze8g2am97624****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The task name.
+     *
+     * @example Export_test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * @example 1596177993000
+     *
      * @var int
      */
     public $start;
 
     /**
+     * @description The status of the task.
+     *
+     * @example COMPLETED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The task ID.
+     *
+     * @example 54f8041743ca3a9ac5cb9342d050527c
+     *
      * @var string
      */
     public $taskId;

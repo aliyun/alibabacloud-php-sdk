@@ -29,7 +29,7 @@ class queries extends Model
     public $DBName;
 
     /**
-     * @description yyyy-MM-dd\"T\"HH:mm:ss.SSS\"Z\"
+     * @description yyyy-MM-dd\\"T\\"HH:mm:ss.SSS\\"Z\\"
      *
      * @var string
      */

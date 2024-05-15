@@ -11,6 +11,7 @@ class GetRequestDiagnosisPageRequest extends Model
     /**
      * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1634972640000
      *
      * @var int
@@ -20,6 +21,7 @@ class GetRequestDiagnosisPageRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-0iwhhl8gx0ld6****
      *
      * @var string
@@ -39,6 +41,7 @@ class GetRequestDiagnosisPageRequest extends Model
     /**
      * @description The page number. The value must be a positive integer. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -48,6 +51,7 @@ class GetRequestDiagnosisPageRequest extends Model
     /**
      * @description The number of entries per page. The value must be a positive integer. Default value: 10.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -57,6 +61,7 @@ class GetRequestDiagnosisPageRequest extends Model
     /**
      * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1633071840000
      *
      * @var int

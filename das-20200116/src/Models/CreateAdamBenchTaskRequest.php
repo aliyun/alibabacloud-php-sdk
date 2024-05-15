@@ -11,6 +11,7 @@ class CreateAdamBenchTaskRequest extends Model
     /**
      * @description The description of the stress testing task.
      *
+     * This parameter is required.
      * @example test-das-bench-0501
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateAdamBenchTaskRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the destination instance. The instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL instance. You can call the [GetInstanceInspections](~~202857~~) operation to query the ID.
+     * @description The ID of the destination instance. The instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL instance. You can call the [GetInstanceInspections](https://help.aliyun.com/document_detail/202857.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example rm-2ze1jdv45i7l6****
      *
      * @var string
@@ -29,6 +31,7 @@ class CreateAdamBenchTaskRequest extends Model
     /**
      * @description The name of the privileged account for the destination instance.
      *
+     * This parameter is required.
      * @example root***
      *
      * @var string
@@ -38,6 +41,7 @@ class CreateAdamBenchTaskRequest extends Model
     /**
      * @description The password of the privileged account for the destination instance.
      *
+     * This parameter is required.
      * @example root***1234
      *
      * @var string
@@ -56,6 +60,7 @@ class CreateAdamBenchTaskRequest extends Model
     /**
      * @description The duration of the stress testing task for which the traffic is captured from the source instance. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 86400000
      *
      * @var int
@@ -65,6 +70,7 @@ class CreateAdamBenchTaskRequest extends Model
     /**
      * @description The start time of the stress testing task. Specify the time in the UNIX timestamp format. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1588819800000
      *
      * @var int
@@ -92,6 +98,7 @@ class CreateAdamBenchTaskRequest extends Model
     /**
      * @description The maximum number of queries per second (QPS) within the time period during which traffic on the source database instance is captured. The value must be accurate to two decimal places.
      *
+     * This parameter is required.
      * @example 2013.22
      *
      * @var float
@@ -101,6 +108,7 @@ class CreateAdamBenchTaskRequest extends Model
     /**
      * @description The average QPS within the time period in which traffic on the source database instance is captured. The value must be accurate to two decimal places.
      *
+     * This parameter is required.
      * @example 312.22
      *
      * @var float
@@ -110,6 +118,7 @@ class CreateAdamBenchTaskRequest extends Model
     /**
      * @description The URL of the Object Storage Service (OSS) folder in which the archived objects for SQL statements that run on the source database instance are stored. You can obtain the URL after you upload the archived files to OSS.
      *
+     * This parameter is required.
      * @example http://rdslog-hz-v3.oss-cn-hangzhou.aliyuncs.com/custins4131****
      *
      * @var string

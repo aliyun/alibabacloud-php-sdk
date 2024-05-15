@@ -11,6 +11,7 @@ class DisableInstanceDasConfigRequest extends Model
     /**
      * @description The database engine. Set the value to Redis.
      *
+     * This parameter is required.
      * @example Redis
      *
      * @var string
@@ -20,6 +21,7 @@ class DisableInstanceDasConfigRequest extends Model
     /**
      * @description The database instance ID.
      *
+     * This parameter is required.
      * @example r-bp1nti25tc7bq5****
      *
      * @var string
@@ -33,6 +35,7 @@ class DisableInstanceDasConfigRequest extends Model
      *   **shardScale**: The number of shards for a database instance is automatically increased or decreased.
      *   **bandwidthScale**: The bandwidth of a database instance is automatically increased or decreased.
      *
+     * This parameter is required.
      * @example bandwidthScale
      *
      * @var string

@@ -47,7 +47,7 @@ class GetInstanceMissingIndexListRequest extends Model
     /**
      * @description The database instance ID.
      *
-     * >  Only ApsaraDB RDS for SQL Server instances are supported.
+     * This parameter is required.
      * @example rm-************
      *
      * @var string

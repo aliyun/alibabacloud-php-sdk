@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlLogRecordsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -22,16 +24,22 @@ class DescribeSqlLogRecordsResponseBody extends Model
     public $data;
 
     /**
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F43E7FB3-CE67-5FFD-A59C-EFD278BCD7BE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

@@ -11,7 +11,7 @@ class GetMySQLAllSessionAsyncRequest extends Model
     /**
      * @description The instance ID.
      *
-     * >  Only ApsaraDB RDS for MySQL, PolarDB for MySQL, and PolarDB-X 2.0 instances are supported.
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string

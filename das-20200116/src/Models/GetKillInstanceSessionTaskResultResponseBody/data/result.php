@@ -71,7 +71,7 @@ class result extends Model
      *   **SESSION_NO_PERMISSION**: The account used to terminate the session has insufficient permissions.
      *   **SESSION_ACCOUNT_ERROR**: The account or password used to terminate the session is invalid.
      *   **SESSION_IGNORED_USER**: The session of the account does not need to be terminated.
-     *   **SESSION_INTERNAL_USER_OR_COMMAND**: The session is a session initiated by or a command run by an Alibaba Cloud O\&M account.
+     *   **SESSION_INTERNAL_USER_OR_COMMAND**: The session is a session initiated by or a command run by an Alibaba Cloud O\\&M account.
      *   **SESSION_KILL_TASK_TIMEOUT**: Timeout occurs when the session is terminated.
      *   **SESSION_OTHER_ERROR**: Other errors occurred.
      *

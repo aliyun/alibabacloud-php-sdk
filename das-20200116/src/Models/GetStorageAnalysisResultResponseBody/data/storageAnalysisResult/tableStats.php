@@ -57,6 +57,11 @@ class tableStats extends Model
     public $engine;
 
     /**
+     * @var int
+     */
+    public $fragmentSize;
+
+    /**
      * @description The size of storage occupied by indexes.
      *
      * >  Unit: bytes.
@@ -128,6 +133,7 @@ class tableStats extends Model
         'dataSize'         => 'DataSize',
         'dbName'           => 'DbName',
         'engine'           => 'Engine',
+        'fragmentSize'     => 'FragmentSize',
         'indexSize'        => 'IndexSize',
         'phyTotalSize'     => 'PhyTotalSize',
         'physicalFileSize' => 'PhysicalFileSize',
@@ -158,6 +164,9 @@ class tableStats extends Model
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->fragmentSize) {
+            $res['FragmentSize'] = $this->fragmentSize;
         }
         if (null !== $this->indexSize) {
             $res['IndexSize'] = $this->indexSize;
@@ -206,6 +215,9 @@ class tableStats extends Model
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+        if (isset($map['FragmentSize'])) {
+            $model->fragmentSize = $map['FragmentSize'];
         }
         if (isset($map['IndexSize'])) {
             $model->indexSize = $map['IndexSize'];

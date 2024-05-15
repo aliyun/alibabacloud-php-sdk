@@ -20,6 +20,7 @@ class GetDeadLockDetailListRequest extends Model
     /**
      * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1702360530292
      *
      * @var string
@@ -29,6 +30,7 @@ class GetDeadLockDetailListRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze2016723b328gs2
      *
      * @var string
@@ -56,6 +58,7 @@ class GetDeadLockDetailListRequest extends Model
     /**
      * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1701755730292
      *
      * @var string

@@ -13,7 +13,7 @@ class data extends Model
     /**
      * @description The reason why the large key failed to be queried.
      *
-     * @example current version doesn\"t support
+     * @example current version doesn\\"t support
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class data extends Model
     /**
      * @description The reason why the hot key failed to be queried.
      *
-     * @example current version doesn\"t support
+     * @example current version doesn\\"t support
      *
      * @var string
      */

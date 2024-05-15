@@ -20,7 +20,7 @@ class DisableSqlConcurrencyControlRequest extends Model
     /**
      * @description The instance ID.
      *
-     * >  The database instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
+     * This parameter is required.
      * @example rm-2ze1jdv45i7l6****
      *
      * @var string
@@ -28,8 +28,9 @@ class DisableSqlConcurrencyControlRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the throttling rule that is applied to the instance. You can call the [GetRunningSqlConcurrencyControlRules](~~223538~~) operation to query the ID.
+     * @description The ID of the throttling rule that is applied to the instance. You can call the [GetRunningSqlConcurrencyControlRules](https://help.aliyun.com/document_detail/223538.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

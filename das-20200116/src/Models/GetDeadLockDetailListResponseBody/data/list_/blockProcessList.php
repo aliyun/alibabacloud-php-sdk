@@ -65,7 +65,7 @@ class blockProcessList extends Model
     /**
      * @description The username that is used for login.
      *
-     * @example sd74020124\\Administrator
+     * @example sd74020124\\\\Administrator
      *
      * @var string
      */

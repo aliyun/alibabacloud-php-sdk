@@ -15,6 +15,7 @@ class GetQueryOptimizeDataTopRequest extends Model
      *   **PolarDBMySQL**
      *   **PostgreSQL**
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -58,6 +59,7 @@ class GetQueryOptimizeDataTopRequest extends Model
     /**
      * @description The time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1642953600000
      *
      * @var string
@@ -70,6 +72,7 @@ class GetQueryOptimizeDataTopRequest extends Model
      *   **RED**: the best-performing instances
      *   **BLACK**: the worst-performing instances
      *
+     * This parameter is required.
      * @example RED
      *
      * @var string

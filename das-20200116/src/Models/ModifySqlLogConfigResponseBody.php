@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySqlLogConfigResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 403
      *
      * @var string
@@ -17,13 +19,16 @@ class ModifySqlLogConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description SqlLogConfig
+     * @description The data returned.
      *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned for the request.
+     *
+     * >  If the request was successful, **Successful** is returned. If the request failed, error information such as an error code is returned.
      * @example Successful
      *
      * @var string
@@ -31,6 +36,8 @@ class ModifySqlLogConfigResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 03C88D8E-1541-518E-8BFF-BEC6589B6334
      *
      * @var string
@@ -38,6 +45,11 @@ class ModifySqlLogConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example False
      *
      * @var string

@@ -11,6 +11,7 @@ class GetAutonomousNotifyEventContentRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-18ff4a195d****
      *
      * @var string
@@ -18,8 +19,9 @@ class GetAutonomousNotifyEventContentRequest extends Model
     public $instanceId;
 
     /**
-     * @description The unique identifier of the event. You can call the [GetAutonomousNotifyEventsInRange](~~288371~~) operation to query the unique identifier returned by the SpanId response parameter.
+     * @description The unique identifier of the event. You can call the [GetAutonomousNotifyEventsInRange](https://help.aliyun.com/document_detail/288371.html) operation to query the unique identifier returned by the SpanId response parameter.
      *
+     * This parameter is required.
      * @example 7e7b2774-95b8-4fa3-bd9c-0ab47cb7****
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeCacheAnalysisJobRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp18ff4a195d****
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeCacheAnalysisJobRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the cache analysis task. You can obtain the task ID from the response parameters of the [CreateCacheAnalysisJob](~~180982~~) operation.
+     * @description The ID of the cache analysis task. You can obtain the task ID from the response parameters of the [CreateCacheAnalysisJob](https://help.aliyun.com/document_detail/180982.html) operation.
      *
+     * This parameter is required.
      * @example sf79-sd99-sa37-****
      *
      * @var string

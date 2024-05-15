@@ -15,6 +15,7 @@ class GetQueryOptimizeRuleListRequest extends Model
      *   **PolarDBMySQL**
      *   **PostgreSQL**
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string

@@ -11,7 +11,7 @@ class contactGroups extends Model
     /**
      * @description The members of the alert contact group.
      *
-     * @example "[\"Mr. Zhang\",\"Ms. Wang\",\"Mr. Li\"]"
+     * @example "[\\"Mr. Zhang\\",\\"Ms. Wang\\",\\"Mr. Li\\"]"
      *
      * @var string
      */

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
+     * @description A reserved parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $value;

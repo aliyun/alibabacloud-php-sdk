@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1608888296000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $finish;
@@ -25,16 +29,22 @@ class data extends Model
     public $items;
 
     /**
+     * @example MzI4NTZfUUlOR0RBT19DTTlfTlUyMF9NWVNRTF9PREJTX0xWU18zMjg1Nl9teXNxbF9XZWQgTWFyIDA2IDE0OjUwOjQ3IENTVCAyMDI0XzBfMzBfRXhlY3V0ZVRpbWVfREVTQ19XZWQgTWFyIDA2IDE0OjM1OjQ3IENTVCAyMDI0Xw==_1709708406465
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 1596177993000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalRecords;

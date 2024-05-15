@@ -25,6 +25,7 @@ class CreateQueryOptimizeTagRequest extends Model
      *   **PolarDBMySQL**: PolarDB for MySQL
      *   **PostgreSQL**: ApsaraDB RDS for PostgreSQL
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -34,6 +35,7 @@ class CreateQueryOptimizeTagRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze1jdv45i7l6****
      *
      * @var string
@@ -41,8 +43,9 @@ class CreateQueryOptimizeTagRequest extends Model
     public $instanceId;
 
     /**
-     * @description The SQL template IDs. You can call the [GetQueryOptimizeExecErrorStats](~~405261~~) operation to obtain the SQL template ID. Separate multiple SQL template IDs with commas (,).
+     * @description The SQL template IDs. You can call the [GetQueryOptimizeExecErrorStats](https://help.aliyun.com/document_detail/405261.html) operation to obtain the SQL template ID. Separate multiple SQL template IDs with commas (,).
      *
+     * This parameter is required.
      * @example 6068ce044e3dc9b903979672fb0b69df,d12515c015fc9f41a0778a9e1de0e941
      *
      * @var string
@@ -55,6 +58,7 @@ class CreateQueryOptimizeTagRequest extends Model
      *   **0**: removes all tags added to the SQL templates that are specified by **SqlIds** and leaves **Tags** empty.
      *   **1**: adds the tags specified by **Tags** to the SQL templates that are specified by **SqlIds**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -69,6 +73,7 @@ class CreateQueryOptimizeTagRequest extends Model
      *   **USER_IGNORE**: The scheduling of the SQL template does not need to be optimized.
      *   **DAS_IN_PLAN**: The scheduling of the SQL template needs to be optimized.
      *
+     * This parameter is required.
      * @example DAS_IN_PLAN,DAS_NOT_IMPORTANT
      *
      * @var string

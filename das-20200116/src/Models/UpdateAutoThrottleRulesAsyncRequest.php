@@ -11,6 +11,7 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
     /**
      * @description The duration threshold for triggering automatic SQL throttling. Set this parameter to a positive integer that is greater than or equal to 2. Unit: minutes.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var float
@@ -23,6 +24,7 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
      *   Specify an integer that is greater than or equal to 16 when the CPU utilization threshold and the maximum number of active sessions are in the **OR** relationship.
      *   Specify an integer that is greater than or equal to 2 when the CPU utilization threshold and the maximum number of active sessions are in the **AND** relationship.
      *
+     * This parameter is required.
      * @example 16
      *
      * @var int
@@ -32,6 +34,7 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
     /**
      * @description The end time of the throttling window. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 23:59Z
      *
      * @var string
@@ -41,6 +44,7 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
     /**
      * @description The start time of the throttling window. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 00:00Z
      *
      * @var string
@@ -55,6 +59,7 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
      *   **true**
      *   **false**
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -76,6 +81,7 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
      *   **AND**
      *   **OR**
      *
+     * This parameter is required.
      * @example OR
      *
      * @var string
@@ -85,6 +91,7 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
     /**
      * @description The CPU utilization threshold, in percentages. Valid values: 70 to 100.
      *
+     * This parameter is required.
      * @example 70
      *
      * @var float
@@ -94,8 +101,8 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
     /**
      * @description The database instance IDs.
      *
-     * >  Set this parameter to a JSON array that consists of multiple instance IDs. Separate instance IDs with commas (,). Example: `[\"Instance ID1\", \"Instance ID2\"]`.
-     * @example [\"rm-2ze8g2am97624****\",\"rm-2ze9xrhze0709****\"]
+     * This parameter is required.
+     * @example [\\"rm-2ze8g2am97624****\\",\\"rm-2ze9xrhze0709****\\"]
      *
      * @var string
      */
@@ -104,6 +111,7 @@ class UpdateAutoThrottleRulesAsyncRequest extends Model
     /**
      * @description The maximum throttling duration. Set this parameter to a positive integer. Unit: minutes.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var float

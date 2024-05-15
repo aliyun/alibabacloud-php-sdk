@@ -20,7 +20,7 @@ class GetSqlConcurrencyControlRulesHistoryRequest extends Model
     /**
      * @description The instance ID.
      *
-     * >  Only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters are supported.
+     * This parameter is required.
      * @example rm-2ze1jdv45i7l6****
      *
      * @var string

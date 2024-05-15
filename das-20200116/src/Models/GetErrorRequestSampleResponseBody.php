@@ -21,7 +21,7 @@ class GetErrorRequestSampleResponseBody extends Model
     /**
      * @description The returned data.
      *
-     * @example [         {             "sqlId": "2cd4432556c3dab9d825ba363637****",             "database": "dbgateway",             "originHost": "172.16.1****",             "tables": [                 "meter_****"             ],             "instanceId": "rm-2ze8g2am97624****",             "errorCode": "1062",             "user": "dbgat****",             "sql": "insert into meter_****\n        ( \n        ****\n     )\n        values (now(), now(), \"bbbc8624-5e19-455a-9714-8466f688****\", \"2022-02-10 14:00:00\", \"{\"endTime\":\"2022-02-10 14:00:00\",\"endTimestamp\":1644472800,\"startTime\":\"2022-02-10 13:00:00\",\"startTimestamp\":1644469200}\", null, null)",             "timestamp": 1644476100435         }]
+     * @example [         {             "sqlId": "2cd4432556c3dab9d825ba363637****",             "database": "dbgateway",             "originHost": "172.16.1****",             "tables": [                 "meter_****"             ],             "instanceId": "rm-2ze8g2am97624****",             "errorCode": "1062",             "user": "dbgat****",             "sql": "insert into meter_****\\n        ( \\n        ****\\n     )\\n        values (now(), now(), \\"bbbc8624-5e19-455a-9714-8466f688****\\", \\"2022-02-10 14:00:00\\", \\"{\\"endTime\\":\\"2022-02-10 14:00:00\\",\\"endTimestamp\\":1644472800,\\"startTime\\":\\"2022-02-10 13:00:00\\",\\"startTimestamp\\":1644469200}\\", null, null)",             "timestamp": 1644476100435         }]
      *
      * @var data[]
      */

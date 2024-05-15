@@ -36,6 +36,7 @@ class GetQueryOptimizeExecErrorStatsRequest extends Model
      *   **PolarDBMySQL**
      *   **PostgreSQL**
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -84,6 +85,7 @@ class GetQueryOptimizeExecErrorStatsRequest extends Model
     /**
      * @description The page number. Pages start from page 1. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -93,6 +95,7 @@ class GetQueryOptimizeExecErrorStatsRequest extends Model
     /**
      * @description The number of entries per page. Default value: 10.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string
@@ -118,6 +121,7 @@ class GetQueryOptimizeExecErrorStatsRequest extends Model
     /**
      * @description The time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1642953600000
      *
      * @var string

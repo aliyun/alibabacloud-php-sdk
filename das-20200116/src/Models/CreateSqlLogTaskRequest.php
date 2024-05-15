@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class CreateSqlLogTaskRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1608888296000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The filter conditions.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The instance ID.
+     *
      * @example pc-2ze8g2am97624****
      *
      * @var string
@@ -27,11 +35,17 @@ class CreateSqlLogTaskRequest extends Model
     public $instanceId;
 
     /**
+     * @description The task name.
+     *
+     * @example test01
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The node ID.
+     *
      * @example pi-uf6k5f6g3912i0dqz
      *
      * @var string
@@ -39,16 +53,32 @@ class CreateSqlLogTaskRequest extends Model
     public $nodeId;
 
     /**
+     * @description The role of the node in the PolarDB-X 2.0 instance. Valid values:
+     *
+     *   **polarx_cn**: compute node.
+     *   **polarx_dn**: data node.
+     *
+     * @example polarx_cn
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The beginning of the time range to query. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1596177993000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   Export
+     *   Query
+     *
      * @example Export
      *
      * @var string

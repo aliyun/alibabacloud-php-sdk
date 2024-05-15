@@ -30,6 +30,7 @@ class GetAsyncErrorRequestStatResultRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string
@@ -47,7 +48,7 @@ class GetAsyncErrorRequestStatResultRequest extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the SQL template. Separate multiple SQL IDs with commas (,). You can call the [GetAsyncErrorRequestListByCode](~~410746~~) operation to query the ID of the SQL query for which MySQL error code is returned.
+     * @description The ID of the SQL template. Separate multiple SQL IDs with commas (,). You can call the [GetAsyncErrorRequestListByCode](https://help.aliyun.com/document_detail/410746.html) operation to query the ID of the SQL query for which MySQL error code is returned.
      *
      * @example ad78a4e7d3ce81590c9dc2d5f4bc****,0f92feacd92c048b06a16617a633****
      *

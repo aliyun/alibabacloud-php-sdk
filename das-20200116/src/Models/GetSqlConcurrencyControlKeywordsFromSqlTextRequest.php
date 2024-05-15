@@ -20,6 +20,7 @@ class GetSqlConcurrencyControlKeywordsFromSqlTextRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze5hpn2b99d2****
      *
      * @var string
@@ -29,7 +30,8 @@ class GetSqlConcurrencyControlKeywordsFromSqlTextRequest extends Model
     /**
      * @description The SQL statement based on which a throttling keyword string is to be generated.
      *
-     * @example SELECT * FROM test where name = \"das\"
+     * This parameter is required.
+     * @example SELECT * FROM test where name = \\"das\\"
      *
      * @var string
      */

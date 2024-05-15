@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @description The ID of the archiving task.
      *
-     * @example \"202105211430070112231480820340758****
+     * @example \\"202105211430070112231480820340758****
      *
      * @var string
      */
@@ -42,7 +42,7 @@ class data extends Model
     public $archiveState;
 
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackups](~~26273~~) operation to query the ID of the backup set.
+     * @description The ID of the backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/26273.html) operation to query the ID of the backup set.
      *
      * @example 229132
      *
@@ -112,7 +112,7 @@ class data extends Model
     /**
      * @description The type of the stress testing client. Valid values:
      *
-     *   **ECS**: indicates that you must create the [DBGateway](~~64905~~).
+     *   **ECS**: indicates that you must create the [DBGateway](https://help.aliyun.com/document_detail/64905.html).
      *   **DAS_ECS**: indicates that DAS automatically purchases and deploys an ECS instance for stress testing.
      *
      * @example ECS
@@ -282,7 +282,7 @@ class data extends Model
     /**
      * @description The error message returned if the request failed.
      *
-     * @example DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
+     * @example DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\\n\\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
      *
      * @var string
      */

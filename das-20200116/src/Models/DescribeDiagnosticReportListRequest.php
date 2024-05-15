@@ -11,6 +11,7 @@ class DescribeDiagnosticReportListRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string
@@ -20,7 +21,7 @@ class DescribeDiagnosticReportListRequest extends Model
     /**
      * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * >  The end time must be later than the start time.
+     * This parameter is required.
      * @example 1668420492000
      *
      * @var string
@@ -48,6 +49,7 @@ class DescribeDiagnosticReportListRequest extends Model
     /**
      * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1668398892000
      *
      * @var string

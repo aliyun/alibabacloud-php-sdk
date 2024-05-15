@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RunCloudBenchTaskRequest extends Model
 {
     /**
-     * @description The stress testing task ID. You can call the [DescribeCloudBenchTasks](~~230670~~) operation to query the task ID.
+     * @description The stress testing task ID. You can call the [DescribeCloudBenchTasks](https://help.aliyun.com/document_detail/230670.html) operation to query the task ID.
      *
+     * This parameter is required.
      * @example e5cec704-0518-430f-8263-76f4dcds****
      *
      * @var string

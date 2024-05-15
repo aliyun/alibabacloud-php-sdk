@@ -52,7 +52,7 @@ class AddHDMInstanceRequest extends Model
      *   **ECS**: an Elastic Compute Service (ECS) instance on which a self-managed database is deployed.
      *   **IDC**: a self-managed database instance that is not deployed on Alibaba Cloud.
      *
-     * >  IDC refers to your data center.
+     * This parameter is required.
      * @example ECS
      *
      * @var string

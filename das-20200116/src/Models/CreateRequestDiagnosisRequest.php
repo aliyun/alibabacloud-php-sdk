@@ -11,6 +11,7 @@ class CreateRequestDiagnosisRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example das
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateRequestDiagnosisRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-0iwhhl8gx0ld6****
      *
      * @var string
@@ -39,7 +41,8 @@ class CreateRequestDiagnosisRequest extends Model
     /**
      * @description The SQL statement that you want to diagnose.
      *
-     * @example select * from test where name = \"mockUser\"
+     * This parameter is required.
+     * @example select * from test where name = \\"mockUser\\"
      *
      * @var string
      */

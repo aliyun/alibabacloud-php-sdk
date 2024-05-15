@@ -11,6 +11,7 @@ class DescribeAutoScalingConfigRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example pc-2ze1prap1k46r****
      *
      * @var string

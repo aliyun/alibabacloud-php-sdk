@@ -14,11 +14,15 @@ class CreateKillInstanceSessionTaskWithMaintainUserRequest extends Model
     public $ignoredUsers;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $killAllSessions;

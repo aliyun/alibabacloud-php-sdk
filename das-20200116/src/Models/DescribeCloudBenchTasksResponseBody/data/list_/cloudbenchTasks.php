@@ -11,7 +11,7 @@ class cloudbenchTasks extends Model
     /**
      * @description The archiving task ID.
      *
-     * @example \"202105211430070112231480820340758****
+     * @example \\"202105211430070112231480820340758****
      *
      * @var string
      */
@@ -42,7 +42,7 @@ class cloudbenchTasks extends Model
     public $archiveState;
 
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackups](~~26273~~) operation to query the ID of the backup set.
+     * @description The ID of the backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/26273.html) operation to query the ID of the backup set.
      *
      * @example 229132
      *
@@ -172,7 +172,7 @@ class cloudbenchTasks extends Model
     /**
      * @description The specification of the DTS instance.
      *
-     * > For more information about the specifications of DTS instances and the test performance of each instance, see [Specifications of data migration instances](~~26606~~).
+     * > For more information about the specifications of DTS instances and the test performance of each instance, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html).
      * @example medium
      *
      * @var string
@@ -283,7 +283,7 @@ class cloudbenchTasks extends Model
     /**
      * @description The error message returned if the task failed.
      *
-     * @example DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
+     * @example DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\\n\\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
      *
      * @var string
      */

@@ -28,6 +28,7 @@ class DescribeTopHotKeysRequest extends Model
      *
      *   The maximum interval between the **start time** and the** end time** is 3 hours.
      *
+     * This parameter is required.
      * @example 1596177993001
      *
      * @var string
@@ -35,8 +36,9 @@ class DescribeTopHotKeysRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID.
+     * @description The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example r-bp18ff4a195d****
      *
      * @var string
@@ -44,7 +46,7 @@ class DescribeTopHotKeysRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the data shard on the ApsaraDB for Redis instance. You can call the [DescribeRoleZoneInfo](~~190794~~) operation to query the ID.
+     * @description The ID of the data shard on the ApsaraDB for Redis instance. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the ID.
      *
      * @example r-****-db-0
      *
@@ -55,6 +57,7 @@ class DescribeTopHotKeysRequest extends Model
     /**
      * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1596177993000
      *
      * @var string

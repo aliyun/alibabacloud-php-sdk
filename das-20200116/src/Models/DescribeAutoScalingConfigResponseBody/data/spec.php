@@ -56,8 +56,8 @@ class spec extends Model
     /**
      * @description The maximum specifications to which the database instance can be upgraded. For more information about the specifications of each type of supported database instances, see the following topics:
      *
-     *   PolarDB for MySQL Cluster Edition instances: [Specifications of compute nodes](~~102542~~).
-     *   ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or enhanced SSDs (ESSDs): [Specifications](~~276974~~).
+     *   PolarDB for MySQL Cluster Edition instances: [Specifications of compute nodes](https://help.aliyun.com/document_detail/102542.html).
+     *   ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or enhanced SSDs (ESSDs): [Specifications](https://help.aliyun.com/document_detail/276974.html).
      *
      * @example polar.mysql.x8.12xlarge
      *

@@ -29,7 +29,7 @@ class GetFullRequestStatResultByInstanceIdRequest extends Model
     /**
      * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * >  The end time must be later than the start time. The interval cannot exceed one day.
+     * This parameter is required.
      * @example 1645668213000
      *
      * @var int
@@ -39,6 +39,7 @@ class GetFullRequestStatResultByInstanceIdRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string
@@ -93,6 +94,7 @@ class GetFullRequestStatResultByInstanceIdRequest extends Model
     /**
      * @description The page number. Pages start from page 1. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -102,6 +104,7 @@ class GetFullRequestStatResultByInstanceIdRequest extends Model
     /**
      * @description The number of entries per page. Default value: 20.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -143,7 +146,7 @@ class GetFullRequestStatResultByInstanceIdRequest extends Model
     /**
      * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * >  The start time can be up to 90 days earlier than the current time.
+     * This parameter is required.
      * @example 1645581813000
      *
      * @var int

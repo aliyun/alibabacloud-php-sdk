@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlLogRecordsRequest extends Model
 {
     /**
+     * @example 1608888296000
+     *
      * @var int
      */
     public $endTime;
@@ -20,31 +22,45 @@ class DescribeSqlLogRecordsRequest extends Model
     public $filters;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example pc-2ze8g2am97624****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example pi-uf6k5f6g3912i****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example polarx_cn
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example 1596177993000
+     *
      * @var int
      */
     public $startTime;

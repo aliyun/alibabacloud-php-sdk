@@ -20,7 +20,7 @@ class GetAutonomousNotifyEventContentResponseBody extends Model
     /**
      * @description The details of the notification events.
      *
-     * @example {\"taskId\":\"7e1ba595-0889-48ff-a6ff-010f54991d****\",\"taskType\":\"SQL_OPTIMIZE\",\"advisorId\":\"636dc5f34664dd56ff0****\",\"sqlId\":\"e2b1d6c1ee1bb29555a828b59f16****\",\"indexAdviceCount\":1,\"indexAdvices\":[{\"schemaName\":\"das\",\"tableName\":\"students\",\"indexName\":\"idx_name\",\"columns\":[\"name\"],\"unique\":false,\"ddlAddIndex\":\"ALTER TABLE `das`.`students` ADD INDEX `idx_name` (`name`)\",\"priority\":0,\"optimizeId\":\"96232794517277511\"}],\"tuningAdvices\":[],\"improvement\":8127.25,\"supportLevel\":3,\"priority\":\"HIGH\"}
+     * @example {\\"taskId\\":\\"7e1ba595-0889-48ff-a6ff-010f54991d****\\",\\"taskType\\":\\"SQL_OPTIMIZE\\",\\"advisorId\\":\\"636dc5f34664dd56ff0****\\",\\"sqlId\\":\\"e2b1d6c1ee1bb29555a828b59f16****\\",\\"indexAdviceCount\\":1,\\"indexAdvices\\":[{\\"schemaName\\":\\"das\\",\\"tableName\\":\\"students\\",\\"indexName\\":\\"idx_name\\",\\"columns\\":[\\"name\\"],\\"unique\\":false,\\"ddlAddIndex\\":\\"ALTER TABLE `das`.`students` ADD INDEX `idx_name` (`name`)\\",\\"priority\\":0,\\"optimizeId\\":\\"96232794517277511\\"}],\\"tuningAdvices\\":[],\\"improvement\\":8127.25,\\"supportLevel\\":3,\\"priority\\":\\"HIGH\\"}
      *
      * @var string
      */

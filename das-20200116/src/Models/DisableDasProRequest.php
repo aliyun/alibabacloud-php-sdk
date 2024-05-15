@@ -11,6 +11,7 @@ class DisableDasProRequest extends Model
     /**
      * @description The database instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze8g2am97624****
      *
      * @var string

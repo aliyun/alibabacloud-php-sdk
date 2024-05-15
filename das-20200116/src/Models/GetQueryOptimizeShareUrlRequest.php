@@ -36,6 +36,7 @@ class GetQueryOptimizeShareUrlRequest extends Model
      *   **PolarDBMySQL**: PolarDB for MySQL
      *   **PostgreSQL**: ApsaraDB RDS for PostgreSQL
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -138,7 +139,7 @@ class GetQueryOptimizeShareUrlRequest extends Model
     public $region;
 
     /**
-     * @description The tags that are used to filter SQL templates. Separate multiple tags with commas (,). For more information, see [Query governance](~~290038~~).
+     * @description The tags that are used to filter SQL templates. Separate multiple tags with commas (,). For more information, see [Query governance](https://help.aliyun.com/document_detail/290038.html).
      *
      * @example DAS_NOT_IMPORTANT
      *
@@ -147,7 +148,7 @@ class GetQueryOptimizeShareUrlRequest extends Model
     public $rules;
 
     /**
-     * @description The SQL template IDs. You can call the [GetQueryOptimizeExecErrorStats](~~405261~~) operation to obtain the SQL template IDs.
+     * @description The SQL template IDs. You can call the [GetQueryOptimizeExecErrorStats](https://help.aliyun.com/document_detail/405261.html) operation to obtain the SQL template IDs.
      *
      * @example 6068ce044e3dc9b903979672fb0b69df,d12515c015fc9f41a0778a9e1de0****
      *
@@ -167,6 +168,7 @@ class GetQueryOptimizeShareUrlRequest extends Model
     /**
      * @description The date to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1642953600000
      *
      * @var int

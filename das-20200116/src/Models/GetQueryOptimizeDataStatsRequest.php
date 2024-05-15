@@ -36,6 +36,7 @@ class GetQueryOptimizeDataStatsRequest extends Model
      *   **PolarDBMySQL**
      *   **PostgreSQL**
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -138,7 +139,7 @@ class GetQueryOptimizeDataStatsRequest extends Model
     public $region;
 
     /**
-     * @description The tags that are used to filter SQL templates. Separate multiple tags with commas (,). For more information, see [Query governance](~~290038~~).
+     * @description The tags that are used to filter SQL templates. Separate multiple tags with commas (,). For more information, see [Query governance](https://help.aliyun.com/document_detail/290038.html).
      *
      * @example DAS_NOT_IMPORTANT
      *
@@ -147,7 +148,7 @@ class GetQueryOptimizeDataStatsRequest extends Model
     public $rules;
 
     /**
-     * @description The SQL template ID. You can query the ID of a template by calling the [GetQueryOptimizeExecErrorStats](~~405235~~) operation.
+     * @description The SQL template ID. You can query the ID of a template by calling the [GetQueryOptimizeExecErrorStats](https://help.aliyun.com/document_detail/405235.html) operation.
      *
      * @example 2e8147b5ca2dfc640dfd5e43d96a****
      *
@@ -167,6 +168,7 @@ class GetQueryOptimizeDataStatsRequest extends Model
     /**
      * @description The time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1642953600000
      *
      * @var string

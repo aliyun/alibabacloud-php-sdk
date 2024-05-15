@@ -11,7 +11,7 @@ class EnableSqlConcurrencyControlRequest extends Model
     /**
      * @description The duration within which the SQL throttling rule takes effect. Unit: seconds.
      *
-     * >  The throttling rule takes effect only within this duration.
+     * This parameter is required.
      * @example 300
      *
      * @var int
@@ -30,7 +30,7 @@ class EnableSqlConcurrencyControlRequest extends Model
     /**
      * @description The instance ID.
      *
-     * >  You must specify the instance ID only if your database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
+     * This parameter is required.
      * @example rm-2ze1jdv45i7l6****
      *
      * @var string
@@ -40,7 +40,7 @@ class EnableSqlConcurrencyControlRequest extends Model
     /**
      * @description The maximum number of concurrent SQL statements. Set this parameter to a positive integer.
      *
-     * >  When the number of concurrent SQL statements that contain the specified keywords reaches this upper limit, the throttling rule is triggered.
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -50,7 +50,7 @@ class EnableSqlConcurrencyControlRequest extends Model
     /**
      * @description The keywords that are used to identify the SQL statements that need to be throttled.
      *
-     * >  If you specify multiple SQL keywords, separate them with tildes (~). If the number of concurrent SQL statements that contain all the specified SQL keywords reaches the specified upper limit, the throttling rule is triggered.
+     * This parameter is required.
      * @example call~open~api~test~4~from~POP
      *
      * @var string
@@ -64,6 +64,7 @@ class EnableSqlConcurrencyControlRequest extends Model
      *   **UPDATE**
      *   **DELETE**
      *
+     * This parameter is required.
      * @example SELECT
      *
      * @var string

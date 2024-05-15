@@ -11,6 +11,7 @@ class GetStorageAnalysisResultRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-bp10xxxxxxxxx
      *
      * @var string
@@ -30,6 +31,7 @@ class GetStorageAnalysisResultRequest extends Model
     /**
      * @description The task ID, which is returned after you call the CreateStorageAnalysisTask operation.
      *
+     * This parameter is required.
      * @example 910f83f4b96df0524ddc5749f615****
      *
      * @var string
