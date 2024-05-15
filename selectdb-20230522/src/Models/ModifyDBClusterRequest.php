@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb.2xlarge
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDBClusterRequest extends Model
     public $DBClusterClass;
 
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb-xxxb9f2w-be
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyDBClusterRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -37,6 +43,8 @@ class ModifyDBClusterRequest extends Model
     public $engine;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

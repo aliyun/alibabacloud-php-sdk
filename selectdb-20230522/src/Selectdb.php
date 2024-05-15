@@ -22,6 +22,10 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBInstanceResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBClusterConfigChangeLogsRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBClusterConfigChangeLogsResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBClusterConfigRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBClusterConfigResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceAttributeResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceNetInfoRequest;
@@ -30,8 +34,14 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeSecurityIPListRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeSecurityIPListResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\GetCreateBEClusterInquiryRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\GetCreateBEClusterInquiryResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\GetModifyBEClusterInquiryRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\GetModifyBEClusterInquiryResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyBEClusterAttributeRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyBEClusterAttributeResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBClusterConfigRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBClusterConfigResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBClusterRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBInstanceAttributeRequest;
@@ -90,10 +100,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param AllocateInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 申请公网地址
+     *  *
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
@@ -133,9 +145,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param AllocateInstancePublicConnectionRequest $request
+     * @summary 申请公网地址
+     *  *
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnection($request)
     {
@@ -145,10 +159,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param CheckCreateDBInstanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary SelectDB实例创建前检查
+     *  *
+     * @param CheckCreateDBInstanceRequest $request CheckCreateDBInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckCreateDBInstanceResponse
+     * @return CheckCreateDBInstanceResponse CheckCreateDBInstanceResponse
      */
     public function checkCreateDBInstanceWithOptions($request, $runtime)
     {
@@ -224,9 +240,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param CheckCreateDBInstanceRequest $request
+     * @summary SelectDB实例创建前检查
+     *  *
+     * @param CheckCreateDBInstanceRequest $request CheckCreateDBInstanceRequest
      *
-     * @return CheckCreateDBInstanceResponse
+     * @return CheckCreateDBInstanceResponse CheckCreateDBInstanceResponse
      */
     public function checkCreateDBInstance($request)
     {
@@ -236,10 +254,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param CheckServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 检查服务关联角色
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRoleWithOptions($request, $runtime)
     {
@@ -270,9 +290,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param CheckServiceLinkedRoleRequest $request
+     * @summary 检查服务关联角色
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
      *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRole($request)
     {
@@ -282,10 +304,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary SelectDB实例下创建集群
+     *  *
+     * @param CreateDBClusterRequest $request CreateDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBClusterResponse
+     * @return CreateDBClusterResponse CreateDBClusterResponse
      */
     public function createDBClusterWithOptions($request, $runtime)
     {
@@ -357,9 +381,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBClusterRequest $request
+     * @summary SelectDB实例下创建集群
+     *  *
+     * @param CreateDBClusterRequest $request CreateDBClusterRequest
      *
-     * @return CreateDBClusterResponse
+     * @return CreateDBClusterResponse CreateDBClusterResponse
      */
     public function createDBCluster($request)
     {
@@ -369,10 +395,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 创建SelectDB实例
+     *  *
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBInstanceResponse
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstanceWithOptions($request, $runtime)
     {
@@ -450,9 +478,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstanceRequest $request
+     * @summary 创建SelectDB实例
+     *  *
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      *
-     * @return CreateDBInstanceResponse
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstance($request)
     {
@@ -462,10 +492,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleForSelectDBRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary 创建服务关联角色
+     *  *
+     * @param CreateServiceLinkedRoleForSelectDBRequest $request CreateServiceLinkedRoleForSelectDBRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceLinkedRoleForSelectDBResponse
+     * @return CreateServiceLinkedRoleForSelectDBResponse CreateServiceLinkedRoleForSelectDBResponse
      */
     public function createServiceLinkedRoleForSelectDBWithOptions($request, $runtime)
     {
@@ -496,9 +528,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleForSelectDBRequest $request
+     * @summary 创建服务关联角色
+     *  *
+     * @param CreateServiceLinkedRoleForSelectDBRequest $request CreateServiceLinkedRoleForSelectDBRequest
      *
-     * @return CreateServiceLinkedRoleForSelectDBResponse
+     * @return CreateServiceLinkedRoleForSelectDBResponse CreateServiceLinkedRoleForSelectDBResponse
      */
     public function createServiceLinkedRoleForSelectDB($request)
     {
@@ -508,10 +542,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 释放实例下集群
+     *  *
+     * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBClusterResponse
+     * @return DeleteDBClusterResponse DeleteDBClusterResponse
      */
     public function deleteDBClusterWithOptions($request, $runtime)
     {
@@ -553,9 +589,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBClusterRequest $request
+     * @summary 释放实例下集群
+     *  *
+     * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
      *
-     * @return DeleteDBClusterResponse
+     * @return DeleteDBClusterResponse DeleteDBClusterResponse
      */
     public function deleteDBCluster($request)
     {
@@ -565,10 +603,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 删除DB实例
+     *  *
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
@@ -604,9 +644,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBInstanceRequest $request
+     * @summary 删除DB实例
+     *  *
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstance($request)
     {
@@ -616,10 +658,130 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 查看集群配置
+     *  *
+     * @param DescribeDBClusterConfigRequest $request DescribeDBClusterConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBClusterConfigResponse DescribeDBClusterConfigResponse
+     */
+    public function describeDBClusterConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configKey)) {
+            $query['ConfigKey'] = $request->configKey;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBClusterConfig',
+            'version'     => '2023-05-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看集群配置
+     *  *
+     * @param DescribeDBClusterConfigRequest $request DescribeDBClusterConfigRequest
+     *
+     * @return DescribeDBClusterConfigResponse DescribeDBClusterConfigResponse
+     */
+    public function describeDBClusterConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看集群配置变更记录
+     *  *
+     * @param DescribeDBClusterConfigChangeLogsRequest $request DescribeDBClusterConfigChangeLogsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDBClusterConfigChangeLogsResponse DescribeDBClusterConfigChangeLogsResponse
+     */
+    public function describeDBClusterConfigChangeLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configKey)) {
+            $query['ConfigKey'] = $request->configKey;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBClusterConfigChangeLogs',
+            'version'     => '2023-05-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBClusterConfigChangeLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看集群配置变更记录
+     *  *
+     * @param DescribeDBClusterConfigChangeLogsRequest $request DescribeDBClusterConfigChangeLogsRequest
+     *
+     * @return DescribeDBClusterConfigChangeLogsResponse DescribeDBClusterConfigChangeLogsResponse
+     */
+    public function describeDBClusterConfigChangeLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterConfigChangeLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询实例详情
+     *  *
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
@@ -653,9 +815,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceAttributeRequest $request
+     * @summary 查询实例详情
+     *  *
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttribute($request)
     {
@@ -665,10 +829,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceNetInfoRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询实例网络链接
+     *  *
+     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceNetInfoResponse
+     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfoWithOptions($request, $runtime)
     {
@@ -702,9 +868,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceNetInfoRequest $request
+     * @summary 查询实例网络链接
+     *  *
+     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
      *
-     * @return DescribeDBInstanceNetInfoResponse
+     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfo($request)
     {
@@ -714,10 +882,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 查询实例列表
+     *  *
+     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
      */
     public function describeDBInstancesWithOptions($request, $runtime)
     {
@@ -766,9 +936,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancesRequest $request
+     * @summary 查询实例列表
+     *  *
+     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
      *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
      */
     public function describeDBInstances($request)
     {
@@ -778,10 +950,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityIPListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查看白名单
+     *  *
+     * @param DescribeSecurityIPListRequest $request DescribeSecurityIPListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityIPListResponse
+     * @return DescribeSecurityIPListResponse DescribeSecurityIPListResponse
      */
     public function describeSecurityIPListWithOptions($request, $runtime)
     {
@@ -815,9 +989,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityIPListRequest $request
+     * @summary 查看白名单
+     *  *
+     * @param DescribeSecurityIPListRequest $request DescribeSecurityIPListRequest
      *
-     * @return DescribeSecurityIPListResponse
+     * @return DescribeSecurityIPListResponse DescribeSecurityIPListResponse
      */
     public function describeSecurityIPList($request)
     {
@@ -827,10 +1003,100 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyBEClusterAttributeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 新建集群询价
+     *  *
+     * @param GetCreateBEClusterInquiryRequest $request GetCreateBEClusterInquiryRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBEClusterAttributeResponse
+     * @return GetCreateBEClusterInquiryResponse GetCreateBEClusterInquiryResponse
+     */
+    public function getCreateBEClusterInquiryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCreateBEClusterInquiry',
+            'version'     => '2023-05-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCreateBEClusterInquiryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建集群询价
+     *  *
+     * @param GetCreateBEClusterInquiryRequest $request GetCreateBEClusterInquiryRequest
+     *
+     * @return GetCreateBEClusterInquiryResponse GetCreateBEClusterInquiryResponse
+     */
+    public function getCreateBEClusterInquiry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCreateBEClusterInquiryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 集群变配询价
+     *  *
+     * @param GetModifyBEClusterInquiryRequest $request GetModifyBEClusterInquiryRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetModifyBEClusterInquiryResponse GetModifyBEClusterInquiryResponse
+     */
+    public function getModifyBEClusterInquiryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetModifyBEClusterInquiry',
+            'version'     => '2023-05-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetModifyBEClusterInquiryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 集群变配询价
+     *  *
+     * @param GetModifyBEClusterInquiryRequest $request GetModifyBEClusterInquiryRequest
+     *
+     * @return GetModifyBEClusterInquiryResponse GetModifyBEClusterInquiryResponse
+     */
+    public function getModifyBEClusterInquiry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getModifyBEClusterInquiryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改BE集群名称、属性、设置
+     *  *
+     * @param ModifyBEClusterAttributeRequest $request ModifyBEClusterAttributeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyBEClusterAttributeResponse ModifyBEClusterAttributeResponse
      */
     public function modifyBEClusterAttributeWithOptions($request, $runtime)
     {
@@ -873,9 +1139,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyBEClusterAttributeRequest $request
+     * @summary 修改BE集群名称、属性、设置
+     *  *
+     * @param ModifyBEClusterAttributeRequest $request ModifyBEClusterAttributeRequest
      *
-     * @return ModifyBEClusterAttributeResponse
+     * @return ModifyBEClusterAttributeResponse ModifyBEClusterAttributeResponse
      */
     public function modifyBEClusterAttribute($request)
     {
@@ -885,10 +1153,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 集群变配
+     *  *
+     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterResponse
+     * @return ModifyDBClusterResponse ModifyDBClusterResponse
      */
     public function modifyDBClusterWithOptions($request, $runtime)
     {
@@ -931,9 +1201,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterRequest $request
+     * @summary 集群变配
+     *  *
+     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
      *
-     * @return ModifyDBClusterResponse
+     * @return ModifyDBClusterResponse ModifyDBClusterResponse
      */
     public function modifyDBCluster($request)
     {
@@ -943,10 +1215,74 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceAttributeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 修改集群配置
+     *  *
+     * @param ModifyDBClusterConfigRequest $request ModifyDBClusterConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceAttributeResponse
+     * @return ModifyDBClusterConfigResponse ModifyDBClusterConfigResponse
+     */
+    public function modifyDBClusterConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configKey)) {
+            $query['ConfigKey'] = $request->configKey;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->switchTimeMode)) {
+            $query['SwitchTimeMode'] = $request->switchTimeMode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBClusterConfig',
+            'version'     => '2023-05-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改集群配置
+     *  *
+     * @param ModifyDBClusterConfigRequest $request ModifyDBClusterConfigRequest
+     *
+     * @return ModifyDBClusterConfigResponse ModifyDBClusterConfigResponse
+     */
+    public function modifyDBClusterConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改实例属性
+     *  *
+     * @param ModifyDBInstanceAttributeRequest $request ModifyDBInstanceAttributeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBInstanceAttributeResponse ModifyDBInstanceAttributeResponse
      */
     public function modifyDBInstanceAttributeWithOptions($request, $runtime)
     {
@@ -986,9 +1322,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceAttributeRequest $request
+     * @summary 修改实例属性
+     *  *
+     * @param ModifyDBInstanceAttributeRequest $request ModifyDBInstanceAttributeRequest
      *
-     * @return ModifyDBInstanceAttributeResponse
+     * @return ModifyDBInstanceAttributeResponse ModifyDBInstanceAttributeResponse
      */
     public function modifyDBInstanceAttribute($request)
     {
@@ -998,10 +1336,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIPListRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 变更白名单
+     *  *
+     * @param ModifySecurityIPListRequest $request ModifySecurityIPListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySecurityIPListResponse
+     * @return ModifySecurityIPListResponse ModifySecurityIPListResponse
      */
     public function modifySecurityIPListWithOptions($request, $runtime)
     {
@@ -1026,9 +1366,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIPListRequest $request
+     * @summary 变更白名单
+     *  *
+     * @param ModifySecurityIPListRequest $request ModifySecurityIPListRequest
      *
-     * @return ModifySecurityIPListResponse
+     * @return ModifySecurityIPListResponse ModifySecurityIPListResponse
      */
     public function modifySecurityIPList($request)
     {
@@ -1038,10 +1380,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 释放公网地址
+     *  *
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
@@ -1078,9 +1422,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstancePublicConnectionRequest $request
+     * @summary 释放公网地址
+     *  *
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnection($request)
     {
@@ -1090,10 +1436,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 修改 Admin 账号的密码。
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
@@ -1118,9 +1466,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
+     * @summary 修改 Admin 账号的密码。
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -1130,10 +1480,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param RestartDBClusterRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 重启BE集群
+     *  *
+     * @param RestartDBClusterRequest $request RestartDBClusterRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartDBClusterResponse
+     * @return RestartDBClusterResponse RestartDBClusterResponse
      */
     public function restartDBClusterWithOptions($request, $runtime)
     {
@@ -1175,9 +1527,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param RestartDBClusterRequest $request
+     * @summary 重启BE集群
+     *  *
+     * @param RestartDBClusterRequest $request RestartDBClusterRequest
      *
-     * @return RestartDBClusterResponse
+     * @return RestartDBClusterResponse RestartDBClusterResponse
      */
     public function restartDBCluster($request)
     {
@@ -1187,10 +1541,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param StartBEClusterRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 暂停后恢复集群
+     *  *
+     * @param StartBEClusterRequest $request StartBEClusterRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartBEClusterResponse
+     * @return StartBEClusterResponse StartBEClusterResponse
      */
     public function startBEClusterWithOptions($request, $runtime)
     {
@@ -1227,9 +1583,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param StartBEClusterRequest $request
+     * @summary 暂停后恢复集群
+     *  *
+     * @param StartBEClusterRequest $request StartBEClusterRequest
      *
-     * @return StartBEClusterResponse
+     * @return StartBEClusterResponse StartBEClusterResponse
      */
     public function startBECluster($request)
     {
@@ -1239,10 +1597,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param StopBEClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 暂停BE集群
+     *  *
+     * @param StopBEClusterRequest $request StopBEClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopBEClusterResponse
+     * @return StopBEClusterResponse StopBEClusterResponse
      */
     public function stopBEClusterWithOptions($request, $runtime)
     {
@@ -1267,9 +1627,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param StopBEClusterRequest $request
+     * @summary 暂停BE集群
+     *  *
+     * @param StopBEClusterRequest $request StopBEClusterRequest
      *
-     * @return StopBEClusterResponse
+     * @return StopBEClusterResponse StopBEClusterResponse
      */
     public function stopBECluster($request)
     {
@@ -1279,10 +1641,12 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBInstanceEngineVersionRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 实例内核版本升级
+     *  *
+     * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeDBInstanceEngineVersionResponse
+     * @return UpgradeDBInstanceEngineVersionResponse UpgradeDBInstanceEngineVersionResponse
      */
     public function upgradeDBInstanceEngineVersionWithOptions($request, $runtime)
     {
@@ -1307,9 +1671,11 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBInstanceEngineVersionRequest $request
+     * @summary 实例内核版本升级
+     *  *
+     * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
      *
-     * @return UpgradeDBInstanceEngineVersionResponse
+     * @return UpgradeDBInstanceEngineVersionResponse UpgradeDBInstanceEngineVersionResponse
      */
     public function upgradeDBInstanceEngineVersion($request)
     {

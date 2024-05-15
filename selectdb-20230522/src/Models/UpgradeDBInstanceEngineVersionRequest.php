@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceEngineVersionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -16,6 +18,8 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2.4
      *
      * @var string
@@ -23,6 +27,8 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
     public $engineVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

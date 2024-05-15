@@ -6,12 +6,21 @@ namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StopBEClusterRequest extends Model
+class DescribeDBClusterConfigRequest extends Model
 {
     /**
      * @description This parameter is required.
      *
-     * @example selectdb-cn-7213cjv****
+     * @example be.conf
+     *
+     * @var string
+     */
+    public $configKey;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example selectdb-cn-7213c8yvv09-be
      *
      * @var string
      */
@@ -27,23 +36,16 @@ class StopBEClusterRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
-     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var int
-     */
-    public $resourceOwnerId;
     protected $_name = [
-        'DBClusterId'     => 'DBClusterId',
-        'DBInstanceId'    => 'DBInstanceId',
-        'regionId'        => 'RegionId',
-        'resourceOwnerId' => 'ResourceOwnerId',
+        'configKey'    => 'ConfigKey',
+        'DBClusterId'  => 'DBClusterId',
+        'DBInstanceId' => 'DBInstanceId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -53,6 +55,9 @@ class StopBEClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configKey) {
+            $res['ConfigKey'] = $this->configKey;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -62,9 +67,6 @@ class StopBEClusterRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
 
         return $res;
     }
@@ -72,11 +74,14 @@ class StopBEClusterRequest extends Model
     /**
      * @param array $map
      *
-     * @return StopBEClusterRequest
+     * @return DescribeDBClusterConfigRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigKey'])) {
+            $model->configKey = $map['ConfigKey'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
@@ -85,9 +90,6 @@ class StopBEClusterRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

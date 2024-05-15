@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartBEClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb-cn-7213c8yvv09-be
      *
      * @var string
@@ -16,6 +18,8 @@ class StartBEClusterRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -23,6 +27,8 @@ class StartBEClusterRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

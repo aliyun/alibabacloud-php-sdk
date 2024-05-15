@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb-xxxb9f2w-be
      *
      * @var string
@@ -18,6 +20,7 @@ class DeleteDBClusterRequest extends Model
     /**
      * @description 代表资源一级ID的资源属性字段
      *
+     * This parameter is required.
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -25,6 +28,8 @@ class DeleteDBClusterRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

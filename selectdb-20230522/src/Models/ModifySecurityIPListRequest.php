@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIPListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifySecurityIPListRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example default
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifySecurityIPListRequest extends Model
     public $groupName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifySecurityIPListRequest extends Model
     public $modifyMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +50,8 @@ class ModifySecurityIPListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 127.0.XX.XX,127.2.XX.XX
      *
      * @var string

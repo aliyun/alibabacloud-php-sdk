@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstancePublicConnectionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb-cn-7213c8y****-public.selectdbfe.pre.rds.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class ReleaseInstancePublicConnectionRequest extends Model
     public $connectionString;
 
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -23,6 +27,8 @@ class ReleaseInstancePublicConnectionRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

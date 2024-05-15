@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestartDBClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb-cn-7213c8yvv09-be
      *
      * @var string
@@ -18,6 +20,7 @@ class RestartDBClusterRequest extends Model
     /**
      * @description 代表资源一级ID的资源属性字段
      *
+     * This parameter is required.
      * @example selectdb-cn-7213cjv****
      *
      * @var string
@@ -27,6 +30,7 @@ class RestartDBClusterRequest extends Model
     /**
      * @description 地域
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckCreateDBInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class CheckCreateDBInstanceRequest extends Model
     public $cacheSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PrePaid
      *
      * @var string
@@ -37,6 +41,8 @@ class CheckCreateDBInstanceRequest extends Model
     public $connectionString;
 
     /**
+     * @description This parameter is required.
+     *
      * @example selectdb.xlarge
      *
      * @var string
@@ -56,6 +62,8 @@ class CheckCreateDBInstanceRequest extends Model
     public $engine;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2.4
      *
      * @var string
@@ -70,6 +78,8 @@ class CheckCreateDBInstanceRequest extends Model
     public $period;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -103,6 +113,8 @@ class CheckCreateDBInstanceRequest extends Model
     public $usedTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-bp1gzt31twhlo0sa5****
      *
      * @var string
@@ -112,6 +124,7 @@ class CheckCreateDBInstanceRequest extends Model
     /**
      * @description VPC ID。
      *
+     * This parameter is required.
      * @example vpc-bp175iuvg8nxqraf2****
      *
      * @var string
@@ -119,6 +132,8 @@ class CheckCreateDBInstanceRequest extends Model
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou-i
      *
      * @var string
