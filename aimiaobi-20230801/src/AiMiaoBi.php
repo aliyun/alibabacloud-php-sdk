@@ -23,6 +23,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteMaterialByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteMaterialByIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportIntervenesRequest;
@@ -593,6 +596,63 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMaterialByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 从链接中提取文档内容
+     *  *
+     * @param DocumentExtractionRequest $tmpReq  DocumentExtractionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DocumentExtractionResponse DocumentExtractionResponse
+     */
+    public function documentExtractionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DocumentExtractionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->urls)) {
+            $request->urlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->urls, 'Urls', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->urlsShrink)) {
+            $body['Urls'] = $request->urlsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DocumentExtraction',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DocumentExtractionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 从链接中提取文档内容
+     *  *
+     * @param DocumentExtractionRequest $request DocumentExtractionRequest
+     *
+     * @return DocumentExtractionResponse DocumentExtractionResponse
+     */
+    public function documentExtraction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->documentExtractionWithOptions($request, $runtime);
     }
 
     /**
