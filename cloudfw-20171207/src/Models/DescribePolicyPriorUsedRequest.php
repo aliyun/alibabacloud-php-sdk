@@ -16,6 +16,7 @@ class DescribePolicyPriorUsedRequest extends Model
      *   **in**: inbound traffic
      *   **out**: outbound traffic
      *
+     * This parameter is required.
      * @example in
      *
      * @var string

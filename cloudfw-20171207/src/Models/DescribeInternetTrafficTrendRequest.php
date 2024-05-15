@@ -25,6 +25,7 @@ class DescribeInternetTrafficTrendRequest extends Model
     /**
      * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1674958929
      *
      * @var string
@@ -46,6 +47,7 @@ class DescribeInternetTrafficTrendRequest extends Model
     /**
      * @description The source code.
      *
+     * This parameter is required.
      * @example yundun
      *
      * @var string
@@ -84,6 +86,7 @@ class DescribeInternetTrafficTrendRequest extends Model
     /**
      * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1670307484
      *
      * @var string

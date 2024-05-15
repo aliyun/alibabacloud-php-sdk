@@ -88,7 +88,7 @@ class DescribeVpcFirewallListRequest extends Model
     /**
      * @description The region ID of the VPC.
      *
-     * > For more information about the regions, see [Supported regions](~~195657~~).
+     * > For more information about the regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
      * @example cn-hangzhou
      *
      * @var string

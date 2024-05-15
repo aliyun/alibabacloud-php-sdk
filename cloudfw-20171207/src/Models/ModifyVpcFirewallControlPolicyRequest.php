@@ -17,6 +17,7 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *   **drop**: blocks the traffic.
      *   **log**: monitors the traffic.
      *
+     * This parameter is required.
      * @example accept
      *
      * @var string
@@ -26,7 +27,7 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The unique ID of the access control policy.
      *
-     * If you want to modify the configurations of an access control policy, you must provide the unique ID of the policy. You can call the [DescribeVpcFirewallControlPolicy](~~159758~~) operation to query the ID.
+     * This parameter is required.
      * @example 00281255-d220-4db1-8f4f-c4df221a****
      *
      * @var string
@@ -70,6 +71,7 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The description of the access control policy.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -119,7 +121,9 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *
      *   If **DestinationType** is set to `domain`, the value of this parameter must be a domain name.
      *
-     * Example: \*.aliyuncs.com
+     * Example: \\*.aliyuncs.com
+     *
+     * This parameter is required.
      * @example 10.2.X.X/XX
      *
      * @var string
@@ -135,6 +139,7 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *   **group**: address book
      *   **domain**: domain name
      *
+     * This parameter is required.
      * @example net
      *
      * @var string
@@ -175,6 +180,7 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *   UDP
      *   ICMP
      *
+     * This parameter is required.
      * @example TCP
      *
      * @var string
@@ -196,12 +202,12 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The days of a week or of a month on which the access control policy takes effect.
      *
-     *   If you set RepeatType to `Permanent`, `None`, or `Daily`, the value of this parameter is an empty array. Example: \[].
-     *   If you set RepeatType to Weekly, you must specify this parameter. Example: \[0, 6].
+     *   If you set RepeatType to `Permanent`, `None`, or `Daily`, the value of this parameter is an empty array. Example: [].
+     *   If you set RepeatType to Weekly, you must specify this parameter. Example: [0, 6].
      *
      * >  If you set RepeatType to Weekly, the fields in the value of this parameter cannot be repeated.
      *
-     *   If you set RepeatType to `Monthly`, you must specify this parameter. Example: \[1, 31].
+     *   If you set RepeatType to `Monthly`, you must specify this parameter. Example: [1, 31].
      *
      * >  If you set RepeatType to Monthly, the fields in the value of this parameter cannot be repeated.
      * @var int[]
@@ -254,7 +260,7 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *
      *   If **SourceType** is set to `group`, the value of this parameter must be an address book name.
      *
-     * Example: db_group
+     * This parameter is required.
      * @example 10.2.X.X/XX
      *
      * @var string
@@ -269,6 +275,7 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *   **net**: CIDR block
      *   **group**: address book
      *
+     * This parameter is required.
      * @example net
      *
      * @var string
@@ -286,15 +293,17 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     public $startTime;
 
     /**
-     * @description The instance ID of the VPC firewall. You can call the [DescribeVpcFirewallAclGroupList](~~159760~~) operation to query the ID.
+     * @description The instance ID of the VPC firewall. You can call the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to query the ID.
      *
      *   If the VPC firewall is used to protect a CEN instance, the value of this parameter must be the ID of the CEN instance.
      *
-     * Example: cen-ervw0g12b5jbw\*\*\*\*
+     * Example: cen-ervw0g12b5jbw\\*\\*\\*\\*
      *
      *   If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter must be the instance ID of the VPC firewall.
      *
-     * Example: vfw-a42bbb7b887148c9\*\*\*\*
+     * Example: vfw-a42bbb7b887148c9\\*\\*\\*\\*
+     *
+     * This parameter is required.
      * @example vfw-a42bbb7b887148c9****
      *
      * @var string

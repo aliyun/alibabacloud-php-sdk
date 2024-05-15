@@ -11,6 +11,7 @@ class DescribeAssetListRequest extends Model
     /**
      * @description The page number. Valid values: 1 to 50.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -66,6 +67,7 @@ class DescribeAssetListRequest extends Model
     /**
      * @description The number of entries per page. Valid values: 1 to 50.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string
@@ -75,7 +77,7 @@ class DescribeAssetListRequest extends Model
     /**
      * @description The region ID of your Cloud Firewall.
      *
-     * > For more information about the regions, see [Supported regions](~~195657~~).
+     * > For more information about the regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
      * @example cn-hangzhou
      *
      * @var string

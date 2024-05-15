@@ -11,6 +11,7 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
     /**
      * @description The UUID of the access control policy.
      *
+     * This parameter is required.
      * @example 66961eea-e659-4225-84c9-9b6da76ec401
      *
      * @var string
@@ -43,6 +44,7 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
     /**
      * @description The ID of the NAT gateway.
      *
+     * This parameter is required.
      * @example ngw-xxxxxx
      *
      * @var string
@@ -52,7 +54,7 @@ class ModifyNatFirewallControlPolicyPositionRequest extends Model
     /**
      * @description The new priority of the IPv4 access control policy. You must specify a numeric value for this parameter. The value 1 indicates the highest priority. A larger value indicates a lower priority.
      *
-     * Before you call this operation, we recommend that you call the DescribeNatFirewallPolicyPriorUsed operation to query the priority range of the IPv4 access control policies in the specified traffic direction.
+     * This parameter is required.
      * @example 5
      *
      * @var int

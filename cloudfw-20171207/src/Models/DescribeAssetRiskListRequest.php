@@ -15,7 +15,7 @@ class DescribeAssetRiskListRequest extends Model
      *
      *   Example of an IPv4 address: 47.97.221.164
      *
-     *   Example of an IPv6 address: 2001:db8:ffff:ffff:ffff:\*\*\*\*:ffff
+     *   Example of an IPv6 address: 2001:db8:ffff:ffff:ffff:\\*\\*\\*\\*:ffff
      *
      * @var string[]
      */
@@ -29,6 +29,7 @@ class DescribeAssetRiskListRequest extends Model
      *   **4** (default): IPv4
      *   **6**: IPv6
      *
+     * This parameter is required.
      * @example 4
      *
      * @var int

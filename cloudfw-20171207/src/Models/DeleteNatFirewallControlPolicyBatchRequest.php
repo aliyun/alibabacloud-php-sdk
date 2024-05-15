@@ -41,6 +41,7 @@ class DeleteNatFirewallControlPolicyBatchRequest extends Model
     /**
      * @description The ID of the NAT gateway.
      *
+     * This parameter is required.
      * @example ngw-uf6j0426ap74vd6vrb676
      *
      * @var string

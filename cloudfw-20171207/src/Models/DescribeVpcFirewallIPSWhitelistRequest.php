@@ -34,6 +34,7 @@ class DescribeVpcFirewallIPSWhitelistRequest extends Model
     /**
      * @description The instance ID of the VPC firewall.
      *
+     * This parameter is required.
      * @example vfw-3547deab1c9b4190a53f
      *
      * @var string

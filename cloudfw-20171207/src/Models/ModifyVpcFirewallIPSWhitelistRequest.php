@@ -26,6 +26,7 @@ class ModifyVpcFirewallIPSWhitelistRequest extends Model
      *   **1**: user-defined
      *   **2**: address book
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -53,6 +54,7 @@ class ModifyVpcFirewallIPSWhitelistRequest extends Model
     /**
      * @description The instance ID of the VPC firewall.
      *
+     * This parameter is required.
      * @example vfw-d7b8ce273791475b9b0b
      *
      * @var string
@@ -65,6 +67,7 @@ class ModifyVpcFirewallIPSWhitelistRequest extends Model
      *   **1**: destination
      *   **2**: source
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

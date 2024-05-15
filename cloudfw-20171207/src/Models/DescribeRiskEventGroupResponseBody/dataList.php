@@ -111,7 +111,7 @@ class dataList extends Model
     public $firstEventTime;
 
     /**
-     * @description The geographical information about the IP address. The value is a struct that contains the following parameters: **CityId**, **CityName**, **CountryId**, and **CountryName**.\
+     * @description The geographical information about the IP address. The value is a struct that contains the following parameters: **CityId**, **CityName**, **CountryId**, and **CountryName**.\\
      ****************
      * @var IPLocationInfo
      */
@@ -127,7 +127,7 @@ class dataList extends Model
     public $lastEventTime;
 
     /**
-     * @description The information about the private IP address in the intrusion event. The value is an array that contains the following parameters: **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.\
+     * @description The information about the private IP address in the intrusion event. The value is an array that contains the following parameters: **RegionNo**, **ResourceInstanceId**, **ResourceInstanceName**, and **ResourcePrivateIP**.\\
      ****************
      * @var resourcePrivateIPList[]
      */
@@ -217,14 +217,14 @@ class dataList extends Model
     public $tag;
 
     /**
-     * @description The information about the destination VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.\
+     * @description The information about the destination VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.\\
      ********************
      * @var vpcDstInfo
      */
     public $vpcDstInfo;
 
     /**
-     * @description The information about the source VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.\
+     * @description The information about the source VPC of the intrusion event. The value is a struct that contains the following parameters: **EcsInstanceId**, **EcsInstanceName**, **NetworkInstanceId**, **NetworkInstanceName**, and **RegionNo**.\\
      ********************
      * @var vpcSrcInfo
      */

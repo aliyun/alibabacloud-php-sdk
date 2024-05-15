@@ -57,7 +57,7 @@ class DescribeNatFirewallControlPolicyRequest extends Model
      *   If DestinationType is set to `net`, the value of Destination must be a CIDR block. Example: 10.0.3.0/24.
      *   If DestinationType is set to `domain`, the value of Destination must be a domain name. Example: aliyun.
      *   If DestinationType is set to `group`, the value of Destination must be the name of an address book. Example: db_group.
-     *   If DestinationType is set to `location`, the value of Destination is a location. For more information about location codes, see [AddControlPolicy](~~474128~~). Example: \["BJ11", "ZB"].
+     *   If DestinationType is set to `location`, the value of Destination is a location. For more information about location codes, see [AddControlPolicy](https://help.aliyun.com/document_detail/474128.html). Example: ["BJ11", "ZB"].
      *
      * > If you do not specify this parameter, all types of destination addresses are queried.
      * @example x.x.x.x/32
@@ -71,6 +71,7 @@ class DescribeNatFirewallControlPolicyRequest extends Model
      *
      *   **out**: outbound traffic
      *
+     * This parameter is required.
      * @example out
      *
      * @var string
@@ -92,6 +93,7 @@ class DescribeNatFirewallControlPolicyRequest extends Model
     /**
      * @description The ID of the NAT gateway.
      *
+     * This parameter is required.
      * @example ngw-xxxxxx
      *
      * @var string

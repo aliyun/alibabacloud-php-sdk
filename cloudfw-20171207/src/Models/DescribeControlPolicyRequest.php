@@ -34,7 +34,7 @@ class DescribeControlPolicyRequest extends Model
     /**
      * @description The number of the page to return.
      *
-     * Default value: 1.
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -72,6 +72,7 @@ class DescribeControlPolicyRequest extends Model
      *   **in**: inbound traffic
      *   **out**: outbound traffic
      *
+     * This parameter is required.
      * @example in
      *
      * @var string
@@ -105,6 +106,7 @@ class DescribeControlPolicyRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string

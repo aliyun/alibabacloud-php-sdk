@@ -34,6 +34,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -85,7 +86,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     * Maximum value: 50.
+     * This parameter is required.
      * @example 10
      *
      * @var string
@@ -150,7 +151,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
      *   If the VPC firewall protects the traffic between two VPCs that are connected by using a CEN instance, the value of this parameter must be the ID of the CEN instance.
      *   If the VPC firewall protects the traffic between two VPCs that are connected by using an Express Connect circuit, the value of this parameter must be the instance ID of the VPC firewall.
      *
-     * > You can call the [DescribeVpcFirewallAclGroupList](~~159760~~) operation to query the ID.
+     * This parameter is required.
      * @example vfw-a42bbb7b887148c9****
      *
      * @var string

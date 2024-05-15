@@ -14,6 +14,7 @@ class ModifyControlPolicyPositionRequest extends Model
      *   in: inbound traffic
      *   out: outbound traffic
      *
+     * This parameter is required.
      * @example in
      *
      * @var string
@@ -35,7 +36,7 @@ class ModifyControlPolicyPositionRequest extends Model
     /**
      * @description The new priority of the IPv4 access control policy. You must specify a numeric value for this parameter. The value 1 indicates the highest priority. A larger value indicates a lower priority.
      *
-     * >  The new priority cannot exceed the priority range of the IPv4 access control policy. Otherwise, an error occurs when you call this operation. Before you call this operation, we recommend that you use the [DescribePolicyPriorUsed](~~138862~~) operation to query the priority range of the IPv4 access control policy in the specified direction.
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -45,6 +46,7 @@ class ModifyControlPolicyPositionRequest extends Model
     /**
      * @description The original priority of the IPv4 access control policy.
      *
+     * This parameter is required.
      * @example 5
      *
      * @var string

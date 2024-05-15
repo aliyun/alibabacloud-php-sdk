@@ -11,6 +11,7 @@ class CreateVpcFirewallCenConfigureRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-x5jayxou71ad73****
      *
      * @var string
@@ -21,8 +22,9 @@ class CreateVpcFirewallCenConfigureRequest extends Model
      * @description Specifies whether to enable the VPC firewall. Valid values:
      *
      *   **open**: After you create the VPC firewall, the VPC firewall is automatically enabled. This is the default value.
-     *   **close**: After you create the VPC firewall, the VPC firewall is disabled. You can call the [ModifyVpcFirewallCenSwitchStatus](~~345780~~) operation to manually enable the VPC firewall.
+     *   **close**: After you create the VPC firewall, the VPC firewall is disabled. You can call the [ModifyVpcFirewallCenSwitchStatus](https://help.aliyun.com/document_detail/345780.html) operation to manually enable the VPC firewall.
      *
+     * This parameter is required.
      * @example open
      *
      * @var string
@@ -52,7 +54,7 @@ class CreateVpcFirewallCenConfigureRequest extends Model
     /**
      * @description The ID of the zone to which the vSwitch belongs. If your service is latency-sensitive, you can specify the same zone for the vSwitch of the firewall and the vSwitch of your business VPC to minimize latency.
      *
-     * >  This parameter takes effect only when you create a VPC firewall for the first time in the current CEN instance and region. For more information about zones that are supported by each region, see [Query zones](~~36064~~).
+     * >  This parameter takes effect only when you create a VPC firewall for the first time in the current CEN instance and region. For more information about zones that are supported by each region, see [Query zones](https://help.aliyun.com/document_detail/36064.html).
      * @example cn-hangzhou-a
      *
      * @var string
@@ -83,6 +85,7 @@ class CreateVpcFirewallCenConfigureRequest extends Model
     /**
      * @description The ID of the VPC for which you want to create the VPC firewall.
      *
+     * This parameter is required.
      * @example vpc-bp10zlifxh6j0232w****
      *
      * @var string
@@ -101,6 +104,7 @@ class CreateVpcFirewallCenConfigureRequest extends Model
     /**
      * @description The instance name of the VPC firewall.
      *
+     * This parameter is required.
      * @example Test instance
      *
      * @var string
@@ -110,7 +114,7 @@ class CreateVpcFirewallCenConfigureRequest extends Model
     /**
      * @description The ID of the region to which the VPC belongs.
      *
-     * > For more information about the regions, see [Supported regions](~~195657~~).
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

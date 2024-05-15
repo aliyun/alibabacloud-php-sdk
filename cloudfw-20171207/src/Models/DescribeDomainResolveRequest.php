@@ -11,6 +11,7 @@ class DescribeDomainResolveRequest extends Model
     /**
      * @description The domain name whose DNS record you want to query.
      *
+     * This parameter is required.
      * @example www.aliyundoc.com
      *
      * @var string

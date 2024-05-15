@@ -24,6 +24,8 @@ class CreateSecurityProxyRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ngw-bp1okz6k7s4n4mnk5f1g3
      *
      * @var string
@@ -31,11 +33,15 @@ class CreateSecurityProxyRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var natRouteEntryList[]
      */
     public $natRouteEntryList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example nat-idmp-fir
      *
      * @var string
@@ -43,6 +49,8 @@ class CreateSecurityProxyRequest extends Model
     public $proxyName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +65,8 @@ class CreateSecurityProxyRequest extends Model
     public $strictMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-uf6b5lyul0xfgv74i01ph
      *
      * @var string

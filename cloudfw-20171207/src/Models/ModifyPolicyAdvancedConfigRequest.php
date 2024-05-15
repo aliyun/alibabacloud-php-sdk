@@ -14,6 +14,7 @@ class ModifyPolicyAdvancedConfigRequest extends Model
      *   **on**: enables the strict mode.
      *   **off**: disables the strict mode.
      *
+     * This parameter is required.
      * @example off
      *
      * @var string

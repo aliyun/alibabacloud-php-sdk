@@ -11,6 +11,7 @@ class DescribeUserAssetIPTrafficInfoRequest extends Model
     /**
      * @description The IP address of the asset.
      *
+     * This parameter is required.
      * @example 192.0.XX.XX
      *
      * @var string
@@ -32,6 +33,7 @@ class DescribeUserAssetIPTrafficInfoRequest extends Model
     /**
      * @description The time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1656923760
      *
      * @var string

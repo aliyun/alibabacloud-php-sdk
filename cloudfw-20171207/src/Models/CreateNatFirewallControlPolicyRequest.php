@@ -17,6 +17,7 @@ class CreateNatFirewallControlPolicyRequest extends Model
      *   **drop**: denies the traffic.
      *   **log**: monitors the traffic.
      *
+     * This parameter is required.
      * @example log
      *
      * @var string
@@ -26,6 +27,7 @@ class CreateNatFirewallControlPolicyRequest extends Model
     /**
      * @description The application types supported by the access control policy.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $applicationNameList;
@@ -33,6 +35,7 @@ class CreateNatFirewallControlPolicyRequest extends Model
     /**
      * @description The description of the access control policy.
      *
+     * This parameter is required.
      * @example allow
      *
      * @var string
@@ -95,11 +98,11 @@ class CreateNatFirewallControlPolicyRequest extends Model
      *
      *   If DestinationType is set to domain, the value of this parameter is a domain name.
      *
-     * Example: \*.aliyuncs.com
+     * Example: \\*.aliyuncs.com
      *
      *   If DestinationType is set to location, the value of this parameter is a location.
      *
-     * Example: \["BJ11", "ZB"]
+     * This parameter is required.
      * @example XX.XX.XX.XX/24
      *
      * @var string
@@ -115,6 +118,7 @@ class CreateNatFirewallControlPolicyRequest extends Model
      *   **group**: address book
      *   **domain**: domain name
      *
+     * This parameter is required.
      * @example net
      *
      * @var string
@@ -126,6 +130,7 @@ class CreateNatFirewallControlPolicyRequest extends Model
      *
      *   **out**: outbound traffic
      *
+     * This parameter is required.
      * @example out
      *
      * @var string
@@ -183,6 +188,7 @@ class CreateNatFirewallControlPolicyRequest extends Model
     /**
      * @description The ID of the NAT gateway.
      *
+     * This parameter is required.
      * @example ngx-xxxxxxx
      *
      * @var string
@@ -192,6 +198,7 @@ class CreateNatFirewallControlPolicyRequest extends Model
     /**
      * @description The priority of the access control policy. The priority value starts from 1. A small priority value indicates a high priority.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -208,6 +215,7 @@ class CreateNatFirewallControlPolicyRequest extends Model
      *   UDP
      *   ICMP
      *
+     * This parameter is required.
      * @example ANY
      *
      * @var string
@@ -229,12 +237,12 @@ class CreateNatFirewallControlPolicyRequest extends Model
     /**
      * @description The days of a week or of a month on which the access control policy takes effect.
      *
-     *   If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is left empty. Example: \[].
-     *   If RepeatType is set to Weekly, RepeatDays must be specified. Example: \[0, 6].
+     *   If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is left empty. Example: [].
+     *   If RepeatType is set to Weekly, RepeatDays must be specified. Example: [0, 6].
      *
      * >  If RepeatType is set to Weekly, the fields in the value of RepeatDays cannot be repeated.
      *
-     *   If RepeatType is set to `Monthly`, RepeatDays must be specified. Example: \[1, 31].
+     *   If RepeatType is set to `Monthly`, RepeatDays must be specified. Example: [1, 31].
      *
      * >  If RepeatType is set to Monthly, the fields in the value of RepeatDays cannot be repeated.
      * @var int[]
@@ -287,7 +295,7 @@ class CreateNatFirewallControlPolicyRequest extends Model
      *
      *   If **SourceType** is set to `group`, the value of this parameter must be an address book name.
      *
-     * Example: db_group
+     * This parameter is required.
      * @example 192.168.0.25/32
      *
      * @var string
@@ -302,6 +310,7 @@ class CreateNatFirewallControlPolicyRequest extends Model
      *   **net**: source CIDR block
      *   **group**: source address book
      *
+     * This parameter is required.
      * @example net
      *
      * @var string

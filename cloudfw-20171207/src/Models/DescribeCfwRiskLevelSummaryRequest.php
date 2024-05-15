@@ -34,7 +34,7 @@ class DescribeCfwRiskLevelSummaryRequest extends Model
     /**
      * @description The region ID of your Cloud Firewall.
      *
-     * >  For more information about Cloud Firewall supported regions, see [Supported regions](~~195657~~).
+     * >  For more information about Cloud Firewall supported regions, see [Supported regions](https://help.aliyun.com/document_detail/195657.html).
      * @example cn-shanghai
      *
      * @var string

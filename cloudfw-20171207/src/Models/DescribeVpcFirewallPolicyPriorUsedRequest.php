@@ -30,6 +30,8 @@ class DescribeVpcFirewallPolicyPriorUsedRequest extends Model
      * - If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the ID of the VPC firewall instance.
      *
      * Example: vfw-a42bbb7b887148c9****
+     *
+     * This parameter is required.
      * @example vfw-a42bbb7b887148c9****
      *
      * @var string

@@ -37,6 +37,7 @@ class ModifyAddressBookRequest extends Model
     /**
      * @description The description of the address book.
      *
+     * This parameter is required.
      * @example bj-001
      *
      * @var string
@@ -46,6 +47,7 @@ class ModifyAddressBookRequest extends Model
     /**
      * @description The name of the address book.
      *
+     * This parameter is required.
      * @example bj-001
      *
      * @var string
@@ -55,7 +57,7 @@ class ModifyAddressBookRequest extends Model
     /**
      * @description The ID of the address book.
      *
-     * >  To modify the address book, you must provide the ID of the address book. You can call the [DescribeAddressBook](~~138869~~) operation to query the ID.
+     * This parameter is required.
      * @example 0657ab9d-fe8b-4174-b2a6-6baf358e****
      *
      * @var string

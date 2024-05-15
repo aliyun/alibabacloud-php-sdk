@@ -15,6 +15,7 @@ class DescribeNatFirewallPolicyPriorUsedRequest extends Model
      *
      *   **out**: outbound traffic
      *
+     * This parameter is required.
      * @example out
      *
      * @var string
@@ -47,6 +48,7 @@ class DescribeNatFirewallPolicyPriorUsedRequest extends Model
     /**
      * @description The ID of the NAT gateway.
      *
+     * This parameter is required.
      * @example ngw-xxxxxx
      *
      * @var string

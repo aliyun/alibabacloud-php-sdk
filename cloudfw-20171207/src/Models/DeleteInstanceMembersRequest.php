@@ -11,6 +11,7 @@ class DeleteInstanceMembersRequest extends Model
     /**
      * @description The unique identifiers (UID) of members that you want to remove from Cloud Firewall.
      *
+     * This parameter is required.
      * @example 1234123412341234
      *
      * @var int[]

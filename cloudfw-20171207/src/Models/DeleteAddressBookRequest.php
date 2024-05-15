@@ -11,7 +11,7 @@ class DeleteAddressBookRequest extends Model
     /**
      * @description The ID of the address book.
      *
-     * To delete the address book, you must provide the ID of the address book. You can call the DescribeAddressBook operation to query the ID.
+     * This parameter is required.
      * @example 0657ab9d-fe8b-4174-b2a6-6baf358e****
      *
      * @var string

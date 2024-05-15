@@ -41,7 +41,7 @@ class DescribeVpcFirewallDetailRequest extends Model
     /**
      * @description The instance ID of the VPC firewall.
      *
-     * >  You can call the [DescribeVpcFirewallList](~~342932~~) operation to query the instance IDs of VPC firewalls.
+     * This parameter is required.
      * @example vfw-m5e7dbc4y****
      *
      * @var string

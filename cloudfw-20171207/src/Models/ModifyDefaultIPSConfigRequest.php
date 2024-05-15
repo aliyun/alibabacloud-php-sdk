@@ -14,11 +14,15 @@ class ModifyDefaultIPSConfigRequest extends Model
     public $aiRules;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $basicRules;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ctiRules;
@@ -49,6 +53,8 @@ class ModifyDefaultIPSConfigRequest extends Model
     public $ruleClass;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $runMode;

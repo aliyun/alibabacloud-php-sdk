@@ -26,7 +26,7 @@ class ModifyVpcFirewallConfigureRequest extends Model
      *   **RouteTableId**: the ID of the route table for the local VPC.
      *   **RouteEntryList**: The value is a JSON string that contains the DestinationCidr and NextHopInstanceId parameters. The DestinationCidr parameter indicates the destination CIDR block of the local VPC. The NextHopInstanceId parameter indicates the instance ID of the next hop for the local VPC.
      *
-     * > You can call the [DescribeVpcFirewallDetail](~~342892~~) operation to query the CIDR blocks of local VPCs for VPC firewalls.
+     * This parameter is required.
      * @example [{"RouteTableId":"vtb-1234","RouteEntryList":[{"DestinationCidr":"192.168.XX.XX/24","NextHopInstanceId":"vrt-m5eb5me6c3l5sezae****"}]},{"RouteTableId":"vtb-1235","RouteEntryList":[{"DestinationCidr":"192.168.XX.XX/24","NextHopInstanceId":"vrt-m5eb5me6c3l5sezae****"}]}]
      *
      * @var string
@@ -48,7 +48,7 @@ class ModifyVpcFirewallConfigureRequest extends Model
      *   **RouteTableId**: the ID of the route table for the peer VPC.
      *   **RouteEntryList**: The value is a JSON string that contains the DestinationCidr and NextHopInstanceId parameters. The DestinationCidr parameter indicates the destination CIDR block of the peer VPC. The NextHopInstanceId parameter indicates the instance ID of the next hop for the peer VPC.
      *
-     * > You can call the [DescribeVpcFirewallDetail](~~342892~~) operation to query the CIDR blocks of peer VPCs for VPC firewalls.
+     * This parameter is required.
      * @example [{"RouteTableId":"vtb-1234","RouteEntryList":[{"DestinationCidr":"192.168.XX.XX/24","NextHopInstanceId":"vrt-m5eb5me6c3l5sezae****"}]},{"RouteTableId":"vtb-1235","RouteEntryList":[{"DestinationCidr":"192.168.XX.XX/24","NextHopInstanceId":"vrt-m5eb5me6c3l5sezae****"}]}]
      *
      * @var string
@@ -58,7 +58,7 @@ class ModifyVpcFirewallConfigureRequest extends Model
     /**
      * @description The instance ID of the VPC firewall.
      *
-     * > You can call the [DescribeVpcFirewallList](~~342932~~) operation to query the instance IDs of VPC firewalls.
+     * This parameter is required.
      * @example vfw-m5e7dbc4y****
      *
      * @var string
@@ -68,6 +68,7 @@ class ModifyVpcFirewallConfigureRequest extends Model
     /**
      * @description The instance name of the VPC firewall.
      *
+     * This parameter is required.
      * @example Test firewall
      *
      * @var string

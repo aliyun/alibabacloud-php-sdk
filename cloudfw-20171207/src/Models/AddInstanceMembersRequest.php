@@ -12,6 +12,7 @@ class AddInstanceMembersRequest extends Model
     /**
      * @description The members that you want to add to Cloud Firewall.
      *
+     * This parameter is required.
      * @var members[]
      */
     public $members;

@@ -11,6 +11,7 @@ class members extends Model
     /**
      * @description The remarks of the member in Cloud Firewall.
      *
+     * This parameter is required.
      * @example renewal
      *
      * @var string
@@ -20,6 +21,7 @@ class members extends Model
     /**
      * @description The UID of the member in Cloud Firewall.
      *
+     * This parameter is required.
      * @example 123412341234****
      *
      * @var int

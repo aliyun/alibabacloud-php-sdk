@@ -14,6 +14,8 @@ class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends Model
     public $destCandidateListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vfw-tr-6520de0253bc4669bbd9
      *
      * @var string
@@ -38,6 +40,8 @@ class ModifyTrFirewallV2RoutePolicyScopeShrinkRequest extends Model
     public $srcCandidateListShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example policy-4d724d0139df48f18091
      *
      * @var string

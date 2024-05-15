@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyBatc
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyBatchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteSecurityProxyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteSecurityProxyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteTrFirewallV2Request;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteTrFirewallV2Response;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallCenConfigureRequest;
@@ -91,6 +93,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatAclPageStatusRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatAclPageStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallPolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallPolicyPriorUsedResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPRequest;
@@ -206,6 +210,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetNatFirewallRuleHitCountReques
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetNatFirewallRuleHitCountResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\SwitchSecurityProxyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\SwitchSecurityProxyResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -250,10 +256,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
-     *   * ## [](#qps)Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates an address book for access control. Supported address book types are IP address books, Elastic Compute Service (ECS) tag-based address books, port address books, and domain address books. An ECS tag-based address book includes the public IP addresses of the ECS instances that have specific tags.
+     *  *
+     * @description You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
+     * ## [](#qps)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AddAddressBookRequest $request AddAddressBookRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -309,10 +317,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
-     *   * ## [](#qps)Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates an address book for access control. Supported address book types are IP address books, Elastic Compute Service (ECS) tag-based address books, port address books, and domain address books. An ECS tag-based address book includes the public IP addresses of the ECS instances that have specific tags.
+     *  *
+     * @description You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
+     * ## [](#qps)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AddAddressBookRequest $request AddAddressBookRequest
      *
      * @return AddAddressBookResponse AddAddressBookResponse
@@ -325,10 +335,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the AddControlPolicy operation to create an access control policy to allow, block, or monitor traffic that reaches Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates an access control policy.
+     *  *
+     * @description You can call the AddControlPolicy operation to create an access control policy to allow, block, or monitor traffic that reaches Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AddControlPolicyRequest $request AddControlPolicyRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -429,10 +441,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the AddControlPolicy operation to create an access control policy to allow, block, or monitor traffic that reaches Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates an access control policy.
+     *  *
+     * @description You can call the AddControlPolicy operation to create an access control policy to allow, block, or monitor traffic that reaches Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AddControlPolicyRequest $request AddControlPolicyRequest
      *
      * @return AddControlPolicyResponse AddControlPolicyResponse
@@ -445,10 +459,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the AddInstanceMembers operation to add members to Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Adds members to Cloud Firewall.
+     *  *
+     * @description You can call the AddInstanceMembers operation to add members to Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AddInstanceMembersRequest $request AddInstanceMembersRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -480,10 +496,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the AddInstanceMembers operation to add members to Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Adds members to Cloud Firewall.
+     *  *
+     * @description You can call the AddInstanceMembers operation to add members to Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param AddInstanceMembersRequest $request AddInstanceMembersRequest
      *
      * @return AddInstanceMembersResponse AddInstanceMembersResponse
@@ -496,13 +514,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.
-     *   * Before you call this operation, we recommend that you back up access control policies. For more information about how to back up an access control policy, see [Back up an access control policy](https://www.alibabacloud.com/help/en/cloud-firewall/latest/back-up-and-roll-back-an-access-control-policy).
-     *   * After you call this operation, all the access control policies in the policy group of the destination VPC firewall are replaced.
-     *   * The policy groups of the source VPC firewall and the destination VPC firewall must belong to the same Alibaba Cloud account.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
-     *   *
+     * @summary Copies all access control policies from a policy group of a source virtual private cloud (VPC) firewall to a policy group of a destination VPC firewall.
+     *  *
+     * @description You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.
+     * Before you call this operation, we recommend that you back up access control policies. For more information about how to back up an access control policy, see [Back up an access control policy](https://www.alibabacloud.com/help/en/cloud-firewall/latest/back-up-and-roll-back-an-access-control-policy).
+     * After you call this operation, all the access control policies in the policy group of the destination VPC firewall are replaced.
+     * The policy groups of the source VPC firewall and the destination VPC firewall must belong to the same Alibaba Cloud account.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
+     *  *
      * @param BatchCopyVpcFirewallControlPolicyRequest $request BatchCopyVpcFirewallControlPolicyRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -543,13 +563,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.
-     *   * Before you call this operation, we recommend that you back up access control policies. For more information about how to back up an access control policy, see [Back up an access control policy](https://www.alibabacloud.com/help/en/cloud-firewall/latest/back-up-and-roll-back-an-access-control-policy).
-     *   * After you call this operation, all the access control policies in the policy group of the destination VPC firewall are replaced.
-     *   * The policy groups of the source VPC firewall and the destination VPC firewall must belong to the same Alibaba Cloud account.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
-     *   *
+     * @summary Copies all access control policies from a policy group of a source virtual private cloud (VPC) firewall to a policy group of a destination VPC firewall.
+     *  *
+     * @description You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.
+     * Before you call this operation, we recommend that you back up access control policies. For more information about how to back up an access control policy, see [Back up an access control policy](https://www.alibabacloud.com/help/en/cloud-firewall/latest/back-up-and-roll-back-an-access-control-policy).
+     * After you call this operation, all the access control policies in the policy group of the destination VPC firewall are replaced.
+     * The policy groups of the source VPC firewall and the destination VPC firewall must belong to the same Alibaba Cloud account.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
+     *  *
      * @param BatchCopyVpcFirewallControlPolicyRequest $request BatchCopyVpcFirewallControlPolicyRequest
      *
      * @return BatchCopyVpcFirewallControlPolicyResponse BatchCopyVpcFirewallControlPolicyResponse
@@ -562,10 +584,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteVpcFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Deletes multiple access control policies for a virtual private cloud (VPC) firewall at a time.
+     *  *
+     * @param BatchDeleteVpcFirewallControlPolicyRequest $request BatchDeleteVpcFirewallControlPolicyRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeleteVpcFirewallControlPolicyResponse
+     * @return BatchDeleteVpcFirewallControlPolicyResponse BatchDeleteVpcFirewallControlPolicyResponse
      */
     public function batchDeleteVpcFirewallControlPolicyWithOptions($request, $runtime)
     {
@@ -596,9 +620,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteVpcFirewallControlPolicyRequest $request
+     * @summary Deletes multiple access control policies for a virtual private cloud (VPC) firewall at a time.
+     *  *
+     * @param BatchDeleteVpcFirewallControlPolicyRequest $request BatchDeleteVpcFirewallControlPolicyRequest
      *
-     * @return BatchDeleteVpcFirewallControlPolicyResponse
+     * @return BatchDeleteVpcFirewallControlPolicyResponse BatchDeleteVpcFirewallControlPolicyResponse
      */
     public function batchDeleteVpcFirewallControlPolicy($request)
     {
@@ -608,10 +634,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param CreateDownloadTaskRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Creates a file download task.
+     *  *
+     * @param CreateDownloadTaskRequest $request CreateDownloadTaskRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDownloadTaskResponse
+     * @return CreateDownloadTaskResponse CreateDownloadTaskResponse
      */
     public function createDownloadTaskWithOptions($request, $runtime)
     {
@@ -642,9 +670,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param CreateDownloadTaskRequest $request
+     * @summary Creates a file download task.
+     *  *
+     * @param CreateDownloadTaskRequest $request CreateDownloadTaskRequest
      *
-     * @return CreateDownloadTaskResponse
+     * @return CreateDownloadTaskResponse CreateDownloadTaskResponse
      */
     public function createDownloadTask($request)
     {
@@ -654,8 +684,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
-     *   *
+     * @summary Creates an access control policy for a NAT firewall.
+     *  *
+     * @description You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
+     *  *
      * @param CreateNatFirewallControlPolicyRequest $request CreateNatFirewallControlPolicyRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -756,8 +788,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
-     *   *
+     * @summary Creates an access control policy for a NAT firewall.
+     *  *
+     * @description You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
+     *  *
      * @param CreateNatFirewallControlPolicyRequest $request CreateNatFirewallControlPolicyRequest
      *
      * @return CreateNatFirewallControlPolicyResponse CreateNatFirewallControlPolicyResponse
@@ -770,10 +804,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param CreateSecurityProxyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateSecurityProxyRequest $request CreateSecurityProxyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSecurityProxyResponse
+     * @return CreateSecurityProxyResponse CreateSecurityProxyResponse
      */
     public function createSecurityProxyWithOptions($request, $runtime)
     {
@@ -831,9 +865,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param CreateSecurityProxyRequest $request
+     * @param CreateSecurityProxyRequest $request CreateSecurityProxyRequest
      *
-     * @return CreateSecurityProxyResponse
+     * @return CreateSecurityProxyResponse CreateSecurityProxyResponse
      */
     public function createSecurityProxy($request)
     {
@@ -843,10 +877,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param CreateTrFirewallV2Request $request
-     * @param RuntimeOptions            $runtime
+     * @summary Creates a virtual private cloud (VPC) firewall for a transit router.
+     *  *
+     * @param CreateTrFirewallV2Request $request CreateTrFirewallV2Request
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTrFirewallV2Response
+     * @return CreateTrFirewallV2Response CreateTrFirewallV2Response
      */
     public function createTrFirewallV2WithOptions($request, $runtime)
     {
@@ -916,9 +952,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param CreateTrFirewallV2Request $request
+     * @summary Creates a virtual private cloud (VPC) firewall for a transit router.
+     *  *
+     * @param CreateTrFirewallV2Request $request CreateTrFirewallV2Request
      *
-     * @return CreateTrFirewallV2Response
+     * @return CreateTrFirewallV2Response CreateTrFirewallV2Response
      */
     public function createTrFirewallV2($request)
     {
@@ -928,10 +966,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param CreateTrFirewallV2RoutePolicyRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
+     * @param CreateTrFirewallV2RoutePolicyRequest $tmpReq  CreateTrFirewallV2RoutePolicyRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTrFirewallV2RoutePolicyResponse
+     * @return CreateTrFirewallV2RoutePolicyResponse CreateTrFirewallV2RoutePolicyResponse
      */
     public function createTrFirewallV2RoutePolicyWithOptions($tmpReq, $runtime)
     {
@@ -985,9 +1023,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param CreateTrFirewallV2RoutePolicyRequest $request
+     * @param CreateTrFirewallV2RoutePolicyRequest $request CreateTrFirewallV2RoutePolicyRequest
      *
-     * @return CreateTrFirewallV2RoutePolicyResponse
+     * @return CreateTrFirewallV2RoutePolicyResponse CreateTrFirewallV2RoutePolicyResponse
      */
     public function createTrFirewallV2RoutePolicy($request)
     {
@@ -997,10 +1035,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the CreateVpcFirewallCenConfigure operation to create a VPC firewall. The VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. The VPC firewall cannot protect mutual access traffic between VBRs, between CCN instances, or between VBRs and CCN instances. For more information, see [VPC firewall limits](~~172295~~).
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a virtual private cloud (VPC) firewall to protect traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the CreateVpcFirewallCenConfigure operation to create a VPC firewall. The VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. The VPC firewall cannot protect mutual access traffic between VBRs, between CCN instances, or between VBRs and CCN instances. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateVpcFirewallCenConfigureRequest $request CreateVpcFirewallCenConfigureRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -1062,10 +1102,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the CreateVpcFirewallCenConfigure operation to create a VPC firewall. The VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. The VPC firewall cannot protect mutual access traffic between VBRs, between CCN instances, or between VBRs and CCN instances. For more information, see [VPC firewall limits](~~172295~~).
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a virtual private cloud (VPC) firewall to protect traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the CreateVpcFirewallCenConfigure operation to create a VPC firewall. The VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. The VPC firewall cannot protect mutual access traffic between VBRs, between CCN instances, or between VBRs and CCN instances. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateVpcFirewallCenConfigureRequest $request CreateVpcFirewallCenConfigureRequest
      *
      * @return CreateVpcFirewallCenConfigureResponse CreateVpcFirewallCenConfigureResponse
@@ -1078,10 +1120,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [VPC firewall limits](~~172295~~).
-     *   * ### [](#qps)QPS limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a Virtual Private Cloud (VPC) firewall to protect traffic between two VPCs that are connected by using an Express Connect.
+     *  *
+     * @description You can call this operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * ### [](#qps)QPS limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateVpcFirewallConfigureRequest $request CreateVpcFirewallConfigureRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -1140,10 +1184,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [VPC firewall limits](~~172295~~).
-     *   * ### [](#qps)QPS limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates a Virtual Private Cloud (VPC) firewall to protect traffic between two VPCs that are connected by using an Express Connect.
+     *  *
+     * @description You can call this operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * ### [](#qps)QPS limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateVpcFirewallConfigureRequest $request CreateVpcFirewallConfigureRequest
      *
      * @return CreateVpcFirewallConfigureResponse CreateVpcFirewallConfigureResponse
@@ -1156,10 +1202,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the CreateVpcFirewallControlPolicy operation to create an access control policy in a specified policy group for a VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates an access control policy in a specified policy group for a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the CreateVpcFirewallControlPolicy operation to create an access control policy in a specified policy group for a VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateVpcFirewallControlPolicyRequest $request CreateVpcFirewallControlPolicyRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -1257,10 +1305,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the CreateVpcFirewallControlPolicy operation to create an access control policy in a specified policy group for a VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Creates an access control policy in a specified policy group for a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the CreateVpcFirewallControlPolicy operation to create an access control policy in a specified policy group for a VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param CreateVpcFirewallControlPolicyRequest $request CreateVpcFirewallControlPolicyRequest
      *
      * @return CreateVpcFirewallControlPolicyResponse CreateVpcFirewallControlPolicyResponse
@@ -1273,10 +1323,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteAddressBook operation to delete an address book for access control.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes an address book for access control.
+     *  *
+     * @description You can call the DeleteAddressBook operation to delete an address book for access control.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteAddressBookRequest $request DeleteAddressBookRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1314,10 +1366,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteAddressBook operation to delete an address book for access control.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes an address book for access control.
+     *  *
+     * @description You can call the DeleteAddressBook operation to delete an address book for access control.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteAddressBookRequest $request DeleteAddressBookRequest
      *
      * @return DeleteAddressBookResponse DeleteAddressBookResponse
@@ -1330,10 +1384,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes an access control policy.
+     *  *
+     * @description You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1374,10 +1430,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes an access control policy.
+     *  *
+     * @description You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
      *
      * @return DeleteControlPolicyResponse DeleteControlPolicyResponse
@@ -1390,10 +1448,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteControlPolicyTemplateRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Deletes an access control policy template.
+     *  *
+     * @param DeleteControlPolicyTemplateRequest $request DeleteControlPolicyTemplateRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteControlPolicyTemplateResponse
+     * @return DeleteControlPolicyTemplateResponse DeleteControlPolicyTemplateResponse
      */
     public function deleteControlPolicyTemplateWithOptions($request, $runtime)
     {
@@ -1430,9 +1490,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteControlPolicyTemplateRequest $request
+     * @summary Deletes an access control policy template.
+     *  *
+     * @param DeleteControlPolicyTemplateRequest $request DeleteControlPolicyTemplateRequest
      *
-     * @return DeleteControlPolicyTemplateResponse
+     * @return DeleteControlPolicyTemplateResponse DeleteControlPolicyTemplateResponse
      */
     public function deleteControlPolicyTemplate($request)
     {
@@ -1442,10 +1504,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete file download tasks and delete the files.
-     *   * **
-     *   * **Warning** Both tasks and involved files are deleted. You can no longer download the involved files by using the download links. This operation is irreversible. Proceed with caution.
-     *   *
+     * @summary Deletes file download tasks.
+     *  *
+     * @description You can call this operation to delete file download tasks and delete the files.
+     * **
+     * **Warning** Both tasks and involved files are deleted. You can no longer download the involved files by using the download links. This operation is irreversible. Proceed with caution.
+     *  *
      * @param DeleteDownloadTaskRequest $request DeleteDownloadTaskRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1480,10 +1544,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete file download tasks and delete the files.
-     *   * **
-     *   * **Warning** Both tasks and involved files are deleted. You can no longer download the involved files by using the download links. This operation is irreversible. Proceed with caution.
-     *   *
+     * @summary Deletes file download tasks.
+     *  *
+     * @description You can call this operation to delete file download tasks and delete the files.
+     * **
+     * **Warning** Both tasks and involved files are deleted. You can no longer download the involved files by using the download links. This operation is irreversible. Proceed with caution.
+     *  *
      * @param DeleteDownloadTaskRequest $request DeleteDownloadTaskRequest
      *
      * @return DeleteDownloadTaskResponse DeleteDownloadTaskResponse
@@ -1496,10 +1562,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteFirewallV2RoutePoliciesRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DeleteFirewallV2RoutePoliciesRequest $request DeleteFirewallV2RoutePoliciesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFirewallV2RoutePoliciesResponse
+     * @return DeleteFirewallV2RoutePoliciesResponse DeleteFirewallV2RoutePoliciesResponse
      */
     public function deleteFirewallV2RoutePoliciesWithOptions($request, $runtime)
     {
@@ -1533,9 +1599,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteFirewallV2RoutePoliciesRequest $request
+     * @param DeleteFirewallV2RoutePoliciesRequest $request DeleteFirewallV2RoutePoliciesRequest
      *
-     * @return DeleteFirewallV2RoutePoliciesResponse
+     * @return DeleteFirewallV2RoutePoliciesResponse DeleteFirewallV2RoutePoliciesResponse
      */
     public function deleteFirewallV2RoutePolicies($request)
     {
@@ -1545,10 +1611,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteInstanceMembers operation to remove members from Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Removes members from Cloud Firewall.
+     *  *
+     * @description You can call the DeleteInstanceMembers operation to remove members from Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteInstanceMembersRequest $request DeleteInstanceMembersRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1580,10 +1648,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteInstanceMembers operation to remove members from Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Removes members from Cloud Firewall.
+     *  *
+     * @description You can call the DeleteInstanceMembers operation to remove members from Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteInstanceMembersRequest $request DeleteInstanceMembersRequest
      *
      * @return DeleteInstanceMembersResponse DeleteInstanceMembersResponse
@@ -1596,8 +1666,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
-     *   *
+     * @summary Deletes an access control policy that is created for a NAT firewall.
+     *  *
+     * @description You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
+     *  *
      * @param DeleteNatFirewallControlPolicyRequest $request DeleteNatFirewallControlPolicyRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -1638,8 +1710,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
-     *   *
+     * @summary Deletes an access control policy that is created for a NAT firewall.
+     *  *
+     * @description You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
+     *  *
      * @param DeleteNatFirewallControlPolicyRequest $request DeleteNatFirewallControlPolicyRequest
      *
      * @return DeleteNatFirewallControlPolicyResponse DeleteNatFirewallControlPolicyResponse
@@ -1652,10 +1726,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteNatFirewallControlPolicyBatchRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Deletes access control policies that are created for a NAT firewall at a time.
+     *  *
+     * @param DeleteNatFirewallControlPolicyBatchRequest $request DeleteNatFirewallControlPolicyBatchRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNatFirewallControlPolicyBatchResponse
+     * @return DeleteNatFirewallControlPolicyBatchResponse DeleteNatFirewallControlPolicyBatchResponse
      */
     public function deleteNatFirewallControlPolicyBatchWithOptions($request, $runtime)
     {
@@ -1692,9 +1768,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteNatFirewallControlPolicyBatchRequest $request
+     * @summary Deletes access control policies that are created for a NAT firewall at a time.
+     *  *
+     * @param DeleteNatFirewallControlPolicyBatchRequest $request DeleteNatFirewallControlPolicyBatchRequest
      *
-     * @return DeleteNatFirewallControlPolicyBatchResponse
+     * @return DeleteNatFirewallControlPolicyBatchResponse DeleteNatFirewallControlPolicyBatchResponse
      */
     public function deleteNatFirewallControlPolicyBatch($request)
     {
@@ -1704,10 +1782,58 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteTrFirewallV2Request $request
-     * @param RuntimeOptions            $runtime
+     * @param DeleteSecurityProxyRequest $request DeleteSecurityProxyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTrFirewallV2Response
+     * @return DeleteSecurityProxyResponse DeleteSecurityProxyResponse
+     */
+    public function deleteSecurityProxyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->proxyId)) {
+            $query['ProxyId'] = $request->proxyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSecurityProxy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSecurityProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSecurityProxyRequest $request DeleteSecurityProxyRequest
+     *
+     * @return DeleteSecurityProxyResponse DeleteSecurityProxyResponse
+     */
+    public function deleteSecurityProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecurityProxyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
+     * @param DeleteTrFirewallV2Request $request DeleteTrFirewallV2Request
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteTrFirewallV2Response DeleteTrFirewallV2Response
      */
     public function deleteTrFirewallV2WithOptions($request, $runtime)
     {
@@ -1738,9 +1864,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DeleteTrFirewallV2Request $request
+     * @summary Deletes a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
+     * @param DeleteTrFirewallV2Request $request DeleteTrFirewallV2Request
      *
-     * @return DeleteTrFirewallV2Response
+     * @return DeleteTrFirewallV2Response DeleteTrFirewallV2Response
      */
     public function deleteTrFirewallV2($request)
     {
@@ -1750,10 +1878,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](~~345772~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteVpcFirewallCenConfigureRequest $request DeleteVpcFirewallCenConfigureRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -1791,10 +1921,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](~~345772~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteVpcFirewallCenConfigureRequest $request DeleteVpcFirewallCenConfigureRequest
      *
      * @return DeleteVpcFirewallCenConfigureResponse DeleteVpcFirewallCenConfigureResponse
@@ -1807,10 +1939,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes a virtual private cloud (VPC) firewall that controls traffic between two VPCs. The VPCs are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteVpcFirewallConfigureRequest $request DeleteVpcFirewallConfigureRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -1848,10 +1982,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes a virtual private cloud (VPC) firewall that controls traffic between two VPCs. The VPCs are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteVpcFirewallConfigureRequest $request DeleteVpcFirewallConfigureRequest
      *
      * @return DeleteVpcFirewallConfigureResponse DeleteVpcFirewallConfigureResponse
@@ -1864,10 +2000,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteVpcFirewallControlPolicy operation to delete an access control policy from a specific policy group for a VPC firewall. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes an access control policy from a specific policy group for a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DeleteVpcFirewallControlPolicy operation to delete an access control policy from a specific policy group for a VPC firewall. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteVpcFirewallControlPolicyRequest $request DeleteVpcFirewallControlPolicyRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -1905,10 +2043,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DeleteVpcFirewallControlPolicy operation to delete an access control policy from a specific policy group for a VPC firewall. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Deletes an access control policy from a specific policy group for a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DeleteVpcFirewallControlPolicy operation to delete an access control policy from a specific policy group for a VPC firewall. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DeleteVpcFirewallControlPolicyRequest $request DeleteVpcFirewallControlPolicyRequest
      *
      * @return DeleteVpcFirewallControlPolicyResponse DeleteVpcFirewallControlPolicyResponse
@@ -1921,10 +2061,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeACLProtectTrendRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the statistics on the requests that are blocked by the access control list (ACL) feature.
+     *  *
+     * @param DescribeACLProtectTrendRequest $request DescribeACLProtectTrendRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeACLProtectTrendResponse
+     * @return DescribeACLProtectTrendResponse DescribeACLProtectTrendResponse
      */
     public function describeACLProtectTrendWithOptions($request, $runtime)
     {
@@ -1964,9 +2106,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeACLProtectTrendRequest $request
+     * @summary Queries the statistics on the requests that are blocked by the access control list (ACL) feature.
+     *  *
+     * @param DescribeACLProtectTrendRequest $request DescribeACLProtectTrendRequest
      *
-     * @return DescribeACLProtectTrendResponse
+     * @return DescribeACLProtectTrendResponse DescribeACLProtectTrendResponse
      */
     public function describeACLProtectTrend($request)
     {
@@ -1976,10 +2120,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details about an address book for an access control policy.
-     *   * ## [](#qps)Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details about an address book for an access control policy.
+     *  *
+     * @description You can call this operation to query the details about an address book for an access control policy.
+     * ## [](#qps)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeAddressBookRequest $request DescribeAddressBookRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2026,10 +2172,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details about an address book for an access control policy.
-     *   * ## [](#qps)Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details about an address book for an access control policy.
+     *  *
+     * @description You can call this operation to query the details about an address book for an access control policy.
+     * ## [](#qps)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeAddressBookRequest $request DescribeAddressBookRequest
      *
      * @return DescribeAddressBookResponse DescribeAddressBookResponse
@@ -2042,10 +2190,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the assets that are protected by Cloud Firewall.
+     *  *
+     * @description You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeAssetListRequest $request DescribeAssetListRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2113,10 +2263,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the assets that are protected by Cloud Firewall.
+     *  *
+     * @description You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeAssetListRequest $request DescribeAssetListRequest
      *
      * @return DescribeAssetListResponse DescribeAssetListResponse
@@ -2129,10 +2281,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeAssetRiskListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the risk levels of assets.
+     *  *
+     * @param DescribeAssetRiskListRequest $request DescribeAssetRiskListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAssetRiskListResponse
+     * @return DescribeAssetRiskListResponse DescribeAssetRiskListResponse
      */
     public function describeAssetRiskListWithOptions($request, $runtime)
     {
@@ -2169,9 +2323,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeAssetRiskListRequest $request
+     * @summary Queries the risk levels of assets.
+     *  *
+     * @param DescribeAssetRiskListRequest $request DescribeAssetRiskListRequest
      *
-     * @return DescribeAssetRiskListResponse
+     * @return DescribeAssetRiskListResponse DescribeAssetRiskListResponse
      */
     public function describeAssetRiskList($request)
     {
@@ -2181,10 +2337,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeCfwRiskLevelSummaryRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the firewall risk level.
+     *  *
+     * @param DescribeCfwRiskLevelSummaryRequest $request DescribeCfwRiskLevelSummaryRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCfwRiskLevelSummaryResponse
+     * @return DescribeCfwRiskLevelSummaryResponse DescribeCfwRiskLevelSummaryResponse
      */
     public function describeCfwRiskLevelSummaryWithOptions($request, $runtime)
     {
@@ -2218,9 +2376,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeCfwRiskLevelSummaryRequest $request
+     * @summary Queries the firewall risk level.
+     *  *
+     * @param DescribeCfwRiskLevelSummaryRequest $request DescribeCfwRiskLevelSummaryRequest
      *
-     * @return DescribeCfwRiskLevelSummaryResponse
+     * @return DescribeCfwRiskLevelSummaryResponse DescribeCfwRiskLevelSummaryResponse
      */
     public function describeCfwRiskLevelSummary($request)
     {
@@ -2230,10 +2390,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeControlPolicy operation to query the details about access control policies by page.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details about all access control policies.
+     *  *
+     * @description You can call the DescribeControlPolicy operation to query the details about access control policies by page.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeControlPolicyRequest $request DescribeControlPolicyRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2304,10 +2466,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeControlPolicy operation to query the details about access control policies by page.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details about all access control policies.
+     *  *
+     * @description You can call the DescribeControlPolicy operation to query the details about access control policies by page.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeControlPolicyRequest $request DescribeControlPolicyRequest
      *
      * @return DescribeControlPolicyResponse DescribeControlPolicyResponse
@@ -2320,10 +2484,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefaultIPSConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeDefaultIPSConfigRequest $request DescribeDefaultIPSConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefaultIPSConfigResponse
+     * @return DescribeDefaultIPSConfigResponse DescribeDefaultIPSConfigResponse
      */
     public function describeDefaultIPSConfigWithOptions($request, $runtime)
     {
@@ -2354,9 +2518,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeDefaultIPSConfigRequest $request
+     * @param DescribeDefaultIPSConfigRequest $request DescribeDefaultIPSConfigRequest
      *
-     * @return DescribeDefaultIPSConfigResponse
+     * @return DescribeDefaultIPSConfigResponse DescribeDefaultIPSConfigResponse
      */
     public function describeDefaultIPSConfig($request)
     {
@@ -2366,10 +2530,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries Domain Name System (DNS) records.
+     *  *
+     * @description You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDomainResolveRequest $request DescribeDomainResolveRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2413,10 +2579,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries Domain Name System (DNS) records.
+     *  *
+     * @description You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeDomainResolveRequest $request DescribeDomainResolveRequest
      *
      * @return DescribeDomainResolveResponse DescribeDomainResolveResponse
@@ -2429,10 +2597,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeDownloadTaskRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries file download tasks, including the task information and download URLs.
+     *  *
+     * @param DescribeDownloadTaskRequest $request DescribeDownloadTaskRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDownloadTaskResponse
+     * @return DescribeDownloadTaskResponse DescribeDownloadTaskResponse
      */
     public function describeDownloadTaskWithOptions($request, $runtime)
     {
@@ -2469,9 +2639,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeDownloadTaskRequest $request
+     * @summary Queries file download tasks, including the task information and download URLs.
+     *  *
+     * @param DescribeDownloadTaskRequest $request DescribeDownloadTaskRequest
      *
-     * @return DescribeDownloadTaskResponse
+     * @return DescribeDownloadTaskResponse DescribeDownloadTaskResponse
      */
     public function describeDownloadTask($request)
     {
@@ -2481,10 +2653,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeDownloadTaskTypeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the types of download tasks. The type corresponds to the TaskType fields in the download task-related operations.
+     *  *
+     * @param DescribeDownloadTaskTypeRequest $request DescribeDownloadTaskTypeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDownloadTaskTypeResponse
+     * @return DescribeDownloadTaskTypeResponse DescribeDownloadTaskTypeResponse
      */
     public function describeDownloadTaskTypeWithOptions($request, $runtime)
     {
@@ -2521,9 +2695,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeDownloadTaskTypeRequest $request
+     * @summary Queries the types of download tasks. The type corresponds to the TaskType fields in the download task-related operations.
+     *  *
+     * @param DescribeDownloadTaskTypeRequest $request DescribeDownloadTaskTypeRequest
      *
-     * @return DescribeDownloadTaskTypeResponse
+     * @return DescribeDownloadTaskTypeResponse DescribeDownloadTaskTypeResponse
      */
     public function describeDownloadTaskType($request)
     {
@@ -2533,10 +2709,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to query the information about members in Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about members in Cloud Firewall.
+     *  *
+     * @description You can use this operation to query the information about members in Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeInstanceMembersRequest $request DescribeInstanceMembersRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -2580,10 +2758,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to query the information about members in Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about members in Cloud Firewall.
+     *  *
+     * @description You can use this operation to query the information about members in Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeInstanceMembersRequest $request DescribeInstanceMembersRequest
      *
      * @return DescribeInstanceMembersResponse DescribeInstanceMembersResponse
@@ -2596,10 +2776,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRiskLevelsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the risk levels of instances.
+     *  *
+     * @param DescribeInstanceRiskLevelsRequest $request DescribeInstanceRiskLevelsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceRiskLevelsResponse
+     * @return DescribeInstanceRiskLevelsResponse DescribeInstanceRiskLevelsResponse
      */
     public function describeInstanceRiskLevelsWithOptions($request, $runtime)
     {
@@ -2630,9 +2812,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRiskLevelsRequest $request
+     * @summary Queries the risk levels of instances.
+     *  *
+     * @param DescribeInstanceRiskLevelsRequest $request DescribeInstanceRiskLevelsRequest
      *
-     * @return DescribeInstanceRiskLevelsResponse
+     * @return DescribeInstanceRiskLevelsResponse DescribeInstanceRiskLevelsResponse
      */
     public function describeInstanceRiskLevels($request)
     {
@@ -2642,10 +2826,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeInternetOpenIpRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the IP addresses that are open to the Internet.
+     *  *
+     * @param DescribeInternetOpenIpRequest $request DescribeInternetOpenIpRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInternetOpenIpResponse
+     * @return DescribeInternetOpenIpResponse DescribeInternetOpenIpResponse
      */
     public function describeInternetOpenIpWithOptions($request, $runtime)
     {
@@ -2709,9 +2895,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeInternetOpenIpRequest $request
+     * @summary Queries the IP addresses that are open to the Internet.
+     *  *
+     * @param DescribeInternetOpenIpRequest $request DescribeInternetOpenIpRequest
      *
-     * @return DescribeInternetOpenIpResponse
+     * @return DescribeInternetOpenIpResponse DescribeInternetOpenIpResponse
      */
     public function describeInternetOpenIp($request)
     {
@@ -2721,10 +2909,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeInternetTrafficTrendRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the trends of Internet traffic.
+     *  *
+     * @param DescribeInternetTrafficTrendRequest $request DescribeInternetTrafficTrendRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInternetTrafficTrendResponse
+     * @return DescribeInternetTrafficTrendResponse DescribeInternetTrafficTrendResponse
      */
     public function describeInternetTrafficTrendWithOptions($request, $runtime)
     {
@@ -2779,9 +2969,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeInternetTrafficTrendRequest $request
+     * @summary Queries the trends of Internet traffic.
+     *  *
+     * @param DescribeInternetTrafficTrendRequest $request DescribeInternetTrafficTrendRequest
      *
-     * @return DescribeInternetTrafficTrendResponse
+     * @return DescribeInternetTrafficTrendResponse DescribeInternetTrafficTrendResponse
      */
     public function describeInternetTrafficTrend($request)
     {
@@ -2791,10 +2983,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeInvadeEventListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about the breach awareness events of a firewall.
+     *  *
+     * @param DescribeInvadeEventListRequest $request DescribeInvadeEventListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInvadeEventListResponse
+     * @return DescribeInvadeEventListResponse DescribeInvadeEventListResponse
      */
     public function describeInvadeEventListWithOptions($request, $runtime)
     {
@@ -2867,9 +3061,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeInvadeEventListRequest $request
+     * @summary Queries the information about the breach awareness events of a firewall.
+     *  *
+     * @param DescribeInvadeEventListRequest $request DescribeInvadeEventListRequest
      *
-     * @return DescribeInvadeEventListResponse
+     * @return DescribeInvadeEventListResponse DescribeInvadeEventListResponse
      */
     public function describeInvadeEventList($request)
     {
@@ -2879,10 +3075,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeNatAclPageStatusRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the pagination status of NAT firewalls.
+     *  *
+     * @param DescribeNatAclPageStatusRequest $request DescribeNatAclPageStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNatAclPageStatusResponse
+     * @return DescribeNatAclPageStatusResponse DescribeNatAclPageStatusResponse
      */
     public function describeNatAclPageStatusWithOptions($request, $runtime)
     {
@@ -2910,9 +3108,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeNatAclPageStatusRequest $request
+     * @summary Queries the pagination status of NAT firewalls.
+     *  *
+     * @param DescribeNatAclPageStatusRequest $request DescribeNatAclPageStatusRequest
      *
-     * @return DescribeNatAclPageStatusResponse
+     * @return DescribeNatAclPageStatusResponse DescribeNatAclPageStatusResponse
      */
     public function describeNatAclPageStatus($request)
     {
@@ -2922,8 +3122,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
-     *   *
+     * @summary Queries the information about all access control policies that are created for NAT firewalls.
+     *  *
+     * @description You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
+     *  *
      * @param DescribeNatFirewallControlPolicyRequest $request DescribeNatFirewallControlPolicyRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -2991,8 +3193,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
-     *   *
+     * @summary Queries the information about all access control policies that are created for NAT firewalls.
+     *  *
+     * @description You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
+     *  *
      * @param DescribeNatFirewallControlPolicyRequest $request DescribeNatFirewallControlPolicyRequest
      *
      * @return DescribeNatFirewallControlPolicyResponse DescribeNatFirewallControlPolicyResponse
@@ -3005,8 +3209,87 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
-     *   *
+     * @summary 获取 NAT 防火墙列表
+     *  *
+     * @param DescribeNatFirewallListRequest $request DescribeNatFirewallListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeNatFirewallListResponse DescribeNatFirewallListResponse
+     */
+    public function describeNatFirewallListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->proxyId)) {
+            $query['ProxyId'] = $request->proxyId;
+        }
+        if (!Utils::isUnset($request->proxyName)) {
+            $query['ProxyName'] = $request->proxyName;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNatFirewallList',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNatFirewallListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取 NAT 防火墙列表
+     *  *
+     * @param DescribeNatFirewallListRequest $request DescribeNatFirewallListRequest
+     *
+     * @return DescribeNatFirewallListResponse DescribeNatFirewallListResponse
+     */
+    public function describeNatFirewallList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNatFirewallListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the priority range of access control policies that are created for a NAT firewall.
+     *  *
+     * @description You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
+     *  *
      * @param DescribeNatFirewallPolicyPriorUsedRequest $request DescribeNatFirewallPolicyPriorUsedRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -3047,8 +3330,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
-     *   *
+     * @summary Queries the priority range of access control policies that are created for a NAT firewall.
+     *  *
+     * @description You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
+     *  *
      * @param DescribeNatFirewallPolicyPriorUsedRequest $request DescribeNatFirewallPolicyPriorUsedRequest
      *
      * @return DescribeNatFirewallPolicyPriorUsedResponse DescribeNatFirewallPolicyPriorUsedResponse
@@ -3061,10 +3346,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeOutgoingDestinationIPRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the information about the destination IP addresses in outbound connections.
+     *  *
+     * @param DescribeOutgoingDestinationIPRequest $request DescribeOutgoingDestinationIPRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOutgoingDestinationIPResponse
+     * @return DescribeOutgoingDestinationIPResponse DescribeOutgoingDestinationIPResponse
      */
     public function describeOutgoingDestinationIPWithOptions($request, $runtime)
     {
@@ -3131,9 +3418,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeOutgoingDestinationIPRequest $request
+     * @summary Queries the information about the destination IP addresses in outbound connections.
+     *  *
+     * @param DescribeOutgoingDestinationIPRequest $request DescribeOutgoingDestinationIPRequest
      *
-     * @return DescribeOutgoingDestinationIPResponse
+     * @return DescribeOutgoingDestinationIPResponse DescribeOutgoingDestinationIPResponse
      */
     public function describeOutgoingDestinationIP($request)
     {
@@ -3143,10 +3432,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeOutgoingDomainRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the information about the domain names in outbound connections.
+     *  *
+     * @param DescribeOutgoingDomainRequest $request DescribeOutgoingDomainRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOutgoingDomainResponse
+     * @return DescribeOutgoingDomainResponse DescribeOutgoingDomainResponse
      */
     public function describeOutgoingDomainWithOptions($request, $runtime)
     {
@@ -3204,9 +3495,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeOutgoingDomainRequest $request
+     * @summary Queries the information about the domain names in outbound connections.
+     *  *
+     * @param DescribeOutgoingDomainRequest $request DescribeOutgoingDomainRequest
      *
-     * @return DescribeOutgoingDomainResponse
+     * @return DescribeOutgoingDomainResponse DescribeOutgoingDomainResponse
      */
     public function describeOutgoingDomain($request)
     {
@@ -3216,10 +3509,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribePolicyAdvancedConfig operation to query whether the strict mode is enabled for an access control policy.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries whether the strict mode is enabled for an access control policy.
+     *  *
+     * @description You can call the DescribePolicyAdvancedConfig operation to query whether the strict mode is enabled for an access control policy.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribePolicyAdvancedConfigRequest $request DescribePolicyAdvancedConfigRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -3257,10 +3552,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribePolicyAdvancedConfig operation to query whether the strict mode is enabled for an access control policy.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries whether the strict mode is enabled for an access control policy.
+     *  *
+     * @description You can call the DescribePolicyAdvancedConfig operation to query whether the strict mode is enabled for an access control policy.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribePolicyAdvancedConfigRequest $request DescribePolicyAdvancedConfigRequest
      *
      * @return DescribePolicyAdvancedConfigResponse DescribePolicyAdvancedConfigResponse
@@ -3273,10 +3570,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribePolicyPriorUsed operation to query the priority range of the access control policies that match specific query conditions.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the priority range of the access control policies that match specific query conditions.
+     *  *
+     * @description You can call the DescribePolicyPriorUsed operation to query the priority range of the access control policies that match specific query conditions.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribePolicyPriorUsedRequest $request DescribePolicyPriorUsedRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3317,10 +3616,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribePolicyPriorUsed operation to query the priority range of the access control policies that match specific query conditions.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the priority range of the access control policies that match specific query conditions.
+     *  *
+     * @description You can call the DescribePolicyPriorUsed operation to query the priority range of the access control policies that match specific query conditions.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribePolicyPriorUsedRequest $request DescribePolicyPriorUsedRequest
      *
      * @return DescribePolicyPriorUsedResponse DescribePolicyPriorUsedResponse
@@ -3333,10 +3634,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribePostpayTrafficDetailRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the traffic details of Cloud Firewall that uses the pay-as-you-go billing method.
+     *  *
+     * @param DescribePostpayTrafficDetailRequest $request DescribePostpayTrafficDetailRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePostpayTrafficDetailResponse
+     * @return DescribePostpayTrafficDetailResponse DescribePostpayTrafficDetailResponse
      */
     public function describePostpayTrafficDetailWithOptions($request, $runtime)
     {
@@ -3385,9 +3688,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribePostpayTrafficDetailRequest $request
+     * @summary Queries the traffic details of Cloud Firewall that uses the pay-as-you-go billing method.
+     *  *
+     * @param DescribePostpayTrafficDetailRequest $request DescribePostpayTrafficDetailRequest
      *
-     * @return DescribePostpayTrafficDetailResponse
+     * @return DescribePostpayTrafficDetailResponse DescribePostpayTrafficDetailResponse
      */
     public function describePostpayTrafficDetail($request)
     {
@@ -3397,10 +3702,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribePostpayTrafficTotalRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the total traffic of Cloud Firewall that uses the pay-as-you-go billing method. The traffic for each type of firewall is queried.
+     *  *
+     * @param DescribePostpayTrafficTotalRequest $request DescribePostpayTrafficTotalRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePostpayTrafficTotalResponse
+     * @return DescribePostpayTrafficTotalResponse DescribePostpayTrafficTotalResponse
      */
     public function describePostpayTrafficTotalWithOptions($request, $runtime)
     {
@@ -3428,9 +3735,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribePostpayTrafficTotalRequest $request
+     * @summary Queries the total traffic of Cloud Firewall that uses the pay-as-you-go billing method. The traffic for each type of firewall is queried.
+     *  *
+     * @param DescribePostpayTrafficTotalRequest $request DescribePostpayTrafficTotalRequest
      *
-     * @return DescribePostpayTrafficTotalResponse
+     * @return DescribePostpayTrafficTotalResponse DescribePostpayTrafficTotalResponse
      */
     public function describePostpayTrafficTotal($request)
     {
@@ -3440,10 +3749,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribePrefixListsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries prefix lists.
+     *  *
+     * @param DescribePrefixListsRequest $request DescribePrefixListsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePrefixListsResponse
+     * @return DescribePrefixListsResponse DescribePrefixListsResponse
      */
     public function describePrefixListsWithOptions($request, $runtime)
     {
@@ -3468,9 +3779,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribePrefixListsRequest $request
+     * @summary Queries prefix lists.
+     *  *
+     * @param DescribePrefixListsRequest $request DescribePrefixListsRequest
      *
-     * @return DescribePrefixListsResponse
+     * @return DescribePrefixListsResponse DescribePrefixListsResponse
      */
     public function describePrefixLists($request)
     {
@@ -3480,10 +3793,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the geographical information about IP addresses, you can set the NoLocation parameter to true to prevent query timeout.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details of intrusion events.
+     *  *
+     * @description You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the geographical information about IP addresses, you can set the NoLocation parameter to true to prevent query timeout.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeRiskEventGroupRequest $request DescribeRiskEventGroupRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -3581,10 +3896,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the geographical information about IP addresses, you can set the NoLocation parameter to true to prevent query timeout.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details of intrusion events.
+     *  *
+     * @description You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the geographical information about IP addresses, you can set the NoLocation parameter to true to prevent query timeout.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeRiskEventGroupRequest $request DescribeRiskEventGroupRequest
      *
      * @return DescribeRiskEventGroupResponse DescribeRiskEventGroupResponse
@@ -3597,10 +3914,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeRiskEventPayloadRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the attack payloads of intrusion events.
+     *  *
+     * @param DescribeRiskEventPayloadRequest $request DescribeRiskEventPayloadRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRiskEventPayloadResponse
+     * @return DescribeRiskEventPayloadResponse DescribeRiskEventPayloadResponse
      */
     public function describeRiskEventPayloadWithOptions($request, $runtime)
     {
@@ -3652,9 +3971,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeRiskEventPayloadRequest $request
+     * @summary Queries the attack payloads of intrusion events.
+     *  *
+     * @param DescribeRiskEventPayloadRequest $request DescribeRiskEventPayloadRequest
      *
-     * @return DescribeRiskEventPayloadResponse
+     * @return DescribeRiskEventPayloadResponse DescribeRiskEventPayloadResponse
      */
     public function describeRiskEventPayload($request)
     {
@@ -3664,9 +3985,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the information about signature library versions.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSignatureLibVersionResponse
+     * @return DescribeSignatureLibVersionResponse DescribeSignatureLibVersionResponse
      */
     public function describeSignatureLibVersionWithOptions($runtime)
     {
@@ -3687,7 +4010,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @return DescribeSignatureLibVersionResponse
+     * @summary Queries the information about signature library versions.
+     *  *
+     * @return DescribeSignatureLibVersionResponse DescribeSignatureLibVersionResponse
      */
     public function describeSignatureLibVersion()
     {
@@ -3697,10 +4022,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrFirewallPolicyBackUpAssociationListRequest $tmpReq
-     * @param RuntimeOptions                                       $runtime
+     * @summary Queries information about the transit routers that are associated with a virtual private cloud (VPC) firewall created for a transit router.
+     *  *
+     * @param DescribeTrFirewallPolicyBackUpAssociationListRequest $tmpReq  DescribeTrFirewallPolicyBackUpAssociationListRequest
+     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTrFirewallPolicyBackUpAssociationListResponse
+     * @return DescribeTrFirewallPolicyBackUpAssociationListResponse DescribeTrFirewallPolicyBackUpAssociationListResponse
      */
     public function describeTrFirewallPolicyBackUpAssociationListWithOptions($tmpReq, $runtime)
     {
@@ -3742,9 +4069,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrFirewallPolicyBackUpAssociationListRequest $request
+     * @summary Queries information about the transit routers that are associated with a virtual private cloud (VPC) firewall created for a transit router.
+     *  *
+     * @param DescribeTrFirewallPolicyBackUpAssociationListRequest $request DescribeTrFirewallPolicyBackUpAssociationListRequest
      *
-     * @return DescribeTrFirewallPolicyBackUpAssociationListResponse
+     * @return DescribeTrFirewallPolicyBackUpAssociationListResponse DescribeTrFirewallPolicyBackUpAssociationListResponse
      */
     public function describeTrFirewallPolicyBackUpAssociationList($request)
     {
@@ -3754,10 +4083,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrFirewallV2RoutePolicyListRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Queries the routing policies of a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
+     * @param DescribeTrFirewallV2RoutePolicyListRequest $request DescribeTrFirewallV2RoutePolicyListRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTrFirewallV2RoutePolicyListResponse
+     * @return DescribeTrFirewallV2RoutePolicyListResponse DescribeTrFirewallV2RoutePolicyListResponse
      */
     public function describeTrFirewallV2RoutePolicyListWithOptions($request, $runtime)
     {
@@ -3797,9 +4128,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrFirewallV2RoutePolicyListRequest $request
+     * @summary Queries the routing policies of a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
+     * @param DescribeTrFirewallV2RoutePolicyListRequest $request DescribeTrFirewallV2RoutePolicyListRequest
      *
-     * @return DescribeTrFirewallV2RoutePolicyListResponse
+     * @return DescribeTrFirewallV2RoutePolicyListResponse DescribeTrFirewallV2RoutePolicyListResponse
      */
     public function describeTrFirewallV2RoutePolicyList($request)
     {
@@ -3809,10 +4142,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrFirewallsV2DetailRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the details of the virtual private cloud (VPC) firewalls that are created for transit routers.
+     *  *
+     * @param DescribeTrFirewallsV2DetailRequest $request DescribeTrFirewallsV2DetailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTrFirewallsV2DetailResponse
+     * @return DescribeTrFirewallsV2DetailResponse DescribeTrFirewallsV2DetailResponse
      */
     public function describeTrFirewallsV2DetailWithOptions($request, $runtime)
     {
@@ -3843,9 +4178,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrFirewallsV2DetailRequest $request
+     * @summary Queries the details of the virtual private cloud (VPC) firewalls that are created for transit routers.
+     *  *
+     * @param DescribeTrFirewallsV2DetailRequest $request DescribeTrFirewallsV2DetailRequest
      *
-     * @return DescribeTrFirewallsV2DetailResponse
+     * @return DescribeTrFirewallsV2DetailResponse DescribeTrFirewallsV2DetailResponse
      */
     public function describeTrFirewallsV2Detail($request)
     {
@@ -3855,10 +4192,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrFirewallsV2ListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the virtual private cloud (VPC) firewalls that are created for transit routers.
+     *  *
+     * @param DescribeTrFirewallsV2ListRequest $request DescribeTrFirewallsV2ListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTrFirewallsV2ListResponse
+     * @return DescribeTrFirewallsV2ListResponse DescribeTrFirewallsV2ListResponse
      */
     public function describeTrFirewallsV2ListWithOptions($request, $runtime)
     {
@@ -3916,9 +4255,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrFirewallsV2ListRequest $request
+     * @summary Queries the virtual private cloud (VPC) firewalls that are created for transit routers.
+     *  *
+     * @param DescribeTrFirewallsV2ListRequest $request DescribeTrFirewallsV2ListRequest
      *
-     * @return DescribeTrFirewallsV2ListResponse
+     * @return DescribeTrFirewallsV2ListResponse DescribeTrFirewallsV2ListResponse
      */
     public function describeTrFirewallsV2List($request)
     {
@@ -3928,10 +4269,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrFirewallsV2RouteListRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param DescribeTrFirewallsV2RouteListRequest $request DescribeTrFirewallsV2RouteListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTrFirewallsV2RouteListResponse
+     * @return DescribeTrFirewallsV2RouteListResponse DescribeTrFirewallsV2RouteListResponse
      */
     public function describeTrFirewallsV2RouteListWithOptions($request, $runtime)
     {
@@ -3971,9 +4312,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeTrFirewallsV2RouteListRequest $request
+     * @param DescribeTrFirewallsV2RouteListRequest $request DescribeTrFirewallsV2RouteListRequest
      *
-     * @return DescribeTrFirewallsV2RouteListResponse
+     * @return DescribeTrFirewallsV2RouteListResponse DescribeTrFirewallsV2RouteListResponse
      */
     public function describeTrFirewallsV2RouteList($request)
     {
@@ -3983,10 +4324,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserAssetIPTrafficInfoRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the information about the traffic of a specified asset that belongs to your Alibaba Cloud account.
+     *  *
+     * @param DescribeUserAssetIPTrafficInfoRequest $request DescribeUserAssetIPTrafficInfoRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserAssetIPTrafficInfoResponse
+     * @return DescribeUserAssetIPTrafficInfoResponse DescribeUserAssetIPTrafficInfoResponse
      */
     public function describeUserAssetIPTrafficInfoWithOptions($request, $runtime)
     {
@@ -4011,9 +4354,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserAssetIPTrafficInfoRequest $request
+     * @summary Queries the information about the traffic of a specified asset that belongs to your Alibaba Cloud account.
+     *  *
+     * @param DescribeUserAssetIPTrafficInfoRequest $request DescribeUserAssetIPTrafficInfoRequest
      *
-     * @return DescribeUserAssetIPTrafficInfoResponse
+     * @return DescribeUserAssetIPTrafficInfoResponse DescribeUserAssetIPTrafficInfoResponse
      */
     public function describeUserAssetIPTrafficInfo($request)
     {
@@ -4023,10 +4368,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserIPSWhitelistRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeUserIPSWhitelistRequest $request DescribeUserIPSWhitelistRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserIPSWhitelistResponse
+     * @return DescribeUserIPSWhitelistResponse DescribeUserIPSWhitelistResponse
      */
     public function describeUserIPSWhitelistWithOptions($request, $runtime)
     {
@@ -4060,9 +4405,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserIPSWhitelistRequest $request
+     * @param DescribeUserIPSWhitelistRequest $request DescribeUserIPSWhitelistRequest
      *
-     * @return DescribeUserIPSWhitelistResponse
+     * @return DescribeUserIPSWhitelistResponse DescribeUserIPSWhitelistResponse
      */
     public function describeUserIPSWhitelist($request)
     {
@@ -4072,10 +4417,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about all policy groups of access control policies that are created for virtual private cloud (VPC) firewalls.
+     *  *
+     * @description You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallAclGroupListRequest $request DescribeVpcFirewallAclGroupListRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -4116,10 +4463,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about all policy groups of access control policies that are created for virtual private cloud (VPC) firewalls.
+     *  *
+     * @description You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallAclGroupListRequest $request DescribeVpcFirewallAclGroupListRequest
      *
      * @return DescribeVpcFirewallAclGroupListResponse DescribeVpcFirewallAclGroupListResponse
@@ -4132,10 +4481,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallCenDetail operation to query the details about a VPC firewall. The VPC firewall protects access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall protects access traffic between a VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DescribeVpcFirewallCenDetail operation to query the details about a VPC firewall. The VPC firewall protects access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallCenDetailRequest $request DescribeVpcFirewallCenDetailRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -4176,10 +4527,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallCenDetail operation to query the details about a VPC firewall. The VPC firewall protects access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall protects access traffic between a VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DescribeVpcFirewallCenDetail operation to query the details about a VPC firewall. The VPC firewall protects access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallCenDetailRequest $request DescribeVpcFirewallCenDetailRequest
      *
      * @return DescribeVpcFirewallCenDetailResponse DescribeVpcFirewallCenDetailResponse
@@ -4192,10 +4545,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallCenList operation to query VPC firewalls. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries virtual private cloud (VPC) firewalls. Each VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DescribeVpcFirewallCenList operation to query VPC firewalls. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallCenListRequest $request DescribeVpcFirewallCenListRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -4266,10 +4621,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallCenList operation to query VPC firewalls. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries virtual private cloud (VPC) firewalls. Each VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DescribeVpcFirewallCenList operation to query VPC firewalls. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallCenListRequest $request DescribeVpcFirewallCenListRequest
      *
      * @return DescribeVpcFirewallCenListResponse DescribeVpcFirewallCenListResponse
@@ -4282,10 +4639,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallControlPolicy operation to query the information about all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about the access control policies for a specified virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DescribeVpcFirewallControlPolicy operation to query the information about all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallControlPolicyRequest $request DescribeVpcFirewallControlPolicyRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -4353,10 +4712,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallControlPolicy operation to query the information about all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the information about the access control policies for a specified virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DescribeVpcFirewallControlPolicy operation to query the information about all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallControlPolicyRequest $request DescribeVpcFirewallControlPolicyRequest
      *
      * @return DescribeVpcFirewallControlPolicyResponse DescribeVpcFirewallControlPolicyResponse
@@ -4369,10 +4730,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallDefaultIPSConfig operation to query the intrusion prevention configurations of a VPC firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DescribeVpcFirewallDefaultIPSConfig operation to query the intrusion prevention configurations of a VPC firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallDefaultIPSConfigRequest $request DescribeVpcFirewallDefaultIPSConfigRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -4407,10 +4770,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallDefaultIPSConfig operation to query the intrusion prevention configurations of a VPC firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DescribeVpcFirewallDefaultIPSConfig operation to query the intrusion prevention configurations of a VPC firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallDefaultIPSConfigRequest $request DescribeVpcFirewallDefaultIPSConfigRequest
      *
      * @return DescribeVpcFirewallDefaultIPSConfigResponse DescribeVpcFirewallDefaultIPSConfigResponse
@@ -4423,11 +4788,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallDetail operation to query the details about a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
-     *   * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DescribeVpcFirewallDetail operation to query the details about a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallDetailRequest $request DescribeVpcFirewallDetailRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -4471,11 +4838,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallDetail operation to query the details about a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
-     *   * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DescribeVpcFirewallDetail operation to query the details about a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallDetailRequest $request DescribeVpcFirewallDetailRequest
      *
      * @return DescribeVpcFirewallDetailResponse DescribeVpcFirewallDetailResponse
@@ -4488,10 +4857,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcFirewallIPSWhitelistRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the IPS whitelist of a virtual private cloud (VPC) firewall.
+     *  *
+     * @param DescribeVpcFirewallIPSWhitelistRequest $request DescribeVpcFirewallIPSWhitelistRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpcFirewallIPSWhitelistResponse
+     * @return DescribeVpcFirewallIPSWhitelistResponse DescribeVpcFirewallIPSWhitelistResponse
      */
     public function describeVpcFirewallIPSWhitelistWithOptions($request, $runtime)
     {
@@ -4525,9 +4896,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcFirewallIPSWhitelistRequest $request
+     * @summary Queries the IPS whitelist of a virtual private cloud (VPC) firewall.
+     *  *
+     * @param DescribeVpcFirewallIPSWhitelistRequest $request DescribeVpcFirewallIPSWhitelistRequest
      *
-     * @return DescribeVpcFirewallIPSWhitelistResponse
+     * @return DescribeVpcFirewallIPSWhitelistResponse DescribeVpcFirewallIPSWhitelistResponse
      */
     public function describeVpcFirewallIPSWhitelist($request)
     {
@@ -4537,10 +4910,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
-     *   * ### Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details about virtual private cloud (VPC) firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     * ### Limits
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallListRequest $request DescribeVpcFirewallListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -4605,10 +4980,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
-     *   * ### Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the details about virtual private cloud (VPC) firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     * ### Limits
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallListRequest $request DescribeVpcFirewallListRequest
      *
      * @return DescribeVpcFirewallListResponse DescribeVpcFirewallListResponse
@@ -4621,10 +4998,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallPolicyPriorUsed operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the priority range of access control policies that are created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can call the DescribeVpcFirewallPolicyPriorUsed operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallPolicyPriorUsedRequest $request DescribeVpcFirewallPolicyPriorUsedRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -4659,10 +5038,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the DescribeVpcFirewallPolicyPriorUsed operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Queries the priority range of access control policies that are created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can call the DescribeVpcFirewallPolicyPriorUsed operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param DescribeVpcFirewallPolicyPriorUsedRequest $request DescribeVpcFirewallPolicyPriorUsedRequest
      *
      * @return DescribeVpcFirewallPolicyPriorUsedResponse DescribeVpcFirewallPolicyPriorUsedResponse
@@ -4675,10 +5056,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcListLiteRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries virtual private clouds (VPCs).
+     *  *
+     * @param DescribeVpcListLiteRequest $request DescribeVpcListLiteRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpcListLiteResponse
+     * @return DescribeVpcListLiteResponse DescribeVpcListLiteResponse
      */
     public function describeVpcListLiteWithOptions($request, $runtime)
     {
@@ -4718,9 +5101,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcListLiteRequest $request
+     * @summary Queries virtual private clouds (VPCs).
+     *  *
+     * @param DescribeVpcListLiteRequest $request DescribeVpcListLiteRequest
      *
-     * @return DescribeVpcListLiteResponse
+     * @return DescribeVpcListLiteResponse DescribeVpcListLiteResponse
      */
     public function describeVpcListLite($request)
     {
@@ -4730,10 +5115,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcZoneRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries virtual private cloud (VPC) zones.
+     *  *
+     * @param DescribeVpcZoneRequest $request DescribeVpcZoneRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVpcZoneResponse
+     * @return DescribeVpcZoneResponse DescribeVpcZoneResponse
      */
     public function describeVpcZoneWithOptions($request, $runtime)
     {
@@ -4770,9 +5157,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeVpcZoneRequest $request
+     * @summary Queries virtual private cloud (VPC) zones.
+     *  *
+     * @param DescribeVpcZoneRequest $request DescribeVpcZoneRequest
      *
-     * @return DescribeVpcZoneResponse
+     * @return DescribeVpcZoneResponse DescribeVpcZoneResponse
      */
     public function describeVpcZone($request)
     {
@@ -4782,10 +5171,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulnerabilityProtectedListRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the vulnerabilities that are supported by Cloud Firewall.
+     *  *
+     * @param DescribeVulnerabilityProtectedListRequest $request DescribeVulnerabilityProtectedListRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVulnerabilityProtectedListResponse
+     * @return DescribeVulnerabilityProtectedListResponse DescribeVulnerabilityProtectedListResponse
      */
     public function describeVulnerabilityProtectedListWithOptions($request, $runtime)
     {
@@ -4864,9 +5255,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param DescribeVulnerabilityProtectedListRequest $request
+     * @summary Queries the vulnerabilities that are supported by Cloud Firewall.
+     *  *
+     * @param DescribeVulnerabilityProtectedListRequest $request DescribeVulnerabilityProtectedListRequest
      *
-     * @return DescribeVulnerabilityProtectedListResponse
+     * @return DescribeVulnerabilityProtectedListResponse DescribeVulnerabilityProtectedListResponse
      */
     public function describeVulnerabilityProtectedList($request)
     {
@@ -4876,10 +5269,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyAddressBook operation to modify the address book that is configured for access control.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the address book that is configured for access control.
+     *  *
+     * @description You can call the ModifyAddressBook operation to modify the address book that is configured for access control.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyAddressBookRequest $request ModifyAddressBookRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -4935,10 +5330,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyAddressBook operation to modify the address book that is configured for access control.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the address book that is configured for access control.
+     *  *
+     * @description You can call the ModifyAddressBook operation to modify the address book that is configured for access control.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyAddressBookRequest $request ModifyAddressBookRequest
      *
      * @return ModifyAddressBookResponse ModifyAddressBookResponse
@@ -4951,10 +5348,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.
-     *   * ## [](#qps)Limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configurations of an access control policy.
+     *  *
+     * @description You can call this operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.
+     * ## [](#qps)Limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyControlPolicyRequest $request ModifyControlPolicyRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -5049,10 +5448,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.
-     *   * ## [](#qps)Limit
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configurations of an access control policy.
+     *  *
+     * @description You can call this operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.
+     * ## [](#qps)Limit
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyControlPolicyRequest $request ModifyControlPolicyRequest
      *
      * @return ModifyControlPolicyResponse ModifyControlPolicyResponse
@@ -5065,10 +5466,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
-     *   * ## [](#qps)Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the priority of an IPv4 access control policy for the Internet firewall. An IPv4 access control policy refers to a policy whose source IP address and destination IP address are IPv4 addresses.
+     *  *
+     * @description You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
+     * ## [](#qps)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyControlPolicyPositionRequest $request ModifyControlPolicyPositionRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -5112,10 +5515,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
-     *   * ## [](#qps)Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the priority of an IPv4 access control policy for the Internet firewall. An IPv4 access control policy refers to a policy whose source IP address and destination IP address are IPv4 addresses.
+     *  *
+     * @description You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
+     * ## [](#qps)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyControlPolicyPositionRequest $request ModifyControlPolicyPositionRequest
      *
      * @return ModifyControlPolicyPositionResponse ModifyControlPolicyPositionResponse
@@ -5128,10 +5533,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefaultIPSConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ModifyDefaultIPSConfigRequest $request ModifyDefaultIPSConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDefaultIPSConfigResponse
+     * @return ModifyDefaultIPSConfigResponse ModifyDefaultIPSConfigResponse
      */
     public function modifyDefaultIPSConfigWithOptions($request, $runtime)
     {
@@ -5186,9 +5591,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyDefaultIPSConfigRequest $request
+     * @param ModifyDefaultIPSConfigRequest $request ModifyDefaultIPSConfigRequest
      *
-     * @return ModifyDefaultIPSConfigResponse
+     * @return ModifyDefaultIPSConfigResponse ModifyDefaultIPSConfigResponse
      */
     public function modifyDefaultIPSConfig($request)
     {
@@ -5198,10 +5603,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyFirewallV2RoutePolicySwitchRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Modifies the status of a routing policy.
+     *  *
+     * @param ModifyFirewallV2RoutePolicySwitchRequest $request ModifyFirewallV2RoutePolicySwitchRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyFirewallV2RoutePolicySwitchResponse
+     * @return ModifyFirewallV2RoutePolicySwitchResponse ModifyFirewallV2RoutePolicySwitchResponse
      */
     public function modifyFirewallV2RoutePolicySwitchWithOptions($request, $runtime)
     {
@@ -5241,9 +5648,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyFirewallV2RoutePolicySwitchRequest $request
+     * @summary Modifies the status of a routing policy.
+     *  *
+     * @param ModifyFirewallV2RoutePolicySwitchRequest $request ModifyFirewallV2RoutePolicySwitchRequest
      *
-     * @return ModifyFirewallV2RoutePolicySwitchResponse
+     * @return ModifyFirewallV2RoutePolicySwitchResponse ModifyFirewallV2RoutePolicySwitchResponse
      */
     public function modifyFirewallV2RoutePolicySwitch($request)
     {
@@ -5253,10 +5662,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyInstanceMemberAttributes operation to update the information about members in Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second for each account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Updates the information about members in Cloud Firewall.
+     *  *
+     * @description You can call the ModifyInstanceMemberAttributes operation to update the information about members in Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second for each account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyInstanceMemberAttributesRequest $request ModifyInstanceMemberAttributesRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -5288,10 +5699,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyInstanceMemberAttributes operation to update the information about members in Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second for each account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Updates the information about members in Cloud Firewall.
+     *  *
+     * @description You can call the ModifyInstanceMemberAttributes operation to update the information about members in Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second for each account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyInstanceMemberAttributesRequest $request ModifyInstanceMemberAttributesRequest
      *
      * @return ModifyInstanceMemberAttributesResponse ModifyInstanceMemberAttributesResponse
@@ -5304,8 +5717,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
-     *   *
+     * @summary Modifies the configurations of an access control policy that is created for a NAT firewall.
+     *  *
+     * @description You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
+     *  *
      * @param ModifyNatFirewallControlPolicyRequest $request ModifyNatFirewallControlPolicyRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -5403,8 +5818,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
-     *   *
+     * @summary Modifies the configurations of an access control policy that is created for a NAT firewall.
+     *  *
+     * @description You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
+     *  *
      * @param ModifyNatFirewallControlPolicyRequest $request ModifyNatFirewallControlPolicyRequest
      *
      * @return ModifyNatFirewallControlPolicyResponse ModifyNatFirewallControlPolicyResponse
@@ -5417,10 +5834,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyNatFirewallControlPolicyPositionRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary Modifies the priority of an access control policy that is created for a NAT firewall.
+     *  *
+     * @param ModifyNatFirewallControlPolicyPositionRequest $request ModifyNatFirewallControlPolicyPositionRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyNatFirewallControlPolicyPositionResponse
+     * @return ModifyNatFirewallControlPolicyPositionResponse ModifyNatFirewallControlPolicyPositionResponse
      */
     public function modifyNatFirewallControlPolicyPositionWithOptions($request, $runtime)
     {
@@ -5460,9 +5879,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyNatFirewallControlPolicyPositionRequest $request
+     * @summary Modifies the priority of an access control policy that is created for a NAT firewall.
+     *  *
+     * @param ModifyNatFirewallControlPolicyPositionRequest $request ModifyNatFirewallControlPolicyPositionRequest
      *
-     * @return ModifyNatFirewallControlPolicyPositionResponse
+     * @return ModifyNatFirewallControlPolicyPositionResponse ModifyNatFirewallControlPolicyPositionResponse
      */
     public function modifyNatFirewallControlPolicyPosition($request)
     {
@@ -5472,10 +5893,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyPolicyAdvancedConfig operation to enable or disable the strict mode for an access control policy.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables or disables the strict mode for an access control policy.
+     *  *
+     * @description You can call the ModifyPolicyAdvancedConfig operation to enable or disable the strict mode for an access control policy.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyPolicyAdvancedConfigRequest $request ModifyPolicyAdvancedConfigRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -5513,10 +5936,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyPolicyAdvancedConfig operation to enable or disable the strict mode for an access control policy.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables or disables the strict mode for an access control policy.
+     *  *
+     * @description You can call the ModifyPolicyAdvancedConfig operation to enable or disable the strict mode for an access control policy.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyPolicyAdvancedConfigRequest $request ModifyPolicyAdvancedConfigRequest
      *
      * @return ModifyPolicyAdvancedConfigResponse ModifyPolicyAdvancedConfigResponse
@@ -5529,10 +5954,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyTrFirewallV2ConfigurationRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param ModifyTrFirewallV2ConfigurationRequest $request ModifyTrFirewallV2ConfigurationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTrFirewallV2ConfigurationResponse
+     * @return ModifyTrFirewallV2ConfigurationResponse ModifyTrFirewallV2ConfigurationResponse
      */
     public function modifyTrFirewallV2ConfigurationWithOptions($request, $runtime)
     {
@@ -5566,9 +5991,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyTrFirewallV2ConfigurationRequest $request
+     * @param ModifyTrFirewallV2ConfigurationRequest $request ModifyTrFirewallV2ConfigurationRequest
      *
-     * @return ModifyTrFirewallV2ConfigurationResponse
+     * @return ModifyTrFirewallV2ConfigurationResponse ModifyTrFirewallV2ConfigurationResponse
      */
     public function modifyTrFirewallV2Configuration($request)
     {
@@ -5578,10 +6003,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyTrFirewallV2RoutePolicyScopeRequest $tmpReq
-     * @param RuntimeOptions                            $runtime
+     * @param ModifyTrFirewallV2RoutePolicyScopeRequest $tmpReq  ModifyTrFirewallV2RoutePolicyScopeRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTrFirewallV2RoutePolicyScopeResponse
+     * @return ModifyTrFirewallV2RoutePolicyScopeResponse ModifyTrFirewallV2RoutePolicyScopeResponse
      */
     public function modifyTrFirewallV2RoutePolicyScopeWithOptions($tmpReq, $runtime)
     {
@@ -5632,9 +6057,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyTrFirewallV2RoutePolicyScopeRequest $request
+     * @param ModifyTrFirewallV2RoutePolicyScopeRequest $request ModifyTrFirewallV2RoutePolicyScopeRequest
      *
-     * @return ModifyTrFirewallV2RoutePolicyScopeResponse
+     * @return ModifyTrFirewallV2RoutePolicyScopeResponse ModifyTrFirewallV2RoutePolicyScopeResponse
      */
     public function modifyTrFirewallV2RoutePolicyScope($request)
     {
@@ -5644,10 +6069,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserIPSWhitelistRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ModifyUserIPSWhitelistRequest $request ModifyUserIPSWhitelistRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyUserIPSWhitelistResponse
+     * @return ModifyUserIPSWhitelistResponse ModifyUserIPSWhitelistResponse
      */
     public function modifyUserIPSWhitelistWithOptions($request, $runtime)
     {
@@ -5696,9 +6121,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyUserIPSWhitelistRequest $request
+     * @param ModifyUserIPSWhitelistRequest $request ModifyUserIPSWhitelistRequest
      *
-     * @return ModifyUserIPSWhitelistResponse
+     * @return ModifyUserIPSWhitelistResponse ModifyUserIPSWhitelistResponse
      */
     public function modifyUserIPSWhitelist($request)
     {
@@ -5708,10 +6133,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](~~345772~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallCenConfigureRequest $request ModifyVpcFirewallCenConfigureRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -5752,10 +6179,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](~~345772~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallCenConfigureRequest $request ModifyVpcFirewallCenConfigureRequest
      *
      * @return ModifyVpcFirewallCenConfigureResponse ModifyVpcFirewallCenConfigureResponse
@@ -5768,11 +6197,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallCenSwitchStatus operation to enable or disable a VPC firewall. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. After you enable the VPC firewall, the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. After you disable the VPC firewall, the VPC firewall no longer protect mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance.
-     *   * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](~~345772~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the ModifyVpcFirewallCenSwitchStatus operation to enable or disable a VPC firewall. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. After you enable the VPC firewall, the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. After you disable the VPC firewall, the VPC firewall no longer protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance.
+     * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallCenSwitchStatusRequest $request ModifyVpcFirewallCenSwitchStatusRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -5813,11 +6244,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallCenSwitchStatus operation to enable or disable a VPC firewall. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. After you enable the VPC firewall, the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. After you disable the VPC firewall, the VPC firewall no longer protect mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance.
-     *   * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](~~345772~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the ModifyVpcFirewallCenSwitchStatus operation to enable or disable a VPC firewall. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. After you enable the VPC firewall, the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. After you disable the VPC firewall, the VPC firewall no longer protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance.
+     * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallCenSwitchStatusRequest $request ModifyVpcFirewallCenSwitchStatusRequest
      *
      * @return ModifyVpcFirewallCenSwitchStatusResponse ModifyVpcFirewallCenSwitchStatusResponse
@@ -5830,10 +6263,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallConfigureRequest $request ModifyVpcFirewallConfigureRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -5880,10 +6315,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallConfigureRequest $request ModifyVpcFirewallConfigureRequest
      *
      * @return ModifyVpcFirewallConfigureResponse ModifyVpcFirewallConfigureResponse
@@ -5896,10 +6333,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specified policy group. Different access control policies are used for the VPC firewalls that are used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewalls that are used to protect each Express Connect circuit.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configurations of an access control policy that is created for a virtual private cloud (VPC) firewall in a specified policy group.
+     *  *
+     * @description You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specified policy group. Different access control policies are used for the VPC firewalls that are used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewalls that are used to protect each Express Connect circuit.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallControlPolicyRequest $request ModifyVpcFirewallControlPolicyRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -5994,10 +6433,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specified policy group. Different access control policies are used for the VPC firewalls that are used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewalls that are used to protect each Express Connect circuit.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the configurations of an access control policy that is created for a virtual private cloud (VPC) firewall in a specified policy group.
+     *  *
+     * @description You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specified policy group. Different access control policies are used for the VPC firewalls that are used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewalls that are used to protect each Express Connect circuit.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallControlPolicyRequest $request ModifyVpcFirewallControlPolicyRequest
      *
      * @return ModifyVpcFirewallControlPolicyResponse ModifyVpcFirewallControlPolicyResponse
@@ -6010,10 +6451,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the priority of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallControlPolicyPositionRequest $request ModifyVpcFirewallControlPolicyPositionRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
@@ -6057,10 +6500,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the priority of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallControlPolicyPositionRequest $request ModifyVpcFirewallControlPolicyPositionRequest
      *
      * @return ModifyVpcFirewallControlPolicyPositionResponse ModifyVpcFirewallControlPolicyPositionResponse
@@ -6073,10 +6518,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallDefaultIPSConfig operation to modify the intrusion prevention configurations of a VPC firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the ModifyVpcFirewallDefaultIPSConfig operation to modify the intrusion prevention configurations of a VPC firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallDefaultIPSConfigRequest $request ModifyVpcFirewallDefaultIPSConfigRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -6126,10 +6573,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallDefaultIPSConfig operation to modify the intrusion prevention configurations of a VPC firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Modifies the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the ModifyVpcFirewallDefaultIPSConfig operation to modify the intrusion prevention configurations of a VPC firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallDefaultIPSConfigRequest $request ModifyVpcFirewallDefaultIPSConfigRequest
      *
      * @return ModifyVpcFirewallDefaultIPSConfigResponse ModifyVpcFirewallDefaultIPSConfigResponse
@@ -6142,10 +6591,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyVpcFirewallIPSWhitelistRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Modifies the IPS whitelist of a virtual private cloud (VPC) firewall.
+     *  *
+     * @param ModifyVpcFirewallIPSWhitelistRequest $request ModifyVpcFirewallIPSWhitelistRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyVpcFirewallIPSWhitelistResponse
+     * @return ModifyVpcFirewallIPSWhitelistResponse ModifyVpcFirewallIPSWhitelistResponse
      */
     public function modifyVpcFirewallIPSWhitelistWithOptions($request, $runtime)
     {
@@ -6188,9 +6639,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ModifyVpcFirewallIPSWhitelistRequest $request
+     * @summary Modifies the IPS whitelist of a virtual private cloud (VPC) firewall.
+     *  *
+     * @param ModifyVpcFirewallIPSWhitelistRequest $request ModifyVpcFirewallIPSWhitelistRequest
      *
-     * @return ModifyVpcFirewallIPSWhitelistResponse
+     * @return ModifyVpcFirewallIPSWhitelistResponse ModifyVpcFirewallIPSWhitelistResponse
      */
     public function modifyVpcFirewallIPSWhitelist($request)
     {
@@ -6200,11 +6653,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit. After you enable the VPC firewall, the VPC firewall protects access traffic between two VPCs that are connected by using an Express Connect circuit. After you disable the VPC firewall, the VPC firewall no longer protects access traffic between two VPCs that are connected by using an Express Connect circuit.
-     *   * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the ModifyVpcFirewallSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit. After you enable the VPC firewall, the VPC firewall protects access traffic between two VPCs that are connected by using an Express Connect circuit. After you disable the VPC firewall, the VPC firewall no longer protects access traffic between two VPCs that are connected by using an Express Connect circuit.
+     * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallSwitchStatusRequest $request ModifyVpcFirewallSwitchStatusRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -6245,11 +6700,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ModifyVpcFirewallSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit. After you enable the VPC firewall, the VPC firewall protects access traffic between two VPCs that are connected by using an Express Connect circuit. After you disable the VPC firewall, the VPC firewall no longer protects access traffic between two VPCs that are connected by using an Express Connect circuit.
-     *   * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](~~342893~~) operation.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the ModifyVpcFirewallSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit. After you enable the VPC firewall, the VPC firewall protects access traffic between two VPCs that are connected by using an Express Connect circuit. After you disable the VPC firewall, the VPC firewall no longer protects access traffic between two VPCs that are connected by using an Express Connect circuit.
+     * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ModifyVpcFirewallSwitchStatusRequest $request ModifyVpcFirewallSwitchStatusRequest
      *
      * @return ModifyVpcFirewallSwitchStatusResponse ModifyVpcFirewallSwitchStatusResponse
@@ -6262,10 +6719,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the PutDisableAllFwSwitch operation to turn off all firewall switches.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Turns off all firewall switches.
+     *  *
+     * @description You can call the PutDisableAllFwSwitch operation to turn off all firewall switches.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param PutDisableAllFwSwitchRequest $request PutDisableAllFwSwitchRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -6303,10 +6762,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the PutDisableAllFwSwitch operation to turn off all firewall switches.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Turns off all firewall switches.
+     *  *
+     * @description You can call the PutDisableAllFwSwitch operation to turn off all firewall switches.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param PutDisableAllFwSwitchRequest $request PutDisableAllFwSwitchRequest
      *
      * @return PutDisableAllFwSwitchResponse PutDisableAllFwSwitchResponse
@@ -6319,10 +6780,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the PutDisableFwSwitch operation to disable a firewall for specific assets. After you disable the firewall, traffic does not pass through Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Disable a firewall for specific assets.
+     *  *
+     * @description You can call the PutDisableFwSwitch operation to disable a firewall for specific assets. After you disable the firewall, traffic does not pass through Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param PutDisableFwSwitchRequest $request PutDisableFwSwitchRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -6366,10 +6829,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the PutDisableFwSwitch operation to disable a firewall for specific assets. After you disable the firewall, traffic does not pass through Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Disable a firewall for specific assets.
+     *  *
+     * @description You can call the PutDisableFwSwitch operation to disable a firewall for specific assets. After you disable the firewall, traffic does not pass through Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param PutDisableFwSwitchRequest $request PutDisableFwSwitchRequest
      *
      * @return PutDisableFwSwitchResponse PutDisableFwSwitchResponse
@@ -6382,10 +6847,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the PutEnableAllFwSwitch operation to enable a firewall for all public IP addresses within your Alibaba Cloud account.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables a firewall for all public IP addresses within your Alibaba Cloud account.
+     *  *
+     * @description You can call the PutEnableAllFwSwitch operation to enable a firewall for all public IP addresses within your Alibaba Cloud account.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param PutEnableAllFwSwitchRequest $request PutEnableAllFwSwitchRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -6423,10 +6890,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the PutEnableAllFwSwitch operation to enable a firewall for all public IP addresses within your Alibaba Cloud account.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Enables a firewall for all public IP addresses within your Alibaba Cloud account.
+     *  *
+     * @description You can call the PutEnableAllFwSwitch operation to enable a firewall for all public IP addresses within your Alibaba Cloud account.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param PutEnableAllFwSwitchRequest $request PutEnableAllFwSwitchRequest
      *
      * @return PutEnableAllFwSwitchResponse PutEnableAllFwSwitchResponse
@@ -6439,10 +6908,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-     *   *
+     * @summary Enables firewalls for specific assets.
+     *  *
+     * @description You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param PutEnableFwSwitchRequest $request PutEnableFwSwitchRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -6486,10 +6957,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
-     *   *
+     * @summary Enables firewalls for specific assets.
+     *  *
+     * @description You can call the PutEnableFwSwitch operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *  *
      * @param PutEnableFwSwitchRequest $request PutEnableFwSwitchRequest
      *
      * @return PutEnableFwSwitchResponse PutEnableFwSwitchResponse
@@ -6502,10 +6975,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ReleasePostInstanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 释放按量付费实例
+     *  *
+     * @param ReleasePostInstanceRequest $request ReleasePostInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleasePostInstanceResponse
+     * @return ReleasePostInstanceResponse ReleasePostInstanceResponse
      */
     public function releasePostInstanceWithOptions($request, $runtime)
     {
@@ -6533,9 +7008,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ReleasePostInstanceRequest $request
+     * @summary 释放按量付费实例
+     *  *
+     * @param ReleasePostInstanceRequest $request ReleasePostInstanceRequest
      *
-     * @return ReleasePostInstanceResponse
+     * @return ReleasePostInstanceResponse ReleasePostInstanceResponse
      */
     public function releasePostInstance($request)
     {
@@ -6545,10 +7022,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ResetNatFirewallRuleHitCountRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Resets the number of NAT firewall hits.
+     *  *
+     * @param ResetNatFirewallRuleHitCountRequest $request ResetNatFirewallRuleHitCountRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetNatFirewallRuleHitCountResponse
+     * @return ResetNatFirewallRuleHitCountResponse ResetNatFirewallRuleHitCountResponse
      */
     public function resetNatFirewallRuleHitCountWithOptions($request, $runtime)
     {
@@ -6582,9 +7061,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @param ResetNatFirewallRuleHitCountRequest $request
+     * @summary Resets the number of NAT firewall hits.
+     *  *
+     * @param ResetNatFirewallRuleHitCountRequest $request ResetNatFirewallRuleHitCountRequest
      *
-     * @return ResetNatFirewallRuleHitCountResponse
+     * @return ResetNatFirewallRuleHitCountResponse ResetNatFirewallRuleHitCountResponse
      */
     public function resetNatFirewallRuleHitCount($request)
     {
@@ -6594,10 +7075,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ResetVpcFirewallRuleHitCount operation to clear the count on hits of an access control policy that is created for a VPC firewall in a specific policy group.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Clears the count on hits of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can call the ResetVpcFirewallRuleHitCount operation to clear the count on hits of an access control policy that is created for a VPC firewall in a specific policy group.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ResetVpcFirewallRuleHitCountRequest $request ResetVpcFirewallRuleHitCountRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -6632,10 +7115,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * You can call the ResetVpcFirewallRuleHitCount operation to clear the count on hits of an access control policy that is created for a VPC firewall in a specific policy group.
-     *   * ## Limits
-     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *   *
+     * @summary Clears the count on hits of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can call the ResetVpcFirewallRuleHitCount operation to clear the count on hits of an access control policy that is created for a VPC firewall in a specific policy group.
+     * ## Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
      * @param ResetVpcFirewallRuleHitCountRequest $request ResetVpcFirewallRuleHitCountRequest
      *
      * @return ResetVpcFirewallRuleHitCountResponse ResetVpcFirewallRuleHitCountResponse
@@ -6645,5 +7130,54 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetVpcFirewallRuleHitCountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SwitchSecurityProxyRequest $request SwitchSecurityProxyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SwitchSecurityProxyResponse SwitchSecurityProxyResponse
+     */
+    public function switchSecurityProxyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->proxyId)) {
+            $query['ProxyId'] = $request->proxyId;
+        }
+        if (!Utils::isUnset($request->switch_)) {
+            $query['Switch'] = $request->switch_;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchSecurityProxy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SwitchSecurityProxyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SwitchSecurityProxyRequest $request SwitchSecurityProxyRequest
+     *
+     * @return SwitchSecurityProxyResponse SwitchSecurityProxyResponse
+     */
+    public function switchSecurityProxy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchSecurityProxyWithOptions($request, $runtime);
     }
 }

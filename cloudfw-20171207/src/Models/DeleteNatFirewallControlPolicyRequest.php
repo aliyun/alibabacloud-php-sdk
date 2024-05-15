@@ -11,7 +11,7 @@ class DeleteNatFirewallControlPolicyRequest extends Model
     /**
      * @description The UUID of the access control policy.
      *
-     * To delete an access control policy, you must provide the ID of the policy. You can call the DescribeNatFirewallControlPolicy operation to query the UUIDs of access control policies.
+     * This parameter is required.
      * @example b6c8f905-2eb6-442a-ba35-9416e9dbb2c5
      *
      * @var string
@@ -25,6 +25,7 @@ class DeleteNatFirewallControlPolicyRequest extends Model
      *
      *   **out**: outbound traffic
      *
+     * This parameter is required.
      * @example out
      *
      * @var string
@@ -46,6 +47,7 @@ class DeleteNatFirewallControlPolicyRequest extends Model
     /**
      * @description The ID of the NAT gateway.
      *
+     * This parameter is required.
      * @example ngw-xxxxxx
      *
      * @var string

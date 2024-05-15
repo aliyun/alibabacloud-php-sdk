@@ -45,6 +45,7 @@ class DescribeOutgoingDomainRequest extends Model
     /**
      * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1656750960
      *
      * @var string
@@ -109,6 +110,7 @@ class DescribeOutgoingDomainRequest extends Model
     /**
      * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1656664560
      *
      * @var string
@@ -147,7 +149,7 @@ class DescribeOutgoingDomainRequest extends Model
      *   **Rogue**: rogue software
      *   **Botnet**: botnet
      *   **Suspicious**: suspicious website
-     *   **C\&C**: command and control (C\&C)
+     *   **C\\&C**: command and control (C\\&C)
      *   **Gang**: gang
      *   **CVE**: Common Vulnerabilities and Exposures (CVE)
      *   **Backdoor**: webshell

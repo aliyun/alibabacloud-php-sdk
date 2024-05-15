@@ -11,7 +11,7 @@ class ModifyVpcFirewallControlPolicyPositionRequest extends Model
     /**
      * @description The UUID of the access control policy.
      *
-     * If you want to modify the configurations of an access control policy, you must provide the UUID of the policy. You can call the [DescribeVpcFirewallControlPolicy](~~159758~~) operation to query the UUID.
+     * If you want to modify the configurations of an access control policy, you must provide the UUID of the policy. You can call the [DescribeVpcFirewallControlPolicy](https://help.aliyun.com/document_detail/159758.html) operation to query the UUID.
      * @example 2746d9ff-5d7c-449d-a2a9-ccaa15fe****
      *
      * @var string
@@ -35,6 +35,7 @@ class ModifyVpcFirewallControlPolicyPositionRequest extends Model
     /**
      * @description The new priority of the access control policy.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -52,17 +53,19 @@ class ModifyVpcFirewallControlPolicyPositionRequest extends Model
     public $oldOrder;
 
     /**
-     * @description The ID of the group to which the access control policy belongs. You can call the [DescribeVpcFirewallAclGroupList](~~159760~~) operation to query the ID.
+     * @description The ID of the group to which the access control policy belongs. You can call the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to query the ID.
      *
      * Valid values:
      *
      *   If the VPC firewall is used to protect a CEN instance, the value of this parameter must be the ID of the CEN instance.
      *
-     * Example: cen-ervw0g12b5jbw\*\*\*\*
+     * Example: cen-ervw0g12b5jbw\\*\\*\\*\\*
      *
      *   If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter must be the instance ID of the VPC firewall.
      *
-     * Example: vfw-a42bbb7b887148c9\*\*\*\*
+     * Example: vfw-a42bbb7b887148c9\\*\\*\\*\\*
+     *
+     * This parameter is required.
      * @example vfw-a42bbb7b887148c9****
      *
      * @var string

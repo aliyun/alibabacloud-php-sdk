@@ -11,7 +11,7 @@ class DeleteControlPolicyRequest extends Model
     /**
      * @description The ID of the access control policy.
      *
-     * To delete an access control policy, you must provide the ID of the policy. You can call the [DescribeControlPolicy](~~138866~~) operation to query the ID.
+     * This parameter is required.
      * @example 00281255-d220-4db1-8f4f-c4df221ad84c
      *
      * @var string
@@ -26,6 +26,7 @@ class DeleteControlPolicyRequest extends Model
      *   **in**: inbound traffic
      *   **out**: outbound traffic
      *
+     * This parameter is required.
      * @example in
      *
      * @var string

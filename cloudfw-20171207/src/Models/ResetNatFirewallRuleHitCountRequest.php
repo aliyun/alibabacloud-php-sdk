@@ -11,6 +11,7 @@ class ResetNatFirewallRuleHitCountRequest extends Model
     /**
      * @description The UUID of the access control policy.
      *
+     * This parameter is required.
      * @example 3de3aed5-6de7-4ecd-9106-cfe994b9c49f
      *
      * @var string

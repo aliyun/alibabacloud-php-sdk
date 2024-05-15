@@ -39,6 +39,7 @@ class AddAddressBookRequest extends Model
     /**
      * @description The description of the address book.
      *
+     * This parameter is required.
      * @example sz-001
      *
      * @var string
@@ -48,6 +49,7 @@ class AddAddressBookRequest extends Model
     /**
      * @description The name of the address book.
      *
+     * This parameter is required.
      * @example sz-001
      *
      * @var string
@@ -62,6 +64,7 @@ class AddAddressBookRequest extends Model
      *   **port**: port address book
      *   **tag**: ECS tag-based address book
      *
+     * This parameter is required.
      * @example ip
      *
      * @var string

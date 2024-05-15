@@ -32,6 +32,7 @@ class DeleteControlPolicyTemplateRequest extends Model
     /**
      * @description The ID of the access control policy template.
      *
+     * This parameter is required.
      * @example 719ce620-ae23-4e42-9f93-9191b4400b55
      *
      * @var string

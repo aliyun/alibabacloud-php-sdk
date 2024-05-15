@@ -12,6 +12,7 @@ class ModifyInstanceMemberAttributesRequest extends Model
     /**
      * @description The members that to be modified.
      *
+     * This parameter is required.
      * @var members[]
      */
     public $members;

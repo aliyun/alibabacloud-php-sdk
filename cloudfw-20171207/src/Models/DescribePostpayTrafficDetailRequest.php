@@ -20,6 +20,7 @@ class DescribePostpayTrafficDetailRequest extends Model
     /**
      * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1656923760
      *
      * @var string
@@ -71,6 +72,7 @@ class DescribePostpayTrafficDetailRequest extends Model
     /**
      * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1656750960
      *
      * @var string
@@ -83,6 +85,7 @@ class DescribePostpayTrafficDetailRequest extends Model
      *   **EIP_TRAFFIC**: traffic for the Internet firewall
      *   **NatGateway_TRAFFIC**: traffic for the NAT firewall
      *
+     * This parameter is required.
      * @example EIP_TRAFFIC
      *
      * @var string

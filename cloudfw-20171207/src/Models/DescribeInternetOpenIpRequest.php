@@ -38,6 +38,7 @@ class DescribeInternetOpenIpRequest extends Model
     /**
      * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -68,6 +69,7 @@ class DescribeInternetOpenIpRequest extends Model
     /**
      * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string

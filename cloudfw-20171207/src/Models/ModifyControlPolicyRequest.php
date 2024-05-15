@@ -15,6 +15,7 @@ class ModifyControlPolicyRequest extends Model
      *   **drop**: denies the traffic.
      *   **log**: monitors the traffic.
      *
+     * This parameter is required.
      * @example accept
      *
      * @var string
@@ -24,7 +25,7 @@ class ModifyControlPolicyRequest extends Model
     /**
      * @description The UUID of the access control policy.
      *
-     * >  To modify an access control policy, you must specify the UUID of the policy. You can call the [DescribeControlPolicy](~~138866~~) interface to query the UUID.
+     * This parameter is required.
      * @example 00281255-d220-4db1-8f4f-c4df221ad84c
      *
      * @var string
@@ -66,6 +67,7 @@ class ModifyControlPolicyRequest extends Model
     /**
      * @description The description of the access control policy.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -107,9 +109,10 @@ class ModifyControlPolicyRequest extends Model
      *
      *   If **DestinationType** is set to net, the value of **Destination** is a CIDR block. Example: 1.2.XX.XX/24.
      *   If **DestinationType** is set to group, the value of **Destination** is an address book. Example: db_group.
-     *   If **DestinationType** is set to domain, the value of **Destination** is a domain name. Example: \*.aliyuncs.com.
-     *   If **DestinationType** is set to location, the value of **Destination** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: \["BJ11", "ZB"].
+     *   If **DestinationType** is set to domain, the value of **Destination** is a domain name. Example: \\*.aliyuncs.com.
+     *   If **DestinationType** is set to location, the value of **Destination** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: ["BJ11", "ZB"].
      *
+     * This parameter is required.
      * @example 192.0.XX.XX/24
      *
      * @var string
@@ -124,6 +127,7 @@ class ModifyControlPolicyRequest extends Model
      *   **domain**: domain name
      *   **location**: location
      *
+     * This parameter is required.
      * @example net
      *
      * @var string
@@ -136,6 +140,7 @@ class ModifyControlPolicyRequest extends Model
      *   **in**: inbound traffic
      *   **out**: outbound traffic
      *
+     * This parameter is required.
      * @example in
      *
      * @var string
@@ -173,6 +178,8 @@ class ModifyControlPolicyRequest extends Model
      *   **ICMP**
      *
      * >  The value *ANY* indicates all types of applications.
+     *
+     * This parameter is required.
      * @example TCP
      *
      * @var string
@@ -194,12 +201,12 @@ class ModifyControlPolicyRequest extends Model
     /**
      * @description The days of a week or of a month on which the access control policy takes effect.
      *
-     *   If you set RepeatType to `Permanent`, `None`, or `Daily`, the value of this parameter is an empty array. Example: \[]
-     *   If you set RepeatType to Weekly, you must specify this parameter. Example: \[0, 6]
+     *   If you set RepeatType to `Permanent`, `None`, or `Daily`, the value of this parameter is an empty array. Example: []
+     *   If you set RepeatType to Weekly, you must specify this parameter. Example: [0, 6]
      *
      * >  If you set RepeatType to Weekly, the fields in the value of this parameter cannot be repeated.
      *
-     *   If you set RepeatType to `Monthly`, you must specify this parameter. Example: \[1, 31]
+     *   If you set RepeatType to `Monthly`, you must specify this parameter. Example: [1, 31]
      *
      * >  If you set RepeatType to Monthly, the fields in the value of this parameter cannot be repeated.
      * @var int[]
@@ -246,8 +253,9 @@ class ModifyControlPolicyRequest extends Model
      *
      *   If **SourceType** is set to net, the value of **Source** is a CIDR block. Example: 1.2.XX.XX/24.
      *   If **SourceType** is set to group, the value of **Source** is an address book. Example: db_group.
-     *   If **SourceType** is set to location, the value of **Source** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: \["BJ11", "ZB"]
+     *   If **SourceType** is set to location, the value of **Source** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: ["BJ11", "ZB"]
      *
+     * This parameter is required.
      * @example 192.0.XX.XX/24
      *
      * @var string
@@ -261,6 +269,7 @@ class ModifyControlPolicyRequest extends Model
      *   **group**: address book
      *   **location**: location
      *
+     * This parameter is required.
      * @example net
      *
      * @var string

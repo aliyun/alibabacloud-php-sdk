@@ -6,33 +6,26 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ResetVpcFirewallRuleHitCountRequest extends Model
+class DeleteSecurityProxyRequest extends Model
 {
     /**
-     * @description The ID of the access control policy.
-     *
-     * This parameter is required.
-     * @example 00281255-d220-4db1-8f4f-c4df221a****
-     *
-     * @var string
-     */
-    public $aclUuid;
-
-    /**
-     * @description The natural language of the request and response.
-     *
-     * Valid values:
-     *
-     * - **zh**: Chinese (default)
-     * - **en**: English
      * @example zh
      *
      * @var string
      */
     public $lang;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example proxy-nat00ab412ef93d4275a6b5
+     *
+     * @var string
+     */
+    public $proxyId;
     protected $_name = [
-        'aclUuid' => 'AclUuid',
         'lang'    => 'Lang',
+        'proxyId' => 'ProxyId',
     ];
 
     public function validate()
@@ -42,11 +35,11 @@ class ResetVpcFirewallRuleHitCountRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->aclUuid) {
-            $res['AclUuid'] = $this->aclUuid;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->proxyId) {
+            $res['ProxyId'] = $this->proxyId;
         }
 
         return $res;
@@ -55,16 +48,16 @@ class ResetVpcFirewallRuleHitCountRequest extends Model
     /**
      * @param array $map
      *
-     * @return ResetVpcFirewallRuleHitCountRequest
+     * @return DeleteSecurityProxyRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AclUuid'])) {
-            $model->aclUuid = $map['AclUuid'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['ProxyId'])) {
+            $model->proxyId = $map['ProxyId'];
         }
 
         return $model;

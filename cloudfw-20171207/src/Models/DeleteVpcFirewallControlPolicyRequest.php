@@ -12,6 +12,8 @@ class DeleteVpcFirewallControlPolicyRequest extends Model
      * @description The ID of the access control policy.
      *
      * To delete an access control policy, you must provide the ID of the policy. You can call the **DescribeVpcFirewallControlPolicy** operation to query the ID.
+     *
+     * This parameter is required.
      * @example 00281255-d220-4db1-8f4f-c4df2214****
      *
      * @var string
@@ -38,6 +40,8 @@ class DeleteVpcFirewallControlPolicyRequest extends Model
      * - If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the ID of the VPC firewall.
      *
      * Example: vfw-a42bbb7b887148c9****
+     *
+     * This parameter is required.
      * @example vfw-a42bbb7b887148c91****
      *
      * @var string

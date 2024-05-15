@@ -65,8 +65,10 @@ class DescribeRiskEventGroupRequest extends Model
     public $currentPage;
 
     /**
-     * @description The type of the risk events.\
+     * @description The type of the risk events.\\
      * Set the value to **session**, which indicates intrusion events.
+     *
+     * This parameter is required.
      * @example session
      *
      * @var string
@@ -108,6 +110,7 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1534408267
      *
      * @var string
@@ -242,6 +245,7 @@ class DescribeRiskEventGroupRequest extends Model
     /**
      * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1534408189
      *
      * @var string

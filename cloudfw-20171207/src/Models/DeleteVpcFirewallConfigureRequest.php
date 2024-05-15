@@ -32,6 +32,7 @@ class DeleteVpcFirewallConfigureRequest extends Model
     /**
      * @description The instance IDs of VPC firewalls.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $vpcFirewallIdList;

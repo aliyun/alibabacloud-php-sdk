@@ -11,6 +11,7 @@ class BatchDeleteVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The UUIDs of access control policies.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $aclUuidList;
@@ -18,6 +19,7 @@ class BatchDeleteVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The instance ID of the VPC firewall.
      *
+     * This parameter is required.
      * @example vfw-m5e7dbc4y****
      *
      * @var string

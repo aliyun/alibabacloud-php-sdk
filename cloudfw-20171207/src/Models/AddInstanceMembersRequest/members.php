@@ -20,6 +20,7 @@ class members extends Model
     /**
      * @description The UID of member that you want to add to Cloud Firewall.
      *
+     * This parameter is required.
      * @example 258039427902****
      *
      * @var int

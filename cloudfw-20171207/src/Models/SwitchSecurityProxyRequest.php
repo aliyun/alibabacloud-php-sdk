@@ -6,16 +6,9 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDownloadTaskRequest extends Model
+class SwitchSecurityProxyRequest extends Model
 {
     /**
-     * @description The language of the content within the response.
-     *
-     * Valid values:
-     *
-     *   **zh**: Chinese (default)
-     *   **en**: English
-     *
      * @example zh
      *
      * @var string
@@ -23,16 +16,26 @@ class CreateDownloadTaskRequest extends Model
     public $lang;
 
     /**
-     * @description The query condition of the download task.
+     * @description This parameter is required.
      *
-     * @example {\\"SearchItem\\":\\"\\",\\"UserType\\":\\"buy\\",\\"IpVersion\\":\\"4\\"}
+     * @example proxy-natbfd2fafbb77042308d1b
      *
      * @var string
      */
-    public $taskData;
+    public $proxyId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example open
+     *
+     * @var string
+     */
+    public $switch;
     protected $_name = [
-        'lang'     => 'Lang',
-        'taskData' => 'TaskData',
+        'lang'    => 'Lang',
+        'proxyId' => 'ProxyId',
+        'switch'  => 'Switch',
     ];
 
     public function validate()
@@ -45,8 +48,11 @@ class CreateDownloadTaskRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->taskData) {
-            $res['TaskData'] = $this->taskData;
+        if (null !== $this->proxyId) {
+            $res['ProxyId'] = $this->proxyId;
+        }
+        if (null !== $this->switch) {
+            $res['Switch'] = $this->switch;
         }
 
         return $res;
@@ -55,7 +61,7 @@ class CreateDownloadTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateDownloadTaskRequest
+     * @return SwitchSecurityProxyRequest
      */
     public static function fromMap($map = [])
     {
@@ -63,8 +69,11 @@ class CreateDownloadTaskRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['TaskData'])) {
-            $model->taskData = $map['TaskData'];
+        if (isset($map['ProxyId'])) {
+            $model->proxyId = $map['ProxyId'];
+        }
+        if (isset($map['Switch'])) {
+            $model->switch = $map['Switch'];
         }
 
         return $model;

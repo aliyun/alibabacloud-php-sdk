@@ -29,6 +29,7 @@ class DescribeRiskEventPayloadRequest extends Model
     /**
      * @description The end of the time range to query. The value is a timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1681288980
      *
      * @var string
@@ -77,6 +78,7 @@ class DescribeRiskEventPayloadRequest extends Model
     /**
      * @description The beginning of the time range to query. The value is a timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1669533617
      *
      * @var string
@@ -86,6 +88,7 @@ class DescribeRiskEventPayloadRequest extends Model
     /**
      * @description The UUID of the intrusion event.
      *
+     * This parameter is required.
      * @example e62c25e0-1073-46bd-9567-b8f12b3d****
      *
      * @var string

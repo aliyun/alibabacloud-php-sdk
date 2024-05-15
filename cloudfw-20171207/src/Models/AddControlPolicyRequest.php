@@ -15,6 +15,7 @@ class AddControlPolicyRequest extends Model
      *   **drop**: denies the traffic.
      *   **log**: monitors the traffic.
      *
+     * This parameter is required.
      * @example accept
      *
      * @var string
@@ -58,6 +59,7 @@ class AddControlPolicyRequest extends Model
     /**
      * @description The description of the access control policy.
      *
+     * This parameter is required.
      * @example Allows traffic
      *
      * @var string
@@ -122,11 +124,11 @@ class AddControlPolicyRequest extends Model
      *
      *   If DestinationType is set to domain, the value of this parameter is a domain name.
      *
-     * Example: \*.aliyuncs.com
+     * Example: \\*.aliyuncs.com
      *
      *   If DestinationType is set to location, the value of this parameter is a location.
      *
-     * Example: \["BJ11", "ZB"]
+     * This parameter is required.
      * @example 192.0.XX.XX/24
      *
      * @var string
@@ -141,6 +143,7 @@ class AddControlPolicyRequest extends Model
      *   **domain**: domain name
      *   **location**: location
      *
+     * This parameter is required.
      * @example net
      *
      * @var string
@@ -153,6 +156,7 @@ class AddControlPolicyRequest extends Model
      *   **in**: inbound traffic
      *   **out**: outbound traffic
      *
+     * This parameter is required.
      * @example in
      *
      * @var string
@@ -198,6 +202,7 @@ class AddControlPolicyRequest extends Model
     /**
      * @description The priority of the access control policy. The priority value starts from 1. A smaller priority value indicates a higher priority.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -212,6 +217,7 @@ class AddControlPolicyRequest extends Model
      *   **UDP**
      *   **ICMP**
      *
+     * This parameter is required.
      * @example ANY
      *
      * @var string
@@ -233,12 +239,12 @@ class AddControlPolicyRequest extends Model
     /**
      * @description The days of a week or of a month on which the access control policy takes effect.
      *
-     *   If you set RepeatType to `Permanent`, `None`, or `Daily`, leave this parameter empty. Example: \[].
-     *   If you set RepeatType to Weekly, you must specify this parameter. Example: \[0, 6].
+     *   If you set RepeatType to `Permanent`, `None`, or `Daily`, leave this parameter empty. Example: [].
+     *   If you set RepeatType to Weekly, you must specify this parameter. Example: [0, 6].
      *
      * >  If you set RepeatType to Weekly, the fields in the value of this parameter cannot be repeated.
      *
-     *   If you set RepeatType to `Monthly`, you must specify this parameter. Example: \[1, 31].
+     *   If you set RepeatType to `Monthly`, you must specify this parameter. Example: [1, 31].
      *
      * >  If you set RepeatType to Monthly, the fields in the value of this parameter cannot be repeated.
      * @var int[]
@@ -293,7 +299,7 @@ class AddControlPolicyRequest extends Model
      *
      *   If SourceType is set to location, the value of this parameter is a location.
      *
-     * Example: \["BJ11", "ZB"]
+     * This parameter is required.
      * @example 192.0.XX.XX/24
      *
      * @var string
@@ -318,6 +324,7 @@ class AddControlPolicyRequest extends Model
      *   **group**: address book
      *   **location**: location
      *
+     * This parameter is required.
      * @example net
      *
      * @var string

@@ -14,6 +14,7 @@ class ModifyVpcFirewallSwitchStatusRequest extends Model
      *   **open**: yes
      *   **close**: no
      *
+     * This parameter is required.
      * @example open
      *
      * @var string
@@ -44,7 +45,7 @@ class ModifyVpcFirewallSwitchStatusRequest extends Model
     /**
      * @description The instance ID of the VPC firewall.
      *
-     * > You can call the [DescribeVpcFirewallList](~~342932~~) operation to query the instance IDs of VPC firewalls.
+     * This parameter is required.
      * @example vfw-m5e7dbc4y****
      *
      * @var string

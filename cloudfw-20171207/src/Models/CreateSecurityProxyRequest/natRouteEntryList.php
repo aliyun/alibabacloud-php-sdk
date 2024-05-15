@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class natRouteEntryList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0.0.0.0/0
      *
      * @var string
@@ -16,6 +18,8 @@ class natRouteEntryList extends Model
     public $destinationCidr;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ngw-bp1okz6k7s4n4mnk5f1g3
      *
      * @var string
@@ -23,6 +27,8 @@ class natRouteEntryList extends Model
     public $nextHopId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example NatGateway
      *
      * @var string
@@ -30,6 +36,8 @@ class natRouteEntryList extends Model
     public $nextHopType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vtb-2ze13wrgz7wsu9yiqeffg
      *
      * @var string
