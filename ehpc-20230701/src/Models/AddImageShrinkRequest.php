@@ -19,6 +19,13 @@ class AddImageShrinkRequest extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $imageVersion;
+
+    /**
+     * @description This parameter is required.
+     *
      * @example app-image
      *
      * @var string
@@ -29,19 +36,12 @@ class AddImageShrinkRequest extends Model
      * @var string
      */
     public $VMImageSpecShrink;
-
-    /**
-     * @example v1.0
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'containerImageSpecShrink' => 'ContainerImageSpec',
         'description'              => 'Description',
+        'imageVersion'             => 'ImageVersion',
         'name'                     => 'Name',
         'VMImageSpecShrink'        => 'VMImageSpec',
-        'version'                  => 'Version',
     ];
 
     public function validate()
@@ -57,14 +57,14 @@ class AddImageShrinkRequest extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->imageVersion) {
+            $res['ImageVersion'] = $this->imageVersion;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
         if (null !== $this->VMImageSpecShrink) {
             $res['VMImageSpec'] = $this->VMImageSpecShrink;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -84,14 +84,14 @@ class AddImageShrinkRequest extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['ImageVersion'])) {
+            $model->imageVersion = $map['ImageVersion'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
         if (isset($map['VMImageSpec'])) {
             $model->VMImageSpecShrink = $map['VMImageSpec'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

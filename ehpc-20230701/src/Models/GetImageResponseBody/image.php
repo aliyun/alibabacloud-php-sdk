@@ -28,6 +28,8 @@ class image extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VM
      *
      * @var string

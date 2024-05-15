@@ -21,6 +21,8 @@ class images extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example m-bp181x855551ww5yq****
      *
      * @var string
@@ -28,6 +30,8 @@ class images extends Model
     public $imageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VM
      *
      * @var string

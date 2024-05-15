@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetImageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example m-2ze74g5mvy4pjg******
      *
      * @var string

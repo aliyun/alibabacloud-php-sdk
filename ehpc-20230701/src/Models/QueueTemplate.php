@@ -87,6 +87,8 @@ class QueueTemplate extends Model
     public $minCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example comp
      *
      * @var string

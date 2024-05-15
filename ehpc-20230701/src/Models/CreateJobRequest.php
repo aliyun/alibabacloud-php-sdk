@@ -21,6 +21,8 @@ class CreateJobRequest extends Model
     public $jobDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testjob
      *
      * @var string
@@ -28,6 +30,8 @@ class CreateJobRequest extends Model
     public $jobName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var tasks[]
      */
     public $tasks;

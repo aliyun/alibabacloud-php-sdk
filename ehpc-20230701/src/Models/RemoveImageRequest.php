@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveImageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example m-bp14wakr1rkxtb******
      *
      * @var string

@@ -44,6 +44,8 @@ class AddonNodeTemplate extends Model
     public $enableHT;
 
     /**
+     * @description This parameter is required.
+     *
      * @example aliyun_3_x64_20G_alibase_20221102.vhd
      *
      * @var string
@@ -58,6 +60,8 @@ class AddonNodeTemplate extends Model
     public $instanceChargeType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecs.c7.4xlarge
      *
      * @var string
@@ -65,6 +69,8 @@ class AddonNodeTemplate extends Model
     public $instanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CentOS  7.6 64 位
      *
      * @var string
@@ -72,6 +78,8 @@ class AddonNodeTemplate extends Model
     public $osName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CentOS  7.6 64 bit
      *
      * @var string

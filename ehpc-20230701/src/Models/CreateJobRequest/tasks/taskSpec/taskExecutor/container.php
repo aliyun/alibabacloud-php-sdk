@@ -20,6 +20,8 @@ class container extends Model
     public $environmentVars;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $image;

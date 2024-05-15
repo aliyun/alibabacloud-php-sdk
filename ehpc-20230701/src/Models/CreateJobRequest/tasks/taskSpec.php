@@ -17,6 +17,8 @@ class taskSpec extends Model
     public $resource;
 
     /**
+     * @description This parameter is required.
+     *
      * @var taskExecutor[]
      */
     public $taskExecutor;

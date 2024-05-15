@@ -19,6 +19,8 @@ class CreateJobShrinkRequest extends Model
     public $jobDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testjob
      *
      * @var string
@@ -26,6 +28,8 @@ class CreateJobShrinkRequest extends Model
     public $jobName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tasksShrink;
