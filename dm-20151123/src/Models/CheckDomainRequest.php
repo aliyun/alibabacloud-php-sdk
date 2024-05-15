@@ -11,6 +11,7 @@ class CheckDomainRequest extends Model
     /**
      * @description The ID of the domain name.
      *
+     * This parameter is required.
      * @example 153345
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendTestByTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $accountName;
@@ -21,6 +23,8 @@ class SendTestByTemplateRequest extends Model
     public $birthday;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $email;
@@ -58,6 +62,8 @@ class SendTestByTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var int

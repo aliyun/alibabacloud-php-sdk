@@ -31,6 +31,7 @@ class ModifyTagRequest extends Model
     /**
      * @description The ID of the tag.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int
@@ -40,6 +41,7 @@ class ModifyTagRequest extends Model
     /**
      * @description The name of the tag.
      *
+     * This parameter is required.
      * @example vme
      *
      * @var string

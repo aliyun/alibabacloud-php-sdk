@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescDomainRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 13464
      *
      * @var int

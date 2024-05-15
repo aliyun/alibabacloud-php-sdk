@@ -16,7 +16,7 @@ class detail extends Model
     public $createTime;
 
     /**
-     * @example {\"Domains\": [\"a.example.net\", \"b.example.net\", \"c.example.net\", \"d.example.net\"]}
+     * @example {\\"Domains\\": [\\"a.example.net\\", \\"b.example.net\\", \\"c.example.net\\", \\"d.example.net\\"]}
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTrackListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2019-09-29
      *
      * @var string
@@ -60,6 +62,8 @@ class GetTrackListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2019-09-29
      *
      * @var string

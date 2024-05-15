@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class userSuppressions extends Model
 {
     /**
+     * @example test@example.net
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example 1715667435
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1715667451
+     *
      * @var int
      */
     public $lastBounceTime;
 
     /**
+     * @example 59511
+     *
      * @var int
      */
     public $suppressionId;
 
     /**
+     * @example - system
+     * - user
      * @var string
      */
     public $type;

@@ -16,6 +16,7 @@ class DeleteReceiverRequest extends Model
     /**
      * @description The ID of the recipient list.
      *
+     * This parameter is required.
      * @example 1453
      *
      * @var string

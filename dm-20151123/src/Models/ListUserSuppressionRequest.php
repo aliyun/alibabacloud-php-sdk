@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListUserSuppressionRequest extends Model
 {
     /**
+     * @example test@example.net
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example 1715669077
+     *
      * @var int
      */
     public $endBounceTime;
 
     /**
+     * @example 1715669077
+     *
      * @var int
      */
     public $endCreateTime;
@@ -29,11 +35,15 @@ class ListUserSuppressionRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -49,11 +59,15 @@ class ListUserSuppressionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 1715668852
+     *
      * @var int
      */
     public $startBounceTime;
 
     /**
+     * @example 1715668852
+     *
      * @var int
      */
     public $startCreateTime;

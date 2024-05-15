@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchSendMailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test@example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class BatchSendMailRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +39,8 @@ class BatchSendMailRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test2
      *
      * @var string
@@ -69,6 +75,8 @@ class BatchSendMailRequest extends Model
     public $tagName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test1
      *
      * @var string

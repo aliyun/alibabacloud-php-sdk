@@ -26,6 +26,7 @@ class DeleteTagRequest extends Model
     /**
      * @description The ID of the tag.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

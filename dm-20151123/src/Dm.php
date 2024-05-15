@@ -132,10 +132,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param AddIpfilterRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 添加IP防护信息
+     *  *
+     * @param AddIpfilterRequest $request AddIpfilterRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddIpfilterResponse
+     * @return AddIpfilterResponse AddIpfilterResponse
      */
     public function addIpfilterWithOptions($request, $runtime)
     {
@@ -172,9 +174,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param AddIpfilterRequest $request
+     * @summary 添加IP防护信息
+     *  *
+     * @param AddIpfilterRequest $request AddIpfilterRequest
      *
-     * @return AddIpfilterResponse
+     * @return AddIpfilterResponse AddIpfilterResponse
      */
     public function addIpfilter($request)
     {
@@ -184,10 +188,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param ApproveReplyMailAddressRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 验证回信地址
+     *  *
+     * @param ApproveReplyMailAddressRequest $request ApproveReplyMailAddressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApproveReplyMailAddressResponse
+     * @return ApproveReplyMailAddressResponse ApproveReplyMailAddressResponse
      */
     public function approveReplyMailAddressWithOptions($request, $runtime)
     {
@@ -224,9 +230,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param ApproveReplyMailAddressRequest $request
+     * @summary 验证回信地址
+     *  *
+     * @param ApproveReplyMailAddressRequest $request ApproveReplyMailAddressRequest
      *
-     * @return ApproveReplyMailAddressResponse
+     * @return ApproveReplyMailAddressResponse ApproveReplyMailAddressResponse
      */
     public function approveReplyMailAddress($request)
     {
@@ -236,10 +244,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param BatchSendMailRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 批量发送邮件
+     *  *
+     * @param BatchSendMailRequest $request BatchSendMailRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchSendMailResponse
+     * @return BatchSendMailResponse BatchSendMailResponse
      */
     public function batchSendMailWithOptions($request, $runtime)
     {
@@ -303,9 +313,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param BatchSendMailRequest $request
+     * @summary 批量发送邮件
+     *  *
+     * @param BatchSendMailRequest $request BatchSendMailRequest
      *
-     * @return BatchSendMailResponse
+     * @return BatchSendMailResponse BatchSendMailResponse
      */
     public function batchSendMail($request)
     {
@@ -315,10 +327,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CheckDomainRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 校验域名状态
+     *  *
+     * @param CheckDomainRequest $request CheckDomainRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckDomainResponse
+     * @return CheckDomainResponse CheckDomainResponse
      */
     public function checkDomainWithOptions($request, $runtime)
     {
@@ -355,9 +369,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CheckDomainRequest $request
+     * @summary 校验域名状态
+     *  *
+     * @param CheckDomainRequest $request CheckDomainRequest
      *
-     * @return CheckDomainResponse
+     * @return CheckDomainResponse CheckDomainResponse
      */
     public function checkDomain($request)
     {
@@ -367,10 +383,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CheckReplyToMailAddressRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 校验回信地址
+     *  *
+     * @param CheckReplyToMailAddressRequest $request CheckReplyToMailAddressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckReplyToMailAddressResponse
+     * @return CheckReplyToMailAddressResponse CheckReplyToMailAddressResponse
      */
     public function checkReplyToMailAddressWithOptions($request, $runtime)
     {
@@ -413,9 +431,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CheckReplyToMailAddressRequest $request
+     * @summary 校验回信地址
+     *  *
+     * @param CheckReplyToMailAddressRequest $request CheckReplyToMailAddressRequest
      *
-     * @return CheckReplyToMailAddressResponse
+     * @return CheckReplyToMailAddressResponse CheckReplyToMailAddressResponse
      */
     public function checkReplyToMailAddress($request)
     {
@@ -425,10 +445,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 创建域名
+     *  *
+     * @param CreateDomainRequest $request CreateDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDomainResponse
+     * @return CreateDomainResponse CreateDomainResponse
      */
     public function createDomainWithOptions($request, $runtime)
     {
@@ -465,9 +487,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainRequest $request
+     * @summary 创建域名
+     *  *
+     * @param CreateDomainRequest $request CreateDomainRequest
      *
-     * @return CreateDomainResponse
+     * @return CreateDomainResponse CreateDomainResponse
      */
     public function createDomain($request)
     {
@@ -477,10 +501,10 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CreateMailAddressRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateMailAddressRequest $request CreateMailAddressRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMailAddressResponse
+     * @return CreateMailAddressResponse CreateMailAddressResponse
      */
     public function createMailAddressWithOptions($request, $runtime)
     {
@@ -523,9 +547,9 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CreateMailAddressRequest $request
+     * @param CreateMailAddressRequest $request CreateMailAddressRequest
      *
-     * @return CreateMailAddressResponse
+     * @return CreateMailAddressResponse CreateMailAddressResponse
      */
     public function createMailAddress($request)
     {
@@ -535,10 +559,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CreateReceiverRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 创建收件人列表
+     *  *
+     * @param CreateReceiverRequest $request CreateReceiverRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateReceiverResponse
+     * @return CreateReceiverResponse CreateReceiverResponse
      */
     public function createReceiverWithOptions($request, $runtime)
     {
@@ -581,9 +607,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CreateReceiverRequest $request
+     * @summary 创建收件人列表
+     *  *
+     * @param CreateReceiverRequest $request CreateReceiverRequest
      *
-     * @return CreateReceiverResponse
+     * @return CreateReceiverResponse CreateReceiverResponse
      */
     public function createReceiver($request)
     {
@@ -593,10 +621,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CreateTagRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 创建标签
+     *  *
+     * @param CreateTagRequest $request CreateTagRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTagResponse
+     * @return CreateTagResponse CreateTagResponse
      */
     public function createTagWithOptions($request, $runtime)
     {
@@ -636,9 +666,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CreateTagRequest $request
+     * @summary 创建标签
+     *  *
+     * @param CreateTagRequest $request CreateTagRequest
      *
-     * @return CreateTagResponse
+     * @return CreateTagResponse CreateTagResponse
      */
     public function createTag($request)
     {
@@ -648,10 +680,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CreateUserSuppressionRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 创建用户无效地址
+     *  *
+     * @param CreateUserSuppressionRequest $request CreateUserSuppressionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserSuppressionResponse
+     * @return CreateUserSuppressionResponse CreateUserSuppressionResponse
      */
     public function createUserSuppressionWithOptions($request, $runtime)
     {
@@ -688,9 +722,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param CreateUserSuppressionRequest $request
+     * @summary 创建用户无效地址
+     *  *
+     * @param CreateUserSuppressionRequest $request CreateUserSuppressionRequest
      *
-     * @return CreateUserSuppressionResponse
+     * @return CreateUserSuppressionResponse CreateUserSuppressionResponse
      */
     public function createUserSuppression($request)
     {
@@ -700,10 +736,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 删除域名
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
@@ -740,9 +778,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
+     * @summary 删除域名
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -752,10 +792,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteInvalidAddressRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 从无效地址库删除无效地址
+     *  *
+     * @param DeleteInvalidAddressRequest $request DeleteInvalidAddressRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInvalidAddressResponse
+     * @return DeleteInvalidAddressResponse DeleteInvalidAddressResponse
      */
     public function deleteInvalidAddressWithOptions($request, $runtime)
     {
@@ -792,9 +834,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteInvalidAddressRequest $request
+     * @summary 从无效地址库删除无效地址
+     *  *
+     * @param DeleteInvalidAddressRequest $request DeleteInvalidAddressRequest
      *
-     * @return DeleteInvalidAddressResponse
+     * @return DeleteInvalidAddressResponse DeleteInvalidAddressResponse
      */
     public function deleteInvalidAddress($request)
     {
@@ -804,10 +848,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteIpfilterByEdmIdRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 删除IP保护信息
+     *  *
+     * @param DeleteIpfilterByEdmIdRequest $request DeleteIpfilterByEdmIdRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIpfilterByEdmIdResponse
+     * @return DeleteIpfilterByEdmIdResponse DeleteIpfilterByEdmIdResponse
      */
     public function deleteIpfilterByEdmIdWithOptions($request, $runtime)
     {
@@ -847,9 +893,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteIpfilterByEdmIdRequest $request
+     * @summary 删除IP保护信息
+     *  *
+     * @param DeleteIpfilterByEdmIdRequest $request DeleteIpfilterByEdmIdRequest
      *
-     * @return DeleteIpfilterByEdmIdResponse
+     * @return DeleteIpfilterByEdmIdResponse DeleteIpfilterByEdmIdResponse
      */
     public function deleteIpfilterByEdmId($request)
     {
@@ -859,10 +907,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteMailAddressRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 删除发信地址
+     *  *
+     * @param DeleteMailAddressRequest $request DeleteMailAddressRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMailAddressResponse
+     * @return DeleteMailAddressResponse DeleteMailAddressResponse
      */
     public function deleteMailAddressWithOptions($request, $runtime)
     {
@@ -899,9 +949,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteMailAddressRequest $request
+     * @summary 删除发信地址
+     *  *
+     * @param DeleteMailAddressRequest $request DeleteMailAddressRequest
      *
-     * @return DeleteMailAddressResponse
+     * @return DeleteMailAddressResponse DeleteMailAddressResponse
      */
     public function deleteMailAddress($request)
     {
@@ -911,10 +963,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteReceiverRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除收件人列表
+     *  *
+     * @param DeleteReceiverRequest $request DeleteReceiverRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteReceiverResponse
+     * @return DeleteReceiverResponse DeleteReceiverResponse
      */
     public function deleteReceiverWithOptions($request, $runtime)
     {
@@ -951,9 +1005,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteReceiverRequest $request
+     * @summary 删除收件人列表
+     *  *
+     * @param DeleteReceiverRequest $request DeleteReceiverRequest
      *
-     * @return DeleteReceiverResponse
+     * @return DeleteReceiverResponse DeleteReceiverResponse
      */
     public function deleteReceiver($request)
     {
@@ -963,10 +1019,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteReceiverDetailRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 删除单个收件人
+     *  *
+     * @param DeleteReceiverDetailRequest $request DeleteReceiverDetailRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteReceiverDetailResponse
+     * @return DeleteReceiverDetailResponse DeleteReceiverDetailResponse
      */
     public function deleteReceiverDetailWithOptions($request, $runtime)
     {
@@ -1006,9 +1064,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteReceiverDetailRequest $request
+     * @summary 删除单个收件人
+     *  *
+     * @param DeleteReceiverDetailRequest $request DeleteReceiverDetailRequest
      *
-     * @return DeleteReceiverDetailResponse
+     * @return DeleteReceiverDetailResponse DeleteReceiverDetailResponse
      */
     public function deleteReceiverDetail($request)
     {
@@ -1018,10 +1078,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteTagRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 删除标签
+     *  *
+     * @param DeleteTagRequest $request DeleteTagRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTagResponse
+     * @return DeleteTagResponse DeleteTagResponse
      */
     public function deleteTagWithOptions($request, $runtime)
     {
@@ -1058,9 +1120,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DeleteTagRequest $request
+     * @summary 删除标签
+     *  *
+     * @param DeleteTagRequest $request DeleteTagRequest
      *
-     * @return DeleteTagResponse
+     * @return DeleteTagResponse DeleteTagResponse
      */
     public function deleteTag($request)
     {
@@ -1070,10 +1134,10 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DescAccountSummaryRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DescAccountSummaryRequest $request DescAccountSummaryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescAccountSummaryResponse
+     * @return DescAccountSummaryResponse DescAccountSummaryResponse
      */
     public function descAccountSummaryWithOptions($request, $runtime)
     {
@@ -1107,9 +1171,9 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DescAccountSummaryRequest $request
+     * @param DescAccountSummaryRequest $request DescAccountSummaryRequest
      *
-     * @return DescAccountSummaryResponse
+     * @return DescAccountSummaryResponse DescAccountSummaryResponse
      */
     public function descAccountSummary($request)
     {
@@ -1119,10 +1183,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DescDomainRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 获取域名详情
+     *  *
+     * @param DescDomainRequest $request DescDomainRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescDomainResponse
+     * @return DescDomainResponse DescDomainResponse
      */
     public function descDomainWithOptions($request, $runtime)
     {
@@ -1162,9 +1228,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param DescDomainRequest $request
+     * @summary 获取域名详情
+     *  *
+     * @param DescDomainRequest $request DescDomainRequest
      *
-     * @return DescDomainResponse
+     * @return DescDomainResponse DescDomainResponse
      */
     public function descDomain($request)
     {
@@ -1174,10 +1242,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetIpProtectionRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 获取IP保护信息
+     *  *
+     * @param GetIpProtectionRequest $request GetIpProtectionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIpProtectionResponse
+     * @return GetIpProtectionResponse GetIpProtectionResponse
      */
     public function getIpProtectionWithOptions($request, $runtime)
     {
@@ -1211,9 +1281,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetIpProtectionRequest $request
+     * @summary 获取IP保护信息
+     *  *
+     * @param GetIpProtectionRequest $request GetIpProtectionRequest
      *
-     * @return GetIpProtectionResponse
+     * @return GetIpProtectionResponse GetIpProtectionResponse
      */
     public function getIpProtection($request)
     {
@@ -1223,10 +1295,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetIpfilterListRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 获取IP防护信息
+     *  *
+     * @param GetIpfilterListRequest $request GetIpfilterListRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIpfilterListResponse
+     * @return GetIpfilterListResponse GetIpfilterListResponse
      */
     public function getIpfilterListWithOptions($request, $runtime)
     {
@@ -1260,9 +1334,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetIpfilterListRequest $request
+     * @summary 获取IP防护信息
+     *  *
+     * @param GetIpfilterListRequest $request GetIpfilterListRequest
      *
-     * @return GetIpfilterListResponse
+     * @return GetIpfilterListResponse GetIpfilterListResponse
      */
     public function getIpfilterList($request)
     {
@@ -1272,10 +1348,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetSuppressionListLevelRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 获取用户无效地址级别配置
+     *  *
+     * @param GetSuppressionListLevelRequest $request GetSuppressionListLevelRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSuppressionListLevelResponse
+     * @return GetSuppressionListLevelResponse GetSuppressionListLevelResponse
      */
     public function getSuppressionListLevelWithOptions($request, $runtime)
     {
@@ -1309,9 +1387,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetSuppressionListLevelRequest $request
+     * @summary 获取用户无效地址级别配置
+     *  *
+     * @param GetSuppressionListLevelRequest $request GetSuppressionListLevelRequest
      *
-     * @return GetSuppressionListLevelResponse
+     * @return GetSuppressionListLevelResponse GetSuppressionListLevelResponse
      */
     public function getSuppressionListLevel($request)
     {
@@ -1321,10 +1401,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetTrackListRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取跟踪信息
+     *  *
+     * @param GetTrackListRequest $request GetTrackListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTrackListResponse
+     * @return GetTrackListResponse GetTrackListResponse
      */
     public function getTrackListWithOptions($request, $runtime)
     {
@@ -1382,9 +1464,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetTrackListRequest $request
+     * @summary 获取跟踪信息
+     *  *
+     * @param GetTrackListRequest $request GetTrackListRequest
      *
-     * @return GetTrackListResponse
+     * @return GetTrackListResponse GetTrackListResponse
      */
     public function getTrackList($request)
     {
@@ -1394,10 +1478,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetTrackListByMailFromAndTagNameRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 根据发信地址和Tag名称获取跟踪信息
+     *  *
+     * @param GetTrackListByMailFromAndTagNameRequest $request GetTrackListByMailFromAndTagNameRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTrackListByMailFromAndTagNameResponse
+     * @return GetTrackListByMailFromAndTagNameResponse GetTrackListByMailFromAndTagNameResponse
      */
     public function getTrackListByMailFromAndTagNameWithOptions($request, $runtime)
     {
@@ -1461,9 +1547,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetTrackListByMailFromAndTagNameRequest $request
+     * @summary 根据发信地址和Tag名称获取跟踪信息
+     *  *
+     * @param GetTrackListByMailFromAndTagNameRequest $request GetTrackListByMailFromAndTagNameRequest
      *
-     * @return GetTrackListByMailFromAndTagNameResponse
+     * @return GetTrackListByMailFromAndTagNameResponse GetTrackListByMailFromAndTagNameResponse
      */
     public function getTrackListByMailFromAndTagName($request)
     {
@@ -1473,10 +1561,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param ListUserSuppressionRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 列出用户无效地址
+     *  *
+     * @param ListUserSuppressionRequest $request ListUserSuppressionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserSuppressionResponse
+     * @return ListUserSuppressionResponse ListUserSuppressionResponse
      */
     public function listUserSuppressionWithOptions($request, $runtime)
     {
@@ -1531,9 +1621,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param ListUserSuppressionRequest $request
+     * @summary 列出用户无效地址
+     *  *
+     * @param ListUserSuppressionRequest $request ListUserSuppressionRequest
      *
-     * @return ListUserSuppressionResponse
+     * @return ListUserSuppressionResponse ListUserSuppressionResponse
      */
     public function listUserSuppression($request)
     {
@@ -1543,10 +1635,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param ModifyMailAddressRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 修改发信地址
+     *  *
+     * @param ModifyMailAddressRequest $request ModifyMailAddressRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMailAddressResponse
+     * @return ModifyMailAddressResponse ModifyMailAddressResponse
      */
     public function modifyMailAddressWithOptions($request, $runtime)
     {
@@ -1589,9 +1683,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param ModifyMailAddressRequest $request
+     * @summary 修改发信地址
+     *  *
+     * @param ModifyMailAddressRequest $request ModifyMailAddressRequest
      *
-     * @return ModifyMailAddressResponse
+     * @return ModifyMailAddressResponse ModifyMailAddressResponse
      */
     public function modifyMailAddress($request)
     {
@@ -1601,10 +1697,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param ModifyPWByDomainRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 修改域级别密码
+     *  *
+     * @param ModifyPWByDomainRequest $request ModifyPWByDomainRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPWByDomainResponse
+     * @return ModifyPWByDomainResponse ModifyPWByDomainResponse
      */
     public function modifyPWByDomainWithOptions($request, $runtime)
     {
@@ -1644,9 +1742,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param ModifyPWByDomainRequest $request
+     * @summary 修改域级别密码
+     *  *
+     * @param ModifyPWByDomainRequest $request ModifyPWByDomainRequest
      *
-     * @return ModifyPWByDomainResponse
+     * @return ModifyPWByDomainResponse ModifyPWByDomainResponse
      */
     public function modifyPWByDomain($request)
     {
@@ -1656,10 +1756,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param ModifyTagRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 修改标签
+     *  *
+     * @param ModifyTagRequest $request ModifyTagRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTagResponse
+     * @return ModifyTagResponse ModifyTagResponse
      */
     public function modifyTagWithOptions($request, $runtime)
     {
@@ -1702,9 +1804,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param ModifyTagRequest $request
+     * @summary 修改标签
+     *  *
+     * @param ModifyTagRequest $request ModifyTagRequest
      *
-     * @return ModifyTagResponse
+     * @return ModifyTagResponse ModifyTagResponse
      */
     public function modifyTag($request)
     {
@@ -1714,10 +1818,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainByParamRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询域名信息
+     *  *
+     * @param QueryDomainByParamRequest $request QueryDomainByParamRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDomainByParamResponse
+     * @return QueryDomainByParamResponse QueryDomainByParamResponse
      */
     public function queryDomainByParamWithOptions($request, $runtime)
     {
@@ -1763,9 +1869,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryDomainByParamRequest $request
+     * @summary 查询域名信息
+     *  *
+     * @param QueryDomainByParamRequest $request QueryDomainByParamRequest
      *
-     * @return QueryDomainByParamResponse
+     * @return QueryDomainByParamResponse QueryDomainByParamResponse
      */
     public function queryDomainByParam($request)
     {
@@ -1775,10 +1883,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryInvalidAddressRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary NextStart修改为string
+     *  *
+     * @param QueryInvalidAddressRequest $request QueryInvalidAddressRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryInvalidAddressResponse
+     * @return QueryInvalidAddressResponse QueryInvalidAddressResponse
      */
     public function queryInvalidAddressWithOptions($request, $runtime)
     {
@@ -1827,9 +1937,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryInvalidAddressRequest $request
+     * @summary NextStart修改为string
+     *  *
+     * @param QueryInvalidAddressRequest $request QueryInvalidAddressRequest
      *
-     * @return QueryInvalidAddressResponse
+     * @return QueryInvalidAddressResponse QueryInvalidAddressResponse
      */
     public function queryInvalidAddress($request)
     {
@@ -1839,10 +1951,10 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryMailAddressByParamRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param QueryMailAddressByParamRequest $request QueryMailAddressByParamRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMailAddressByParamResponse
+     * @return QueryMailAddressByParamResponse QueryMailAddressByParamResponse
      */
     public function queryMailAddressByParamWithOptions($request, $runtime)
     {
@@ -1888,9 +2000,9 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryMailAddressByParamRequest $request
+     * @param QueryMailAddressByParamRequest $request QueryMailAddressByParamRequest
      *
-     * @return QueryMailAddressByParamResponse
+     * @return QueryMailAddressByParamResponse QueryMailAddressByParamResponse
      */
     public function queryMailAddressByParam($request)
     {
@@ -1900,10 +2012,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryReceiverByParamRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询收信人列表详情
+     *  *
+     * @param QueryReceiverByParamRequest $request QueryReceiverByParamRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryReceiverByParamResponse
+     * @return QueryReceiverByParamResponse QueryReceiverByParamResponse
      */
     public function queryReceiverByParamWithOptions($request, $runtime)
     {
@@ -1949,9 +2063,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryReceiverByParamRequest $request
+     * @summary 查询收信人列表详情
+     *  *
+     * @param QueryReceiverByParamRequest $request QueryReceiverByParamRequest
      *
-     * @return QueryReceiverByParamResponse
+     * @return QueryReceiverByParamResponse QueryReceiverByParamResponse
      */
     public function queryReceiverByParam($request)
     {
@@ -1961,10 +2077,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryReceiverDetailRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 查询收信人列表详情信息
+     *  *
+     * @param QueryReceiverDetailRequest $request QueryReceiverDetailRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryReceiverDetailResponse
+     * @return QueryReceiverDetailResponse QueryReceiverDetailResponse
      */
     public function queryReceiverDetailWithOptions($request, $runtime)
     {
@@ -2010,9 +2128,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryReceiverDetailRequest $request
+     * @summary 查询收信人列表详情信息
+     *  *
+     * @param QueryReceiverDetailRequest $request QueryReceiverDetailRequest
      *
-     * @return QueryReceiverDetailResponse
+     * @return QueryReceiverDetailResponse QueryReceiverDetailResponse
      */
     public function queryReceiverDetail($request)
     {
@@ -2022,10 +2142,10 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryTagByParamRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param QueryTagByParamRequest $request QueryTagByParamRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTagByParamResponse
+     * @return QueryTagByParamResponse QueryTagByParamResponse
      */
     public function queryTagByParamWithOptions($request, $runtime)
     {
@@ -2068,9 +2188,9 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryTagByParamRequest $request
+     * @param QueryTagByParamRequest $request QueryTagByParamRequest
      *
-     * @return QueryTagByParamResponse
+     * @return QueryTagByParamResponse QueryTagByParamResponse
      */
     public function queryTagByParam($request)
     {
@@ -2080,10 +2200,10 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskByParamRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param QueryTaskByParamRequest $request QueryTaskByParamRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTaskByParamResponse
+     * @return QueryTaskByParamResponse QueryTaskByParamResponse
      */
     public function queryTaskByParamWithOptions($request, $runtime)
     {
@@ -2129,9 +2249,9 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskByParamRequest $request
+     * @param QueryTaskByParamRequest $request QueryTaskByParamRequest
      *
-     * @return QueryTaskByParamResponse
+     * @return QueryTaskByParamResponse QueryTaskByParamResponse
      */
     public function queryTaskByParam($request)
     {
@@ -2141,10 +2261,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserSuppressionRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 删除用户无效地址
+     *  *
+     * @param RemoveUserSuppressionRequest $request RemoveUserSuppressionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUserSuppressionResponse
+     * @return RemoveUserSuppressionResponse RemoveUserSuppressionResponse
      */
     public function removeUserSuppressionWithOptions($request, $runtime)
     {
@@ -2181,9 +2303,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserSuppressionRequest $request
+     * @summary 删除用户无效地址
+     *  *
+     * @param RemoveUserSuppressionRequest $request RemoveUserSuppressionRequest
      *
-     * @return RemoveUserSuppressionResponse
+     * @return RemoveUserSuppressionResponse RemoveUserSuppressionResponse
      */
     public function removeUserSuppression($request)
     {
@@ -2193,10 +2317,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SaveReceiverDetailRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 建单个收件人
+     *  *
+     * @param SaveReceiverDetailRequest $request SaveReceiverDetailRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveReceiverDetailResponse
+     * @return SaveReceiverDetailResponse SaveReceiverDetailResponse
      */
     public function saveReceiverDetailWithOptions($request, $runtime)
     {
@@ -2236,9 +2362,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SaveReceiverDetailRequest $request
+     * @summary 建单个收件人
+     *  *
+     * @param SaveReceiverDetailRequest $request SaveReceiverDetailRequest
      *
-     * @return SaveReceiverDetailResponse
+     * @return SaveReceiverDetailResponse SaveReceiverDetailResponse
      */
     public function saveReceiverDetail($request)
     {
@@ -2248,10 +2376,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SendTestByTemplateRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 发送模板测试邮件
+     *  *
+     * @param SendTestByTemplateRequest $request SendTestByTemplateRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendTestByTemplateResponse
+     * @return SendTestByTemplateResponse SendTestByTemplateResponse
      */
     public function sendTestByTemplateWithOptions($request, $runtime)
     {
@@ -2309,9 +2439,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SendTestByTemplateRequest $request
+     * @summary 发送模板测试邮件
+     *  *
+     * @param SendTestByTemplateRequest $request SendTestByTemplateRequest
      *
-     * @return SendTestByTemplateResponse
+     * @return SendTestByTemplateResponse SendTestByTemplateResponse
      */
     public function sendTestByTemplate($request)
     {
@@ -2321,10 +2453,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SenderStatisticsByTagNameAndBatchIDRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 获取指定条件下的发送数据
+     *  *
+     * @param SenderStatisticsByTagNameAndBatchIDRequest $request SenderStatisticsByTagNameAndBatchIDRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SenderStatisticsByTagNameAndBatchIDResponse
+     * @return SenderStatisticsByTagNameAndBatchIDResponse SenderStatisticsByTagNameAndBatchIDResponse
      */
     public function senderStatisticsByTagNameAndBatchIDWithOptions($request, $runtime)
     {
@@ -2370,9 +2504,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SenderStatisticsByTagNameAndBatchIDRequest $request
+     * @summary 获取指定条件下的发送数据
+     *  *
+     * @param SenderStatisticsByTagNameAndBatchIDRequest $request SenderStatisticsByTagNameAndBatchIDRequest
      *
-     * @return SenderStatisticsByTagNameAndBatchIDResponse
+     * @return SenderStatisticsByTagNameAndBatchIDResponse SenderStatisticsByTagNameAndBatchIDResponse
      */
     public function senderStatisticsByTagNameAndBatchID($request)
     {
@@ -2382,10 +2518,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SenderStatisticsDetailByParamRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 查询投递结果详情
+     *  *
+     * @param SenderStatisticsDetailByParamRequest $request SenderStatisticsDetailByParamRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SenderStatisticsDetailByParamResponse
+     * @return SenderStatisticsDetailByParamResponse SenderStatisticsDetailByParamResponse
      */
     public function senderStatisticsDetailByParamWithOptions($request, $runtime)
     {
@@ -2443,9 +2581,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SenderStatisticsDetailByParamRequest $request
+     * @summary 查询投递结果详情
+     *  *
+     * @param SenderStatisticsDetailByParamRequest $request SenderStatisticsDetailByParamRequest
      *
-     * @return SenderStatisticsDetailByParamResponse
+     * @return SenderStatisticsDetailByParamResponse SenderStatisticsDetailByParamResponse
      */
     public function senderStatisticsDetailByParam($request)
     {
@@ -2455,10 +2595,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SetSuppressionListLevelRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 设置用户无效地址级别配置
+     *  *
+     * @param SetSuppressionListLevelRequest $request SetSuppressionListLevelRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetSuppressionListLevelResponse
+     * @return SetSuppressionListLevelResponse SetSuppressionListLevelResponse
      */
     public function setSuppressionListLevelWithOptions($request, $runtime)
     {
@@ -2495,9 +2637,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SetSuppressionListLevelRequest $request
+     * @summary 设置用户无效地址级别配置
+     *  *
+     * @param SetSuppressionListLevelRequest $request SetSuppressionListLevelRequest
      *
-     * @return SetSuppressionListLevelResponse
+     * @return SetSuppressionListLevelResponse SetSuppressionListLevelResponse
      */
     public function setSuppressionListLevel($request)
     {
@@ -2507,10 +2651,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SingleSendMailRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary API发信
+     *  *
+     * @param SingleSendMailRequest $request SingleSendMailRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SingleSendMailResponse
+     * @return SingleSendMailResponse SingleSendMailResponse
      */
     public function singleSendMailWithOptions($request, $runtime)
     {
@@ -2586,9 +2732,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param SingleSendMailRequest $request
+     * @summary API发信
+     *  *
+     * @param SingleSendMailRequest $request SingleSendMailRequest
      *
-     * @return SingleSendMailResponse
+     * @return SingleSendMailResponse SingleSendMailResponse
      */
     public function singleSendMail($request)
     {
@@ -2598,10 +2746,12 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param UpdateIpProtectionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 更新IP防护API
+     *  *
+     * @param UpdateIpProtectionRequest $request UpdateIpProtectionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIpProtectionResponse
+     * @return UpdateIpProtectionResponse UpdateIpProtectionResponse
      */
     public function updateIpProtectionWithOptions($request, $runtime)
     {
@@ -2638,9 +2788,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param UpdateIpProtectionRequest $request
+     * @summary 更新IP防护API
+     *  *
+     * @param UpdateIpProtectionRequest $request UpdateIpProtectionRequest
      *
-     * @return UpdateIpProtectionResponse
+     * @return UpdateIpProtectionResponse UpdateIpProtectionResponse
      */
     public function updateIpProtection($request)
     {

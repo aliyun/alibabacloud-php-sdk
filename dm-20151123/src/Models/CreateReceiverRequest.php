@@ -19,6 +19,8 @@ class CreateReceiverRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vme
      *
      * @var string
@@ -26,6 +28,8 @@ class CreateReceiverRequest extends Model
     public $receiversAlias;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xme
      *
      * @var string

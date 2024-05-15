@@ -35,6 +35,8 @@ class QueryReceiverDetailRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1235
      *
      * @var string

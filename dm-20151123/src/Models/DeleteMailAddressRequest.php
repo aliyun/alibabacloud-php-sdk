@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMailAddressRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23457
      *
      * @var int

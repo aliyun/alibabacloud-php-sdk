@@ -15,21 +15,29 @@ class ListUserSuppressionResponseBody extends Model
     public $data;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1A846D66-5EC7-551B-9687-5BF1963DCFC1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

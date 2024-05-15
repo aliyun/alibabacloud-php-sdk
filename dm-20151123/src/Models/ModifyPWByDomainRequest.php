@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyPWByDomainRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example abc.com
      *
      * @var string
@@ -21,6 +23,8 @@ class ModifyPWByDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pwd
      *
      * @var string
