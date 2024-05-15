@@ -20,6 +20,17 @@
 - Update API ListImages: update response param.
 
 
+2024-05-15 Version: 1.0.1
+- Update API CreateJob: update param Tasks.
+- Update API CreateJob: update response param.
+- Update API GetImage: add param ImageCategory.
+- Update API GetImage: add param ImageType.
+- Update API GetImage: update response param.
+- Update API ListImages: add param ImageCategory.
+- Update API ListImages: add param ImageType.
+- Update API ListImages: update response param.
+
+
 2024-04-24 Version: 1.0.0
 - Generated php 2023-07-01 for EhpcInstant.
 
