@@ -633,6 +633,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceInfoHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceInfoRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceInfoResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceInfoShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceInfoShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceShrinkHeaders;
@@ -11386,6 +11391,82 @@ class Aliding extends OpenApiClient
         $headers = new QueryScheduleConferenceHeaders([]);
 
         return $this->queryScheduleConferenceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询预约会议历史会议信息
+     *  *
+     * @param QueryScheduleConferenceInfoRequest $tmpReq    QueryScheduleConferenceInfoRequest
+     * @param QueryScheduleConferenceInfoHeaders $tmpHeader QueryScheduleConferenceInfoHeaders
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return QueryScheduleConferenceInfoResponse QueryScheduleConferenceInfoResponse
+     */
+    public function queryScheduleConferenceInfoWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryScheduleConferenceInfoShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new QueryScheduleConferenceInfoShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->scheduleConferenceId)) {
+            $body['ScheduleConferenceId'] = $request->scheduleConferenceId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryScheduleConferenceInfo',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/queryScheduleConferenceInfo',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryScheduleConferenceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询预约会议历史会议信息
+     *  *
+     * @param QueryScheduleConferenceInfoRequest $request QueryScheduleConferenceInfoRequest
+     *
+     * @return QueryScheduleConferenceInfoResponse QueryScheduleConferenceInfoResponse
+     */
+    public function queryScheduleConferenceInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryScheduleConferenceInfoHeaders([]);
+
+        return $this->queryScheduleConferenceInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
