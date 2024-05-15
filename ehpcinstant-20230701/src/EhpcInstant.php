@@ -78,10 +78,12 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param AddImageRequest $tmpReq
-     * @param RuntimeOptions  $runtime
+     * @summary 添加托管侧用户自定义镜像
+     *  *
+     * @param AddImageRequest $tmpReq  AddImageRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddImageResponse
+     * @return AddImageResponse AddImageResponse
      */
     public function addImageWithOptions($tmpReq, $runtime)
     {
@@ -129,9 +131,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param AddImageRequest $request
+     * @summary 添加托管侧用户自定义镜像
+     *  *
+     * @param AddImageRequest $request AddImageRequest
      *
-     * @return AddImageResponse
+     * @return AddImageResponse AddImageResponse
      */
     public function addImage($request)
     {
@@ -141,10 +145,12 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param CreateJobRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary 提交任务
+     *  *
+     * @param CreateJobRequest $tmpReq  CreateJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateJobResponse
+     * @return CreateJobResponse CreateJobResponse
      */
     public function createJobWithOptions($tmpReq, $runtime)
     {
@@ -189,9 +195,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param CreateJobRequest $request
+     * @summary 提交任务
+     *  *
+     * @param CreateJobRequest $request CreateJobRequest
      *
-     * @return CreateJobResponse
+     * @return CreateJobResponse CreateJobResponse
      */
     public function createJob($request)
     {
@@ -201,10 +209,12 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param DeleteJobsRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * @summary 删除作业
+     *  *
+     * @param DeleteJobsRequest $tmpReq  DeleteJobsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteJobsResponse
+     * @return DeleteJobsResponse DeleteJobsResponse
      */
     public function deleteJobsWithOptions($tmpReq, $runtime)
     {
@@ -243,9 +253,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param DeleteJobsRequest $request
+     * @summary 删除作业
+     *  *
+     * @param DeleteJobsRequest $request DeleteJobsRequest
      *
-     * @return DeleteJobsResponse
+     * @return DeleteJobsResponse DeleteJobsResponse
      */
     public function deleteJobs($request)
     {
@@ -255,10 +267,12 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobMetricDataRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary 查询作业性能数据
+     *  *
+     * @param DescribeJobMetricDataRequest $tmpReq  DescribeJobMetricDataRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeJobMetricDataResponse
+     * @return DescribeJobMetricDataResponse DescribeJobMetricDataResponse
      */
     public function describeJobMetricDataWithOptions($tmpReq, $runtime)
     {
@@ -300,9 +314,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobMetricDataRequest $request
+     * @summary 查询作业性能数据
+     *  *
+     * @param DescribeJobMetricDataRequest $request DescribeJobMetricDataRequest
      *
-     * @return DescribeJobMetricDataResponse
+     * @return DescribeJobMetricDataResponse DescribeJobMetricDataResponse
      */
     public function describeJobMetricData($request)
     {
@@ -312,10 +328,12 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobMetricLastRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary 查询作业即时监控项
+     *  *
+     * @param DescribeJobMetricLastRequest $tmpReq  DescribeJobMetricLastRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeJobMetricLastResponse
+     * @return DescribeJobMetricLastResponse DescribeJobMetricLastResponse
      */
     public function describeJobMetricLastWithOptions($tmpReq, $runtime)
     {
@@ -354,9 +372,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobMetricLastRequest $request
+     * @summary 查询作业即时监控项
+     *  *
+     * @param DescribeJobMetricLastRequest $request DescribeJobMetricLastRequest
      *
-     * @return DescribeJobMetricLastResponse
+     * @return DescribeJobMetricLastResponse DescribeJobMetricLastResponse
      */
     public function describeJobMetricLast($request)
     {
@@ -366,17 +386,25 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param GetImageRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary 查询托管侧镜像详情。
+     *  *
+     * @param GetImageRequest $request GetImageRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImageResponse
+     * @return GetImageResponse GetImageResponse
      */
     public function getImageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->imageCategory)) {
+            $query['ImageCategory'] = $request->imageCategory;
+        }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->imageType)) {
+            $query['ImageType'] = $request->imageType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -397,9 +425,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param GetImageRequest $request
+     * @summary 查询托管侧镜像详情。
+     *  *
+     * @param GetImageRequest $request GetImageRequest
      *
-     * @return GetImageResponse
+     * @return GetImageResponse GetImageResponse
      */
     public function getImage($request)
     {
@@ -409,10 +439,12 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param GetJobRequest  $request
-     * @param RuntimeOptions $runtime
+     * @summary 查询作业详情
+     *  *
+     * @param GetJobRequest  $request GetJobRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetJobResponse
+     * @return GetJobResponse GetJobResponse
      */
     public function getJobWithOptions($request, $runtime)
     {
@@ -440,9 +472,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param GetJobRequest $request
+     * @summary 查询作业详情
+     *  *
+     * @param GetJobRequest $request GetJobRequest
      *
-     * @return GetJobResponse
+     * @return GetJobResponse GetJobResponse
      */
     public function getJob($request)
     {
@@ -452,10 +486,12 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param ListExecutorsRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 查询全局Executor信息
+     *  *
+     * @param ListExecutorsRequest $tmpReq  ListExecutorsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExecutorsResponse
+     * @return ListExecutorsResponse ListExecutorsResponse
      */
     public function listExecutorsWithOptions($tmpReq, $runtime)
     {
@@ -494,9 +530,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param ListExecutorsRequest $request
+     * @summary 查询全局Executor信息
+     *  *
+     * @param ListExecutorsRequest $request ListExecutorsRequest
      *
-     * @return ListExecutorsResponse
+     * @return ListExecutorsResponse ListExecutorsResponse
      */
     public function listExecutors($request)
     {
@@ -506,10 +544,12 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param ListImagesRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * @summary 查看托管侧镜像列表
+     *  *
+     * @param ListImagesRequest $tmpReq  ListImagesRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListImagesResponse
+     * @return ListImagesResponse ListImagesResponse
      */
     public function listImagesWithOptions($tmpReq, $runtime)
     {
@@ -523,11 +563,17 @@ class EhpcInstant extends OpenApiClient
             $request->imageNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->imageCategory)) {
+            $query['ImageCategory'] = $request->imageCategory;
+        }
         if (!Utils::isUnset($request->imageIdsShrink)) {
             $query['ImageIds'] = $request->imageIdsShrink;
         }
         if (!Utils::isUnset($request->imageNamesShrink)) {
             $query['ImageNames'] = $request->imageNamesShrink;
+        }
+        if (!Utils::isUnset($request->imageType)) {
+            $query['ImageType'] = $request->imageType;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -554,9 +600,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param ListImagesRequest $request
+     * @summary 查看托管侧镜像列表
+     *  *
+     * @param ListImagesRequest $request ListImagesRequest
      *
-     * @return ListImagesResponse
+     * @return ListImagesResponse ListImagesResponse
      */
     public function listImages($request)
     {
@@ -566,10 +614,12 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param ListJobExecutorsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询作业Executor信息
+     *  *
+     * @param ListJobExecutorsRequest $request ListJobExecutorsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListJobExecutorsResponse
+     * @return ListJobExecutorsResponse ListJobExecutorsResponse
      */
     public function listJobExecutorsWithOptions($request, $runtime)
     {
@@ -606,9 +656,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param ListJobExecutorsRequest $request
+     * @summary 查询作业Executor信息
+     *  *
+     * @param ListJobExecutorsRequest $request ListJobExecutorsRequest
      *
-     * @return ListJobExecutorsResponse
+     * @return ListJobExecutorsResponse ListJobExecutorsResponse
      */
     public function listJobExecutors($request)
     {
@@ -618,10 +670,12 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param ListJobsRequest $tmpReq
-     * @param RuntimeOptions  $runtime
+     * @summary 查询作业列表
+     *  *
+     * @param ListJobsRequest $tmpReq  ListJobsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobsWithOptions($tmpReq, $runtime)
     {
@@ -666,9 +720,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param ListJobsRequest $request
+     * @summary 查询作业列表
+     *  *
+     * @param ListJobsRequest $request ListJobsRequest
      *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobs($request)
     {
@@ -678,10 +734,12 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param RemoveImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 移除托管侧镜像信息。
+     *  *
+     * @param RemoveImageRequest $request RemoveImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveImageResponse
+     * @return RemoveImageResponse RemoveImageResponse
      */
     public function removeImageWithOptions($request, $runtime)
     {
@@ -709,9 +767,11 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @param RemoveImageRequest $request
+     * @summary 移除托管侧镜像信息。
+     *  *
+     * @param RemoveImageRequest $request RemoveImageRequest
      *
-     * @return RemoveImageResponse
+     * @return RemoveImageResponse RemoveImageResponse
      */
     public function removeImage($request)
     {

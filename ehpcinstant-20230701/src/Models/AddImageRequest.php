@@ -28,6 +28,8 @@ class AddImageRequest extends Model
     public $imageVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example app-image
      *
      * @var string

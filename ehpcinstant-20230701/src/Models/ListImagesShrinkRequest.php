@@ -11,12 +11,22 @@ class ListImagesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $imageCategory;
+
+    /**
+     * @var string
+     */
     public $imageIdsShrink;
 
     /**
      * @var string
      */
     public $imageNamesShrink;
+
+    /**
+     * @var string
+     */
+    public $imageType;
 
     /**
      * @example 1
@@ -32,8 +42,10 @@ class ListImagesShrinkRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'imageCategory'    => 'ImageCategory',
         'imageIdsShrink'   => 'ImageIds',
         'imageNamesShrink' => 'ImageNames',
+        'imageType'        => 'ImageType',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
     ];
@@ -45,11 +57,17 @@ class ListImagesShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageCategory) {
+            $res['ImageCategory'] = $this->imageCategory;
+        }
         if (null !== $this->imageIdsShrink) {
             $res['ImageIds'] = $this->imageIdsShrink;
         }
         if (null !== $this->imageNamesShrink) {
             $res['ImageNames'] = $this->imageNamesShrink;
+        }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -69,11 +87,17 @@ class ListImagesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageCategory'])) {
+            $model->imageCategory = $map['ImageCategory'];
+        }
         if (isset($map['ImageIds'])) {
             $model->imageIdsShrink = $map['ImageIds'];
         }
         if (isset($map['ImageNames'])) {
             $model->imageNamesShrink = $map['ImageNames'];
+        }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

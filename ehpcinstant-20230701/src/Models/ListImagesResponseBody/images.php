@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @example 2022-12-09T07:06:34Z
      *
      * @var string
@@ -21,6 +28,8 @@ class images extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example m-bp181x855551ww5yq****
      *
      * @var string
@@ -28,6 +37,8 @@ class images extends Model
     public $imageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VM
      *
      * @var string
@@ -48,6 +59,7 @@ class images extends Model
      */
     public $version;
     protected $_name = [
+        'appId'       => 'AppId',
         'createTime'  => 'CreateTime',
         'description' => 'Description',
         'imageId'     => 'ImageId',
@@ -63,6 +75,9 @@ class images extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -93,6 +108,9 @@ class images extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

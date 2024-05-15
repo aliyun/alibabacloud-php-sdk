@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListImagesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $imageCategory;
+
+    /**
      * @var string[]
      */
     public $imageIds;
@@ -17,6 +22,11 @@ class ListImagesRequest extends Model
      * @var string[]
      */
     public $imageNames;
+
+    /**
+     * @var string
+     */
+    public $imageType;
 
     /**
      * @example 1
@@ -32,10 +42,12 @@ class ListImagesRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'imageIds'   => 'ImageIds',
-        'imageNames' => 'ImageNames',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'imageCategory' => 'ImageCategory',
+        'imageIds'      => 'ImageIds',
+        'imageNames'    => 'ImageNames',
+        'imageType'     => 'ImageType',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
     ];
 
     public function validate()
@@ -45,11 +57,17 @@ class ListImagesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageCategory) {
+            $res['ImageCategory'] = $this->imageCategory;
+        }
         if (null !== $this->imageIds) {
             $res['ImageIds'] = $this->imageIds;
         }
         if (null !== $this->imageNames) {
             $res['ImageNames'] = $this->imageNames;
+        }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -69,6 +87,9 @@ class ListImagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageCategory'])) {
+            $model->imageCategory = $map['ImageCategory'];
+        }
         if (isset($map['ImageIds'])) {
             if (!empty($map['ImageIds'])) {
                 $model->imageIds = $map['ImageIds'];
@@ -78,6 +99,9 @@ class ListImagesRequest extends Model
             if (!empty($map['ImageNames'])) {
                 $model->imageNames = $map['ImageNames'];
             }
+        }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

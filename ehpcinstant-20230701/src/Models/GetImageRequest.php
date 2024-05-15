@@ -9,13 +9,27 @@ use AlibabaCloud\Tea\Model;
 class GetImageRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $imageCategory;
+
+    /**
+     * @description This parameter is required.
+     *
      * @example m-2ze74g5mvy4pjg*****
      *
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var string
+     */
+    public $imageType;
     protected $_name = [
-        'imageId' => 'ImageId',
+        'imageCategory' => 'ImageCategory',
+        'imageId'       => 'ImageId',
+        'imageType'     => 'ImageType',
     ];
 
     public function validate()
@@ -25,8 +39,14 @@ class GetImageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageCategory) {
+            $res['ImageCategory'] = $this->imageCategory;
+        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->imageType) {
+            $res['ImageType'] = $this->imageType;
         }
 
         return $res;
@@ -40,8 +60,14 @@ class GetImageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageCategory'])) {
+            $model->imageCategory = $map['ImageCategory'];
+        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['ImageType'])) {
+            $model->imageType = $map['ImageType'];
         }
 
         return $model;

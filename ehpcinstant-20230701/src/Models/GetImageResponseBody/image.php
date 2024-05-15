@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @var containerImageSpec
      */
     public $containerImageSpec;
@@ -28,6 +33,8 @@ class image extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VM
      *
      * @var string
@@ -49,6 +56,11 @@ class image extends Model
     public $size;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var VMImageSpec
      */
     public $VMImageSpec;
@@ -60,12 +72,14 @@ class image extends Model
      */
     public $version;
     protected $_name = [
+        'appId'              => 'AppId',
         'containerImageSpec' => 'ContainerImageSpec',
         'createTime'         => 'CreateTime',
         'description'        => 'Description',
         'imageType'          => 'ImageType',
         'name'               => 'Name',
         'size'               => 'Size',
+        'status'             => 'Status',
         'VMImageSpec'        => 'VMImageSpec',
         'version'            => 'Version',
     ];
@@ -77,6 +91,9 @@ class image extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->containerImageSpec) {
             $res['ContainerImageSpec'] = null !== $this->containerImageSpec ? $this->containerImageSpec->toMap() : null;
         }
@@ -94,6 +111,9 @@ class image extends Model
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->VMImageSpec) {
             $res['VMImageSpec'] = null !== $this->VMImageSpec ? $this->VMImageSpec->toMap() : null;
@@ -113,6 +133,9 @@ class image extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['ContainerImageSpec'])) {
             $model->containerImageSpec = containerImageSpec::fromMap($map['ContainerImageSpec']);
         }
@@ -130,6 +153,9 @@ class image extends Model
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['VMImageSpec'])) {
             $model->VMImageSpec = VMImageSpec::fromMap($map['VMImageSpec']);

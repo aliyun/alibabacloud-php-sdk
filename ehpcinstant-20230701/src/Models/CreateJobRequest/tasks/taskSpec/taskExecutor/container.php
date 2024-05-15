@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class container extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @var string[]
      */
     public $command;
@@ -20,6 +25,8 @@ class container extends Model
     public $environmentVars;
 
     /**
+     * @description This parameter is required.
+     *
      * @example registry-vpc.cn-hangzhou.aliyuncs.com/ehpc/hpl:latest
      *
      * @var string
@@ -33,6 +40,7 @@ class container extends Model
      */
     public $workingDir;
     protected $_name = [
+        'appId'           => 'AppId',
         'command'         => 'Command',
         'environmentVars' => 'EnvironmentVars',
         'image'           => 'Image',
@@ -46,6 +54,9 @@ class container extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
@@ -76,6 +87,9 @@ class container extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['Command'])) {
             if (!empty($map['Command'])) {
                 $model->command = $map['Command'];

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class VM extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
+     * @description This parameter is required.
+     *
      * @example m-xxxx
      *
      * @var string
@@ -29,6 +36,7 @@ class VM extends Model
      */
     public $script;
     protected $_name = [
+        'appId'        => 'AppId',
         'image'        => 'Image',
         'prologScript' => 'PrologScript',
         'script'       => 'Script',
@@ -41,6 +49,9 @@ class VM extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
@@ -62,6 +73,9 @@ class VM extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
