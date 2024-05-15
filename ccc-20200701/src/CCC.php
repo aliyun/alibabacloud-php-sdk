@@ -21,6 +21,9 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\AddPhoneNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddPhoneNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddPhoneNumberToSkillGroupsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddPhoneNumberToSkillGroupsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddSchemaPropertyRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddSchemaPropertyResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\AddSchemaPropertyShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddSkillGroupsToUserRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddSkillGroupsToUserResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\AddUsersToSkillGroupRequest;
@@ -65,6 +68,9 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSchemaRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSchemaResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSchemaShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\CreateUserRequest;
@@ -77,8 +83,15 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteContactFlowRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteContactFlowResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteCustomCallTaggingResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteDocumentRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteDocumentResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteDocumentsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteDocumentsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteDocumentsShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSchemaPropertyRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSchemaPropertyResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSchemaRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSchemaResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DeleteSkillGroupResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\DisableSchemaPropertyRequest;
@@ -113,6 +126,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\GetConversationDetailRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetConversationDetailResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetDataChannelCredentialsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetDataChannelCredentialsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetDocumentUploadParametersRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\GetDocumentUploadParametersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetDoNotCallFileUploadParametersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetDoNotCallFileUploadParametersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\GetEarlyMediaRecordingRequest;
@@ -161,6 +176,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ImportAdminsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportAdminsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCustomCallTaggingResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportDocumentsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportDocumentsResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportDoNotCallNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportDoNotCallNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\InitiateAttendedTransferRequest;
@@ -203,6 +220,9 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ListCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDevicesRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDevicesResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListDocumentsRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListDocumentsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ListDocumentsShrinkRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListDoNotCallNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ListHistoricalAgentReportRequest;
@@ -343,6 +363,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\ResumeCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ResumeCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RetrieveCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\RetrieveCallResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\SaveDocumentRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\SaveDocumentResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SaveRTCStatsV2Request;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SaveRTCStatsV2Response;
 use AlibabaCloud\SDK\CCC\V20200701\Models\SaveTerminalLogRequest;
@@ -381,6 +403,9 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateCampaignRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateCampaignResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateConfigItemsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateConfigItemsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSchemaPropertyRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSchemaPropertyResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\UpdateSchemaPropertyShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -808,6 +833,63 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addPhoneNumbersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddSchemaPropertyRequest $tmpReq  AddSchemaPropertyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddSchemaPropertyResponse AddSchemaPropertyResponse
+     */
+    public function addSchemaPropertyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddSchemaPropertyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->property)) {
+            $request->propertyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->property, 'Property', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->propertyShrink)) {
+            $body['Property'] = $request->propertyShrink;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->schemaId)) {
+            $body['SchemaId'] = $request->schemaId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddSchemaProperty',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddSchemaPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddSchemaPropertyRequest $request AddSchemaPropertyRequest
+     *
+     * @return AddSchemaPropertyResponse AddSchemaPropertyResponse
+     */
+    public function addSchemaProperty($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addSchemaPropertyWithOptions($request, $runtime);
     }
 
     /**
@@ -2035,6 +2117,66 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param CreateSchemaRequest $tmpReq  CreateSchemaRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSchemaResponse CreateSchemaResponse
+     */
+    public function createSchemaWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSchemaShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->properties)) {
+            $request->propertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->properties, 'Properties', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->propertiesShrink)) {
+            $body['Properties'] = $request->propertiesShrink;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSchema',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSchemaRequest $request CreateSchemaRequest
+     *
+     * @return CreateSchemaResponse CreateSchemaResponse
+     */
+    public function createSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSchemaWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateSkillGroupRequest $request CreateSkillGroupRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2355,6 +2497,164 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomCallTaggingWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDocumentRequest $request DeleteDocumentRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDocumentResponse DeleteDocumentResponse
+     */
+    public function deleteDocumentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->documentId)) {
+            $body['DocumentId'] = $request->documentId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->schemaId)) {
+            $body['SchemaId'] = $request->schemaId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDocument',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDocumentRequest $request DeleteDocumentRequest
+     *
+     * @return DeleteDocumentResponse DeleteDocumentResponse
+     */
+    public function deleteDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDocumentsRequest $tmpReq  DeleteDocumentsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDocumentsResponse DeleteDocumentsResponse
+     */
+    public function deleteDocumentsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteDocumentsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->documentIds)) {
+            $request->documentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->documentIdsShrink)) {
+            $body['DocumentIds'] = $request->documentIdsShrink;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->schemaId)) {
+            $body['SchemaId'] = $request->schemaId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDocuments',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDocumentsRequest $request DeleteDocumentsRequest
+     *
+     * @return DeleteDocumentsResponse DeleteDocumentsResponse
+     */
+    public function deleteDocuments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDocumentsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSchemaRequest $request DeleteSchemaRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSchemaResponse DeleteSchemaResponse
+     */
+    public function deleteSchemaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->schemaId)) {
+            $body['SchemaId'] = $request->schemaId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSchema',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSchemaRequest $request DeleteSchemaRequest
+     *
+     * @return DeleteSchemaResponse DeleteSchemaResponse
+     */
+    public function deleteSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSchemaWithOptions($request, $runtime);
     }
 
     /**
@@ -3289,6 +3589,55 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDoNotCallFileUploadParametersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDocumentUploadParametersRequest $request GetDocumentUploadParametersRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDocumentUploadParametersResponse GetDocumentUploadParametersResponse
+     */
+    public function getDocumentUploadParametersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $body['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDocumentUploadParameters',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDocumentUploadParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDocumentUploadParametersRequest $request GetDocumentUploadParametersRequest
+     *
+     * @return GetDocumentUploadParametersResponse GetDocumentUploadParametersResponse
+     */
+    public function getDocumentUploadParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDocumentUploadParametersWithOptions($request, $runtime);
     }
 
     /**
@@ -4451,6 +4800,58 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importDoNotCallNumbersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportDocumentsRequest $request ImportDocumentsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ImportDocumentsResponse ImportDocumentsResponse
+     */
+    public function importDocumentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ossFileKey)) {
+            $body['OssFileKey'] = $request->ossFileKey;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->schemaId)) {
+            $body['SchemaId'] = $request->schemaId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportDocuments',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportDocumentsRequest $request ImportDocumentsRequest
+     *
+     * @return ImportDocumentsResponse ImportDocumentsResponse
+     */
+    public function importDocuments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importDocumentsWithOptions($request, $runtime);
     }
 
     /**
@@ -5716,6 +6117,72 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDoNotCallNumbersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDocumentsRequest $tmpReq  ListDocumentsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDocumentsResponse ListDocumentsResponse
+     */
+    public function listDocumentsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListDocumentsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sorts)) {
+            $request->sortsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sorts, 'Sorts', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nextPageToken)) {
+            $body['NextPageToken'] = $request->nextPageToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->schemaId)) {
+            $body['SchemaId'] = $request->schemaId;
+        }
+        if (!Utils::isUnset($request->searchPattern)) {
+            $body['SearchPattern'] = $request->searchPattern;
+        }
+        if (!Utils::isUnset($request->sortsShrink)) {
+            $body['Sorts'] = $request->sortsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDocuments',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDocumentsRequest $request ListDocumentsRequest
+     *
+     * @return ListDocumentsResponse ListDocumentsResponse
+     */
+    public function listDocuments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDocumentsWithOptions($request, $runtime);
     }
 
     /**
@@ -9460,6 +9927,61 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * @param SaveDocumentRequest $request SaveDocumentRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SaveDocumentResponse SaveDocumentResponse
+     */
+    public function saveDocumentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->documentId)) {
+            $body['DocumentId'] = $request->documentId;
+        }
+        if (!Utils::isUnset($request->documentJson)) {
+            $body['DocumentJson'] = $request->documentJson;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->schemaId)) {
+            $body['SchemaId'] = $request->schemaId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveDocument',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveDocumentRequest $request SaveDocumentRequest
+     *
+     * @return SaveDocumentResponse SaveDocumentResponse
+     */
+    public function saveDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveDocumentWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SaveRTCStatsV2Request $request SaveRTCStatsV2Request
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -10524,5 +11046,62 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateConfigItemsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateSchemaPropertyRequest $tmpReq  UpdateSchemaPropertyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateSchemaPropertyResponse UpdateSchemaPropertyResponse
+     */
+    public function updateSchemaPropertyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateSchemaPropertyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->property)) {
+            $request->propertyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->property, 'Property', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->propertyShrink)) {
+            $body['Property'] = $request->propertyShrink;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->schemaId)) {
+            $body['SchemaId'] = $request->schemaId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSchemaProperty',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSchemaPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateSchemaPropertyRequest $request UpdateSchemaPropertyRequest
+     *
+     * @return UpdateSchemaPropertyResponse UpdateSchemaPropertyResponse
+     */
+    public function updateSchemaProperty($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSchemaPropertyWithOptions($request, $runtime);
     }
 }
