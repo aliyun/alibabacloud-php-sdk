@@ -16,6 +16,7 @@ class DeleteAclRequest extends Model
      *   **Describe**: reads of transactional IDs
      *   **IdempotentWrite**: idempotent data writes to clusters
      *
+     * This parameter is required.
      * @example Write
      *
      * @var string
@@ -56,8 +57,9 @@ class DeleteAclRequest extends Model
      * @description The name of the resource.
      *
      *   The value can be the name of a topic or consumer group.
-     *   You can use an asterisk (\*) to indicate the names of all topics or consumer groups.
+     *   You can use an asterisk (\\*) to indicate the names of all topics or consumer groups.
      *
+     * This parameter is required.
      * @example demo
      *
      * @var string
@@ -70,6 +72,7 @@ class DeleteAclRequest extends Model
      *   **LITERAL:** full match
      *   **PREFIXED**: prefix match
      *
+     * This parameter is required.
      * @example LITERAL
      *
      * @var string
@@ -84,6 +87,7 @@ class DeleteAclRequest extends Model
      *   **Cluster**: cluster
      *   **TransactionalId**: transactional ID
      *
+     * This parameter is required.
      * @example Topic
      *
      * @var string
@@ -102,6 +106,7 @@ class DeleteAclRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-v0h1cng0****
      *
      * @var string
@@ -111,6 +116,7 @@ class DeleteAclRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -120,6 +126,7 @@ class DeleteAclRequest extends Model
     /**
      * @description The name of the user.
      *
+     * This parameter is required.
      * @example test12****
      *
      * @var string

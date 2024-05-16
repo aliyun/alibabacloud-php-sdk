@@ -11,6 +11,7 @@ class ModifyInstanceNameRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-v0h1fgs2****
      *
      * @var string
@@ -20,9 +21,10 @@ class ModifyInstanceNameRequest extends Model
     /**
      * @description The instance name. Valid values:
      *
-     *   The name can contain only letters, digits, hyphens (-), and underscores (\_).
+     *   The name can contain only letters, digits, hyphens (-), and underscores (_).
      *   The name must be 3 to 64 characters in length. A name that contains more than 64 characters is automatically truncated.
      *
+     * This parameter is required.
      * @example dev-test
      *
      * @var string
@@ -32,6 +34,7 @@ class ModifyInstanceNameRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

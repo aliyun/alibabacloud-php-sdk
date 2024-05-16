@@ -14,6 +14,7 @@ class EnableAutoGroupCreationRequest extends Model
      *   **true**: enables the flexible group creation feature.
      *   **false**: disabled the flexible group creation feature.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -23,7 +24,7 @@ class EnableAutoGroupCreationRequest extends Model
     /**
      * @description The instance ID.
      *
-     * You can call the [GetInstanceList](~~437663~~) operation to query instances.
+     * This parameter is required.
      * @example alikafka_post-cn-mp919o4v****
      *
      * @var string
@@ -33,6 +34,7 @@ class EnableAutoGroupCreationRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

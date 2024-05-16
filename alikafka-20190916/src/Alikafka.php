@@ -22,6 +22,9 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateSaslUserRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateSaslUserResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateScheduledScalingRuleRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateScheduledScalingRuleResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateScheduledScalingRuleShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateTopicRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateTopicResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteAclRequest;
@@ -32,6 +35,8 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteSaslUserRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteSaslUserResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteScheduledScalingRuleRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteScheduledScalingRuleResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteTopicRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DeleteTopicResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsRequest;
@@ -46,6 +51,8 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllInstanceIdListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllInstanceIdListResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllowedIpListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAllowedIpListResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAutoScalingConfigurationRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAutoScalingConfigurationResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerListRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerListResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressRequest;
@@ -66,6 +73,8 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyInstanceNameRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyInstanceNameResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyPartitionNumRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyPartitionNumResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyScheduledScalingRuleRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyScheduledScalingRuleResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyTopicRemarkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ModifyTopicRemarkResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\QueryMessageRequest;
@@ -139,10 +148,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Changes the resource group of an ApsaraMQ for Kafka instance.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -176,9 +187,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary Changes the resource group of an ApsaraMQ for Kafka instance.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -188,10 +201,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ConvertPostPayOrderRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
+     *  *
+     * @param ConvertPostPayOrderRequest $request ConvertPostPayOrderRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConvertPostPayOrderResponse
+     * @return ConvertPostPayOrderResponse ConvertPostPayOrderResponse
      */
     public function convertPostPayOrderWithOptions($request, $runtime)
     {
@@ -225,9 +240,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ConvertPostPayOrderRequest $request
+     * @summary Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
+     *  *
+     * @param ConvertPostPayOrderRequest $request ConvertPostPayOrderRequest
      *
-     * @return ConvertPostPayOrderResponse
+     * @return ConvertPostPayOrderResponse ConvertPostPayOrderResponse
      */
     public function convertPostPayOrder($request)
     {
@@ -237,10 +254,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param CreateAclRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Creates an access control list (ACL).
+     *  *
+     * @param CreateAclRequest $request CreateAclRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAclResponse
+     * @return CreateAclResponse CreateAclResponse
      */
     public function createAclWithOptions($request, $runtime)
     {
@@ -295,9 +314,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param CreateAclRequest $request
+     * @summary Creates an access control list (ACL).
+     *  *
+     * @param CreateAclRequest $request CreateAclRequest
      *
-     * @return CreateAclResponse
+     * @return CreateAclResponse CreateAclResponse
      */
     public function createAcl($request)
     {
@@ -307,10 +328,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param CreateConsumerGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a consumer group.
+     *  *
+     * @param CreateConsumerGroupRequest $request CreateConsumerGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
      */
     public function createConsumerGroupWithOptions($request, $runtime)
     {
@@ -350,9 +373,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param CreateConsumerGroupRequest $request
+     * @summary Creates a consumer group.
+     *  *
+     * @param CreateConsumerGroupRequest $request CreateConsumerGroupRequest
      *
-     * @return CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
      */
     public function createConsumerGroup($request)
     {
@@ -362,8 +387,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
-     *   *
+     * @summary Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *  *
      * @param CreatePostPayOrderRequest $tmpReq  CreatePostPayOrderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -439,8 +466,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
-     *   *
+     * @summary Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *  *
      * @param CreatePostPayOrderRequest $request CreatePostPayOrderRequest
      *
      * @return CreatePostPayOrderResponse CreatePostPayOrderResponse
@@ -453,9 +482,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](~~84737~~).
-     *   * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
-     *   *
+     * @summary Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
+     *  *
+     * @description *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
+     *  *
      * @param CreatePrePayOrderRequest $tmpReq  CreatePrePayOrderRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -534,9 +565,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](~~84737~~).
-     *   * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
-     *   *
+     * @summary Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
+     *  *
+     * @description *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
+     *  *
      * @param CreatePrePayOrderRequest $request CreatePrePayOrderRequest
      *
      * @return CreatePrePayOrderResponse CreatePrePayOrderResponse
@@ -549,10 +582,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param CreateSaslUserRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a Simple Authentication and Security Layer (SASL) user.
+     *  *
+     * @param CreateSaslUserRequest $request CreateSaslUserRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSaslUserResponse
+     * @return CreateSaslUserResponse CreateSaslUserResponse
      */
     public function createSaslUserWithOptions($request, $runtime)
     {
@@ -595,9 +630,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param CreateSaslUserRequest $request
+     * @summary Creates a Simple Authentication and Security Layer (SASL) user.
+     *  *
+     * @param CreateSaslUserRequest $request CreateSaslUserRequest
      *
-     * @return CreateSaslUserResponse
+     * @return CreateSaslUserResponse CreateSaslUserResponse
      */
     public function createSaslUser($request)
     {
@@ -607,9 +644,96 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * *   Each Alibaba Cloud account can call this operation up to once per second.
-     *   * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
-     *   *
+     * @summary 创建定时伸缩配置
+     *  *
+     * @param CreateScheduledScalingRuleRequest $tmpReq  CreateScheduledScalingRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateScheduledScalingRuleResponse CreateScheduledScalingRuleResponse
+     */
+    public function createScheduledScalingRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateScheduledScalingRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->weeklyTypes)) {
+            $request->weeklyTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->weeklyTypes, 'WeeklyTypes', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->durationMinutes)) {
+            $query['DurationMinutes'] = $request->durationMinutes;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->firstScheduledTime)) {
+            $query['FirstScheduledTime'] = $request->firstScheduledTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
+        }
+        if (!Utils::isUnset($request->reservedPubFlow)) {
+            $query['ReservedPubFlow'] = $request->reservedPubFlow;
+        }
+        if (!Utils::isUnset($request->reservedSubFlow)) {
+            $query['ReservedSubFlow'] = $request->reservedSubFlow;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->scheduleType)) {
+            $query['ScheduleType'] = $request->scheduleType;
+        }
+        if (!Utils::isUnset($request->timeZone)) {
+            $query['TimeZone'] = $request->timeZone;
+        }
+        if (!Utils::isUnset($request->weeklyTypesShrink)) {
+            $query['WeeklyTypes'] = $request->weeklyTypesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateScheduledScalingRule',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateScheduledScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建定时伸缩配置
+     *  *
+     * @param CreateScheduledScalingRuleRequest $request CreateScheduledScalingRuleRequest
+     *
+     * @return CreateScheduledScalingRuleResponse CreateScheduledScalingRuleResponse
+     */
+    public function createScheduledScalingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createScheduledScalingRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a topic.
+     *  *
+     * @description *   Each Alibaba Cloud account can call this operation up to once per second.
+     * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
+     *  *
      * @param CreateTopicRequest $request CreateTopicRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -671,9 +795,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * *   Each Alibaba Cloud account can call this operation up to once per second.
-     *   * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
-     *   *
+     * @summary Creates a topic.
+     *  *
+     * @description *   Each Alibaba Cloud account can call this operation up to once per second.
+     * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
+     *  *
      * @param CreateTopicRequest $request CreateTopicRequest
      *
      * @return CreateTopicResponse CreateTopicResponse
@@ -686,10 +812,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DeleteAclRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Deletes an access control list (ACL).
+     *  *
+     * @param DeleteAclRequest $request DeleteAclRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAclResponse
+     * @return DeleteAclResponse DeleteAclResponse
      */
     public function deleteAclWithOptions($request, $runtime)
     {
@@ -744,9 +872,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DeleteAclRequest $request
+     * @summary Deletes an access control list (ACL).
+     *  *
+     * @param DeleteAclRequest $request DeleteAclRequest
      *
-     * @return DeleteAclResponse
+     * @return DeleteAclResponse DeleteAclResponse
      */
     public function deleteAcl($request)
     {
@@ -756,10 +886,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DeleteConsumerGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
+     *  *
+     * @param DeleteConsumerGroupRequest $request DeleteConsumerGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroupWithOptions($request, $runtime)
     {
@@ -793,9 +925,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DeleteConsumerGroupRequest $request
+     * @summary Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
+     *  *
+     * @param DeleteConsumerGroupRequest $request DeleteConsumerGroupRequest
      *
-     * @return DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroup($request)
     {
@@ -805,10 +939,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
@@ -839,9 +975,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
+     * @summary Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -851,10 +989,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DeleteSaslUserRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
+     *  *
+     * @param DeleteSaslUserRequest $request DeleteSaslUserRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSaslUserResponse
+     * @return DeleteSaslUserResponse DeleteSaslUserResponse
      */
     public function deleteSaslUserWithOptions($request, $runtime)
     {
@@ -894,9 +1034,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DeleteSaslUserRequest $request
+     * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
+     *  *
+     * @param DeleteSaslUserRequest $request DeleteSaslUserRequest
      *
-     * @return DeleteSaslUserResponse
+     * @return DeleteSaslUserResponse DeleteSaslUserResponse
      */
     public function deleteSaslUser($request)
     {
@@ -906,10 +1048,65 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DeleteTopicRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 删除定时伸缩规则
+     *  *
+     * @param DeleteScheduledScalingRuleRequest $request DeleteScheduledScalingRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTopicResponse
+     * @return DeleteScheduledScalingRuleResponse DeleteScheduledScalingRuleResponse
+     */
+    public function deleteScheduledScalingRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteScheduledScalingRule',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteScheduledScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除定时伸缩规则
+     *  *
+     * @param DeleteScheduledScalingRuleRequest $request DeleteScheduledScalingRuleRequest
+     *
+     * @return DeleteScheduledScalingRuleResponse DeleteScheduledScalingRuleResponse
+     */
+    public function deleteScheduledScalingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteScheduledScalingRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a topic.
+     *  *
+     * @param DeleteTopicRequest $request DeleteTopicRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteTopicResponse DeleteTopicResponse
      */
     public function deleteTopicWithOptions($request, $runtime)
     {
@@ -943,9 +1140,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DeleteTopicRequest $request
+     * @summary Deletes a topic.
+     *  *
+     * @param DeleteTopicRequest $request DeleteTopicRequest
      *
-     * @return DeleteTopicResponse
+     * @return DeleteTopicResponse DeleteTopicResponse
      */
     public function deleteTopic($request)
     {
@@ -955,10 +1154,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DescribeAclsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries access control lists (ACLs).
+     *  *
+     * @param DescribeAclsRequest $request DescribeAclsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAclsResponse
+     * @return DescribeAclsResponse DescribeAclsResponse
      */
     public function describeAclsWithOptions($request, $runtime)
     {
@@ -1010,9 +1211,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DescribeAclsRequest $request
+     * @summary Queries access control lists (ACLs).
+     *  *
+     * @param DescribeAclsRequest $request DescribeAclsRequest
      *
-     * @return DescribeAclsResponse
+     * @return DescribeAclsResponse DescribeAclsResponse
      */
     public function describeAcls($request)
     {
@@ -1022,10 +1225,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DescribeSaslUsersRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries Simple Authentication and Security Layer (SASL) users.
+     *  *
+     * @param DescribeSaslUsersRequest $request DescribeSaslUsersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSaslUsersResponse
+     * @return DescribeSaslUsersResponse DescribeSaslUsersResponse
      */
     public function describeSaslUsersWithOptions($request, $runtime)
     {
@@ -1056,9 +1261,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param DescribeSaslUsersRequest $request
+     * @summary Queries Simple Authentication and Security Layer (SASL) users.
+     *  *
+     * @param DescribeSaslUsersRequest $request DescribeSaslUsersRequest
      *
-     * @return DescribeSaslUsersResponse
+     * @return DescribeSaslUsersResponse DescribeSaslUsersResponse
      */
     public function describeSaslUsers($request)
     {
@@ -1068,10 +1275,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param EnableAutoGroupCreationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Enables and disables the flexible group creation feature.
+     *  *
+     * @param EnableAutoGroupCreationRequest $request EnableAutoGroupCreationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableAutoGroupCreationResponse
+     * @return EnableAutoGroupCreationResponse EnableAutoGroupCreationResponse
      */
     public function enableAutoGroupCreationWithOptions($request, $runtime)
     {
@@ -1105,9 +1314,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param EnableAutoGroupCreationRequest $request
+     * @summary Enables and disables the flexible group creation feature.
+     *  *
+     * @param EnableAutoGroupCreationRequest $request EnableAutoGroupCreationRequest
      *
-     * @return EnableAutoGroupCreationResponse
+     * @return EnableAutoGroupCreationResponse EnableAutoGroupCreationResponse
      */
     public function enableAutoGroupCreation($request)
     {
@@ -1117,10 +1328,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param EnableAutoTopicCreationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
+     *  *
+     * @param EnableAutoTopicCreationRequest $request EnableAutoTopicCreationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableAutoTopicCreationResponse
+     * @return EnableAutoTopicCreationResponse EnableAutoTopicCreationResponse
      */
     public function enableAutoTopicCreationWithOptions($request, $runtime)
     {
@@ -1157,9 +1370,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param EnableAutoTopicCreationRequest $request
+     * @summary Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
+     *  *
+     * @param EnableAutoTopicCreationRequest $request EnableAutoTopicCreationRequest
      *
-     * @return EnableAutoTopicCreationResponse
+     * @return EnableAutoTopicCreationResponse EnableAutoTopicCreationResponse
      */
     public function enableAutoTopicCreation($request)
     {
@@ -1169,10 +1384,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetAllInstanceIdListRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the IDs of all instances in the current account.
+     *  *
+     * @param GetAllInstanceIdListRequest $request GetAllInstanceIdListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAllInstanceIdListResponse
+     * @return GetAllInstanceIdListResponse GetAllInstanceIdListResponse
      */
     public function getAllInstanceIdListWithOptions($request, $runtime)
     {
@@ -1200,9 +1417,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetAllInstanceIdListRequest $request
+     * @summary Queries the IDs of all instances in the current account.
+     *  *
+     * @param GetAllInstanceIdListRequest $request GetAllInstanceIdListRequest
      *
-     * @return GetAllInstanceIdListResponse
+     * @return GetAllInstanceIdListResponse GetAllInstanceIdListResponse
      */
     public function getAllInstanceIdList($request)
     {
@@ -1212,10 +1431,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetAllowedIpListRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the IP address whitelist.
+     *  *
+     * @param GetAllowedIpListRequest $request GetAllowedIpListRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAllowedIpListResponse
+     * @return GetAllowedIpListResponse GetAllowedIpListResponse
      */
     public function getAllowedIpListWithOptions($request, $runtime)
     {
@@ -1246,9 +1467,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetAllowedIpListRequest $request
+     * @summary Queries the IP address whitelist.
+     *  *
+     * @param GetAllowedIpListRequest $request GetAllowedIpListRequest
      *
-     * @return GetAllowedIpListResponse
+     * @return GetAllowedIpListResponse GetAllowedIpListResponse
      */
     public function getAllowedIpList($request)
     {
@@ -1258,10 +1481,62 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetConsumerListRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 查询自动伸缩配置
+     *  *
+     * @param GetAutoScalingConfigurationRequest $request GetAutoScalingConfigurationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetConsumerListResponse
+     * @return GetAutoScalingConfigurationResponse GetAutoScalingConfigurationResponse
+     */
+    public function getAutoScalingConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAutoScalingConfiguration',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAutoScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询自动伸缩配置
+     *  *
+     * @param GetAutoScalingConfigurationRequest $request GetAutoScalingConfigurationRequest
+     *
+     * @return GetAutoScalingConfigurationResponse GetAutoScalingConfigurationResponse
+     */
+    public function getAutoScalingConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAutoScalingConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
+     *  *
+     * @param GetConsumerListRequest $request GetConsumerListRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetConsumerListResponse GetConsumerListResponse
      */
     public function getConsumerListWithOptions($request, $runtime)
     {
@@ -1301,9 +1576,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetConsumerListRequest $request
+     * @summary Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
+     *  *
+     * @param GetConsumerListRequest $request GetConsumerListRequest
      *
-     * @return GetConsumerListResponse
+     * @return GetConsumerListResponse GetConsumerListResponse
      */
     public function getConsumerList($request)
     {
@@ -1313,10 +1590,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetConsumerProgressRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the consumer progress of a consumer group.
+     *  *
+     * @param GetConsumerProgressRequest $request GetConsumerProgressRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetConsumerProgressResponse
+     * @return GetConsumerProgressResponse GetConsumerProgressResponse
      */
     public function getConsumerProgressWithOptions($request, $runtime)
     {
@@ -1350,9 +1629,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetConsumerProgressRequest $request
+     * @summary Queries the consumer progress of a consumer group.
+     *  *
+     * @param GetConsumerProgressRequest $request GetConsumerProgressRequest
      *
-     * @return GetConsumerProgressResponse
+     * @return GetConsumerProgressResponse GetConsumerProgressResponse
      */
     public function getConsumerProgress($request)
     {
@@ -1362,10 +1643,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceListRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the information about instances in a specified region.
+     *  *
+     * @param GetInstanceListRequest $request GetInstanceListRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceListResponse
+     * @return GetInstanceListResponse GetInstanceListResponse
      */
     public function getInstanceListWithOptions($request, $runtime)
     {
@@ -1408,9 +1691,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceListRequest $request
+     * @summary Queries the information about instances in a specified region.
+     *  *
+     * @param GetInstanceListRequest $request GetInstanceListRequest
      *
-     * @return GetInstanceListResponse
+     * @return GetInstanceListResponse GetInstanceListResponse
      */
     public function getInstanceList($request)
     {
@@ -1420,10 +1705,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetQuotaTipRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the used quota of topics and partitions.
+     *  *
+     * @param GetQuotaTipRequest $request GetQuotaTipRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQuotaTipResponse
+     * @return GetQuotaTipResponse GetQuotaTipResponse
      */
     public function getQuotaTipWithOptions($request, $runtime)
     {
@@ -1454,9 +1741,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetQuotaTipRequest $request
+     * @summary Queries the used quota of topics and partitions.
+     *  *
+     * @param GetQuotaTipRequest $request GetQuotaTipRequest
      *
-     * @return GetQuotaTipResponse
+     * @return GetQuotaTipResponse GetQuotaTipResponse
      */
     public function getQuotaTip($request)
     {
@@ -1466,10 +1755,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetTopicListRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the information about a topic.
+     *  *
+     * @param GetTopicListRequest $request GetTopicListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTopicListResponse
+     * @return GetTopicListResponse GetTopicListResponse
      */
     public function getTopicListWithOptions($request, $runtime)
     {
@@ -1509,9 +1800,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetTopicListRequest $request
+     * @summary Queries the information about a topic.
+     *  *
+     * @param GetTopicListRequest $request GetTopicListRequest
      *
-     * @return GetTopicListResponse
+     * @return GetTopicListResponse GetTopicListResponse
      */
     public function getTopicList($request)
     {
@@ -1521,10 +1814,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetTopicStatusRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the status information about messages in a specified topic.
+     *  *
+     * @param GetTopicStatusRequest $request GetTopicStatusRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTopicStatusResponse
+     * @return GetTopicStatusResponse GetTopicStatusResponse
      */
     public function getTopicStatusWithOptions($request, $runtime)
     {
@@ -1558,9 +1853,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetTopicStatusRequest $request
+     * @summary Queries the status information about messages in a specified topic.
+     *  *
+     * @param GetTopicStatusRequest $request GetTopicStatusRequest
      *
-     * @return GetTopicStatusResponse
+     * @return GetTopicStatusResponse GetTopicStatusResponse
      */
     public function getTopicStatus($request)
     {
@@ -1570,10 +1867,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetTopicSubscribeStatusRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Obtains the information about a group that subscribes to a topic.
+     *  *
+     * @param GetTopicSubscribeStatusRequest $request GetTopicSubscribeStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTopicSubscribeStatusResponse
+     * @return GetTopicSubscribeStatusResponse GetTopicSubscribeStatusResponse
      */
     public function getTopicSubscribeStatusWithOptions($request, $runtime)
     {
@@ -1607,9 +1906,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param GetTopicSubscribeStatusRequest $request
+     * @summary Obtains the information about a group that subscribes to a topic.
+     *  *
+     * @param GetTopicSubscribeStatusRequest $request GetTopicSubscribeStatusRequest
      *
-     * @return GetTopicSubscribeStatusResponse
+     * @return GetTopicSubscribeStatusResponse GetTopicSubscribeStatusResponse
      */
     public function getTopicSubscribeStatus($request)
     {
@@ -1619,10 +1920,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the tags that are attached to a specified resource.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -1662,9 +1965,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the tags that are attached to a specified resource.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1674,10 +1979,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceNameRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
+     *  *
+     * @param ModifyInstanceNameRequest $request ModifyInstanceNameRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceNameResponse
+     * @return ModifyInstanceNameResponse ModifyInstanceNameResponse
      */
     public function modifyInstanceNameWithOptions($request, $runtime)
     {
@@ -1711,9 +2018,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceNameRequest $request
+     * @summary Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
+     *  *
+     * @param ModifyInstanceNameRequest $request ModifyInstanceNameRequest
      *
-     * @return ModifyInstanceNameResponse
+     * @return ModifyInstanceNameResponse ModifyInstanceNameResponse
      */
     public function modifyInstanceName($request)
     {
@@ -1723,10 +2032,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ModifyPartitionNumRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Changes the number of partitions in a specified topic.
+     *  *
+     * @param ModifyPartitionNumRequest $request ModifyPartitionNumRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPartitionNumResponse
+     * @return ModifyPartitionNumResponse ModifyPartitionNumResponse
      */
     public function modifyPartitionNumWithOptions($request, $runtime)
     {
@@ -1763,9 +2074,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ModifyPartitionNumRequest $request
+     * @summary Changes the number of partitions in a specified topic.
+     *  *
+     * @param ModifyPartitionNumRequest $request ModifyPartitionNumRequest
      *
-     * @return ModifyPartitionNumResponse
+     * @return ModifyPartitionNumResponse ModifyPartitionNumResponse
      */
     public function modifyPartitionNum($request)
     {
@@ -1775,10 +2088,68 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ModifyTopicRemarkRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 修改定时伸缩规则
+     *  *
+     * @param ModifyScheduledScalingRuleRequest $request ModifyScheduledScalingRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTopicRemarkResponse
+     * @return ModifyScheduledScalingRuleResponse ModifyScheduledScalingRuleResponse
+     */
+    public function modifyScheduledScalingRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyScheduledScalingRule',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyScheduledScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改定时伸缩规则
+     *  *
+     * @param ModifyScheduledScalingRuleRequest $request ModifyScheduledScalingRuleRequest
+     *
+     * @return ModifyScheduledScalingRuleResponse ModifyScheduledScalingRuleResponse
+     */
+    public function modifyScheduledScalingRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyScheduledScalingRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the description of a topic.
+     *  *
+     * @param ModifyTopicRemarkRequest $request ModifyTopicRemarkRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyTopicRemarkResponse ModifyTopicRemarkResponse
      */
     public function modifyTopicRemarkWithOptions($request, $runtime)
     {
@@ -1815,9 +2186,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param ModifyTopicRemarkRequest $request
+     * @summary Modifies the description of a topic.
+     *  *
+     * @param ModifyTopicRemarkRequest $request ModifyTopicRemarkRequest
      *
-     * @return ModifyTopicRemarkResponse
+     * @return ModifyTopicRemarkResponse ModifyTopicRemarkResponse
      */
     public function modifyTopicRemark($request)
     {
@@ -1827,10 +2200,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param QueryMessageRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries messages stored in a topic. You can query messages by creation time or offset.
+     *  *
+     * @param QueryMessageRequest $request QueryMessageRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMessageResponse
+     * @return QueryMessageResponse QueryMessageResponse
      */
     public function queryMessageWithOptions($request, $runtime)
     {
@@ -1855,9 +2230,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param QueryMessageRequest $request
+     * @summary Queries messages stored in a topic. You can query messages by creation time or offset.
+     *  *
+     * @param QueryMessageRequest $request QueryMessageRequest
      *
-     * @return QueryMessageResponse
+     * @return QueryMessageResponse QueryMessageResponse
      */
     public function queryMessage($request)
     {
@@ -1867,8 +2244,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
-     *   *
+     * @summary Releases a pay-as-you-go Message Queue for Apache Kafka instance.
+     *  *
+     * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+     *  *
      * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1906,8 +2285,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
-     *   *
+     * @summary Releases a pay-as-you-go Message Queue for Apache Kafka instance.
+     *  *
+     * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+     *  *
      * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
      *
      * @return ReleaseInstanceResponse ReleaseInstanceResponse
@@ -1920,8 +2301,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * You can call this operation only if your instance is in the Stopped state.
-     *   *
+     * @summary Enables an ApsaraMQ for Kafka instance.
+     *  *
+     * @description You can call this operation only if your instance is in the Stopped state.
+     *  *
      * @param ReopenInstanceRequest $request ReopenInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1956,8 +2339,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * You can call this operation only if your instance is in the Stopped state.
-     *   *
+     * @summary Enables an ApsaraMQ for Kafka instance.
+     *  *
+     * @description You can call this operation only if your instance is in the Stopped state.
+     *  *
      * @param ReopenInstanceRequest $request ReopenInstanceRequest
      *
      * @return ReopenInstanceResponse ReopenInstanceResponse
@@ -1970,8 +2355,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to twice per second.
-     *   *
+     * @summary Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
+     *  *
+     * @description >  You can call this operation up to twice per second.
+     *  *
      * @param StartInstanceRequest $request StartInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2063,8 +2450,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation up to twice per second.
-     *   *
+     * @summary Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
+     *  *
+     * @description >  You can call this operation up to twice per second.
+     *  *
      * @param StartInstanceRequest $request StartInstanceRequest
      *
      * @return StartInstanceResponse StartInstanceResponse
@@ -2077,8 +2466,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
-     *   *
+     * @summary Stops an ApsaraMQ for Kafka instance.
+     *  *
+     * @description You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+     *  *
      * @param StopInstanceRequest $request StopInstanceRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -2113,8 +2504,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
-     *   *
+     * @summary Stops an ApsaraMQ for Kafka instance.
+     *  *
+     * @description You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+     *  *
      * @param StopInstanceRequest $request StopInstanceRequest
      *
      * @return StopInstanceResponse StopInstanceResponse
@@ -2127,10 +2520,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Attaches a tag to a resource.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -2170,9 +2565,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Attaches a tag to a resource.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2182,10 +2579,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Detaches tags from a specified resource.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -2225,9 +2624,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Detaches tags from a specified resource.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -2237,10 +2638,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpdateAllowedIpRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
+     *  *
+     * @param UpdateAllowedIpRequest $request UpdateAllowedIpRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAllowedIpResponse
+     * @return UpdateAllowedIpResponse UpdateAllowedIpResponse
      */
     public function updateAllowedIpWithOptions($request, $runtime)
     {
@@ -2286,9 +2689,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpdateAllowedIpRequest $request
+     * @summary Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
+     *  *
+     * @param UpdateAllowedIpRequest $request UpdateAllowedIpRequest
      *
-     * @return UpdateAllowedIpResponse
+     * @return UpdateAllowedIpResponse UpdateAllowedIpResponse
      */
     public function updateAllowedIp($request)
     {
@@ -2298,11 +2703,13 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
-     *   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
-     *   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
-     *   * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
-     *   *
+     * @summary Resets the consumer offsets of the subscribed topics of a consumer group.
+     *  *
+     * @description You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
+     * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
+     * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
+     * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
+     *  *
      * @param UpdateConsumerOffsetRequest $tmpReq  UpdateConsumerOffsetRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -2357,11 +2764,13 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
-     *   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
-     *   * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
-     *   * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
-     *   *
+     * @summary Resets the consumer offsets of the subscribed topics of a consumer group.
+     *  *
+     * @description You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
+     * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
+     * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
+     * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
+     *  *
      * @param UpdateConsumerOffsetRequest $request UpdateConsumerOffsetRequest
      *
      * @return UpdateConsumerOffsetResponse UpdateConsumerOffsetResponse
@@ -2374,12 +2783,14 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * ## **Permissions**
-     *   * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](~~185815~~).
-     *   * |API|Action|Resource|
-     *   * |---|---|---|
-     *   * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|.
-     *   *
+     * @summary Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
+     *  *
+     * @description ## **Permissions**
+     * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
+     * |API|Action|Resource|
+     * |---|---|---|
+     * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
+     *  *
      * @param UpdateInstanceConfigRequest $request UpdateInstanceConfigRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -2417,12 +2828,14 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * ## **Permissions**
-     *   * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](~~185815~~).
-     *   * |API|Action|Resource|
-     *   * |---|---|---|
-     *   * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|.
-     *   *
+     * @summary Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
+     *  *
+     * @description ## **Permissions**
+     * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
+     * |API|Action|Resource|
+     * |---|---|---|
+     * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
+     *  *
      * @param UpdateInstanceConfigRequest $request UpdateInstanceConfigRequest
      *
      * @return UpdateInstanceConfigResponse UpdateInstanceConfigResponse
@@ -2435,10 +2848,12 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpdateTopicConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
+     *  *
+     * @param UpdateTopicConfigRequest $request UpdateTopicConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTopicConfigResponse
+     * @return UpdateTopicConfigResponse UpdateTopicConfigResponse
      */
     public function updateTopicConfigWithOptions($request, $runtime)
     {
@@ -2478,9 +2893,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @param UpdateTopicConfigRequest $request
+     * @summary Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
+     *  *
+     * @param UpdateTopicConfigRequest $request UpdateTopicConfigRequest
      *
-     * @return UpdateTopicConfigResponse
+     * @return UpdateTopicConfigResponse UpdateTopicConfigResponse
      */
     public function updateTopicConfig($request)
     {
@@ -2490,14 +2907,16 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * ## **Permissions**
-     *   * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
-     *   * |API|Action|Resource|
-     *   * |---|---|---|
-     *   * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
-     *   * ## **QPS limits**
-     *   * You can send a maximum of two queries per second (QPS).
-     *   *
+     * @summary Updates the version of an instance.
+     *  *
+     * @description ## **Permissions**
+     * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
+     * |API|Action|Resource|
+     * |---|---|---|
+     * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+     * ## **QPS limits**
+     * You can send a maximum of two queries per second (QPS).
+     *  *
      * @param UpgradeInstanceVersionRequest $request UpgradeInstanceVersionRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -2535,14 +2954,16 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * ## **Permissions**
-     *   * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](~~185815~~).
-     *   * |API|Action|Resource|
-     *   * |---|---|---|
-     *   * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
-     *   * ## **QPS limits**
-     *   * You can send a maximum of two queries per second (QPS).
-     *   *
+     * @summary Updates the version of an instance.
+     *  *
+     * @description ## **Permissions**
+     * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
+     * |API|Action|Resource|
+     * |---|---|---|
+     * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
+     * ## **QPS limits**
+     * You can send a maximum of two queries per second (QPS).
+     *  *
      * @param UpgradeInstanceVersionRequest $request UpgradeInstanceVersionRequest
      *
      * @return UpgradeInstanceVersionResponse UpgradeInstanceVersionResponse
@@ -2555,8 +2976,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
-     *   *
+     * @summary Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *  *
      * @param UpgradePostPayOrderRequest $tmpReq  UpgradePostPayOrderRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2623,8 +3046,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](~~84737~~).
-     *   *
+     * @summary Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *  *
      * @param UpgradePostPayOrderRequest $request UpgradePostPayOrderRequest
      *
      * @return UpgradePostPayOrderResponse UpgradePostPayOrderResponse
@@ -2637,8 +3062,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](~~84737~~).
-     *   *
+     * @summary Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+     *  *
      * @param UpgradePrePayOrderRequest $tmpReq  UpgradePrePayOrderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -2708,8 +3135,10 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](~~84737~~).
-     *   *
+     * @summary Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+     *  *
      * @param UpgradePrePayOrderRequest $request UpgradePrePayOrderRequest
      *
      * @return UpgradePrePayOrderResponse UpgradePrePayOrderResponse

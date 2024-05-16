@@ -37,7 +37,7 @@ class DescribeSaslUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The SASL users.
+     * @description The Simple Authentication and Security Layer (SASL) users.
      *
      * @var saslUserList
      */

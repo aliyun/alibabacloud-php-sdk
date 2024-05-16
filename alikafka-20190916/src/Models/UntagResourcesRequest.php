@@ -20,6 +20,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The ID of the region in which the resource is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,6 +30,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The IDs of the resources from which you want to detach tags.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-v0h1fgs2****
      *
      * @var string[]
@@ -42,7 +44,7 @@ class UntagResourcesRequest extends Model
      *   **TOPIC**
      *   **CONSUMERGROUP**
      *
-     * >  The value of this parameter is not case-sensitive.
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

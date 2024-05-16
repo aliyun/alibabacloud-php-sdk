@@ -11,6 +11,7 @@ class DeleteConsumerGroupRequest extends Model
     /**
      * @description The name of the consumer group.
      *
+     * This parameter is required.
      * @example CID-test
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteConsumerGroupRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-v0h1fgs2****
      *
      * @var string
@@ -29,6 +31,7 @@ class DeleteConsumerGroupRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

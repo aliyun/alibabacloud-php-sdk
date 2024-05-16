@@ -12,7 +12,7 @@ class UpgradePostPayOrderShrinkRequest extends Model
      * @description The disk size. Unit: GB.
      *
      *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
-     *   For information about the valid values of this parameter, see [Billing](~~84737~~).
+     *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
      * @example 500
@@ -25,7 +25,7 @@ class UpgradePostPayOrderShrinkRequest extends Model
      * @description The Internet traffic for the instance.
      *
      *   The Internet traffic that you specify must be greater than or equal to the current Internet traffic of the instance.
-     *   For information about the valid values of this parameter, see [Billing](~~84737~~).
+     *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * >
      *
@@ -56,6 +56,7 @@ class UpgradePostPayOrderShrinkRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-mp919o4v****
      *
      * @var string
@@ -67,7 +68,7 @@ class UpgradePostPayOrderShrinkRequest extends Model
      *
      *   The maximum traffic that you specify must be greater than or equal to the current maximum traffic of the instance.
      *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
-     *   For information about the valid values of this parameter, see [Billing](~~84737~~).
+     *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
      * @example 60
@@ -81,7 +82,7 @@ class UpgradePostPayOrderShrinkRequest extends Model
      *
      *   The traffic specification that you specify must be greater than or equal to the current traffic specification of the instance.
      *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
-     *   For information about the valid values of this parameter, see [Billing](~~84737~~).
+     *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
      * @example alikafka.hw.6xlarge
@@ -95,7 +96,7 @@ class UpgradePostPayOrderShrinkRequest extends Model
      *
      *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only ParittionNum.
      *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
-     *   For information about the valid values of this parameter, see [Billing](~~84737~~).
+     *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
      * @example 80
@@ -107,6 +108,7 @@ class UpgradePostPayOrderShrinkRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -114,7 +116,7 @@ class UpgradePostPayOrderShrinkRequest extends Model
     public $regionId;
 
     /**
-     * @description The parameters configured for the Serverless instance. When you create an ApsaraMQ for Kafka V3 serverless instance, you must configure these parameters.
+     * @description The parameters that are configured for the ApsaraMQ for Kafka serverless instance. When you create a serverless ApsaraMQ for Kafka instance, you must configure these parameters.
      *
      * @var string
      */
@@ -134,7 +136,7 @@ class UpgradePostPayOrderShrinkRequest extends Model
      *   normal: Serverless Standard Edition
      *   professional: Serverless Professional Edition
      *
-     * For more information, see [Billing](~~84737~~).
+     * For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      * @example professional
      *
      * @var string
@@ -147,7 +149,7 @@ class UpgradePostPayOrderShrinkRequest extends Model
      *   You must configure one of PartitionNum and TopicQuota. We recommend that you configure only ParittionNum.
      *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
      *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you consume exceeds the default value, you are charged additional fees.
-     *   For information about the valid values of this parameter, see [Billing](~~84737~~).
+     *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * >  When you create an ApsaraMQ for Kafka V3 serverless instance, you do not need to configure this parameter.
      * @example 80

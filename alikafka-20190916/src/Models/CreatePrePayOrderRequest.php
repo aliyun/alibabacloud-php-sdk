@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePrePayOrderRequest extends Model
 {
     /**
+     * @description The configurations of ApsaraMQ for Confluent components.
+     *
      * @var confluentConfig
      */
     public $confluentConfig;
@@ -30,7 +32,7 @@ class CreatePrePayOrderRequest extends Model
     /**
      * @description The disk size. Unit: GB.
      *
-     * For more information about the valid values, see [Billing](~~84737~~).
+     * For more information about the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      * @example 500
      *
      * @var int
@@ -50,6 +52,12 @@ class CreatePrePayOrderRequest extends Model
     public $diskType;
 
     /**
+     * @description The subscription duration. Unit: months. Default value: 1. Valid values:
+     *
+     *   **1 to 12**
+     *
+     * @example 1
+     *
      * @var int
      */
     public $duration;
@@ -58,7 +66,7 @@ class CreatePrePayOrderRequest extends Model
      * @description The Internet traffic for the instance.
      *
      *   This parameter is required if the **DeployType** parameter is set to **4**.
-     *   For more information about the valid values, see [Pay-as-you-go](~~72142~~).
+     *   For more information about the valid values, see [Pay-as-you-go](https://help.aliyun.com/document_detail/72142.html).
      *
      * @example 0
      *
@@ -70,7 +78,7 @@ class CreatePrePayOrderRequest extends Model
      * @description The maximum traffic for the instance. We recommend that you do not configure this parameter.
      *
      *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
-     *   For more information about the valid values, see [Billing](~~84737~~).
+     *   For more information about the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * @example 20
      *
@@ -82,7 +90,7 @@ class CreatePrePayOrderRequest extends Model
      * @description The traffic specification of the instance. We recommend that you configure this parameter.
      *
      *   You must configure at least one of the **IoMax** and **IoMaxSpec** parameters. If both parameters are configured, the value of the **IoMaxSpec** parameter takes effect. We recommend that you configure only the **IoMaxSpec** parameter.
-     *   For more information about the valid values, see [Billing](~~84737~~).
+     *   For more information about the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * @example alikafka.hw.2xlarge
      *
@@ -91,6 +99,13 @@ class CreatePrePayOrderRequest extends Model
     public $ioMaxSpec;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **0**: the subscription billing method
+     *   **4**: the subscription billing method for ApsaraMQ for Confluent instances
+     *
+     * @example 1
+     *
      * @var int
      */
     public $paidType;
@@ -100,7 +115,7 @@ class CreatePrePayOrderRequest extends Model
      *
      *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
      *   If you specify both parameters, the topic-based sales model is used to check whether the PartitionNum value and the TopicQuota value are the same. If they are not the same, a failure response is returned. If they are the same, the order is placed based on the PartitionNum value.
-     *   For more information about the valid values, see [Billing](~~84737~~).
+     *   For more information about the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * @example 50
      *
@@ -111,6 +126,7 @@ class CreatePrePayOrderRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -134,7 +150,7 @@ class CreatePrePayOrderRequest extends Model
      *   **professional**: Professional Edition (High Write)
      *   **professionalForHighRead**: Professional Edition (High Read)
      *
-     * For more information, see [Billing](~~84737~~).
+     * For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      * @example normal
      *
      * @var string
@@ -154,7 +170,7 @@ class CreatePrePayOrderRequest extends Model
      *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
      *   If you specify both parameters, the topic-based sales model is used to check whether the PartitionNum value and the TopicQuota value are the same. If they are not the same, a failure response is returned. If they are the same, the order is placed based on the PartitionNum value.
      *   The default value of the TopicQuota parameter varies based on the value of the IoMaxSpec parameter. If the number of topics that you consume exceeds the default value, you are charged additional fees.
-     *   For more information about the valid values, see [Billing](~~84737~~).
+     *   For more information about the valid values, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
      * @example 50
      *

@@ -15,6 +15,7 @@ class UpdateAllowedIpRequest extends Model
      *   If the **UpdateType** parameter is set to **delete**, specify only one IP address.
      *   Exercise caution when you delete IP addresses.
      *
+     * This parameter is required.
      * @example 0.0.0.0/0
      *
      * @var string
@@ -27,6 +28,7 @@ class UpdateAllowedIpRequest extends Model
      *   **vpc**: a whitelist for access from a VPC.
      *   **internet**: a whitelist for access from the Internet.
      *
+     * This parameter is required.
      * @example vpc
      *
      * @var string
@@ -45,6 +47,7 @@ class UpdateAllowedIpRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-0pp1cng20***
      *
      * @var string
@@ -60,6 +63,8 @@ class UpdateAllowedIpRequest extends Model
      *   **9095/9095**: the port range for access from VPCs by using the Secure Sockets Layer (SSL) endpoint.
      *
      * This parameter must correspond to **AllowdedListType**.
+     *
+     * This parameter is required.
      * @example 9092/9092
      *
      * @var string
@@ -69,6 +74,7 @@ class UpdateAllowedIpRequest extends Model
     /**
      * @description The ID of the region where the instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -81,6 +87,7 @@ class UpdateAllowedIpRequest extends Model
      *   **add**
      *   **delete**
      *
+     * This parameter is required.
      * @example add
      *
      * @var string

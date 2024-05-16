@@ -14,13 +14,15 @@ class instanceVO extends Model
     /**
      * @description The configurations of the deployed ApsaraMQ for Kafka instance.
      *
-     * @example {\"enable.vpc_sasl_ssl\":\"false\",\"kafka.log.retention.hours\":\"66\",\"enable.acl\":\"false\",\"kafka.message.max.bytes\":\"6291456\"}
+     * @example {\\"enable.vpc_sasl_ssl\\":\\"false\\",\\"kafka.log.retention.hours\\":\\"66\\",\\"enable.acl\\":\\"false\\",\\"kafka.message.max.bytes\\":\\"6291456\\"}
      *
      * @var string
      */
     public $allConfig;
 
     /**
+     * @description The parameters that are returned for the ApsaraMQ for Confluent instance.
+     *
      * @var confluentConfig
      */
     public $confluentConfig;
@@ -47,7 +49,7 @@ class instanceVO extends Model
     public $deployType;
 
     /**
-     * @description The disk size. Unit: GB.
+     * @description The disk size. Unit: GB
      *
      * @example 3600
      *
@@ -80,7 +82,7 @@ class instanceVO extends Model
     public $domainEndpoint;
 
     /**
-     * @description The peak Internet traffic allowed for the instance.
+     * @description The maximum Internet traffic in the instance.
      *
      * @example 20
      *
@@ -119,7 +121,7 @@ class instanceVO extends Model
     public $instanceId;
 
     /**
-     * @description The peak traffic allowed for the instance.
+     * @description The maximum traffic in the instance.
      *
      * @example 20
      *
@@ -128,6 +130,10 @@ class instanceVO extends Model
     public $ioMax;
 
     /**
+     * @description The maximum read traffic in the instance. Unit: Mbit/s.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $ioMaxRead;
@@ -142,6 +148,10 @@ class instanceVO extends Model
     public $ioMaxSpec;
 
     /**
+     * @description The maximum write traffic. Unit: Mbit/s.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $ioMaxWrite;
@@ -176,8 +186,10 @@ class instanceVO extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   **0**: subscription
-     *   **1**: pay-as-you-go
+     *   **0**: the subscription billing method
+     *   **1**: the pay-as-you-go billing method
+     *   **3**: the pay-as-you-go billing method for serverless ApsaraMQ for Kafka V3 instances
+     *   **4**: the pay-as-you-go billing method for ApsaraMQ for Confluent instances
      *
      * @example 1
      *
@@ -195,11 +207,21 @@ class instanceVO extends Model
     public $regionId;
 
     /**
+     * @description The traffic reserved for message publishing. Unit: MB/s.
+     *
+     * >  This parameter is returned only if the instance is a serverless ApsaraMQ for Kafka V3 instance.
+     * @example 60
+     *
      * @var int
      */
     public $reservedPublishCapacity;
 
     /**
+     * @description The traffic reserved for message subscription. Unit: MB/s.
+     *
+     * >  This parameter is returned only if the instance is a serverless ApsaraMQ for Kafka V3 instance.
+     * @example 60
+     *
      * @var int
      */
     public $reservedSubscribeCapacity;
@@ -226,10 +248,10 @@ class instanceVO extends Model
     public $saslDomainEndpoint;
 
     /**
-     * @description The security group of the instance.
+     * @description The security group to which the instance belongs.
      *
-     *   If the instance is deployed by using the ApsaraMQ for Kafka console or calling the [StartInstance](~~157786~~) operation without a security group configured, no value is returned.
-     *   If the instance is deployed by calling the [StartInstance](~~157786~~) operation with a security group configured, the returned value is the configured security group.
+     *   If the instance is deployed in the ApsaraMQ for Kafka console or by calling the [StartInstance](https://help.aliyun.com/document_detail/157786.html) operation without a security group configured, no value is returned.
+     *   If the instance is deployed by calling the [StartInstance](https://help.aliyun.com/document_detail/157786.html) operation with a security group configured, the returned value is the configured security group.
      *
      * @example sg-bp13wfx7kz9pkow****
      *
@@ -238,12 +260,18 @@ class instanceVO extends Model
     public $securityGroup;
 
     /**
+     * @description 实例系列标识。返回值有 v2 ，v3，confluent。
+     *
+     * @example v3
+     *
      * @var string
      */
     public $series;
 
     /**
-     * @description The instance status. Valid values:
+     * @description >  This parameter is out of date. We recommend that you refer to the ViewInstanceStatusCode parameter.
+     *
+     * The instance status. Valid values:
      *
      *   **0**: pending
      *   **1**: preparing hardware resources
@@ -253,10 +281,11 @@ class instanceVO extends Model
      *   **6**: migrating
      *   **7**: ready for upgrade
      *   **8**: upgrading
-     *   **9**: ready for changes
+     *   **9**: ready for change
      *   **10**: released
      *   **11**: changing
      *   **15**: expired
+     *   **30**: scaling
      *
      * @example 5
      *
@@ -327,7 +356,7 @@ class instanceVO extends Model
     public $topicNumLimit;
 
     /**
-     * @description The upgrade information of the instance.
+     * @description The upgrade information about the instance.
      *
      * @var upgradeServiceDetailInfo
      */
@@ -361,7 +390,7 @@ class instanceVO extends Model
     public $usedTopicCount;
 
     /**
-     * @description The vSwitch ID of the instance.
+     * @description The ID of the vSwitch to which the instance belongs.
      *
      * @example vsw-bp1fvuw0ljd7vzmo3****
      *
@@ -370,6 +399,29 @@ class instanceVO extends Model
     public $vSwitchId;
 
     /**
+     * @description The instance status. The valid values are consistent with the values displayed in the ApsaraMQ for Kafka console. This parameter is used in the new version of ApsaraMQ for Kafka.
+     *
+     * Valid values:
+     *
+     *   **0**: pending
+     *   **1**: deploying
+     *   **2**: running
+     *   **3**: stopped
+     *   **4**: expiring
+     *   **5**: expired
+     *   **6**: released
+     *   **7**: upgrading
+     *   **8**: migrating
+     *   **21**: stopping
+     *   **22**: starting
+     *   **23**: releasing
+     *   **30**: auto scaling
+     *   **101**: deployment failed
+     *   **102**: upgrade failed
+     *   **103**: migration failed
+     *
+     * @example 2
+     *
      * @var int
      */
     public $viewInstanceStatusCode;

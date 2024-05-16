@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class serverlessConfig extends Model
 {
     /**
+     * @description The reserved capacity for publishing messages. You can specify only an integer for this parameter. Minimum value: 60.
+     *
+     * >  The actual maximum reserved capacity for publishing messages varies based on available resources in the region. The actual range displayed on the buy page shall prevail.
+     * @example 60
+     *
      * @var int
      */
     public $reservedPublishCapacity;
 
     /**
+     * @description The reserved capacity for subscribing to messages. You can specify only an integer for this parameter. Minimum value: 20.
+     *
+     * >  The actual maximum reserved capacity for subscribing to messages varies based on available resources in the region. The actual range displayed on the buy page shall prevail.
+     * @example 50
+     *
      * @var int
      */
     public $reservedSubscribeCapacity;

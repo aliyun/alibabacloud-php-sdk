@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateAclRequest extends Model
 {
     /**
-     * @description The operation type. Valid values:
+     * @description The type of the operation allowed by the access control list (ACL). Valid values:
      *
-     *   **Write**: data writes
-     *   **Read**: data reads
-     *   **Describe**: reads of transaction IDs****
-     *   **IdempotentWrite**: idempotent data writes to clusters****
+     *   **Write**
+     *   **Read**
+     *   **Describe**: reads of transactional IDs.
+     *   **IdempotentWrite**: idempotent data writes to clusters.
+     *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
+     *   **DESCRIBE_CONFIGS**: queries of configurations. This value is available only for ApsaraMQ for Kafka V3 instances.
      *
+     * This parameter is required.
      * @example Read
      *
      * @var string
@@ -23,11 +26,33 @@ class CreateAclRequest extends Model
     public $aclOperationType;
 
     /**
+     * @description The types of operations allowed by the ACL. Separate multiple operation types with commas (,).
+     *
+     * Valid values:
+     *
+     *   **Write**
+     *   **Read**
+     *   **Describe**: reads of transactional IDs.
+     *   **IdempotentWrite**: idempotent data writes to clusters.
+     *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
+     *   **DESCRIBE_CONFIGS**: queries of configurations. This value is available only for ApsaraMQ for Kafka V3 instances.
+     *
+     * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+     * @example Write,Read
+     *
      * @var string
      */
     public $aclOperationTypes;
 
     /**
+     * @description The authorization method. Valid values:
+     *
+     *   **DENY**
+     *   **ALLOW**
+     *
+     * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+     * @example DENY
+     *
      * @var string
      */
     public $aclPermissionType;
@@ -36,8 +61,9 @@ class CreateAclRequest extends Model
      * @description The name or ID of the resource.
      *
      *   The value can be the name of a topic, consumer group, or cluster, or the ID of a transaction.
-     *   You can use an asterisk (\*) to represent the names or IDs of all relevant resources.
+     *   You can use an asterisk (\\*) to represent the names or IDs of all relevant resources.
      *
+     * This parameter is required.
      * @example X****
      *
      * @var string
@@ -50,6 +76,7 @@ class CreateAclRequest extends Model
      *   **LITERAL**: exact match
      *   **PREFIXED**: prefix match
      *
+     * This parameter is required.
      * @example LITERAL
      *
      * @var string
@@ -62,8 +89,9 @@ class CreateAclRequest extends Model
      *   **Topic**
      *   **Group**
      *   **Cluster**
-     *   **TransactionalId**: transaction
+     *   **TransactionalId**: transactional ID
      *
+     * This parameter is required.
      * @example Group
      *
      * @var string
@@ -71,6 +99,16 @@ class CreateAclRequest extends Model
     public $aclResourceType;
 
     /**
+     * @description The source IP address.
+     *
+     * >
+     *
+     *   You can specify only a specific IP address or use the asterisk (\\*) wildcard character to specify all IP addresses. CIDR blocks are not supported.
+     *
+     *   This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+     *
+     * @example *
+     *
      * @var string
      */
     public $host;
@@ -78,6 +116,7 @@ class CreateAclRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-v0h1cng0****
      *
      * @var string
@@ -87,6 +126,7 @@ class CreateAclRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -96,7 +136,9 @@ class CreateAclRequest extends Model
     /**
      * @description The username.
      *
-     * You can use an asterisk (\*) to represent all usernames.
+     * You can use an asterisk (\\*) to represent all usernames.
+     *
+     * This parameter is required.
      * @example test***
      *
      * @var string

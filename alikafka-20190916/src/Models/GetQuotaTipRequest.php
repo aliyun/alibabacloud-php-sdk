@@ -11,6 +11,7 @@ class GetQuotaTipRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-i7m2wpm5****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetQuotaTipRequest extends Model
     /**
      * @description The ID of the region in which the instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

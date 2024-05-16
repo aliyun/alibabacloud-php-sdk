@@ -21,6 +21,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The ID of the region in which the resource is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +51,7 @@ class ListTagResourcesRequest extends Model
      *   **TOPIC**
      *   **CONSUMERGROUP**
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

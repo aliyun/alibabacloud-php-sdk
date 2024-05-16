@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class kafkaAclVO extends Model
 {
     /**
-     * @description The type of the operation. Valid values:
+     * @description The operation type. Valid values:
      *
      *   **Write**
      *   **Read**
@@ -21,15 +21,17 @@ class kafkaAclVO extends Model
     public $aclOperationType;
 
     /**
+     * @example DENY
+     *
      * @var string
      */
     public $aclPermissionType;
 
     /**
-     * @description The name of the resource.
+     * @description The resource name.
      *
-     *   The value can be the name of a topic or a consumer group.
-     *   An asterisk (\*) represents the names of all topics or consumer groups.
+     *   The value can be the name of a topic or consumer group.
+     *   You can use the asterisk (\\*) wildcard character to specify the names of all topics or consumer groups.
      *
      * @example demo
      *
@@ -38,9 +40,9 @@ class kafkaAclVO extends Model
     public $aclResourceName;
 
     /**
-     * @description The match mode. Valid values:
+     * @description The matching mode. Valid values:
      *
-     *   **LITERAL**: full-name match
+     *   **LITERAL:** full-name match
      *   **PREFIXED**: prefix match
      *
      * @example LITERAL
@@ -50,7 +52,7 @@ class kafkaAclVO extends Model
     public $aclResourcePatternType;
 
     /**
-     * @description The type of the resources to which you want to attach tags. Valid values:
+     * @description The resource type. Valid values:
      *
      *   **Topic**
      *   **Group**
@@ -71,7 +73,7 @@ class kafkaAclVO extends Model
     public $host;
 
     /**
-     * @description The name of the user.
+     * @description The username.
      *
      * @example test12***
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTopicListRequest extends Model
 {
     /**
-     * @description The page number of the page to return. Default value: 1.
+     * @description The page number. Default value: 1
      *
      * @example 1
      *
@@ -20,6 +20,7 @@ class GetTopicListRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-0pp1954n****
      *
      * @var string
@@ -27,7 +28,7 @@ class GetTopicListRequest extends Model
     public $instanceId;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10
+     * @description The number of entries to return on each page. Default value: 10.
      *
      * @example 10
      *

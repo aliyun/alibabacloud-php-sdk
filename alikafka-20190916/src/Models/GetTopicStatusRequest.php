@@ -11,6 +11,7 @@ class GetTopicStatusRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-v0h15tjm****
      *
      * @var string
@@ -29,6 +30,7 @@ class GetTopicStatusRequest extends Model
     /**
      * @description The name of the topic.
      *
+     * This parameter is required.
      * @example normal_topic_9d034262835916103455551be06cc****
      *
      * @var string

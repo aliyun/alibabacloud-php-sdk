@@ -9,12 +9,17 @@ use AlibabaCloud\Tea\Model;
 class saslUserVO extends Model
 {
     /**
+     * @description The encryption method.
+     *
+     * >  This field is available only for ApsaraMQ for Kafka V3 Serverless instances.
+     * @example SCRAM-SHA-256
+     *
      * @var string
      */
     public $mechanism;
 
     /**
-     * @description The password that is used to access the Elasticsearch cluster.
+     * @description The password.
      *
      * @example ******
      *
@@ -23,10 +28,10 @@ class saslUserVO extends Model
     public $password;
 
     /**
-     * @description The request type. Valid values:
+     * @description The type. Valid values:
      *
-     *   **plain**: a simple mechanism that uses usernames and passwords to verify user identities. Message Queue for Apache Kafka provides an optimized PLAIN mechanism that allows you to dynamically create SASL users for an instance without the need to restart the instance.
-     *   **scram**: a mechanism that uses usernames and passwords to verify user identities. This mechanism provides better security protection than the PLAIN mechanism. Message Queue for Apache Kafka uses SCRAM-SHA-256.
+     *   **plain**: a simple mechanism that uses usernames and passwords to verify user identities. ApsaraMQ for Kafka provides an improved PLAIN mechanism that allows you to dynamically add SASL users without the need to restart an instance.
+     *   **SCRAM**: a mechanism that uses usernames and passwords to verify user identities. Compared with the PLAIN mechanism, this mechanism provides better security protection. ApsaraMQ for Kafka uses the SCRAM-SHA-256 algorithm.
      *
      * Default value: **plain**.
      * @example scram
@@ -36,7 +41,7 @@ class saslUserVO extends Model
     public $type;
 
     /**
-     * @description The name of the user.
+     * @description The username.
      *
      * @example test12***
      *

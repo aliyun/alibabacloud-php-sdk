@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class topicVO extends Model
 {
     /**
+     * @description Indicates whether the topic was automatically created.
+     *
      * @example false
      *
      * @var bool
@@ -17,10 +19,10 @@ class topicVO extends Model
     public $autoCreate;
 
     /**
-     * @description The log cleanup policy that is used for the topic. This parameter is returned when the **LocalTopic** parameter is set to **true**. Valid values:
+     * @description The log cleanup policy for the topic. This parameter is returned only if **LocalTopic** is set to **true**. Valid values:
      *
-     *   false: The topic uses the default log cleanup policy.
-     *   true: The topic uses the log compaction policy.
+     *   false: the default log cleanup policy.
+     *   true: the Apache Kafka log compaction policy.
      *
      * @example false
      *
@@ -38,7 +40,7 @@ class topicVO extends Model
     public $createTime;
 
     /**
-     * @description The ID of the instance
+     * @description The instance ID.
      *
      * @example alikafka_pre-cn-0pp1954n****
      *
@@ -47,10 +49,10 @@ class topicVO extends Model
     public $instanceId;
 
     /**
-     * @description The type of storage used by the topic. Valid values:
+     * @description The storage type that is used for the topic. Valid values:
      *
-     *   false: The topic uses cloud storage.
-     *   true: The topic uses local storage.
+     *   false: cloud storage
+     *   true: local storage
      *
      * @example false
      *
@@ -68,7 +70,7 @@ class topicVO extends Model
     public $partitionNum;
 
     /**
-     * @description The region ID of the instance to which the topics that you want to query belong.
+     * @description The ID of the region where the instance resides.
      *
      * @example cn-hangzhou
      *
@@ -77,10 +79,10 @@ class topicVO extends Model
     public $regionId;
 
     /**
-     * @description The description of the topic. Valid values:
+     * @description The topic description. Valid values:
      *
-     *   The description contains only letters, digits, hyphens (-), and underscores (\_).
-     *   The description is 3 to 64 characters in length.
+     *   The description can contain only letters, digits, hyphens (-), and underscores (_).
+     *   The description must be 3 to 64 characters in length.
      *
      * @example test
      *
@@ -89,9 +91,9 @@ class topicVO extends Model
     public $remark;
 
     /**
-     * @description The status of the topic. Valid values:
+     * @description The topic status. Valid value:
      *
-     **0:** indicates that the topic is running.
+     **0**: running.
      *
      * If the topic is deleted, this parameter is not returned.
      * @example 0
@@ -101,9 +103,9 @@ class topicVO extends Model
     public $status;
 
     /**
-     * @description The status of the topic. Valid values:
+     * @description The topic status. Valid value:
      *
-     **Running**
+     **Running**.
      *
      * If the topic is deleted, this parameter is not returned.
      * @example Running
@@ -120,16 +122,23 @@ class topicVO extends Model
     public $tags;
 
     /**
-     * @description The name of the topic. Valid values:
+     * @description The topic name. Valid values:
      *
-     *   The name contains only letters, digits, hyphens (-), and underscores (\_).
-     *   The name is 3 to 64 characters in length. If the name that you specified contains more than 64 characters, the returned name is automatically truncated.
+     *   The name can contain only letters, digits, hyphens (-), and underscores (_).
+     *   The name must be 3 to 64 characters in length. If the name contains more than 64 characters, the system automatically truncates the name.
      *
      * @example topic_name
      *
      * @var string
      */
     public $topic;
+
+    /**
+     * @example {"replication-factor":3}
+     *
+     * @var string
+     */
+    public $topicConfig;
     protected $_name = [
         'autoCreate'   => 'AutoCreate',
         'compactTopic' => 'CompactTopic',
@@ -143,6 +152,7 @@ class topicVO extends Model
         'statusName'   => 'StatusName',
         'tags'         => 'Tags',
         'topic'        => 'Topic',
+        'topicConfig'  => 'TopicConfig',
     ];
 
     public function validate()
@@ -187,6 +197,9 @@ class topicVO extends Model
         }
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
+        }
+        if (null !== $this->topicConfig) {
+            $res['TopicConfig'] = $this->topicConfig;
         }
 
         return $res;
@@ -235,6 +248,9 @@ class topicVO extends Model
         }
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
+        }
+        if (isset($map['TopicConfig'])) {
+            $model->topicConfig = $map['TopicConfig'];
         }
 
         return $model;

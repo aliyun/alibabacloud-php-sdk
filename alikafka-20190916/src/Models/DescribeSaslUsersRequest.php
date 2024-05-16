@@ -11,6 +11,7 @@ class DescribeSaslUsersRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-v0h1cng0****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeSaslUsersRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

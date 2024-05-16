@@ -11,6 +11,7 @@ class GetConsumerProgressRequest extends Model
     /**
      * @description The name of the consumer group.
      *
+     * This parameter is required.
      * @example kafka-test
      *
      * @var string
@@ -20,6 +21,7 @@ class GetConsumerProgressRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-mp919o4v****
      *
      * @var string
@@ -29,6 +31,7 @@ class GetConsumerProgressRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

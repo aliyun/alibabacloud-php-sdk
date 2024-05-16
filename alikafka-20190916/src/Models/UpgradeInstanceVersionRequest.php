@@ -11,6 +11,7 @@ class UpgradeInstanceVersionRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-v0h1fgs2****
      *
      * @var string
@@ -20,6 +21,7 @@ class UpgradeInstanceVersionRequest extends Model
     /**
      * @description The ID of the region where the instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,7 +34,7 @@ class UpgradeInstanceVersionRequest extends Model
      *   **0.10.2**
      *   **2.2.0**
      *
-     * If you set this parameter to the current major version, the system upgrades the instance to the latest minor version.
+     * This parameter is required.
      * @example 0.10.2
      *
      * @var string

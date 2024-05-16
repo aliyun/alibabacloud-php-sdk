@@ -11,6 +11,7 @@ class DeleteSaslUserRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-v0h1cng0****
      *
      * @var string
@@ -18,6 +19,14 @@ class DeleteSaslUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description The encryption method. Valid values:
+     *
+     *   SCRAM-SHA-512. This is the default value.
+     *   SCRAM-SHA-256
+     *
+     * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+     * @example SCRAM-SHA-256
+     *
      * @var string
      */
     public $mechanism;
@@ -25,6 +34,7 @@ class DeleteSaslUserRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +57,7 @@ class DeleteSaslUserRequest extends Model
     /**
      * @description The name of the user.
      *
+     * This parameter is required.
      * @example test***
      *
      * @var string

@@ -14,6 +14,7 @@ class tag extends Model
      *   You must specify this parameter.
      *   The tag key must be 1 to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
      *
+     * This parameter is required.
      * @example FinanceDept
      *
      * @var string

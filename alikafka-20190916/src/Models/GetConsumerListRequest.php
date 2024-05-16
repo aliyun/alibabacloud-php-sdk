@@ -29,6 +29,7 @@ class GetConsumerListRequest extends Model
     /**
      * @description The ID of the instance to which the consumer group belongs.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-v0h18sav****
      *
      * @var string
@@ -47,6 +48,7 @@ class GetConsumerListRequest extends Model
     /**
      * @description The region ID of the instance to which the consumer group belongs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

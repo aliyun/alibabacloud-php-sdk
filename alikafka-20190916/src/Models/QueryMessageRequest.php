@@ -20,6 +20,7 @@ class QueryMessageRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-mp919o4v****
      *
      * @var string
@@ -50,6 +51,15 @@ class QueryMessageRequest extends Model
      *   byOffset: queries messages by offset. If you select this value, you must configure Partition and Offset.
      *   byTimestamp: queries messages by time. If you select this value, you must configure BeginTime.
      *
+     * <!---->
+     *
+     *   <!-- -->
+     *
+     * <!-- -->
+     *
+     *   <!-- -->
+     *
+     * This parameter is required.
      * @example byTimestamp
      *
      * @var string
@@ -59,6 +69,7 @@ class QueryMessageRequest extends Model
     /**
      * @description The ID of the region where the resource resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -68,6 +79,7 @@ class QueryMessageRequest extends Model
     /**
      * @description The topic name.
      *
+     * This parameter is required.
      * @example testkafka
      *
      * @var string

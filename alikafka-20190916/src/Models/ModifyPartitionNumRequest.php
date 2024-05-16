@@ -15,6 +15,7 @@ class ModifyPartitionNumRequest extends Model
      *   To reduce the risk of data skew, we recommend that you set the value to a multiple of 6.
      *   The number of total partitions ranges from 1 to 360.
      *
+     * This parameter is required.
      * @example 6
      *
      * @var int
@@ -24,6 +25,7 @@ class ModifyPartitionNumRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-0pp1l9z****
      *
      * @var string
@@ -33,6 +35,7 @@ class ModifyPartitionNumRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +45,7 @@ class ModifyPartitionNumRequest extends Model
     /**
      * @description The topic name.
      *
+     * This parameter is required.
      * @example TopicPartitionNum
      *
      * @var string

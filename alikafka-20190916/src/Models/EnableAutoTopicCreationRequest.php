@@ -11,6 +11,7 @@ class EnableAutoTopicCreationRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-v0h1fgs2****
      *
      * @var string
@@ -24,6 +25,7 @@ class EnableAutoTopicCreationRequest extends Model
      *   disable: disables the automatic topic creation feature.
      *   updatePartition: changes the number of partitions in topics that are automatically created.
      *
+     * This parameter is required.
      * @example enable
      *
      * @var string
@@ -43,6 +45,7 @@ class EnableAutoTopicCreationRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

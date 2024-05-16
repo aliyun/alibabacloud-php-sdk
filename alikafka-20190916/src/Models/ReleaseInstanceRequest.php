@@ -23,6 +23,7 @@ class ReleaseInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-mp919o4v****
      *
      * @var string
@@ -32,6 +33,7 @@ class ReleaseInstanceRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

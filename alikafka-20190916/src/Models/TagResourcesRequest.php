@@ -21,6 +21,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The ID of the region in which the resource is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +31,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The list of resource IDs.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-v0h1fgs2****
      *
      * @var string[]
@@ -43,7 +45,7 @@ class TagResourcesRequest extends Model
      *   **TOPIC**
      *   **CONSUMERGROUP**
      *
-     * >  The value of this parameter is not case-sensitive.
+     * This parameter is required.
      * @example instance
      *
      * @var string
@@ -53,6 +55,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags that you want to add.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

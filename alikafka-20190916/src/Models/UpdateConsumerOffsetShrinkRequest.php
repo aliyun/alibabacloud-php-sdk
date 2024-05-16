@@ -11,10 +11,11 @@ class UpdateConsumerOffsetShrinkRequest extends Model
     /**
      * @description The name of the consumer group.
      *
-     *   The name can contain letters, digits, hyphens (-), and underscores (\_).
+     *   The name can contain letters, digits, hyphens (-), and underscores (_).
      *   The name must be **3 to 64** characters in length. If a name contains more than **64** characters, the name is automatically truncated.
      *   The name of a consumer group cannot be changed after the consumer group is created.
      *
+     * This parameter is required.
      * @example kafka-test
      *
      * @var string
@@ -24,6 +25,7 @@ class UpdateConsumerOffsetShrinkRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-mp91inkw****
      *
      * @var string
@@ -40,6 +42,7 @@ class UpdateConsumerOffsetShrinkRequest extends Model
     /**
      * @description The region ID of the instance to which the consumer group belongs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -73,12 +76,13 @@ class UpdateConsumerOffsetShrinkRequest extends Model
     /**
      * @description The topic name.
      *
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The name can contain letters, digits, underscores (_), and hyphens (-).
      *   The name must be **3 to 64** characters in length. If a name contains more than **64** characters, the name is automatically truncated.
      *   The name of a topic cannot be changed after the topic is created.
      *
      **If you want to reset the consumer offsets of all topics to which the consumer subscribes, specify an empty string.
      *
+     * This parameter is required.
      * @example topic_name
      *
      * @var string

@@ -16,6 +16,7 @@ class UpdateTopicConfigRequest extends Model
      *   The following keys are supported by `local topic` of ApsaraMQ for Kafka V2 instances: retention.ms, retention.bytes, and replications.
      *   The following keys are supported by ApsaraMQ for Kafka V3 instances: retention.hours and max.message.bytes.
      *
+     * This parameter is required.
      * @example replications
      *
      * @var string
@@ -25,6 +26,7 @@ class UpdateTopicConfigRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-v0h1fgs2****
      *
      * @var string
@@ -34,6 +36,7 @@ class UpdateTopicConfigRequest extends Model
     /**
      * @description The ID of the region where the instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +46,7 @@ class UpdateTopicConfigRequest extends Model
     /**
      * @description The topic name.
      *
+     * This parameter is required.
      * @example dqc_test2
      *
      * @var string
@@ -50,11 +54,12 @@ class UpdateTopicConfigRequest extends Model
     public $topic;
 
     /**
-     * @description The value of the topic configuration.
+     * @description The configuration item that you want to update for the topic. The following configuration items are supported by ApsaraMQ for Kafka V3 instances:
      *
      *   `retention.hours` specifies the message retention period. Value type: string. Valid values: 24 to 8760.
      *   `max.message.bytes` specifies the maximum size of a sent message. Value type: string. Valid values: 1048576 to 10485760.
      *
+     * This parameter is required.
      * @example 3
      *
      * @var string

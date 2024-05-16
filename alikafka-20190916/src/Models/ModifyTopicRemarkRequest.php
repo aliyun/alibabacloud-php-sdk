@@ -11,6 +11,7 @@ class ModifyTopicRemarkRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-0pp1l9z****
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyTopicRemarkRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +40,7 @@ class ModifyTopicRemarkRequest extends Model
     /**
      * @description The name of the topic.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-0pp1l9z8****
      *
      * @var string

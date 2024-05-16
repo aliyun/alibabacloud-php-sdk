@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAclsRequest extends Model
 {
     /**
+     * @example Write
+     *
      * @var string
      */
     public $aclOperationType;
 
     /**
+     * @example DENY
+     *
      * @var string
      */
     public $aclPermissionType;
@@ -22,8 +26,9 @@ class DescribeAclsRequest extends Model
      * @description The name or ID of the resource.
      *
      *   The value can be the name of a topic or a consumer group.
-     *   You can use an asterisk (\*) to represent the names of all topics or consumer groups.
+     *   You can use an asterisk (\\*) to represent the names of all topics or consumer groups.
      *
+     * This parameter is required.
      * @example demo
      *
      * @var string
@@ -48,6 +53,7 @@ class DescribeAclsRequest extends Model
      *   **Topic**
      *   **Group**
      *
+     * This parameter is required.
      * @example Topic
      *
      * @var string
@@ -55,6 +61,8 @@ class DescribeAclsRequest extends Model
     public $aclResourceType;
 
     /**
+     * @example *
+     *
      * @var string
      */
     public $host;
@@ -62,6 +70,7 @@ class DescribeAclsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-v0h1cng****
      *
      * @var string
@@ -71,6 +80,7 @@ class DescribeAclsRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -80,6 +90,7 @@ class DescribeAclsRequest extends Model
     /**
      * @description The name of the user.
      *
+     * This parameter is required.
      * @example test12****
      *
      * @var string

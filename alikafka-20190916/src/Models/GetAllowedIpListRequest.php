@@ -11,6 +11,7 @@ class GetAllowedIpListRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-mp91inkw****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetAllowedIpListRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

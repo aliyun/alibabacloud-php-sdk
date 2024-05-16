@@ -64,7 +64,7 @@ class GetTopicListResponseBody extends Model
     public $success;
 
     /**
-     * @description The information about the topic.
+     * @description The topics.
      *
      * @var topicList
      */

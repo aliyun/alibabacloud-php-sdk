@@ -9,91 +9,163 @@ use AlibabaCloud\Tea\Model;
 class confluentConfig extends Model
 {
     /**
+     * @description The number of CPU cores of Connect.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $connectCU;
 
     /**
+     * @description The number of replicas of Connect.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $connectReplica;
 
     /**
+     * @description The number of CPU cores of Control Center.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $controlCenterCU;
 
     /**
+     * @description The number of replicas of Control Center.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $controlCenterReplica;
 
     /**
+     * @description The disk capacity of Control Center. Unit: GB.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $controlCenterStorage;
 
     /**
+     * @description The number of CPU cores of the Kafka broker.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $kafkaCU;
 
     /**
+     * @description The number of replicas of the Kafka broker.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $kafkaReplica;
 
     /**
+     * @description The number of CPU cores of Kafka Rest Proxy.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $kafkaRestProxyCU;
 
     /**
+     * @description The number of replicas of Kafka Rest Proxy.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $kafkaRestProxyReplica;
 
     /**
+     * @description The disk capacity of the Kafka broker. Unit: GB.
+     *
+     * @example 800
+     *
      * @var int
      */
     public $kafkaStorage;
 
     /**
+     * @description The number of CPU cores of ksqlDB.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $ksqlCU;
 
     /**
+     * @description The number of replicas of ksqlDB.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $ksqlReplica;
 
     /**
+     * @description The disk capacity of ksqlDB. Unit: GB.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $ksqlStorage;
 
     /**
+     * @description The number of CPU cores of Schema Registry.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $schemaRegistryCU;
 
     /**
+     * @description The number of replicas of Schema Registry.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $schemaRegistryReplica;
 
     /**
+     * @description The number of CPU cores of ZooKeeper.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $zooKeeperCU;
 
     /**
+     * @description The number of replicas of ZooKeeper.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $zooKeeperReplica;
 
     /**
+     * @description The disk capacity of ZooKeeper. Unit: GB.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $zooKeeperStorage;

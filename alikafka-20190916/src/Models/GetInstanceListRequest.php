@@ -19,7 +19,7 @@ class GetInstanceListRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the order. You can obtain the order ID on the [Orders](https://usercenter2-intl.aliyun.com/order/list?pageIndex=1\&pageSize=20\&spm=5176.12818093.top-nav.ditem-ord.36f016d0OQFmJa) page in Alibaba Cloud User Center.
+     * @description The ID of the order. You can obtain the order ID on the [Orders](https://usercenter2-intl.aliyun.com/order/list?pageIndex=1\\&pageSize=20\\&spm=5176.12818093.top-nav.ditem-ord.36f016d0OQFmJa) page in Alibaba Cloud User Center.
      *
      * @example 6072673****
      *
@@ -30,6 +30,7 @@ class GetInstanceListRequest extends Model
     /**
      * @description The ID of the region where the instance resides.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +47,10 @@ class GetInstanceListRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description 实例系列标识，可根据系列号来过滤不同系列的实例。取值如下：
+     * - confluent
+     * @example v3
+     *
      * @var string
      */
     public $series;

@@ -19,7 +19,7 @@ class DescribeAclsResponseBody extends Model
     public $code;
 
     /**
-     * @description The ACLs.
+     * @description The access control lists (ACLs).
      *
      * @var kafkaAclList
      */

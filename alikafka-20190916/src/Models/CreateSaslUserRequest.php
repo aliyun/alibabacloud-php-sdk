@@ -11,6 +11,7 @@ class CreateSaslUserRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-v0h1cng0****
      *
      * @var string
@@ -36,6 +37,7 @@ class CreateSaslUserRequest extends Model
     /**
      * @description The password of the SASL user.
      *
+     * This parameter is required.
      * @example 12***
      *
      * @var string
@@ -45,6 +47,7 @@ class CreateSaslUserRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -67,6 +70,7 @@ class CreateSaslUserRequest extends Model
     /**
      * @description The name of the SASL user.
      *
+     * This parameter is required.
      * @example test***
      *
      * @var string

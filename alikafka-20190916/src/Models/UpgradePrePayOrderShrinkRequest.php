@@ -17,7 +17,7 @@ class UpgradePrePayOrderShrinkRequest extends Model
      * @description The size of the disk.
      *
      *   The disk size that you specify must be greater than or equal to the current disk size of the instance.
-     *   For more information about the valid values, see [Billing overview](~~84737~~).
+     *   For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
      *
      * @example 900
      *
@@ -29,7 +29,7 @@ class UpgradePrePayOrderShrinkRequest extends Model
      * @description The Internet traffic for the instance.
      *
      *   The Internet traffic volume that you specify must be greater than or equal to the current Internet traffic volume of the instance.
-     *   For more information about the valid values, see [Billing overview](~~84737~~).
+     *   For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
      * > - If the **EipModel** parameter is set to **true**, set the **EipMax** parameter to a value that is greater than 0.
      * > - If the **EipModel** parameter is set to **false**, set the **EipMax** parameter to **0**.
      * @example 3
@@ -53,6 +53,7 @@ class UpgradePrePayOrderShrinkRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-mp919o4v****
      *
      * @var string
@@ -64,7 +65,7 @@ class UpgradePrePayOrderShrinkRequest extends Model
      *
      *   The maximum traffic volume that you specify must be greater than or equal to the current maximum traffic volume of the instance.
      *   You must configure at least one of the IoMax and IoMaxSpec parameters. If you configure both parameters, the value of the IoMaxSpec parameter takes effect. We recommend that you configure only the IoMaxSpec parameter.
-     *   For more information about the valid values, see [Billing overview](~~84737~~).
+     *   For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
      *
      * @example 40
      *
@@ -77,7 +78,7 @@ class UpgradePrePayOrderShrinkRequest extends Model
      *
      *   The traffic specification that you specify must be greater than or equal to the current traffic specification of the instance.
      *   You must configure at least one of the IoMax and IoMaxSpec parameters. If you configure both parameters, the value of the IoMaxSpec parameter takes effect. We recommend that you configure only the IoMaxSpec parameter.
-     *   For more information about the valid values, see [Billing overview](~~84737~~).
+     *   For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
      *
      * @example alikafka.hw.2xlarge
      *
@@ -95,7 +96,7 @@ class UpgradePrePayOrderShrinkRequest extends Model
      *
      *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
      *   If you specify both parameters, the topic-based sales model is used to check whether the PartitionNum value and the TopicQuota value are the same. If they are not the same, a failure response is returned. If they are the same, the order is placed based on the PartitionNum value.
-     *   For more information about the valid values, see [Billing overview](~~84737~~).
+     *   For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
      *
      * @example 50
      *
@@ -106,6 +107,7 @@ class UpgradePrePayOrderShrinkRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -119,7 +121,7 @@ class UpgradePrePayOrderShrinkRequest extends Model
      *   **professional**: Professional Edition (High Write)
      *   **professionalForHighRead**: Professional Edition (High Read)
      *
-     * You cannot downgrade an instance from the Professional Edition to the Standard Edition. For more information about these instance editions, see [Billing overview](~~84737~~).
+     * You cannot downgrade an instance from the Professional Edition to the Standard Edition. For more information about these instance editions, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
      * @example professional
      *
      * @var string
@@ -132,7 +134,7 @@ class UpgradePrePayOrderShrinkRequest extends Model
      *   You must specify at least one of the PartitionNum and TopicQuota parameters. We recommend that you configure only the PartitionNum parameter.
      *   If you specify both parameters, the topic-based sales model is used to check whether the PartitionNum value and the TopicQuota value are the same. If they are not the same, a failure response is returned. If they are the same, the order is placed based on the PartitionNum value.
      *   The default value of the TopicQuota parameter varies based on the value of the IoMaxSpec parameter. If the number of topics that you consume exceeds the default value, you are charged additional fees.
-     *   For more information about the valid values, see [Billing overview](~~84737~~).
+     *   For more information about the valid values, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
      *
      * @example 50
      *

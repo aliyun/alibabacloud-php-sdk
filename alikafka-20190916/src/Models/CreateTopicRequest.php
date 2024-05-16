@@ -38,6 +38,7 @@ class CreateTopicRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_pre-cn-mp919o4v****
      *
      * @var string
@@ -73,7 +74,12 @@ class CreateTopicRequest extends Model
      * @description The number of partitions in the topic.
      *
      *   Valid values: 1 to 360.
-     *   The system recommends the number of partitions based on the specification of the instance. You can view the recommended number in the Message Queue for Apache Kafka console. We recommend that you specify the number that is recommended by the system as the value of this parameter to reduce the risk of data skew.
+     *   In the ApsaraMQ for Kafka console, you can view the number of partitions that the system recommends based on the specifications of the instance. We recommend that you specify the number that is recommended by the system as the value of this parameter to reduce the risk of data skew.
+     *
+     * Default values:
+     *
+     *   ApsaraMQ for Kafka V2 instance: 12
+     *   ApsaraMQ for Kafka V3 instance: 3
      *
      * @example 12
      *
@@ -84,6 +90,7 @@ class CreateTopicRequest extends Model
     /**
      * @description The region ID of the instance in which you want to create a topic.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -93,9 +100,10 @@ class CreateTopicRequest extends Model
     /**
      * @description The description of the topic.
      *
-     *   The description can contain only letters, digits, hyphens (-), and underscores (\_).
+     *   The description can contain only letters, digits, hyphens (-), and underscores (_).
      *   The description must be 3 to 64 characters in length.
      *
+     * This parameter is required.
      * @example alikafka_topic_test
      *
      * @var string
@@ -125,10 +133,11 @@ class CreateTopicRequest extends Model
     /**
      * @description The topic name.
      *
-     *   The name can contain only letters, digits, hyphens (-), and underscores (\_).
+     *   The name can contain only letters, digits, hyphens (-), and underscores (_).
      *   The name must be 3 to 64 characters in length. If the name that you specify contains more than 64 characters, the system automatically truncates the name.
      *   After a topic is created, you cannot change the name of the topic.
      *
+     * This parameter is required.
      * @example alikafka_topic_test
      *
      * @var string

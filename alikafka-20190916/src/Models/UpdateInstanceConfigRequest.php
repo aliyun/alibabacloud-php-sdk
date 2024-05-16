@@ -11,6 +11,7 @@ class UpdateInstanceConfigRequest extends Model
     /**
      * @description The configurations that you want to update for the ApsaraMQ for Kafka instance. The value must be a valid JSON string.
      *
+     * This parameter is required.
      * @example {"kafka.log.retention.hours":"33"}
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateInstanceConfigRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example alikafka_post-cn-v0h1fgs2****
      *
      * @var string
@@ -29,6 +31,7 @@ class UpdateInstanceConfigRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
