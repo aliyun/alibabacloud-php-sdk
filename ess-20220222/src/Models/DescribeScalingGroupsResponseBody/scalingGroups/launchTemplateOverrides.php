@@ -28,7 +28,7 @@ class launchTemplateOverrides extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The weight of the instance type. The value of this parameter indicates the capacity of an instance of the specified instance type in the scaling group. A higher weight indicates that a smaller number of instances of the specified instance type are required to meet the expected capacity requirement.
+     * @description The weight of the instance type. The value of this parameter indicates the capacity of an instance of the specified instance type in the scaling group. A larger weight indicates that a smaller number of instances of the specified instance type are required to meet the expected capacity requirement.
      *
      * @example 4
      *

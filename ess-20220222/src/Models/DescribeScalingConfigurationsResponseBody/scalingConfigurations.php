@@ -16,10 +16,10 @@ use AlibabaCloud\Tea\Model;
 class scalingConfigurations extends Model
 {
     /**
-     * @description Indicates whether the instance on the dedicated host is associated with the dedicated host. Valid values:
+     * @description Indicates whether the ECS instance on a dedicated host is associated with the dedicated host. Valid values:
      *
-     *   default: The instance is not associated with the dedicated host. If you start an instance that was stopped in Economical Mode and the original dedicated host has insufficient resources, the instance is automatically deployed to another dedicated host in the automatic deployment resource pool.
-     *   host: The instance is associated with the dedicated host. If you start an instance that was stopped in Economical Mode, the instance remains on the original dedicated host. If the original dedicated host has insufficient resources, the instance cannot be started.
+     *   default: The instance is not associated with the dedicated host. If you restart an instance that was stopped in Economical Mode and the original dedicated host of the instance has insufficient resources, the instance is automatically deployed to another dedicated host in the automatic deployment resource pool.
+     *   host: The instance is associated with the dedicated host. If you restart an instance that was stopped in Economical Mode, the instance remains on the original dedicated host. If the available resources of the original dedicated host are insufficient, the instance cannot be restarted.
      *
      * @example default
      *
@@ -30,7 +30,7 @@ class scalingConfigurations extends Model
     /**
      * @description The number of vCPUs.
      *
-     * > You can specify CPU and memory specifications to determine the range of instance types only if the Scaling Policy parameter is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
+     * >  You can specify CPU and Memory to define instance types only when you set Scaling Policy to Cost Optimization and no instance type is specified in the scaling configuration.
      * @example 2
      *
      * @var int
@@ -38,7 +38,7 @@ class scalingConfigurations extends Model
     public $cpu;
 
     /**
-     * @description The time when the scaling configuration was created.
+     * @description The time at which the scaling configuration was created.
      *
      * @example 2014-08-14T10:58Z
      *
@@ -47,10 +47,10 @@ class scalingConfigurations extends Model
     public $creationTime;
 
     /**
-     * @description The performance mode of the burstable instance. Valid values:
+     * @description The performance mode of the burstable instances. Valid values:
      *
-     *   Standard: standard mode. For more information, see the "Standard mode" section in the [Burstable instances](~~59977~~) topic.
-     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in the [Burstable instances](~~59977~~) topic.
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
      *
      * @example Standard
      *
@@ -59,12 +59,18 @@ class scalingConfigurations extends Model
     public $creditSpecification;
 
     /**
+     * @description The priority of the custom ECS instance type + vSwitch combination.
+     *
+     * >  If you specified the priorities of only partial custom ECS instance type + vSwitch combinations, Auto Scaling preferentially creates ECS instances by using the custom combinations that have specified priorities. If the custom combinations that have specified priorities do not provide sufficient resources, Auto Scaling creates ECS instances by using the custom combinations that do not have specified priorities based on the specified orders of vSwitches and instance types.
+     *
+     *   Example: the specified order of vSwitches for your scaling group is vsw1 and vsw2 and the specified order of instance types in your scaling configuration is type1 and type 2. In addition, you use CustomPriorities to specify ["vsw2+type2", "vsw1+type2"]. In this example, the vsw2+type2 combination has the highest priority and the vsw2+type1 combination has the lowest priority. The vsw1+type2 combination has a higher priority than the vsw1+type1 combination.
+     *
      * @var customPriorities[]
      */
     public $customPriorities;
 
     /**
-     * @description Details of the data disks.
+     * @description The data disks.
      *
      * @var dataDisks[]
      */
@@ -76,9 +82,9 @@ class scalingConfigurations extends Model
     public $dedicatedHostClusterId;
 
     /**
-     * @description The ID of the dedicated host on which the ECS instance is created. Preemptible instances cannot be created on dedicated hosts. If you specify the DedicatedHostId parameter, the SpotStrategy and SpotPriceLimit parameters are ignored.
+     * @description The ID of the dedicated host on which the ECS instance is created. Preemptible instances are not supported by dedicated hosts. Therefore, if you specify DedicatedHostId, SpotStrategy and SpotPriceLimit are ignored.
      *
-     * You can call the DescribeDedicatedHosts operation to query dedicated host IDs.
+     * You can call the DescribeDedicatedHosts operation to query the IDs of dedicated hosts.
      * @example dh-bp67acfmxazb4p****
      *
      * @var string
@@ -86,12 +92,20 @@ class scalingConfigurations extends Model
     public $dedicatedHostId;
 
     /**
+     * @description Indicates whether Release Protection is enabled for the ECS instances. You can specify this parameter to determine whether the ECS instances can be deleted by using the ECS console or calling the DeleteInstance operation. Valid values:
+     *
+     *   true: Release Protection is enabled for the ECS instances. You cannot delete the ECS instances by using the ECS console or calling the DeleteInstance operation.
+     *   false: Release Protection is disabled for the ECS instances. You can delete the ECS instances by using the ECS console or calling the DeleteInstance operation.
+     *
+     * >  You can enable Release Protection for only pay-as-you-go instances to prevent unexpected instance deletion during scale-ins. The Release Protection feature does not affect normal scaling activities. In other words, an instance that meets the criteria of scale-in policies can be removed from a scaling group during a scale-in even if you enabled Release Protection for the instance.
+     * @example false
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
-     * @description The ID of the deployment set to which the Elastic Compute Service (ECS) instance belongs.
+     * @description The ID of the deployment set to which the Elastic Compute Service (ECS) instances belong.
      *
      * @example ds-bp1frxuzdg87zh4p****
      *
@@ -100,7 +114,7 @@ class scalingConfigurations extends Model
     public $deploymentSetId;
 
     /**
-     * @description The hostname of the ECS instance.
+     * @description The hostname series of the ECS instances.
      *
      * @example LocalHost
      *
@@ -109,7 +123,7 @@ class scalingConfigurations extends Model
     public $hostName;
 
     /**
-     * @description The ID of the Elastic High Performance Computing (E-HPC) cluster to which the ECS instance belongs.
+     * @description The ID of the High Performance Computing (HPC) cluster to which the ECS instances belong.
      *
      * @example hpc-clus****
      *
@@ -118,7 +132,7 @@ class scalingConfigurations extends Model
     public $hpcClusterId;
 
     /**
-     * @description The name of the image family. If you specify this parameter, the latest custom images that are available in the specified image family are returned. You can use the images to create instances. If the ImageId parameter is specified, you cannot specify the ImageFamily parameter.
+     * @description The name of the image family. You can specify this parameter to obtain the latest available images in the current image family for instance creation. If you specify `ImageId`, you cannot specify this parameter.
      *
      * @example hangzhou-daily-update
      *
@@ -127,7 +141,7 @@ class scalingConfigurations extends Model
     public $imageFamily;
 
     /**
-     * @description The ID of the image that is used by Auto Scaling to create instances.
+     * @description The ID of the image file that provides the image resource for Auto Scaling to create ECS instances.
      *
      * @example centos6u5_64_20G_aliaegis_2014****.vhd
      *
@@ -145,9 +159,11 @@ class scalingConfigurations extends Model
     public $imageName;
 
     /**
-     * @description ECS实例是否使用ecs-user用户登录。可能值：
+     * @description Indicates whether the ecs-user username can be used to log on to an ECS instance created from the scaling configuration. Valid values:
      *
-     * - false：否。
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -157,10 +173,10 @@ class scalingConfigurations extends Model
     /**
      * @description The source of the image. Valid values:
      *
-     *   system: public images provided by Alibaba Cloud
-     *   self: custom images that you create
-     *   others: shared images from other Alibaba Cloud accounts or community images published by other Alibaba Cloud accounts
-     *   marketplace: images that are available in Alibaba Cloud Marketplace
+     *   system: a public image provided by Alibaba Cloud
+     *   self: a custom image that you created
+     *   others: a shared image from another Alibaba Cloud account or a community image published by another Alibaba Cloud account
+     *   marketplace: an Alibaba Cloud Marketplace image
      *
      * @example system
      *
@@ -169,7 +185,7 @@ class scalingConfigurations extends Model
     public $imageOwnerAlias;
 
     /**
-     * @description The description of the ECS instance.
+     * @description The description of the ECS instances.
      *
      * @example FinanceDept
      *
@@ -178,7 +194,7 @@ class scalingConfigurations extends Model
     public $instanceDescription;
 
     /**
-     * @description The generation of the ECS instance.
+     * @description The generation of the ECS instances.
      *
      * @example ecs-3
      *
@@ -187,7 +203,7 @@ class scalingConfigurations extends Model
     public $instanceGeneration;
 
     /**
-     * @description The name of the ECS instance.
+     * @description The naming series of the ECS instances.
      *
      * @example instance****
      *
@@ -196,14 +212,14 @@ class scalingConfigurations extends Model
     public $instanceName;
 
     /**
-     * @description Details of the intelligent configuration settings, which determines the range of instance types that meet the specified criteria.
+     * @description The information about the intelligent configuration settings, which determines the available instance types.
      *
      * @var instancePatternInfos[]
      */
     public $instancePatternInfos;
 
     /**
-     * @description The instance type of the ECS instance.
+     * @description The instance type of the ECS instances.
      *
      * @example ecs.g6.large
      *
@@ -212,7 +228,7 @@ class scalingConfigurations extends Model
     public $instanceType;
 
     /**
-     * @description Details of the ECS instance types.
+     * @description The ECS instance types.
      *
      * @var string[]
      */
@@ -221,8 +237,8 @@ class scalingConfigurations extends Model
     /**
      * @description The billing method for network usage. Valid values:
      *
-     *   PayByBandwidth: You are charged for the maximum available bandwidth that is specified by the InternetMaxBandwidthOut parameter.
-     *   PayByTraffic: You are charged for the actual data transfer. The InternetMaxBandwidthOut parameter specifies only the maximum available bandwidth.
+     *   PayByBandwidth: pay-by-bandwidth. You are charged for the bandwidth that you specified by using InternetMaxBandwidthOut.
+     *   PayByTraffic: pay-by-traffic. You are charged for the actual traffic that you used. InternetMaxBandwidthOut specifies only the maximum available bandwidth.
      *
      * @example PayByTraffic
      *
@@ -231,7 +247,7 @@ class scalingConfigurations extends Model
     public $internetChargeType;
 
     /**
-     * @description The maximum inbound public bandwidth. Unit: Mbit/s. Valid values: 1 to 200.
+     * @description The maximum inbound bandwidth. Unit: Mbit/s. Valid values: 1 to 200.
      *
      * @example 200
      *
@@ -240,10 +256,10 @@ class scalingConfigurations extends Model
     public $internetMaxBandwidthIn;
 
     /**
-     * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values:
+     * @description The maximum outbound bandwidth. Unit: Mbit/s. Valid values:
      *
-     *   0 to 100 if you set the InternetChargeType parameter to PayByBandwidth. If you leave this parameter empty, this parameter is automatically set to 0.
-     *   0 to 100 if you set the InternetChargeType parameter to PayByTraffic. If you leave this parameter empty, an error is reported.
+     *   0 to 1024 if you set InternetChargeType to PayByBandwidth. If you leave this parameter empty, this parameter is automatically set to 0.
+     *   0 to 1024 if you set InternetChargeType to PayByTraffic. If you leave this parameter empty, an error is returned.
      *
      * @example 0
      *
@@ -252,10 +268,10 @@ class scalingConfigurations extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description Indicates whether the instance is I/O optimized. Valid values:
+     * @description Indicates whether the ECS instances are I/O optimized. Valid values:
      *
-     *   none: The instance is not I/O optimized.
-     *   optimized: The instance is I/O optimized.
+     *   none: The ECS instances are not I/O optimized.
+     *   optimized: The ECS instances are I/O optimized.
      *
      * @example none
      *
@@ -273,7 +289,7 @@ class scalingConfigurations extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description The name of the key pair that is used to log on to the ECS instance.
+     * @description The name of the key pair that is used to log on to an ECS instance created from the scaling configuration.
      *
      * @example keypair****
      *
@@ -284,8 +300,8 @@ class scalingConfigurations extends Model
     /**
      * @description The status of the scaling configuration in the scaling group. Valid values:
      *
-     *   Active: The scaling configuration is active in the scaling group. Auto Scaling uses the active scaling configuration to automatically create ECS instances.
-     *   Inactive: The scaling configuration is inactive in the scaling group. Auto Scaling does not use inactive scaling configurations to automatically create ECS instances. Inactive scaling configurations are retained in the scaling group.
+     *   Active: The scaling configuration is active in the scaling group. Auto Scaling uses the scaling configuration that is in the Active state to create ECS instances during scale-outs.
+     *   Inactive: The scaling configuration is inactive in the scaling group. Scaling configurations that are in the Inactive state are still contained in the scaling group, but Auto Scaling does not use the inactive scaling configurations to create ECS instances during scale-outs.
      *
      * @example Active
      *
@@ -294,7 +310,7 @@ class scalingConfigurations extends Model
     public $lifecycleState;
 
     /**
-     * @description The weight of the ECS instance as a backend server. Valid values: 1 to 100.
+     * @description The weight of an ECS instance as a backend server. Valid values: 1 to 100.
      *
      * @example 1
      *
@@ -305,7 +321,7 @@ class scalingConfigurations extends Model
     /**
      * @description The memory size. Unit: GiB.
      *
-     * > You can specify CPU and memory specifications to determine the range of instance types only if the Scaling Policy parameter is set to Cost Optimization Policy and no instance type is specified in the scaling configuration.
+     * >  You can specify CPU and Memory to define instance types only when you set Scaling Policy to Cost Optimization and no instance type is specified in the scaling configuration.
      * @example 16
      *
      * @var int
@@ -313,6 +329,8 @@ class scalingConfigurations extends Model
     public $memory;
 
     /**
+     * @description The ENIs.
+     *
      * @var networkInterfaces[]
      */
     public $networkInterfaces;
@@ -337,7 +355,7 @@ class scalingConfigurations extends Model
     public $privatePoolOptions_matchCriteria;
 
     /**
-     * @description The name of the RAM role that is associated with the ECS instance. The name is provided and maintained by Resource Access Management (RAM). You can call the ListRoles operation to query the available RAM roles.
+     * @description The name of the Resource Access Management (RAM) role assumed by the ECS instances. This name is provided and maintained by RAM. You can call the ListRoles operation to query the available RAM roles.
      *
      * @example ramrole****
      *
@@ -346,7 +364,7 @@ class scalingConfigurations extends Model
     public $ramRoleName;
 
     /**
-     * @description The ID of the resource group to which the ECS instance belongs.
+     * @description The ID of the resource group to which the ECS instances belong.
      *
      * @example rg-aekzn2ou7xo****
      *
@@ -382,17 +400,17 @@ class scalingConfigurations extends Model
     public $scalingGroupId;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and is not available for use.
      *
      * @var schedulerOptions
      */
     public $schedulerOptions;
 
     /**
-     * @description Indicates whether security hardening is enabled. Valid values:
+     * @description Indicates whether Security Hardening is enabled. Valid values:
      *
-     *   Active: Security hardening is enabled. This value is available only to public images.
-     *   Deactive: Security hardening is disabled. This value is available to all types of images.
+     *   Active: Security Hardening is enabled. This value is applicable to only public images.
+     *   Deactive: Security Hardening is disabled. This value is applicable to all images.
      *
      * @example Active
      *
@@ -401,7 +419,7 @@ class scalingConfigurations extends Model
     public $securityEnhancementStrategy;
 
     /**
-     * @description The ID of the security group with which the ECS instance is associated. ECS instances that are associated with the same security group can access each other.
+     * @description The ID of the security group to which the ECS instances belong. ECS instances that belong to the same security group can communicate with each other.
      *
      * @example sg-bp18kz60mefs****
      *
@@ -410,14 +428,14 @@ class scalingConfigurations extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security groups with which the ECS instance is associated. ECS instances that are associated with the same security group can access each other.
+     * @description The IDs of the security groups to which the ECS instances belong. ECS instances that belong to the same security group can communicate with each other.
      *
      * @var string[]
      */
     public $securityGroupIds;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours.
+     * @description The protection period of the preemptible instances. Unit: hours.
      *
      * @example 1
      *
@@ -426,7 +444,7 @@ class scalingConfigurations extends Model
     public $spotDuration;
 
     /**
-     * @description The interruption mode of the preemptible instance.
+     * @description The interruption event of the preemptible instances.
      *
      * @example Terminate
      *
@@ -435,18 +453,18 @@ class scalingConfigurations extends Model
     public $spotInterruptionBehavior;
 
     /**
-     * @description Details of the preemptible instances.
+     * @description The information about the preemptible instances.
      *
      * @var spotPriceLimits[]
      */
     public $spotPriceLimits;
 
     /**
-     * @description The preemption policy that is applied to pay-as-you-go instances and preemptible instances. Valid values:
+     * @description The preemption policy that is applied to the pay-as-you-go instance. Valid values:
      *
      *   NoSpot: The instance is created as a pay-as-you-go instance.
      *   SpotWithPriceLimit: The instance is a preemptible instance that has a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
      *
      * @example NoSpot
      *
@@ -455,11 +473,19 @@ class scalingConfigurations extends Model
     public $spotStrategy;
 
     /**
+     * @description The ID of the storage set.
+     *
+     * @example ss-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $storageSetId;
 
     /**
+     * @description The maximum number of partitions in the storage set. The value is an integer that is greater than or equal to 2.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $storageSetPartitionNumber;
@@ -474,12 +500,12 @@ class scalingConfigurations extends Model
     public $systemDiskAutoSnapshotPolicyId;
 
     /**
-     * @description Indicates whether the burst feature is enabled for the system disk. Valid values:
+     * @description Indicates whether the Performance Burst feature is enabled for the system disk. Valid values:
      *
      *   true
      *   false
      *
-     * > This parameter is available only if you set the SystemDisk.Category parameter to cloud_auto.
+     * >  This parameter is available only when you set SystemDisk.Category to cloud_auto.
      * @example false
      *
      * @var bool
@@ -487,7 +513,7 @@ class scalingConfigurations extends Model
     public $systemDiskBurstingEnabled;
 
     /**
-     * @description The categories of the system disks. The values are sorted based on their priorities. The first value has the highest priority. If Auto Scaling cannot create instances by using the disk that has the highest priority, Auto Scaling creates instances by using the disk that has the next highest priority. Valid values:
+     * @description The categories of the system disks. The values are sorted based on their priorities. The first value has the highest priority. If Auto Scaling cannot create instances by using the disk category of the highest priority, Auto Scaling creates instances by using the disk category of the next highest priority. Valid values:
      *
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
@@ -504,9 +530,9 @@ class scalingConfigurations extends Model
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD
-     *   ephemeral_ssd: local standard SSD
+     *   ephemeral_ssd: local SSD
      *   cloud_essd: enhanced SSD (ESSD)
-     *   cloud_auto: ESSD AutoPL disk
+     *   cloud_auto: ESSD AutoPL
      *
      * @example cloud
      *
@@ -524,7 +550,7 @@ class scalingConfigurations extends Model
     public $systemDiskDescription;
 
     /**
-     * @description The algorithm that is used to encrypt the system disk. Valid values:
+     * @description The encryption algorithm that is applied to the system disk. Valid values:
      *
      *   AES-256
      *   SM4-128
@@ -548,7 +574,7 @@ class scalingConfigurations extends Model
     public $systemDiskEncrypted;
 
     /**
-     * @description The ID of the KMS key that is used to encrypt the system disk.
+     * @description The ID of the KMS key that is applied to the system disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -566,7 +592,7 @@ class scalingConfigurations extends Model
     public $systemDiskName;
 
     /**
-     * @description The performance level (PL) of the system disk of the ESSD category.
+     * @description The performance level (PL) of the system disk that is an ESSD.
      *
      * @example PL1
      *
@@ -575,9 +601,9 @@ class scalingConfigurations extends Model
     public $systemDiskPerformanceLevel;
 
     /**
-     * @description The provisioned IOPS for the system disk.
+     * @description The provisioned IOPS of the system disk.
      *
-     * > IOPS measures the number of read and write operations that an EBS device can process per second.
+     * >  IOPS measures the number of read and write operations that an EBS device can process per second.
      * @example 100
      *
      * @var int
@@ -594,17 +620,17 @@ class scalingConfigurations extends Model
     public $systemDiskSize;
 
     /**
-     * @description Details of the tags.
+     * @description The tags.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description Indicates whether the instance is created on a dedicated host. Valid values:
+     * @description Indicates whether the ECS instance is created on a dedicated host. Valid values:
      *
-     *   default: The instance is created on a non-dedicated host.
-     *   host: The instance is created on a dedicated host. If you do not specify the DedicatedHostId parameter, Alibaba Cloud selects a dedicated host for the instance.
+     *   default: The ECS instance is created on a non-dedicated host.
+     *   host: The ECS instance is created on a dedicated host. If you do not specify DedicatedHostId, the system selects a dedicated host for the ECS instance.
      *
      * Default value: default.
      * @example default
@@ -614,7 +640,7 @@ class scalingConfigurations extends Model
     public $tenancy;
 
     /**
-     * @description The user data of the ECS instance.
+     * @description The user data of the ECS instances.
      *
      * @example echo hello ecs!
      *
@@ -623,14 +649,14 @@ class scalingConfigurations extends Model
     public $userData;
 
     /**
-     * @description The weight of the instance type. The weight of an instance type indicates the capacity of an instance of the specified instance type in the scaling group. A higher weight indicates that a smaller number of instances of the specified instance type are required to meet the expected capacity requirement.
+     * @description The weights of the instance types. The value of this parameter indicates the capacity of an instance of the specified instance type in the scaling group. A higher weight indicates that a smaller number of instances of the instance type are required to meet the expected capacity requirement.
      *
      * @var int[]
      */
     public $weightedCapacities;
 
     /**
-     * @description The zone ID of the ECS instance. You can call the DescribeZones operation to query the most recent zone list.
+     * @description The ID of the zone in which the ECS instances are created. You can call the DescribeZones operation to query the zone IDs.
      *
      * @example cn-hangzhou-g
      *

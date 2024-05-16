@@ -35,6 +35,7 @@ class DeleteEciScalingConfigurationRequest extends Model
     /**
      * @description The ID of the scaling configuration that you want to delete.
      *
+     * This parameter is required.
      * @example asc-bp1bx8mzur534edp****
      *
      * @var string

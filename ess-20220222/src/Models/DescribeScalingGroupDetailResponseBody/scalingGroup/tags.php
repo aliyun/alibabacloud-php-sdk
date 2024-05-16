@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description Indicates whether the tags of the scaling group can be propagated to instances. Valid values:
+     *
+     *   true: Tags of the scaling group can be propagated to only instances that are newly created.
+     *   false: Tags of the scaling group cannot be propagated to instances.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -16,6 +22,8 @@ class tags extends Model
     public $propagate;
 
     /**
+     * @description The tag key of the scaling group.
+     *
      * @example Department
      *
      * @var string
@@ -23,6 +31,8 @@ class tags extends Model
     public $tagKey;
 
     /**
+     * @description The tag value of the scaling group.
+     *
      * @example Finance
      *
      * @var string

@@ -18,6 +18,12 @@ class tags extends Model
     public $key;
 
     /**
+     * @description Specifies whether to propagate the tag that you want to add to the scaling group. Valid values:
+     *
+     *   true: propagates the tag to only instances that are newly created.
+     *   false: does not propagate the tag to any instances.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class initContainerPorts extends Model
 {
     /**
+     * @description The port number. Valid values: 1 to 65535.
+     *
      * @example 1024
      *
      * @var int
@@ -16,6 +18,11 @@ class initContainerPorts extends Model
     public $port;
 
     /**
+     * @description The protocol type. Valid values:
+     *
+     *   TCP
+     *   UDP
+     *
      * @example UDP
      *
      * @var string

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class environmentVars extends Model
 {
     /**
+     * @description >  This parameter is not available for use.
+     *
+     * @example fieldPath
+     *
      * @var string
      */
     public $fieldRefFieldPath;
 
     /**
+     * @description The key of the environment variable.
+     *
      * @example PATH
      *
      * @var string
@@ -21,6 +27,8 @@ class environmentVars extends Model
     public $key;
 
     /**
+     * @description The value of the environment variable.
+     *
      * @example /usr/bin/
      *
      * @var string

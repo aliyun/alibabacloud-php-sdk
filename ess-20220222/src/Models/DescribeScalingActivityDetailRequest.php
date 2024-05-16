@@ -24,8 +24,9 @@ class DescribeScalingActivityDetailRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the scaling activity.
+     * @description The ID of the scaling activity that you want to query. You can call the DescribeScalingActivities operation to query the IDs of scaling activities.
      *
+     * This parameter is required.
      * @example asa-bp1c9djwrgxjyk31****
      *
      * @var string

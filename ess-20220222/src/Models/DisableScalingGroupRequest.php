@@ -31,6 +31,7 @@ class DisableScalingGroupRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

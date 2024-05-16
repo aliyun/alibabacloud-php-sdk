@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VServerGroupAttributes extends Model
 {
     /**
+     * @description The port number of a backend vServer.
+     *
      * @example 80
      *
      * @var int
@@ -16,6 +18,8 @@ class VServerGroupAttributes extends Model
     public $port;
 
     /**
+     * @description The ID of the backend vServer group.
+     *
      * @example rsp-bp12bjrny****
      *
      * @var string
@@ -23,6 +27,8 @@ class VServerGroupAttributes extends Model
     public $VServerGroupId;
 
     /**
+     * @description The weight of the backend vServer group.
+     *
      * @example 1
      *
      * @var int

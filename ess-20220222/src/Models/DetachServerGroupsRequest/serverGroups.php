@@ -11,6 +11,7 @@ class serverGroups extends Model
     /**
      * @description The port number that is used by an ECS instance after Auto Scaling adds the ECS instance to the server group.
      *
+     * This parameter is required.
      * @example 22
      *
      * @var int
@@ -20,6 +21,7 @@ class serverGroups extends Model
     /**
      * @description The ID of the server group.
      *
+     * This parameter is required.
      * @example sgp-1gv2uidn2msy****
      *
      * @var string
@@ -32,6 +34,7 @@ class serverGroups extends Model
      *   ALB
      *   NLB
      *
+     * This parameter is required.
      * @example ALB
      *
      * @var string

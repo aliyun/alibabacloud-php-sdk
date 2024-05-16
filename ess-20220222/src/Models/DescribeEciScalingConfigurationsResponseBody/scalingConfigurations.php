@@ -89,7 +89,7 @@ class scalingConfigurations extends Model
     public $cpu;
 
     /**
-     * @description The number of physical CPU cores. You can specify this parameter for only specific instance types. For more information, see [Specify CPU options](~~197781~~).
+     * @description The number of physical CPU cores. You can specify this parameter for only specific instance types. For more information, see [Specify CPU options](https://help.aliyun.com/document_detail/197781.html).
      *
      * @example 2
      *
@@ -98,7 +98,7 @@ class scalingConfigurations extends Model
     public $cpuOptionsCore;
 
     /**
-     * @description The number of threads per core. You can specify this parameter for only specific instance types. A value of 1 indicates that Hyper-Threading is disabled. For more information, see [Specify CPU options](~~197781~~).
+     * @description The number of threads per core. You can specify this parameter for only specific instance types. A value of 1 indicates that Hyper-Threading is disabled. For more information, see [Specify CPU options](https://help.aliyun.com/document_detail/197781.html).
      *
      * @example 2
      *
@@ -130,7 +130,7 @@ class scalingConfigurations extends Model
      *   true
      *   false
      *
-     * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](~~368372~~).
+     * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example false
      *
      * @var bool
@@ -145,7 +145,7 @@ class scalingConfigurations extends Model
      *   PL2: An ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: An ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * >  For more information about ESSDs, see [ESSDs](~~122389~~).
+     * >  For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL1
      *
      * @var string
@@ -155,7 +155,7 @@ class scalingConfigurations extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk that caches data. Valid values: 0 to min{50,000, 1000 x *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800 + 50* x Capacity, 50,000}.
      *
-     * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](~~368372~~).
+     * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 40000
      *
      * @var int
@@ -238,7 +238,7 @@ class scalingConfigurations extends Model
     /**
      * @description The hostname.
      *
-     * @example [\"hehe.com\", \"haha.com\"]
+     * @example [\\"hehe.com\\", \\"haha.com\\"]
      *
      * @var string
      */
@@ -279,9 +279,9 @@ class scalingConfigurations extends Model
     /**
      * @description The level of the instance family, which is used to filter instance types that meet the specified criteria. This parameter takes effect only if `CostOptimization` is set to true. Valid values:
      *
-     *   EntryLevel: entry level (shared instance types) Instance types of this level are the most cost-effective but may not provide stable computing performance in a consistent manner. This level is suitable for business scenarios in which the CPU utilization is low. For more information, see [Shared instance families](~~108489~~).
-     *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](~~25378~~).
-     *   CreditEntryLevel: credit entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview of burstable instances](~~59977~~).
+     *   EntryLevel: entry level (shared instance types) Instance types of this level are the most cost-effective but may not provide stable computing performance in a consistent manner. This level is suitable for business scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+     *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+     *   CreditEntryLevel: credit entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
      *
      * @example EnterpriseLevel
      *
@@ -344,7 +344,7 @@ class scalingConfigurations extends Model
     public $ntpServers;
 
     /**
-     * @description The Resource Access Management (RAM) role of the elastic container instance. Elastic container instances and Elastic Compute Service (ECS) instances can share the same RAM role. For more information, see [Use the instance RAM role by calling APIs](~~61178~~).
+     * @description The Resource Access Management (RAM) role of the elastic container instance. Elastic container instances and Elastic Compute Service (ECS) instances can share the same RAM role. For more information, see [Use the instance RAM role by calling APIs](https://help.aliyun.com/document_detail/61178.html).
      *
      * @example ram:PassRole
      *

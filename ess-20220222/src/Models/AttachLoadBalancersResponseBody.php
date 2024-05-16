@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AttachLoadBalancersResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -20,7 +20,7 @@ class AttachLoadBalancersResponseBody extends Model
     /**
      * @description The ID of the scaling activity.
      *
-     * The value of this parameter is returned only after you set the Async parameter to true. You can call the DescribeScalingActivities operation to query all scaling activity IDs and use the scaling activity IDs to check the status of the scaling activities.
+     * This parameter is returned only if you set `Async` to `true`. You can call the DescribeScalingActivities operation to query the scaling activity IDs and status.
      * @example asa-bp140qd7mak8k63f****
      *
      * @var string

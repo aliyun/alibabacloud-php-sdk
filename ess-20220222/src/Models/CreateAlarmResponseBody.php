@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAlarmResponseBody extends Model
 {
     /**
+     * @description The ID of the event-triggered task.
+     *
      * @example asg-bp1hvbnmkl10vll5****_f95ce797-dc2e-4bad-9618-14fee7d1****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateAlarmResponseBody extends Model
     public $alarmTaskId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string

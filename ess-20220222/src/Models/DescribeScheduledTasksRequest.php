@@ -19,6 +19,9 @@ class DescribeScheduledTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -26,6 +29,9 @@ class DescribeScheduledTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     *
+     * Default value: 10.
      * @example 50
      *
      * @var int
@@ -33,6 +39,9 @@ class DescribeScheduledTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the scaling group to which the scheduled task belongs.
+     *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string
@@ -50,6 +59,8 @@ class DescribeScheduledTasksRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the scaling group to which the scheduled task belongs.
+     *
      * @example asg-bp1bo5tca4m56nap****
      *
      * @var string
@@ -57,16 +68,22 @@ class DescribeScheduledTasksRequest extends Model
     public $scalingGroupId;
 
     /**
+     * @description The actions that you want Auto Scaling to perform when the scheduled task is triggered.
+     *
      * @var string[]
      */
     public $scheduledActions;
 
     /**
+     * @description The ID of the scheduled task that you want to query.
+     *
      * @var string[]
      */
     public $scheduledTaskIds;
 
     /**
+     * @description The names of the scheduled tasks that you want to query.
+     *
      * @var string[]
      */
     public $scheduledTaskNames;

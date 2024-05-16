@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class lifecycleHookContext extends Model
 {
     /**
+     * @description Specifies whether to disable the lifecycle hook.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $disableLifecycleHook;
 
     /**
+     * @description The IDs of the lifecycle hooks that you want to disable.
+     *
      * @var string[]
      */
     public $ignoredLifecycleHookIds;

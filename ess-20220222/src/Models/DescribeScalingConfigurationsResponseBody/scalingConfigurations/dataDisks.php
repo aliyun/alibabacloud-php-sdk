@@ -18,12 +18,12 @@ class dataDisks extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description Indicates whether the burst feature is enabled for the data disk. Valid values:
+     * @description Indicates whether the Performance Burst feature is enabled for the data disk. Valid values:
      *
      *   true
      *   false
      *
-     * For more information, see the [ESSD AutoPL disks](~~368372~~) topic.
+     * >  This parameter is available only when you set `DataDisk.Category` to `cloud_auto`.
      * @example false
      *
      * @var bool
@@ -31,9 +31,9 @@ class dataDisks extends Model
     public $burstingEnabled;
 
     /**
-     * @description The categories of the data disks. The values are sorted based on their priorities. The first value has the highest priority. If Auto Scaling cannot create instances by using the disk that has the highest priority, Auto Scaling creates instances by using the disk that has the next highest priority. Valid values:
+     * @description The categories of the data disks. The values are sorted based on their priorities. The first value has the highest priority. If Auto Scaling cannot create instances by using the disk category of the highest priority, Auto Scaling creates instances by using the disk category of the next highest priority. Valid values:
      *
-     *   cloud: basic disk. The DeleteWithInstance parameter of a basic disk that is created together with the instance is set to true.
+     *   cloud: basic disk. DeleteWithInstance of a basic disk created along with the ECS instance is set to true.
      *   cloud_efficiency: ultra disk.
      *   cloud_ssd: standard SSD.
      *   cloud_essd: ESSD.
@@ -45,12 +45,12 @@ class dataDisks extends Model
     /**
      * @description The category of the data disk. Valid values:
      *
-     *   cloud: basic disk. The DeleteWithInstance parameter of a basic disk that is created together with the instance is set to true.
+     *   cloud: basic disk. DeleteWithInstance of a basic disk created along with the ECS instance is set to true.
      *   cloud_efficiency: ultra disk.
      *   cloud_ssd: standard SSD.
-     *   ephemeral_ssd: local standard SSD.
+     *   ephemeral_ssd: local SSD.
      *   cloud_essd: ESSD.
-     *   cloud_auto: ESSD AutoPL disk.
+     *   cloud_auto: ESSD AutoPL.
      *
      * @example cloud
      *
@@ -59,7 +59,7 @@ class dataDisks extends Model
     public $category;
 
     /**
-     * @description Indicates whether the data disk is released if the instance to which the data disk is attached is released. Valid values:
+     * @description Indicates whether the data disk is released when the instance to which the data disk is attached is released. Valid values:
      *
      *   true
      *   false
@@ -111,7 +111,7 @@ class dataDisks extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used to encrypt the data disk.
+     * @description The ID of the Key Management Service (KMS) key that is applied to the data disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -120,7 +120,7 @@ class dataDisks extends Model
     public $KMSKeyId;
 
     /**
-     * @description The PL of the data disk of the ESSD category.
+     * @description The PL of the data disk that is an ESSD.
      *
      * @example PL1
      *
@@ -129,9 +129,9 @@ class dataDisks extends Model
     public $performanceLevel;
 
     /**
-     * @description The provisioned input/output operations per second (IOPS) for the data disk.
+     * @description The provisioned IOPS of the data disk.
      *
-     * > IOPS measures the number of read and write operations that an Elastic Block Storage (EBS) device can process per second.
+     * >  IOPS measures the number of read and write operations that an Elastic Block Storage (EBS) device can process per second.
      * @example 100
      *
      * @var int
@@ -139,13 +139,13 @@ class dataDisks extends Model
     public $provisionedIops;
 
     /**
-     * @description The size of the data disk. Unit: GiB.
+     * @description The size of the data disk. Unit: GB. Valid values:
      *
-     *   Valid values if you set the Category parameter to cloud: 5 to 2000.
-     *   Valid values if you set the Category parameter to cloud_efficiency: 20 to 32768.
-     *   Valid values if you set the Category parameter to cloud_ssd: 20 to 32768.
-     *   Valid values if you set the Category parameter to cloud_essd: 20 to 32768.
-     *   Valid values if you set the Category parameter to ephemeral_ssd: 5 to 800.
+     *   5 to 2000 if you set Category to cloud.
+     *   20 to 32768 if you set Category to cloud_efficiency.
+     *   20 to 32768 if you set Category to cloud_ssd.
+     *   20 to 32768 if you set Category to cloud_essd.
+     *   5 to 800 if you set Category to ephemeral_ssd.
      *
      * @example 200
      *
@@ -154,7 +154,7 @@ class dataDisks extends Model
     public $size;
 
     /**
-     * @description The ID of the snapshot that is used to create the data disk.
+     * @description The ID of the snapshot based on which the data disk is created.
      *
      * @example s-23f2i****
      *

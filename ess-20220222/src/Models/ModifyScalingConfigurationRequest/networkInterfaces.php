@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaces extends Model
 {
     /**
+     * @example Primary
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ipv6AddressCount;
 
     /**
+     * @example HighPerformance
+     *
      * @var string
      */
     public $networkInterfaceTrafficMode;

@@ -22,6 +22,7 @@ class DeleteNotificationConfigurationRequest extends Model
      *   queuename: the name of the MNS queue.
      *   topicname: the name of the MNS topic.
      *
+     * This parameter is required.
      * @example acs:ess:cn-beijing:161456884340****:cloudmonitor
      *
      * @var string
@@ -50,6 +51,7 @@ class DeleteNotificationConfigurationRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

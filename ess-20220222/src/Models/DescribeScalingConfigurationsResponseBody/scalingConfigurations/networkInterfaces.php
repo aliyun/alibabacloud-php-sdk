@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaces extends Model
 {
     /**
+     * @description The ENI type. Valid values:
+     *
+     *   Primary: the primary ENI
+     *   Secondary: the secondary ENI
+     *
+     * @example Primary
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The number of randomly generated IPv6 addresses that are allocated to the primary ENI.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ipv6AddressCount;
 
     /**
+     * @description The communication mode of the ENI. Valid values:
+     *
+     *   Standard: The TCP communication mode is used.
+     *   HighPerformance: The Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
+     *
+     * @example HighPerformance
+     *
      * @var string
      */
     public $networkInterfaceTrafficMode;
 
     /**
+     * @description The IDs of the security groups to which the ENIs belong.
+     *
      * @var string[]
      */
     public $securityGroupIds;

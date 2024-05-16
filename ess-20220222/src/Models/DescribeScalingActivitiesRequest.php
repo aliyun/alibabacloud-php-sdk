@@ -41,6 +41,7 @@ class DescribeScalingActivitiesRequest extends Model
     /**
      * @description The region ID of the scaling group to which the scaling activity that you want to query belongs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeEciScalingConfigurationDetailResponseBody extends Model
 {
     /**
+     * @description The YAML output of the scaling configuration.
+     *
+     * @example apiVersion: apps/v1
+     * - containerPort: 80
      * @var string
      */
     public $output;
 
     /**
+     * @description The request ID.
+     *
      * @example 6EF9BFEE-FE07-4627-B8FB-14326FB9****
      *
      * @var string
@@ -22,6 +28,8 @@ class DescribeEciScalingConfigurationDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the scaling configuration.
+     *
      * @var scalingConfiguration
      */
     public $scalingConfiguration;

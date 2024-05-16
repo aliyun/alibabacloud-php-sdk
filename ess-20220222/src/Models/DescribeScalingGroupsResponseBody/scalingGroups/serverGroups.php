@@ -29,8 +29,8 @@ class serverGroups extends Model
     /**
      * @description The type of the server group. Valid values:
      *
-     *   ALB: ALB server group
-     *   NLB: NLB server group
+     *   ALB
+     *   NLB
      *
      * @example ALB
      *

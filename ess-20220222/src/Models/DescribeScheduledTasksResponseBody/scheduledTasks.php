@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scheduledTasks extends Model
 {
     /**
+     * @description The description of the scheduled task.
+     *
      * @example Test scheduled task.
      *
      * @var string
@@ -16,6 +18,8 @@ class scheduledTasks extends Model
     public $description;
 
     /**
+     * @description The expected number of instances in the scaling group if you specify the ScalingGroupId parameter.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class scheduledTasks extends Model
     public $desiredCapacity;
 
     /**
+     * @description The time period during which the failed scheduled task is retried. Unit: seconds. Valid values: 0 to 21600.
+     *
      * @example 600
      *
      * @var int
@@ -30,6 +36,8 @@ class scheduledTasks extends Model
     public $launchExpirationTime;
 
     /**
+     * @description The point in time at which the scheduled task is triggered.
+     *
      * @example 2014-08-18T10:52Z
      *
      * @var string
@@ -37,6 +45,8 @@ class scheduledTasks extends Model
     public $launchTime;
 
     /**
+     * @description The maximum number of instances in the scaling group if you specify the ScalingGroupId parameter.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,8 @@ class scheduledTasks extends Model
     public $maxValue;
 
     /**
+     * @description The minimum number of instances in the scaling group if you specify the ScalingGroupId parameter.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +63,8 @@ class scheduledTasks extends Model
     public $minValue;
 
     /**
+     * @description The end time of the recurrence of the scheduled task.
+     *
      * @example 2014-08-20T16:55Z
      *
      * @var string
@@ -58,6 +72,8 @@ class scheduledTasks extends Model
     public $recurrenceEndTime;
 
     /**
+     * @description The interval at which the scheduled task is repeated.
+     *
      * @example Daily
      *
      * @var string
@@ -65,6 +81,8 @@ class scheduledTasks extends Model
     public $recurrenceType;
 
     /**
+     * @description The number of recurrences of the scheduled task.
+     *
      * @example 1
      *
      * @var string
@@ -72,6 +90,8 @@ class scheduledTasks extends Model
     public $recurrenceValue;
 
     /**
+     * @description The ID of the scaling group to which the scheduled task belongs.
+     *
      * @example asg-bp1bo5tca4m56nap****
      *
      * @var string
@@ -79,6 +99,8 @@ class scheduledTasks extends Model
     public $scalingGroupId;
 
     /**
+     * @description The scaling rule that is executed when the scheduled task is triggered. This parameter is returned only after a scaling rule is specified for the scheduled task.
+     *
      * @example ari:acs:ess:cn-hangzhou:1406926474****:scalingrule/asr-bp1id5rhu8edp7kd****
      *
      * @var string
@@ -86,6 +108,8 @@ class scheduledTasks extends Model
     public $scheduledAction;
 
     /**
+     * @description The ID of the scheduled task.
+     *
      * @example edRtShc57WGXdt8TlPbr****
      *
      * @var string
@@ -93,6 +117,8 @@ class scheduledTasks extends Model
     public $scheduledTaskId;
 
     /**
+     * @description The name of the scheduled task.
+     *
      * @example scheduled****
      *
      * @var string
@@ -100,6 +126,12 @@ class scheduledTasks extends Model
     public $scheduledTaskName;
 
     /**
+     * @description Indicates whether the scheduled task is enabled.
+     *
+     *   true
+     *   false
+     *
+     * Default value: true.
      * @example true
      *
      * @var bool

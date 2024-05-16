@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class customPriorities extends Model
 {
     /**
+     * @description The instance type of the ECS instances.
+     *
+     * @example ecs.c6a.4xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-bp14zolna43z266bq****
+     *
      * @var string
      */
     public $vswitchId;

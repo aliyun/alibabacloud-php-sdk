@@ -10,31 +10,49 @@ use AlibabaCloud\Tea\Model;
 class containerOverrides extends Model
 {
     /**
+     * @description The container startup arguments. You can specify up to 10 arguments.
+     *
      * @var string[]
      */
     public $args;
 
     /**
+     * @description The container startup commands. You can specify up to 20 commands. Each command contains up to 256 characters.
+     *
      * @var string[]
      */
     public $commands;
 
     /**
+     * @description The number of vCPUs that you want to allocate to the container.
+     *
+     * @example 2
+     *
      * @var float
      */
     public $cpu;
 
     /**
+     * @description The information about the environment variables.
+     *
      * @var environmentVars[]
      */
     public $environmentVars;
 
     /**
+     * @description The memory size that you want to allocate to the container. Unit: GiB.
+     *
+     * @example 4
+     *
      * @var float
      */
     public $memory;
 
     /**
+     * @description The container name. If you specify ContainerOverrides, you must also specify Name. ContainerOverrides takes effect only when the container name specified by Name matches that specified in the scaling configuration.
+     *
+     * @example container-1
+     *
      * @var string
      */
     public $name;

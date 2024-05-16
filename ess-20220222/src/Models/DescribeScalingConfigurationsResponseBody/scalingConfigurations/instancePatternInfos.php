@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class instancePatternInfos extends Model
 {
     /**
-     * @description The architectures of the instance types. Valid values:
+     * @description The architecture types of the instance types. Valid values:
      *
-     *   X86: x86 architecture.
-     *   Heterogeneous: heterogeneous architecture, such as GPUs and FPGAs.
-     *   BareMetal: ECS Bare Metal Instance architecture.
-     *   Arm: ARM architecture.
-     *   SuperComputeCluster: Super Computing Cluster architecture.
+     *   X86: x86
+     *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated
+     *   BareMetal: ECS Bare Metal Instance
+     *   Arm: Arm
+     *   SuperComputeCluster: Super Computing Cluster
      *
      * @var string[]
      */
@@ -44,10 +44,10 @@ class instancePatternInfos extends Model
     public $cores;
 
     /**
-     * @description The instance types that are excluded. You can use wildcard characters such as an asterisk (\*) to exclude an instance type or an instance family. Examples:
+     * @description The instance types that are excluded. You can use wildcard characters, such as an asterisk (\\*), to exclude an instance type or an instance family. Examples:
      *
      *   ecs.c6.large: The ecs.c6.large instance type is excluded.
-     *   ecs.c6.\*: The c6 instance family is excluded.
+     *   ecs.c6.\\*: The c6 instance family is excluded.
      *
      * @var string[]
      */
@@ -56,9 +56,9 @@ class instancePatternInfos extends Model
     /**
      * @description The level of the instance family.
      *
-     *   EntryLevel: shared instance type. Instances of this level are cost-effective, but do not provide stable computing performance. Instances of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](~~108489~~).
-     *   EnterpriseLevel: Instances of this level provide stable performance and dedicated resources, and are suitable for scenarios in which high stability is required. For more information, see [Overview of instance families](~~25378~~).
-     *   CreditEntryLevel: This value is available only for burstable instances. CPU credits are used to ensure computing performance. Instances of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview](~~59977~~) of burstable instances
+     *   EntryLevel: entry level (shared instance types) Instance types of this level are the most cost-effective but may not provide stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+     *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources and are suitable for scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+     *   CreditEntryLevel: credit entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
      *
      * @example EnterpriseLevel
      *
@@ -67,7 +67,7 @@ class instancePatternInfos extends Model
     public $instanceFamilyLevel;
 
     /**
-     * @description The maximum hourly price for pay-as-you-go instances or preemptible instances.
+     * @description The maximum hourly price for pay-as-you-go or preemptible instances.
      *
      * @example 2
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class configFileVolumeConfigFileToPaths extends Model
 {
     /**
+     * @description The content of the configuration file.
+     *
      * @example bGl1bWk=
      *
      * @var string
@@ -16,6 +18,8 @@ class configFileVolumeConfigFileToPaths extends Model
     public $content;
 
     /**
+     * @description The permissions on the ConfigFile volume.
+     *
      * @example 0644
      *
      * @var int
@@ -23,6 +27,8 @@ class configFileVolumeConfigFileToPaths extends Model
     public $mode;
 
     /**
+     * @description The path to the configuration file.
+     *
      * @example /usr/bin/
      *
      * @var string

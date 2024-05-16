@@ -12,7 +12,7 @@ class AttachVServerGroupsRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
      *
-     * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](~~25965~~).
+     * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](https://help.aliyun.com/document_detail/25965.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -20,7 +20,7 @@ class AttachVServerGroupsRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to add Elastic Compute Service (ECS) instances in the scaling group to the vServer group. Valid values:
+     * @description Specifies whether to add Elastic Compute Service (ECS) instances in the scaling group to new vServer groups. Valid values:
      *
      *   true
      *   false
@@ -40,6 +40,7 @@ class AttachVServerGroupsRequest extends Model
     /**
      * @description The region ID of the scaling group. Examples: cn-hangzhou and cn-shanghai.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -54,6 +55,7 @@ class AttachVServerGroupsRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string
@@ -63,6 +65,7 @@ class AttachVServerGroupsRequest extends Model
     /**
      * @description Details of the vServer groups.
      *
+     * This parameter is required.
      * @var VServerGroups[]
      */
     public $VServerGroups;

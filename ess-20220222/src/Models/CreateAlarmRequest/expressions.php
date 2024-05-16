@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class expressions extends Model
 {
     /**
+     * @description The operator that is used to compare the metric value and the threshold. Valid values:
+     *
+     *   If the metric value is greater than or equal to the threshold, set the value to: >=.
+     *   If the metric value is less than or equal to the threshold, set the value to: <=.
+     *   If the metric value is greater than the threshold, set the value to: >.
+     *   If the metric value is less than the threshold, set the value to: <.
+     *
+     * Default value: >=.
      * @example >=
      *
      * @var string
@@ -16,6 +24,35 @@ class expressions extends Model
     public $comparisonOperator;
 
     /**
+     * @description The names of the metrics that are specified in the multi-metric alert rule. The valid values of this parameter vary based on the metric type.
+     *
+     *   If you set the MetricType parameter to custom, the valid values are your custom metrics.
+     *
+     *   If you set the MetricType parameter to system, the MetricName parameter has the following valid values:
+     *
+     *   CpuUtilization: the CPU utilization of an ECS instance. Unit: %.
+     *   IntranetTx: the outbound traffic over the internal network from an ECS instance. Unit: KB/min.
+     *   IntranetRx: the inbound traffic over the Internet to an ECS instance that resides in a VPC. Unit: KB/min.
+     *   VpcInternetTx: the outbound traffic over the Internet from an ECS instance that resides in a VPC. Unit: KB/min.
+     *   VpcInternetRx: the inbound traffic over the Internet to an ECS instance that resides in a VPC. Unit: KB/min.
+     *   SystemDiskReadBps: the number of bytes read from the system disk used by an ECS instance per second.
+     *   SystemDiskWriteBps: the number of bytes written to the system disk used by an ECS instance per second.
+     *   SystemDiskReadOps: the number of read operations on the system disk used by an ECS instance per second.
+     *   SystemDiskWriteOps: the number of write operations on the system disk used by an ECS instance per second.
+     *   CpuUtilizationAgent: the CPU utilization of an agent. Unit: %.
+     *   GpuUtilizationAgent: the GPU utilization of an agent. Unit: %.
+     *   GpuMemoryFreeUtilizationAgent: the percentage of idle GPU memory of an agent.
+     *   GpuMemoryUtilizationAgent: the GPU memory usage of an agent. Unit: %.
+     *   MemoryUtilization: the memory usage of an agent. Unit: %.
+     *   LoadAverage: the average system load of an agent.
+     *   TcpConnection: the total number of TCP connections of an agent.
+     *   TcpConnection: the number of established TCP connections of an agent.
+     *   PackagesNetOut: the number of packets that are sent by the internal NIC used by an agent.
+     *   PackagesNetIn: the number of packets that are received by the internal NIC used by an agent.
+     *   EciPodCpuUtilization: the CPU utilization of an elastic container instance. Unit: %.
+     *   EciPodMemoryUtilization: the memory usage of an elastic container instance. Unit: %.
+     *
+     * For more information, see [Event-triggered task for system monitoring](https://help.aliyun.com/document_detail/74854.html).
      * @example CpuUtilization
      *
      * @var string
@@ -23,6 +60,15 @@ class expressions extends Model
     public $metricName;
 
     /**
+     * @description The period during which the statistical values of the metrics that are specified in the multi-metric alert rule are collected. Unit: seconds. Valid values:
+     *
+     *   15
+     *   60
+     *   120
+     *   300
+     *   900
+     *
+     * Default value: 300.
      * @example 900
      *
      * @var int
@@ -30,6 +76,13 @@ class expressions extends Model
     public $period;
 
     /**
+     * @description The method that is used to aggregate statistics about the metrics that are specified in the multi-metric alert rule. Valid values:
+     *
+     *   Average
+     *   Minimum
+     *   Maximum
+     *
+     * Default value: Average.
      * @example Average
      *
      * @var string
@@ -37,6 +90,8 @@ class expressions extends Model
     public $statistics;
 
     /**
+     * @description The thresholds of the metric values. If the thresholds are reached the specified number of times within the specified period, a scaling rule is executed.
+     *
      * @example 40.0
      *
      * @var float

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class volumeMounts extends Model
 {
     /**
+     * @description The directory in which the container mounts the volume.
+     *
+     * >  Data in this directory is overwritten by data on the volume. Specify this parameter with caution.
      * @example /pod/data
      *
      * @var string
@@ -16,6 +19,13 @@ class volumeMounts extends Model
     public $mountPath;
 
     /**
+     * @description The mount propagation settings of the volume. Mount propagation allows volumes that are mounted on one container to be shared with other containers in the same pod, or even with other pods on the same node. Valid values:
+     *
+     *   None: The volume mount does not receive subsequent mounts that are performed on the volume or on the subdirectories of the volume.
+     *   HostToCotainer: The volume mount receives subsequent mounts that are performed on the volume or on the subdirectories of the volume.
+     *   Bidirectional: The volume mount behaves the same as the HostToContainer mount. The volume mount receives subsequent mounts that are performed on the volume or on the subdirectories of the volume. In addition, all volume mounts that are performed on the container are propagated back to the host and all containers of all pods that use the same volume.
+     *
+     * Default value: None.
      * @example None
      *
      * @var string
@@ -23,6 +33,8 @@ class volumeMounts extends Model
     public $mountPropagation;
 
     /**
+     * @description The name of the mounted volume.
+     *
      * @example default-volume1
      *
      * @var string
@@ -30,6 +42,9 @@ class volumeMounts extends Model
     public $name;
 
     /**
+     * @description Indicates whether the volume is read-only.
+     *
+     * Default value: false.
      * @example true
      *
      * @var bool
@@ -37,6 +52,8 @@ class volumeMounts extends Model
     public $readOnly;
 
     /**
+     * @description The subdirectory of the volume.
+     *
      * @example data2/
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerConfigs extends Model
 {
     /**
+     * @description The ID of the CLB instance.
+     *
      * @example lb-2zein3ytoeq49cmkbyxr0
      *
      * @var string
@@ -16,6 +18,8 @@ class loadBalancerConfigs extends Model
     public $loadBalancerId;
 
     /**
+     * @description The weight of a backend server.
+     *
      * @example 100
      *
      * @var int

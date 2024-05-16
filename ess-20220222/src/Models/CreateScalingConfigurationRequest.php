@@ -46,7 +46,7 @@ class CreateScalingConfigurationRequest extends Model
     public $affinity;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see the "[How to ensure the idempotence of a request](~~25693~~)" topic.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see the "[How to ensure the idempotence of a request](https://help.aliyun.com/document_detail/25693.html)" topic.
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
@@ -70,7 +70,7 @@ class CreateScalingConfigurationRequest extends Model
      *   Standard: standard mode
      *   Unlimited: unlimited mode
      *
-     * For more information, see the "Performance modes" section in the "[Overview](~~59977~~)" topic.
+     * For more information, see the "Performance modes" section in the "[Overview](https://help.aliyun.com/document_detail/59977.html)" topic.
      * @example Standard
      *
      * @var string
@@ -82,7 +82,7 @@ class CreateScalingConfigurationRequest extends Model
      *
      * >  If you specify the priorities of only partial custom ECS instance type + vSwitch combinations, Auto Scaling preferentially creates ECS instances by using the custom combinations that have specified priorities. If the custom combinations that have specified priorities do not provide sufficient resources, Auto Scaling creates ECS instances by using the custom combinations that do not have specified priorities based on the specified orders of vSwitches and instance types.
      *
-     *   Example: the specified order of vSwitches for your scaling group is vsw1 and vsw2 and the specified order of instance types in your scaling configuration is type1 and type 2. In addition, you use CustomPriorities to specify \["vsw2+type2", "vsw1+type2"]. In this example, the vsw2+type2 combination has the highest priority and the vsw2+type1 combination has the lowest priority. The vsw1+type2 combination has a higher priority than the vsw1+type1 combination.
+     *   Example: the specified order of vSwitches for your scaling group is vsw1 and vsw2 and the specified order of instance types in your scaling configuration is type1 and type 2. In addition, you use CustomPriorities to specify ["vsw2+type2", "vsw1+type2"]. In this example, the vsw2+type2 combination has the highest priority and the vsw2+type1 combination has the lowest priority. The vsw1+type2 combination has a higher priority than the vsw1+type1 combination.
      *
      * @var customPriorities[]
      */
@@ -201,7 +201,7 @@ class CreateScalingConfigurationRequest extends Model
     public $instancePatternInfos;
 
     /**
-     * @description The instance type of the ECS instance. For more information, see the [Instance families](~~25378~~) topic.
+     * @description The instance type of the ECS instance. For more information, see the [Instance families](https://help.aliyun.com/document_detail/25378.html) topic.
      *
      * @example ecs.g6.large
      *
@@ -328,7 +328,7 @@ class CreateScalingConfigurationRequest extends Model
     /**
      * @description The password that you want to use to log on to an ECS instance. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
      *
-     * `` `() ~!@#$%^&*-_+=\|{}[]:;\"<>,.?/ ``
+     * `` `() ~!@#$%^&*-_+=\\|{}[]:;\\"<>,.?/ ``
      *
      * > For security reasons, we recommend that you use HTTPS to send requests if you specify Password.
      * @example 123abc****
@@ -373,7 +373,7 @@ class CreateScalingConfigurationRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The name of the scaling configuration. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (\_), hyphens (-), and periods (.). The name must start with a letter or a digit.
+     * @description The name of the scaling configuration. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must start with a letter or a digit.
      *
      * The name of the scaling configuration must be unique in a region. If you do not specify this parameter, the scaling configuration ID is used.
      * @example scalingconfig****
@@ -385,6 +385,7 @@ class CreateScalingConfigurationRequest extends Model
     /**
      * @description The ID of the scaling group in which you want to create a scaling configuration.
      *
+     * This parameter is required.
      * @example asg-bp14wlu85wrpchm0****
      *
      * @var string
@@ -422,7 +423,7 @@ class CreateScalingConfigurationRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security groups with which you want to associate the ECS instances that are created by using the scaling configuration. For more information, see the "Security group limits" section of the "[Limits](~~25412~~)" topic.
+     * @description The IDs of the security groups with which you want to associate the ECS instances that are created by using the scaling configuration. For more information, see the "Security group limits" section of the "[Limits](https://help.aliyun.com/document_detail/25412.html)" topic.
      *
      * > If you specify SecurityGroupId, you cannot specify SecurityGroupIds.
      * @var string[]

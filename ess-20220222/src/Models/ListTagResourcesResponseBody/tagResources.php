@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
+     * @description Indicates whether the tag can be propagated.
+     *
+     *   true: The tag can be propagated only to instances that are to be added to the scaling group. The tag cannot be propagated to instances that are already running in the scaling group.
+     *   false: The tag cannot be propagated to an instance.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,8 @@ class tagResources extends Model
     public $propagate;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example asg-bp17xb4x1vr29lgt****
      *
      * @var string
@@ -23,6 +30,8 @@ class tagResources extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ALIYUN::ESS::SCALINGGROUP
      *
      * @var string
@@ -30,6 +39,8 @@ class tagResources extends Model
     public $resourceType;
 
     /**
+     * @description The key of the tag.
+     *
      * @example TestKey
      *
      * @var string
@@ -37,6 +48,8 @@ class tagResources extends Model
     public $tagKey;
 
     /**
+     * @description The value of the tag.
+     *
      * @example TestValue
      *
      * @var string

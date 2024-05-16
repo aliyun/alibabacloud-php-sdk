@@ -11,6 +11,7 @@ class serverGroups extends Model
     /**
      * @description The port number that is used by an ECS instance after Auto Scaling adds the ECS instance to the server group. Valid values: 1 to 65535.
      *
+     * This parameter is required.
      * @example 22
      *
      * @var int
@@ -20,6 +21,7 @@ class serverGroups extends Model
     /**
      * @description The ID of the server group.
      *
+     * This parameter is required.
      * @example sgp-5yc3bd9lfyh*****
      *
      * @var string
@@ -32,6 +34,7 @@ class serverGroups extends Model
      *   ALB
      *   NLB
      *
+     * This parameter is required.
      * @example ALB
      *
      * @var string
@@ -41,7 +44,7 @@ class serverGroups extends Model
     /**
      * @description The weight of an ECS instance after Auto Scaling adds the ECS instance to the server group as a backend server.
      *
-     * A higher weight specifies that a larger number of requests are forwarded to the ECS instance. If you set the Weight parameter for an ECS instance in the server group to 0, no access requests are forwarded to the ECS instance. Valid values: 0 to 100.
+     * This parameter is required.
      * @example 100
      *
      * @var int

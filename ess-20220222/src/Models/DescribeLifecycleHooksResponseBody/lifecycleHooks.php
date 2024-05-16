@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class lifecycleHooks extends Model
 {
     /**
+     * @description The action that Auto Scaling performs after the lifecycle hook ends.
+     *
      * @example CONTINUE
      *
      * @var string
@@ -16,6 +18,8 @@ class lifecycleHooks extends Model
     public $defaultResult;
 
     /**
+     * @description The period of time before the lifecycle hook ends. Auto Scaling performs the specified action after the lifecycle hook ends.
+     *
      * @example 60
      *
      * @var int
@@ -23,6 +27,8 @@ class lifecycleHooks extends Model
     public $heartbeatTimeout;
 
     /**
+     * @description The ID of the lifecycle hook.
+     *
      * @example ash-bp19d1032y9kij96****
      *
      * @var string
@@ -30,6 +36,8 @@ class lifecycleHooks extends Model
     public $lifecycleHookId;
 
     /**
+     * @description The name of the lifecycle hook.
+     *
      * @example lifecyclehook****
      *
      * @var string
@@ -37,6 +45,11 @@ class lifecycleHooks extends Model
     public $lifecycleHookName;
 
     /**
+     * @description The status of the lifecycle hook. Valid values:
+     *
+     *   Active
+     *   InActive
+     *
      * @example Active
      *
      * @var string
@@ -44,6 +57,8 @@ class lifecycleHooks extends Model
     public $lifecycleHookStatus;
 
     /**
+     * @description The type of the scaling activity to which the lifecycle hook applies.
+     *
      * @example SCALE_OUT
      *
      * @var string
@@ -51,6 +66,21 @@ class lifecycleHooks extends Model
     public $lifecycleTransition;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the method that is used by Auto Scaling to send notifications when the lifecycle hook takes effect. Specify the value in one of the following formats:
+     *
+     *   If you do not create a notification rule, specify the value in the `acs:ess:{region-id}:{account-id}:null/null` format.
+     *   If you specify a Message Service (MNS) queue as the notification method, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
+     *   If you specify an MNS topic as the notification method, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
+     *   If you specify an Operation Orchestration Service (OOS) template as the notification method, specify the value in the `acs:oos:{region-id}:{account-id}:template/{templatename}` format.
+     *
+     * The variables in the preceding parameter formats have the following meanings:
+     *
+     *   region-id: the region ID of the scaling group.
+     *   account-id: the ID of the Alibaba Cloud account.
+     *   queuename: the name of the MNS queue.
+     *   topicname: the name of the MNS topic.
+     *   templatename: the name of the OOS template.
+     *
      * @example acs:ess:cn-beijing:161456884340****:null/null
      *
      * @var string
@@ -58,6 +88,8 @@ class lifecycleHooks extends Model
     public $notificationArn;
 
     /**
+     * @description The fixed string that is included in a notification. Auto Scaling sends the notification when the lifecycle hook takes effect.
+     *
      * @example Test Lifecycle Hook.
      *
      * @var string
@@ -65,6 +97,8 @@ class lifecycleHooks extends Model
     public $notificationMetadata;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

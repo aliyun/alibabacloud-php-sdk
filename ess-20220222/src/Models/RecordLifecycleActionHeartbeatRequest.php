@@ -45,6 +45,7 @@ class RecordLifecycleActionHeartbeatRequest extends Model
     /**
      * @description The token of the lifecycle hook. You can obtain this token by using a Message Service (MNS) queue or an MNS topic that is specified for the lifecycle hook.
      *
+     * This parameter is required.
      * @example F324B880-900E-4968-85DD-81691113****
      *
      * @var string
@@ -54,6 +55,7 @@ class RecordLifecycleActionHeartbeatRequest extends Model
     /**
      * @description The ID of the lifecycle hook.
      *
+     * This parameter is required.
      * @example ash-bp1fxuqyi98w0aib****
      *
      * @var string

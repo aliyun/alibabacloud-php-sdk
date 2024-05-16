@@ -18,7 +18,7 @@ class environmentVars extends Model
     public $fieldRefFieldPath;
 
     /**
-     * @description The name of the environment variable. The name can be 1 to 128 characters in length and can contain underscores (\_) and digits. The name cannot start with a digit. Specify the value in the \[0-9a-zA-Z] format.
+     * @description The name of the environment variable. The name can be 1 to 128 characters in length and can contain underscores (_) and digits. The name cannot start with a digit. Specify the value in the [0-9a-zA-Z] format.
      *
      * @example PATH
      *

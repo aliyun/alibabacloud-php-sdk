@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerConfigs extends Model
 {
     /**
-     * @description 负载均衡CLB（原SLB）实例的ID。
+     * @description The ID of the CLB instance.
      *
      * @example 147b46d767c-cn-qingdao-cm5****
      *
@@ -18,8 +18,9 @@ class loadBalancerConfigs extends Model
     public $loadBalancerId;
 
     /**
-     * @description 弹性伸缩将ECS实例添加到SLB服务器组后，ECS实例作为后端服务器的权重。权重越高，ECS实例将被分配到越多的访问请求。如果权重为0，则ECS实例不会收到访问请求。取值范围：0~100。
+     * @description The weight of an Elastic Compute Service (ECS) instance or elastic container instance as a backend sever of the CLB instance. If an instance has a higher weight, more access traffic is routed to the instance. If an instance has zero weight, no access traffic is routed to the instance.
      *
+     * Valid values: 0 to 100.
      * @example 10
      *
      * @var int

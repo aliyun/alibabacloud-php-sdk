@@ -23,8 +23,9 @@ class AttachLoadBalancersRequest extends Model
     public $async;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25965~~).
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -32,10 +33,15 @@ class AttachLoadBalancersRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to add all instances in the scaling group to the vServer groups of the CLB instance. Valid values:
+     * @description Specifies whether to add the existing instances in the scaling group as backend servers of the load balancer. Valid values:
      *
-     *   true
-     *   false
+     *   true: If you set this parameter to `true`, the attachment of the load balancer entails the addition of the existing instances in the scaling group to the backend server groups of the load balancer.
+     *
+     **
+     *
+     **Note** If a load balancer is currently attached to your scaling group, and you want to add the instances in your scaling group to the backend server groups of the load balancer, you can call this operation again and set the ForceAttach request parameter to true.
+     *
+     *   false: If you set this parameter to false, the attachment of the load balancer does not entail the addition of the existing instances in the scaling group to the backend server groups of the load balancer.
      *
      * Default value: false.
      * @example false
@@ -45,14 +51,14 @@ class AttachLoadBalancersRequest extends Model
     public $forceAttach;
 
     /**
-     * @description 负载均衡配置列表。
+     * @description The configurations of the classic load balancer (CLB, formerly known as SLB) instance.
      *
      * @var loadBalancerConfigs[]
      */
     public $loadBalancerConfigs;
 
     /**
-     * @description The IDs of the CLB instances.
+     * @description The IDs of the load balancers that you want to attach to the scaling group.
      *
      * @var string[]
      */
@@ -71,6 +77,7 @@ class AttachLoadBalancersRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp1avr6ensitts3w****
      *
      * @var string

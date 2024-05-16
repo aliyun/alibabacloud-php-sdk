@@ -93,7 +93,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $cpu;
 
     /**
-     * @description Number of physical CPU cores This parameter is not available for all instance types. For more information, see [Specify custom CPU options](~~197781~~).
+     * @description Number of physical CPU cores This parameter is not available for all instance types. For more information, see [Specify custom CPU options](https://help.aliyun.com/document_detail/197781.html).
      *
      * @example 2
      *
@@ -102,7 +102,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $cpuOptionsCore;
 
     /**
-     * @description The number of threads per core. This parameter is not available for all instance types. A value of 1 indicates that Hyper-Threading is disabled. For more information, see [Specify custom CPU options](~~197781~~).
+     * @description The number of threads per core. This parameter is not available for all instance types. A value of 1 indicates that Hyper-Threading is disabled. For more information, see [Specify custom CPU options](https://help.aliyun.com/document_detail/197781.html).
      *
      * @example 2
      *
@@ -125,7 +125,7 @@ class CreateEciScalingConfigurationRequest extends Model
      *   true
      *   false
      *
-     * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](~~368372~~).
+     * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example false
      *
      * @var bool
@@ -140,7 +140,7 @@ class CreateEciScalingConfigurationRequest extends Model
      *   PL2: An ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: An ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * >  For more information about ESSDs, see [ESSDs](~~122389~~).
+     * >  For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
      * @example PL1
      *
      * @var string
@@ -150,7 +150,7 @@ class CreateEciScalingConfigurationRequest extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk that caches data. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline IOPS}. Baseline IOPS = min{1,800+50 x *Capacity, 50,000}.
      *
-     * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](~~368372~~).
+     * >  For more information about ESSD AutoPL disks, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 40000
      *
      * @var int
@@ -286,9 +286,9 @@ class CreateEciScalingConfigurationRequest extends Model
     /**
      * @description The level of the instance type, which is used to filter the instance types that meet the specified criteria. This parameter takes effect only if you set the `CostOptimization` parameter to true. Valid values:
      *
-     *   EntryLevel: shared instance type. Instances of this level are the most cost-effective but may not provide stable computing performance in a consistent manner. Instances of this level are suitable for business scenarios in which the CPU utilization is low. For more information, see [Shared instance families](~~108489~~).
-     *   EnterpriseLevel: Instances of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Instance family](~~25378~~).
-     *   CreditEntryLevel: This value is valid only for burstable instances. CPU credits are used to ensure computing performance. Instances of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see the [Overview](~~59977~~) topic of burstable instances.
+     *   EntryLevel: shared instance type. Instances of this level are the most cost-effective but may not provide stable computing performance in a consistent manner. Instances of this level are suitable for business scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+     *   EnterpriseLevel: Instances of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
+     *   CreditEntryLevel: This value is valid only for burstable instances. CPU credits are used to ensure computing performance. Instances of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see the [Overview](https://help.aliyun.com/document_detail/59977.html) topic of burstable instances.
      *
      * @example EnterpriseLevel
      *
@@ -342,7 +342,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The name of the RAM role for the elastic container instance. You can use an instance RAM role to access both elastic container instances and Elastic Compute Service (ECS) instances. For more information, see [Use an instance RAM role by calling API operations](~~61178~~).
+     * @description The name of the RAM role for the elastic container instance. You can use an instance RAM role to access both elastic container instances and Elastic Compute Service (ECS) instances. For more information, see [Use an instance RAM role by calling API operations](https://help.aliyun.com/document_detail/61178.html).
      *
      * @example RamTestRole
      *
@@ -379,7 +379,7 @@ class CreateEciScalingConfigurationRequest extends Model
     public $restartPolicy;
 
     /**
-     * @description The name of the scaling configuration. The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (\_), hyphens (-), and periods (.). The name must start with a letter or a digit.
+     * @description The name of the scaling configuration. The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must start with a letter or a digit.
      *
      * The name of the scaling configuration must be unique within a scaling group in a region. If you do not specify this parameter, the value of the ScalingConfigurationId parameter is used.
      * @example scalingconfig****
@@ -391,6 +391,7 @@ class CreateEciScalingConfigurationRequest extends Model
     /**
      * @description The ID of the scaling group in which you want to create the scaling configuration.
      *
+     * This parameter is required.
      * @example asg-bp14wlu85wrpchm0****
      *
      * @var string

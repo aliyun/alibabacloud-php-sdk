@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class spotPriceLimits extends Model
 {
     /**
-     * @description The instance type of the preemptible instance.
+     * @description The instance type of the preemptible instances.
      *
      * @example ecs.g6.large
      *
@@ -18,7 +18,7 @@ class spotPriceLimits extends Model
     public $instanceType;
 
     /**
-     * @description The price limit of the preemptible instance.
+     * @description The price limit of the preemptible instances.
      *
      * @example 0.125
      *

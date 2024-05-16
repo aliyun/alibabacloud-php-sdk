@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetGroupDeletionProtectionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example CCC29E24-3AEC-4F2C-8A14-78B14FA738B7
      *

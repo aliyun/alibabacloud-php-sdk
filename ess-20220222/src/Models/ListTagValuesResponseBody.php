@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesResponseBody extends Model
 {
     /**
-     * @description The token that is returned for the next query.
+     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
      *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
@@ -36,7 +36,7 @@ class ListTagValuesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the tag values.
+     * @description Details of the tag values.
      *
      * @var string[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class initContainerEnvironmentVars extends Model
 {
     /**
+     * @description >  This parameter is not available for use.
+     *
      * @example path
      *
      * @var string
@@ -16,6 +18,8 @@ class initContainerEnvironmentVars extends Model
     public $fieldRefFieldPath;
 
     /**
+     * @description The key of the environment variable.
+     *
      * @example PATH
      *
      * @var string
@@ -23,6 +27,8 @@ class initContainerEnvironmentVars extends Model
     public $key;
 
     /**
+     * @description The value of the environment variable.
+     *
      * @example /usr/local/bin
      *
      * @var string

@@ -9,12 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The language used for the returned value. Valid values:
+     * @description The language that is used as a filter condition to filter returned results. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:
      *
-     *   **zh-CN**: Chinese.
-     *   **en-US**: English.
+     *   zh-CN: Chinese
+     *   en-US: English
+     *   ja: Japanese
      *
-     * >  Default value: **zh-CN**.
+     * Default value: en-US
      * @example zh-CN
      *
      * @var string

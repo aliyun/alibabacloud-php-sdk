@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class alarmList extends Model
 {
     /**
+     * @description The list of unique identifiers of the scaling rules that are associated with the event-triggered task.
+     *
      * @var string[]
      */
     public $alarmActions;
 
     /**
+     * @description The ID of the event-triggered task.
+     *
      * @example asg-bp1hvbnmkl10vll5****_f95ce797-dc2e-4bad-9618-14fee7d1****
      *
      * @var string
@@ -23,6 +27,13 @@ class alarmList extends Model
     public $alarmTaskId;
 
     /**
+     * @description The operator that is used to compare the metric value and the threshold.
+     *
+     *   Valid value if the metric value is greater than or equal to the threshold: >=
+     *   Valid value if the metric value is less than or equal to the threshold: <=
+     *   Valid value if the metric value is greater than the threshold: >
+     *   Valid value if the metric value is less than the threshold: <
+     *
      * @example >=
      *
      * @var string
@@ -30,6 +41,8 @@ class alarmList extends Model
     public $comparisonOperator;
 
     /**
+     * @description The description of the event-triggered task.
+     *
      * @example Test alarm task.
      *
      * @var string
@@ -37,16 +50,27 @@ class alarmList extends Model
     public $description;
 
     /**
+     * @description Details of the dimensions.
+     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $effective;
 
     /**
+     * @description Indicates whether the event-triggered task is enabled. Valid values:
+     *
+     *   true: The event-triggered task is enabled.
+     *   false: The event-triggered task is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -54,6 +78,8 @@ class alarmList extends Model
     public $enable;
 
     /**
+     * @description The number of times that the threshold must be reached before a scaling rule can be executed. For example, if you set this parameter to 3, the average CPU utilization must reach or exceed 80% three times in a row before a scaling rule is triggered.
+     *
      * @example 3
      *
      * @var int
@@ -61,11 +87,18 @@ class alarmList extends Model
     public $evaluationCount;
 
     /**
+     * @description The expressions that are specified in the multi-metric alert rule.
+     *
      * @var expressions[]
      */
     public $expressions;
 
     /**
+     * @description The relationship between the trigger conditions that are specified in the multi-metric alert rule. Valid values:
+     *
+     *   `&&`: An alert is triggered only if all metrics in the multi-metric alert rule meet the trigger conditions. In this case, an alert is triggered only if the results of all trigger conditions that are specified in the multi-metric alert rule are `true`.
+     *   `||`: An alert is triggered if one of the metrics in the multi-metric alert rule meets the trigger conditions.
+     *
      * @example &&
      *
      * @var string
@@ -73,6 +106,30 @@ class alarmList extends Model
     public $expressionsLogicOperator;
 
     /**
+     * @description The name of the metric. Valid values:
+     *
+     *   CpuUtilization: the CPU utilization of an ECS instance. Unit: %.
+     *   IntranetTx: the outbound traffic over the internal network from an ECS instance. Unit: KB/min.
+     *   IntranetRx: the inbound traffic over the Internet to an ECS instance that resides in a VPC. Unit: KB/min.
+     *   VpcInternetTx: the outbound traffic over the Internet from an ECS instance that resides in a VPC. Unit: KB/min.
+     *   VpcInternetRx: the inbound traffic over the Internet to an ECS instance that resides in a VPC. Unit: KB/min.
+     *   SystemDiskReadBps: the number of bytes read from the system disk used by an ECS instance per second.
+     *   SystemDiskWriteBps: the number of bytes written to the system disk used by an ECS instance per second.
+     *   SystemDiskReadOps: the number of read operations on the system disk used by an ECS instance per second.
+     *   SystemDiskWriteOps: the number of write operations on the system disk used by an ECS instance per second.
+     *   CpuUtilizationAgent: the CPU utilization of an agent. Unit: %.
+     *   GpuMemoryFreeUtilizationAgent: the percentage of idle GPU memory of an agent.
+     *   GpuMemoryUtilizationAgent: the GPU memory usage of an agent. Unit: %.
+     *   MemoryUtilization: the memory usage of an agent. Unit: %.
+     *   LoadAverage: the average system load of an agent.
+     *   TcpConnection: the total number of TCP connections of an agent.
+     *   TcpConnection: the number of established TCP connections of an agent.
+     *   PackagesNetOut: the number of packets that are sent by the internal NIC used by an agent.
+     *   PackagesNetIn: the number of packets that are received by the internal NIC used by an agent.
+     *   EciPodCpuUtilization: the CPU utilization of an elastic container instance. Unit: %.
+     *   EciPodMemoryUtilization: the memory usage of an elastic container instance. Unit: %.
+     *
+     * For more information, see [Event-triggered task for system monitoring](https://help.aliyun.com/document_detail/74854.html).
      * @example CpuUtilization
      *
      * @var string
@@ -80,6 +137,11 @@ class alarmList extends Model
     public $metricName;
 
     /**
+     * @description The type of the metric. Valid values:
+     *
+     *   system: system metrics of CloudMonitor
+     *   custom: custom metrics that are reported to CloudMonitor
+     *
      * @example system
      *
      * @var string
@@ -87,6 +149,8 @@ class alarmList extends Model
     public $metricType;
 
     /**
+     * @description The name of the event-triggered task.
+     *
      * @example TestAlarmTask
      *
      * @var string
@@ -94,6 +158,15 @@ class alarmList extends Model
     public $name;
 
     /**
+     * @description The period of time during which statistics about the metric is collected. Unit: seconds. Valid values:
+     *
+     *   15
+     *   60
+     *   120
+     *   300
+     *   900
+     *
+     * > If your scaling group is of the ECS type and the event-triggered task associated with your scaling group monitors CloudMonitor metrics, you can set the Period parameter to 15. In most cases, the name of a CloudMonitor metric contains Agent.
      * @example 300
      *
      * @var int
@@ -101,6 +174,8 @@ class alarmList extends Model
     public $period;
 
     /**
+     * @description The scaling group ID of the event-triggered task.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string
@@ -108,6 +183,12 @@ class alarmList extends Model
     public $scalingGroupId;
 
     /**
+     * @description The status of the event-triggered task. Valid values:
+     *
+     *   ALARM: The alert condition is met and an alert is triggered.
+     *   OK: The alert condition is not met.
+     *   INSUFFICIENT_DATA: Auto Scaling cannot determine whether the alert condition is met due to insufficient data.
+     *
      * @example ALARM
      *
      * @var string
@@ -115,6 +196,12 @@ class alarmList extends Model
     public $state;
 
     /**
+     * @description The method that is used to aggregate statistics for the metric. Valid values:
+     *
+     *   Average
+     *   Minimum
+     *   Maximum
+     *
      * @example Average
      *
      * @var string
@@ -122,6 +209,8 @@ class alarmList extends Model
     public $statistics;
 
     /**
+     * @description The threshold of the metric value. If the threshold is reached the specified times within the specified period, a scaling rule is executed.
+     *
      * @example 80.0
      *
      * @var float

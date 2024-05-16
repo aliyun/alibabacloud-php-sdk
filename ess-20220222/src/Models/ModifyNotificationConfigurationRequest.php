@@ -22,6 +22,7 @@ class ModifyNotificationConfigurationRequest extends Model
      *   queuename: the name of the MNS queue.
      *   topicname: the name of the MNS topic.
      *
+     * This parameter is required.
      * @example acs:ess:cn-beijing:161456884340****:cloudmonitor
      *
      * @var string
@@ -31,7 +32,7 @@ class ModifyNotificationConfigurationRequest extends Model
     /**
      * @description The types of the notifications that you want to modify. You can modify one to eight notifications. Specify multiple values in the repeated list form.
      *
-     * You can call the DescribeNotificationTypes operation to query the values of this parameter.
+     * This parameter is required.
      * @var string[]
      */
     public $notificationTypes;
@@ -58,6 +59,7 @@ class ModifyNotificationConfigurationRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

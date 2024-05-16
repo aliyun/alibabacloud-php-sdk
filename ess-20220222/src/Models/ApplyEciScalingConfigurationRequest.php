@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ApplyEciScalingConfigurationRequest extends Model
 {
     /**
+     * @description The content of the configuration file.
+     *
+     * This parameter is required.
      * @example apiVersion: apps/v1
      * - containerPort: 80
      * @var string
@@ -16,6 +19,8 @@ class ApplyEciScalingConfigurationRequest extends Model
     public $content;
 
     /**
+     * @description Optional. The format of the configuration file. Default value: YAML. Set the value to YAML.
+     *
      * @example YAML
      *
      * @var string
@@ -23,6 +28,8 @@ class ApplyEciScalingConfigurationRequest extends Model
     public $format;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -30,6 +37,8 @@ class ApplyEciScalingConfigurationRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the scaling configuration that you want to update. If you want to update a scaling configuration based on the value of Content, you must specify ScalingConfigurationId. If you want to create a scaling configuration based on the value of Content, you can leave ScalingConfigurationId empty.
+     *
      * @example asc-bp1i65jd06v04vdh****
      *
      * @var string
@@ -37,6 +46,9 @@ class ApplyEciScalingConfigurationRequest extends Model
     public $scalingConfigurationId;
 
     /**
+     * @description The ID of the scaling group.
+     *
+     * This parameter is required.
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

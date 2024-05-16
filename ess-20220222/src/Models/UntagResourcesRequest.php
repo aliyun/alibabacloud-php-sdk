@@ -29,6 +29,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID of the Auto Scaling resource. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +39,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The IDs of the Auto Scaling resources. You can specify 1 to 50 resource IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceIds;
@@ -50,6 +52,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The type of the resource. Only scaling groups are supported. Set the value to scalinggroup.
      *
+     * This parameter is required.
      * @example scalinggroup
      *
      * @var string

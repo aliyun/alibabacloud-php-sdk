@@ -199,6 +199,7 @@ class ModifyScalingRuleRequest extends Model
     /**
      * @description The ID of the scaling rule that you want to modify.
      *
+     * This parameter is required.
      * @example asr-bp1dvirgwkoowxk7****
      *
      * @var string
@@ -206,7 +207,7 @@ class ModifyScalingRuleRequest extends Model
     public $scalingRuleId;
 
     /**
-     * @description The name of the scaling rule. The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (\_), hyphens (-), and periods (.). The name must start with a letter or a digit. The name of a scaling rule must be unique in the scaling group to which the scaling rule belongs and within an Alibaba Cloud account.
+     * @description The name of the scaling rule. The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must start with a letter or a digit. The name of a scaling rule must be unique in the scaling group to which the scaling rule belongs and within an Alibaba Cloud account.
      *
      * @example scalingrule****
      *

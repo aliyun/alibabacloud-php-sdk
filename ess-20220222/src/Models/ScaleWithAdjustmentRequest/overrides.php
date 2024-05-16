@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class overrides extends Model
 {
     /**
+     * @description The list of parameters that you want to use to override specific configurations for containers.
+     *
      * @var containerOverrides[]
      */
     public $containerOverrides;
 
     /**
+     * @description The number of vCPUs that you want to allocate to the instance.
+     *
+     * @example 2
+     *
      * @var float
      */
     public $cpu;
 
     /**
+     * @description The memory size that you want to allocate to the instance. Unit: GiB.
+     *
+     * @example 4
+     *
      * @var float
      */
     public $memory;

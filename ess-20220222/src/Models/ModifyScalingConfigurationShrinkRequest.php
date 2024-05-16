@@ -57,8 +57,8 @@ class ModifyScalingConfigurationShrinkRequest extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: standard mode. For more information, see the "Standard mode" section in the [Burstable instances](~~59977~~) topic.
-     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in the [Burstable instances](~~59977~~) topic.
+     *   Standard: standard mode. For more information, see the "Standard mode" section in the [Burstable instances](https://help.aliyun.com/document_detail/59977.html) topic.
+     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in the [Burstable instances](https://help.aliyun.com/document_detail/59977.html) topic.
      *
      * @example Standard
      *
@@ -281,7 +281,7 @@ class ModifyScalingConfigurationShrinkRequest extends Model
     public $networkInterfaces;
 
     /**
-     * @description Specifies whether to overwrite existing data. Valid values:
+     * @description Specifies whether to override existing data. Valid values:
      *
      *   true
      *   false
@@ -337,6 +337,7 @@ class ModifyScalingConfigurationShrinkRequest extends Model
     /**
      * @description The ID of the scaling configuration that you want to modify.
      *
+     * This parameter is required.
      * @example asc-bp16har3jpj6fjbx****
      *
      * @var string
@@ -344,7 +345,7 @@ class ModifyScalingConfigurationShrinkRequest extends Model
     public $scalingConfigurationId;
 
     /**
-     * @description The name of the scaling configuration. The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (\_), hyphens (-), and periods (.). The name must start with a letter or a digit.
+     * @description The name of the scaling configuration. The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must start with a letter or a digit.
      *
      * The name of the scaling configuration must be unique in a region. If you do not specify this parameter, the scaling configuration ID is used.
      * @example test-modify

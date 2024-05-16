@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingGroupDetailRequest extends Model
 {
     /**
+     * @description The output format. Set the value to yaml.
+     *
      * @example yaml
      *
      * @var string
@@ -21,6 +23,9 @@ class DescribeScalingGroupDetailRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group. For more information, see the "Regions and zones" topic.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -28,6 +33,9 @@ class DescribeScalingGroupDetailRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the scaling group.
+     *
+     * This parameter is required.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

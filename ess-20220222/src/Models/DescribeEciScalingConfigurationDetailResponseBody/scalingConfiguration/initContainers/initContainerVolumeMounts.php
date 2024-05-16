@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class initContainerVolumeMounts extends Model
 {
     /**
+     * @description The directory to which the init container mounts the volume.
+     *
+     * >  Data in this directory is overwritten by the data on the volume. Specify this parameter with caution.
      * @example /usr/share/
      *
      * @var string
@@ -16,6 +19,13 @@ class initContainerVolumeMounts extends Model
     public $mountPath;
 
     /**
+     * @description The mount propagation settings of the volume. Mount propagation allows volumes that are mounted on one init container to be shared with other containers in the same pod, or even with other pods on the same node. Valid values:
+     *
+     *   None: The volume mount does not receive subsequent mounts that are performed on the volume or on the subdirectories of the volume.
+     *   HostToCotainer: The volume mount receives subsequent mounts that are performed on the volume or on the subdirectories of the volume.
+     *   Bidirectional: The volume mount behaves the same as the HostToContainer mount. The volume mount receives subsequent mounts that are performed on the volume or on the subdirectories of the volume. In addition, all volume mounts that are performed on the init container are propagated back to the host and all containers of all pods that use the same volume.
+     *
+     * Default value: None.
      * @example None
      *
      * @var string
@@ -23,6 +33,8 @@ class initContainerVolumeMounts extends Model
     public $mountPropagation;
 
     /**
+     * @description The name of the mounted volume.
+     *
      * @example test-empty
      *
      * @var string
@@ -30,6 +42,9 @@ class initContainerVolumeMounts extends Model
     public $name;
 
     /**
+     * @description Indicates whether the mount directory is read-only.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -37,6 +52,8 @@ class initContainerVolumeMounts extends Model
     public $readOnly;
 
     /**
+     * @description The subdirectory of the volume.
+     *
      * @example /usr/sub/
      *
      * @var string

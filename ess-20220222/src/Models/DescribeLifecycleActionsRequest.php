@@ -63,6 +63,7 @@ class DescribeLifecycleActionsRequest extends Model
     /**
      * @description The ID of the scaling activity.
      *
+     * This parameter is required.
      * @example asa-bp17mug9t0pegagw****
      *
      * @var string

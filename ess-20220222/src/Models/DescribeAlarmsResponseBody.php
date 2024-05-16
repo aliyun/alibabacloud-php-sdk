@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlarmsResponseBody extends Model
 {
     /**
+     * @description The list of event-triggered tasks.
+     *
      * @var alarmList[]
      */
     public $alarmList;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeAlarmsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeAlarmsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 871C7C53-34A4-45AA-8C14-4B72FA6A****
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeAlarmsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of event-triggered tasks.
+     *
      * @example 2
      *
      * @var int

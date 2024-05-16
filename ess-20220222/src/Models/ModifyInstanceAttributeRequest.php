@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAttributeRequest extends Model
 {
     /**
+     * @description Specifies whether to use the scaling group to manage the lifecycles of the manually added ECS instances. Valid values:
+     *
+     *   true: The scaling group manages the lifecycles of instances that are manually added and instances that are automatically created in the same manner. In this case, Auto Scaling releases the instances when they are removed from the scaling group. This rule does not apply to instances that are removed by calling the DetachInstances operation.
+     *   false: The scaling group does not manage the lifecycles of instances that are manually added. In this case, Auto Scaling does not release the instances when they are removed from the scaling group.
+     *
+     * >  You can specify this parameter for only ECS instances that are manually added to scaling groups.
      * @example true
      *
      * @var bool
@@ -16,6 +22,9 @@ class ModifyInstanceAttributeRequest extends Model
     public $entrusted;
 
     /**
+     * @description The ID of the ECS instance.
+     *
+     * This parameter is required.
      * @example i-bp109k5j3dum1ce6****
      *
      * @var string
@@ -28,6 +37,9 @@ class ModifyInstanceAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -40,6 +52,9 @@ class ModifyInstanceAttributeRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
+     * This parameter is required.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

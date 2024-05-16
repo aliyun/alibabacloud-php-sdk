@@ -30,6 +30,7 @@ class DescribeNotificationConfigurationsRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

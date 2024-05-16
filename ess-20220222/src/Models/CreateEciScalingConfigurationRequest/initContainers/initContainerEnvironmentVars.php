@@ -18,7 +18,7 @@ class initContainerEnvironmentVars extends Model
     public $fieldRefFieldPath;
 
     /**
-     * @description The key of the environment variable. Specify the key in the `[0-9a-zA-Z]` format. The key must be 1 to 128 characters in length. The key can contain underscores (\_) and cannot start with a digit.
+     * @description The key of the environment variable. Specify the key in the `[0-9a-zA-Z]` format. The key must be 1 to 128 characters in length. The key can contain underscores (_) and cannot start with a digit.
      *
      * @example Path
      *

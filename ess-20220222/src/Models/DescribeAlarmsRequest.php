@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlarmsRequest extends Model
 {
     /**
+     * @description The ID of the event-triggered task.
+     *
      * @example asg-bp1hvbnmkl10vll5****_f95ce797-dc2e-4bad-9618-14fee7d1****
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeAlarmsRequest extends Model
     public $alarmTaskId;
 
     /**
+     * @description Specifies whether to enable the event-triggered task. Valid values:
+     *
+     *   true: enables the event-triggered task.
+     *   false: disables the event-triggered task.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class DescribeAlarmsRequest extends Model
     public $isEnable;
 
     /**
+     * @description The name of the event-triggered task.
+     *
      * @example CpuUtilization
      *
      * @var string
@@ -30,6 +39,11 @@ class DescribeAlarmsRequest extends Model
     public $metricName;
 
     /**
+     * @description The type of the metric. Valid values:
+     *
+     *   system: system metrics of CloudMonitor
+     *   custom: custom metrics that are reported to CloudMonitor
+     *
      * @example true
      *
      * @var string
@@ -42,6 +56,9 @@ class DescribeAlarmsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -49,6 +66,9 @@ class DescribeAlarmsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 50.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -56,6 +76,9 @@ class DescribeAlarmsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the event-triggered task.
+     *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string
@@ -68,6 +91,8 @@ class DescribeAlarmsRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group with which the event-triggered task is associated.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string
@@ -75,6 +100,12 @@ class DescribeAlarmsRequest extends Model
     public $scalingGroupId;
 
     /**
+     * @description The status of the event-triggered task. Valid values:
+     *
+     *   ALARM: The alert condition is met and an alert is triggered.
+     *   OK: The alert condition is not met.
+     *   INSUFFICIENT_DATA: Auto Scaling cannot determine whether the alert condition is met due to insufficient data.
+     *
      * @example OK
      *
      * @var string

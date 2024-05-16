@@ -11,6 +11,7 @@ class DeleteAlarmRequest extends Model
     /**
      * @description The ID of the event-triggered task.
      *
+     * This parameter is required.
      * @example asg-bp1hvbnmkl10vll5****_f95ce797-dc2e-4bad-9618-14fee7d1****
      *
      * @var string
@@ -25,6 +26,7 @@ class DeleteAlarmRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string

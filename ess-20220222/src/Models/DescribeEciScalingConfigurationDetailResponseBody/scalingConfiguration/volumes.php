@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class volumes extends Model
 {
     /**
+     * @description The paths to the configuration files.
+     *
      * @var configFileVolumeConfigFileToPaths[]
      */
     public $configFileVolumeConfigFileToPaths;
 
     /**
+     * @description The default permissions on the ConfigFile volume.
+     *
      * @example 0644
      *
      * @var int
@@ -22,6 +26,8 @@ class volumes extends Model
     public $configFileVolumeDefaultMode;
 
     /**
+     * @description The ID of the disk volume.
+     *
      * @example d-xx
      *
      * @var string
@@ -29,6 +35,8 @@ class volumes extends Model
     public $diskVolumeDiskId;
 
     /**
+     * @description The size of the disk volume. Unit: GiB.
+     *
      * @example 15
      *
      * @var int
@@ -36,6 +44,8 @@ class volumes extends Model
     public $diskVolumeDiskSize;
 
     /**
+     * @description The system type of the disk volume.
+     *
      * @example xfs
      *
      * @var string
@@ -43,6 +53,8 @@ class volumes extends Model
     public $diskVolumeFsType;
 
     /**
+     * @description The storage medium of the emptyDir volume. If you do not specify a storage medium for the emptyDir volume, the volume stores data in the file system of a node by default. We recommend that you set this parameter to memory. In this case, the emptyDir volume stores data in the specified memory.
+     *
      * @example memory
      *
      * @var string
@@ -50,6 +62,8 @@ class volumes extends Model
     public $emptyDirVolumeMedium;
 
     /**
+     * @description The storage size of the emptyDir volume.
+     *
      * @example 256Mi
      *
      * @var string
@@ -57,6 +71,8 @@ class volumes extends Model
     public $emptyDirVolumeSizeLimit;
 
     /**
+     * @description The name of the FlexVolume driver.
+     *
      * @example flexvolume
      *
      * @var string
@@ -64,6 +80,8 @@ class volumes extends Model
     public $flexVolumeDriver;
 
     /**
+     * @description The type of the mounted file system. The default value is determined by the script of FlexVolume.
+     *
      * @example ext4
      *
      * @var string
@@ -71,6 +89,8 @@ class volumes extends Model
     public $flexVolumeFsType;
 
     /**
+     * @description The FlexVolume options.
+     *
      * @example {"volumeId":"d-2zehdahrwoa7srg****","performanceLevel": "PL2"}
      *
      * @var string
@@ -78,6 +98,8 @@ class volumes extends Model
     public $flexVolumeOptions;
 
     /**
+     * @description The path to the HostPath volume on the host.
+     *
      * @example /pod/data
      *
      * @var string
@@ -85,6 +107,8 @@ class volumes extends Model
     public $hostPathVolumePath;
 
     /**
+     * @description The type of the HostPath volume.
+     *
      * @example Directory
      *
      * @var string
@@ -92,6 +116,8 @@ class volumes extends Model
     public $hostPathVolumeType;
 
     /**
+     * @description The path to the Network File System (NFS) volume.
+     *
      * @example /share
      *
      * @var string
@@ -99,6 +125,9 @@ class volumes extends Model
     public $NFSVolumePath;
 
     /**
+     * @description Indicates whether the NFS volume is read-only.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -106,6 +135,8 @@ class volumes extends Model
     public $NFSVolumeReadOnly;
 
     /**
+     * @description The address of the Network File System (NFS) server.
+     *
      * @example 3f9cd4a596-naw76.cn-shanghai.nas.aliyuncs.com
      *
      * @var string
@@ -113,6 +144,8 @@ class volumes extends Model
     public $NFSVolumeServer;
 
     /**
+     * @description The volume name.
+     *
      * @example default-volume1
      *
      * @var string
@@ -120,6 +153,13 @@ class volumes extends Model
     public $name;
 
     /**
+     * @description The volume type. Valid values:
+     *
+     *   EmptyDirVolume
+     *   NFSVolume
+     *   ConfigFileVolume
+     *   FlexVolume
+     *
      * @example EmptyDirVolume
      *
      * @var string

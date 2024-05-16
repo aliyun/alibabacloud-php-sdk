@@ -41,6 +41,7 @@ class DescribeScalingRulesRequest extends Model
     /**
      * @description The region ID of the scaling group to which the scaling rules that you want to query belong.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string

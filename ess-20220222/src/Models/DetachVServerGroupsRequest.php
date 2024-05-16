@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DetachVServerGroupsRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25965~~).
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -20,10 +20,10 @@ class DetachVServerGroupsRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to remove ECS instances in your scaling group from the vServer group.
+     * @description Specifies whether to remove the existing instances in the scaling group from the vServer group marked for detachment.
      *
-     *   true
-     *   false
+     *   true: If you set this parameter to `true`, the detachment of the load balancer from the scaling group entails automatic removal of the existing instances in the scaling group from the corresponding vServer group.
+     *   false: If you set this parameter to `false`, the detachment of the load balancer from the scaling group does not entail automatic removal of the existing instances in the scaling group from the corresponding vServer group.
      *
      * Default value: false.
      * @example false
@@ -40,6 +40,7 @@ class DetachVServerGroupsRequest extends Model
     /**
      * @description The region ID of the scaling group. Examples: cn-hangzhou and cn-shanghai.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -54,6 +55,7 @@ class DetachVServerGroupsRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp1fo0dbtsbmqa9h****
      *
      * @var string
@@ -61,8 +63,9 @@ class DetachVServerGroupsRequest extends Model
     public $scalingGroupId;
 
     /**
-     * @description Details of the vServer groups.
+     * @description The collection of information about the vServer groups marked for detachment.
      *
+     * This parameter is required.
      * @var VServerGroups[]
      */
     public $VServerGroups;

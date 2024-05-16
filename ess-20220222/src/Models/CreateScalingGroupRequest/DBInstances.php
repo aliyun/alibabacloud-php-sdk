@@ -9,16 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DBInstances extends Model
 {
     /**
+     * @description The mode in which you want to attach the database to the scaling group. Valid values:
+     *
+     *   SecurityIp: the mode in which Auto Scaling automatically adds the private IP addresses of the scaled out instances to the IP address whitelist of the database. This mode is supported only if you set Type to RDS.
+     *   SecurityGroup: the mode in which Auto Scaling adds the security group of the applied scaling configuration in the scaling group to the security group whitelist of the database to enable secure access from instances to the database.
+     *
+     * @example SecurityIp
+     *
      * @var string
      */
     public $attachMode;
 
     /**
+     * @description The database ID.
+     *
+     * @example rm-m5eqju85s45mu0***
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The database type. Valid values:
+     *
+     *   RDS
+     *   Redis
+     *   MongoDB
+     *
+     * Default value: RDS.
+     * @example RDS
+     *
      * @var string
      */
     public $type;

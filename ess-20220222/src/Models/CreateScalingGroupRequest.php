@@ -50,7 +50,7 @@ class CreateScalingGroupRequest extends Model
     public $azBalance;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](~~25965~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
@@ -100,6 +100,8 @@ class CreateScalingGroupRequest extends Model
     public $DBInstanceIds;
 
     /**
+     * @description The databases that you want to attach to the scaling group.
+     *
      * @var DBInstances[]
      */
     public $DBInstances;
@@ -251,6 +253,8 @@ class CreateScalingGroupRequest extends Model
      * The value range of the MaxSize parameter varies based on the instance quota. You can go to [Quota Center](https://quotas.console.aliyun.com/products/ess/quotas) to check the maximum number of instances that a scaling group can contain.
      *
      * For example, if the instance quota is 2,000, the value range of the **MaxSize** parameter is 0 to 2000.
+     *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -260,7 +264,7 @@ class CreateScalingGroupRequest extends Model
     /**
      * @description The minimum number of ECS instances that must be contained in the scaling group. If the number of ECS instances in the scaling group is less than the value of the MinSize parameter, Auto Scaling adds ECS instances to the scaling group to ensure that the number of ECS instances in the scaling group is equal to the value of the MinSize parameter.
      *
-     * > The value of the MinSize parameter must be less than or equal to the value of the MaxSize parameter.
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -276,7 +280,7 @@ class CreateScalingGroupRequest extends Model
      *
      **Note** The COST_OPTIMIZED setting takes effect only when multiple instance types are specified or at least one preemptible instance type is specified.
      *
-     *   BALANCE: evenly distributes ECS instances across zones that are specified for the scaling group. If ECS instances are unevenly distributed across zones due to insufficient resources, you can call the [RebalanceInstance](~~71516~~) operation to evenly redistribute the instances across the zones.
+     *   BALANCE: evenly distributes ECS instances across zones that are specified for the scaling group. If ECS instances are unevenly distributed across zones due to insufficient resources, you can call the [RebalanceInstance](https://help.aliyun.com/document_detail/71516.html) operation to evenly redistribute the instances across the zones.
      *
      * Default value: PRIORITY.
      * @example PRIORITY
@@ -316,6 +320,7 @@ class CreateScalingGroupRequest extends Model
     /**
      * @description The region ID of the scaling group.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string
@@ -330,7 +335,7 @@ class CreateScalingGroupRequest extends Model
      *   OldestScalingConfiguration: removes ECS instances that are created based on the earliest scaling configuration.
      *   CustomPolicy: removes ECS instances based on the custom scale-in policy (Function).
      *
-     * > The removal of ECS instances from a scaling group is also affected by the value of the MultiAZPolicy parameter. For more information, see the [Configure a combination policy for removing instances](~~254822~~) topic.
+     * > The removal of ECS instances from a scaling group is also affected by the value of the MultiAZPolicy parameter. For more information, see the [Configure a combination policy for removing instances](https://help.aliyun.com/document_detail/254822.html) topic.
      * @var string[]
      */
     public $removalPolicies;
@@ -422,7 +427,7 @@ class CreateScalingGroupRequest extends Model
     public $syncAlarmRuleToCms;
 
     /**
-     * @description Details of the tags that you want to add to the scaling group.
+     * @description The tags that you want to add to the scaling group.
      *
      * @var tags[]
      */

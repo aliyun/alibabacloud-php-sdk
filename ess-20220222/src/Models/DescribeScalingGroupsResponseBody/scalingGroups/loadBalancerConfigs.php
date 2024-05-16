@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerConfigs extends Model
 {
     /**
-     * @description The ID of the Classic Load Balancer (CLB, formerly known as Server Load Balancer or SLB) instance.
+     * @description The ID of the CLB (formerly known as Server Load Balancer or SLB) instance.
      *
      * @example lb-2zep8alpq5zq1a2xwyxxx
      *

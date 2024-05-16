@@ -11,11 +11,21 @@ use AlibabaCloud\Tea\Model;
 class CreateAlarmRequest extends Model
 {
     /**
+     * @description The list of unique identifiers of the scaling rules that are associated with the event-triggered task.
+     *
      * @var string[]
      */
     public $alarmActions;
 
     /**
+     * @description The operator that is used to compare the metric value and the threshold. Valid values:
+     *
+     *   If the metric value is greater than or equal to the threshold, set the value to: >=.
+     *   If the metric value is less than or equal to the threshold, set the value to: <=.
+     *   If the metric value is greater than the threshold, set the value to: >.
+     *   If the metric value is less than the threshold, set the value to: <.
+     *
+     * Default value: >=.
      * @example >=
      *
      * @var string
@@ -23,6 +33,8 @@ class CreateAlarmRequest extends Model
     public $comparisonOperator;
 
     /**
+     * @description The description of the event-triggered task.
+     *
      * @example Test alarm task.
      *
      * @var string
@@ -30,11 +42,28 @@ class CreateAlarmRequest extends Model
     public $description;
 
     /**
+     * @description The metric dimensions.
+     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
+     * @description The effective period of the event-triggered task. By default, the event-triggered task is in effect all the time.
+     *
+     * This parameter follows the cron expression format. The default format is `X X X X X ?`. In the format:
+     *
+     *   X: a placeholder for a field, which represents seconds, minutes, hours, days, and months in sequence. X can be a definite value or a special character that has logical meaning. For information about the valid values of X, see [Cron expression](https://help.aliyun.com/document_detail/25907.html).
+     *   ?: No value is specified.
+     *
+     * > By default, this parameter value is specified in **UTC+8**. You can specify the time zone in the `TZ=+yy` format before a cron expression. y indicates the time zone. For example, `TZ=+00 * * 1-2 * * ?` specifies that the event-triggered task is in effect between 01:00 and 02:59 (UTC+0) every day.
+     *
+     * Sample values:
+     *
+     *   ` * * * * * ?  `: The event-triggered task is in effect all the time.
+     *   ` * * 17-18 * * ?  `: The event-triggered task is in effect between 17:00 and 18:59 (UTC+8) every day.
+     *   `TZ=+00 * * 1-2 * * ?`: The event-triggered task is in effect between 01:00 and 02:59 (UTC+0) every day.
+     *
      * @example TZ=+00 * * 1-2 * * ?
      *
      * @var string
@@ -42,6 +71,9 @@ class CreateAlarmRequest extends Model
     public $effective;
 
     /**
+     * @description The number of times that the threshold must be reached before a scaling rule can be executed. For example, if you set this parameter to 3, the average CPU utilization must reach or exceed 80% three times in a row before a scaling rule is triggered.
+     *
+     * Default value: 3.
      * @example 3
      *
      * @var int
@@ -49,11 +81,19 @@ class CreateAlarmRequest extends Model
     public $evaluationCount;
 
     /**
+     * @description The expressions that are specified in the multi-metric alert rule.
+     *
      * @var expressions[]
      */
     public $expressions;
 
     /**
+     * @description The relationship between the trigger conditions in the multi-metric alert rule. Valid values:
+     *
+     *   `&&`: An alert is triggered only if all metrics in the multi-metric alert rule meet the trigger conditions. In this case, an alert is triggered only if the results of all trigger conditions that are specified in the multi-metric alert rule are `true`.
+     *   `||`: An alert is triggered if one of the metrics in the multi-metric alert rule meets the trigger conditions.
+     *
+     * Default value: `&&`.
      * @example &&
      *
      * @var string
@@ -61,6 +101,8 @@ class CreateAlarmRequest extends Model
     public $expressionsLogicOperator;
 
     /**
+     * @description The ID of the application group to which the custom metric belongs. If you set the MetricType parameter to custom, you must specify this parameter.
+     *
      * @example 4055401
      *
      * @var int
@@ -68,6 +110,35 @@ class CreateAlarmRequest extends Model
     public $groupId;
 
     /**
+     * @description The name of the metric. The valid values vary based on the metric type.
+     *
+     *   If you set the MetricType parameter to custom, the valid values are your custom metrics.
+     *
+     *   If you set the MetricType parameter to system, the MetricName parameter has the following valid values:
+     *
+     *   CpuUtilization: the CPU utilization of an ECS instance. Unit: %.
+     *   IntranetTx: the outbound traffic over the internal network from an ECS instance. Unit: KB/min.
+     *   IntranetRx: the inbound traffic over the Internet to an ECS instance that resides in a virtual private cloud (VPC). Unit: KB/min.
+     *   VpcInternetTx: the outbound traffic over the Internet from an ECS instance that resides in a VPC. Unit: KB/min.
+     *   VpcInternetRx: the inbound traffic over the Internet to an ECS instance that resides in a VPC. Unit: KB/min.
+     *   SystemDiskReadBps: the number of bytes read from the system disk used by an ECS instance per second.
+     *   SystemDiskWriteBps: the number of bytes written to the system disk used by an ECS instance per second.
+     *   SystemDiskReadOps: the number of read operations on the system disk used by an ECS instance per second.
+     *   SystemDiskWriteOps: the number of write operations on the system disk used by an ECS instance per second.
+     *   CpuUtilizationAgent: the CPU utilization of an agent. Unit: %.
+     *   GpuUtilizationAgent: the GPU utilization of an agent. Unit: %.
+     *   GpuMemoryFreeUtilizationAgent: the percentage of idle GPU memory of an agent.
+     *   GpuMemoryUtilizationAgent: the GPU memory usage of an agent. Unit: %.
+     *   MemoryUtilization: the memory usage of an agent. Unit: %.
+     *   LoadAverage: the average system load of an agent.
+     *   TcpConnection: the total number of TCP connections of an agent.
+     *   TcpConnection: the number of established TCP connections of an agent.
+     *   PackagesNetOut: the number of packets that are sent by the internal network interface controller (NIC) used by an agent.
+     *   PackagesNetIn: the number of packets that are received by the internal NIC used by an agent.
+     *   EciPodCpuUtilization: the CPU utilization of an elastic container instance. Unit: %.
+     *   EciPodMemoryUtilization: the memory usage of an elastic container instance. Unit: %.
+     *
+     * For more information, see [Event-triggered task for system monitoring](https://help.aliyun.com/document_detail/74854.html).
      * @example CpuUtilization
      *
      * @var string
@@ -75,6 +146,11 @@ class CreateAlarmRequest extends Model
     public $metricName;
 
     /**
+     * @description The type of the metric. Valid values:
+     *
+     *   system: system metrics of CloudMonitor
+     *   custom: custom metrics that are reported to CloudMonitor
+     *
      * @example system
      *
      * @var string
@@ -82,6 +158,8 @@ class CreateAlarmRequest extends Model
     public $metricType;
 
     /**
+     * @description The name of the event-triggered task.
+     *
      * @example TestAlarmTask
      *
      * @var string
@@ -94,6 +172,15 @@ class CreateAlarmRequest extends Model
     public $ownerId;
 
     /**
+     * @description The period during which the statistical value of the metric is collected. Unit: seconds. Valid values:
+     *
+     *   15
+     *   60
+     *   120
+     *   300
+     *   900
+     *
+     * Default value: 300.
      * @example 300
      *
      * @var int
@@ -101,6 +188,9 @@ class CreateAlarmRequest extends Model
     public $period;
 
     /**
+     * @description The region ID of the scaling group.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -113,6 +203,9 @@ class CreateAlarmRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The scaling group ID of the event-triggered task.
+     *
+     * This parameter is required.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string
@@ -120,6 +213,13 @@ class CreateAlarmRequest extends Model
     public $scalingGroupId;
 
     /**
+     * @description The method that is used to aggregate statistics for the metric. Valid values:
+     *
+     *   Average
+     *   Minimum
+     *   Maximum
+     *
+     * Default value: Average.
      * @example Average
      *
      * @var string
@@ -127,6 +227,8 @@ class CreateAlarmRequest extends Model
     public $statistics;
 
     /**
+     * @description The threshold of the metric value. If the threshold is reached the specified number of times within the specified period, a scaling rule is executed.
+     *
      * @example 80.0
      *
      * @var float

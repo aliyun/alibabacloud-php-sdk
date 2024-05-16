@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The token that determines the start point of the next query.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -22,6 +24,9 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the Auto Scaling resource. You can call the DescribeRegions operation to query the most recent region list.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,6 +34,8 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the Auto Scaling resources. You can specify 1 to 50 resource IDs.
+     *
      * @var string[]
      */
     public $resourceIds;
@@ -39,6 +46,9 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The type of the Auto Scaling resource. Only scaling groups are supported. Set the value to scalinggroup.
+     *
+     * This parameter is required.
      * @example scalinggroup
      *
      * @var string
@@ -46,6 +56,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description Details of the tags.
+     *
      * @var tags[]
      */
     public $tags;

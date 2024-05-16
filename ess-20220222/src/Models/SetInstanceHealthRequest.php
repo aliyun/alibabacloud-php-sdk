@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class SetInstanceHealthRequest extends Model
 {
     /**
-     * @description The health status of the ECS instance in the scaling group. If ECS instances do not run as expected, Auto Scaling considers the ECS instances unhealthy. Valid values:
+     * @description The health status of the instance. Valid values:
      *
-     *   Healthy
-     *   Unhealthy
+     *   Healthy: sets the instance as healthy.
+     *   Unhealthy: sets the instance as unhealthy.
      *
-     * >  Make sure that you have sufficient balance within your Alibaba Cloud account. If you have overdue payments within your Alibaba Cloud account, pay-as-you-go and preemptible instances are stopped or released. For information about how the states of ECS instances change when you have overdue payments within your Alibaba Cloud account, see [Overdue payments](~~170589~~).
+     * This parameter is required.
      * @example Healthy
      *
      * @var string
@@ -24,6 +24,7 @@ class SetInstanceHealthRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-bp1ap6bro51a7fsa****
      *
      * @var string

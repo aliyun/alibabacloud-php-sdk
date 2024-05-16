@@ -52,7 +52,7 @@ class expressions extends Model
      *   EciPodCpuUtilization: the CPU utilization of an elastic container instance. Unit: %.
      *   EciPodMemoryUtilization: the memory usage of an elastic container instance. Unit: %.
      *
-     * For more information, see [Event-triggered task for system monitoring](~~74854~~).
+     * For more information, see [Event-triggered task for system monitoring](https://help.aliyun.com/document_detail/74854.html).
      * @example CpuUtilization
      *
      * @var string

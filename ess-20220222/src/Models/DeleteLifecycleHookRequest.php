@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLifecycleHookRequest extends Model
 {
     /**
+     * @description The ID of the lifecycle hook.
+     *
      * @example ash-bp14g3ee6bt3sc98****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteLifecycleHookRequest extends Model
     public $lifecycleHookId;
 
     /**
+     * @description The name of the lifecycle hook.
+     *
      * @example lifecyclehook****
      *
      * @var string
@@ -33,6 +37,8 @@ class DeleteLifecycleHookRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -45,6 +51,8 @@ class DeleteLifecycleHookRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

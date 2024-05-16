@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The key of tag N. Valid values of N: 1 to 20.
+     * @description The tag key of the ECS instance. You can specify up to 20 tags for each ECS instance.
      *
-     * The tag key cannot be an empty string. The tag key can be up to 128 characters in length, and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+     * The tag key cannot be an empty string. The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
      * @example binary
      *
      * @var string
@@ -19,9 +19,9 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The value of tag N. Valid values of N: 1 to 20.
+     * @description The tag value of the ECS instance. You can specify up to 20 tags for each ECS instance.
      *
-     * The tag value can be an empty string. The tag value can be up to 128 characters in length, and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+     * The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
      * @example alterTable
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesRequest extends Model
 {
     /**
-     * @description The key of the messages that you want to query.
+     * @description The key of the tag.
      *
+     * This parameter is required.
      * @example ESS
      *
      * @var string
@@ -18,7 +19,7 @@ class ListTagValuesRequest extends Model
     public $key;
 
     /**
-     * @description The token that determines the start point of the query. The return value is the value of the NextToken response parameter that was returned last time the QueryInstanceByTag operation was called.
+     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
      *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
@@ -32,8 +33,9 @@ class ListTagValuesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The number of entries to return on each page. Maximum value: 50.
      *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -41,8 +43,9 @@ class ListTagValuesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the scaling group.
+     * @description The region ID of the Auto Scaling resource.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -55,8 +58,9 @@ class ListTagValuesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The type of the Auto Scaling resource. Only scaling groups are supported. Set the value to scalinggroup.
+     * @description The type of the Auto Scaling resource. Set the value to scalinggroup. This indicates that the tag is added to a scaling group.
      *
+     * This parameter is required.
      * @example scalinggroup
      *
      * @var string

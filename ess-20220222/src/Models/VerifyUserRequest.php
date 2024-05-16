@@ -14,6 +14,8 @@ class VerifyUserRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where you want to activate Auto Scaling.
+     *
      * @example cn-hangzhou
      *
      * @var string

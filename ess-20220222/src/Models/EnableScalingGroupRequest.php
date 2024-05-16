@@ -23,12 +23,12 @@ class EnableScalingGroupRequest extends Model
      *
      * The ECS instances must meet the following requirements:
      *
-     *   The ECS instances and the scaling group must reside in the same region.
-     *   The ECS instances must be in the Running state.
-     *   The ECS instances are not added to other scaling groups.
-     *   The billing method of the ECS instances must be subscription or pay-as-you-go, or the ECS instances must be preemptible instances.
-     *   If you specify the VswitchID parameter for the scaling group, the ECS instances must reside in the same virtual private cloud (VPC) as the specified vSwitch. You cannot add the ECS instances that reside in the classic network or other VPCs to the scaling group.
-     *   If you do not specify the VswitchID parameter for the scaling group, you cannot add ECS instances that reside in VPCs to the scaling group.
+     *   The instances and the scaling group must reside in the same region.
+     *   The instances must be in the Running state.
+     *   The instances are not added to other scaling groups.
+     *   The instances must use the subscription or pay-as-you-go billing method or be preemptible instances.
+     *   If you specify the VswitchID parameter for the scaling group, the instances must reside in the same virtual private cloud (VPC) as the specified vSwitch. You cannot add instances that reside in the classic network or other VPCs to the scaling group.
+     *   If you do not specify the VswitchID parameter for the scaling group, you cannot add instances that reside in VPCs to the scaling group.
      *
      * @var string[]
      */
@@ -44,7 +44,7 @@ class EnableScalingGroupRequest extends Model
     public $launchTemplateId;
 
     /**
-     * @description Details of the instance types that you specify by using the Extended Configurations feature of the launch template.
+     * @description Details of the instance types that are specified in the extended configurations of the launch template.
      *
      * @var launchTemplateOverrides[]
      */
@@ -54,8 +54,8 @@ class EnableScalingGroupRequest extends Model
      * @description The version number of the launch template. Valid values:
      *
      *   A fixed template version number.
-     *   Default: the default template version.
-     *   Latest: the latest template version.
+     *   Default: The default template version is always used.
+     *   Latest: The latest template version is always used.
      *
      * @example Default
      *
@@ -64,7 +64,7 @@ class EnableScalingGroupRequest extends Model
     public $launchTemplateVersion;
 
     /**
-     * @description The weight of an ECS instance as a backend server in the backend vServer group.
+     * @description The weight of an ECS instance as a backend server in the associated vServer group.
      *
      * Default value: 50.
      * @var int[]
@@ -103,6 +103,7 @@ class EnableScalingGroupRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp14wlu85wrpchm0****
      *
      * @var string

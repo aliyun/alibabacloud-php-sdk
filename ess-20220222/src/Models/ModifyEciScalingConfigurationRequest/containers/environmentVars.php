@@ -15,7 +15,7 @@ class environmentVars extends Model
     public $fieldRef;
 
     /**
-     * @description The key of the environment variable. Specify the name in the `[0-9a-zA-Z]` format. The name must be 1 to 128 characters in length, and can contain underscores (\_). It cannot start with a digit.
+     * @description The name of the environment variable. The name can be 1 to 128 characters in length and can contain letters, underscores (_), and digits. It cannot start with a digit. Specify the value in the `[0-9a-zA-Z]` format.
      *
      * @example PATH
      *
@@ -24,7 +24,7 @@ class environmentVars extends Model
     public $key;
 
     /**
-     * @description The value of the environment variable. The value must be 0 to 256 characters in length.
+     * @description The value of the environment variable. The value can be up to 256 characters in length.
      *
      * @example /usr/local/bin
      *

@@ -11,6 +11,7 @@ class SetInstancesProtectionRequest extends Model
     /**
      * @description The IDs of the ECS instances.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $instanceIds;
@@ -26,6 +27,7 @@ class SetInstancesProtectionRequest extends Model
      *   true
      *   false
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -40,6 +42,7 @@ class SetInstancesProtectionRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

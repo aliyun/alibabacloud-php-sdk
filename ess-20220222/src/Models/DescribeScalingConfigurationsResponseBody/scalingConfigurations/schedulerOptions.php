@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class schedulerOptions extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description >  This parameter is in invitational preview and is not available for use.
      *
      * @example testManagedPrivateSpaceId
      *

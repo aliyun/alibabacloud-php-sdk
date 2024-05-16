@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CompleteLifecycleActionRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25965~~).
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -39,6 +39,7 @@ class CompleteLifecycleActionRequest extends Model
     /**
      * @description The token of the lifecycle hook. You can obtain this token by using a Message Service (MNS) queue or an MNS topic that is specified for the lifecycle hook.
      *
+     * This parameter is required.
      * @example aaaa-bbbbb-cccc-ddddd
      *
      * @var string
@@ -48,6 +49,7 @@ class CompleteLifecycleActionRequest extends Model
     /**
      * @description The ID of the lifecycle hook.
      *
+     * This parameter is required.
      * @example ash-bp14g3ee6bt3sc98****
      *
      * @var string

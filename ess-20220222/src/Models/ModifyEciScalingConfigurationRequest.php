@@ -72,6 +72,8 @@ class ModifyEciScalingConfigurationRequest extends Model
     public $containers;
 
     /**
+     * @example RenewUpdate
+     *
      * @var string
      */
     public $containersUpdateType;
@@ -99,7 +101,7 @@ class ModifyEciScalingConfigurationRequest extends Model
     public $cpu;
 
     /**
-     * @description The number of physical CPU cores. This parameter is not available for all instance types. For more information, see [Specify custom CPU options](~~197781~~).
+     * @description The number of physical CPU cores. This parameter is not available for all instance types. For more information, see [Specify custom CPU options](https://help.aliyun.com/document_detail/197781.html).
      *
      * @example 2
      *
@@ -108,7 +110,7 @@ class ModifyEciScalingConfigurationRequest extends Model
     public $cpuOptionsCore;
 
     /**
-     * @description The number of threads per core. This parameter is not available for all instance types. A value of 1 indicates that Hyper-Threading is disabled. For more information, see [Specify custom CPU options](~~197781~~).
+     * @description The number of threads per core. This parameter is not available for all instance types. A value of 1 indicates that Hyper-Threading is disabled. For more information, see [Specify custom CPU options](https://help.aliyun.com/document_detail/197781.html).
      *
      * @example 2
      *
@@ -117,21 +119,29 @@ class ModifyEciScalingConfigurationRequest extends Model
     public $cpuOptionsThreadsPerCore;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $dataCacheBucket;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dataCacheBurstingEnabled;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $dataCachePL;
 
     /**
+     * @example 40000
+     *
      * @var int
      */
     public $dataCacheProvisionedIops;
@@ -266,9 +276,9 @@ class ModifyEciScalingConfigurationRequest extends Model
     /**
      * @description The level of the instance type, which is used to filter the instance types that meet the specified criteria. This parameter takes effect only if you set the `CostOptimization` parameter to true. Valid values:
      *
-     *   EntryLevel: shared instance type. Instances of this level are the most cost-effective but may not provide stable computing performance in a consistent manner. Instances of this level are suitable for business scenarios in which the CPU utilization is low. For more information, see [Shared instance families](~~108489~~).
-     *   EnterpriseLevel: Instances of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Instance family](~~25378~~).
-     *   CreditEntryLevel: This value is valid only for burstable instances. CPU credits are used to ensure computing performance. Instances of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see the [Overview](~~59977~~) topic of burstable instances.
+     *   EntryLevel: shared instance type. Instances of this level are the most cost-effective but may not provide stable computing performance in a consistent manner. Instances of this level are suitable for business scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+     *   EnterpriseLevel: Instances of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
+     *   CreditEntryLevel: This value is valid only for burstable instances. CPU credits are used to ensure computing performance. Instances of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see the [Overview](https://help.aliyun.com/document_detail/59977.html) topic of burstable instances.
      *
      * @example EnterpriseLevel
      *
@@ -321,7 +331,7 @@ class ModifyEciScalingConfigurationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The name of the RAM role for the instance. You can use an instance RAM role to access both elastic container instances and Elastic Compute Service (ECS) instances. For more information, see [Use an instance RAM role by calling API operations](~~61178~~).
+     * @description The name of the RAM role for the instance. You can use an instance RAM role to access both elastic container instances and Elastic Compute Service (ECS) instances. For more information, see [Use an instance RAM role by calling API operations](https://help.aliyun.com/document_detail/61178.html).
      *
      * @example RamTestRole
      *
@@ -360,6 +370,7 @@ class ModifyEciScalingConfigurationRequest extends Model
     /**
      * @description The ID of the scaling configuration that you want to modify.
      *
+     * This parameter is required.
      * @example asc-bp16har3jpj6fjbx****
      *
      * @var string
@@ -367,7 +378,7 @@ class ModifyEciScalingConfigurationRequest extends Model
     public $scalingConfigurationId;
 
     /**
-     * @description The name of the scaling configuration. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (\_), hyphens (-), and periods (.). The name must start with a letter or a digit.
+     * @description The name of the scaling configuration. The name must be 2 to 64 characters in length and can contain letters, digits, underscores (_), hyphens (-), and periods (.). The name must start with a letter or a digit.
      *
      * The name of the scaling configuration must be unique within a scaling group in a region. If you do not specify this parameter, the value of the ScalingConfigurationId parameter is used.
      * @example test-modify

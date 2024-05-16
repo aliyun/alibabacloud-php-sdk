@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class EnterStandbyRequest extends Model
 {
     /**
+     * @description Specifies whether to asynchronously put the ECS instance into the Standby state. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -16,6 +22,8 @@ class EnterStandbyRequest extends Model
     public $async;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
+     *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -23,6 +31,9 @@ class EnterStandbyRequest extends Model
     public $clientToken;
 
     /**
+     * @description The IDs of the ECS instances.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $instanceIds;
@@ -38,6 +49,9 @@ class EnterStandbyRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
+     * This parameter is required.
      * @example asg-bp1fo0dbtsbmqa9h****
      *
      * @var string

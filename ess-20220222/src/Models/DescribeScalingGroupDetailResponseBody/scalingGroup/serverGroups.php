@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serverGroups extends Model
 {
     /**
+     * @description The port number of an ECS instance as a backend server in the server group.
+     *
      * @example 80
      *
      * @var int
@@ -16,6 +18,8 @@ class serverGroups extends Model
     public $port;
 
     /**
+     * @description The ID of the server group.
+     *
      * @example sgp-i9ouakeaerr*****
      *
      * @var string
@@ -23,6 +27,11 @@ class serverGroups extends Model
     public $serverGroupId;
 
     /**
+     * @description The type of the server group. Valid values:
+     *
+     *   ALB
+     *   NLB
+     *
      * @example ALB
      *
      * @var string
@@ -30,6 +39,8 @@ class serverGroups extends Model
     public $type;
 
     /**
+     * @description The weight of an ECS instance as a backend server in the server group.
+     *
      * @example 100
      *
      * @var int

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AttachInstancesRequest extends Model
 {
     /**
-     * @description 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多信息，请参见[如何保证幂等性](~~25965~~)。
-     *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -18,10 +16,10 @@ class AttachInstancesRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether the scaling group manages the lifecycles of instances that are manually added to the scaling group. Valid values:
+     * @description Specifies whether to use the scaling group to manage the lifecycles of manually added instances. Valid values:
      *
-     *   true: The scaling group manages the lifecycles of instances that are manually added in a similar manner in which the scaling group manages the lifecycles of automatically created instances. After Auto Scaling removes instances from the scaling group, Auto Scaling releases the instances. After you call the DetachInstances operation to remove instances from the scaling group, Auto Scaling does not release the instances.
-     *   false: The scaling group does not manage the lifecycles of instances that are manually added. After Auto Scaling removes instances from the scaling group, Auto Scaling does not release the instances.
+     *   true: The scaling group manages the lifecycles of manually added instances and automatically created instances in the same manner. In this case, Auto Scaling releases the instances when they are removed from the scaling group. This rule does not apply to instances that are removed by calling the DetachInstances operation.
+     *   false: The scaling group does not manage the lifecycles of manually added instances. In this case, Auto Scaling does not release the instances when they are removed from the scaling group.
      *
      * Default value: false.
      * @example false
@@ -31,14 +29,14 @@ class AttachInstancesRequest extends Model
     public $entrusted;
 
     /**
-     * @description The IDs of the ECS instances or elastic container instances that you want to add.
+     * @description The IDs of the ECS instances, elastic container instances, non-Alibaba Cloud instances, or instances in Economical Mode.
      *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description Specifies whether to trigger a lifecycle hook for a scale-out activity. Valid values:
+     * @description Specifies whether to trigger the lifecycle hook for scale-outs when you call this operation. Valid values:
      *
      *   true
      *   false
@@ -51,7 +49,7 @@ class AttachInstancesRequest extends Model
     public $lifecycleHook;
 
     /**
-     * @description The weights of the ECS instances or elastic container instances as the backend servers of the associated Classic Load Balancer (CLB) instance.
+     * @description The weight of an ECS instance or elastic container instance as a backend server. You can use this parameter to specify weights for multiple instances at the same time.
      *
      * @var int[]
      */
@@ -89,6 +87,7 @@ class AttachInstancesRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string

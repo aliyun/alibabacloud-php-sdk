@@ -41,6 +41,7 @@ class DescribeScalingConfigurationsRequest extends Model
     /**
      * @description The region ID of the scaling group to which the scaling configuration that you want to query belongs.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string

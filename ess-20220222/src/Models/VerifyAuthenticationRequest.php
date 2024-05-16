@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class VerifyAuthenticationRequest extends Model
 {
     /**
+     * @description Specifies whether to check only the authorization status. Valid values:
+     *
+     *   true: checks only the authorization status. The service-linked role is not created.
+     *   false (default): checks the authorization status and resource usage.
+     *
      * @example false
      *
      * @var bool
@@ -31,6 +36,8 @@ class VerifyAuthenticationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
      * @example 12345678123*****
      *
      * @var int

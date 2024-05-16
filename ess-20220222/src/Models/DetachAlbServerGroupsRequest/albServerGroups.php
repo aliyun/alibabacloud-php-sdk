@@ -11,6 +11,7 @@ class albServerGroups extends Model
     /**
      * @description The ID of the ALB server group.
      *
+     * This parameter is required.
      * @example sgp-ddwb0y0g6y9bjm****
      *
      * @var string
@@ -20,6 +21,7 @@ class albServerGroups extends Model
     /**
      * @description The port number used by the ECS instances in the ALB server group.
      *
+     * This parameter is required.
      * @example 22
      *
      * @var int

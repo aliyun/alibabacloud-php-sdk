@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class albServerGroups extends Model
 {
     /**
+     * @description The ID of the ALB server group.
+     *
      * @example sgp-ddwb0y0g6y9bjm****
      *
      * @var string
@@ -16,6 +18,8 @@ class albServerGroups extends Model
     public $albServerGroupId;
 
     /**
+     * @description The port number of an ECS instance as a backend server in the ALB server group.
+     *
      * @example 80
      *
      * @var int
@@ -23,6 +27,8 @@ class albServerGroups extends Model
     public $port;
 
     /**
+     * @description The weight of an ECS instance as a backend server in the ALB server group.
+     *
      * @example 100
      *
      * @var int

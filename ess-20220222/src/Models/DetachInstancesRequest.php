@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DetachInstancesRequest extends Model
 {
     /**
-     * @description 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多信息，请参见[如何保证幂等性](~~25965~~)。
+     * @description 保证请求幂等性。从您的客户端生成一个参数值，确保不同请求间该参数值唯一。只支持ASCII字符，且不能超过64个字符。更多信息，请参见[如何保证幂等性](https://help.aliyun.com/document_detail/25965.html)。
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
@@ -43,6 +43,7 @@ class DetachInstancesRequest extends Model
     /**
      * @description The IDs of the ECS instances or elastic container instances that you want to remove from the scaling group.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $instanceIds;
@@ -83,6 +84,7 @@ class DetachInstancesRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

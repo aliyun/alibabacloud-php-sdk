@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingActivityDetailResponseBody extends Model
 {
     /**
-     * @description The details about the event.
+     * @description Details of the scaling activity.
      *
-     * @example new ECS instances \"i-bp16t2cgmiiymeqv****\" are created.
+     * @example new ECS instances \\"i-bp16t2cgmiiymeqv****\\" are created.
      *
      * @var string
      */

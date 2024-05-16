@@ -30,14 +30,14 @@ class containers extends Model
     public $securityContext;
 
     /**
-     * @description The arguments that correspond to the startup commands of the container. You can specify up to 10 arguments.
+     * @description The container startup arguments. You can specify up to 10 arguments.
      *
      * @var string[]
      */
     public $args;
 
     /**
-     * @description The commands that you want to execute in the container when you use the command line interface (CLI) to perform probes.
+     * @description The command that you want to run by using the CLI for liveness probing within the container.
      *
      * @var string[]
      */
@@ -53,7 +53,7 @@ class containers extends Model
     public $cpu;
 
     /**
-     * @description Information about the environment variables.
+     * @description The environment variables.
      *
      * @var environmentVars[]
      */
@@ -80,9 +80,9 @@ class containers extends Model
     /**
      * @description The image pulling policy. Valid values:
      *
-     *   Always: pulls images each time.
-     *   IfNotPresent: pulls images only if no on-premises images are available. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
-     *   Never: never pulls images. On-premises images are always used.
+     *   Always: Each time instances are created, image pulling is performed.
+     *   IfNotPresent: Image pulling is performed as needed. On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
+     *   Never: On-premises images are always used. Image pulling is not performed.
      *
      * @example Always
      *
@@ -91,77 +91,135 @@ class containers extends Model
     public $imagePullPolicy;
 
     /**
+     * @description The commands that you want to run by using the CLI for configuring the postStart callback function within the container.
+     *
      * @var string[]
      */
     public $lifecyclePostStartHandlerExecs;
 
     /**
+     * @description The IP address of the host to which you want to send the HTTP GET requests for configuring the postStart callback function.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $lifecyclePostStartHandlerHttpGetHost;
 
     /**
+     * @description The path to which you want to send the HTTP GET requests for configuring the postStart callback function.
+     *
+     * @example /healthyz
+     *
      * @var string
      */
     public $lifecyclePostStartHandlerHttpGetPath;
 
     /**
+     * @description The port over which you want to send the HTTP GET requests for configuring the postStart callback function.
+     *
+     * @example 5050
+     *
      * @var int
      */
     public $lifecyclePostStartHandlerHttpGetPort;
 
     /**
+     * @description The protocol type of the HTTP GET requests that you want to send for configuring the postStart callback function. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *
+     * @example HTTPS
+     *
      * @var string
      */
     public $lifecyclePostStartHandlerHttpGetScheme;
 
     /**
+     * @description The IP address of the host detected by the TCP sockets that you want to use for configuring the postStart callback function.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $lifecyclePostStartHandlerTcpSocketHost;
 
     /**
+     * @description The port detected by the TCP sockets that you want to use for configuring the postStart callback function.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $lifecyclePostStartHandlerTcpSocketPort;
 
     /**
+     * @description The commands that you want to run by using the CLI for configuring the preStop callback function within the container.
+     *
      * @var string[]
      */
     public $lifecyclePreStopHandlerExecs;
 
     /**
+     * @description The IP address of the host to which you want to send the HTTP GET requests for configuring the preStop callback function.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $lifecyclePreStopHandlerHttpGetHost;
 
     /**
+     * @description The path to which you want to send the HTTP GET requests for configuring the preStop callback function.
+     *
+     * @example /healthyz
+     *
      * @var string
      */
     public $lifecyclePreStopHandlerHttpGetPath;
 
     /**
+     * @description The port over which you want to send the HTTP GET requests for configuring the preStop callback function.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $lifecyclePreStopHandlerHttpGetPort;
 
     /**
+     * @description The protocol type of the HTTP GET requests that you want to send for configuring the preStop callback function. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $lifecyclePreStopHandlerHttpGetScheme;
 
     /**
+     * @description The IP address of the host detected by the TCP sockets that you want to use for configuring the preStop callback function.
+     *
+     * @example 10.0.XX.XX
+     *
      * @var string
      */
     public $lifecyclePreStopHandlerTcpSocketHost;
 
     /**
+     * @description The port detected by the TCP sockets that you want to use for configuring the preStop callback function.
+     *
+     * @example 80
+     *
      * @var int
      */
     public $lifecyclePreStopHandlerTcpSocketPort;
 
     /**
-     * @description The memory size of the container. Unit: GiB.
+     * @description The memory size that you want to allocate to the container. Unit: GiB.
      *
      * @example 0.5
      *
@@ -179,14 +237,14 @@ class containers extends Model
     public $name;
 
     /**
-     * @description Information about the ports.
+     * @description The ports.
      *
      * @var ports[]
      */
     public $ports;
 
     /**
-     * @description Specifies whether the container allocates buffer resources to standard input streams when the container is running. If you do not specify this parameter, an end-of-file (EOF) error may occur.
+     * @description Specifies whether the container allocates buffer resources to standard input streams during its active runtime. If you do not specify this parameter, an end-of-file (EOF) error occurs when standard input streams in the container are read.
      *
      * Default value: false.
      * @example false
@@ -196,9 +254,9 @@ class containers extends Model
     public $stdin;
 
     /**
-     * @description Specifies whether standard input streams are disconnected after a client is disconnected.
+     * @description Specifies whether standard input streams remain connected during multiple sessions when StdinOnce is set to true.
      *
-     * If you set the StdinOnce parameter to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected, and remain disconnected until the container is started again.
+     * If StdinOnce is set to true, standard input streams are connected after the container is started, and remain idle until a client is connected to receive data. After the client is disconnected, streams are also disconnected, and remain disconnected until the container is restarted.
      * @example false
      *
      * @var bool
@@ -206,9 +264,9 @@ class containers extends Model
     public $stdinOnce;
 
     /**
-     * @description Specifies whether to enable interaction. Default value: false.
+     * @description Specifies whether to enable the Interaction feature. Default value: false.
      *
-     * If the command is a /bin/bash command, set the value to true.
+     * If the command is a /bin/bash command, set this parameter to true.
      * @example false
      *
      * @var bool
@@ -216,7 +274,7 @@ class containers extends Model
     public $tty;
 
     /**
-     * @description Information about the volume mount of the container.
+     * @description The volume mounts of the container.
      *
      * @var volumeMounts[]
      */

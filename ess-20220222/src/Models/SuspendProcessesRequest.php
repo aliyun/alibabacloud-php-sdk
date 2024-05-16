@@ -11,7 +11,7 @@ class SuspendProcessesRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
      *
-     * The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25965~~).
+     * The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -32,7 +32,7 @@ class SuspendProcessesRequest extends Model
      *   alarmnotification
      *   scheduledaction
      *
-     * You can suspend five processes of the preceding types at the same time. If you try to suspend more than five processes at the same time, Auto Scaling automatically removes duplicate processes.
+     * This parameter is required.
      * @var string[]
      */
     public $processes;
@@ -54,6 +54,7 @@ class SuspendProcessesRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp15oubotmrq11xe****
      *
      * @var string

@@ -15,7 +15,7 @@ class scalingActivities extends Model
     public $activityMetadata;
 
     /**
-     * @description The total number of instances that were manually added to the scaling group after the scaling activity was complete.
+     * @description The total number of instances that are manually added to the scaling group after the scaling activity is complete.
      *
      * @example 0
      *
@@ -24,7 +24,7 @@ class scalingActivities extends Model
     public $attachedCapacity;
 
     /**
-     * @description The total number of instances that were created by Auto Scaling after the scaling activity was complete.
+     * @description The total number of instances that are created by Auto Scaling after the scaling activity is complete.
      *
      * @example 2
      *
@@ -33,16 +33,16 @@ class scalingActivities extends Model
     public $autoCreatedCapacity;
 
     /**
-     * @description The reason why the scaling activity was triggered.
+     * @description The reason why the scaling activity is triggered.
      *
-     * @example A user requests to execute scaling rule \"asr-bp12tcnol686y1ik****\", changing the Total Capacity from \"1\" to \"2\".
+     * @example A user requests to execute scaling rule \\"asr-bp12tcnol686y1ik****\\", changing the Total Capacity from \\"1\\" to \\"2\\".
      *
      * @var string
      */
     public $cause;
 
     /**
-     * @description The number of instances that were created during the scaling activity.
+     * @description The number of instances that are created during the scale-out.
      *
      * @example 1
      *
@@ -51,7 +51,7 @@ class scalingActivities extends Model
     public $createdCapacity;
 
     /**
-     * @description The instances that were created during the scaling activity.
+     * @description The instances that are created during the scale-out.
      *
      * @var string[]
      */
@@ -60,14 +60,14 @@ class scalingActivities extends Model
     /**
      * @description The description of the scaling activity.
      *
-     * @example Add \"1\" ECS instance
+     * @example Add \\"1\\" ECS instance
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The number of instances that were released during the scaling activity.
+     * @description The number of instances that are released during the scale-in.
      *
      * @example 1
      *
@@ -76,7 +76,7 @@ class scalingActivities extends Model
     public $destroyedCapacity;
 
     /**
-     * @description The instances that were released during the scaling activity.
+     * @description The instances that are released during the scale-in.
      *
      * @var string[]
      */
@@ -92,7 +92,7 @@ class scalingActivities extends Model
     public $detail;
 
     /**
-     * @description The time when the scaling activity was complete.
+     * @description The time when the scaling activity is complete.
      *
      * @example 2020-09-10T09:54Z
      *
@@ -151,9 +151,9 @@ class scalingActivities extends Model
     public $scalingGroupId;
 
     /**
-     * @description If the scaling activity is a scale-out activity, the value of this parameter indicates the number of instances that were created during the scaling activity or the number of instances that were started from Economical Mode.
+     * @description If you query a scale-out, the value of this parameter indicates the number of instances that are created or the number of instances that are started from the Economical Mode during the scale-out.
      *
-     * If the scaling activity is a scale-in activity, the value of this parameter indicates the number of instances that were deleted during the scaling activity or the number of instances that were stopped in Economical Mode.
+     * If you query a scale-in, the value of this parameter indicates the number of instances that are deleted or the number of instances that are stopped in the Economical Mode during the scale-in.
      * @example 1
      *
      * @var int
@@ -161,7 +161,7 @@ class scalingActivities extends Model
     public $scalingInstanceNumber;
 
     /**
-     * @description The time when the scaling activity started.
+     * @description The time when the scaling activity is started.
      *
      * @example 2020-09-10T09:54Z
      *
@@ -170,7 +170,7 @@ class scalingActivities extends Model
     public $startTime;
 
     /**
-     * @description The number of instances that were started from Economical Mode during the scaling activity.
+     * @description The number of instances that are started from the Economical Mode during the scale-out.
      *
      * @example 1
      *
@@ -179,7 +179,7 @@ class scalingActivities extends Model
     public $startedCapacity;
 
     /**
-     * @description The instances that were started from Economical Mode during the scaling activity.
+     * @description The instances that are started from the Economical Mode during the scale-out.
      *
      * @var string[]
      */
@@ -203,14 +203,14 @@ class scalingActivities extends Model
     /**
      * @description The status message of the scaling activity.
      *
-     * @example \"1\" ECS instances are added
+     * @example \\"1\\" ECS instances are added
      *
      * @var string
      */
     public $statusMessage;
 
     /**
-     * @description The number of instances that were stopped in Economical Mode during the scaling activity.
+     * @description The number of instances that are stopped in the Economical Mode during the scale-in.
      *
      * @example 1
      *
@@ -219,14 +219,14 @@ class scalingActivities extends Model
     public $stoppedCapacity;
 
     /**
-     * @description The instances that were stopped in Economical Mode during the scaling activity.
+     * @description The instances that are stopped in the Economical Mode during the scale-in.
      *
      * @var string[]
      */
     public $stoppedInstances;
 
     /**
-     * @description The total number of instances in the scaling group after the scaling activity was complete.
+     * @description The total number of instances in the scaling group after the scaling activity is complete.
      *
      * @example 2
      *

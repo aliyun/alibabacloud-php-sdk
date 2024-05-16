@@ -41,6 +41,7 @@ class DescribeEciScalingConfigurationsRequest extends Model
     /**
      * @description The region ID of the scaling group to which the scaling configuration belongs.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string

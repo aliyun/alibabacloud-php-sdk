@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScheduledTasksResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeScheduledTasksResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 50
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeScheduledTasksResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribeScheduledTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Details of the scheduled tasks.
+     *
      * @var scheduledTasks[]
      */
     public $scheduledTasks;
 
     /**
+     * @description The total number of scheduled tasks.
+     *
      * @example 1
      *
      * @var int

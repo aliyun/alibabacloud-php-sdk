@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class VServerGroups extends Model
 {
     /**
-     * @description The ID of the Classic Load Balancer (CLB) instance to which the vServer group belongs.
+     * @description The ID of the load balancer to which the vServer group belongs.
      *
+     * >  You can detach vServer groups of up to five load balancers from a scaling group in one call.
      * @example lb-bp1p90y3ya9h8s62d****
      *
      * @var string
@@ -19,7 +20,7 @@ class VServerGroups extends Model
     public $loadBalancerId;
 
     /**
-     * @description Details of the vServer group attributes.
+     * @description The attributes of the backend vServer group.
      *
      * @var VServerGroupAttributes[]
      */

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ApplyScalingGroupRequest extends Model
 {
     /**
+     * @description The content of the configuration file.
+     *
+     * This parameter is required.
      * @example apiVersion: apps/v1
      * - containerPort: 80
      * @var string

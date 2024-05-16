@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEciScalingConfigurationDetailRequest extends Model
 {
     /**
+     * @description The output format. Set the value to yaml.
+     *
      * @example yaml
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeEciScalingConfigurationDetailRequest extends Model
     public $outputFormat;
 
     /**
+     * @description The region ID of the scaling group to which the scaling configuration belongs.
+     *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -23,6 +28,9 @@ class DescribeEciScalingConfigurationDetailRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the scaling configuration based on which elastic container instances are created.
+     *
+     * This parameter is required.
      * @example asc-bp1ffogfdauy0nu5****
      *
      * @var string
@@ -30,6 +38,8 @@ class DescribeEciScalingConfigurationDetailRequest extends Model
     public $scalingConfigurationId;
 
     /**
+     * @description The ID of the scaling group to which the scaling configuration belongs.
+     *
      * @example asg-bp1ffogfdauy0jw0****
      *
      * @var string

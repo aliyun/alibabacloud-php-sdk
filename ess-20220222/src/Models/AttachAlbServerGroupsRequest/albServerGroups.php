@@ -11,7 +11,7 @@ class albServerGroups extends Model
     /**
      * @description The ID of the ALB server group.
      *
-     * You can associate only a limited number of ALB server groups with a scaling group. To view the quota or manually request a quota increase, go to [Quota Center](https://quotas.console.aliyun.com/products/ess/quotas).
+     * This parameter is required.
      * @example sgp-ddwb0y0g6y9bjm****
      *
      * @var string
@@ -21,6 +21,7 @@ class albServerGroups extends Model
     /**
      * @description The port number used by the ECS instance after the ECS instance is added to the ALB server group. Valid values: 1 to 65535.
      *
+     * This parameter is required.
      * @example 22
      *
      * @var int
@@ -30,7 +31,7 @@ class albServerGroups extends Model
     /**
      * @description The weight of the ECS instance as a backend server after the instance is added to the ALB server group.
      *
-     * If you increase the weight of an ECS instance in an ALB server group, the number of access requests that are forwarded to the ECS instance increases. If you set the Weight parameter for an ECS instance to 0, no access requests are forwarded to the ECS instance. Valid values: 0 to 100.
+     * This parameter is required.
      * @example 100
      *
      * @var int

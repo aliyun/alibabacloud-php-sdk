@@ -11,9 +11,10 @@ class SetGroupDeletionProtectionRequest extends Model
     /**
      * @description Specifies whether to enable deletion protection for the scaling group. Valid values:
      *
-     *   true: enables deletion protection for the scaling group. This way, the scaling group cannot be deleted.
-     *   false: disables deletion protection for the scaling group.
+     *   true: enables deletion protection. In this case, you cannot delete the scaling group by using the Auto Scaling console or calling an API operation. You must disable deletion protection before you can delete the scaling group.
+     *   false: disables deletion protection.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -42,6 +43,7 @@ class SetGroupDeletionProtectionRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

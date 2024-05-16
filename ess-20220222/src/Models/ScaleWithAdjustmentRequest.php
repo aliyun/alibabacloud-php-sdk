@@ -11,6 +11,10 @@ use AlibabaCloud\Tea\Model;
 class ScaleWithAdjustmentRequest extends Model
 {
     /**
+     * @description The metadata of the scaling activity.
+     *
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $activityMetadata;
@@ -22,6 +26,7 @@ class ScaleWithAdjustmentRequest extends Model
      *   PercentChangeInCapacity: adds the specified percentage of ECS instances to or removes the specified percentage of ECS instances from the scaling group.
      *   TotalCapacity: adjusts the number of ECS instances in the scaling group to a specified number.
      *
+     * This parameter is required.
      * @example QuantityChangeInCapacity
      *
      * @var string
@@ -35,6 +40,7 @@ class ScaleWithAdjustmentRequest extends Model
      *   Valid values if you set the AdjustmentType parameter to PercentChangeInCapacity: -100 to 10000.
      *   Valid values if you set the AdjustmentType parameter to TotalCapacity: 0 to 2000.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -51,6 +57,8 @@ class ScaleWithAdjustmentRequest extends Model
     public $clientToken;
 
     /**
+     * @description The context of the lifecycle hook.
+     *
      * @var lifecycleHookContext
      */
     public $lifecycleHookContext;
@@ -65,6 +73,8 @@ class ScaleWithAdjustmentRequest extends Model
     public $minAdjustmentMagnitude;
 
     /**
+     * @description The overrides that allow you to adjust the scaling group of the Elastic Container Instance type during a scale-out.
+     *
      * @var overrides
      */
     public $overrides;
@@ -82,6 +92,7 @@ class ScaleWithAdjustmentRequest extends Model
     /**
      * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-j6c1o397427hyjdc****
      *
      * @var string

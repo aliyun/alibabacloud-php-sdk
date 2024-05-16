@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class initContainers extends Model
 {
     /**
+     * @description The number of vCPUs that are allocated to the init container.
+     *
      * @example 0.5
      *
      * @var float
@@ -19,6 +21,8 @@ class initContainers extends Model
     public $cpu;
 
     /**
+     * @description The number of GPUs that are allocated to the init container.
+     *
      * @example 1
      *
      * @var int
@@ -26,6 +30,8 @@ class initContainers extends Model
     public $gpu;
 
     /**
+     * @description The init container image.
+     *
      * @example registry-vpc.cn-hongkong.aliyuncs.com/eci_open/nginx:alpine
      *
      * @var string
@@ -33,6 +39,8 @@ class initContainers extends Model
     public $image;
 
     /**
+     * @description The image pulling policy.
+     *
      * @example Always
      *
      * @var string
@@ -40,31 +48,43 @@ class initContainers extends Model
     public $imagePullPolicy;
 
     /**
+     * @description The startup arguments of the init container.
+     *
      * @var string[]
      */
     public $initContainerArgs;
 
     /**
+     * @description The startup commands of the init container.
+     *
      * @var string[]
      */
     public $initContainerCommands;
 
     /**
+     * @description The environment variables of the init container.
+     *
      * @var initContainerEnvironmentVars[]
      */
     public $initContainerEnvironmentVars;
 
     /**
+     * @description The ports of the init container.
+     *
      * @var initContainerPorts[]
      */
     public $initContainerPorts;
 
     /**
+     * @description The volume mounts of the init container.
+     *
      * @var initContainerVolumeMounts[]
      */
     public $initContainerVolumeMounts;
 
     /**
+     * @description The memory size that is allocated to the init container.
+     *
      * @example 1.0
      *
      * @var float
@@ -72,6 +92,8 @@ class initContainers extends Model
     public $memory;
 
     /**
+     * @description The name of the init container.
+     *
      * @example test-init
      *
      * @var string
@@ -79,21 +101,31 @@ class initContainers extends Model
     public $name;
 
     /**
+     * @description The permissions that are granted to the processes in the init container. Valid values: NET_ADMIN and NET_RAW.
+     *
      * @var string[]
      */
     public $securityContextCapabilityAdds;
 
     /**
+     * @description Indicates whether the root file system is read-only. Valid value: true.
+     *
      * @var bool
      */
     public $securityContextReadOnlyRootFilesystem;
 
     /**
+     * @description The ID of the user that runs the entry point of the init container.
+     *
+     * @example 1000
+     *
      * @var string
      */
     public $securityContextRunAsUser;
 
     /**
+     * @description The working directory of the init container.
+     *
      * @example /www
      *
      * @var string

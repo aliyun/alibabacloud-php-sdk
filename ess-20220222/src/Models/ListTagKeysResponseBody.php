@@ -16,7 +16,7 @@ class ListTagKeysResponseBody extends Model
     public $keys;
 
     /**
-     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
@@ -25,7 +25,7 @@ class ListTagKeysResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *

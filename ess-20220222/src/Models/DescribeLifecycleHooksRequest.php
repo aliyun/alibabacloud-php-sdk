@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeLifecycleHooksRequest extends Model
 {
     /**
+     * @description The ID of the lifecycle hook.
+     *
      * @var string[]
      */
     public $lifecycleHookIds;
 
     /**
+     * @description The name of the lifecycle hook.
+     *
      * @example lifecyclehook****
      *
      * @var string
@@ -31,6 +35,9 @@ class DescribeLifecycleHooksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -38,6 +45,9 @@ class DescribeLifecycleHooksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 50.
+     *
+     * Default value: 50.
      * @example 50
      *
      * @var int
@@ -45,6 +55,8 @@ class DescribeLifecycleHooksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -57,6 +69,8 @@ class DescribeLifecycleHooksRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

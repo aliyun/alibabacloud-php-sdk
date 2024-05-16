@@ -35,6 +35,7 @@ class DeleteScalingRuleRequest extends Model
     /**
      * @description The ID of the scaling rule that you want to delete.
      *
+     * This parameter is required.
      * @example asr-bp163l21e07uhnyt****
      *
      * @var string
