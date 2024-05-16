@@ -59,7 +59,7 @@ class certInfo extends Model
     /**
      * @description The name of the certificate authority (CA) that issued the certificate.
      *
-     * @example Let\"s Encrypt
+     * @example Let\\"s Encrypt
      *
      * @var string
      */

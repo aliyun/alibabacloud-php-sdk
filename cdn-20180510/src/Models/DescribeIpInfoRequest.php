@@ -11,6 +11,7 @@ class DescribeIpInfoRequest extends Model
     /**
      * @description The IP address. You can specify only one IP address.
      *
+     * This parameter is required.
      * @example 192.168.0.1
      *
      * @var string

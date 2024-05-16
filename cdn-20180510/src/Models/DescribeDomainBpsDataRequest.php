@@ -39,7 +39,7 @@ class DescribeDomainBpsDataRequest extends Model
     public $interval;
 
     /**
-     * @description The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISP names.
+     * @description The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISP names.
      *
      * If you do not set this parameter, data of all ISPs is queried.
      * @example telecom
@@ -49,7 +49,7 @@ class DescribeDomainBpsDataRequest extends Model
     public $ispNameEn;
 
     /**
-     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
+     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
      *
      * If you do not specify a region, data in all regions is queried.
      * @example beijing

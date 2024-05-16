@@ -12,6 +12,7 @@ class DescribeTagResourcesRequest extends Model
     /**
      * @description The IDs of the resources. You can specify up to 50 IDs in each request.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string[]
@@ -21,6 +22,7 @@ class DescribeTagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to **DOMAIN**.
      *
+     * This parameter is required.
      * @example DOMAIN
      *
      * @var string

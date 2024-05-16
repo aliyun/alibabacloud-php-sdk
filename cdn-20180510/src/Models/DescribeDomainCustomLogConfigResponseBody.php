@@ -38,7 +38,7 @@ class DescribeDomainCustomLogConfigResponseBody extends Model
     /**
      * @description The sample log configuration.
      *
-     * @example [9/Jun/2015:01:58:09+0800]188.165.15.75-1542\"-\"\"GET http://www.aliyun.com/index.html\
+     * @example [9/Jun/2015:01:58:09+0800]188.165.15.75-1542\\"-\\"\\"GET http://www.aliyun.com/index.html\\
      *
      * @var string
      */

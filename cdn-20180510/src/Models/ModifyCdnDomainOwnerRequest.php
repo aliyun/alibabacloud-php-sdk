@@ -11,6 +11,7 @@ class ModifyCdnDomainOwnerRequest extends Model
     /**
      * @description The accelerated domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

@@ -55,7 +55,7 @@ class DescribeDomainUsageDataRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * > The end time must be later than the start time. The maximum time range that can be specified is 31 days.
+     * This parameter is required.
      * @example 2015-12-10T22:00:00Z
      *
      * @var string
@@ -70,6 +70,8 @@ class DescribeDomainUsageDataRequest extends Model
      *   **acc**: requests
      *
      * > If you set this parameter to **acc**, the **Area** parameter is not supported.
+     *
+     * This parameter is required.
      * @example bps
      *
      * @var string
@@ -92,7 +94,7 @@ class DescribeDomainUsageDataRequest extends Model
     /**
      * @description The beginning of the time range to query.
      *
-     * > Data is collected every 5 minutes.
+     * This parameter is required.
      * @example 2015-12-10T20:00:00Z
      *
      * @var string

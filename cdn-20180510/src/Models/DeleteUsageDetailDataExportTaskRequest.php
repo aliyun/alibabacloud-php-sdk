@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteUsageDetailDataExportTaskRequest extends Model
 {
     /**
-     * @description The ID of the task. You can call the [DescribeUserUsageDataExportTask](~~91062~~) operation to query tasks.
+     * @description The ID of the task. You can call the [DescribeUserUsageDataExportTask](https://help.aliyun.com/document_detail/91062.html) operation to query tasks.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeDomainRealTimeTrafficDataRequest extends Model
     /**
      * @description The accelerated domain name. You can specify up to 100 domain names in each call. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -30,7 +31,7 @@ class DescribeDomainRealTimeTrafficDataRequest extends Model
     /**
      * @description The name of the Internet service provider (ISP).
      *
-     * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list. If you do not set this parameter, all regions are queried.
+     * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query the most recent region list. If you do not set this parameter, all regions are queried.
      * @example telecom
      *
      * @var string
@@ -40,7 +41,7 @@ class DescribeDomainRealTimeTrafficDataRequest extends Model
     /**
      * @description The name of the region.
      *
-     * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list. If you do not set this parameter, all regions are queried.
+     * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query the most recent region list. If you do not set this parameter, all regions are queried.
      * @example beijing
      *
      * @var string

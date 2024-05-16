@@ -11,6 +11,7 @@ class DescribeDomainRealTimeSrcHttpCodeDataRequest extends Model
     /**
      * @description The accelerated domain name. You can specify up to 100 domain names in each call. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -28,7 +29,7 @@ class DescribeDomainRealTimeSrcHttpCodeDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISPs. If you leave this parameter empty, all ISPs are queried.
+     * @description The name of the Internet service provider (ISP). You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISPs. If you leave this parameter empty, all ISPs are queried.
      *
      * @example unicom
      *
@@ -37,7 +38,7 @@ class DescribeDomainRealTimeSrcHttpCodeDataRequest extends Model
     public $ispNameEn;
 
     /**
-     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions. If you leave this parameter empty, all regions are queried.
+     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions. If you leave this parameter empty, all regions are queried.
      *
      * @example beijing
      *

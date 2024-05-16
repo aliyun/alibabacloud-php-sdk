@@ -23,11 +23,11 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
      *
      *   hour_flow: pay by hourly data transfer
      *   day_bandwidth: pay by daily bandwidth
-     *   month\_95: pay by monthly 95th percentile bandwidth.
+     *   month_95: pay by monthly 95th percentile bandwidth.
      *   month_avg_day_bandwidth: pay by average daily peak bandwidth per month
-     *   month\_4th_day_bandwidth: pay by monthly 4th peak bandwidth
-     *   month_avg_day\_95: pay by average daily 95th percentile bandwidth per month
-     *   month\_95\_night_half: pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00.
+     *   month_4th_day_bandwidth: pay by monthly 4th peak bandwidth
+     *   month_avg_day_95: pay by average daily 95th percentile bandwidth per month
+     *   month_95_night_half: pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00.
      *   hour_vas: pay by value-added services per hour
      *   day_count: pay by daily requests
      *

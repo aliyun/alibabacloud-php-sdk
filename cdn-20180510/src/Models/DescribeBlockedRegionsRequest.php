@@ -15,6 +15,7 @@ class DescribeBlockedRegionsRequest extends Model
      *   **en**: English
      *   **jp**: Japanese
      *
+     * This parameter is required.
      * @example zh
      *
      * @var string

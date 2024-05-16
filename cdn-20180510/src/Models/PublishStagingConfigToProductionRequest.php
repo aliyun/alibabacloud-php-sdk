@@ -11,6 +11,7 @@ class PublishStagingConfigToProductionRequest extends Model
     /**
      * @description The accelerated domain name. You can specify only one domain name in each call.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

@@ -28,6 +28,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to **DOMAIN**.
      *
+     * This parameter is required.
      * @example DOMAIN
      *
      * @var string

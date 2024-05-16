@@ -34,6 +34,7 @@ class CreateCdnSubTaskRequest extends Model
      *   **21**: regions from which requests are initiated
      *   **23**: Internet service providers (ISPs)
      *
+     * This parameter is required.
      * @example 1,3,5
      *
      * @var string

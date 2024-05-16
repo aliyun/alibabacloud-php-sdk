@@ -11,6 +11,7 @@ class DeleteFCTriggerRequest extends Model
     /**
      * @description The trigger that corresponds to the Function Compute service.
      *
+     * This parameter is required.
      * @example acs:cdn:{RegionID}:{AccountID}:{Filter}
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeUserConfigsRequest extends Model
     /**
      * @description The feature whose configurations you want to query. You can specify only one feature in each request. Valid values: oss, green_manager, waf, cc_rule, ddos_dispatch, edge_safe, blocked_regions, http_acl_policy, bot_manager, and ip_reputation.
      *
+     * This parameter is required.
      * @example oss
      *
      * @var string

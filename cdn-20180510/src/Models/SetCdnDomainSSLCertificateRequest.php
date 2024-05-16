@@ -50,6 +50,7 @@ class SetCdnDomainSSLCertificateRequest extends Model
     /**
      * @description The accelerated domain name for which you want to configure the SSL certificate. The type of request supported by the domain name must be HTTPS. You can specify only one domain name in each request.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -85,6 +86,7 @@ class SetCdnDomainSSLCertificateRequest extends Model
      *   **on**
      *   **off**
      *
+     * This parameter is required.
      * @example off
      *
      * @var string

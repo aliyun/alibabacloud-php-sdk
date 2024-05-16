@@ -11,6 +11,7 @@ class BatchStartCdnDomainRequest extends Model
     /**
      * @description The accelerated domain names. You can specify one or more domain names. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

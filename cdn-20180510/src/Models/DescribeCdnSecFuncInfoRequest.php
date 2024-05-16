@@ -14,6 +14,7 @@ class DescribeCdnSecFuncInfoRequest extends Model
      *   en: English
      *   zh: Chinese
      *
+     * This parameter is required.
      * @example zh
      *
      * @var string
@@ -26,6 +27,7 @@ class DescribeCdnSecFuncInfoRequest extends Model
      *   CipherSuiteGroupCustomize: custom cipher suite.
      *   CipherSuiteGroupStrict: dustom cipher suite.
      *
+     * This parameter is required.
      * @example CipherSuiteGroupCustomize
      *
      * @var string

@@ -11,6 +11,7 @@ class DisableRealtimeLogDeliveryRequest extends Model
     /**
      * @description The accelerated domain name for which you want to disable real-time log delivery. You can specify multiple domain names and separate them with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

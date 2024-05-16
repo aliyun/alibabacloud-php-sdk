@@ -11,6 +11,7 @@ class DescribeCdnCertificateDetailByIdRequest extends Model
     /**
      * @description The ID of the certificate.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var string

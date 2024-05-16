@@ -11,7 +11,7 @@ class CreateUserUsageDataExportTaskRequest extends Model
     /**
      * @description The end of the time range to query. The end time must be later than the start time.
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * This parameter is required.
      * @example 2015-12-10T21:00:00Z
      *
      * @var string
@@ -33,7 +33,7 @@ class CreateUserUsageDataExportTaskRequest extends Model
     /**
      * @description The start of the time range to query. The data is collected every 5 minutes.
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * This parameter is required.
      * @example 2015-12-10T20:00:00Z
      *
      * @var string

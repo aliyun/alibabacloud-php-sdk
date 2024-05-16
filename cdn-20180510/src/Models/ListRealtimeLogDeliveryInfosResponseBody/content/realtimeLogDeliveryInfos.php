@@ -27,7 +27,7 @@ class realtimeLogDeliveryInfos extends Model
     public $project;
 
     /**
-     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](~~144883~~).
+     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](https://help.aliyun.com/document_detail/144883.html).
      *
      * @example ch-shanghai
      *

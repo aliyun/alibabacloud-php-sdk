@@ -69,7 +69,7 @@ class certInfo extends Model
     /**
      * @description The content of the certificate.
      *
-     * @example -----BEGIN CERTIFICATE-----\nxxx-----END CERTIFICATE-----\n
+     * @example -----BEGIN CERTIFICATE-----\\nxxx-----END CERTIFICATE-----\\n
      *
      * @var string
      */

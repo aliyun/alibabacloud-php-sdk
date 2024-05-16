@@ -11,6 +11,7 @@ class OpenCdnServiceRequest extends Model
     /**
      * @description The metering method of Alibaba Cloud CDN. A value of **PayByTraffic** indicates that the metering method is pay-by-data-transfer.
      *
+     * This parameter is required.
      * @example PayByTraffic
      *
      * @var string

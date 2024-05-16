@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyCdnDomainOwnerResponseBody extends Model
 {
     /**
-     * @description Procedure
+     * @description The description of the domain name transfer.
      *
      * @example The domain does not allow to transfer to a different account.
      *

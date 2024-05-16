@@ -16,6 +16,7 @@ class AddCdnDomainRequest extends Model
      *   **download**: large files
      *   **video**: on-demand video and audio streaming
      *
+     * This parameter is required.
      * @example web
      *
      * @var string
@@ -34,7 +35,7 @@ class AddCdnDomainRequest extends Model
     /**
      * @description The domain name that you want to add to Alibaba Cloud CDN.
      *
-     * A wildcard domain that starts with a period (.) is supported, such as .example.com.
+     * This parameter is required.
      * @example .example.com
      *
      * @var string
@@ -82,6 +83,7 @@ class AddCdnDomainRequest extends Model
     /**
      * @description The information about the addresses of origin servers.
      *
+     * This parameter is required.
      * @example [
      * ]
      * @var string

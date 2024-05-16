@@ -11,6 +11,7 @@ class CdnMigrateRegisterRequest extends Model
     /**
      * @description The accelerated domain name for which you want to register the dynamic routing feature. You can specify only one domain name in each request.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

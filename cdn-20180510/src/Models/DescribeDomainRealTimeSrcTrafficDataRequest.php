@@ -11,6 +11,7 @@ class DescribeDomainRealTimeSrcTrafficDataRequest extends Model
     /**
      * @description The accelerated domain name. You can specify up to 100 domain names in each call. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

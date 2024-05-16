@@ -11,7 +11,7 @@ class DescribeDomainRealTimeBpsDataRequest extends Model
     /**
      * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
      *
-     * > You can specify up to 500 domain names in each request.
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -31,7 +31,7 @@ class DescribeDomainRealTimeBpsDataRequest extends Model
     /**
      * @description The name of the Internet service provider (ISP).
      *
-     * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISPs. If you do not set this parameter, all ISPs are queried.
+     * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISPs. If you do not set this parameter, all ISPs are queried.
      * @example telecom
      *
      * @var string
@@ -41,7 +41,7 @@ class DescribeDomainRealTimeBpsDataRequest extends Model
     /**
      * @description The name of the region.
      *
-     * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions. If you do not set this parameter, all regions are queried.
+     * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions. If you do not set this parameter, all regions are queried.
      * @example beijing
      *
      * @var string

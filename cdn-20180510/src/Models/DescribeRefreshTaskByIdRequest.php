@@ -11,7 +11,7 @@ class DescribeRefreshTaskByIdRequest extends Model
     /**
      * @description The ID of the task that you want to query.
      *
-     * You can specify up to 10 task IDs. Separate task IDs with commas (,).
+     * This parameter is required.
      * @example 12345678
      *
      * @var string

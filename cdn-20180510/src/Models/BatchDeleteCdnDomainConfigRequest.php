@@ -11,6 +11,7 @@ class BatchDeleteCdnDomainConfigRequest extends Model
     /**
      * @description The accelerated domain names whose configurations you want to delete. Separate multiple accelerated domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com,example.org
      *
      * @var string
@@ -18,8 +19,9 @@ class BatchDeleteCdnDomainConfigRequest extends Model
     public $domainNames;
 
     /**
-     * @description The names of the features that you want to delete. Separate multiple feature names with commas (,). For more information about feature names, see [Parameters for configuring features for domain names](~~388460~~).
+     * @description The names of the features that you want to delete. Separate multiple feature names with commas (,). For more information about feature names, see [Parameters for configuring features for domain names](https://help.aliyun.com/document_detail/388460.html).
      *
+     * This parameter is required.
      * @example referer_white_list_set,https_force
      *
      * @var string

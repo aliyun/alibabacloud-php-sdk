@@ -11,6 +11,7 @@ class DescribeDomainCustomLogConfigRequest extends Model
     /**
      * @description The domain name. You can specify only one domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

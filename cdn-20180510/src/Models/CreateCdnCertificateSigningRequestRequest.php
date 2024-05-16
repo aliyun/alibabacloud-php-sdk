@@ -20,6 +20,7 @@ class CreateCdnCertificateSigningRequestRequest extends Model
     /**
      * @description The Common Name of the certificate.
      *
+     * This parameter is required.
      * @example CommonName
      *
      * @var string

@@ -11,6 +11,7 @@ class ListRealtimeLogDeliveryDomainsRequest extends Model
     /**
      * @description The name of the Logstore that collects log data from Alibaba Cloud CDN in real time. You can specify multiple Logstore names and separate them with commas (,).
      *
+     * This parameter is required.
      * @example LogstoreName
      *
      * @var string
@@ -20,6 +21,7 @@ class ListRealtimeLogDeliveryDomainsRequest extends Model
     /**
      * @description The name of the Log Service project that is used for real-time log delivery. You can specify multiple project names and separate them with commas (,).
      *
+     * This parameter is required.
      * @example ProjectName
      *
      * @var string
@@ -29,7 +31,7 @@ class ListRealtimeLogDeliveryDomainsRequest extends Model
     /**
      * @description The ID of the region where the Log Service project is deployed. You can specify multiple region IDs and separate them with commas (,).
      *
-     * For more information about regions, see [Regions that support real-time log delivery](~~144883~~).
+     * This parameter is required.
      * @example ch-shanghai
      *
      * @var string

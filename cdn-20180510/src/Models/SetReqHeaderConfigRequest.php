@@ -20,6 +20,7 @@ class SetReqHeaderConfigRequest extends Model
     /**
      * @description The accelerated domain name. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -29,6 +30,7 @@ class SetReqHeaderConfigRequest extends Model
     /**
      * @description The name of the custom header.
      *
+     * This parameter is required.
      * @example testkey
      *
      * @var string
@@ -48,6 +50,7 @@ class SetReqHeaderConfigRequest extends Model
     /**
      * @description The value of the custom header.
      *
+     * This parameter is required.
      * @example testvalue
      *
      * @var string

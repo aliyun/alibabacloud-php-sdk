@@ -12,6 +12,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The list of resource IDs. Maximum number of list elements: 50.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string[]
@@ -21,6 +22,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set this value to **DOMAIN**.
      *
+     * This parameter is required.
      * @example DOMAIN
      *
      * @var string
@@ -30,6 +32,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags. Maximum number of list elements: 20.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

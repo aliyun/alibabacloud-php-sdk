@@ -11,6 +11,7 @@ class DescribeVerifyContentRequest extends Model
     /**
      * @description The domain name of which the ownership was verified. You can specify only one domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

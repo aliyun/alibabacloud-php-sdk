@@ -18,6 +18,7 @@ class DescribeCdnConditionIPBInfoRequest extends Model
      *   condition_country_config_cn
      *   condition_country_config_en
      *
+     * This parameter is required.
      * @example condition_region_config_cn
      *
      * @var string

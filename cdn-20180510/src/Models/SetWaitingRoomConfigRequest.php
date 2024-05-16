@@ -11,6 +11,7 @@ class SetWaitingRoomConfigRequest extends Model
     /**
      * @description The percentage of requests that are allowed to be redirected to the origin server. Valid values: **0** to **100**.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int
@@ -20,6 +21,7 @@ class SetWaitingRoomConfigRequest extends Model
     /**
      * @description The accelerated domain name. You can specify only one domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -29,6 +31,7 @@ class SetWaitingRoomConfigRequest extends Model
     /**
      * @description The length of waiting time to skip after an exit from the queue. Unit: seconds.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -38,6 +41,7 @@ class SetWaitingRoomConfigRequest extends Model
     /**
      * @description The maximum length of waiting time in the queue. Unit: seconds.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int
@@ -47,6 +51,7 @@ class SetWaitingRoomConfigRequest extends Model
     /**
      * @description The regular expression that is used to match URI strings for which the virtual waiting room feature is enabled.
      *
+     * This parameter is required.
      * @example .*\/aaa/bbb$
      *
      * @var string
@@ -56,6 +61,7 @@ class SetWaitingRoomConfigRequest extends Model
     /**
      * @description The URL of the waiting page.
      *
+     * This parameter is required.
      * @example https://example.com/waitingroom.html
      *
      * @var string

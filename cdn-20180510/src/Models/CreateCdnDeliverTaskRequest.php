@@ -11,7 +11,8 @@ class CreateCdnDeliverTaskRequest extends Model
     /**
      * @description The method that is used to send operations reports. Operations reports are sent to you only by email. The settings must be escaped in JSON.
      *
-     * @example {"email":{"subject":"the email subject","to":\["username@example.com","username@example.org"]}}
+     * This parameter is required.
+     * @example {"email":{"subject":"the email subject","to":["username@example.com","username@example.org"]}}
      *
      * @var string
      */
@@ -30,6 +31,7 @@ class CreateCdnDeliverTaskRequest extends Model
     /**
      * @description The name of the tracking task.
      *
+     * This parameter is required.
      * @example Domain name report
      *
      * @var string
@@ -39,7 +41,8 @@ class CreateCdnDeliverTaskRequest extends Model
     /**
      * @description The operations reports that are tracked by the task. The data must be escaped in JSON.
      *
-     * @example \[{\\"reportId\\":1,\\"conditions\\":\[{\\"field\\":\\"prov\\",\\"op\\":\\"in\\",\\"value\\":\[\\"Heilongjiang\\",\\"Beijing\\"]}]}]
+     * This parameter is required.
+     * @example [{\\\\"reportId\\\\":1,\\\\"conditions\\\\":[{\\\\"field\\\\":\\\\"prov\\\\",\\\\"op\\\\":\\\\"in\\\\",\\\\"value\\\\":[\\\\"Heilongjiang\\\\",\\\\"Beijing\\\\"]}]}]
      *
      * @var string
      */
@@ -48,7 +51,8 @@ class CreateCdnDeliverTaskRequest extends Model
     /**
      * @description The parameters that specify the time interval at which the tracking task sends operations reports. The settings must be escaped in JSON.
      *
-     * @example {\\"schedName\\":\\"The name of the tracking task\\",\\"description\\":\\"The description\\",\\"crontab\\":\\"000\*\*?\\",\\"frequency\\":\\"d\\",\\"status\\":\\"enable\\",\\"effectiveFrom\\":\\"2020-09-17T00:00:00Z\\",\\"effectiveEnd\\":\\"2020-11-17T00:00:00Z\\"}"
+     * This parameter is required.
+     * @example {\\\\"schedName\\\\":\\\\"The name of the tracking task\\\\",\\\\"description\\\\":\\\\"The description\\\\",\\\\"crontab\\\\":\\\\"000\\*\\*?\\\\",\\\\"frequency\\\\":\\\\"d\\\\",\\\\"status\\\\":\\\\"enable\\\\",\\\\"effectiveFrom\\\\":\\\\"2020-09-17T00:00:00Z\\\\",\\\\"effectiveEnd\\\\":\\\\"2020-11-17T00:00:00Z\\\\"}"
      *
      * @var string
      */

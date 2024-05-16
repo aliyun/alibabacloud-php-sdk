@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpStatusRequest extends Model
 {
     /**
-     * @description The IP addresses that you want to query. Separate IP addresses with underscores (\_), such as Ips=ip1\_ip2.
+     * @description The IP addresses that you want to query. Separate IP addresses with underscores (_), such as Ips=ip1_ip2.
      *
+     * This parameter is required.
      * @example ip1_ip2
      *
      * @var string

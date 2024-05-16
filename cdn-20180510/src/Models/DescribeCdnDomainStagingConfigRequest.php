@@ -11,6 +11,7 @@ class DescribeCdnDomainStagingConfigRequest extends Model
     /**
      * @description The accelerated domain name. You can specify only one domain name in each request.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeCdnDomainStagingConfigRequest extends Model
     public $domainName;
 
     /**
-     * @description The list of feature names. Separate multiple values with commas (,). For more information, see [A list of features](~~388460~~).
+     * @description The list of feature names. Separate multiple values with commas (,). For more information, see [A list of features](https://help.aliyun.com/document_detail/388460.html).
      *
      * @example aliauth
      *

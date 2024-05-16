@@ -14,6 +14,7 @@ class DescribeCdnUserConfigsRequest extends Model
      *   **domain_business_control**: user configurations
      *   **waf**: Web Application Firewall (WAF) configurations
      *
+     * This parameter is required.
      * @example domain_business_control
      *
      * @var string

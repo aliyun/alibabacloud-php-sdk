@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainConfigsRequest extends Model
 {
     /**
-     * @description The ID of the configuration. For more information about ConfigId, see [Usage notes on ConfigId](~~388994~~).
+     * @description The ID of the configuration. For more information about ConfigId, see [Usage notes on ConfigId](https://help.aliyun.com/document_detail/388994.html).
      *
      * @example 6295
      *
@@ -20,6 +20,7 @@ class DescribeCdnDomainConfigsRequest extends Model
     /**
      * @description The accelerated domain name. You can specify only one domain name in each request.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -27,7 +28,7 @@ class DescribeCdnDomainConfigsRequest extends Model
     public $domainName;
 
     /**
-     * @description The names of the features. Separate multiple feature names with commas (,). For more information, see [Parameters for configuring features for domain names](~~388460~~).
+     * @description The names of the features. Separate multiple feature names with commas (,). For more information, see [Parameters for configuring features for domain names](https://help.aliyun.com/document_detail/388460.html).
      *
      * @example aliauth
      *

@@ -21,7 +21,9 @@ class RefreshObjectCachesRequest extends Model
     public $force;
 
     /**
-     * @example http://example.com/image/1.png\nhttp://aliyundoc.com/image/2.png
+     * @description This parameter is required.
+     *
+     * @example http://example.com/image/1.png\\nhttp://aliyundoc.com/image/2.png
      *
      * @var string
      */

@@ -47,6 +47,7 @@ class UpdateFCTriggerRequest extends Model
     /**
      * @description The trigger that corresponds to the Function Compute service.
      *
+     * This parameter is required.
      * @example acs:fc:cn-beijing: 1234567890:services/FCTestService/functions/printEvent/triggers/testtrigger
      *
      * @var string

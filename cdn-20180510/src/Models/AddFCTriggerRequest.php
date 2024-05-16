@@ -11,6 +11,7 @@ class AddFCTriggerRequest extends Model
     /**
      * @description The name of the event.
      *
+     * This parameter is required.
      * @example LogFileCreated
      *
      * @var string
@@ -20,6 +21,7 @@ class AddFCTriggerRequest extends Model
     /**
      * @description The version of the event.
      *
+     * This parameter is required.
      * @example 1.0.0
      *
      * @var string
@@ -38,6 +40,7 @@ class AddFCTriggerRequest extends Model
     /**
      * @description The remarks.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -47,6 +50,7 @@ class AddFCTriggerRequest extends Model
     /**
      * @description The assigned Resource Access Management (RAM) role.
      *
+     * This parameter is required.
      * @example acs:ram:: 1234567890:role/aliyuncdneventnotificationrole
      *
      * @var string
@@ -56,6 +60,7 @@ class AddFCTriggerRequest extends Model
     /**
      * @description The resources and filters for event listening.
      *
+     * This parameter is required.
      * @example acs:cdn:*:1234567890:domain/example.com
      *
      * @var string
@@ -65,6 +70,7 @@ class AddFCTriggerRequest extends Model
     /**
      * @description The trigger that corresponds to the Function Compute service.
      *
+     * This parameter is required.
      * @example acs:fc:cn-beijing: 1234567890:services/FCTestService/functions/printEvent/triggers/testtrigger
      *
      * @var string

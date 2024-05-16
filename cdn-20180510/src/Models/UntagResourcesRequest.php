@@ -24,6 +24,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The list of resource IDs. You can specify up to 50 resource IDs in the list.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string[]
@@ -33,6 +34,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The type of the resources from which you want to remove tags. Set this parameter to **DOMAIN**.
      *
+     * This parameter is required.
      * @example DOMAIN
      *
      * @var string

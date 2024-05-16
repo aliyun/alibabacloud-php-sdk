@@ -11,7 +11,7 @@ class DescribeCdnCertificateDetailResponseBody extends Model
     /**
      * @description The certificate.
      *
-     * @example -----BEGIN CERTIFICATE-----\nMIIFzDCCBLSgAwIBxxxx
+     * @example -----BEGIN CERTIFICATE-----\\nMIIFzDCCBLSgAwIBxxxx
      *
      * @var string
      */

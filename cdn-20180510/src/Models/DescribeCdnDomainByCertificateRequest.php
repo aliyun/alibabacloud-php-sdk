@@ -23,7 +23,7 @@ class DescribeCdnDomainByCertificateRequest extends Model
     /**
      * @description The public key of the SSL certificate. You must encode the public key in Base64 and then call the encodeURIComponent function to encode the public key again.
      *
-     * The public key must be in the PEM format.
+     * This parameter is required.
      * @example ******
      *
      * @var string

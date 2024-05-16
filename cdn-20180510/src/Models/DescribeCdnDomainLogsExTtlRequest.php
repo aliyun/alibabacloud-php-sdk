@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainLogsExTtlRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example example.com
      *
      * @var string

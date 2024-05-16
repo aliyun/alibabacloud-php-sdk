@@ -29,7 +29,7 @@ class DescribeCustomLogConfigResponseBody extends Model
     /**
      * @description The sample.
      *
-     * @example "[9/Jun/2015:01:58:09 +0800] 188.165.15.75 - 1542 \"-\" \"GEThttp: //www.aliyun.com/index.html\" 200
+     * @example "[9/Jun/2015:01:58:09 +0800] 188.165.15.75 - 1542 \\"-\\" \\"GEThttp: //www.aliyun.com/index.html\\" 200
      *
      * @var string
      */

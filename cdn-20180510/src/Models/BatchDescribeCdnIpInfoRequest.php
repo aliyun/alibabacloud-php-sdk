@@ -12,14 +12,22 @@ class BatchDescribeCdnIpInfoRequest extends Model
      * @description The list of IP addresses to query. Separate IP addresses with commas (,). You can specify up to 20 IP addresses at a time.
      *
      * > *   Example of an IPv4 address: 192.0.2.1
-     * >*   Example of an IPv6 address: 2001:db8:ffff:ffff:ffff:\*\*\*\*:ffff.
+     * >*   Example of an IPv6 address: 2001:db8:ffff:ffff:ffff:\\*\\*\\*\\*:ffff.
+     *
+     * This parameter is required.
      * @example 111.XXX.XXX.230,47.XXX.XXX.243
      *
      * @var string
      */
     public $ipAddrList;
+
+    /**
+     * @var string
+     */
+    public $language;
     protected $_name = [
         'ipAddrList' => 'IpAddrList',
+        'language'   => 'Language',
     ];
 
     public function validate()
@@ -31,6 +39,9 @@ class BatchDescribeCdnIpInfoRequest extends Model
         $res = [];
         if (null !== $this->ipAddrList) {
             $res['IpAddrList'] = $this->ipAddrList;
+        }
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         return $res;
@@ -46,6 +57,9 @@ class BatchDescribeCdnIpInfoRequest extends Model
         $model = new self();
         if (isset($map['IpAddrList'])) {
             $model->ipAddrList = $map['IpAddrList'];
+        }
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         return $model;

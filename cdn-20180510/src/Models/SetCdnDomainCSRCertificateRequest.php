@@ -11,6 +11,7 @@ class SetCdnDomainCSRCertificateRequest extends Model
     /**
      * @description The accelerated domain name for which you want to configure an SSL certificate. The domain name must have HTTPS secure acceleration enabled.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -18,8 +19,9 @@ class SetCdnDomainCSRCertificateRequest extends Model
     public $domainName;
 
     /**
-     * @description The content of the certificate. The certificate must match the certificate signing request (CSR) created by calling the [CreateCdnCertificateSigningRequest](~~144478~~) operation. Make sure that the content of the certificate is encoded in Base64 and then encoded by encodeURIComponent.
+     * @description The content of the certificate. The certificate must match the certificate signing request (CSR) created by calling the [CreateCdnCertificateSigningRequest](https://help.aliyun.com/document_detail/144478.html) operation. Make sure that the content of the certificate is encoded in Base64 and then encoded by encodeURIComponent.
      *
+     * This parameter is required.
      * @example ----BEGIN CERTIFICATE----- MIIFz****-----END CERTIFICATE-----
      *
      * @var string

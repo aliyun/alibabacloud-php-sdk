@@ -11,6 +11,7 @@ class DescribeCdnOrderCommodityCodeRequest extends Model
     /**
      * @description The original commodity code.
      *
+     * This parameter is required.
      * @example xxx
      *
      * @var string

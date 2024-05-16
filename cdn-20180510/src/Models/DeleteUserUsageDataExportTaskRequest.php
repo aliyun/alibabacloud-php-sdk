@@ -11,6 +11,7 @@ class DeleteUserUsageDataExportTaskRequest extends Model
     /**
      * @description The ID of the task to delete.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string

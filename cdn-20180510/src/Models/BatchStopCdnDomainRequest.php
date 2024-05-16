@@ -11,6 +11,7 @@ class BatchStopCdnDomainRequest extends Model
     /**
      * @description The names of the accelerated domain names. You can specify one or more domain names in each request. Separate multiple domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

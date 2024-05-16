@@ -11,7 +11,7 @@ class DescribeEsExecuteDataRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * > The end time must be later than the start time.
+     * This parameter is required.
      * @example 2021-02-18T20:00:00Z
      *
      * @var string
@@ -19,8 +19,9 @@ class DescribeEsExecuteDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the rule. You can call the [DescribeCdnDomainConfigs](~~90924~~) operation to query script IDs.
+     * @description The ID of the rule. You can call the [DescribeCdnDomainConfigs](https://help.aliyun.com/document_detail/90924.html) operation to query script IDs.
      *
+     * This parameter is required.
      * @example 212896**
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeEsExecuteDataRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2021-02-17T20:00:00Z
      *
      * @var string

@@ -32,7 +32,7 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     /**
      * @description The accelerated domain name to which the SSL certificate belongs. The type of request supported by the accelerated domain name must be HTTPS. You can specify multiple accelerated domain names and separate them with commas (,).
      *
-     * >  You can manage the SSL certificates of up to 50 accelerated domain names in each call.
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -77,6 +77,7 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
      *   **on**: enables the SSL certificate.
      *   **off**: disables the SSL certificate. This is the default value.
      *
+     * This parameter is required.
      * @example on
      *
      * @var string

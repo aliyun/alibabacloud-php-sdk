@@ -11,6 +11,7 @@ class StopCdnDomainRequest extends Model
     /**
      * @description The accelerated domain name that you want to disable. You can specify only one domain name in each request.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

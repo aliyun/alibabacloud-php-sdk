@@ -11,6 +11,7 @@ class DescribeCertificateInfoByIDRequest extends Model
     /**
      * @description The ID of the certificate. You can query only one certificate in each call.
      *
+     * This parameter is required.
      * @example 1644xx
      *
      * @var string

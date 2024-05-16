@@ -11,6 +11,7 @@ class DescribeDomainTopUrlVisitRequest extends Model
     /**
      * @description The accelerated domain name that you want to query.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

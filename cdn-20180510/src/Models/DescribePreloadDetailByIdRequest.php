@@ -11,6 +11,7 @@ class DescribePreloadDetailByIdRequest extends Model
     /**
      * @description Queries the details of a preload task by task ID. You can query one task ID at a time.
      *
+     * This parameter is required.
      * @example 15423123921
      *
      * @var string

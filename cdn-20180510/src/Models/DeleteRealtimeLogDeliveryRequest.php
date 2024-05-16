@@ -11,6 +11,7 @@ class DeleteRealtimeLogDeliveryRequest extends Model
     /**
      * @description The acceleration domain name for which you want to disable real-time log delivery. You can specify multiple domain names and separate them with commas (,).
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteRealtimeLogDeliveryRequest extends Model
     /**
      * @description The name of the Logstore where log entries are stored.
      *
+     * This parameter is required.
      * @example LogstoreName
      *
      * @var string
@@ -29,6 +31,7 @@ class DeleteRealtimeLogDeliveryRequest extends Model
     /**
      * @description The name of the Log Service project that is used for real-time log delivery.
      *
+     * This parameter is required.
      * @example ProjectName
      *
      * @var string
@@ -36,8 +39,9 @@ class DeleteRealtimeLogDeliveryRequest extends Model
     public $project;
 
     /**
-     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](~~144883~~).
+     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](https://help.aliyun.com/document_detail/144883.html).
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

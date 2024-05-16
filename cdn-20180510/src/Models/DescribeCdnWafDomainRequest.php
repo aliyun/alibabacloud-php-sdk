@@ -29,7 +29,7 @@ class DescribeCdnWafDomainRequest extends Model
      *   **cn-hangzhou**: inside the Chinese mainland
      *   **ap-southeast-1**: outside the Chinese mainland
      *
-     * > ap-southeast-1 includes Hong Kong (China), Macao (China), Taiwan (China), and other countries and regions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeDomainRealtimeLogDeliveryRequest extends Model
     /**
      * @description The accelerated domain name for which real-time log delivery is enabled. You can specify only one domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

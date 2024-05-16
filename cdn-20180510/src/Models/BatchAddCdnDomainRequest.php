@@ -15,6 +15,7 @@ class BatchAddCdnDomainRequest extends Model
      *   **download**: large files
      *   **video**: on-demand video and audio streaming
      *
+     * This parameter is required.
      * @example web
      *
      * @var string
@@ -33,6 +34,7 @@ class BatchAddCdnDomainRequest extends Model
     /**
      * @description The domain names that you want to add to Alibaba Cloud CDN. Separate domain names with commas (,).
      *
+     * This parameter is required.
      * @example example.com,aliyundoc.com
      *
      * @var string
@@ -79,6 +81,7 @@ class BatchAddCdnDomainRequest extends Model
     /**
      * @description The information about the addresses of origin servers.
      *
+     * This parameter is required.
      * @example [
      * ]
      * @var string

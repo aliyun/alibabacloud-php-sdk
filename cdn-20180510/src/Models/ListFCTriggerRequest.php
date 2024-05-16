@@ -11,6 +11,7 @@ class ListFCTriggerRequest extends Model
     /**
      * @description The name of the event. You can specify only one name.
      *
+     * This parameter is required.
      * @example LogFileCreated
      *
      * @var string
@@ -20,6 +21,7 @@ class ListFCTriggerRequest extends Model
     /**
      * @description The version number of the event. You can specify only one version number.
      *
+     * This parameter is required.
      * @example 1.0.0
      *
      * @var string

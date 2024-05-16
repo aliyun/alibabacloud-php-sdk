@@ -41,8 +41,8 @@ class PushObjectCacheRequest extends Model
     /**
      * @description The URLs based on which content is prefetched. Format: **accelerated domain name/files to be prefetched**.
      *
-     * > Separate URLs with line feeds (\n or \r\n). Each object path can be up to 1,024 characters in length.
-     * @example example.com/image/1.png\nexample.org/image/2.png
+     * This parameter is required.
+     * @example example.com/image/1.png\\nexample.org/image/2.png
      *
      * @var string
      */

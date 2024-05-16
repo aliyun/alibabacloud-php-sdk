@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnReportRequest extends Model
 {
     /**
-     * @description The region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
+     * @description The region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
      *
      *   If you do not specify a region, data in all regions is queried.
      *   If you specify a region, data in the specified region is queried. You can specify one or more regions. If you specify multiple regions, separate the regions with commas (,).
@@ -32,6 +32,7 @@ class DescribeCdnReportRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-09-17T01:00:00Z
      *
      * @var string
@@ -66,8 +67,9 @@ class DescribeCdnReportRequest extends Model
     public $isOverseas;
 
     /**
-     * @description The ID of the operations report that you want to query. You can specify only one ID in each request. You can call the [DescribeCdnSubList](~~271655~~) operation to query report IDs.
+     * @description The ID of the operations report that you want to query. You can specify only one ID in each request. You can call the [DescribeCdnSubList](https://help.aliyun.com/document_detail/271655.html) operation to query report IDs.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -77,6 +79,7 @@ class DescribeCdnReportRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-09-17T00:00:00Z
      *
      * @var string

@@ -11,6 +11,7 @@ class DeleteRealTimeLogLogstoreRequest extends Model
     /**
      * @description The name of the Logstore to which log entries are delivered.
      *
+     * This parameter is required.
      * @example LogstoreName
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteRealTimeLogLogstoreRequest extends Model
     /**
      * @description The name of the Log Service project that is used for real-time log delivery.
      *
+     * This parameter is required.
      * @example ProjectName
      *
      * @var string
@@ -27,8 +29,9 @@ class DeleteRealTimeLogLogstoreRequest extends Model
     public $project;
 
     /**
-     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](~~144883~~).
+     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](https://help.aliyun.com/document_detail/144883.html).
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

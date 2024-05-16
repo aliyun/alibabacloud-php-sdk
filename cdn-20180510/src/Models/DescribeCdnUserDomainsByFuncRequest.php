@@ -11,7 +11,7 @@ class DescribeCdnUserDomainsByFuncRequest extends Model
     /**
      * @description The ID of the feature.
      *
-     * For example, the ID of the origin host feature (set_req_host_header) is 18.
+     * This parameter is required.
      * @example 7
      *
      * @var int

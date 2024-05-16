@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteSpecificConfigRequest extends Model
 {
     /**
-     * @description The ID of the configuration. Separate multiple configuration IDs with commas (,). For more information about ConfigId, see [Usage notes on ConfigId](~~388994~~).
+     * @description The ID of the configuration. Separate multiple configuration IDs with commas (,). For more information about ConfigId, see [Usage notes on ConfigId](https://help.aliyun.com/document_detail/388994.html).
      *
+     * This parameter is required.
      * @example 2317
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteSpecificConfigRequest extends Model
     /**
      * @description The accelerated domain name. You can specify only one domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

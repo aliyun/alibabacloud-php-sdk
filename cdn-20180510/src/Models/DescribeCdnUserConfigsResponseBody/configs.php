@@ -29,7 +29,7 @@ class configs extends Model
      *   **bot_manager**: bot traffic management
      *   **ip_reputation**: IP reputation library
      *
-     * @example {\"dcdn_allow\":[\"cc_rule\",\"ddos_dispatch\"]}
+     * @example {\\"dcdn_allow\\":[\\"cc_rule\\",\\"ddos_dispatch\\"]}
      *
      * @var string
      */

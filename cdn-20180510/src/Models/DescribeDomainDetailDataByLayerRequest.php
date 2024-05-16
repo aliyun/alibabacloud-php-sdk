@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailDataByLayerRequest extends Model
 {
     /**
-     * @description The name of the Internet service provider (ISP) for your Alibaba Cloud CDN service. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISP names.
+     * @description The name of the Internet service provider (ISP) for your Alibaba Cloud CDN service. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query ISP names.
      *
-     * If you do not specify an ISP, data of all ISPs is queried.
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -22,6 +22,8 @@ class DescribeDomainDetailDataByLayerRequest extends Model
      * @description The protocol by which you want to query data. Valid values: **http**, **https**, **quic**, and **all**.
      *
      * The default value is **all**.
+     *
+     * This parameter is required.
      * @example 2020-07-05T22:05:00Z
      *
      * @var string
@@ -31,7 +33,7 @@ class DescribeDomainDetailDataByLayerRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time.
+     * This parameter is required.
      * @example bps,ipv6_traf,traf,http_code,qps
      *
      * @var string
@@ -66,9 +68,9 @@ class DescribeDomainDetailDataByLayerRequest extends Model
     public $locationNameEn;
 
     /**
-     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
+     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/91077.html) operation to query regions.
      *
-     * If you do not specify a region, data in all regions is queried.
+     * This parameter is required.
      * @example 2020-07-05T22:00:00Z
      *
      * @var string

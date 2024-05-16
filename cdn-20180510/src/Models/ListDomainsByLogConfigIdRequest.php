@@ -11,6 +11,7 @@ class ListDomainsByLogConfigIdRequest extends Model
     /**
      * @description The ID of the custom configuration.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var string
