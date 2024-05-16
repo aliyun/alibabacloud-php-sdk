@@ -18020,6 +18020,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
         }
+        if (!Utils::isUnset($request->enableIpv6)) {
+            $query['EnableIpv6'] = $request->enableIpv6;
+        }
         if (!Utils::isUnset($request->isDefault)) {
             $query['IsDefault'] = $request->isDefault;
         }
@@ -18469,6 +18472,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->enableIpv6)) {
+            $query['EnableIpv6'] = $request->enableIpv6;
         }
         if (!Utils::isUnset($request->isDefault)) {
             $query['IsDefault'] = $request->isDefault;

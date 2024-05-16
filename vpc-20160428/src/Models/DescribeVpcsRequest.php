@@ -31,6 +31,11 @@ class DescribeVpcsRequest extends Model
     public $dryRun;
 
     /**
+     * @var bool
+     */
+    public $enableIpv6;
+
+    /**
      * @description Specifies whether to query the default VPC in the specified region. Valid values:
      *
      *   **true** (default)
@@ -136,6 +141,7 @@ class DescribeVpcsRequest extends Model
     protected $_name = [
         'dhcpOptionsSetId'     => 'DhcpOptionsSetId',
         'dryRun'               => 'DryRun',
+        'enableIpv6'           => 'EnableIpv6',
         'isDefault'            => 'IsDefault',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -163,6 +169,9 @@ class DescribeVpcsRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->enableIpv6) {
+            $res['EnableIpv6'] = $this->enableIpv6;
         }
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
@@ -226,6 +235,9 @@ class DescribeVpcsRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['EnableIpv6'])) {
+            $model->enableIpv6 = $map['EnableIpv6'];
         }
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
