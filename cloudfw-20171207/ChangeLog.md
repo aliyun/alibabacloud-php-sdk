@@ -1,3 +1,7 @@
+2024-05-16 Version: 2.5.1
+- Update API DescribeInternetTrafficTrend: update response param.
+
+
 2024-05-15 Version: 2.5.0
 - Support API DeleteSecurityProxy.
 - Support API DescribeNatFirewallList.

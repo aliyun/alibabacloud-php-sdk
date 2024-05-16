@@ -62,6 +62,11 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $maxBandwidthTime;
 
     /**
+     * @var int
+     */
+    public $maxDayExceedBytes;
+
+    /**
      * @description The maximum inbound network throughput, which indicates the maximum number of bits that are sent inbound per second. Unit: bit/s.
      *
      * @example 10275643
@@ -116,6 +121,11 @@ class DescribeInternetTrafficTrendResponseBody extends Model
     public $totalBytes;
 
     /**
+     * @var int
+     */
+    public $totalExceedBytes;
+
+    /**
      * @description The inbound network throughput, which indicates the total number of bytes that are sent inbound. Unit: bytes.
      *
      * @example 41536824243873
@@ -142,21 +152,23 @@ class DescribeInternetTrafficTrendResponseBody extends Model
      */
     public $totalSession;
     protected $_name = [
-        'avgInBps'         => 'AvgInBps',
-        'avgOutBps'        => 'AvgOutBps',
-        'avgSession'       => 'AvgSession',
-        'avgTotalBps'      => 'AvgTotalBps',
-        'dataList'         => 'DataList',
-        'maxBandwidthTime' => 'MaxBandwidthTime',
-        'maxInBps'         => 'MaxInBps',
-        'maxOutBps'        => 'MaxOutBps',
-        'maxSession'       => 'MaxSession',
-        'maxTotalBps'      => 'MaxTotalBps',
-        'requestId'        => 'RequestId',
-        'totalBytes'       => 'TotalBytes',
-        'totalInBytes'     => 'TotalInBytes',
-        'totalOutBytes'    => 'TotalOutBytes',
-        'totalSession'     => 'TotalSession',
+        'avgInBps'          => 'AvgInBps',
+        'avgOutBps'         => 'AvgOutBps',
+        'avgSession'        => 'AvgSession',
+        'avgTotalBps'       => 'AvgTotalBps',
+        'dataList'          => 'DataList',
+        'maxBandwidthTime'  => 'MaxBandwidthTime',
+        'maxDayExceedBytes' => 'MaxDayExceedBytes',
+        'maxInBps'          => 'MaxInBps',
+        'maxOutBps'         => 'MaxOutBps',
+        'maxSession'        => 'MaxSession',
+        'maxTotalBps'       => 'MaxTotalBps',
+        'requestId'         => 'RequestId',
+        'totalBytes'        => 'TotalBytes',
+        'totalExceedBytes'  => 'TotalExceedBytes',
+        'totalInBytes'      => 'TotalInBytes',
+        'totalOutBytes'     => 'TotalOutBytes',
+        'totalSession'      => 'TotalSession',
     ];
 
     public function validate()
@@ -190,6 +202,9 @@ class DescribeInternetTrafficTrendResponseBody extends Model
         if (null !== $this->maxBandwidthTime) {
             $res['MaxBandwidthTime'] = $this->maxBandwidthTime;
         }
+        if (null !== $this->maxDayExceedBytes) {
+            $res['MaxDayExceedBytes'] = $this->maxDayExceedBytes;
+        }
         if (null !== $this->maxInBps) {
             $res['MaxInBps'] = $this->maxInBps;
         }
@@ -207,6 +222,9 @@ class DescribeInternetTrafficTrendResponseBody extends Model
         }
         if (null !== $this->totalBytes) {
             $res['TotalBytes'] = $this->totalBytes;
+        }
+        if (null !== $this->totalExceedBytes) {
+            $res['TotalExceedBytes'] = $this->totalExceedBytes;
         }
         if (null !== $this->totalInBytes) {
             $res['TotalInBytes'] = $this->totalInBytes;
@@ -253,6 +271,9 @@ class DescribeInternetTrafficTrendResponseBody extends Model
         if (isset($map['MaxBandwidthTime'])) {
             $model->maxBandwidthTime = $map['MaxBandwidthTime'];
         }
+        if (isset($map['MaxDayExceedBytes'])) {
+            $model->maxDayExceedBytes = $map['MaxDayExceedBytes'];
+        }
         if (isset($map['MaxInBps'])) {
             $model->maxInBps = $map['MaxInBps'];
         }
@@ -270,6 +291,9 @@ class DescribeInternetTrafficTrendResponseBody extends Model
         }
         if (isset($map['TotalBytes'])) {
             $model->totalBytes = $map['TotalBytes'];
+        }
+        if (isset($map['TotalExceedBytes'])) {
+            $model->totalExceedBytes = $map['TotalExceedBytes'];
         }
         if (isset($map['TotalInBytes'])) {
             $model->totalInBytes = $map['TotalInBytes'];
