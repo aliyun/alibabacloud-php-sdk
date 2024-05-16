@@ -30,6 +30,10 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateApiRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateApiResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateApiStageVariableRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateApiStageVariableResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateAppCodeRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateAppCodeResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateAppKeyRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateAppKeyResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateAppRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateAppResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateBackendModelRequest;
@@ -70,6 +74,10 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteApiRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteApiResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteApiStageVariableRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteApiStageVariableResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAppCodeRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAppCodeResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAppKeyRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAppKeyResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAppRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAppResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteBackendModelRequest;
@@ -1393,6 +1401,109 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 创建新的AppCode
+     *  *
+     * @param CreateAppCodeRequest $request CreateAppCodeRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAppCodeResponse CreateAppCodeResponse
+     */
+    public function createAppCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appCode)) {
+            $query['AppCode'] = $request->appCode;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppCode',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAppCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建新的AppCode
+     *  *
+     * @param CreateAppCodeRequest $request CreateAppCodeRequest
+     *
+     * @return CreateAppCodeResponse CreateAppCodeResponse
+     */
+    public function createAppCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建新的AK、SK
+     *  *
+     * @param CreateAppKeyRequest $request CreateAppKeyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAppKeyResponse CreateAppKeyResponse
+     */
+    public function createAppKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->appSecret)) {
+            $query['AppSecret'] = $request->appSecret;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAppKey',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建新的AK、SK
+     *  *
+     * @param CreateAppKeyRequest $request CreateAppKeyRequest
+     *
+     * @return CreateAppKeyResponse CreateAppKeyResponse
+     */
+    public function createAppKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 创建后端服务
      *  *
      * @param CreateBackendRequest $request CreateBackendRequest
@@ -2618,6 +2729,106 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除新的AppCode
+     *  *
+     * @param DeleteAppCodeRequest $request DeleteAppCodeRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAppCodeResponse DeleteAppCodeResponse
+     */
+    public function deleteAppCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appCode)) {
+            $query['AppCode'] = $request->appCode;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAppCode',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAppCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除新的AppCode
+     *  *
+     * @param DeleteAppCodeRequest $request DeleteAppCodeRequest
+     *
+     * @return DeleteAppCodeResponse DeleteAppCodeResponse
+     */
+    public function deleteAppCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除新的AppKey
+     *  *
+     * @param DeleteAppKeyRequest $request DeleteAppKeyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAppKeyResponse DeleteAppKeyResponse
+     */
+    public function deleteAppKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appKey)) {
+            $query['AppKey'] = $request->appKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAppKey',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除新的AppKey
+     *  *
+     * @param DeleteAppKeyRequest $request DeleteAppKeyRequest
+     *
+     * @return DeleteAppKeyResponse DeleteAppKeyResponse
+     */
+    public function deleteAppKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppKeyWithOptions($request, $runtime);
     }
 
     /**
