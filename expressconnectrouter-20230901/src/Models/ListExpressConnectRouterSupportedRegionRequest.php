@@ -16,6 +16,8 @@ class ListExpressConnectRouterSupportedRegionRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VBR
      *
      * @var string

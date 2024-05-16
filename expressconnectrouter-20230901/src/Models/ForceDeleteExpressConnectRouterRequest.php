@@ -23,6 +23,8 @@ class ForceDeleteExpressConnectRouterRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecr-fu8rszhgv7623c****
      *
      * @var string

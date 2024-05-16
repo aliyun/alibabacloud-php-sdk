@@ -16,6 +16,8 @@ class DisableExpressConnectRouterRouteEntriesRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10.153.32.16/28
      *
      * @var string
@@ -30,6 +32,8 @@ class DisableExpressConnectRouterRouteEntriesRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecr-mezk2idmsd0vx2****
      *
      * @var string
@@ -37,6 +41,8 @@ class DisableExpressConnectRouterRouteEntriesRequest extends Model
     public $ecrId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example tr-hp3u4u5f03tfuljis****
      *
      * @var string

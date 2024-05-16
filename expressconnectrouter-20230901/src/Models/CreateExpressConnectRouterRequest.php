@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\CreateExpressConnectRouterRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateExpressConnectRouterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 45104
      *
      * @var int
@@ -49,6 +52,11 @@ class CreateExpressConnectRouterRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'alibabaSideAsn'  => 'AlibabaSideAsn',
         'clientToken'     => 'ClientToken',
@@ -56,6 +64,7 @@ class CreateExpressConnectRouterRequest extends Model
         'dryRun'          => 'DryRun',
         'name'            => 'Name',
         'resourceGroupId' => 'ResourceGroupId',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -82,6 +91,15 @@ class CreateExpressConnectRouterRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -112,6 +130,15 @@ class CreateExpressConnectRouterRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

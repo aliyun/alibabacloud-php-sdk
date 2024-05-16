@@ -98,10 +98,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param AttachExpressConnectRouterChildInstanceRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @param AttachExpressConnectRouterChildInstanceRequest $request AttachExpressConnectRouterChildInstanceRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachExpressConnectRouterChildInstanceResponse
+     * @return AttachExpressConnectRouterChildInstanceResponse AttachExpressConnectRouterChildInstanceResponse
      */
     public function attachExpressConnectRouterChildInstanceWithOptions($request, $runtime)
     {
@@ -147,9 +147,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param AttachExpressConnectRouterChildInstanceRequest $request
+     * @param AttachExpressConnectRouterChildInstanceRequest $request AttachExpressConnectRouterChildInstanceRequest
      *
-     * @return AttachExpressConnectRouterChildInstanceResponse
+     * @return AttachExpressConnectRouterChildInstanceResponse AttachExpressConnectRouterChildInstanceResponse
      */
     public function attachExpressConnectRouterChildInstance($request)
     {
@@ -159,10 +159,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param CheckAddRegionToExpressConnectRouterRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @param CheckAddRegionToExpressConnectRouterRequest $request CheckAddRegionToExpressConnectRouterRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckAddRegionToExpressConnectRouterResponse
+     * @return CheckAddRegionToExpressConnectRouterResponse CheckAddRegionToExpressConnectRouterResponse
      */
     public function checkAddRegionToExpressConnectRouterWithOptions($request, $runtime)
     {
@@ -199,9 +199,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param CheckAddRegionToExpressConnectRouterRequest $request
+     * @param CheckAddRegionToExpressConnectRouterRequest $request CheckAddRegionToExpressConnectRouterRequest
      *
-     * @return CheckAddRegionToExpressConnectRouterResponse
+     * @return CheckAddRegionToExpressConnectRouterResponse CheckAddRegionToExpressConnectRouterResponse
      */
     public function checkAddRegionToExpressConnectRouter($request)
     {
@@ -211,10 +211,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressConnectRouterRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param CreateExpressConnectRouterRequest $request CreateExpressConnectRouterRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateExpressConnectRouterResponse
+     * @return CreateExpressConnectRouterResponse CreateExpressConnectRouterResponse
      */
     public function createExpressConnectRouterWithOptions($request, $runtime)
     {
@@ -238,6 +238,9 @@ class ExpressConnectRouter extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['ResourceGroupId'] = $request->resourceGroupId;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -257,9 +260,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressConnectRouterRequest $request
+     * @param CreateExpressConnectRouterRequest $request CreateExpressConnectRouterRequest
      *
-     * @return CreateExpressConnectRouterResponse
+     * @return CreateExpressConnectRouterResponse CreateExpressConnectRouterResponse
      */
     public function createExpressConnectRouter($request)
     {
@@ -269,10 +272,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressConnectRouterAssociationRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @param CreateExpressConnectRouterAssociationRequest $request CreateExpressConnectRouterAssociationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateExpressConnectRouterAssociationResponse
+     * @return CreateExpressConnectRouterAssociationResponse CreateExpressConnectRouterAssociationResponse
      */
     public function createExpressConnectRouterAssociationWithOptions($request, $runtime)
     {
@@ -330,9 +333,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param CreateExpressConnectRouterAssociationRequest $request
+     * @param CreateExpressConnectRouterAssociationRequest $request CreateExpressConnectRouterAssociationRequest
      *
-     * @return CreateExpressConnectRouterAssociationResponse
+     * @return CreateExpressConnectRouterAssociationResponse CreateExpressConnectRouterAssociationResponse
      */
     public function createExpressConnectRouterAssociation($request)
     {
@@ -342,10 +345,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DeleteExpressConnectRouterRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DeleteExpressConnectRouterRequest $request DeleteExpressConnectRouterRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteExpressConnectRouterResponse
+     * @return DeleteExpressConnectRouterResponse DeleteExpressConnectRouterResponse
      */
     public function deleteExpressConnectRouterWithOptions($request, $runtime)
     {
@@ -379,9 +382,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DeleteExpressConnectRouterRequest $request
+     * @param DeleteExpressConnectRouterRequest $request DeleteExpressConnectRouterRequest
      *
-     * @return DeleteExpressConnectRouterResponse
+     * @return DeleteExpressConnectRouterResponse DeleteExpressConnectRouterResponse
      */
     public function deleteExpressConnectRouter($request)
     {
@@ -391,10 +394,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DeleteExpressConnectRouterAssociationRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @param DeleteExpressConnectRouterAssociationRequest $request DeleteExpressConnectRouterAssociationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteExpressConnectRouterAssociationResponse
+     * @return DeleteExpressConnectRouterAssociationResponse DeleteExpressConnectRouterAssociationResponse
      */
     public function deleteExpressConnectRouterAssociationWithOptions($request, $runtime)
     {
@@ -434,9 +437,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DeleteExpressConnectRouterAssociationRequest $request
+     * @param DeleteExpressConnectRouterAssociationRequest $request DeleteExpressConnectRouterAssociationRequest
      *
-     * @return DeleteExpressConnectRouterAssociationResponse
+     * @return DeleteExpressConnectRouterAssociationResponse DeleteExpressConnectRouterAssociationResponse
      */
     public function deleteExpressConnectRouterAssociation($request)
     {
@@ -446,10 +449,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeDisabledExpressConnectRouterRouteEntriesRequest $request
-     * @param RuntimeOptions                                          $runtime
+     * @param DescribeDisabledExpressConnectRouterRouteEntriesRequest $request DescribeDisabledExpressConnectRouterRouteEntriesRequest
+     * @param RuntimeOptions                                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDisabledExpressConnectRouterRouteEntriesResponse
+     * @return DescribeDisabledExpressConnectRouterRouteEntriesResponse DescribeDisabledExpressConnectRouterRouteEntriesResponse
      */
     public function describeDisabledExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
@@ -489,9 +492,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeDisabledExpressConnectRouterRouteEntriesRequest $request
+     * @param DescribeDisabledExpressConnectRouterRouteEntriesRequest $request DescribeDisabledExpressConnectRouterRouteEntriesRequest
      *
-     * @return DescribeDisabledExpressConnectRouterRouteEntriesResponse
+     * @return DescribeDisabledExpressConnectRouterRouteEntriesResponse DescribeDisabledExpressConnectRouterRouteEntriesResponse
      */
     public function describeDisabledExpressConnectRouterRouteEntries($request)
     {
@@ -501,10 +504,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeExpressConnectRouterRequest $request DescribeExpressConnectRouterRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExpressConnectRouterResponse
+     * @return DescribeExpressConnectRouterResponse DescribeExpressConnectRouterResponse
      */
     public function describeExpressConnectRouterWithOptions($request, $runtime)
     {
@@ -553,9 +556,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterRequest $request
+     * @param DescribeExpressConnectRouterRequest $request DescribeExpressConnectRouterRequest
      *
-     * @return DescribeExpressConnectRouterResponse
+     * @return DescribeExpressConnectRouterResponse DescribeExpressConnectRouterResponse
      */
     public function describeExpressConnectRouter($request)
     {
@@ -565,10 +568,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterAllowedPrefixHistoryRequest $request
-     * @param RuntimeOptions                                          $runtime
+     * @param DescribeExpressConnectRouterAllowedPrefixHistoryRequest $request DescribeExpressConnectRouterAllowedPrefixHistoryRequest
+     * @param RuntimeOptions                                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExpressConnectRouterAllowedPrefixHistoryResponse
+     * @return DescribeExpressConnectRouterAllowedPrefixHistoryResponse DescribeExpressConnectRouterAllowedPrefixHistoryResponse
      */
     public function describeExpressConnectRouterAllowedPrefixHistoryWithOptions($request, $runtime)
     {
@@ -611,9 +614,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterAllowedPrefixHistoryRequest $request
+     * @param DescribeExpressConnectRouterAllowedPrefixHistoryRequest $request DescribeExpressConnectRouterAllowedPrefixHistoryRequest
      *
-     * @return DescribeExpressConnectRouterAllowedPrefixHistoryResponse
+     * @return DescribeExpressConnectRouterAllowedPrefixHistoryResponse DescribeExpressConnectRouterAllowedPrefixHistoryResponse
      */
     public function describeExpressConnectRouterAllowedPrefixHistory($request)
     {
@@ -623,10 +626,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterAssociationRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @param DescribeExpressConnectRouterAssociationRequest $request DescribeExpressConnectRouterAssociationRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExpressConnectRouterAssociationResponse
+     * @return DescribeExpressConnectRouterAssociationResponse DescribeExpressConnectRouterAssociationResponse
      */
     public function describeExpressConnectRouterAssociationWithOptions($request, $runtime)
     {
@@ -684,9 +687,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterAssociationRequest $request
+     * @param DescribeExpressConnectRouterAssociationRequest $request DescribeExpressConnectRouterAssociationRequest
      *
-     * @return DescribeExpressConnectRouterAssociationResponse
+     * @return DescribeExpressConnectRouterAssociationResponse DescribeExpressConnectRouterAssociationResponse
      */
     public function describeExpressConnectRouterAssociation($request)
     {
@@ -696,10 +699,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterChildInstanceRequest $request
-     * @param RuntimeOptions                                   $runtime
+     * @param DescribeExpressConnectRouterChildInstanceRequest $request DescribeExpressConnectRouterChildInstanceRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExpressConnectRouterChildInstanceResponse
+     * @return DescribeExpressConnectRouterChildInstanceResponse DescribeExpressConnectRouterChildInstanceResponse
      */
     public function describeExpressConnectRouterChildInstanceWithOptions($request, $runtime)
     {
@@ -751,9 +754,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterChildInstanceRequest $request
+     * @param DescribeExpressConnectRouterChildInstanceRequest $request DescribeExpressConnectRouterChildInstanceRequest
      *
-     * @return DescribeExpressConnectRouterChildInstanceResponse
+     * @return DescribeExpressConnectRouterChildInstanceResponse DescribeExpressConnectRouterChildInstanceResponse
      */
     public function describeExpressConnectRouterChildInstance($request)
     {
@@ -763,10 +766,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterInterRegionTransitModeRequest $request
-     * @param RuntimeOptions                                            $runtime
+     * @param DescribeExpressConnectRouterInterRegionTransitModeRequest $request DescribeExpressConnectRouterInterRegionTransitModeRequest
+     * @param RuntimeOptions                                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExpressConnectRouterInterRegionTransitModeResponse
+     * @return DescribeExpressConnectRouterInterRegionTransitModeResponse DescribeExpressConnectRouterInterRegionTransitModeResponse
      */
     public function describeExpressConnectRouterInterRegionTransitModeWithOptions($request, $runtime)
     {
@@ -800,9 +803,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterInterRegionTransitModeRequest $request
+     * @param DescribeExpressConnectRouterInterRegionTransitModeRequest $request DescribeExpressConnectRouterInterRegionTransitModeRequest
      *
-     * @return DescribeExpressConnectRouterInterRegionTransitModeResponse
+     * @return DescribeExpressConnectRouterInterRegionTransitModeResponse DescribeExpressConnectRouterInterRegionTransitModeResponse
      */
     public function describeExpressConnectRouterInterRegionTransitMode($request)
     {
@@ -812,10 +815,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterRegionRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param DescribeExpressConnectRouterRegionRequest $request DescribeExpressConnectRouterRegionRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExpressConnectRouterRegionResponse
+     * @return DescribeExpressConnectRouterRegionResponse DescribeExpressConnectRouterRegionResponse
      */
     public function describeExpressConnectRouterRegionWithOptions($request, $runtime)
     {
@@ -849,9 +852,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterRegionRequest $request
+     * @param DescribeExpressConnectRouterRegionRequest $request DescribeExpressConnectRouterRegionRequest
      *
-     * @return DescribeExpressConnectRouterRegionResponse
+     * @return DescribeExpressConnectRouterRegionResponse DescribeExpressConnectRouterRegionResponse
      */
     public function describeExpressConnectRouterRegion($request)
     {
@@ -861,10 +864,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterRouteEntriesRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @param DescribeExpressConnectRouterRouteEntriesRequest $request DescribeExpressConnectRouterRouteEntriesRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExpressConnectRouterRouteEntriesResponse
+     * @return DescribeExpressConnectRouterRouteEntriesResponse DescribeExpressConnectRouterRouteEntriesResponse
      */
     public function describeExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
@@ -919,9 +922,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeExpressConnectRouterRouteEntriesRequest $request
+     * @param DescribeExpressConnectRouterRouteEntriesRequest $request DescribeExpressConnectRouterRouteEntriesRequest
      *
-     * @return DescribeExpressConnectRouterRouteEntriesResponse
+     * @return DescribeExpressConnectRouterRouteEntriesResponse DescribeExpressConnectRouterRouteEntriesResponse
      */
     public function describeExpressConnectRouterRouteEntries($request)
     {
@@ -931,10 +934,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceGrantedToExpressConnectRouterRequest $request
-     * @param RuntimeOptions                                       $runtime
+     * @param DescribeInstanceGrantedToExpressConnectRouterRequest $request DescribeInstanceGrantedToExpressConnectRouterRequest
+     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceGrantedToExpressConnectRouterResponse
+     * @return DescribeInstanceGrantedToExpressConnectRouterResponse DescribeInstanceGrantedToExpressConnectRouterResponse
      */
     public function describeInstanceGrantedToExpressConnectRouterWithOptions($request, $runtime)
     {
@@ -992,9 +995,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceGrantedToExpressConnectRouterRequest $request
+     * @param DescribeInstanceGrantedToExpressConnectRouterRequest $request DescribeInstanceGrantedToExpressConnectRouterRequest
      *
-     * @return DescribeInstanceGrantedToExpressConnectRouterResponse
+     * @return DescribeInstanceGrantedToExpressConnectRouterResponse DescribeInstanceGrantedToExpressConnectRouterResponse
      */
     public function describeInstanceGrantedToExpressConnectRouter($request)
     {
@@ -1004,10 +1007,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DetachExpressConnectRouterChildInstanceRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @param DetachExpressConnectRouterChildInstanceRequest $request DetachExpressConnectRouterChildInstanceRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachExpressConnectRouterChildInstanceResponse
+     * @return DetachExpressConnectRouterChildInstanceResponse DetachExpressConnectRouterChildInstanceResponse
      */
     public function detachExpressConnectRouterChildInstanceWithOptions($request, $runtime)
     {
@@ -1047,9 +1050,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DetachExpressConnectRouterChildInstanceRequest $request
+     * @param DetachExpressConnectRouterChildInstanceRequest $request DetachExpressConnectRouterChildInstanceRequest
      *
-     * @return DetachExpressConnectRouterChildInstanceResponse
+     * @return DetachExpressConnectRouterChildInstanceResponse DetachExpressConnectRouterChildInstanceResponse
      */
     public function detachExpressConnectRouterChildInstance($request)
     {
@@ -1059,10 +1062,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DisableExpressConnectRouterRouteEntriesRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @param DisableExpressConnectRouterRouteEntriesRequest $request DisableExpressConnectRouterRouteEntriesRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableExpressConnectRouterRouteEntriesResponse
+     * @return DisableExpressConnectRouterRouteEntriesResponse DisableExpressConnectRouterRouteEntriesResponse
      */
     public function disableExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
@@ -1102,9 +1105,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param DisableExpressConnectRouterRouteEntriesRequest $request
+     * @param DisableExpressConnectRouterRouteEntriesRequest $request DisableExpressConnectRouterRouteEntriesRequest
      *
-     * @return DisableExpressConnectRouterRouteEntriesResponse
+     * @return DisableExpressConnectRouterRouteEntriesResponse DisableExpressConnectRouterRouteEntriesResponse
      */
     public function disableExpressConnectRouterRouteEntries($request)
     {
@@ -1114,10 +1117,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param EnableExpressConnectRouterRouteEntriesRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @param EnableExpressConnectRouterRouteEntriesRequest $request EnableExpressConnectRouterRouteEntriesRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableExpressConnectRouterRouteEntriesResponse
+     * @return EnableExpressConnectRouterRouteEntriesResponse EnableExpressConnectRouterRouteEntriesResponse
      */
     public function enableExpressConnectRouterRouteEntriesWithOptions($request, $runtime)
     {
@@ -1157,9 +1160,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param EnableExpressConnectRouterRouteEntriesRequest $request
+     * @param EnableExpressConnectRouterRouteEntriesRequest $request EnableExpressConnectRouterRouteEntriesRequest
      *
-     * @return EnableExpressConnectRouterRouteEntriesResponse
+     * @return EnableExpressConnectRouterRouteEntriesResponse EnableExpressConnectRouterRouteEntriesResponse
      */
     public function enableExpressConnectRouterRouteEntries($request)
     {
@@ -1169,10 +1172,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param ForceDeleteExpressConnectRouterRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param ForceDeleteExpressConnectRouterRequest $request ForceDeleteExpressConnectRouterRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ForceDeleteExpressConnectRouterResponse
+     * @return ForceDeleteExpressConnectRouterResponse ForceDeleteExpressConnectRouterResponse
      */
     public function forceDeleteExpressConnectRouterWithOptions($request, $runtime)
     {
@@ -1206,9 +1209,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param ForceDeleteExpressConnectRouterRequest $request
+     * @param ForceDeleteExpressConnectRouterRequest $request ForceDeleteExpressConnectRouterRequest
      *
-     * @return ForceDeleteExpressConnectRouterResponse
+     * @return ForceDeleteExpressConnectRouterResponse ForceDeleteExpressConnectRouterResponse
      */
     public function forceDeleteExpressConnectRouter($request)
     {
@@ -1218,10 +1221,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param GrantInstanceToExpressConnectRouterRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @param GrantInstanceToExpressConnectRouterRequest $request GrantInstanceToExpressConnectRouterRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantInstanceToExpressConnectRouterResponse
+     * @return GrantInstanceToExpressConnectRouterResponse GrantInstanceToExpressConnectRouterResponse
      */
     public function grantInstanceToExpressConnectRouterWithOptions($request, $runtime)
     {
@@ -1267,9 +1270,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param GrantInstanceToExpressConnectRouterRequest $request
+     * @param GrantInstanceToExpressConnectRouterRequest $request GrantInstanceToExpressConnectRouterRequest
      *
-     * @return GrantInstanceToExpressConnectRouterResponse
+     * @return GrantInstanceToExpressConnectRouterResponse GrantInstanceToExpressConnectRouterResponse
      */
     public function grantInstanceToExpressConnectRouter($request)
     {
@@ -1279,10 +1282,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param ListExpressConnectRouterSupportedRegionRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @param ListExpressConnectRouterSupportedRegionRequest $request ListExpressConnectRouterSupportedRegionRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExpressConnectRouterSupportedRegionResponse
+     * @return ListExpressConnectRouterSupportedRegionResponse ListExpressConnectRouterSupportedRegionResponse
      */
     public function listExpressConnectRouterSupportedRegionWithOptions($request, $runtime)
     {
@@ -1313,9 +1316,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param ListExpressConnectRouterSupportedRegionRequest $request
+     * @param ListExpressConnectRouterSupportedRegionRequest $request ListExpressConnectRouterSupportedRegionRequest
      *
-     * @return ListExpressConnectRouterSupportedRegionResponse
+     * @return ListExpressConnectRouterSupportedRegionResponse ListExpressConnectRouterSupportedRegionResponse
      */
     public function listExpressConnectRouterSupportedRegion($request)
     {
@@ -1325,10 +1328,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectRouterRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param ModifyExpressConnectRouterRequest $request ModifyExpressConnectRouterRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyExpressConnectRouterResponse
+     * @return ModifyExpressConnectRouterResponse ModifyExpressConnectRouterResponse
      */
     public function modifyExpressConnectRouterWithOptions($request, $runtime)
     {
@@ -1368,9 +1371,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectRouterRequest $request
+     * @param ModifyExpressConnectRouterRequest $request ModifyExpressConnectRouterRequest
      *
-     * @return ModifyExpressConnectRouterResponse
+     * @return ModifyExpressConnectRouterResponse ModifyExpressConnectRouterResponse
      */
     public function modifyExpressConnectRouter($request)
     {
@@ -1380,10 +1383,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectRouterAssociationAllowedPrefixRequest $request
-     * @param RuntimeOptions                                            $runtime
+     * @param ModifyExpressConnectRouterAssociationAllowedPrefixRequest $request ModifyExpressConnectRouterAssociationAllowedPrefixRequest
+     * @param RuntimeOptions                                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyExpressConnectRouterAssociationAllowedPrefixResponse
+     * @return ModifyExpressConnectRouterAssociationAllowedPrefixResponse ModifyExpressConnectRouterAssociationAllowedPrefixResponse
      */
     public function modifyExpressConnectRouterAssociationAllowedPrefixWithOptions($request, $runtime)
     {
@@ -1426,9 +1429,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectRouterAssociationAllowedPrefixRequest $request
+     * @param ModifyExpressConnectRouterAssociationAllowedPrefixRequest $request ModifyExpressConnectRouterAssociationAllowedPrefixRequest
      *
-     * @return ModifyExpressConnectRouterAssociationAllowedPrefixResponse
+     * @return ModifyExpressConnectRouterAssociationAllowedPrefixResponse ModifyExpressConnectRouterAssociationAllowedPrefixResponse
      */
     public function modifyExpressConnectRouterAssociationAllowedPrefix($request)
     {
@@ -1438,10 +1441,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectRouterInterRegionTransitModeRequest $request
-     * @param RuntimeOptions                                          $runtime
+     * @param ModifyExpressConnectRouterInterRegionTransitModeRequest $request ModifyExpressConnectRouterInterRegionTransitModeRequest
+     * @param RuntimeOptions                                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyExpressConnectRouterInterRegionTransitModeResponse
+     * @return ModifyExpressConnectRouterInterRegionTransitModeResponse ModifyExpressConnectRouterInterRegionTransitModeResponse
      */
     public function modifyExpressConnectRouterInterRegionTransitModeWithOptions($request, $runtime)
     {
@@ -1478,9 +1481,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param ModifyExpressConnectRouterInterRegionTransitModeRequest $request
+     * @param ModifyExpressConnectRouterInterRegionTransitModeRequest $request ModifyExpressConnectRouterInterRegionTransitModeRequest
      *
-     * @return ModifyExpressConnectRouterInterRegionTransitModeResponse
+     * @return ModifyExpressConnectRouterInterRegionTransitModeResponse ModifyExpressConnectRouterInterRegionTransitModeResponse
      */
     public function modifyExpressConnectRouterInterRegionTransitMode($request)
     {
@@ -1490,10 +1493,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param RevokeInstanceFromExpressConnectRouterRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @param RevokeInstanceFromExpressConnectRouterRequest $request RevokeInstanceFromExpressConnectRouterRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeInstanceFromExpressConnectRouterResponse
+     * @return RevokeInstanceFromExpressConnectRouterResponse RevokeInstanceFromExpressConnectRouterResponse
      */
     public function revokeInstanceFromExpressConnectRouterWithOptions($request, $runtime)
     {
@@ -1539,9 +1542,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param RevokeInstanceFromExpressConnectRouterRequest $request
+     * @param RevokeInstanceFromExpressConnectRouterRequest $request RevokeInstanceFromExpressConnectRouterRequest
      *
-     * @return RevokeInstanceFromExpressConnectRouterResponse
+     * @return RevokeInstanceFromExpressConnectRouterResponse RevokeInstanceFromExpressConnectRouterResponse
      */
     public function revokeInstanceFromExpressConnectRouter($request)
     {
@@ -1551,10 +1554,10 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param SynchronizeExpressConnectRouterInterRegionBandwidthRequest $request
-     * @param RuntimeOptions                                             $runtime
+     * @param SynchronizeExpressConnectRouterInterRegionBandwidthRequest $request SynchronizeExpressConnectRouterInterRegionBandwidthRequest
+     * @param RuntimeOptions                                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SynchronizeExpressConnectRouterInterRegionBandwidthResponse
+     * @return SynchronizeExpressConnectRouterInterRegionBandwidthResponse SynchronizeExpressConnectRouterInterRegionBandwidthResponse
      */
     public function synchronizeExpressConnectRouterInterRegionBandwidthWithOptions($request, $runtime)
     {
@@ -1588,9 +1591,9 @@ class ExpressConnectRouter extends OpenApiClient
     }
 
     /**
-     * @param SynchronizeExpressConnectRouterInterRegionBandwidthRequest $request
+     * @param SynchronizeExpressConnectRouterInterRegionBandwidthRequest $request SynchronizeExpressConnectRouterInterRegionBandwidthRequest
      *
-     * @return SynchronizeExpressConnectRouterInterRegionBandwidthResponse
+     * @return SynchronizeExpressConnectRouterInterRegionBandwidthResponse SynchronizeExpressConnectRouterInterRegionBandwidthResponse
      */
     public function synchronizeExpressConnectRouterInterRegionBandwidth($request)
     {

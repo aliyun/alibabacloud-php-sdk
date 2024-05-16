@@ -23,6 +23,8 @@ class GrantInstanceToExpressConnectRouterRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecr-mezk2idmsd0vx2****
      *
      * @var string
@@ -30,6 +32,8 @@ class GrantInstanceToExpressConnectRouterRequest extends Model
     public $ecrId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 121012345612****
      *
      * @var int
@@ -37,6 +41,8 @@ class GrantInstanceToExpressConnectRouterRequest extends Model
     public $ecrOwnerAliUid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vbr-j6cwxhgg0s5nuephp****
      *
      * @var string
@@ -44,6 +50,8 @@ class GrantInstanceToExpressConnectRouterRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +59,8 @@ class GrantInstanceToExpressConnectRouterRequest extends Model
     public $instanceRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VBR
      *
      * @var string

@@ -14,6 +14,8 @@ class ModifyExpressConnectRouterAssociationAllowedPrefixRequest extends Model
     public $allowedPrefixes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecr-assoc-9p2qxx5phpca2m****
      *
      * @var string
@@ -35,6 +37,8 @@ class ModifyExpressConnectRouterAssociationAllowedPrefixRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecr-mezk2idmsd0vx2****
      *
      * @var string

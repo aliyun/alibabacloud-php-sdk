@@ -51,6 +51,8 @@ class DescribeExpressConnectRouterAssociationRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecr-mezk2idmsd0vx2****
      *
      * @var string

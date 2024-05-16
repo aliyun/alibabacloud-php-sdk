@@ -23,6 +23,8 @@ class CheckAddRegionToExpressConnectRouterRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecr-fu8rszhgv7623c****
      *
      * @var string
@@ -30,6 +32,8 @@ class CheckAddRegionToExpressConnectRouterRequest extends Model
     public $ecrId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

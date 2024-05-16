@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachExpressConnectRouterChildInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example vbr-j6cwxhgg0s5nuephp****
      *
      * @var string
@@ -23,6 +25,8 @@ class AttachExpressConnectRouterChildInstanceRequest extends Model
     public $childInstanceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +34,8 @@ class AttachExpressConnectRouterChildInstanceRequest extends Model
     public $childInstanceRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VBR
      *
      * @var string
@@ -51,6 +57,8 @@ class AttachExpressConnectRouterChildInstanceRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecr-a5xqrgbeidz1w8****
      *
      * @var string
