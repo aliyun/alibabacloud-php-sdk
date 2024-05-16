@@ -11,6 +11,7 @@ class ListNodesByBaselineRequest extends Model
     /**
      * @description The ID of the request. You can use the ID to troubleshoot issues.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

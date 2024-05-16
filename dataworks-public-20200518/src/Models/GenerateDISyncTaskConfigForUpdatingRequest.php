@@ -27,7 +27,7 @@ class GenerateDISyncTaskConfigForUpdatingRequest extends Model
      *
      *   DI_SOLUTION: synchronization solution
      *
-     * DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -40,6 +40,7 @@ class GenerateDISyncTaskConfigForUpdatingRequest extends Model
      *   true: The request is successful.
      *   false: The request fails.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -49,6 +50,7 @@ class GenerateDISyncTaskConfigForUpdatingRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request. This parameter is used to prevent repeated operations that are caused by multiple calls.
      *
+     * This parameter is required.
      * @example {      "steps": [         {             "parameter": {                 "connection": [                     {                         "table": [                             "xyx"                         ]                     }                 ]             },             "name": "Reader",             "category": "reader"         }     ] }
      *
      * @var string
@@ -69,6 +71,7 @@ class GenerateDISyncTaskConfigForUpdatingRequest extends Model
      *   If the script contains the SelectedTables parameter, the system synchronizes the tables that you specify in the SelectedTables parameter.
      *   If the script contains the Tables parameter, the system synchronizes the tables that you specify in the Tables parameter.
      *
+     * This parameter is required.
      * @example DI_REALTIME
      *
      * @var string

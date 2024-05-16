@@ -14,6 +14,8 @@ class CallbackExtensionRequest extends Model
     public $checkMessage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FAIL
      *
      * @var string
@@ -21,6 +23,8 @@ class CallbackExtensionRequest extends Model
     public $checkResult;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8abcb91f-d266-4073-b907-2ed670378ed1
      *
      * @var string
@@ -28,6 +32,8 @@ class CallbackExtensionRequest extends Model
     public $extensionCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 03400b03-b721-4c34-8727-2d6884077091
      *
      * @var string

@@ -11,6 +11,7 @@ class CreateDataServiceApiAuthorityRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var int
@@ -20,6 +21,7 @@ class CreateDataServiceApiAuthorityRequest extends Model
     /**
      * @description The ID of the workspace to which the access permissions on the API are granted.
      *
+     * This parameter is required.
      * @example 10002
      *
      * @var int
@@ -29,6 +31,7 @@ class CreateDataServiceApiAuthorityRequest extends Model
     /**
      * @description The end time of the validity period of the access permissions. The time must be a UNIX timestamp. Unit: seconds. Example: 1600531564, which indicates 2020-09-20 00:06:04 (UTC+8).
      *
+     * This parameter is required.
      * @example 1600531564
      *
      * @var int
@@ -38,6 +41,7 @@ class CreateDataServiceApiAuthorityRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 10003
      *
      * @var int

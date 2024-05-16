@@ -44,6 +44,8 @@ class ListConnectionsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 76086
      *
      * @var int

@@ -20,6 +20,7 @@ class CreateProjectMemberRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request. We recommend that you set this parameter to a UUID.
      *
+     * This parameter is required.
      * @example 27
      *
      * @var int
@@ -36,6 +37,7 @@ class CreateProjectMemberRequest extends Model
     /**
      * @description The code of the role. This parameter is optional. If you specify the RoleCode parameter, the user is assigned the role.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateNodeRunModeRequest extends Model
 {
     /**
-     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the ID.
+     * @description The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -20,6 +21,7 @@ class UpdateNodeRunModeRequest extends Model
     /**
      * @description The environment where the node runs. Valid values: DEV and PROD. The value DEV indicates the development environment. The value PROD indicates the production environment.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string
@@ -32,6 +34,7 @@ class UpdateNodeRunModeRequest extends Model
      *   0: indicates that you want to unfreeze the node.
      *   2: indicates that you want to freeze the node.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

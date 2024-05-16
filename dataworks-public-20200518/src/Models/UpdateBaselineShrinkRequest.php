@@ -24,6 +24,8 @@ class UpdateBaselineShrinkRequest extends Model
     public $alertSettingsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $baselineId;
@@ -64,6 +66,8 @@ class UpdateBaselineShrinkRequest extends Model
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $projectId;

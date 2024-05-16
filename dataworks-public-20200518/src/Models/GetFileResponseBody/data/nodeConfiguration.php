@@ -118,7 +118,7 @@ class nodeConfiguration extends Model
     /**
      * @description The scheduling parameters of the node.
      *
-     * This parameter corresponds to the Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information about the configurations of the scheduling parameters, see [Configure scheduling parameters](~~137548~~).
+     * This parameter corresponds to the Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information about the configurations of the scheduling parameters, see [Configure scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
      * @example a=x b=y
      *
      * @var string
@@ -140,7 +140,7 @@ class nodeConfiguration extends Model
     public $rerunMode;
 
     /**
-     * @description The ID of the resource group that is used to run the node. You can call the [ListResourceGroups](~~173913~~) operation to query the available resource groups in the workspace.
+     * @description The ID of the resource group that is used to run the node. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace.
      *
      * @example 375827434852437
      *

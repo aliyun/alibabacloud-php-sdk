@@ -28,11 +28,15 @@ class CreateProjectShrinkRequest extends Model
     public $isAllowDownload;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -47,6 +51,8 @@ class CreateProjectShrinkRequest extends Model
     public $projectMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;

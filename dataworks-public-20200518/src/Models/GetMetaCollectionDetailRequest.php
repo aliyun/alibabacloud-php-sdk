@@ -11,6 +11,7 @@ class GetMetaCollectionDetailRequest extends Model
     /**
      * @description The unique identifier of the collection.
      *
+     * This parameter is required.
      * @example album.12345
      *
      * @var string

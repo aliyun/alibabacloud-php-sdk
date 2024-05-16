@@ -11,6 +11,7 @@ class CreateQualityRuleRequest extends Model
     /**
      * @description The strength of the monitoring rule. Valid values: 0 and 1. 0 indicates that the monitoring rule is a weak rule. 1 indicates that the monitoring rule is a strong rule.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -45,6 +46,7 @@ class CreateQualityRuleRequest extends Model
     /**
      * @description The ID of the partition filter expression.
      *
+     * This parameter is required.
      * @example 15224
      *
      * @var int
@@ -81,6 +83,7 @@ class CreateQualityRuleRequest extends Model
     /**
      * @description Specifies whether the monitoring rule is a dynamic threshold rule. Valid values: 0 and 2. 0 indicates that the monitoring rule is not a dynamic threshold rule. 2 indicates that the monitoring rule is a dynamic threshold rule.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -95,6 +98,7 @@ class CreateQualityRuleRequest extends Model
     /**
      * @description The name of the compute engine instance or data source.
      *
+     * This parameter is required.
      * @example autotest
      *
      * @var string
@@ -122,6 +126,7 @@ class CreateQualityRuleRequest extends Model
     /**
      * @description The name of the monitoring rule.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var string
@@ -131,6 +136,7 @@ class CreateQualityRuleRequest extends Model
     /**
      * @description The type of the monitoring rule. Valid values: 0, 1, and 2. 0 indicates that the monitoring rule is created by the system. 1 indicates that the monitoring rule is created by a user. 2 indicates that the monitoring rule is a workspace-level rule.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

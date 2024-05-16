@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePermissionApplyOrderRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var applyObject[]
      */
     public $applyObject;
@@ -17,6 +19,7 @@ class CreatePermissionApplyOrderRequest extends Model
     /**
      * @description The reason for your request. The administrator determines whether to approve the request based on the reason.
      *
+     * This parameter is required.
      * @example I need to use this table
      *
      * @var string
@@ -26,6 +29,7 @@ class CreatePermissionApplyOrderRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account for which you want to request permissions. If you want to request permissions for multiple Alibaba Cloud accounts, separate the IDs of the accounts with commas (,).
      *
+     * This parameter is required.
      * @example 267842600408993176,267842600408993177
      *
      * @var string
@@ -54,6 +58,7 @@ class CreatePermissionApplyOrderRequest extends Model
     /**
      * @description The name of the MaxCompute project in which you request permissions on the fields of a table.
      *
+     * This parameter is required.
      * @example aMaxcomputeProjectName
      *
      * @var string
@@ -72,6 +77,7 @@ class CreatePermissionApplyOrderRequest extends Model
     /**
      * @description The ID of the DataWorks workspace that is associated with the MaxCompute project in which you want to request permissions on the fields of a table. You can go to the Workspace Management page in the DataWorks console to view the workspace ID.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int

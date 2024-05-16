@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableColumnRequest extends Model
 {
     /**
-     * @description The name of the metatable in the EMR cluster. You can call the [GetMetaDBTableList](~~173916~~) operation to query the name.
+     * @description The name of the metatable in the EMR cluster. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the name.
      *
      * @example C-010A704DA760****
      *
@@ -45,7 +45,7 @@ class GetMetaTableColumnRequest extends Model
     public $pageNum;
 
     /**
-     * @description The name of the metadatabase of the EMR cluster. You can call the [ListMetaDB](~~185662~~) operation to query the name.
+     * @description The name of the metadatabase of the EMR cluster. You can call the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) operation to query the name.
      *
      * @example 10
      *

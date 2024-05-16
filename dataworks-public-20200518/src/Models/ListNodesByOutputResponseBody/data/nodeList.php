@@ -47,7 +47,7 @@ class nodeList extends Model
     /**
      * @description The table and partition filter expression in Data Quality that are associated with the node.
      *
-     * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\u003d$[yyyy-mm-dd-1]"}]
+     * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\\u003d$[yyyy-mm-dd-1]"}]
      *
      * @var string
      */

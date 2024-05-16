@@ -11,6 +11,7 @@ class AbolishDataServiceApiRequest extends Model
     /**
      * @description The ID of the DataService Studio API.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -20,6 +21,7 @@ class AbolishDataServiceApiRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var int

@@ -11,7 +11,7 @@ class AddMetaCollectionEntityRequest extends Model
     /**
      * @description The unique identifier of the entity.
      *
-     * Example: maxcompute-table.projectA.tableA.
+     * This parameter is required.
      * @example album.2222
      *
      * @var string
@@ -21,6 +21,7 @@ class AddMetaCollectionEntityRequest extends Model
     /**
      * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
      *
+     * This parameter is required.
      * @example maxcompute-table.projectA.tableB
      *
      * @var string

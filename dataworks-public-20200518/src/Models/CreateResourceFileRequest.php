@@ -21,16 +21,22 @@ class CreateResourceFileRequest extends Model
     public $fileDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $fileFolderPath;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -38,6 +44,8 @@ class CreateResourceFileRequest extends Model
     public $fileType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example origin_file_name.sql
      *
      * @var string
@@ -52,6 +60,8 @@ class CreateResourceFileRequest extends Model
     public $owner;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10000
      *
      * @var int
@@ -59,6 +69,8 @@ class CreateResourceFileRequest extends Model
     public $projectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool

@@ -11,6 +11,7 @@ class GetOpSensitiveDataRequest extends Model
     /**
      * @description The date on which access records were generated. Specify the value in the yyyyMMdd format.
      *
+     * This parameter is required.
      * @example 20210116
      *
      * @var string
@@ -26,7 +27,7 @@ class GetOpSensitiveDataRequest extends Model
      *   projectName: the name of the workspace
      *   clusterName: the name of the cluster
      *
-     * You must specify the parameters based on the compute engine that you use in your business.
+     * This parameter is required.
      * @example [  {"dbType":"hologres","instanceName":"ABC","databaseName":"abc"},  {"dbType":"ODPS.ODPS","projectName":"adbc"}  ]
      *
      * @var string
@@ -48,6 +49,7 @@ class GetOpSensitiveDataRequest extends Model
     /**
      * @description The number of the page to return. Minimum value:1. Maximum value: 1000.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -57,6 +59,7 @@ class GetOpSensitiveDataRequest extends Model
     /**
      * @description The number of entries to return on each page. Minimum value: 1. Maximum value: 1000.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

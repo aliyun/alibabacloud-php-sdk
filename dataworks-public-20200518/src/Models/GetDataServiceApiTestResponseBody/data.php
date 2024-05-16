@@ -23,14 +23,14 @@ class data extends Model
     public $costTime;
 
     /**
-     * @example [<span style=\"color: #92D581;\">INFO</span>] [16:15:13.240] resource group is 498774069027041[<span style=\"color: #92D581;\">INFO</span>]
+     * @example [<span style=\\"color: #92D581;\\">INFO</span>] [16:15:13.240] resource group is 498774069027041[<span style=\\"color: #92D581;\\">INFO</span>]
      *
      * @var string
      */
     public $debugInfo;
 
     /**
-     * @example [<span style=\"color: #92D581;\">INFO</span>] [16:15:13.240] resource group is 498774069027041[<span style=\"color: #92D581;\">INFO</span>]
+     * @example [<span style=\\"color: #92D581;\\">INFO</span>] [16:15:13.240] resource group is 498774069027041[<span style=\\"color: #92D581;\\">INFO</span>]
      *
      * @var string
      */

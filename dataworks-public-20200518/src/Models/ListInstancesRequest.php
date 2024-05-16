@@ -118,6 +118,7 @@ class ListInstancesRequest extends Model
     /**
      * @description The time when the node was last modified.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string
@@ -127,6 +128,7 @@ class ListInstancesRequest extends Model
     /**
      * @description The ID of the baseline.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int

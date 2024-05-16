@@ -20,6 +20,7 @@ class ListInnerNodesRequest extends Model
     /**
      * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -65,6 +66,7 @@ class ListInnerNodesRequest extends Model
     /**
      * @description The environment in which the node is run. Valid values: DEV and PROD. Default value: PROD.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

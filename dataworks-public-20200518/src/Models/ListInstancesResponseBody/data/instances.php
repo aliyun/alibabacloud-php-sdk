@@ -91,7 +91,7 @@ class instances extends Model
     public $createTime;
 
     /**
-     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the ID of the node.
+     * @description The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID of the node.
      *
      * @example Test
      *
@@ -129,7 +129,7 @@ class instances extends Model
     /**
      * @description The operation that you want to perform.
      *
-     * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\u003d$[yyyy-mm-dd-1]"}]
+     * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\\u003d$[yyyy-mm-dd-1]"}]
      *
      * @var string
      */
@@ -181,7 +181,7 @@ class instances extends Model
     public $instanceId;
 
     /**
-     * @description The name of the workflow. You can call the [ListBusiness](~~173945~~) operation to query the name of the workflow.
+     * @description The name of the workflow. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the name of the workflow.
      *
      * @example 1590416703313
      *
@@ -226,7 +226,7 @@ class instances extends Model
     public $priority;
 
     /**
-     * @description The type of the node. You can call the [ListNodes](~~173979~~) operation to query the type of the node.
+     * @description The type of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the type of the node.
      *
      * @example 123456
      *
@@ -286,7 +286,7 @@ class instances extends Model
     public $status;
 
     /**
-     * @description The ID of the workspace. You can call the [ListProjects](~~178393~~) operation to query the ID of the workspace.
+     * @description The ID of the workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID of the workspace.
      *
      * @example 0
      *

@@ -47,6 +47,7 @@ class UpdateTableModelInfoRequest extends Model
     /**
      * @description The globally unique identifier (GUID) of the table. Specify the GUID in the format of odps.{projectName}.{tableName}.
      *
+     * This parameter is required.
      * @example odps.test.table1
      *
      * @var string

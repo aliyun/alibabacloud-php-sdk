@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySensLevelRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example e1970541-6cf5-4d23-b101-d5b66f6e10af
      *
      * @var string
@@ -16,6 +18,8 @@ class QuerySensLevelRequest extends Model
     public $templateId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10241024
      *
      * @var string

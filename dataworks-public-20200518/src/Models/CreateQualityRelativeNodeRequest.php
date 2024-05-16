@@ -11,6 +11,7 @@ class CreateQualityRelativeNodeRequest extends Model
     /**
      * @description The type of the compute engine instance or data source.
      *
+     * This parameter is required.
      * @example ODPS
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateQualityRelativeNodeRequest extends Model
     /**
      * @description The partition filter expression.
      *
+     * This parameter is required.
      * @example dt=$[yyyymmdd]
      *
      * @var string
@@ -29,6 +31,7 @@ class CreateQualityRelativeNodeRequest extends Model
     /**
      * @description The ID of the node.
      *
+     * This parameter is required.
      * @example 12321
      *
      * @var int
@@ -38,6 +41,7 @@ class CreateQualityRelativeNodeRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int
@@ -47,6 +51,7 @@ class CreateQualityRelativeNodeRequest extends Model
     /**
      * @description The name of the compute engine instance or data source.
      *
+     * This parameter is required.
      * @example autotest
      *
      * @var string
@@ -56,6 +61,7 @@ class CreateQualityRelativeNodeRequest extends Model
     /**
      * @description The name of the table.
      *
+     * This parameter is required.
      * @example dual
      *
      * @var string
@@ -65,6 +71,7 @@ class CreateQualityRelativeNodeRequest extends Model
     /**
      * @description The ID of the workspace to which the node to be associated with the partition filter expression belongs.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -74,6 +81,7 @@ class CreateQualityRelativeNodeRequest extends Model
     /**
      * @description The name of the workspace to which the node to be associated with the partition filter expression belongs.
      *
+     * This parameter is required.
      * @example autotest
      *
      * @var string

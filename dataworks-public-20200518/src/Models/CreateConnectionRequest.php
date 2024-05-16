@@ -11,6 +11,7 @@ class CreateConnectionRequest extends Model
     /**
      * @description The type of the connection string.
      *
+     * This parameter is required.
      * @example rds
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateConnectionRequest extends Model
     /**
      * @description Details of the data source.
      *
+     * This parameter is required.
      * @example {"database":"dbname","instanceName":"instancename","password":"password","rdsOwnerId":"123","username":"username"}
      *
      * @var string
@@ -38,6 +40,7 @@ class CreateConnectionRequest extends Model
     /**
      * @description Environment of the data source.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -47,6 +50,7 @@ class CreateConnectionRequest extends Model
     /**
      * @description The name of the data source.
      *
+     * This parameter is required.
      * @example abc
      *
      * @var string
@@ -56,6 +60,7 @@ class CreateConnectionRequest extends Model
     /**
      * @description The ID of the workspace to be associated with the data source.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

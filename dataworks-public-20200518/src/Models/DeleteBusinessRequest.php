@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteBusinessRequest extends Model
 {
     /**
-     * @description The ID of the workflow. You can call the [ListBusiness](~~173945~~) operation to query the workflow ID.
+     * @description The ID of the workflow. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the workflow ID.
      *
+     * This parameter is required.
      * @example 1000001
      *
      * @var int

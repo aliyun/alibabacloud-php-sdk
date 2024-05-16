@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIAlarmRuleShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 34982
      *
      * @var int
@@ -28,6 +30,8 @@ class UpdateDIAlarmRuleShrinkRequest extends Model
     public $enabled;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Heartbeat
      *
      * @var string
@@ -35,11 +39,15 @@ class UpdateDIAlarmRuleShrinkRequest extends Model
     public $metricType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $notificationSettingsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $triggerConditionsShrink;

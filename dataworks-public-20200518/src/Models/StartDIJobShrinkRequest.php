@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartDIJobShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11743
      *
      * @var int

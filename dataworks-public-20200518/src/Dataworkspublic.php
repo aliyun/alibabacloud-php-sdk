@@ -157,13 +157,41 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanDeleteRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanDeleteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanDeleteShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanQueryListRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanQueryListResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanUpdateStatusRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanUpdateStatusResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanUpdateStatusShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgPlatformQueryProjectsAndSchemaFromMetaRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgPlatformQueryProjectsAndSchemaFromMetaResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQueryDefaultTemplatesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQueryDefaultTemplatesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQuerySensResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgQuerySensResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgRunSensIdentifyRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgRunSensIdentifyResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgRunSensIdentifyShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneAddOrUpdateSceneRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneAddOrUpdateSceneResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneAddOrUpdateSceneShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgStopSensIdentifyRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgStopSensIdentifyResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupAddOrUpdateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupAddOrUpdateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupAddOrUpdateShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupDeleteRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupDeleteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupDeleteShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupGetOdpsRoleGroupsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupGetOdpsRoleGroupsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupQueryListRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupQueryListResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupQueryUserListResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgWhiteListQueryListRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgWhiteListQueryListResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EditRecognizeRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EditRecognizeRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EstablishRelationTableToBusinessRequest;
@@ -674,10 +702,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param AbolishDataServiceApiRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Unpublishes a DataService Studio API.
+     *  *
+     * @param AbolishDataServiceApiRequest $request AbolishDataServiceApiRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return AbolishDataServiceApiResponse
+     * @return AbolishDataServiceApiResponse AbolishDataServiceApiResponse
      */
     public function abolishDataServiceApiWithOptions($request, $runtime)
     {
@@ -711,9 +741,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param AbolishDataServiceApiRequest $request
+     * @summary Unpublishes a DataService Studio API.
+     *  *
+     * @param AbolishDataServiceApiRequest $request AbolishDataServiceApiRequest
      *
-     * @return AbolishDataServiceApiResponse
+     * @return AbolishDataServiceApiResponse AbolishDataServiceApiResponse
      */
     public function abolishDataServiceApi($request)
     {
@@ -723,10 +755,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param AddMetaCollectionEntityRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary The operation that you want to perform. Set the value to **AddMetaCollectionEntity**.
+     *  *
+     * @param AddMetaCollectionEntityRequest $request AddMetaCollectionEntityRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddMetaCollectionEntityResponse
+     * @return AddMetaCollectionEntityResponse AddMetaCollectionEntityResponse
      */
     public function addMetaCollectionEntityWithOptions($request, $runtime)
     {
@@ -760,9 +794,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param AddMetaCollectionEntityRequest $request
+     * @summary The operation that you want to perform. Set the value to **AddMetaCollectionEntity**.
+     *  *
+     * @param AddMetaCollectionEntityRequest $request AddMetaCollectionEntityRequest
      *
-     * @return AddMetaCollectionEntityResponse
+     * @return AddMetaCollectionEntityResponse AddMetaCollectionEntityResponse
      */
     public function addMetaCollectionEntity($request)
     {
@@ -772,8 +808,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The ID of the DataWorks workspace. You can call the [ListProjects](~~178393~~) operation to query the ID.
-     *   *
+     * @summary For more information about how to add your Alibaba Cloud account or a RAM user as a member of a DataWorks workspace, see [Add a member to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+     *  *
+     * @description The ID of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID.
+     *  *
      * @param AddProjectMemberToRoleRequest $request AddProjectMemberToRoleRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -814,8 +852,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The ID of the DataWorks workspace. You can call the [ListProjects](~~178393~~) operation to query the ID.
-     *   *
+     * @summary For more information about how to add your Alibaba Cloud account or a RAM user as a member of a DataWorks workspace, see [Add a member to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+     *  *
+     * @description The ID of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID.
+     *  *
      * @param AddProjectMemberToRoleRequest $request AddProjectMemberToRoleRequest
      *
      * @return AddProjectMemberToRoleResponse AddProjectMemberToRoleResponse
@@ -828,10 +868,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param AddRecognizeRuleRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 添加识别规则
+     *  *
+     * @param AddRecognizeRuleRequest $request AddRecognizeRuleRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddRecognizeRuleResponse
+     * @return AddRecognizeRuleResponse AddRecognizeRuleResponse
      */
     public function addRecognizeRuleWithOptions($request, $runtime)
     {
@@ -910,9 +952,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param AddRecognizeRuleRequest $request
+     * @summary 添加识别规则
+     *  *
+     * @param AddRecognizeRuleRequest $request AddRecognizeRuleRequest
      *
-     * @return AddRecognizeRuleResponse
+     * @return AddRecognizeRuleResponse AddRecognizeRuleResponse
      */
     public function addRecognizeRule($request)
     {
@@ -922,10 +966,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param AddToMetaCategoryRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Adds a metatable to a specified category.
+     *  *
+     * @param AddToMetaCategoryRequest $request AddToMetaCategoryRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddToMetaCategoryResponse
+     * @return AddToMetaCategoryResponse AddToMetaCategoryResponse
      */
     public function addToMetaCategoryWithOptions($request, $runtime)
     {
@@ -956,9 +1002,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param AddToMetaCategoryRequest $request
+     * @summary Adds a metatable to a specified category.
+     *  *
+     * @param AddToMetaCategoryRequest $request AddToMetaCategoryRequest
      *
-     * @return AddToMetaCategoryResponse
+     * @return AddToMetaCategoryResponse AddToMetaCategoryResponse
      */
     public function addToMetaCategory($request)
     {
@@ -968,10 +1016,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ApprovePermissionApplyOrderRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ApprovePermissionApplyOrderRequest $request ApprovePermissionApplyOrderRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApprovePermissionApplyOrderResponse
+     * @return ApprovePermissionApplyOrderResponse ApprovePermissionApplyOrderResponse
      */
     public function approvePermissionApplyOrderWithOptions($request, $runtime)
     {
@@ -1005,9 +1053,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ApprovePermissionApplyOrderRequest $request
+     * @param ApprovePermissionApplyOrderRequest $request ApprovePermissionApplyOrderRequest
      *
-     * @return ApprovePermissionApplyOrderResponse
+     * @return ApprovePermissionApplyOrderResponse ApprovePermissionApplyOrderResponse
      */
     public function approvePermissionApplyOrder($request)
     {
@@ -1017,10 +1065,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CallbackExtensionRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 扩展程序回调接口
+     *  *
+     * @param CallbackExtensionRequest $request CallbackExtensionRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CallbackExtensionResponse
+     * @return CallbackExtensionResponse CallbackExtensionResponse
      */
     public function callbackExtensionWithOptions($request, $runtime)
     {
@@ -1057,9 +1107,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CallbackExtensionRequest $request
+     * @summary 扩展程序回调接口
+     *  *
+     * @param CallbackExtensionRequest $request CallbackExtensionRequest
      *
-     * @return CallbackExtensionResponse
+     * @return CallbackExtensionResponse CallbackExtensionResponse
      */
     public function callbackExtension($request)
     {
@@ -1069,10 +1121,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceManagerResourceGroupRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary The operation that you want to perform. Set the value to **ChangeResourceManagerResourceGroup**.
+     *  *
+     * @param ChangeResourceManagerResourceGroupRequest $request ChangeResourceManagerResourceGroupRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceManagerResourceGroupResponse
+     * @return ChangeResourceManagerResourceGroupResponse ChangeResourceManagerResourceGroupResponse
      */
     public function changeResourceManagerResourceGroupWithOptions($request, $runtime)
     {
@@ -1106,9 +1160,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceManagerResourceGroupRequest $request
+     * @summary The operation that you want to perform. Set the value to **ChangeResourceManagerResourceGroup**.
+     *  *
+     * @param ChangeResourceManagerResourceGroupRequest $request ChangeResourceManagerResourceGroupRequest
      *
-     * @return ChangeResourceManagerResourceGroupResponse
+     * @return ChangeResourceManagerResourceGroupResponse ChangeResourceManagerResourceGroupResponse
      */
     public function changeResourceManagerResourceGroup($request)
     {
@@ -1118,10 +1174,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CheckFileDeploymentRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CheckFileDeploymentRequest $request CheckFileDeploymentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckFileDeploymentResponse
+     * @return CheckFileDeploymentResponse CheckFileDeploymentResponse
      */
     public function checkFileDeploymentWithOptions($request, $runtime)
     {
@@ -1155,9 +1211,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CheckFileDeploymentRequest $request
+     * @param CheckFileDeploymentRequest $request CheckFileDeploymentRequest
      *
-     * @return CheckFileDeploymentResponse
+     * @return CheckFileDeploymentResponse CheckFileDeploymentResponse
      */
     public function checkFileDeployment($request)
     {
@@ -1167,10 +1223,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CheckMetaPartitionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The operation that you want to perform. Set the value to **CheckMetaPartition**.
+     *  *
+     * @param CheckMetaPartitionRequest $request CheckMetaPartitionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckMetaPartitionResponse
+     * @return CheckMetaPartitionResponse CheckMetaPartitionResponse
      */
     public function checkMetaPartitionWithOptions($request, $runtime)
     {
@@ -1213,9 +1271,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CheckMetaPartitionRequest $request
+     * @summary The operation that you want to perform. Set the value to **CheckMetaPartition**.
+     *  *
+     * @param CheckMetaPartitionRequest $request CheckMetaPartitionRequest
      *
-     * @return CheckMetaPartitionResponse
+     * @return CheckMetaPartitionResponse CheckMetaPartitionResponse
      */
     public function checkMetaPartition($request)
     {
@@ -1225,10 +1285,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CheckMetaTableRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary The operation that you want to perform. Set the value to **CheckMetaTable**.
+     *  *
+     * @param CheckMetaTableRequest $request CheckMetaTableRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckMetaTableResponse
+     * @return CheckMetaTableResponse CheckMetaTableResponse
      */
     public function checkMetaTableWithOptions($request, $runtime)
     {
@@ -1268,9 +1330,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CheckMetaTableRequest $request
+     * @summary The operation that you want to perform. Set the value to **CheckMetaTable**.
+     *  *
+     * @param CheckMetaTableRequest $request CheckMetaTableRequest
      *
-     * @return CheckMetaTableResponse
+     * @return CheckMetaTableResponse CheckMetaTableResponse
      */
     public function checkMetaTable($request)
     {
@@ -1280,10 +1344,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateBaselineRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 创建基线
+     *  *
+     * @param CreateBaselineRequest $request CreateBaselineRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBaselineResponse
+     * @return CreateBaselineResponse CreateBaselineResponse
      */
     public function createBaselineWithOptions($request, $runtime)
     {
@@ -1332,9 +1398,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateBaselineRequest $request
+     * @summary 创建基线
+     *  *
+     * @param CreateBaselineRequest $request CreateBaselineRequest
      *
-     * @return CreateBaselineResponse
+     * @return CreateBaselineResponse CreateBaselineResponse
      */
     public function createBaseline($request)
     {
@@ -1344,10 +1412,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateBusinessRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param CreateBusinessRequest $request CreateBusinessRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBusinessResponse
+     * @return CreateBusinessResponse CreateBusinessResponse
      */
     public function createBusinessWithOptions($request, $runtime)
     {
@@ -1390,9 +1458,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateBusinessRequest $request
+     * @param CreateBusinessRequest $request CreateBusinessRequest
      *
-     * @return CreateBusinessResponse
+     * @return CreateBusinessResponse CreateBusinessResponse
      */
     public function createBusiness($request)
     {
@@ -1402,8 +1470,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateConnection is deprecated
+     *  *
+     * @summary 创建数据源
+     *  *
      * Deprecated
      *
      * @param CreateConnectionRequest $request CreateConnectionRequest
@@ -1455,8 +1525,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateConnection is deprecated
+     *  *
+     * @summary 创建数据源
+     *  *
      * Deprecated
      *
      * @param CreateConnectionRequest $request CreateConnectionRequest
@@ -1471,10 +1543,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDIAlarmRuleRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 创建数据集成新版告警规则
+     *  *
+     * @param CreateDIAlarmRuleRequest $tmpReq  CreateDIAlarmRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDIAlarmRuleResponse
+     * @return CreateDIAlarmRuleResponse CreateDIAlarmRuleResponse
      */
     public function createDIAlarmRuleWithOptions($tmpReq, $runtime)
     {
@@ -1525,9 +1599,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDIAlarmRuleRequest $request
+     * @summary 创建数据集成新版告警规则
+     *  *
+     * @param CreateDIAlarmRuleRequest $request CreateDIAlarmRuleRequest
      *
-     * @return CreateDIAlarmRuleResponse
+     * @return CreateDIAlarmRuleResponse CreateDIAlarmRuleResponse
      */
     public function createDIAlarmRule($request)
     {
@@ -1537,10 +1613,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDIJobRequest $tmpReq
-     * @param RuntimeOptions     $runtime
+     * @summary 创建数据集成新版解决方案任务
+     *  *
+     * @param CreateDIJobRequest $tmpReq  CreateDIJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDIJobResponse
+     * @return CreateDIJobResponse CreateDIJobResponse
      */
     public function createDIJobWithOptions($tmpReq, $runtime)
     {
@@ -1626,9 +1704,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDIJobRequest $request
+     * @summary 创建数据集成新版解决方案任务
+     *  *
+     * @param CreateDIJobRequest $request CreateDIJobRequest
      *
-     * @return CreateDIJobResponse
+     * @return CreateDIJobResponse CreateDIJobResponse
      */
     public function createDIJob($request)
     {
@@ -1638,8 +1718,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
-     *   *
+     * @description DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+     *  *
      * @param CreateDISyncTaskRequest $request CreateDISyncTaskRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1686,8 +1766,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](~~383463~~) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](~~383465~~) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
-     *   *
+     * @description DataWorks allows you to use only the CreateDISyncTask operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+     *  *
      * @param CreateDISyncTaskRequest $request CreateDISyncTaskRequest
      *
      * @return CreateDISyncTaskResponse CreateDISyncTaskResponse
@@ -1700,8 +1780,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateDagComplement is deprecated
+     *  *
      * Deprecated
      *
      * @param CreateDagComplementRequest $request CreateDagComplementRequest
@@ -1765,8 +1845,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateDagComplement is deprecated
+     *  *
      * Deprecated
      *
      * @param CreateDagComplementRequest $request CreateDagComplementRequest
@@ -1781,8 +1861,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateDagTest is deprecated
+     *  *
      * Deprecated
      *
      * @param CreateDagTestRequest $request CreateDagTestRequest
@@ -1828,8 +1908,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateDagTest is deprecated
+     *  *
      * Deprecated
      *
      * @param CreateDagTestRequest $request CreateDagTestRequest
@@ -1844,10 +1924,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDataServiceApiRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateDataServiceApiRequest $request CreateDataServiceApiRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataServiceApiResponse
+     * @return CreateDataServiceApiResponse CreateDataServiceApiResponse
      */
     public function createDataServiceApiWithOptions($request, $runtime)
     {
@@ -1929,9 +2009,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDataServiceApiRequest $request
+     * @param CreateDataServiceApiRequest $request CreateDataServiceApiRequest
      *
-     * @return CreateDataServiceApiResponse
+     * @return CreateDataServiceApiResponse CreateDataServiceApiResponse
      */
     public function createDataServiceApi($request)
     {
@@ -1941,10 +2021,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDataServiceApiAuthorityRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Grants the access permissions on an API in DataService Studio.
+     *  *
+     * @param CreateDataServiceApiAuthorityRequest $request CreateDataServiceApiAuthorityRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataServiceApiAuthorityResponse
+     * @return CreateDataServiceApiAuthorityResponse CreateDataServiceApiAuthorityResponse
      */
     public function createDataServiceApiAuthorityWithOptions($request, $runtime)
     {
@@ -1984,9 +2066,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDataServiceApiAuthorityRequest $request
+     * @summary Grants the access permissions on an API in DataService Studio.
+     *  *
+     * @param CreateDataServiceApiAuthorityRequest $request CreateDataServiceApiAuthorityRequest
      *
-     * @return CreateDataServiceApiAuthorityResponse
+     * @return CreateDataServiceApiAuthorityResponse CreateDataServiceApiAuthorityResponse
      */
     public function createDataServiceApiAuthority($request)
     {
@@ -1996,10 +2080,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDataServiceFolderRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a folder in DataService Studio.
+     *  *
+     * @param CreateDataServiceFolderRequest $request CreateDataServiceFolderRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataServiceFolderResponse
+     * @return CreateDataServiceFolderResponse CreateDataServiceFolderResponse
      */
     public function createDataServiceFolderWithOptions($request, $runtime)
     {
@@ -2039,9 +2125,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDataServiceFolderRequest $request
+     * @summary Creates a folder in DataService Studio.
+     *  *
+     * @param CreateDataServiceFolderRequest $request CreateDataServiceFolderRequest
      *
-     * @return CreateDataServiceFolderResponse
+     * @return CreateDataServiceFolderResponse CreateDataServiceFolderResponse
      */
     public function createDataServiceFolder($request)
     {
@@ -2051,10 +2139,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDataServiceGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Creates a business process.
+     *  *
+     * @param CreateDataServiceGroupRequest $request CreateDataServiceGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataServiceGroupResponse
+     * @return CreateDataServiceGroupResponse CreateDataServiceGroupResponse
      */
     public function createDataServiceGroupWithOptions($request, $runtime)
     {
@@ -2094,9 +2184,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDataServiceGroupRequest $request
+     * @summary Creates a business process.
+     *  *
+     * @param CreateDataServiceGroupRequest $request CreateDataServiceGroupRequest
      *
-     * @return CreateDataServiceGroupResponse
+     * @return CreateDataServiceGroupResponse CreateDataServiceGroupResponse
      */
     public function createDataServiceGroup($request)
     {
@@ -2106,10 +2198,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDataSourceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 创建数据源
+     *  *
+     * @param CreateDataSourceRequest $request CreateDataSourceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataSourceResponse
+     * @return CreateDataSourceResponse CreateDataSourceResponse
      */
     public function createDataSourceWithOptions($request, $runtime)
     {
@@ -2155,9 +2249,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateDataSourceRequest $request
+     * @summary 创建数据源
+     *  *
+     * @param CreateDataSourceRequest $request CreateDataSourceRequest
      *
-     * @return CreateDataSourceResponse
+     * @return CreateDataSourceResponse CreateDataSourceResponse
      */
     public function createDataSource($request)
     {
@@ -2167,10 +2263,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateExportMigrationRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 新建导出任务
+     *  *
+     * @param CreateExportMigrationRequest $request CreateExportMigrationRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateExportMigrationResponse
+     * @return CreateExportMigrationResponse CreateExportMigrationResponse
      */
     public function createExportMigrationWithOptions($request, $runtime)
     {
@@ -2213,9 +2311,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateExportMigrationRequest $request
+     * @summary 新建导出任务
+     *  *
+     * @param CreateExportMigrationRequest $request CreateExportMigrationRequest
      *
-     * @return CreateExportMigrationResponse
+     * @return CreateExportMigrationResponse CreateExportMigrationResponse
      */
     public function createExportMigration($request)
     {
@@ -2225,10 +2325,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateFileRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Creates a file in DataStudio. You cannot call this operation to create files for Data Integration nodes.
+     *  *
+     * @param CreateFileRequest $request CreateFileRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFileResponse
+     * @return CreateFileResponse CreateFileResponse
      */
     public function createFileWithOptions($request, $runtime)
     {
@@ -2346,9 +2448,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateFileRequest $request
+     * @summary Creates a file in DataStudio. You cannot call this operation to create files for Data Integration nodes.
+     *  *
+     * @param CreateFileRequest $request CreateFileRequest
      *
-     * @return CreateFileResponse
+     * @return CreateFileResponse CreateFileResponse
      */
     public function createFile($request)
     {
@@ -2358,10 +2462,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateFolderRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary The operation that you want to perform. Set the value to **CreateFolder**.
+     *  *
+     * @param CreateFolderRequest $request CreateFolderRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFolderResponse
+     * @return CreateFolderResponse CreateFolderResponse
      */
     public function createFolderWithOptions($request, $runtime)
     {
@@ -2395,9 +2501,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateFolderRequest $request
+     * @summary The operation that you want to perform. Set the value to **CreateFolder**.
+     *  *
+     * @param CreateFolderRequest $request CreateFolderRequest
      *
-     * @return CreateFolderResponse
+     * @return CreateFolderResponse CreateFolderResponse
      */
     public function createFolder($request)
     {
@@ -2407,22 +2515,22 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The import package must be uploaded. Example of the upload method:
-     *   * Config config = new Config();
-     *   * config.setAccessKeyId(accessId);
-     *   * config.setAccessKeySecret(accessKey);
-     *   * config.setEndpoint(popEndpoint);
-     *   * config.setRegionId(regionId);
-     *   * Client client = new Client(config);
-     *   * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
-     *   * request.setName("test_migration_api\\_" + System.currentTimeMillis());
-     *   * request.setProjectId(123456L);
-     *   * request.setPackageType("DATAWORKS_MODEL");
-     *   * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
-     *   * RuntimeOptions runtime = new RuntimeOptions();
-     *   * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
-     *   * ...
-     *   *
+     * @description The import package must be uploaded. Example of the upload method:
+     * Config config = new Config();
+     * config.setAccessKeyId(accessId);
+     * config.setAccessKeySecret(accessKey);
+     * config.setEndpoint(popEndpoint);
+     * config.setRegionId(regionId);
+     * Client client = new Client(config);
+     * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
+     * request.setName("test_migration_api_" + System.currentTimeMillis());
+     * request.setProjectId(123456L);
+     * request.setPackageType("DATAWORKS_MODEL");
+     * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
+     * RuntimeOptions runtime = new RuntimeOptions();
+     * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
+     * ...
+     *  *
      * @param CreateImportMigrationRequest $request CreateImportMigrationRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2478,22 +2586,22 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The import package must be uploaded. Example of the upload method:
-     *   * Config config = new Config();
-     *   * config.setAccessKeyId(accessId);
-     *   * config.setAccessKeySecret(accessKey);
-     *   * config.setEndpoint(popEndpoint);
-     *   * config.setRegionId(regionId);
-     *   * Client client = new Client(config);
-     *   * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
-     *   * request.setName("test_migration_api\\_" + System.currentTimeMillis());
-     *   * request.setProjectId(123456L);
-     *   * request.setPackageType("DATAWORKS_MODEL");
-     *   * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
-     *   * RuntimeOptions runtime = new RuntimeOptions();
-     *   * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
-     *   * ...
-     *   *
+     * @description The import package must be uploaded. Example of the upload method:
+     * Config config = new Config();
+     * config.setAccessKeyId(accessId);
+     * config.setAccessKeySecret(accessKey);
+     * config.setEndpoint(popEndpoint);
+     * config.setRegionId(regionId);
+     * Client client = new Client(config);
+     * CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest();
+     * request.setName("test_migration_api_" + System.currentTimeMillis());
+     * request.setProjectId(123456L);
+     * request.setPackageType("DATAWORKS_MODEL");
+     * request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip"));
+     * RuntimeOptions runtime = new RuntimeOptions();
+     * CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime);
+     * ...
+     *  *
      * @param CreateImportMigrationRequest $request CreateImportMigrationRequest
      *
      * @return CreateImportMigrationResponse CreateImportMigrationResponse
@@ -2584,8 +2692,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateManualDag is deprecated
+     *  *
      * Deprecated
      *
      * @param CreateManualDagRequest $request CreateManualDagRequest
@@ -2640,8 +2748,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI CreateManualDag is deprecated
+     *  *
      * Deprecated
      *
      * @param CreateManualDagRequest $request CreateManualDagRequest
@@ -2656,10 +2764,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateMetaCategoryRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Creates a category.
+     *  *
+     * @param CreateMetaCategoryRequest $request CreateMetaCategoryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMetaCategoryResponse
+     * @return CreateMetaCategoryResponse CreateMetaCategoryResponse
      */
     public function createMetaCategoryWithOptions($request, $runtime)
     {
@@ -2693,9 +2803,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateMetaCategoryRequest $request
+     * @summary Creates a category.
+     *  *
+     * @param CreateMetaCategoryRequest $request CreateMetaCategoryRequest
      *
-     * @return CreateMetaCategoryResponse
+     * @return CreateMetaCategoryResponse CreateMetaCategoryResponse
      */
     public function createMetaCategory($request)
     {
@@ -2705,9 +2817,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * A category must belong to a data album.
-     *   * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
-     *   *
+     * @summary Collections are classified into various types. The names of collections of the same type must be different.
+     *  *
+     * @description A category must belong to a data album.
+     * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
+     *  *
      * @param CreateMetaCollectionRequest $request CreateMetaCollectionRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -2748,9 +2862,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * A category must belong to a data album.
-     *   * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
-     *   *
+     * @summary Collections are classified into various types. The names of collections of the same type must be different.
+     *  *
+     * @description A category must belong to a data album.
+     * You can create a category in a data album only after you create the data album. You can set the value of the parentQualifiedName parameter to the unique identifier of the data album to create the category.
+     *  *
      * @param CreateMetaCollectionRequest $request CreateMetaCollectionRequest
      *
      * @return CreateMetaCollectionResponse CreateMetaCollectionResponse
@@ -2763,10 +2879,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreatePermissionApplyOrderRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param CreatePermissionApplyOrderRequest $request CreatePermissionApplyOrderRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePermissionApplyOrderResponse
+     * @return CreatePermissionApplyOrderResponse CreatePermissionApplyOrderResponse
      */
     public function createPermissionApplyOrderWithOptions($request, $runtime)
     {
@@ -2815,9 +2931,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreatePermissionApplyOrderRequest $request
+     * @param CreatePermissionApplyOrderRequest $request CreatePermissionApplyOrderRequest
      *
-     * @return CreatePermissionApplyOrderResponse
+     * @return CreatePermissionApplyOrderResponse CreatePermissionApplyOrderResponse
      */
     public function createPermissionApplyOrder($request)
     {
@@ -2827,10 +2943,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 创建项目
+     *  *
+     * @param CreateProjectRequest $tmpReq  CreateProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProjectWithOptions($tmpReq, $runtime)
     {
@@ -2887,9 +3005,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectRequest $request
+     * @summary 创建项目
+     *  *
+     * @param CreateProjectRequest $request CreateProjectRequest
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProject($request)
     {
@@ -2899,10 +3019,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectMemberRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateProjectMemberRequest $request CreateProjectMemberRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProjectMemberResponse
+     * @return CreateProjectMemberResponse CreateProjectMemberResponse
      */
     public function createProjectMemberWithOptions($request, $runtime)
     {
@@ -2939,9 +3059,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectMemberRequest $request
+     * @param CreateProjectMemberRequest $request CreateProjectMemberRequest
      *
-     * @return CreateProjectMemberResponse
+     * @return CreateProjectMemberResponse CreateProjectMemberResponse
      */
     public function createProjectMember($request)
     {
@@ -2951,10 +3071,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityEntityRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateQualityEntityRequest $request CreateQualityEntityRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateQualityEntityResponse
+     * @return CreateQualityEntityResponse CreateQualityEntityResponse
      */
     public function createQualityEntityWithOptions($request, $runtime)
     {
@@ -2997,9 +3117,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityEntityRequest $request
+     * @param CreateQualityEntityRequest $request CreateQualityEntityRequest
      *
-     * @return CreateQualityEntityResponse
+     * @return CreateQualityEntityResponse CreateQualityEntityResponse
      */
     public function createQualityEntity($request)
     {
@@ -3009,10 +3129,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityFollowerRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param CreateQualityFollowerRequest $request CreateQualityFollowerRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateQualityFollowerResponse
+     * @return CreateQualityFollowerResponse CreateQualityFollowerResponse
      */
     public function createQualityFollowerWithOptions($request, $runtime)
     {
@@ -3052,9 +3172,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityFollowerRequest $request
+     * @param CreateQualityFollowerRequest $request CreateQualityFollowerRequest
      *
-     * @return CreateQualityFollowerResponse
+     * @return CreateQualityFollowerResponse CreateQualityFollowerResponse
      */
     public function createQualityFollower($request)
     {
@@ -3064,10 +3184,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityRelativeNodeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param CreateQualityRelativeNodeRequest $request CreateQualityRelativeNodeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateQualityRelativeNodeResponse
+     * @return CreateQualityRelativeNodeResponse CreateQualityRelativeNodeResponse
      */
     public function createQualityRelativeNodeWithOptions($request, $runtime)
     {
@@ -3116,9 +3236,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityRelativeNodeRequest $request
+     * @param CreateQualityRelativeNodeRequest $request CreateQualityRelativeNodeRequest
      *
-     * @return CreateQualityRelativeNodeResponse
+     * @return CreateQualityRelativeNodeResponse CreateQualityRelativeNodeResponse
      */
     public function createQualityRelativeNode($request)
     {
@@ -3128,10 +3248,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateQualityRuleRequest $request CreateQualityRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateQualityRuleResponse
+     * @return CreateQualityRuleResponse CreateQualityRuleResponse
      */
     public function createQualityRuleWithOptions($request, $runtime)
     {
@@ -3216,9 +3336,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityRuleRequest $request
+     * @param CreateQualityRuleRequest $request CreateQualityRuleRequest
      *
-     * @return CreateQualityRuleResponse
+     * @return CreateQualityRuleResponse CreateQualityRuleResponse
      */
     public function createQualityRule($request)
     {
@@ -3228,10 +3348,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateRemindRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param CreateRemindRequest $request CreateRemindRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRemindResponse
+     * @return CreateRemindResponse CreateRemindResponse
      */
     public function createRemindWithOptions($request, $runtime)
     {
@@ -3304,9 +3424,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateRemindRequest $request
+     * @param CreateRemindRequest $request CreateRemindRequest
      *
-     * @return CreateRemindResponse
+     * @return CreateRemindResponse CreateRemindResponse
      */
     public function createRemind($request)
     {
@@ -3316,10 +3436,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceFileRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件
+     *  *
+     * @param CreateResourceFileRequest $request CreateResourceFileRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceFileResponse
+     * @return CreateResourceFileResponse CreateResourceFileResponse
      */
     public function createResourceFileWithOptions($request, $runtime)
     {
@@ -3380,9 +3502,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceFileRequest $request
+     * @summary 支持用户指定自己的文件（比如jar，py，arhive，file等）创建数据开发资源文件
+     *  *
+     * @param CreateResourceFileRequest $request CreateResourceFileRequest
      *
-     * @return CreateResourceFileResponse
+     * @return CreateResourceFileResponse CreateResourceFileResponse
      */
     public function createResourceFile($request)
     {
@@ -3470,10 +3594,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateTableRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary The operation that you want to perform. Set the value to **CreateTable**.
+     *  *
+     * @param CreateTableRequest $request CreateTableRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTableResponse
+     * @return CreateTableResponse CreateTableResponse
      */
     public function createTableWithOptions($request, $runtime)
     {
@@ -3560,9 +3686,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateTableRequest $request
+     * @summary The operation that you want to perform. Set the value to **CreateTable**.
+     *  *
+     * @param CreateTableRequest $request CreateTableRequest
      *
-     * @return CreateTableResponse
+     * @return CreateTableResponse CreateTableResponse
      */
     public function createTable($request)
     {
@@ -3572,10 +3700,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateTableLevelRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary The ID of the DataWorks workspace.
+     *  *
+     * @param CreateTableLevelRequest $request CreateTableLevelRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTableLevelResponse
+     * @return CreateTableLevelResponse CreateTableLevelResponse
      */
     public function createTableLevelWithOptions($request, $runtime)
     {
@@ -3612,9 +3742,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateTableLevelRequest $request
+     * @summary The ID of the DataWorks workspace.
+     *  *
+     * @param CreateTableLevelRequest $request CreateTableLevelRequest
      *
-     * @return CreateTableLevelResponse
+     * @return CreateTableLevelResponse CreateTableLevelResponse
      */
     public function createTableLevel($request)
     {
@@ -3624,10 +3756,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateTableThemeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param CreateTableThemeRequest $request CreateTableThemeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTableThemeResponse
+     * @return CreateTableThemeResponse CreateTableThemeResponse
      */
     public function createTableThemeWithOptions($request, $runtime)
     {
@@ -3664,9 +3796,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateTableThemeRequest $request
+     * @param CreateTableThemeRequest $request CreateTableThemeRequest
      *
-     * @return CreateTableThemeResponse
+     * @return CreateTableThemeResponse CreateTableThemeResponse
      */
     public function createTableTheme($request)
     {
@@ -3676,10 +3808,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateUdfFileRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param CreateUdfFileRequest $request CreateUdfFileRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUdfFileResponse
+     * @return CreateUdfFileResponse CreateUdfFileResponse
      */
     public function createUdfFileWithOptions($request, $runtime)
     {
@@ -3743,9 +3875,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param CreateUdfFileRequest $request
+     * @param CreateUdfFileRequest $request CreateUdfFileRequest
      *
-     * @return CreateUdfFileResponse
+     * @return CreateUdfFileResponse CreateUdfFileResponse
      */
     public function createUdfFile($request)
     {
@@ -3755,10 +3887,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteBaselineRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DeleteBaselineRequest $request DeleteBaselineRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBaselineResponse
+     * @return DeleteBaselineResponse DeleteBaselineResponse
      */
     public function deleteBaselineWithOptions($request, $runtime)
     {
@@ -3789,9 +3921,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteBaselineRequest $request
+     * @param DeleteBaselineRequest $request DeleteBaselineRequest
      *
-     * @return DeleteBaselineResponse
+     * @return DeleteBaselineResponse DeleteBaselineResponse
      */
     public function deleteBaseline($request)
     {
@@ -3801,10 +3933,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteBusinessRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DeleteBusinessRequest $request DeleteBusinessRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBusinessResponse
+     * @return DeleteBusinessResponse DeleteBusinessResponse
      */
     public function deleteBusinessWithOptions($request, $runtime)
     {
@@ -3838,9 +3970,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteBusinessRequest $request
+     * @param DeleteBusinessRequest $request DeleteBusinessRequest
      *
-     * @return DeleteBusinessResponse
+     * @return DeleteBusinessResponse DeleteBusinessResponse
      */
     public function deleteBusiness($request)
     {
@@ -3850,8 +3982,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DeleteConnection is deprecated
+     *  *
+     * @summary 删除数据源
+     *  *
      * Deprecated
      *
      * @param DeleteConnectionRequest $request DeleteConnectionRequest
@@ -3885,8 +4019,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DeleteConnection is deprecated
+     *  *
+     * @summary 删除数据源
+     *  *
      * Deprecated
      *
      * @param DeleteConnectionRequest $request DeleteConnectionRequest
@@ -3901,10 +4037,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDIAlarmRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 删除数据集成新版告警规则
+     *  *
+     * @param DeleteDIAlarmRuleRequest $request DeleteDIAlarmRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDIAlarmRuleResponse
+     * @return DeleteDIAlarmRuleResponse DeleteDIAlarmRuleResponse
      */
     public function deleteDIAlarmRuleWithOptions($request, $runtime)
     {
@@ -3932,9 +4070,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDIAlarmRuleRequest $request
+     * @summary 删除数据集成新版告警规则
+     *  *
+     * @param DeleteDIAlarmRuleRequest $request DeleteDIAlarmRuleRequest
      *
-     * @return DeleteDIAlarmRuleResponse
+     * @return DeleteDIAlarmRuleResponse DeleteDIAlarmRuleResponse
      */
     public function deleteDIAlarmRule($request)
     {
@@ -3944,10 +4084,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDIJobRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 删除数据集成新版解决方案任务
+     *  *
+     * @param DeleteDIJobRequest $request DeleteDIJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDIJobResponse
+     * @return DeleteDIJobResponse DeleteDIJobResponse
      */
     public function deleteDIJobWithOptions($request, $runtime)
     {
@@ -3975,9 +4117,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDIJobRequest $request
+     * @summary 删除数据集成新版解决方案任务
+     *  *
+     * @param DeleteDIJobRequest $request DeleteDIJobRequest
      *
-     * @return DeleteDIJobResponse
+     * @return DeleteDIJobResponse DeleteDIJobResponse
      */
     public function deleteDIJob($request)
     {
@@ -3987,10 +4131,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDISyncTaskRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary The operation that you want to perform.
+     *  *
+     * @param DeleteDISyncTaskRequest $request DeleteDISyncTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDISyncTaskResponse
+     * @return DeleteDISyncTaskResponse DeleteDISyncTaskResponse
      */
     public function deleteDISyncTaskWithOptions($request, $runtime)
     {
@@ -4024,9 +4170,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDISyncTaskRequest $request
+     * @summary The operation that you want to perform.
+     *  *
+     * @param DeleteDISyncTaskRequest $request DeleteDISyncTaskRequest
      *
-     * @return DeleteDISyncTaskResponse
+     * @return DeleteDISyncTaskResponse DeleteDISyncTaskResponse
      */
     public function deleteDISyncTask($request)
     {
@@ -4036,10 +4184,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataServiceApiRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes an API in DataService Studio.
+     *  *
+     * @param DeleteDataServiceApiRequest $request DeleteDataServiceApiRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataServiceApiResponse
+     * @return DeleteDataServiceApiResponse DeleteDataServiceApiResponse
      */
     public function deleteDataServiceApiWithOptions($request, $runtime)
     {
@@ -4073,9 +4223,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataServiceApiRequest $request
+     * @summary Deletes an API in DataService Studio.
+     *  *
+     * @param DeleteDataServiceApiRequest $request DeleteDataServiceApiRequest
      *
-     * @return DeleteDataServiceApiResponse
+     * @return DeleteDataServiceApiResponse DeleteDataServiceApiResponse
      */
     public function deleteDataServiceApi($request)
     {
@@ -4085,10 +4237,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataServiceApiAuthorityRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Revokes the access permissions on an API.
+     *  *
+     * @param DeleteDataServiceApiAuthorityRequest $request DeleteDataServiceApiAuthorityRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataServiceApiAuthorityResponse
+     * @return DeleteDataServiceApiAuthorityResponse DeleteDataServiceApiAuthorityResponse
      */
     public function deleteDataServiceApiAuthorityWithOptions($request, $runtime)
     {
@@ -4125,9 +4279,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataServiceApiAuthorityRequest $request
+     * @summary Revokes the access permissions on an API.
+     *  *
+     * @param DeleteDataServiceApiAuthorityRequest $request DeleteDataServiceApiAuthorityRequest
      *
-     * @return DeleteDataServiceApiAuthorityResponse
+     * @return DeleteDataServiceApiAuthorityResponse DeleteDataServiceApiAuthorityResponse
      */
     public function deleteDataServiceApiAuthority($request)
     {
@@ -4137,10 +4293,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataSourceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataSourceResponse
+     * @return DeleteDataSourceResponse DeleteDataSourceResponse
      */
     public function deleteDataSourceWithOptions($request, $runtime)
     {
@@ -4168,9 +4324,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataSourceRequest $request
+     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
      *
-     * @return DeleteDataSourceResponse
+     * @return DeleteDataSourceResponse DeleteDataSourceResponse
      */
     public function deleteDataSource($request)
     {
@@ -4180,10 +4336,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary The operation that you want to perform.
+     *  *
+     * @param DeleteFileRequest $request DeleteFileRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFileResponse
+     * @return DeleteFileResponse DeleteFileResponse
      */
     public function deleteFileWithOptions($request, $runtime)
     {
@@ -4217,9 +4375,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileRequest $request
+     * @summary The operation that you want to perform.
+     *  *
+     * @param DeleteFileRequest $request DeleteFileRequest
      *
-     * @return DeleteFileResponse
+     * @return DeleteFileResponse DeleteFileResponse
      */
     public function deleteFile($request)
     {
@@ -4229,10 +4389,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteFolderRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param DeleteFolderRequest $request DeleteFolderRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFolderResponse
+     * @return DeleteFolderResponse DeleteFolderResponse
      */
     public function deleteFolderWithOptions($request, $runtime)
     {
@@ -4266,9 +4426,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteFolderRequest $request
+     * @param DeleteFolderRequest $request DeleteFolderRequest
      *
-     * @return DeleteFolderResponse
+     * @return DeleteFolderResponse DeleteFolderResponse
      */
     public function deleteFolder($request)
     {
@@ -4278,10 +4438,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteFromMetaCategoryRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Removes a metatable from a specified category.
+     *  *
+     * @param DeleteFromMetaCategoryRequest $request DeleteFromMetaCategoryRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFromMetaCategoryResponse
+     * @return DeleteFromMetaCategoryResponse DeleteFromMetaCategoryResponse
      */
     public function deleteFromMetaCategoryWithOptions($request, $runtime)
     {
@@ -4312,9 +4474,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteFromMetaCategoryRequest $request
+     * @summary Removes a metatable from a specified category.
+     *  *
+     * @param DeleteFromMetaCategoryRequest $request DeleteFromMetaCategoryRequest
      *
-     * @return DeleteFromMetaCategoryResponse
+     * @return DeleteFromMetaCategoryResponse DeleteFromMetaCategoryResponse
      */
     public function deleteFromMetaCategory($request)
     {
@@ -4324,10 +4488,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteLineageRelationRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 删除血缘, 支持删除用户自定义血缘关系
+     *  *
+     * @param DeleteLineageRelationRequest $request DeleteLineageRelationRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLineageRelationResponse
+     * @return DeleteLineageRelationResponse DeleteLineageRelationResponse
      */
     public function deleteLineageRelationWithOptions($request, $runtime)
     {
@@ -4361,9 +4527,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteLineageRelationRequest $request
+     * @summary 删除血缘, 支持删除用户自定义血缘关系
+     *  *
+     * @param DeleteLineageRelationRequest $request DeleteLineageRelationRequest
      *
-     * @return DeleteLineageRelationResponse
+     * @return DeleteLineageRelationResponse DeleteLineageRelationResponse
      */
     public function deleteLineageRelation($request)
     {
@@ -4373,10 +4541,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetaCategoryRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a category.
+     *  *
+     * @param DeleteMetaCategoryRequest $request DeleteMetaCategoryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMetaCategoryResponse
+     * @return DeleteMetaCategoryResponse DeleteMetaCategoryResponse
      */
     public function deleteMetaCategoryWithOptions($request, $runtime)
     {
@@ -4401,9 +4571,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetaCategoryRequest $request
+     * @summary Deletes a category.
+     *  *
+     * @param DeleteMetaCategoryRequest $request DeleteMetaCategoryRequest
      *
-     * @return DeleteMetaCategoryResponse
+     * @return DeleteMetaCategoryResponse DeleteMetaCategoryResponse
      */
     public function deleteMetaCategory($request)
     {
@@ -4413,10 +4585,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetaCollectionRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary The operation that you want to perform. Set the value to **DeleteMetaCollection**.
+     *  *
+     * @param DeleteMetaCollectionRequest $request DeleteMetaCollectionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMetaCollectionResponse
+     * @return DeleteMetaCollectionResponse DeleteMetaCollectionResponse
      */
     public function deleteMetaCollectionWithOptions($request, $runtime)
     {
@@ -4444,9 +4618,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetaCollectionRequest $request
+     * @summary The operation that you want to perform. Set the value to **DeleteMetaCollection**.
+     *  *
+     * @param DeleteMetaCollectionRequest $request DeleteMetaCollectionRequest
      *
-     * @return DeleteMetaCollectionResponse
+     * @return DeleteMetaCollectionResponse DeleteMetaCollectionResponse
      */
     public function deleteMetaCollection($request)
     {
@@ -4456,10 +4632,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetaCollectionEntityRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary The operation that you want to perform. Set the value to **DeleteMetaCollectionEntity**.
+     *  *
+     * @param DeleteMetaCollectionEntityRequest $request DeleteMetaCollectionEntityRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMetaCollectionEntityResponse
+     * @return DeleteMetaCollectionEntityResponse DeleteMetaCollectionEntityResponse
      */
     public function deleteMetaCollectionEntityWithOptions($request, $runtime)
     {
@@ -4490,9 +4668,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteMetaCollectionEntityRequest $request
+     * @summary The operation that you want to perform. Set the value to **DeleteMetaCollectionEntity**.
+     *  *
+     * @param DeleteMetaCollectionEntityRequest $request DeleteMetaCollectionEntityRequest
      *
-     * @return DeleteMetaCollectionEntityResponse
+     * @return DeleteMetaCollectionEntityResponse DeleteMetaCollectionEntityResponse
      */
     public function deleteMetaCollectionEntity($request)
     {
@@ -4502,10 +4682,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteProjectMemberRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DeleteProjectMemberRequest $request DeleteProjectMemberRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProjectMemberResponse
+     * @return DeleteProjectMemberResponse DeleteProjectMemberResponse
      */
     public function deleteProjectMemberWithOptions($request, $runtime)
     {
@@ -4536,9 +4716,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteProjectMemberRequest $request
+     * @param DeleteProjectMemberRequest $request DeleteProjectMemberRequest
      *
-     * @return DeleteProjectMemberResponse
+     * @return DeleteProjectMemberResponse DeleteProjectMemberResponse
      */
     public function deleteProjectMember($request)
     {
@@ -4548,10 +4728,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityEntityRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DeleteQualityEntityRequest $request DeleteQualityEntityRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteQualityEntityResponse
+     * @return DeleteQualityEntityResponse DeleteQualityEntityResponse
      */
     public function deleteQualityEntityWithOptions($request, $runtime)
     {
@@ -4588,9 +4768,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityEntityRequest $request
+     * @param DeleteQualityEntityRequest $request DeleteQualityEntityRequest
      *
-     * @return DeleteQualityEntityResponse
+     * @return DeleteQualityEntityResponse DeleteQualityEntityResponse
      */
     public function deleteQualityEntity($request)
     {
@@ -4600,8 +4780,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](~~73690~~).
-     *   *
+     * @description In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](https://help.aliyun.com/document_detail/73690.html).
+     *  *
      * @param DeleteQualityFollowerRequest $request DeleteQualityFollowerRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -4639,8 +4819,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](~~73690~~).
-     *   *
+     * @description In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transformation, load (ETL). Thereby, Data Quality automatically blocks the nodes that involve dirty data to stop dirty data from spreading downstream. This prevents nodes from producing unexpected dirty data that affects normal use and business decisions. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule described by the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors in a timely manner. For more information, see [Configure monitoring rules for MaxCompute](https://help.aliyun.com/document_detail/73690.html).
+     *  *
      * @param DeleteQualityFollowerRequest $request DeleteQualityFollowerRequest
      *
      * @return DeleteQualityFollowerResponse DeleteQualityFollowerResponse
@@ -4653,10 +4833,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityRelativeNodeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DeleteQualityRelativeNodeRequest $request DeleteQualityRelativeNodeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteQualityRelativeNodeResponse
+     * @return DeleteQualityRelativeNodeResponse DeleteQualityRelativeNodeResponse
      */
     public function deleteQualityRelativeNodeWithOptions($request, $runtime)
     {
@@ -4705,9 +4885,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityRelativeNodeRequest $request
+     * @param DeleteQualityRelativeNodeRequest $request DeleteQualityRelativeNodeRequest
      *
-     * @return DeleteQualityRelativeNodeResponse
+     * @return DeleteQualityRelativeNodeResponse DeleteQualityRelativeNodeResponse
      */
     public function deleteQualityRelativeNode($request)
     {
@@ -4717,10 +4897,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DeleteQualityRuleRequest $request DeleteQualityRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteQualityRuleResponse
+     * @return DeleteQualityRuleResponse DeleteQualityRuleResponse
      */
     public function deleteQualityRuleWithOptions($request, $runtime)
     {
@@ -4754,9 +4934,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityRuleRequest $request
+     * @param DeleteQualityRuleRequest $request DeleteQualityRuleRequest
      *
-     * @return DeleteQualityRuleResponse
+     * @return DeleteQualityRuleResponse DeleteQualityRuleResponse
      */
     public function deleteQualityRule($request)
     {
@@ -4766,10 +4946,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteRecognizeRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 删除识别规则
+     *  *
+     * @param DeleteRecognizeRuleRequest $request DeleteRecognizeRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRecognizeRuleResponse
+     * @return DeleteRecognizeRuleResponse DeleteRecognizeRuleResponse
      */
     public function deleteRecognizeRuleWithOptions($request, $runtime)
     {
@@ -4800,9 +4982,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteRecognizeRuleRequest $request
+     * @summary 删除识别规则
+     *  *
+     * @param DeleteRecognizeRuleRequest $request DeleteRecognizeRuleRequest
      *
-     * @return DeleteRecognizeRuleResponse
+     * @return DeleteRecognizeRuleResponse DeleteRecognizeRuleResponse
      */
     public function deleteRecognizeRule($request)
     {
@@ -4812,10 +4996,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteRemindRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Deletes a custom alert rule.
+     *  *
+     * @param DeleteRemindRequest $request DeleteRemindRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRemindResponse
+     * @return DeleteRemindResponse DeleteRemindResponse
      */
     public function deleteRemindWithOptions($request, $runtime)
     {
@@ -4843,9 +5029,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteRemindRequest $request
+     * @summary Deletes a custom alert rule.
+     *  *
+     * @param DeleteRemindRequest $request DeleteRemindRequest
      *
-     * @return DeleteRemindResponse
+     * @return DeleteRemindResponse DeleteRemindResponse
      */
     public function deleteRemind($request)
     {
@@ -4855,10 +5043,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param DeleteTableRequest $request DeleteTableRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTableResponse
+     * @return DeleteTableResponse DeleteTableResponse
      */
     public function deleteTableWithOptions($request, $runtime)
     {
@@ -4898,9 +5086,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableRequest $request
+     * @param DeleteTableRequest $request DeleteTableRequest
      *
-     * @return DeleteTableResponse
+     * @return DeleteTableResponse DeleteTableResponse
      */
     public function deleteTable($request)
     {
@@ -4910,10 +5098,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableLevelRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DeleteTableLevelRequest $request DeleteTableLevelRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTableLevelResponse
+     * @return DeleteTableLevelResponse DeleteTableLevelResponse
      */
     public function deleteTableLevelWithOptions($request, $runtime)
     {
@@ -4944,9 +5132,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableLevelRequest $request
+     * @param DeleteTableLevelRequest $request DeleteTableLevelRequest
      *
-     * @return DeleteTableLevelResponse
+     * @return DeleteTableLevelResponse DeleteTableLevelResponse
      */
     public function deleteTableLevel($request)
     {
@@ -4956,10 +5144,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableThemeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DeleteTableThemeRequest $request DeleteTableThemeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTableThemeResponse
+     * @return DeleteTableThemeResponse DeleteTableThemeResponse
      */
     public function deleteTableThemeWithOptions($request, $runtime)
     {
@@ -4990,9 +5178,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteTableThemeRequest $request
+     * @param DeleteTableThemeRequest $request DeleteTableThemeRequest
      *
-     * @return DeleteTableThemeResponse
+     * @return DeleteTableThemeResponse DeleteTableThemeResponse
      */
     public function deleteTableTheme($request)
     {
@@ -5002,10 +5190,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeployDISyncTaskRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary The operation that you want to perform. Set the value to **DeployDISyncTask**.
+     *  *
+     * @param DeployDISyncTaskRequest $request DeployDISyncTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeployDISyncTaskResponse
+     * @return DeployDISyncTaskResponse DeployDISyncTaskResponse
      */
     public function deployDISyncTaskWithOptions($request, $runtime)
     {
@@ -5039,9 +5229,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeployDISyncTaskRequest $request
+     * @summary The operation that you want to perform. Set the value to **DeployDISyncTask**.
+     *  *
+     * @param DeployDISyncTaskRequest $request DeployDISyncTaskRequest
      *
-     * @return DeployDISyncTaskResponse
+     * @return DeployDISyncTaskResponse DeployDISyncTaskResponse
      */
     public function deployDISyncTask($request)
     {
@@ -5051,10 +5243,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeployFileRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param DeployFileRequest $request DeployFileRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeployFileResponse
+     * @return DeployFileResponse DeployFileResponse
      */
     public function deployFileWithOptions($request, $runtime)
     {
@@ -5094,9 +5286,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DeployFileRequest $request
+     * @param DeployFileRequest $request DeployFileRequest
      *
-     * @return DeployFileResponse
+     * @return DeployFileResponse DeployFileResponse
      */
     public function deployFile($request)
     {
@@ -5106,10 +5298,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DesensitizeDataRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DesensitizeDataRequest $request DesensitizeDataRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DesensitizeDataResponse
+     * @return DesensitizeDataResponse DesensitizeDataResponse
      */
     public function desensitizeDataWithOptions($request, $runtime)
     {
@@ -5134,9 +5326,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DesensitizeDataRequest $request
+     * @param DesensitizeDataRequest $request DesensitizeDataRequest
      *
-     * @return DesensitizeDataResponse
+     * @return DesensitizeDataResponse DesensitizeDataResponse
      */
     public function desensitizeData($request)
     {
@@ -5146,10 +5338,257 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DsgQuerySensResultRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 删除脱敏规则
+     *  *
+     * @param DsgDesensPlanDeleteRequest $tmpReq  DsgDesensPlanDeleteRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DsgQuerySensResultResponse
+     * @return DsgDesensPlanDeleteResponse DsgDesensPlanDeleteResponse
+     */
+    public function dsgDesensPlanDeleteWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DsgDesensPlanDeleteShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->idsShrink)) {
+            $query['Ids'] = $request->idsShrink;
+        }
+        if (!Utils::isUnset($request->sceneCode)) {
+            $query['SceneCode'] = $request->sceneCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgDesensPlanDelete',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgDesensPlanDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除脱敏规则
+     *  *
+     * @param DsgDesensPlanDeleteRequest $request DsgDesensPlanDeleteRequest
+     *
+     * @return DsgDesensPlanDeleteResponse DsgDesensPlanDeleteResponse
+     */
+    public function dsgDesensPlanDelete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgDesensPlanDeleteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询脱敏规则列表
+     *  *
+     * @param DsgDesensPlanQueryListRequest $request DsgDesensPlanQueryListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgDesensPlanQueryListResponse DsgDesensPlanQueryListResponse
+     */
+    public function dsgDesensPlanQueryListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgDesensPlanQueryList',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgDesensPlanQueryListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询脱敏规则列表
+     *  *
+     * @param DsgDesensPlanQueryListRequest $request DsgDesensPlanQueryListRequest
+     *
+     * @return DsgDesensPlanQueryListResponse DsgDesensPlanQueryListResponse
+     */
+    public function dsgDesensPlanQueryList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgDesensPlanQueryListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改脱敏规则生效状态
+     *  *
+     * @param DsgDesensPlanUpdateStatusRequest $tmpReq  DsgDesensPlanUpdateStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgDesensPlanUpdateStatusResponse DsgDesensPlanUpdateStatusResponse
+     */
+    public function dsgDesensPlanUpdateStatusWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DsgDesensPlanUpdateStatusShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->idsShrink)) {
+            $query['Ids'] = $request->idsShrink;
+        }
+        if (!Utils::isUnset($request->sceneCode)) {
+            $query['SceneCode'] = $request->sceneCode;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgDesensPlanUpdateStatus',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgDesensPlanUpdateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改脱敏规则生效状态
+     *  *
+     * @param DsgDesensPlanUpdateStatusRequest $request DsgDesensPlanUpdateStatusRequest
+     *
+     * @return DsgDesensPlanUpdateStatusResponse DsgDesensPlanUpdateStatusResponse
+     */
+    public function dsgDesensPlanUpdateStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgDesensPlanUpdateStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询引擎实例列表
+     *  *
+     * @param DsgPlatformQueryProjectsAndSchemaFromMetaRequest $request DsgPlatformQueryProjectsAndSchemaFromMetaRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgPlatformQueryProjectsAndSchemaFromMetaResponse DsgPlatformQueryProjectsAndSchemaFromMetaResponse
+     */
+    public function dsgPlatformQueryProjectsAndSchemaFromMetaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgPlatformQueryProjectsAndSchemaFromMeta',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgPlatformQueryProjectsAndSchemaFromMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询引擎实例列表
+     *  *
+     * @param DsgPlatformQueryProjectsAndSchemaFromMetaRequest $request DsgPlatformQueryProjectsAndSchemaFromMetaRequest
+     *
+     * @return DsgPlatformQueryProjectsAndSchemaFromMetaResponse DsgPlatformQueryProjectsAndSchemaFromMetaResponse
+     */
+    public function dsgPlatformQueryProjectsAndSchemaFromMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgPlatformQueryProjectsAndSchemaFromMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询能够选择的敏感类型模版列表
+     *  *
+     * @param DsgQueryDefaultTemplatesRequest $request DsgQueryDefaultTemplatesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgQueryDefaultTemplatesResponse DsgQueryDefaultTemplatesResponse
+     */
+    public function dsgQueryDefaultTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgQueryDefaultTemplates',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgQueryDefaultTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询能够选择的敏感类型模版列表
+     *  *
+     * @param DsgQueryDefaultTemplatesRequest $request DsgQueryDefaultTemplatesRequest
+     *
+     * @return DsgQueryDefaultTemplatesResponse DsgQueryDefaultTemplatesResponse
+     */
+    public function dsgQueryDefaultTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgQueryDefaultTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 识别结果查询
+     *  *
+     * @param DsgQuerySensResultRequest $request DsgQuerySensResultRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgQuerySensResultResponse DsgQuerySensResultResponse
      */
     public function dsgQuerySensResultWithOptions($request, $runtime)
     {
@@ -5219,9 +5658,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DsgQuerySensResultRequest $request
+     * @summary 识别结果查询
+     *  *
+     * @param DsgQuerySensResultRequest $request DsgQuerySensResultRequest
      *
-     * @return DsgQuerySensResultResponse
+     * @return DsgQuerySensResultResponse DsgQuerySensResultResponse
      */
     public function dsgQuerySensResult($request)
     {
@@ -5231,10 +5672,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DsgRunSensIdentifyRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @param DsgRunSensIdentifyRequest $tmpReq  DsgRunSensIdentifyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DsgRunSensIdentifyResponse
+     * @return DsgRunSensIdentifyResponse DsgRunSensIdentifyResponse
      */
     public function dsgRunSensIdentifyWithOptions($tmpReq, $runtime)
     {
@@ -5270,9 +5711,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DsgRunSensIdentifyRequest $request
+     * @param DsgRunSensIdentifyRequest $request DsgRunSensIdentifyRequest
      *
-     * @return DsgRunSensIdentifyResponse
+     * @return DsgRunSensIdentifyResponse DsgRunSensIdentifyResponse
      */
     public function dsgRunSensIdentify($request)
     {
@@ -5282,10 +5723,64 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DsgStopSensIdentifyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 新增或编辑二级场景
+     *  *
+     * @param DsgSceneAddOrUpdateSceneRequest $tmpReq  DsgSceneAddOrUpdateSceneRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DsgStopSensIdentifyResponse
+     * @return DsgSceneAddOrUpdateSceneResponse DsgSceneAddOrUpdateSceneResponse
+     */
+    public function dsgSceneAddOrUpdateSceneWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DsgSceneAddOrUpdateSceneShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->scenes)) {
+            $request->scenesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scenes, 'scenes', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->scenesShrink)) {
+            $query['scenes'] = $request->scenesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgSceneAddOrUpdateScene',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgSceneAddOrUpdateSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新增或编辑二级场景
+     *  *
+     * @param DsgSceneAddOrUpdateSceneRequest $request DsgSceneAddOrUpdateSceneRequest
+     *
+     * @return DsgSceneAddOrUpdateSceneResponse DsgSceneAddOrUpdateSceneResponse
+     */
+    public function dsgSceneAddOrUpdateScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgSceneAddOrUpdateSceneWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 识别任务停止
+     *  *
+     * @param DsgStopSensIdentifyRequest $request DsgStopSensIdentifyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgStopSensIdentifyResponse DsgStopSensIdentifyResponse
      */
     public function dsgStopSensIdentifyWithOptions($request, $runtime)
     {
@@ -5316,9 +5811,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param DsgStopSensIdentifyRequest $request
+     * @summary 识别任务停止
+     *  *
+     * @param DsgStopSensIdentifyRequest $request DsgStopSensIdentifyRequest
      *
-     * @return DsgStopSensIdentifyResponse
+     * @return DsgStopSensIdentifyResponse DsgStopSensIdentifyResponse
      */
     public function dsgStopSensIdentify($request)
     {
@@ -5328,10 +5825,281 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param EditRecognizeRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 新增或编辑用户组
+     *  *
+     * @param DsgUserGroupAddOrUpdateRequest $tmpReq  DsgUserGroupAddOrUpdateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return EditRecognizeRuleResponse
+     * @return DsgUserGroupAddOrUpdateResponse DsgUserGroupAddOrUpdateResponse
+     */
+    public function dsgUserGroupAddOrUpdateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DsgUserGroupAddOrUpdateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userGroups)) {
+            $request->userGroupsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userGroups, 'UserGroups', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->userGroupsShrink)) {
+            $query['UserGroups'] = $request->userGroupsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgUserGroupAddOrUpdate',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgUserGroupAddOrUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新增或编辑用户组
+     *  *
+     * @param DsgUserGroupAddOrUpdateRequest $request DsgUserGroupAddOrUpdateRequest
+     *
+     * @return DsgUserGroupAddOrUpdateResponse DsgUserGroupAddOrUpdateResponse
+     */
+    public function dsgUserGroupAddOrUpdate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgUserGroupAddOrUpdateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除用户组
+     *  *
+     * @param DsgUserGroupDeleteRequest $tmpReq  DsgUserGroupDeleteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgUserGroupDeleteResponse DsgUserGroupDeleteResponse
+     */
+    public function dsgUserGroupDeleteWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DsgUserGroupDeleteShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->idsShrink)) {
+            $query['Ids'] = $request->idsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgUserGroupDelete',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgUserGroupDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除用户组
+     *  *
+     * @param DsgUserGroupDeleteRequest $request DsgUserGroupDeleteRequest
+     *
+     * @return DsgUserGroupDeleteResponse DsgUserGroupDeleteResponse
+     */
+    public function dsgUserGroupDelete($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgUserGroupDeleteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DsgUserGroupGetOdpsRoleGroupsRequest $request DsgUserGroupGetOdpsRoleGroupsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgUserGroupGetOdpsRoleGroupsResponse DsgUserGroupGetOdpsRoleGroupsResponse
+     */
+    public function dsgUserGroupGetOdpsRoleGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgUserGroupGetOdpsRoleGroups',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgUserGroupGetOdpsRoleGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DsgUserGroupGetOdpsRoleGroupsRequest $request DsgUserGroupGetOdpsRoleGroupsRequest
+     *
+     * @return DsgUserGroupGetOdpsRoleGroupsResponse DsgUserGroupGetOdpsRoleGroupsResponse
+     */
+    public function dsgUserGroupGetOdpsRoleGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgUserGroupGetOdpsRoleGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询用户组列表
+     *  *
+     * @param DsgUserGroupQueryListRequest $request DsgUserGroupQueryListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgUserGroupQueryListResponse DsgUserGroupQueryListResponse
+     */
+    public function dsgUserGroupQueryListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgUserGroupQueryList',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgUserGroupQueryListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询用户组列表
+     *  *
+     * @param DsgUserGroupQueryListRequest $request DsgUserGroupQueryListRequest
+     *
+     * @return DsgUserGroupQueryListResponse DsgUserGroupQueryListResponse
+     */
+    public function dsgUserGroupQueryList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgUserGroupQueryListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询当前用户列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgUserGroupQueryUserListResponse DsgUserGroupQueryUserListResponse
+     */
+    public function dsgUserGroupQueryUserListWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DsgUserGroupQueryUserList',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgUserGroupQueryUserListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询当前用户列表
+     *  *
+     * @return DsgUserGroupQueryUserListResponse DsgUserGroupQueryUserListResponse
+     */
+    public function dsgUserGroupQueryUserList()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgUserGroupQueryUserListWithOptions($runtime);
+    }
+
+    /**
+     * @summary 查询脱敏白名单
+     *  *
+     * @param DsgWhiteListQueryListRequest $request DsgWhiteListQueryListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgWhiteListQueryListResponse DsgWhiteListQueryListResponse
+     */
+    public function dsgWhiteListQueryListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgWhiteListQueryList',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgWhiteListQueryListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询脱敏白名单
+     *  *
+     * @param DsgWhiteListQueryListRequest $request DsgWhiteListQueryListRequest
+     *
+     * @return DsgWhiteListQueryListResponse DsgWhiteListQueryListResponse
+     */
+    public function dsgWhiteListQueryList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgWhiteListQueryListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改识别规则
+     *  *
+     * @param EditRecognizeRuleRequest $request EditRecognizeRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EditRecognizeRuleResponse EditRecognizeRuleResponse
      */
     public function editRecognizeRuleWithOptions($request, $runtime)
     {
@@ -5413,9 +6181,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param EditRecognizeRuleRequest $request
+     * @summary 修改识别规则
+     *  *
+     * @param EditRecognizeRuleRequest $request EditRecognizeRuleRequest
      *
-     * @return EditRecognizeRuleResponse
+     * @return EditRecognizeRuleResponse EditRecognizeRuleResponse
      */
     public function editRecognizeRule($request)
     {
@@ -5425,10 +6195,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param EstablishRelationTableToBusinessRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param EstablishRelationTableToBusinessRequest $request EstablishRelationTableToBusinessRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return EstablishRelationTableToBusinessResponse
+     * @return EstablishRelationTableToBusinessResponse EstablishRelationTableToBusinessResponse
      */
     public function establishRelationTableToBusinessWithOptions($request, $runtime)
     {
@@ -5468,9 +6238,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param EstablishRelationTableToBusinessRequest $request
+     * @param EstablishRelationTableToBusinessRequest $request EstablishRelationTableToBusinessRequest
      *
-     * @return EstablishRelationTableToBusinessResponse
+     * @return EstablishRelationTableToBusinessResponse EstablishRelationTableToBusinessResponse
      */
     public function establishRelationTableToBusiness($request)
     {
@@ -5480,10 +6250,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ExportDataSourcesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ExportDataSourcesRequest $request ExportDataSourcesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportDataSourcesResponse
+     * @return ExportDataSourcesResponse ExportDataSourcesResponse
      */
     public function exportDataSourcesWithOptions($request, $runtime)
     {
@@ -5508,9 +6278,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ExportDataSourcesRequest $request
+     * @param ExportDataSourcesRequest $request ExportDataSourcesRequest
      *
-     * @return ExportDataSourcesResponse
+     * @return ExportDataSourcesResponse ExportDataSourcesResponse
      */
     public function exportDataSources($request)
     {
@@ -5520,8 +6290,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform.
-     *   *
+     * @summary DataWorks allows you to use only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+     * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *  *
+     * @description The operation that you want to perform.
+     *  *
      * @param GenerateDISyncTaskConfigForCreatingRequest $request GenerateDISyncTaskConfigForCreatingRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -5562,8 +6335,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform.
-     *   *
+     * @summary DataWorks allows you to use only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a batch synchronization node in Data Integration. To create a real-time synchronization node or a synchronization solution, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation and use the parameters as request parameters to create a real-time synchronization node or a synchronization solution in Data Integration.
+     * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *  *
+     * @description The operation that you want to perform.
+     *  *
      * @param GenerateDISyncTaskConfigForCreatingRequest $request GenerateDISyncTaskConfigForCreatingRequest
      *
      * @return GenerateDISyncTaskConfigForCreatingResponse GenerateDISyncTaskConfigForCreatingResponse
@@ -5576,8 +6352,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform.
-     *   *
+     * @summary DataWorks allows you to use only the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization node in Data Integration. To update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization node or a synchronization solution in Data Integration. DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *  *
+     * @description The operation that you want to perform.
+     *  *
      * @param GenerateDISyncTaskConfigForUpdatingRequest $request GenerateDISyncTaskConfigForUpdatingRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -5621,8 +6399,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform.
-     *   *
+     * @summary DataWorks allows you to use only the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization node in Data Integration. To update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization node or a synchronization solution in Data Integration. DataWorks allows you to update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *  *
+     * @description The operation that you want to perform.
+     *  *
      * @param GenerateDISyncTaskConfigForUpdatingRequest $request GenerateDISyncTaskConfigForUpdatingRequest
      *
      * @return GenerateDISyncTaskConfigForUpdatingResponse GenerateDISyncTaskConfigForUpdatingResponse
@@ -5635,10 +6415,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetAlertMessageRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 获取告警信息
+     *  *
+     * @param GetAlertMessageRequest $request GetAlertMessageRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAlertMessageResponse
+     * @return GetAlertMessageResponse GetAlertMessageResponse
      */
     public function getAlertMessageWithOptions($request, $runtime)
     {
@@ -5666,9 +6448,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetAlertMessageRequest $request
+     * @summary 获取告警信息
+     *  *
+     * @param GetAlertMessageRequest $request GetAlertMessageRequest
      *
-     * @return GetAlertMessageResponse
+     * @return GetAlertMessageResponse GetAlertMessageResponse
      */
     public function getAlertMessage($request)
     {
@@ -5678,10 +6462,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetBaselineRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 根据基线id查询基线
+     *  *
+     * @param GetBaselineRequest $request GetBaselineRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBaselineResponse
+     * @return GetBaselineResponse GetBaselineResponse
      */
     public function getBaselineWithOptions($request, $runtime)
     {
@@ -5712,9 +6498,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetBaselineRequest $request
+     * @summary 根据基线id查询基线
+     *  *
+     * @param GetBaselineRequest $request GetBaselineRequest
      *
-     * @return GetBaselineResponse
+     * @return GetBaselineResponse GetBaselineResponse
      */
     public function getBaseline($request)
     {
@@ -5724,10 +6512,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetBaselineConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetBaselineConfigRequest $request GetBaselineConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBaselineConfigResponse
+     * @return GetBaselineConfigResponse GetBaselineConfigResponse
      */
     public function getBaselineConfigWithOptions($request, $runtime)
     {
@@ -5755,9 +6543,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetBaselineConfigRequest $request
+     * @param GetBaselineConfigRequest $request GetBaselineConfigRequest
      *
-     * @return GetBaselineConfigResponse
+     * @return GetBaselineConfigResponse GetBaselineConfigResponse
      */
     public function getBaselineConfig($request)
     {
@@ -5767,10 +6555,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetBaselineKeyPathRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The information about the events that are associated with the instance.
+     *  *
+     * @param GetBaselineKeyPathRequest $request GetBaselineKeyPathRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBaselineKeyPathResponse
+     * @return GetBaselineKeyPathResponse GetBaselineKeyPathResponse
      */
     public function getBaselineKeyPathWithOptions($request, $runtime)
     {
@@ -5804,9 +6594,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetBaselineKeyPathRequest $request
+     * @summary The information about the events that are associated with the instance.
+     *  *
+     * @param GetBaselineKeyPathRequest $request GetBaselineKeyPathRequest
      *
-     * @return GetBaselineKeyPathResponse
+     * @return GetBaselineKeyPathResponse GetBaselineKeyPathResponse
      */
     public function getBaselineKeyPath($request)
     {
@@ -5816,10 +6608,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetBaselineStatusRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the details of a baseline instance.
+     *  *
+     * @param GetBaselineStatusRequest $request GetBaselineStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBaselineStatusResponse
+     * @return GetBaselineStatusResponse GetBaselineStatusResponse
      */
     public function getBaselineStatusWithOptions($request, $runtime)
     {
@@ -5853,9 +6647,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetBaselineStatusRequest $request
+     * @summary Queries the details of a baseline instance.
+     *  *
+     * @param GetBaselineStatusRequest $request GetBaselineStatusRequest
      *
-     * @return GetBaselineStatusResponse
+     * @return GetBaselineStatusResponse GetBaselineStatusResponse
      */
     public function getBaselineStatus($request)
     {
@@ -5865,10 +6661,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetBusinessRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param GetBusinessRequest $request GetBusinessRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBusinessResponse
+     * @return GetBusinessResponse GetBusinessResponse
      */
     public function getBusinessWithOptions($request, $runtime)
     {
@@ -5902,9 +6698,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetBusinessRequest $request
+     * @param GetBusinessRequest $request GetBusinessRequest
      *
-     * @return GetBusinessResponse
+     * @return GetBusinessResponse GetBusinessResponse
      */
     public function getBusiness($request)
     {
@@ -5914,10 +6710,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDDLJobStatusRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the status of a table creation, update, or deletion task.
+     *  *
+     * @param GetDDLJobStatusRequest $request GetDDLJobStatusRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDDLJobStatusResponse
+     * @return GetDDLJobStatusResponse GetDDLJobStatusResponse
      */
     public function getDDLJobStatusWithOptions($request, $runtime)
     {
@@ -5942,9 +6740,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDDLJobStatusRequest $request
+     * @summary Queries the status of a table creation, update, or deletion task.
+     *  *
+     * @param GetDDLJobStatusRequest $request GetDDLJobStatusRequest
      *
-     * @return GetDDLJobStatusResponse
+     * @return GetDDLJobStatusResponse GetDDLJobStatusResponse
      */
     public function getDDLJobStatus($request)
     {
@@ -5954,10 +6754,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDIAlarmRuleRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 查询数据集成新版告警规则
+     *  *
+     * @param GetDIAlarmRuleRequest $request GetDIAlarmRuleRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDIAlarmRuleResponse
+     * @return GetDIAlarmRuleResponse GetDIAlarmRuleResponse
      */
     public function getDIAlarmRuleWithOptions($request, $runtime)
     {
@@ -5985,9 +6787,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDIAlarmRuleRequest $request
+     * @summary 查询数据集成新版告警规则
+     *  *
+     * @param GetDIAlarmRuleRequest $request GetDIAlarmRuleRequest
      *
-     * @return GetDIAlarmRuleResponse
+     * @return GetDIAlarmRuleResponse GetDIAlarmRuleResponse
      */
     public function getDIAlarmRule($request)
     {
@@ -5997,10 +6801,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDIJobRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary 查询数据集成新版解决方案任务
+     *  *
+     * @param GetDIJobRequest $request GetDIJobRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDIJobResponse
+     * @return GetDIJobResponse GetDIJobResponse
      */
     public function getDIJobWithOptions($request, $runtime)
     {
@@ -6031,9 +6837,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDIJobRequest $request
+     * @summary 查询数据集成新版解决方案任务
+     *  *
+     * @param GetDIJobRequest $request GetDIJobRequest
      *
-     * @return GetDIJobResponse
+     * @return GetDIJobResponse GetDIJobResponse
      */
     public function getDIJob($request)
     {
@@ -6043,10 +6851,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDISyncInstanceInfoRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary The operation that you want to perform. Set the value to **GetDISyncInstanceInfo**.
+     *  *
+     * @param GetDISyncInstanceInfoRequest $request GetDISyncInstanceInfoRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDISyncInstanceInfoResponse
+     * @return GetDISyncInstanceInfoResponse GetDISyncInstanceInfoResponse
      */
     public function getDISyncInstanceInfoWithOptions($request, $runtime)
     {
@@ -6080,9 +6890,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDISyncInstanceInfoRequest $request
+     * @summary The operation that you want to perform. Set the value to **GetDISyncInstanceInfo**.
+     *  *
+     * @param GetDISyncInstanceInfoRequest $request GetDISyncInstanceInfoRequest
      *
-     * @return GetDISyncInstanceInfoResponse
+     * @return GetDISyncInstanceInfoResponse GetDISyncInstanceInfoResponse
      */
     public function getDISyncInstanceInfo($request)
     {
@@ -6092,10 +6904,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDISyncTaskRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary The operation that you want to perform. Set the value to **GetDISyncTask**.
+     *  *
+     * @param GetDISyncTaskRequest $request GetDISyncTaskRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDISyncTaskResponse
+     * @return GetDISyncTaskResponse GetDISyncTaskResponse
      */
     public function getDISyncTaskWithOptions($request, $runtime)
     {
@@ -6129,9 +6943,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDISyncTaskRequest $request
+     * @summary The operation that you want to perform. Set the value to **GetDISyncTask**.
+     *  *
+     * @param GetDISyncTaskRequest $request GetDISyncTaskRequest
      *
-     * @return GetDISyncTaskResponse
+     * @return GetDISyncTaskResponse GetDISyncTaskResponse
      */
     public function getDISyncTask($request)
     {
@@ -6141,17 +6957,22 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Supported DAG types:
-     *   * *   MANUAL: the DAG for a manually triggered workflow.
-     *   * *   SMOKE_TEST: the DAG for a smoke testing workflow.
-     *   * *   SUPPLY_DATA: the DAG for a data backfill instance.
-     *   * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
-     *   * Supported DAG states:
-     *   * *   CREATED: The DAG is created.
-     *   * *   RUNNING: The DAG is running.
-     *   * *   FAILURE: The DAG fails to run.
-     *   * *   SUCCESS: The DAG successfully runs.
-     *   *
+     * @summary Queries the details of a directed acyclic graph (DAG) based on the ID of the DAG.
+     *                   You can call the GetDag operation to query the details of the DAG for a manually triggered
+     *                   workflow, a manually triggered node, or a data backfill instance. However, you cannot
+     *                   query the details of the DAG for an auto triggered node or an auto triggered workflow.
+     *  *
+     * @description Supported DAG types:
+     * *   MANUAL: the DAG for a manually triggered workflow.
+     * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+     * *   SUPPLY_DATA: the DAG for a data backfill instance.
+     * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+     * Supported DAG states:
+     * *   CREATED: The DAG is created.
+     * *   RUNNING: The DAG is running.
+     * *   FAILURE: The DAG fails to run.
+     * *   SUCCESS: The DAG successfully runs.
+     *  *
      * @param GetDagRequest  $request GetDagRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -6186,17 +7007,22 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Supported DAG types:
-     *   * *   MANUAL: the DAG for a manually triggered workflow.
-     *   * *   SMOKE_TEST: the DAG for a smoke testing workflow.
-     *   * *   SUPPLY_DATA: the DAG for a data backfill instance.
-     *   * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
-     *   * Supported DAG states:
-     *   * *   CREATED: The DAG is created.
-     *   * *   RUNNING: The DAG is running.
-     *   * *   FAILURE: The DAG fails to run.
-     *   * *   SUCCESS: The DAG successfully runs.
-     *   *
+     * @summary Queries the details of a directed acyclic graph (DAG) based on the ID of the DAG.
+     *                   You can call the GetDag operation to query the details of the DAG for a manually triggered
+     *                   workflow, a manually triggered node, or a data backfill instance. However, you cannot
+     *                   query the details of the DAG for an auto triggered node or an auto triggered workflow.
+     *  *
+     * @description Supported DAG types:
+     * *   MANUAL: the DAG for a manually triggered workflow.
+     * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+     * *   SUPPLY_DATA: the DAG for a data backfill instance.
+     * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+     * Supported DAG states:
+     * *   CREATED: The DAG is created.
+     * *   RUNNING: The DAG is running.
+     * *   FAILURE: The DAG fails to run.
+     * *   SUCCESS: The DAG successfully runs.
+     *  *
      * @param GetDagRequest $request GetDagRequest
      *
      * @return GetDagResponse GetDagResponse
@@ -6209,10 +7035,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServiceApiRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the details of a DataService Studio API in the development state.
+     *  *
+     * @param GetDataServiceApiRequest $request GetDataServiceApiRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataServiceApiResponse
+     * @return GetDataServiceApiResponse GetDataServiceApiResponse
      */
     public function getDataServiceApiWithOptions($request, $runtime)
     {
@@ -6246,9 +7074,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServiceApiRequest $request
+     * @summary Queries the details of a DataService Studio API in the development state.
+     *  *
+     * @param GetDataServiceApiRequest $request GetDataServiceApiRequest
      *
-     * @return GetDataServiceApiResponse
+     * @return GetDataServiceApiResponse GetDataServiceApiResponse
      */
     public function getDataServiceApi($request)
     {
@@ -6258,10 +7088,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServiceApiTestRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param GetDataServiceApiTestRequest $request GetDataServiceApiTestRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataServiceApiTestResponse
+     * @return GetDataServiceApiTestResponse GetDataServiceApiTestResponse
      */
     public function getDataServiceApiTestWithOptions($request, $runtime)
     {
@@ -6286,9 +7116,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServiceApiTestRequest $request
+     * @param GetDataServiceApiTestRequest $request GetDataServiceApiTestRequest
      *
-     * @return GetDataServiceApiTestResponse
+     * @return GetDataServiceApiTestResponse GetDataServiceApiTestResponse
      */
     public function getDataServiceApiTest($request)
     {
@@ -6298,10 +7128,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServiceApplicationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the details of an application.
+     *  *
+     * @param GetDataServiceApplicationRequest $request GetDataServiceApplicationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataServiceApplicationResponse
+     * @return GetDataServiceApplicationResponse GetDataServiceApplicationResponse
      */
     public function getDataServiceApplicationWithOptions($request, $runtime)
     {
@@ -6335,9 +7167,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServiceApplicationRequest $request
+     * @summary Queries the details of an application.
+     *  *
+     * @param GetDataServiceApplicationRequest $request GetDataServiceApplicationRequest
      *
-     * @return GetDataServiceApplicationResponse
+     * @return GetDataServiceApplicationResponse GetDataServiceApplicationResponse
      */
     public function getDataServiceApplication($request)
     {
@@ -6347,10 +7181,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServiceFolderRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries a folder.
+     *  *
+     * @param GetDataServiceFolderRequest $request GetDataServiceFolderRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataServiceFolderResponse
+     * @return GetDataServiceFolderResponse GetDataServiceFolderResponse
      */
     public function getDataServiceFolderWithOptions($request, $runtime)
     {
@@ -6384,9 +7220,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServiceFolderRequest $request
+     * @summary Queries a folder.
+     *  *
+     * @param GetDataServiceFolderRequest $request GetDataServiceFolderRequest
      *
-     * @return GetDataServiceFolderResponse
+     * @return GetDataServiceFolderResponse GetDataServiceFolderResponse
      */
     public function getDataServiceFolder($request)
     {
@@ -6396,10 +7234,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServiceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries a business process.
+     *  *
+     * @param GetDataServiceGroupRequest $request GetDataServiceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataServiceGroupResponse
+     * @return GetDataServiceGroupResponse GetDataServiceGroupResponse
      */
     public function getDataServiceGroupWithOptions($request, $runtime)
     {
@@ -6433,9 +7273,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServiceGroupRequest $request
+     * @summary Queries a business process.
+     *  *
+     * @param GetDataServiceGroupRequest $request GetDataServiceGroupRequest
      *
-     * @return GetDataServiceGroupResponse
+     * @return GetDataServiceGroupResponse GetDataServiceGroupResponse
      */
     public function getDataServiceGroup($request)
     {
@@ -6445,10 +7287,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServicePublishedApiRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the information about a DataService Studio API in the published state.
+     *  *
+     * @param GetDataServicePublishedApiRequest $request GetDataServicePublishedApiRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataServicePublishedApiResponse
+     * @return GetDataServicePublishedApiResponse GetDataServicePublishedApiResponse
      */
     public function getDataServicePublishedApiWithOptions($request, $runtime)
     {
@@ -6482,9 +7326,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataServicePublishedApiRequest $request
+     * @summary Queries the information about a DataService Studio API in the published state.
+     *  *
+     * @param GetDataServicePublishedApiRequest $request GetDataServicePublishedApiRequest
      *
-     * @return GetDataServicePublishedApiResponse
+     * @return GetDataServicePublishedApiResponse GetDataServicePublishedApiResponse
      */
     public function getDataServicePublishedApi($request)
     {
@@ -6494,10 +7340,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataSourceMetaRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary The operation that you want to perform. Set the value to **GetDataSourceMeta**.
+     *  *
+     * @param GetDataSourceMetaRequest $request GetDataSourceMetaRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataSourceMetaResponse
+     * @return GetDataSourceMetaResponse GetDataSourceMetaResponse
      */
     public function getDataSourceMetaWithOptions($request, $runtime)
     {
@@ -6537,9 +7385,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDataSourceMetaRequest $request
+     * @summary The operation that you want to perform. Set the value to **GetDataSourceMeta**.
+     *  *
+     * @param GetDataSourceMetaRequest $request GetDataSourceMetaRequest
      *
-     * @return GetDataSourceMetaResponse
+     * @return GetDataSourceMetaResponse GetDataSourceMetaResponse
      */
     public function getDataSourceMeta($request)
     {
@@ -6549,10 +7399,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDeploymentRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the details of a deployment task.
+     *  *
+     * @param GetDeploymentRequest $request GetDeploymentRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDeploymentResponse
+     * @return GetDeploymentResponse GetDeploymentResponse
      */
     public function getDeploymentWithOptions($request, $runtime)
     {
@@ -6586,9 +7438,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetDeploymentRequest $request
+     * @summary Queries the details of a deployment task.
+     *  *
+     * @param GetDeploymentRequest $request GetDeploymentRequest
      *
-     * @return GetDeploymentResponse
+     * @return GetDeploymentResponse GetDeploymentResponse
      */
     public function getDeployment($request)
     {
@@ -6598,10 +7452,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetExtensionRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取开放平台扩展程序详情
+     *  *
+     * @param GetExtensionRequest $request GetExtensionRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetExtensionResponse
+     * @return GetExtensionResponse GetExtensionResponse
      */
     public function getExtensionWithOptions($request, $runtime)
     {
@@ -6629,9 +7485,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetExtensionRequest $request
+     * @summary 获取开放平台扩展程序详情
+     *  *
+     * @param GetExtensionRequest $request GetExtensionRequest
      *
-     * @return GetExtensionResponse
+     * @return GetExtensionResponse GetExtensionResponse
      */
     public function getExtension($request)
     {
@@ -6641,10 +7499,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetFileRequest $request
-     * @param RuntimeOptions $runtime
+     * @param GetFileRequest $request GetFileRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileResponse
+     * @return GetFileResponse GetFileResponse
      */
     public function getFileWithOptions($request, $runtime)
     {
@@ -6681,9 +7539,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetFileRequest $request
+     * @param GetFileRequest $request GetFileRequest
      *
-     * @return GetFileResponse
+     * @return GetFileResponse GetFileResponse
      */
     public function getFile($request)
     {
@@ -6693,10 +7551,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetFileTypeStatisticRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param GetFileTypeStatisticRequest $request GetFileTypeStatisticRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileTypeStatisticResponse
+     * @return GetFileTypeStatisticResponse GetFileTypeStatisticResponse
      */
     public function getFileTypeStatisticWithOptions($request, $runtime)
     {
@@ -6727,9 +7585,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetFileTypeStatisticRequest $request
+     * @param GetFileTypeStatisticRequest $request GetFileTypeStatisticRequest
      *
-     * @return GetFileTypeStatisticResponse
+     * @return GetFileTypeStatisticResponse GetFileTypeStatisticResponse
      */
     public function getFileTypeStatistic($request)
     {
@@ -6739,10 +7597,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetFileVersionRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetFileVersionRequest $request GetFileVersionRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileVersionResponse
+     * @return GetFileVersionResponse GetFileVersionResponse
      */
     public function getFileVersionWithOptions($request, $runtime)
     {
@@ -6779,9 +7637,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetFileVersionRequest $request
+     * @param GetFileVersionRequest $request GetFileVersionRequest
      *
-     * @return GetFileVersionResponse
+     * @return GetFileVersionResponse GetFileVersionResponse
      */
     public function getFileVersion($request)
     {
@@ -6791,10 +7649,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetFolderRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param GetFolderRequest $request GetFolderRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFolderResponse
+     * @return GetFolderResponse GetFolderResponse
      */
     public function getFolderWithOptions($request, $runtime)
     {
@@ -6831,9 +7689,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetFolderRequest $request
+     * @param GetFolderRequest $request GetFolderRequest
      *
-     * @return GetFolderResponse
+     * @return GetFolderResponse GetFolderResponse
      */
     public function getFolder($request)
     {
@@ -6843,10 +7701,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetIDEEventDetailRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the data snapshot of an extension point based on the ID of an open message when the related extension point event is triggered.
+     *  *
+     * @param GetIDEEventDetailRequest $request GetIDEEventDetailRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIDEEventDetailResponse
+     * @return GetIDEEventDetailResponse GetIDEEventDetailResponse
      */
     public function getIDEEventDetailWithOptions($request, $runtime)
     {
@@ -6877,9 +7737,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetIDEEventDetailRequest $request
+     * @summary Queries the data snapshot of an extension point based on the ID of an open message when the related extension point event is triggered.
+     *  *
+     * @param GetIDEEventDetailRequest $request GetIDEEventDetailRequest
      *
-     * @return GetIDEEventDetailResponse
+     * @return GetIDEEventDetailResponse GetIDEEventDetailResponse
      */
     public function getIDEEventDetail($request)
     {
@@ -6889,10 +7751,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param GetInstanceRequest $request GetInstanceRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstanceWithOptions($request, $runtime)
     {
@@ -6923,9 +7785,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceRequest $request
+     * @param GetInstanceRequest $request GetInstanceRequest
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstance($request)
     {
@@ -6935,8 +7797,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetInstanceConsumeTimeRank is deprecated
+     *  *
      * Deprecated
      *
      * @param GetInstanceConsumeTimeRankRequest $request GetInstanceConsumeTimeRankRequest
@@ -6973,8 +7835,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetInstanceConsumeTimeRank is deprecated
+     *  *
      * Deprecated
      *
      * @param GetInstanceConsumeTimeRankRequest $request GetInstanceConsumeTimeRankRequest
@@ -6989,8 +7851,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetInstanceCountTrend is deprecated
+     *  *
      * Deprecated
      *
      * @param GetInstanceCountTrendRequest $request GetInstanceCountTrendRequest
@@ -7030,8 +7892,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetInstanceCountTrend is deprecated
+     *  *
      * Deprecated
      *
      * @param GetInstanceCountTrendRequest $request GetInstanceCountTrendRequest
@@ -7046,8 +7908,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetInstanceErrorRank is deprecated
+     *  *
      * Deprecated
      *
      * @param GetInstanceErrorRankRequest $request GetInstanceErrorRankRequest
@@ -7081,8 +7943,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetInstanceErrorRank is deprecated
+     *  *
      * Deprecated
      *
      * @param GetInstanceErrorRankRequest $request GetInstanceErrorRankRequest
@@ -7097,8 +7959,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * You may not obtain the instance logs that were generated more than seven days ago.
-     *   *
+     * @summary Queries the logs of an instance.
+     *  *
+     * @description You may not obtain the instance logs that were generated more than seven days ago.
+     *  *
      * @param GetInstanceLogRequest $request GetInstanceLogRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -7136,8 +8000,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * You may not obtain the instance logs that were generated more than seven days ago.
-     *   *
+     * @summary Queries the logs of an instance.
+     *  *
+     * @description You may not obtain the instance logs that were generated more than seven days ago.
+     *  *
      * @param GetInstanceLogRequest $request GetInstanceLogRequest
      *
      * @return GetInstanceLogResponse GetInstanceLogResponse
@@ -7150,8 +8016,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetInstanceStatusCount is deprecated
+     *  *
      * Deprecated
      *
      * @param GetInstanceStatusCountRequest $request GetInstanceStatusCountRequest
@@ -7191,8 +8057,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetInstanceStatusCount is deprecated
+     *  *
      * Deprecated
      *
      * @param GetInstanceStatusCountRequest $request GetInstanceStatusCountRequest
@@ -7207,10 +8073,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceStatusStatisticRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param GetInstanceStatusStatisticRequest $request GetInstanceStatusStatisticRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceStatusStatisticResponse
+     * @return GetInstanceStatusStatisticResponse GetInstanceStatusStatisticResponse
      */
     public function getInstanceStatusStatisticWithOptions($request, $runtime)
     {
@@ -7253,9 +8119,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceStatusStatisticRequest $request
+     * @param GetInstanceStatusStatisticRequest $request GetInstanceStatusStatisticRequest
      *
-     * @return GetInstanceStatusStatisticResponse
+     * @return GetInstanceStatusStatisticResponse GetInstanceStatusStatisticResponse
      */
     public function getInstanceStatusStatistic($request)
     {
@@ -7265,8 +8131,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetManualDagInstances is deprecated
+     *  *
      * Deprecated
      *
      * @param GetManualDagInstancesRequest $request GetManualDagInstancesRequest
@@ -7306,8 +8172,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetManualDagInstances is deprecated
+     *  *
      * Deprecated
      *
      * @param GetManualDagInstancesRequest $request GetManualDagInstancesRequest
@@ -7322,10 +8188,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaCategoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a category tree.
+     *  *
+     * @param GetMetaCategoryRequest $request GetMetaCategoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaCategoryResponse
+     * @return GetMetaCategoryResponse GetMetaCategoryResponse
      */
     public function getMetaCategoryWithOptions($request, $runtime)
     {
@@ -7359,9 +8227,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaCategoryRequest $request
+     * @summary Queries a category tree.
+     *  *
+     * @param GetMetaCategoryRequest $request GetMetaCategoryRequest
      *
-     * @return GetMetaCategoryResponse
+     * @return GetMetaCategoryResponse GetMetaCategoryResponse
      */
     public function getMetaCategory($request)
     {
@@ -7371,10 +8241,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaCollectionDetailRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the details of a collection.
+     *  *
+     * @param GetMetaCollectionDetailRequest $request GetMetaCollectionDetailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaCollectionDetailResponse
+     * @return GetMetaCollectionDetailResponse GetMetaCollectionDetailResponse
      */
     public function getMetaCollectionDetailWithOptions($request, $runtime)
     {
@@ -7402,9 +8274,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaCollectionDetailRequest $request
+     * @summary Queries the details of a collection.
+     *  *
+     * @param GetMetaCollectionDetailRequest $request GetMetaCollectionDetailRequest
      *
-     * @return GetMetaCollectionDetailResponse
+     * @return GetMetaCollectionDetailResponse GetMetaCollectionDetailResponse
      */
     public function getMetaCollectionDetail($request)
     {
@@ -7414,10 +8288,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaColumnLineageRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the lineage of a field in a metatable.
+     *  *
+     * @param GetMetaColumnLineageRequest $request GetMetaColumnLineageRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaColumnLineageResponse
+     * @return GetMetaColumnLineageResponse GetMetaColumnLineageResponse
      */
     public function getMetaColumnLineageWithOptions($request, $runtime)
     {
@@ -7469,9 +8345,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaColumnLineageRequest $request
+     * @summary Queries the lineage of a field in a metatable.
+     *  *
+     * @param GetMetaColumnLineageRequest $request GetMetaColumnLineageRequest
      *
-     * @return GetMetaColumnLineageResponse
+     * @return GetMetaColumnLineageResponse GetMetaColumnLineageResponse
      */
     public function getMetaColumnLineage($request)
     {
@@ -7481,9 +8359,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
-     *   * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
-     *   *
+     * @summary The ID of the compute engine instance. Specify the ID in the Engine type.Engine name format.
+     *  *
+     * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+     * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
+     *  *
      * @param GetMetaDBInfoRequest $request GetMetaDBInfoRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -7512,9 +8392,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
-     *   * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
-     *   *
+     * @summary The ID of the compute engine instance. Specify the ID in the Engine type.Engine name format.
+     *  *
+     * @description The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+     * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
+     *  *
      * @param GetMetaDBInfoRequest $request GetMetaDBInfoRequest
      *
      * @return GetMetaDBInfoResponse GetMetaDBInfoResponse
@@ -7527,10 +8409,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaDBTableListRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The operation that you want to perform. Set the value to **GetMetaDBTableList**.
+     *  *
+     * @param GetMetaDBTableListRequest $request GetMetaDBTableListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaDBTableListResponse
+     * @return GetMetaDBTableListResponse GetMetaDBTableListResponse
      */
     public function getMetaDBTableListWithOptions($request, $runtime)
     {
@@ -7573,9 +8457,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaDBTableListRequest $request
+     * @summary The operation that you want to perform. Set the value to **GetMetaDBTableList**.
+     *  *
+     * @param GetMetaDBTableListRequest $request GetMetaDBTableListRequest
      *
-     * @return GetMetaDBTableListResponse
+     * @return GetMetaDBTableListResponse GetMetaDBTableListResponse
      */
     public function getMetaDBTableList($request)
     {
@@ -7585,8 +8471,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary The operation that you want to perform. Set the value to **GetMetaTableBasicInfo**.
+     *  *
+     * @description ****
+     *  *
      * @param GetMetaTableBasicInfoRequest $request GetMetaTableBasicInfoRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -7615,8 +8503,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary The operation that you want to perform. Set the value to **GetMetaTableBasicInfo**.
+     *  *
+     * @description ****
+     *  *
      * @param GetMetaTableBasicInfoRequest $request GetMetaTableBasicInfoRequest
      *
      * @return GetMetaTableBasicInfoResponse GetMetaTableBasicInfoResponse
@@ -7629,10 +8519,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableChangeLogRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary The operation that you want to perform. Set the value to **GetMetaTableChangeLog**.
+     *  *
+     * @param GetMetaTableChangeLogRequest $request GetMetaTableChangeLogRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableChangeLogResponse
+     * @return GetMetaTableChangeLogResponse GetMetaTableChangeLogResponse
      */
     public function getMetaTableChangeLogWithOptions($request, $runtime)
     {
@@ -7678,9 +8570,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableChangeLogRequest $request
+     * @summary The operation that you want to perform. Set the value to **GetMetaTableChangeLog**.
+     *  *
+     * @param GetMetaTableChangeLogRequest $request GetMetaTableChangeLogRequest
      *
-     * @return GetMetaTableChangeLogResponse
+     * @return GetMetaTableChangeLogResponse GetMetaTableChangeLogResponse
      */
     public function getMetaTableChangeLog($request)
     {
@@ -7690,10 +8584,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableColumnRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The operation that you want to perform. Set the value to **GetMetaTableColumn**.
+     *  *
+     * @param GetMetaTableColumnRequest $request GetMetaTableColumnRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableColumnResponse
+     * @return GetMetaTableColumnResponse GetMetaTableColumnResponse
      */
     public function getMetaTableColumnWithOptions($request, $runtime)
     {
@@ -7718,9 +8614,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableColumnRequest $request
+     * @summary The operation that you want to perform. Set the value to **GetMetaTableColumn**.
+     *  *
+     * @param GetMetaTableColumnRequest $request GetMetaTableColumnRequest
      *
-     * @return GetMetaTableColumnResponse
+     * @return GetMetaTableColumnResponse GetMetaTableColumnResponse
      */
     public function getMetaTableColumn($request)
     {
@@ -7730,10 +8628,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableFullInfoRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the complete information about a metatable, including information about fields in the metatable.
+     *  *
+     * @param GetMetaTableFullInfoRequest $request GetMetaTableFullInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableFullInfoResponse
+     * @return GetMetaTableFullInfoResponse GetMetaTableFullInfoResponse
      */
     public function getMetaTableFullInfoWithOptions($request, $runtime)
     {
@@ -7758,9 +8658,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableFullInfoRequest $request
+     * @summary Queries the complete information about a metatable, including information about fields in the metatable.
+     *  *
+     * @param GetMetaTableFullInfoRequest $request GetMetaTableFullInfoRequest
      *
-     * @return GetMetaTableFullInfoResponse
+     * @return GetMetaTableFullInfoResponse GetMetaTableFullInfoResponse
      */
     public function getMetaTableFullInfo($request)
     {
@@ -7770,10 +8672,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableIntroWikiRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the instructions on how to use a metatable.
+     *  *
+     * @param GetMetaTableIntroWikiRequest $request GetMetaTableIntroWikiRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableIntroWikiResponse
+     * @return GetMetaTableIntroWikiResponse GetMetaTableIntroWikiResponse
      */
     public function getMetaTableIntroWikiWithOptions($request, $runtime)
     {
@@ -7804,9 +8708,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableIntroWikiRequest $request
+     * @summary Queries the instructions on how to use a metatable.
+     *  *
+     * @param GetMetaTableIntroWikiRequest $request GetMetaTableIntroWikiRequest
      *
-     * @return GetMetaTableIntroWikiResponse
+     * @return GetMetaTableIntroWikiResponse GetMetaTableIntroWikiResponse
      */
     public function getMetaTableIntroWiki($request)
     {
@@ -7816,10 +8722,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableLineageRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary The operation that you want to perform. Set the value to **GetMetaTableLineage**.
+     *  *
+     * @param GetMetaTableLineageRequest $request GetMetaTableLineageRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableLineageResponse
+     * @return GetMetaTableLineageResponse GetMetaTableLineageResponse
      */
     public function getMetaTableLineageWithOptions($request, $runtime)
     {
@@ -7868,9 +8776,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableLineageRequest $request
+     * @summary The operation that you want to perform. Set the value to **GetMetaTableLineage**.
+     *  *
+     * @param GetMetaTableLineageRequest $request GetMetaTableLineageRequest
      *
-     * @return GetMetaTableLineageResponse
+     * @return GetMetaTableLineageResponse GetMetaTableLineageResponse
      */
     public function getMetaTableLineage($request)
     {
@@ -7880,10 +8790,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableListByCategoryRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param GetMetaTableListByCategoryRequest $request GetMetaTableListByCategoryRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableListByCategoryResponse
+     * @return GetMetaTableListByCategoryResponse GetMetaTableListByCategoryResponse
      */
     public function getMetaTableListByCategoryWithOptions($request, $runtime)
     {
@@ -7908,9 +8818,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableListByCategoryRequest $request
+     * @param GetMetaTableListByCategoryRequest $request GetMetaTableListByCategoryRequest
      *
-     * @return GetMetaTableListByCategoryResponse
+     * @return GetMetaTableListByCategoryResponse GetMetaTableListByCategoryResponse
      */
     public function getMetaTableListByCategory($request)
     {
@@ -7920,10 +8830,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableOutputRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param GetMetaTableOutputRequest $request GetMetaTableOutputRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableOutputResponse
+     * @return GetMetaTableOutputResponse GetMetaTableOutputResponse
      */
     public function getMetaTableOutputWithOptions($request, $runtime)
     {
@@ -7966,9 +8876,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableOutputRequest $request
+     * @param GetMetaTableOutputRequest $request GetMetaTableOutputRequest
      *
-     * @return GetMetaTableOutputResponse
+     * @return GetMetaTableOutputResponse GetMetaTableOutputResponse
      */
     public function getMetaTableOutput($request)
     {
@@ -7978,8 +8888,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **GetMetaTablePartition**.
-     *   *
+     * @summary For more information about the example on how to use the GetMetaTablePartition operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+     *  *
+     * @description The operation that you want to perform. Set the value to **GetMetaTablePartition**.
+     *  *
      * @param GetMetaTablePartitionRequest $tmpReq  GetMetaTablePartitionRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -8037,8 +8949,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **GetMetaTablePartition**.
-     *   *
+     * @summary For more information about the example on how to use the GetMetaTablePartition operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+     *  *
+     * @description The operation that you want to perform. Set the value to **GetMetaTablePartition**.
+     *  *
      * @param GetMetaTablePartitionRequest $request GetMetaTablePartitionRequest
      *
      * @return GetMetaTablePartitionResponse GetMetaTablePartitionResponse
@@ -8051,10 +8965,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableProducingTasksRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 获取Table的产出任务列表
+     *  *
+     * @param GetMetaTableProducingTasksRequest $request GetMetaTableProducingTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableProducingTasksResponse
+     * @return GetMetaTableProducingTasksResponse GetMetaTableProducingTasksResponse
      */
     public function getMetaTableProducingTasksWithOptions($request, $runtime)
     {
@@ -8097,9 +9013,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableProducingTasksRequest $request
+     * @summary 获取Table的产出任务列表
+     *  *
+     * @param GetMetaTableProducingTasksRequest $request GetMetaTableProducingTasksRequest
      *
-     * @return GetMetaTableProducingTasksResponse
+     * @return GetMetaTableProducingTasksResponse GetMetaTableProducingTasksResponse
      */
     public function getMetaTableProducingTasks($request)
     {
@@ -8109,10 +9027,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableThemeLevelRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries information about table folders and table levels.
+     *  *
+     * @param GetMetaTableThemeLevelRequest $request GetMetaTableThemeLevelRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMetaTableThemeLevelResponse
+     * @return GetMetaTableThemeLevelResponse GetMetaTableThemeLevelResponse
      */
     public function getMetaTableThemeLevelWithOptions($request, $runtime)
     {
@@ -8137,9 +9057,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMetaTableThemeLevelRequest $request
+     * @summary Queries information about table folders and table levels.
+     *  *
+     * @param GetMetaTableThemeLevelRequest $request GetMetaTableThemeLevelRequest
      *
-     * @return GetMetaTableThemeLevelResponse
+     * @return GetMetaTableThemeLevelResponse GetMetaTableThemeLevelResponse
      */
     public function getMetaTableThemeLevel($request)
     {
@@ -8149,10 +9071,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMigrationProcessRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetMigrationProcessRequest $request GetMigrationProcessRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMigrationProcessResponse
+     * @return GetMigrationProcessResponse GetMigrationProcessResponse
      */
     public function getMigrationProcessWithOptions($request, $runtime)
     {
@@ -8183,9 +9105,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMigrationProcessRequest $request
+     * @param GetMigrationProcessRequest $request GetMigrationProcessRequest
      *
-     * @return GetMigrationProcessResponse
+     * @return GetMigrationProcessResponse GetMigrationProcessResponse
      */
     public function getMigrationProcess($request)
     {
@@ -8195,10 +9117,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMigrationSummaryRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary The operation that you want to perform.
+     *  *
+     * @param GetMigrationSummaryRequest $request GetMigrationSummaryRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMigrationSummaryResponse
+     * @return GetMigrationSummaryResponse GetMigrationSummaryResponse
      */
     public function getMigrationSummaryWithOptions($request, $runtime)
     {
@@ -8229,9 +9153,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetMigrationSummaryRequest $request
+     * @summary The operation that you want to perform.
+     *  *
+     * @param GetMigrationSummaryRequest $request GetMigrationSummaryRequest
      *
-     * @return GetMigrationSummaryResponse
+     * @return GetMigrationSummaryResponse GetMigrationSummaryResponse
      */
     public function getMigrationSummary($request)
     {
@@ -8241,10 +9167,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Indicates whether the request is successful.
+     *  *
+     * @param GetNodeRequest $request GetNodeRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNodeResponse
+     * @return GetNodeResponse GetNodeResponse
      */
     public function getNodeWithOptions($request, $runtime)
     {
@@ -8275,9 +9203,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeRequest $request
+     * @summary Indicates whether the request is successful.
+     *  *
+     * @param GetNodeRequest $request GetNodeRequest
      *
-     * @return GetNodeResponse
+     * @return GetNodeResponse GetNodeResponse
      */
     public function getNode($request)
     {
@@ -8287,10 +9217,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeChildrenRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param GetNodeChildrenRequest $request GetNodeChildrenRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNodeChildrenResponse
+     * @return GetNodeChildrenResponse GetNodeChildrenResponse
      */
     public function getNodeChildrenWithOptions($request, $runtime)
     {
@@ -8321,9 +9251,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeChildrenRequest $request
+     * @param GetNodeChildrenRequest $request GetNodeChildrenRequest
      *
-     * @return GetNodeChildrenResponse
+     * @return GetNodeChildrenResponse GetNodeChildrenResponse
      */
     public function getNodeChildren($request)
     {
@@ -8333,10 +9263,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeCodeRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the code of a node.
+     *  *
+     * @param GetNodeCodeRequest $request GetNodeCodeRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNodeCodeResponse
+     * @return GetNodeCodeResponse GetNodeCodeResponse
      */
     public function getNodeCodeWithOptions($request, $runtime)
     {
@@ -8367,9 +9299,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeCodeRequest $request
+     * @summary Queries the code of a node.
+     *  *
+     * @param GetNodeCodeRequest $request GetNodeCodeRequest
      *
-     * @return GetNodeCodeResponse
+     * @return GetNodeCodeResponse GetNodeCodeResponse
      */
     public function getNodeCode($request)
     {
@@ -8379,8 +9313,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetNodeOnBaseline is deprecated
+     *  *
      * Deprecated
      *
      * @param GetNodeOnBaselineRequest $request GetNodeOnBaselineRequest
@@ -8414,8 +9348,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetNodeOnBaseline is deprecated
+     *  *
      * Deprecated
      *
      * @param GetNodeOnBaselineRequest $request GetNodeOnBaselineRequest
@@ -8430,10 +9364,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeParentsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetNodeParentsRequest $request GetNodeParentsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNodeParentsResponse
+     * @return GetNodeParentsResponse GetNodeParentsResponse
      */
     public function getNodeParentsWithOptions($request, $runtime)
     {
@@ -8464,9 +9398,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetNodeParentsRequest $request
+     * @param GetNodeParentsRequest $request GetNodeParentsRequest
      *
-     * @return GetNodeParentsResponse
+     * @return GetNodeParentsResponse GetNodeParentsResponse
      */
     public function getNodeParents($request)
     {
@@ -8476,8 +9410,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetNodeTypeListInfo is deprecated
+     *  *
      * Deprecated
      *
      * @param GetNodeTypeListInfoRequest $request GetNodeTypeListInfoRequest
@@ -8526,8 +9460,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetNodeTypeListInfo is deprecated
+     *  *
      * Deprecated
      *
      * @param GetNodeTypeListInfoRequest $request GetNodeTypeListInfoRequest
@@ -8542,10 +9476,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetOpRiskDataRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param GetOpRiskDataRequest $request GetOpRiskDataRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpRiskDataResponse
+     * @return GetOpRiskDataResponse GetOpRiskDataResponse
      */
     public function getOpRiskDataWithOptions($request, $runtime)
     {
@@ -8570,9 +9504,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetOpRiskDataRequest $request
+     * @param GetOpRiskDataRequest $request GetOpRiskDataRequest
      *
-     * @return GetOpRiskDataResponse
+     * @return GetOpRiskDataResponse GetOpRiskDataResponse
      */
     public function getOpRiskData($request)
     {
@@ -8582,10 +9516,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetOpSensitiveDataRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param GetOpSensitiveDataRequest $request GetOpSensitiveDataRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpSensitiveDataResponse
+     * @return GetOpSensitiveDataResponse GetOpSensitiveDataResponse
      */
     public function getOpSensitiveDataWithOptions($request, $runtime)
     {
@@ -8610,9 +9544,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetOpSensitiveDataRequest $request
+     * @param GetOpSensitiveDataRequest $request GetOpSensitiveDataRequest
      *
-     * @return GetOpSensitiveDataResponse
+     * @return GetOpSensitiveDataResponse GetOpSensitiveDataResponse
      */
     public function getOpSensitiveData($request)
     {
@@ -8622,10 +9556,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetOptionValueForProjectRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary The operation that you want to perform. Set the value to **GetOptionValueForProject**.
+     *  *
+     * @param GetOptionValueForProjectRequest $request GetOptionValueForProjectRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOptionValueForProjectResponse
+     * @return GetOptionValueForProjectResponse GetOptionValueForProjectResponse
      */
     public function getOptionValueForProjectWithOptions($request, $runtime)
     {
@@ -8656,9 +9592,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetOptionValueForProjectRequest $request
+     * @summary The operation that you want to perform. Set the value to **GetOptionValueForProject**.
+     *  *
+     * @param GetOptionValueForProjectRequest $request GetOptionValueForProjectRequest
      *
-     * @return GetOptionValueForProjectResponse
+     * @return GetOptionValueForProjectResponse GetOptionValueForProjectResponse
      */
     public function getOptionValueForProject($request)
     {
@@ -8668,10 +9606,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetPermissionApplyOrderDetailRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the details about a permission request order.
+     *  *
+     * @param GetPermissionApplyOrderDetailRequest $request GetPermissionApplyOrderDetailRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPermissionApplyOrderDetailResponse
+     * @return GetPermissionApplyOrderDetailResponse GetPermissionApplyOrderDetailResponse
      */
     public function getPermissionApplyOrderDetailWithOptions($request, $runtime)
     {
@@ -8699,9 +9639,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetPermissionApplyOrderDetailRequest $request
+     * @summary Queries the details about a permission request order.
+     *  *
+     * @param GetPermissionApplyOrderDetailRequest $request GetPermissionApplyOrderDetailRequest
      *
-     * @return GetPermissionApplyOrderDetailResponse
+     * @return GetPermissionApplyOrderDetailResponse GetPermissionApplyOrderDetailResponse
      */
     public function getPermissionApplyOrderDetail($request)
     {
@@ -8711,10 +9653,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetProjectRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 查询工作空间详情
+     *  *
+     * @param GetProjectRequest $request GetProjectRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProjectWithOptions($request, $runtime)
     {
@@ -8745,9 +9689,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetProjectRequest $request
+     * @summary 查询工作空间详情
+     *  *
+     * @param GetProjectRequest $request GetProjectRequest
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProject($request)
     {
@@ -8757,8 +9703,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetProjectDetail is deprecated
+     *  *
+     * @summary 查询工作空间详情
+     *  *
      * Deprecated
      *
      * @param GetProjectDetailRequest $request GetProjectDetailRequest
@@ -8792,8 +9740,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetProjectDetail is deprecated
+     *  *
+     * @summary 查询工作空间详情
+     *  *
      * Deprecated
      *
      * @param GetProjectDetailRequest $request GetProjectDetailRequest
@@ -8808,10 +9758,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetQualityEntityRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param GetQualityEntityRequest $request GetQualityEntityRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQualityEntityResponse
+     * @return GetQualityEntityResponse GetQualityEntityResponse
      */
     public function getQualityEntityWithOptions($request, $runtime)
     {
@@ -8851,9 +9801,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetQualityEntityRequest $request
+     * @param GetQualityEntityRequest $request GetQualityEntityRequest
      *
-     * @return GetQualityEntityResponse
+     * @return GetQualityEntityResponse GetQualityEntityResponse
      */
     public function getQualityEntity($request)
     {
@@ -8863,10 +9813,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetQualityFollowerRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param GetQualityFollowerRequest $request GetQualityFollowerRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQualityFollowerResponse
+     * @return GetQualityFollowerResponse GetQualityFollowerResponse
      */
     public function getQualityFollowerWithOptions($request, $runtime)
     {
@@ -8900,9 +9850,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetQualityFollowerRequest $request
+     * @param GetQualityFollowerRequest $request GetQualityFollowerRequest
      *
-     * @return GetQualityFollowerResponse
+     * @return GetQualityFollowerResponse GetQualityFollowerResponse
      */
     public function getQualityFollower($request)
     {
@@ -8912,10 +9862,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetQualityRuleRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetQualityRuleRequest $request GetQualityRuleRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQualityRuleResponse
+     * @return GetQualityRuleResponse GetQualityRuleResponse
      */
     public function getQualityRuleWithOptions($request, $runtime)
     {
@@ -8949,9 +9899,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetQualityRuleRequest $request
+     * @param GetQualityRuleRequest $request GetQualityRuleRequest
      *
-     * @return GetQualityRuleResponse
+     * @return GetQualityRuleResponse GetQualityRuleResponse
      */
     public function getQualityRule($request)
     {
@@ -8961,10 +9911,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetRemindRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param GetRemindRequest $request GetRemindRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRemindResponse
+     * @return GetRemindResponse GetRemindResponse
      */
     public function getRemindWithOptions($request, $runtime)
     {
@@ -8992,9 +9942,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetRemindRequest $request
+     * @param GetRemindRequest $request GetRemindRequest
      *
-     * @return GetRemindResponse
+     * @return GetRemindResponse GetRemindResponse
      */
     public function getRemind($request)
     {
@@ -9004,10 +9954,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetSensitiveDataRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param GetSensitiveDataRequest $request GetSensitiveDataRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSensitiveDataResponse
+     * @return GetSensitiveDataResponse GetSensitiveDataResponse
      */
     public function getSensitiveDataWithOptions($request, $runtime)
     {
@@ -9032,9 +9982,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetSensitiveDataRequest $request
+     * @param GetSensitiveDataRequest $request GetSensitiveDataRequest
      *
-     * @return GetSensitiveDataResponse
+     * @return GetSensitiveDataResponse GetSensitiveDataResponse
      */
     public function getSensitiveData($request)
     {
@@ -9044,8 +9994,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
+     *  *
      * Deprecated
      *
      * @param GetSuccessInstanceTrendRequest $request GetSuccessInstanceTrendRequest
@@ -9079,8 +10029,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
+     *  *
      * Deprecated
      *
      * @param GetSuccessInstanceTrendRequest $request GetSuccessInstanceTrendRequest
@@ -9095,8 +10045,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @description ****
+     *  *
      * @param GetTopicRequest $request GetTopicRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
@@ -9128,8 +10078,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @description ****
+     *  *
      * @param GetTopicRequest $request GetTopicRequest
      *
      * @return GetTopicResponse GetTopicResponse
@@ -9142,10 +10092,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetTopicInfluenceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetTopicInfluenceRequest $request GetTopicInfluenceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTopicInfluenceResponse
+     * @return GetTopicInfluenceResponse GetTopicInfluenceResponse
      */
     public function getTopicInfluenceWithOptions($request, $runtime)
     {
@@ -9173,9 +10123,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param GetTopicInfluenceRequest $request
+     * @param GetTopicInfluenceRequest $request GetTopicInfluenceRequest
      *
-     * @return GetTopicInfluenceResponse
+     * @return GetTopicInfluenceResponse GetTopicInfluenceResponse
      */
     public function getTopicInfluence($request)
     {
@@ -9185,10 +10135,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
-     *   * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](~~181656~~).
-     *   * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](~~279570~~).
-     *   *
+     * @description You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
+     * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](https://help.aliyun.com/document_detail/181656.html).
+     * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](https://help.aliyun.com/document_detail/279570.html).
+     *  *
      * @param ImportDataSourcesRequest $request ImportDataSourcesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -9223,10 +10173,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
-     *   * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](~~181656~~).
-     *   * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](~~279570~~).
-     *   *
+     * @description You can import self-managed data sources or data sources that are exported from other Dataworks workspaces to a specified DataWorks workspace.
+     * *   To import a self-managed data source to DataWorks, the data source type must be supported by DataWorks. For more information about the types of data sources supported by DataWorks, see [Supported data stores](https://help.aliyun.com/document_detail/181656.html).
+     * *   For more information about how to export data sources from DataWorks workspaces to on-premises devices, see [ExportDataSources](https://help.aliyun.com/document_detail/279570.html).
+     *  *
      * @param ImportDataSourcesRequest $request ImportDataSourcesRequest
      *
      * @return ImportDataSourcesResponse ImportDataSourcesResponse
@@ -9239,10 +10189,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListAlertMessagesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListAlertMessagesRequest $request ListAlertMessagesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAlertMessagesResponse
+     * @return ListAlertMessagesResponse ListAlertMessagesResponse
      */
     public function listAlertMessagesWithOptions($request, $runtime)
     {
@@ -9294,9 +10244,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListAlertMessagesRequest $request
+     * @param ListAlertMessagesRequest $request ListAlertMessagesRequest
      *
-     * @return ListAlertMessagesResponse
+     * @return ListAlertMessagesResponse ListAlertMessagesResponse
      */
     public function listAlertMessages($request)
     {
@@ -9306,10 +10256,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListBaselineConfigsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ListBaselineConfigsRequest $request ListBaselineConfigsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBaselineConfigsResponse
+     * @return ListBaselineConfigsResponse ListBaselineConfigsResponse
      */
     public function listBaselineConfigsWithOptions($request, $runtime)
     {
@@ -9358,9 +10308,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListBaselineConfigsRequest $request
+     * @param ListBaselineConfigsRequest $request ListBaselineConfigsRequest
      *
-     * @return ListBaselineConfigsResponse
+     * @return ListBaselineConfigsResponse ListBaselineConfigsResponse
      */
     public function listBaselineConfigs($request)
     {
@@ -9370,10 +10320,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListBaselineStatusesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries baseline instances.
+     *  *
+     * @param ListBaselineStatusesRequest $request ListBaselineStatusesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBaselineStatusesResponse
+     * @return ListBaselineStatusesResponse ListBaselineStatusesResponse
      */
     public function listBaselineStatusesWithOptions($request, $runtime)
     {
@@ -9428,9 +10380,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListBaselineStatusesRequest $request
+     * @summary Queries baseline instances.
+     *  *
+     * @param ListBaselineStatusesRequest $request ListBaselineStatusesRequest
      *
-     * @return ListBaselineStatusesResponse
+     * @return ListBaselineStatusesResponse ListBaselineStatusesResponse
      */
     public function listBaselineStatuses($request)
     {
@@ -9440,10 +10394,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListBaselinesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 查询基线列表
+     *  *
+     * @param ListBaselinesRequest $request ListBaselinesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBaselinesResponse
+     * @return ListBaselinesResponse ListBaselinesResponse
      */
     public function listBaselinesWithOptions($request, $runtime)
     {
@@ -9492,9 +10448,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListBaselinesRequest $request
+     * @summary 查询基线列表
+     *  *
+     * @param ListBaselinesRequest $request ListBaselinesRequest
      *
-     * @return ListBaselinesResponse
+     * @return ListBaselinesResponse ListBaselinesResponse
      */
     public function listBaselines($request)
     {
@@ -9504,10 +10462,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListBusinessRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries workflows.
+     *  *
+     * @param ListBusinessRequest $request ListBusinessRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBusinessResponse
+     * @return ListBusinessResponse ListBusinessResponse
      */
     public function listBusinessWithOptions($request, $runtime)
     {
@@ -9547,9 +10507,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListBusinessRequest $request
+     * @summary Queries workflows.
+     *  *
+     * @param ListBusinessRequest $request ListBusinessRequest
      *
-     * @return ListBusinessResponse
+     * @return ListBusinessResponse ListBusinessResponse
      */
     public function listBusiness($request)
     {
@@ -9559,10 +10521,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListCalcEnginesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ListCalcEnginesRequest $request ListCalcEnginesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCalcEnginesResponse
+     * @return ListCalcEnginesResponse ListCalcEnginesResponse
      */
     public function listCalcEnginesWithOptions($request, $runtime)
     {
@@ -9605,9 +10567,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListCalcEnginesRequest $request
+     * @param ListCalcEnginesRequest $request ListCalcEnginesRequest
      *
-     * @return ListCalcEnginesResponse
+     * @return ListCalcEnginesResponse ListCalcEnginesResponse
      */
     public function listCalcEngines($request)
     {
@@ -9617,8 +10579,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ListConnections is deprecated
+     *  *
+     * @summary 查询数据源
+     *  *
      * Deprecated
      *
      * @param ListConnectionsRequest $request ListConnectionsRequest
@@ -9649,8 +10613,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ListConnections is deprecated
+     *  *
+     * @summary 查询数据源
+     *  *
      * Deprecated
      *
      * @param ListConnectionsRequest $request ListConnectionsRequest
@@ -9665,10 +10631,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDIAlarmRulesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询数据集成新版告警规则列表
+     *  *
+     * @param ListDIAlarmRulesRequest $request ListDIAlarmRulesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDIAlarmRulesResponse
+     * @return ListDIAlarmRulesResponse ListDIAlarmRulesResponse
      */
     public function listDIAlarmRulesWithOptions($request, $runtime)
     {
@@ -9702,9 +10670,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDIAlarmRulesRequest $request
+     * @summary 查询数据集成新版告警规则列表
+     *  *
+     * @param ListDIAlarmRulesRequest $request ListDIAlarmRulesRequest
      *
-     * @return ListDIAlarmRulesResponse
+     * @return ListDIAlarmRulesResponse ListDIAlarmRulesResponse
      */
     public function listDIAlarmRules($request)
     {
@@ -9714,10 +10684,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDIJobsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 查询数据集成新版解决方案任务列表
+     *  *
+     * @param ListDIJobsRequest $request ListDIJobsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDIJobsResponse
+     * @return ListDIJobsResponse ListDIJobsResponse
      */
     public function listDIJobsWithOptions($request, $runtime)
     {
@@ -9760,9 +10732,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDIJobsRequest $request
+     * @summary 查询数据集成新版解决方案任务列表
+     *  *
+     * @param ListDIJobsRequest $request ListDIJobsRequest
      *
-     * @return ListDIJobsResponse
+     * @return ListDIJobsResponse ListDIJobsResponse
      */
     public function listDIJobs($request)
     {
@@ -9772,8 +10746,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](~~199008~~).
-     *   *
+     * @description DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](https://help.aliyun.com/document_detail/199008.html).
+     *  *
      * @param ListDIProjectConfigRequest $request ListDIProjectConfigRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -9811,8 +10785,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](~~199008~~).
-     *   *
+     * @description DataWorks allows you to set the default global configuration for only the processing rules of DDL messages in sync solutions. After you configure the **processing rules of DDL messages** in sync solutions, the configuration is set as the default global configuration and applies to all real-time sync nodes. You can also modify the **processing rules of DDL messages** based on your business requirements. For more information, see [Sync solutions](https://help.aliyun.com/document_detail/199008.html).
+     *  *
      * @param ListDIProjectConfigRequest $request ListDIProjectConfigRequest
      *
      * @return ListDIProjectConfigResponse ListDIProjectConfigResponse
@@ -9825,8 +10799,19 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **ListDags**.
-     *   *
+     * @summary Supported DAG types:
+     * *   MANUAL: the DAG for a manually triggered workflow.
+     * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+     * *   SUPPLY_DATA: the DAG for a data backfill instance.
+     * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+     * Supported DAG states:
+     * *   CREATED: The DAG is created.
+     * *   RUNNING: The DAG is running.
+     * *   FAILURE: The DAG fails to run.
+     * *   SUCCESS: The DAG successfully runs.
+     *  *
+     * @description The operation that you want to perform. Set the value to **ListDags**.
+     *  *
      * @param ListDagsRequest $request ListDagsRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
@@ -9861,8 +10846,19 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **ListDags**.
-     *   *
+     * @summary Supported DAG types:
+     * *   MANUAL: the DAG for a manually triggered workflow.
+     * *   SMOKE_TEST: the DAG for a smoke testing workflow.
+     * *   SUPPLY_DATA: the DAG for a data backfill instance.
+     * *   BUSINESS_PROCESS_DAG: the DAG for a one-time workflow.
+     * Supported DAG states:
+     * *   CREATED: The DAG is created.
+     * *   RUNNING: The DAG is running.
+     * *   FAILURE: The DAG fails to run.
+     * *   SUCCESS: The DAG successfully runs.
+     *  *
+     * @description The operation that you want to perform. Set the value to **ListDags**.
+     *  *
      * @param ListDagsRequest $request ListDagsRequest
      *
      * @return ListDagsResponse ListDagsResponse
@@ -9875,10 +10871,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceApiAuthoritiesRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the APIs on which other users are granted the access permissions.
+     *  *
+     * @param ListDataServiceApiAuthoritiesRequest $request ListDataServiceApiAuthoritiesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataServiceApiAuthoritiesResponse
+     * @return ListDataServiceApiAuthoritiesResponse ListDataServiceApiAuthoritiesResponse
      */
     public function listDataServiceApiAuthoritiesWithOptions($request, $runtime)
     {
@@ -9920,9 +10918,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceApiAuthoritiesRequest $request
+     * @summary Queries the APIs on which other users are granted the access permissions.
+     *  *
+     * @param ListDataServiceApiAuthoritiesRequest $request ListDataServiceApiAuthoritiesRequest
      *
-     * @return ListDataServiceApiAuthoritiesResponse
+     * @return ListDataServiceApiAuthoritiesResponse ListDataServiceApiAuthoritiesResponse
      */
     public function listDataServiceApiAuthorities($request)
     {
@@ -9932,10 +10932,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceApiTestRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the last month.
+     *  *
+     * @param ListDataServiceApiTestRequest $request ListDataServiceApiTestRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataServiceApiTestResponse
+     * @return ListDataServiceApiTestResponse ListDataServiceApiTestResponse
      */
     public function listDataServiceApiTestWithOptions($request, $runtime)
     {
@@ -9960,9 +10962,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceApiTestRequest $request
+     * @summary Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the last month.
+     *  *
+     * @param ListDataServiceApiTestRequest $request ListDataServiceApiTestRequest
      *
-     * @return ListDataServiceApiTestResponse
+     * @return ListDataServiceApiTestResponse ListDataServiceApiTestResponse
      */
     public function listDataServiceApiTest($request)
     {
@@ -9972,10 +10976,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceApisRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about APIs in the development state.
+     *  *
+     * @param ListDataServiceApisRequest $request ListDataServiceApisRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataServiceApisResponse
+     * @return ListDataServiceApisResponse ListDataServiceApisResponse
      */
     public function listDataServiceApisWithOptions($request, $runtime)
     {
@@ -10021,9 +11027,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceApisRequest $request
+     * @summary Queries the information about APIs in the development state.
+     *  *
+     * @param ListDataServiceApisRequest $request ListDataServiceApisRequest
      *
-     * @return ListDataServiceApisResponse
+     * @return ListDataServiceApisResponse ListDataServiceApisResponse
      */
     public function listDataServiceApis($request)
     {
@@ -10033,10 +11041,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceApplicationsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the basic information of applications.
+     *  *
+     * @param ListDataServiceApplicationsRequest $request ListDataServiceApplicationsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataServiceApplicationsResponse
+     * @return ListDataServiceApplicationsResponse ListDataServiceApplicationsResponse
      */
     public function listDataServiceApplicationsWithOptions($request, $runtime)
     {
@@ -10073,9 +11083,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceApplicationsRequest $request
+     * @summary Queries the basic information of applications.
+     *  *
+     * @param ListDataServiceApplicationsRequest $request ListDataServiceApplicationsRequest
      *
-     * @return ListDataServiceApplicationsResponse
+     * @return ListDataServiceApplicationsResponse ListDataServiceApplicationsResponse
      */
     public function listDataServiceApplications($request)
     {
@@ -10085,10 +11097,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceAuthorizedApisRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the APIs that you are authorized to access.
+     *  *
+     * @param ListDataServiceAuthorizedApisRequest $request ListDataServiceAuthorizedApisRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataServiceAuthorizedApisResponse
+     * @return ListDataServiceAuthorizedApisResponse ListDataServiceAuthorizedApisResponse
      */
     public function listDataServiceAuthorizedApisWithOptions($request, $runtime)
     {
@@ -10130,9 +11144,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceAuthorizedApisRequest $request
+     * @summary Queries the APIs that you are authorized to access.
+     *  *
+     * @param ListDataServiceAuthorizedApisRequest $request ListDataServiceAuthorizedApisRequest
      *
-     * @return ListDataServiceAuthorizedApisResponse
+     * @return ListDataServiceAuthorizedApisResponse ListDataServiceAuthorizedApisResponse
      */
     public function listDataServiceAuthorizedApis($request)
     {
@@ -10142,10 +11158,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceFoldersRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries folders.
+     *  *
+     * @param ListDataServiceFoldersRequest $request ListDataServiceFoldersRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataServiceFoldersResponse
+     * @return ListDataServiceFoldersResponse ListDataServiceFoldersResponse
      */
     public function listDataServiceFoldersWithOptions($request, $runtime)
     {
@@ -10188,9 +11206,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceFoldersRequest $request
+     * @summary Queries folders.
+     *  *
+     * @param ListDataServiceFoldersRequest $request ListDataServiceFoldersRequest
      *
-     * @return ListDataServiceFoldersResponse
+     * @return ListDataServiceFoldersResponse ListDataServiceFoldersResponse
      */
     public function listDataServiceFolders($request)
     {
@@ -10200,10 +11220,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceGroupsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries business processes.
+     *  *
+     * @param ListDataServiceGroupsRequest $request ListDataServiceGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataServiceGroupsResponse
+     * @return ListDataServiceGroupsResponse ListDataServiceGroupsResponse
      */
     public function listDataServiceGroupsWithOptions($request, $runtime)
     {
@@ -10243,9 +11265,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServiceGroupsRequest $request
+     * @summary Queries business processes.
+     *  *
+     * @param ListDataServiceGroupsRequest $request ListDataServiceGroupsRequest
      *
-     * @return ListDataServiceGroupsResponse
+     * @return ListDataServiceGroupsResponse ListDataServiceGroupsResponse
      */
     public function listDataServiceGroups($request)
     {
@@ -10255,10 +11279,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServicePublishedApisRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the information about APIs in the published state.
+     *  *
+     * @param ListDataServicePublishedApisRequest $request ListDataServicePublishedApisRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataServicePublishedApisResponse
+     * @return ListDataServicePublishedApisResponse ListDataServicePublishedApisResponse
      */
     public function listDataServicePublishedApisWithOptions($request, $runtime)
     {
@@ -10304,9 +11330,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataServicePublishedApisRequest $request
+     * @summary Queries the information about APIs in the published state.
+     *  *
+     * @param ListDataServicePublishedApisRequest $request ListDataServicePublishedApisRequest
      *
-     * @return ListDataServicePublishedApisResponse
+     * @return ListDataServicePublishedApisResponse ListDataServicePublishedApisResponse
      */
     public function listDataServicePublishedApis($request)
     {
@@ -10316,10 +11344,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataSourcesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 查询数据源
+     *  *
+     * @param ListDataSourcesRequest $request ListDataSourcesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourcesResponse
+     * @return ListDataSourcesResponse ListDataSourcesResponse
      */
     public function listDataSourcesWithOptions($request, $runtime)
     {
@@ -10344,9 +11374,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataSourcesRequest $request
+     * @summary 查询数据源
+     *  *
+     * @param ListDataSourcesRequest $request ListDataSourcesRequest
      *
-     * @return ListDataSourcesResponse
+     * @return ListDataSourcesResponse ListDataSourcesResponse
      */
     public function listDataSources($request)
     {
@@ -10356,10 +11388,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDeploymentsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 查询发布包列表
+     *  *
+     * @param ListDeploymentsRequest $request ListDeploymentsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDeploymentsResponse
+     * @return ListDeploymentsResponse ListDeploymentsResponse
      */
     public function listDeploymentsWithOptions($request, $runtime)
     {
@@ -10414,9 +11448,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListDeploymentsRequest $request
+     * @summary 查询发布包列表
+     *  *
+     * @param ListDeploymentsRequest $request ListDeploymentsRequest
      *
-     * @return ListDeploymentsResponse
+     * @return ListDeploymentsResponse ListDeploymentsResponse
      */
     public function listDeployments($request)
     {
@@ -10426,10 +11462,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListEnabledExtensionsForProjectRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary The operation that you want to perform. Set the value to **ListEnabledExtensionsForProject**.
+     *  *
+     * @param ListEnabledExtensionsForProjectRequest $request ListEnabledExtensionsForProjectRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEnabledExtensionsForProjectResponse
+     * @return ListEnabledExtensionsForProjectResponse ListEnabledExtensionsForProjectResponse
      */
     public function listEnabledExtensionsForProjectWithOptions($request, $runtime)
     {
@@ -10463,9 +11501,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListEnabledExtensionsForProjectRequest $request
+     * @summary The operation that you want to perform. Set the value to **ListEnabledExtensionsForProject**.
+     *  *
+     * @param ListEnabledExtensionsForProjectRequest $request ListEnabledExtensionsForProjectRequest
      *
-     * @return ListEnabledExtensionsForProjectResponse
+     * @return ListEnabledExtensionsForProjectResponse ListEnabledExtensionsForProjectResponse
      */
     public function listEnabledExtensionsForProject($request)
     {
@@ -10475,10 +11515,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListEntitiesByTagsRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary List entities by tags
+     *  *
+     * @param ListEntitiesByTagsRequest $tmpReq  ListEntitiesByTagsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEntitiesByTagsResponse
+     * @return ListEntitiesByTagsResponse ListEntitiesByTagsResponse
      */
     public function listEntitiesByTagsWithOptions($tmpReq, $runtime)
     {
@@ -10508,9 +11550,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListEntitiesByTagsRequest $request
+     * @summary List entities by tags
+     *  *
+     * @param ListEntitiesByTagsRequest $request ListEntitiesByTagsRequest
      *
-     * @return ListEntitiesByTagsResponse
+     * @return ListEntitiesByTagsResponse ListEntitiesByTagsResponse
      */
     public function listEntitiesByTags($request)
     {
@@ -10520,10 +11564,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListEntityTagsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary List entity tags by given qualified name
+     *  *
+     * @param ListEntityTagsRequest $request ListEntityTagsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEntityTagsResponse
+     * @return ListEntityTagsResponse ListEntityTagsResponse
      */
     public function listEntityTagsWithOptions($request, $runtime)
     {
@@ -10548,9 +11594,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListEntityTagsRequest $request
+     * @summary List entity tags by given qualified name
+     *  *
+     * @param ListEntityTagsRequest $request ListEntityTagsRequest
      *
-     * @return ListEntityTagsResponse
+     * @return ListEntityTagsResponse ListEntityTagsResponse
      */
     public function listEntityTags($request)
     {
@@ -10560,10 +11608,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListExtensionsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary The operation that you want to perform. Set the value to **ListExtensions**.
+     *  *
+     * @param ListExtensionsRequest $request ListExtensionsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExtensionsResponse
+     * @return ListExtensionsResponse ListExtensionsResponse
      */
     public function listExtensionsWithOptions($request, $runtime)
     {
@@ -10594,9 +11644,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListExtensionsRequest $request
+     * @summary The operation that you want to perform. Set the value to **ListExtensions**.
+     *  *
+     * @param ListExtensionsRequest $request ListExtensionsRequest
      *
-     * @return ListExtensionsResponse
+     * @return ListExtensionsResponse ListExtensionsResponse
      */
     public function listExtensions($request)
     {
@@ -10606,10 +11658,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListFileTypeRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param ListFileTypeRequest $request ListFileTypeRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFileTypeResponse
+     * @return ListFileTypeResponse ListFileTypeResponse
      */
     public function listFileTypeWithOptions($request, $runtime)
     {
@@ -10652,9 +11704,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListFileTypeRequest $request
+     * @param ListFileTypeRequest $request ListFileTypeRequest
      *
-     * @return ListFileTypeResponse
+     * @return ListFileTypeResponse ListFileTypeResponse
      */
     public function listFileType($request)
     {
@@ -10664,10 +11716,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListFileVersionsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ListFileVersionsRequest $request ListFileVersionsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFileVersionsResponse
+     * @return ListFileVersionsResponse ListFileVersionsResponse
      */
     public function listFileVersionsWithOptions($request, $runtime)
     {
@@ -10707,9 +11759,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListFileVersionsRequest $request
+     * @param ListFileVersionsRequest $request ListFileVersionsRequest
      *
-     * @return ListFileVersionsResponse
+     * @return ListFileVersionsResponse ListFileVersionsResponse
      */
     public function listFileVersions($request)
     {
@@ -10719,10 +11771,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListFilesRequest $request
-     * @param RuntimeOptions   $runtime
+     * @param ListFilesRequest $request ListFilesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFilesResponse
+     * @return ListFilesResponse ListFilesResponse
      */
     public function listFilesWithOptions($request, $runtime)
     {
@@ -10789,9 +11841,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListFilesRequest $request
+     * @param ListFilesRequest $request ListFilesRequest
      *
-     * @return ListFilesResponse
+     * @return ListFilesResponse ListFilesResponse
      */
     public function listFiles($request)
     {
@@ -10801,10 +11853,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListFoldersRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param ListFoldersRequest $request ListFoldersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFoldersResponse
+     * @return ListFoldersResponse ListFoldersResponse
      */
     public function listFoldersWithOptions($request, $runtime)
     {
@@ -10844,9 +11896,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListFoldersRequest $request
+     * @param ListFoldersRequest $request ListFoldersRequest
      *
-     * @return ListFoldersResponse
+     * @return ListFoldersResponse ListFoldersResponse
      */
     public function listFolders($request)
     {
@@ -10856,10 +11908,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListInnerNodesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary The operation that you want to perform. Set the value to **ListInnerNodes**.
+     *  *
+     * @param ListInnerNodesRequest $request ListInnerNodesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInnerNodesResponse
+     * @return ListInnerNodesResponse ListInnerNodesResponse
      */
     public function listInnerNodesWithOptions($request, $runtime)
     {
@@ -10905,9 +11959,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListInnerNodesRequest $request
+     * @summary The operation that you want to perform. Set the value to **ListInnerNodes**.
+     *  *
+     * @param ListInnerNodesRequest $request ListInnerNodesRequest
      *
-     * @return ListInnerNodesResponse
+     * @return ListInnerNodesResponse ListInnerNodesResponse
      */
     public function listInnerNodes($request)
     {
@@ -10917,10 +11973,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceAmountRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ListInstanceAmountRequest $request ListInstanceAmountRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceAmountResponse
+     * @return ListInstanceAmountResponse ListInstanceAmountResponse
      */
     public function listInstanceAmountWithOptions($request, $runtime)
     {
@@ -10954,9 +12010,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceAmountRequest $request
+     * @param ListInstanceAmountRequest $request ListInstanceAmountRequest
      *
-     * @return ListInstanceAmountResponse
+     * @return ListInstanceAmountResponse ListInstanceAmountResponse
      */
     public function listInstanceAmount($request)
     {
@@ -10966,10 +12022,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceHistoryRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary The operation that you want to perform. Set the value to **ListInstanceHistory**.
+     *  *
+     * @param ListInstanceHistoryRequest $request ListInstanceHistoryRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceHistoryResponse
+     * @return ListInstanceHistoryResponse ListInstanceHistoryResponse
      */
     public function listInstanceHistoryWithOptions($request, $runtime)
     {
@@ -11000,9 +12058,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceHistoryRequest $request
+     * @summary The operation that you want to perform. Set the value to **ListInstanceHistory**.
+     *  *
+     * @param ListInstanceHistoryRequest $request ListInstanceHistoryRequest
      *
-     * @return ListInstanceHistoryResponse
+     * @return ListInstanceHistoryResponse ListInstanceHistoryResponse
      */
     public function listInstanceHistory($request)
     {
@@ -11012,10 +12072,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary The ID of the directed acyclic graph (DAG). You can set this parameter to the value of the DagId parameter returned by the [RunCycleDagNodes](https://help.aliyun.com/document_detail/212961.html), [RunSmokeTest](https://help.aliyun.com/document_detail/212949.html), or [RunManualDagNodes](https://help.aliyun.com/document_detail/212830.html) operation based on your business requirements. The RunManualDagNodes operation is used to backfill data, the RunSmokeTest operation is used to perform smoke testing, and the RunManualDagNodes operation is used to run nodes in a manually triggered workflow.
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
@@ -11085,9 +12147,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @summary The ID of the directed acyclic graph (DAG). You can set this parameter to the value of the DagId parameter returned by the [RunCycleDagNodes](https://help.aliyun.com/document_detail/212961.html), [RunSmokeTest](https://help.aliyun.com/document_detail/212949.html), or [RunManualDagNodes](https://help.aliyun.com/document_detail/212830.html) operation based on your business requirements. The RunManualDagNodes operation is used to backfill data, the RunSmokeTest operation is used to perform smoke testing, and the RunManualDagNodes operation is used to run nodes in a manually triggered workflow.
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -11097,10 +12161,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListLineageRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 查询血缘V2, 支持各种实体的血缘查询
+     *  *
+     * @param ListLineageRequest $request ListLineageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLineageResponse
+     * @return ListLineageResponse ListLineageResponse
      */
     public function listLineageWithOptions($request, $runtime)
     {
@@ -11140,9 +12206,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListLineageRequest $request
+     * @summary 查询血缘V2, 支持各种实体的血缘查询
+     *  *
+     * @param ListLineageRequest $request ListLineageRequest
      *
-     * @return ListLineageResponse
+     * @return ListLineageResponse ListLineageResponse
      */
     public function listLineage($request)
     {
@@ -11152,10 +12220,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListManualDagInstancesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ListManualDagInstancesRequest $request ListManualDagInstancesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListManualDagInstancesResponse
+     * @return ListManualDagInstancesResponse ListManualDagInstancesResponse
      */
     public function listManualDagInstancesWithOptions($request, $runtime)
     {
@@ -11189,9 +12257,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListManualDagInstancesRequest $request
+     * @param ListManualDagInstancesRequest $request ListManualDagInstancesRequest
      *
-     * @return ListManualDagInstancesResponse
+     * @return ListManualDagInstancesResponse ListManualDagInstancesResponse
      */
     public function listManualDagInstances($request)
     {
@@ -11201,10 +12269,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListMetaCollectionEntitiesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary The operation that you want to perform. Set the value to **ListMetaCollectionEntities**.
+     *  *
+     * @param ListMetaCollectionEntitiesRequest $request ListMetaCollectionEntitiesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMetaCollectionEntitiesResponse
+     * @return ListMetaCollectionEntitiesResponse ListMetaCollectionEntitiesResponse
      */
     public function listMetaCollectionEntitiesWithOptions($request, $runtime)
     {
@@ -11244,9 +12314,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListMetaCollectionEntitiesRequest $request
+     * @summary The operation that you want to perform. Set the value to **ListMetaCollectionEntities**.
+     *  *
+     * @param ListMetaCollectionEntitiesRequest $request ListMetaCollectionEntitiesRequest
      *
-     * @return ListMetaCollectionEntitiesResponse
+     * @return ListMetaCollectionEntitiesResponse ListMetaCollectionEntitiesResponse
      */
     public function listMetaCollectionEntities($request)
     {
@@ -11256,8 +12328,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * You can configure only one of the Creator, Administrator, and Follower parameters.
-     *   *
+     * @summary The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+     *  *
+     * @description You can configure only one of the Creator, Administrator, and Follower parameters.
+     *  *
      * @param ListMetaCollectionsRequest $request ListMetaCollectionsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -11313,8 +12387,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * You can configure only one of the Creator, Administrator, and Follower parameters.
-     *   *
+     * @summary The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
+     *  *
+     * @description You can configure only one of the Creator, Administrator, and Follower parameters.
+     *  *
      * @param ListMetaCollectionsRequest $request ListMetaCollectionsRequest
      *
      * @return ListMetaCollectionsResponse ListMetaCollectionsResponse
@@ -11327,10 +12403,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListMetaDBRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param ListMetaDBRequest $request ListMetaDBRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMetaDBResponse
+     * @return ListMetaDBResponse ListMetaDBResponse
      */
     public function listMetaDBWithOptions($request, $runtime)
     {
@@ -11355,9 +12431,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListMetaDBRequest $request
+     * @param ListMetaDBRequest $request ListMetaDBRequest
      *
-     * @return ListMetaDBResponse
+     * @return ListMetaDBResponse ListMetaDBResponse
      */
     public function listMetaDB($request)
     {
@@ -11367,10 +12443,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListMigrationsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary The operation that you want to perform. Set the value to **ListMigrations**.
+     *  *
+     * @param ListMigrationsRequest $request ListMigrationsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMigrationsResponse
+     * @return ListMigrationsResponse ListMigrationsResponse
      */
     public function listMigrationsWithOptions($request, $runtime)
     {
@@ -11410,9 +12488,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListMigrationsRequest $request
+     * @summary The operation that you want to perform. Set the value to **ListMigrations**.
+     *  *
+     * @param ListMigrationsRequest $request ListMigrationsRequest
      *
-     * @return ListMigrationsResponse
+     * @return ListMigrationsResponse ListMigrationsResponse
      */
     public function listMigrations($request)
     {
@@ -11422,8 +12502,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ListNodeIO is deprecated
+     *  *
      * Deprecated
      *
      * @param ListNodeIORequest $request ListNodeIORequest
@@ -11463,8 +12543,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ListNodeIO is deprecated
+     *  *
      * Deprecated
      *
      * @param ListNodeIORequest $request ListNodeIORequest
@@ -11479,10 +12559,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListNodeInputOrOutputRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ListNodeInputOrOutputRequest $request ListNodeInputOrOutputRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNodeInputOrOutputResponse
+     * @return ListNodeInputOrOutputResponse ListNodeInputOrOutputResponse
      */
     public function listNodeInputOrOutputWithOptions($request, $runtime)
     {
@@ -11516,9 +12596,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListNodeInputOrOutputRequest $request
+     * @param ListNodeInputOrOutputRequest $request ListNodeInputOrOutputRequest
      *
-     * @return ListNodeInputOrOutputResponse
+     * @return ListNodeInputOrOutputResponse ListNodeInputOrOutputResponse
      */
     public function listNodeInputOrOutput($request)
     {
@@ -11528,10 +12608,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListNodesRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary The ID of the workspace.
+     *  *
+     * @param ListNodesRequest $request ListNodesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodesWithOptions($request, $runtime)
     {
@@ -11583,9 +12665,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListNodesRequest $request
+     * @summary The ID of the workspace.
+     *  *
+     * @param ListNodesRequest $request ListNodesRequest
      *
-     * @return ListNodesResponse
+     * @return ListNodesResponse ListNodesResponse
      */
     public function listNodes($request)
     {
@@ -11595,10 +12679,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListNodesByBaselineRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ListNodesByBaselineRequest $request ListNodesByBaselineRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNodesByBaselineResponse
+     * @return ListNodesByBaselineResponse ListNodesByBaselineResponse
      */
     public function listNodesByBaselineWithOptions($request, $runtime)
     {
@@ -11626,9 +12710,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListNodesByBaselineRequest $request
+     * @param ListNodesByBaselineRequest $request ListNodesByBaselineRequest
      *
-     * @return ListNodesByBaselineResponse
+     * @return ListNodesByBaselineResponse ListNodesByBaselineResponse
      */
     public function listNodesByBaseline($request)
     {
@@ -11638,10 +12722,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListNodesByOutputRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListNodesByOutputRequest $request ListNodesByOutputRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNodesByOutputResponse
+     * @return ListNodesByOutputResponse ListNodesByOutputResponse
      */
     public function listNodesByOutputWithOptions($request, $runtime)
     {
@@ -11672,9 +12756,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListNodesByOutputRequest $request
+     * @param ListNodesByOutputRequest $request ListNodesByOutputRequest
      *
-     * @return ListNodesByOutputResponse
+     * @return ListNodesByOutputResponse ListNodesByOutputResponse
      */
     public function listNodesByOutput($request)
     {
@@ -11684,10 +12768,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListPermissionApplyOrdersRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param ListPermissionApplyOrdersRequest $request ListPermissionApplyOrdersRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPermissionApplyOrdersResponse
+     * @return ListPermissionApplyOrdersResponse ListPermissionApplyOrdersResponse
      */
     public function listPermissionApplyOrdersWithOptions($request, $runtime)
     {
@@ -11745,9 +12829,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListPermissionApplyOrdersRequest $request
+     * @param ListPermissionApplyOrdersRequest $request ListPermissionApplyOrdersRequest
      *
-     * @return ListPermissionApplyOrdersResponse
+     * @return ListPermissionApplyOrdersResponse ListPermissionApplyOrdersResponse
      */
     public function listPermissionApplyOrders($request)
     {
@@ -11757,8 +12841,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ListProgramTypeCount is deprecated
+     *  *
      * Deprecated
      *
      * @param ListProgramTypeCountRequest $request ListProgramTypeCountRequest
@@ -11795,8 +12879,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI ListProgramTypeCount is deprecated
+     *  *
      * Deprecated
      *
      * @param ListProgramTypeCountRequest $request ListProgramTypeCountRequest
@@ -11811,8 +12895,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](~~136941~~).
-     *   *
+     * @description For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](https://help.aliyun.com/document_detail/136941.html).
+     *  *
      * @param ListProjectIdsRequest $request ListProjectIdsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -11844,8 +12928,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](~~136941~~).
-     *   *
+     * @description For example, an Alibaba Cloud account can assume the developer, O&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](https://help.aliyun.com/document_detail/136941.html).
+     *  *
      * @param ListProjectIdsRequest $request ListProjectIdsRequest
      *
      * @return ListProjectIdsResponse ListProjectIdsResponse
@@ -11858,10 +12942,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListProjectMembersRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ListProjectMembersRequest $request ListProjectMembersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectMembersResponse
+     * @return ListProjectMembersResponse ListProjectMembersResponse
      */
     public function listProjectMembersWithOptions($request, $runtime)
     {
@@ -11895,9 +12979,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListProjectMembersRequest $request
+     * @param ListProjectMembersRequest $request ListProjectMembersRequest
      *
-     * @return ListProjectMembersResponse
+     * @return ListProjectMembersResponse ListProjectMembersResponse
      */
     public function listProjectMembers($request)
     {
@@ -11907,10 +12991,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListProjectRolesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Dataworks ID of the workspace.
+     *  *
+     * @param ListProjectRolesRequest $request ListProjectRolesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectRolesResponse
+     * @return ListProjectRolesResponse ListProjectRolesResponse
      */
     public function listProjectRolesWithOptions($request, $runtime)
     {
@@ -11938,9 +13024,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListProjectRolesRequest $request
+     * @summary Dataworks ID of the workspace.
+     *  *
+     * @param ListProjectRolesRequest $request ListProjectRolesRequest
      *
-     * @return ListProjectRolesResponse
+     * @return ListProjectRolesResponse ListProjectRolesResponse
      */
     public function listProjectRoles($request)
     {
@@ -11950,10 +13038,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListProjectsRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 查询工作空间
+     *  *
+     * @param ListProjectsRequest $tmpReq  ListProjectsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjectsWithOptions($tmpReq, $runtime)
     {
@@ -11995,9 +13085,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListProjectsRequest $request
+     * @summary 查询工作空间
+     *  *
+     * @param ListProjectsRequest $request ListProjectsRequest
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjects($request)
     {
@@ -12007,8 +13099,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @description ****
+     *  *
      * @param ListQualityResultsByEntityRequest $request ListQualityResultsByEntityRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -12058,8 +13150,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @description ****
+     *  *
      * @param ListQualityResultsByEntityRequest $request ListQualityResultsByEntityRequest
      *
      * @return ListQualityResultsByEntityResponse ListQualityResultsByEntityResponse
@@ -12072,10 +13164,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListQualityResultsByRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ListQualityResultsByRuleRequest $request ListQualityResultsByRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQualityResultsByRuleResponse
+     * @return ListQualityResultsByRuleResponse ListQualityResultsByRuleResponse
      */
     public function listQualityResultsByRuleWithOptions($request, $runtime)
     {
@@ -12121,9 +13213,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListQualityResultsByRuleRequest $request
+     * @param ListQualityResultsByRuleRequest $request ListQualityResultsByRuleRequest
      *
-     * @return ListQualityResultsByRuleResponse
+     * @return ListQualityResultsByRuleResponse ListQualityResultsByRuleResponse
      */
     public function listQualityResultsByRule($request)
     {
@@ -12133,10 +13225,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListQualityRulesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ListQualityRulesRequest $request ListQualityRulesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQualityRulesResponse
+     * @return ListQualityRulesResponse ListQualityRulesResponse
      */
     public function listQualityRulesWithOptions($request, $runtime)
     {
@@ -12176,9 +13268,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListQualityRulesRequest $request
+     * @param ListQualityRulesRequest $request ListQualityRulesRequest
      *
-     * @return ListQualityRulesResponse
+     * @return ListQualityRulesResponse ListQualityRulesResponse
      */
     public function listQualityRules($request)
     {
@@ -12188,10 +13280,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListRefDISyncTasksRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ListRefDISyncTasksRequest $request ListRefDISyncTasksRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRefDISyncTasksResponse
+     * @return ListRefDISyncTasksResponse ListRefDISyncTasksResponse
      */
     public function listRefDISyncTasksWithOptions($request, $runtime)
     {
@@ -12234,9 +13326,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListRefDISyncTasksRequest $request
+     * @param ListRefDISyncTasksRequest $request ListRefDISyncTasksRequest
      *
-     * @return ListRefDISyncTasksResponse
+     * @return ListRefDISyncTasksResponse ListRefDISyncTasksResponse
      */
     public function listRefDISyncTasks($request)
     {
@@ -12246,10 +13338,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListRemindsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries custom alert rules.
+     *  *
+     * @param ListRemindsRequest $request ListRemindsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRemindsResponse
+     * @return ListRemindsResponse ListRemindsResponse
      */
     public function listRemindsWithOptions($request, $runtime)
     {
@@ -12295,9 +13389,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListRemindsRequest $request
+     * @summary Queries custom alert rules.
+     *  *
+     * @param ListRemindsRequest $request ListRemindsRequest
      *
-     * @return ListRemindsResponse
+     * @return ListRemindsResponse ListRemindsResponse
      */
     public function listReminds($request)
     {
@@ -12307,10 +13403,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListResourceGroupsRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary 查询资源组
+     *  *
+     * @param ListResourceGroupsRequest $tmpReq  ListResourceGroupsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceGroupsResponse
+     * @return ListResourceGroupsResponse ListResourceGroupsResponse
      */
     public function listResourceGroupsWithOptions($tmpReq, $runtime)
     {
@@ -12355,9 +13453,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListResourceGroupsRequest $request
+     * @summary 查询资源组
+     *  *
+     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
      *
-     * @return ListResourceGroupsResponse
+     * @return ListResourceGroupsResponse ListResourceGroupsResponse
      */
     public function listResourceGroups($request)
     {
@@ -12367,10 +13467,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListShiftPersonnelsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary The operation that you want to perform. Set the value to **ListShiftPersonnels**.
+     *  *
+     * @param ListShiftPersonnelsRequest $request ListShiftPersonnelsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListShiftPersonnelsResponse
+     * @return ListShiftPersonnelsResponse ListShiftPersonnelsResponse
      */
     public function listShiftPersonnelsWithOptions($request, $runtime)
     {
@@ -12410,9 +13512,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListShiftPersonnelsRequest $request
+     * @summary The operation that you want to perform. Set the value to **ListShiftPersonnels**.
+     *  *
+     * @param ListShiftPersonnelsRequest $request ListShiftPersonnelsRequest
      *
-     * @return ListShiftPersonnelsResponse
+     * @return ListShiftPersonnelsResponse ListShiftPersonnelsResponse
      */
     public function listShiftPersonnels($request)
     {
@@ -12422,10 +13526,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListShiftSchedulesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The operation that you want to perform. Set the value to **ListShiftSchedules**.
+     *  *
+     * @param ListShiftSchedulesRequest $request ListShiftSchedulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListShiftSchedulesResponse
+     * @return ListShiftSchedulesResponse ListShiftSchedulesResponse
      */
     public function listShiftSchedulesWithOptions($request, $runtime)
     {
@@ -12462,9 +13568,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListShiftSchedulesRequest $request
+     * @summary The operation that you want to perform. Set the value to **ListShiftSchedules**.
+     *  *
+     * @param ListShiftSchedulesRequest $request ListShiftSchedulesRequest
      *
-     * @return ListShiftSchedulesResponse
+     * @return ListShiftSchedulesResponse ListShiftSchedulesResponse
      */
     public function listShiftSchedules($request)
     {
@@ -12474,10 +13582,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListSuccessInstanceAmountRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+     *  *
+     * @param ListSuccessInstanceAmountRequest $request ListSuccessInstanceAmountRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSuccessInstanceAmountResponse
+     * @return ListSuccessInstanceAmountResponse ListSuccessInstanceAmountResponse
      */
     public function listSuccessInstanceAmountWithOptions($request, $runtime)
     {
@@ -12505,9 +13615,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListSuccessInstanceAmountRequest $request
+     * @summary Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+     *  *
+     * @param ListSuccessInstanceAmountRequest $request ListSuccessInstanceAmountRequest
      *
-     * @return ListSuccessInstanceAmountResponse
+     * @return ListSuccessInstanceAmountResponse ListSuccessInstanceAmountResponse
      */
     public function listSuccessInstanceAmount($request)
     {
@@ -12517,10 +13629,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListTableLevelRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ListTableLevelRequest $request ListTableLevelRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTableLevelResponse
+     * @return ListTableLevelResponse ListTableLevelResponse
      */
     public function listTableLevelWithOptions($request, $runtime)
     {
@@ -12545,9 +13657,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListTableLevelRequest $request
+     * @param ListTableLevelRequest $request ListTableLevelRequest
      *
-     * @return ListTableLevelResponse
+     * @return ListTableLevelResponse ListTableLevelResponse
      */
     public function listTableLevel($request)
     {
@@ -12557,10 +13669,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListTableThemeRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ListTableThemeRequest $request ListTableThemeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTableThemeResponse
+     * @return ListTableThemeResponse ListTableThemeResponse
      */
     public function listTableThemeWithOptions($request, $runtime)
     {
@@ -12585,9 +13697,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListTableThemeRequest $request
+     * @param ListTableThemeRequest $request ListTableThemeRequest
      *
-     * @return ListTableThemeResponse
+     * @return ListTableThemeResponse ListTableThemeResponse
      */
     public function listTableTheme($request)
     {
@@ -12597,10 +13709,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListTopicsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries events.
+     *  *
+     * @param ListTopicsRequest $request ListTopicsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTopicsResponse
+     * @return ListTopicsResponse ListTopicsResponse
      */
     public function listTopicsWithOptions($request, $runtime)
     {
@@ -12652,9 +13766,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ListTopicsRequest $request
+     * @summary Queries events.
+     *  *
+     * @param ListTopicsRequest $request ListTopicsRequest
      *
-     * @return ListTopicsResponse
+     * @return ListTopicsResponse ListTopicsResponse
      */
     public function listTopics($request)
     {
@@ -12664,10 +13780,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param MountDirectoryRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary The ID of the directory that you want to add to the left-side navigation pane of DataAnalysis. This parameter is used together with the TargetType parameter.
+     * For example, if you set the TargetType parameter to META_ALBUM, you must set the TargetId parameter to the ID of the related data album. You can call the [ListMetaCollections](https://help.aliyun.com/document_detail/469938.html) operation to obtain the ID of the data album. The ID is indicated by the QualifiedName parameter.
+     *  *
+     * @param MountDirectoryRequest $request MountDirectoryRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return MountDirectoryResponse
+     * @return MountDirectoryResponse MountDirectoryResponse
      */
     public function mountDirectoryWithOptions($request, $runtime)
     {
@@ -12701,9 +13820,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param MountDirectoryRequest $request
+     * @summary The ID of the directory that you want to add to the left-side navigation pane of DataAnalysis. This parameter is used together with the TargetType parameter.
+     * For example, if you set the TargetType parameter to META_ALBUM, you must set the TargetId parameter to the ID of the related data album. You can call the [ListMetaCollections](https://help.aliyun.com/document_detail/469938.html) operation to obtain the ID of the data album. The ID is indicated by the QualifiedName parameter.
+     *  *
+     * @param MountDirectoryRequest $request MountDirectoryRequest
      *
-     * @return MountDirectoryResponse
+     * @return MountDirectoryResponse MountDirectoryResponse
      */
     public function mountDirectory($request)
     {
@@ -12713,10 +13835,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param OfflineNodeRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary The operation that you want to perform. Set the value to **OfflineNode**.
+     *  *
+     * @param OfflineNodeRequest $request OfflineNodeRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return OfflineNodeResponse
+     * @return OfflineNodeResponse OfflineNodeResponse
      */
     public function offlineNodeWithOptions($request, $runtime)
     {
@@ -12747,9 +13871,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param OfflineNodeRequest $request
+     * @summary The operation that you want to perform. Set the value to **OfflineNode**.
+     *  *
+     * @param OfflineNodeRequest $request OfflineNodeRequest
      *
-     * @return OfflineNodeResponse
+     * @return OfflineNodeResponse OfflineNodeResponse
      */
     public function offlineNode($request)
     {
@@ -12759,10 +13885,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param PublishDataServiceApiRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param PublishDataServiceApiRequest $request PublishDataServiceApiRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return PublishDataServiceApiResponse
+     * @return PublishDataServiceApiResponse PublishDataServiceApiResponse
      */
     public function publishDataServiceApiWithOptions($request, $runtime)
     {
@@ -12796,9 +13922,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param PublishDataServiceApiRequest $request
+     * @param PublishDataServiceApiRequest $request PublishDataServiceApiRequest
      *
-     * @return PublishDataServiceApiResponse
+     * @return PublishDataServiceApiResponse PublishDataServiceApiResponse
      */
     public function publishDataServiceApi($request)
     {
@@ -12808,8 +13934,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform.
-     *   *
+     * @summary DataWorks allows you to call only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) or [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to create or update a batch synchronization node in Data Integration. To create or update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForCreating or GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization node or a synchronization solution.
+     * DataWorks allows you to create or update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *  *
+     * @description The operation that you want to perform.
+     *  *
      * @param QueryDISyncTaskConfigProcessResultRequest $request QueryDISyncTaskConfigProcessResultRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -12847,8 +13976,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform.
-     *   *
+     * @summary DataWorks allows you to call only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) or [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to create or update a batch synchronization node in Data Integration. To create or update a real-time synchronization node or a synchronization solution, you must first call the GenerateDISyncTaskConfigForCreating or GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization node or a synchronization solution.
+     * DataWorks allows you to create or update real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     *  *
+     * @description The operation that you want to perform.
+     *  *
      * @param QueryDISyncTaskConfigProcessResultRequest $request QueryDISyncTaskConfigProcessResultRequest
      *
      * @return QueryDISyncTaskConfigProcessResultResponse QueryDISyncTaskConfigProcessResultResponse
@@ -12861,10 +13993,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDefaultTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 获取模版列表
+     *  *
+     * @param QueryDefaultTemplateRequest $request QueryDefaultTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDefaultTemplateResponse
+     * @return QueryDefaultTemplateResponse QueryDefaultTemplateResponse
      */
     public function queryDefaultTemplateWithOptions($request, $runtime)
     {
@@ -12892,9 +14026,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDefaultTemplateRequest $request
+     * @summary 获取模版列表
+     *  *
+     * @param QueryDefaultTemplateRequest $request QueryDefaultTemplateRequest
      *
-     * @return QueryDefaultTemplateResponse
+     * @return QueryDefaultTemplateResponse QueryDefaultTemplateResponse
      */
     public function queryDefaultTemplate($request)
     {
@@ -12904,10 +14040,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryPublicModelEngineRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 建模平台弹外的公共处理
+     *  *
+     * @param QueryPublicModelEngineRequest $request QueryPublicModelEngineRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPublicModelEngineResponse
+     * @return QueryPublicModelEngineResponse QueryPublicModelEngineResponse
      */
     public function queryPublicModelEngineWithOptions($request, $runtime)
     {
@@ -12938,9 +14076,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryPublicModelEngineRequest $request
+     * @summary 建模平台弹外的公共处理
+     *  *
+     * @param QueryPublicModelEngineRequest $request QueryPublicModelEngineRequest
      *
-     * @return QueryPublicModelEngineResponse
+     * @return QueryPublicModelEngineResponse QueryPublicModelEngineResponse
      */
     public function queryPublicModelEngine($request)
     {
@@ -12950,10 +14090,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryRecognizeDataByRuleTypeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 获取识别规则类型数据
+     *  *
+     * @param QueryRecognizeDataByRuleTypeRequest $request QueryRecognizeDataByRuleTypeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRecognizeDataByRuleTypeResponse
+     * @return QueryRecognizeDataByRuleTypeResponse QueryRecognizeDataByRuleTypeResponse
      */
     public function queryRecognizeDataByRuleTypeWithOptions($request, $runtime)
     {
@@ -12984,9 +14126,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryRecognizeDataByRuleTypeRequest $request
+     * @summary 获取识别规则类型数据
+     *  *
+     * @param QueryRecognizeDataByRuleTypeRequest $request QueryRecognizeDataByRuleTypeRequest
      *
-     * @return QueryRecognizeDataByRuleTypeResponse
+     * @return QueryRecognizeDataByRuleTypeResponse QueryRecognizeDataByRuleTypeResponse
      */
     public function queryRecognizeDataByRuleType($request)
     {
@@ -12996,10 +14140,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryRecognizeRuleDetailRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询识别规则详情
+     *  *
+     * @param QueryRecognizeRuleDetailRequest $request QueryRecognizeRuleDetailRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRecognizeRuleDetailResponse
+     * @return QueryRecognizeRuleDetailResponse QueryRecognizeRuleDetailResponse
      */
     public function queryRecognizeRuleDetailWithOptions($request, $runtime)
     {
@@ -13030,9 +14176,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QueryRecognizeRuleDetailRequest $request
+     * @summary 查询识别规则详情
+     *  *
+     * @param QueryRecognizeRuleDetailRequest $request QueryRecognizeRuleDetailRequest
      *
-     * @return QueryRecognizeRuleDetailResponse
+     * @return QueryRecognizeRuleDetailResponse QueryRecognizeRuleDetailResponse
      */
     public function queryRecognizeRuleDetail($request)
     {
@@ -13042,9 +14190,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 获取识别规则类型
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRecognizeRulesTypeResponse
+     * @return QueryRecognizeRulesTypeResponse QueryRecognizeRulesTypeResponse
      */
     public function queryRecognizeRulesTypeWithOptions($runtime)
     {
@@ -13065,7 +14215,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @return QueryRecognizeRulesTypeResponse
+     * @summary 获取识别规则类型
+     *  *
+     * @return QueryRecognizeRulesTypeResponse QueryRecognizeRulesTypeResponse
      */
     public function queryRecognizeRulesType()
     {
@@ -13075,10 +14227,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QuerySensClassificationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 获取分类
+     *  *
+     * @param QuerySensClassificationRequest $request QuerySensClassificationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySensClassificationResponse
+     * @return QuerySensClassificationResponse QuerySensClassificationResponse
      */
     public function querySensClassificationWithOptions($request, $runtime)
     {
@@ -13109,9 +14263,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QuerySensClassificationRequest $request
+     * @summary 获取分类
+     *  *
+     * @param QuerySensClassificationRequest $request QuerySensClassificationRequest
      *
-     * @return QuerySensClassificationResponse
+     * @return QuerySensClassificationResponse QuerySensClassificationResponse
      */
     public function querySensClassification($request)
     {
@@ -13121,10 +14277,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QuerySensLevelRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 获取分级
+     *  *
+     * @param QuerySensLevelRequest $request QuerySensLevelRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySensLevelResponse
+     * @return QuerySensLevelResponse QuerySensLevelResponse
      */
     public function querySensLevelWithOptions($request, $runtime)
     {
@@ -13155,9 +14313,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QuerySensLevelRequest $request
+     * @summary 获取分级
+     *  *
+     * @param QuerySensLevelRequest $request QuerySensLevelRequest
      *
-     * @return QuerySensLevelResponse
+     * @return QuerySensLevelResponse QuerySensLevelResponse
      */
     public function querySensLevel($request)
     {
@@ -13167,10 +14327,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QuerySensNodeInfoRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 获取敏感字段
+     *  *
+     * @param QuerySensNodeInfoRequest $request QuerySensNodeInfoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySensNodeInfoResponse
+     * @return QuerySensNodeInfoResponse QuerySensNodeInfoResponse
      */
     public function querySensNodeInfoWithOptions($request, $runtime)
     {
@@ -13216,9 +14378,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param QuerySensNodeInfoRequest $request
+     * @summary 获取敏感字段
+     *  *
+     * @param QuerySensNodeInfoRequest $request QuerySensNodeInfoRequest
      *
-     * @return QuerySensNodeInfoResponse
+     * @return QuerySensNodeInfoResponse QuerySensNodeInfoResponse
      */
     public function querySensNodeInfo($request)
     {
@@ -13228,10 +14392,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RegisterLineageRelationRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary 注册实体关系，支持用户注册自定义的实体关系
+     *  *
+     * @param RegisterLineageRelationRequest $tmpReq  RegisterLineageRelationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterLineageRelationResponse
+     * @return RegisterLineageRelationResponse RegisterLineageRelationResponse
      */
     public function registerLineageRelationWithOptions($tmpReq, $runtime)
     {
@@ -13264,9 +14430,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RegisterLineageRelationRequest $request
+     * @summary 注册实体关系，支持用户注册自定义的实体关系
+     *  *
+     * @param RegisterLineageRelationRequest $request RegisterLineageRelationRequest
      *
-     * @return RegisterLineageRelationResponse
+     * @return RegisterLineageRelationResponse RegisterLineageRelationResponse
      */
     public function registerLineageRelation($request)
     {
@@ -13276,10 +14444,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RemoveEntityTagsRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Remove entity tags by given qualified name and tag keys
+     *  *
+     * @param RemoveEntityTagsRequest $tmpReq  RemoveEntityTagsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveEntityTagsResponse
+     * @return RemoveEntityTagsResponse RemoveEntityTagsResponse
      */
     public function removeEntityTagsWithOptions($tmpReq, $runtime)
     {
@@ -13317,9 +14487,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RemoveEntityTagsRequest $request
+     * @summary Remove entity tags by given qualified name and tag keys
+     *  *
+     * @param RemoveEntityTagsRequest $request RemoveEntityTagsRequest
      *
-     * @return RemoveEntityTagsResponse
+     * @return RemoveEntityTagsResponse RemoveEntityTagsResponse
      */
     public function removeEntityTags($request)
     {
@@ -13329,10 +14501,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RemoveProjectMemberFromRoleRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param RemoveProjectMemberFromRoleRequest $request RemoveProjectMemberFromRoleRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveProjectMemberFromRoleResponse
+     * @return RemoveProjectMemberFromRoleResponse RemoveProjectMemberFromRoleResponse
      */
     public function removeProjectMemberFromRoleWithOptions($request, $runtime)
     {
@@ -13366,9 +14538,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RemoveProjectMemberFromRoleRequest $request
+     * @param RemoveProjectMemberFromRoleRequest $request RemoveProjectMemberFromRoleRequest
      *
-     * @return RemoveProjectMemberFromRoleResponse
+     * @return RemoveProjectMemberFromRoleResponse RemoveProjectMemberFromRoleResponse
      */
     public function removeProjectMemberFromRole($request)
     {
@@ -13378,10 +14550,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RestartInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Restarts an instance.
+     *  *
+     * @param RestartInstanceRequest $request RestartInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstanceWithOptions($request, $runtime)
     {
@@ -13412,9 +14586,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RestartInstanceRequest $request
+     * @summary Restarts an instance.
+     *  *
+     * @param RestartInstanceRequest $request RestartInstanceRequest
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstance($request)
     {
@@ -13424,10 +14600,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ResumeInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Resumes a suspended instance.
+     *  *
+     * @param ResumeInstanceRequest $request ResumeInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeInstanceResponse
+     * @return ResumeInstanceResponse ResumeInstanceResponse
      */
     public function resumeInstanceWithOptions($request, $runtime)
     {
@@ -13458,9 +14636,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ResumeInstanceRequest $request
+     * @summary Resumes a suspended instance.
+     *  *
+     * @param ResumeInstanceRequest $request ResumeInstanceRequest
      *
-     * @return ResumeInstanceResponse
+     * @return ResumeInstanceResponse ResumeInstanceResponse
      */
     public function resumeInstance($request)
     {
@@ -13470,10 +14650,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RevokeColumnPermissionRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary The ID of the region where the MaxCompute project that contains the destination fields resides. For example, the ID of the China (Shanghai) region is cn-shanghai, and that of the China (Zhangjiakou) region is cn-zhangjiakou. The system automatically determines the value of this parameter based on the endpoint used to call the operation.
+     *  *
+     * @param RevokeColumnPermissionRequest $request RevokeColumnPermissionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeColumnPermissionResponse
+     * @return RevokeColumnPermissionResponse RevokeColumnPermissionResponse
      */
     public function revokeColumnPermissionWithOptions($request, $runtime)
     {
@@ -13516,9 +14698,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RevokeColumnPermissionRequest $request
+     * @summary The ID of the region where the MaxCompute project that contains the destination fields resides. For example, the ID of the China (Shanghai) region is cn-shanghai, and that of the China (Zhangjiakou) region is cn-zhangjiakou. The system automatically determines the value of this parameter based on the endpoint used to call the operation.
+     *  *
+     * @param RevokeColumnPermissionRequest $request RevokeColumnPermissionRequest
      *
-     * @return RevokeColumnPermissionResponse
+     * @return RevokeColumnPermissionResponse RevokeColumnPermissionResponse
      */
     public function revokeColumnPermission($request)
     {
@@ -13528,10 +14712,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RevokeTablePermissionRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param RevokeTablePermissionRequest $request RevokeTablePermissionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeTablePermissionResponse
+     * @return RevokeTablePermissionResponse RevokeTablePermissionResponse
      */
     public function revokeTablePermissionWithOptions($request, $runtime)
     {
@@ -13574,9 +14758,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RevokeTablePermissionRequest $request
+     * @param RevokeTablePermissionRequest $request RevokeTablePermissionRequest
      *
-     * @return RevokeTablePermissionResponse
+     * @return RevokeTablePermissionResponse RevokeTablePermissionResponse
      */
     public function revokeTablePermission($request)
     {
@@ -13586,8 +14770,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * For more information about data backfill, see [Backfill data](~~137937~~).
-     *   *
+     * @description For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
+     *  *
      * @param RunCycleDagNodesRequest $request RunCycleDagNodesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -13661,8 +14845,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * For more information about data backfill, see [Backfill data](~~137937~~).
-     *   *
+     * @description For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
+     *  *
      * @param RunCycleDagNodesRequest $request RunCycleDagNodesRequest
      *
      * @return RunCycleDagNodesResponse RunCycleDagNodesResponse
@@ -13675,10 +14859,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RunManualDagNodesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary The region ID. For example, the ID of the China (Shanghai) region is cn-shanghai, and that of the China (Zhangjiakou) region is cn-zhangjiakou. The system automatically determines the value of this parameter based on the endpoint used to call the operation.
+     *  *
+     * @param RunManualDagNodesRequest $request RunManualDagNodesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunManualDagNodesResponse
+     * @return RunManualDagNodesResponse RunManualDagNodesResponse
      */
     public function runManualDagNodesWithOptions($request, $runtime)
     {
@@ -13736,9 +14922,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RunManualDagNodesRequest $request
+     * @summary The region ID. For example, the ID of the China (Shanghai) region is cn-shanghai, and that of the China (Zhangjiakou) region is cn-zhangjiakou. The system automatically determines the value of this parameter based on the endpoint used to call the operation.
+     *  *
+     * @param RunManualDagNodesRequest $request RunManualDagNodesRequest
      *
-     * @return RunManualDagNodesResponse
+     * @return RunManualDagNodesResponse RunManualDagNodesResponse
      */
     public function runManualDagNodes($request)
     {
@@ -13748,10 +14936,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RunSmokeTestRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param RunSmokeTestRequest $request RunSmokeTestRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunSmokeTestResponse
+     * @return RunSmokeTestResponse RunSmokeTestResponse
      */
     public function runSmokeTestWithOptions($request, $runtime)
     {
@@ -13791,9 +14979,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RunSmokeTestRequest $request
+     * @param RunSmokeTestRequest $request RunSmokeTestRequest
      *
-     * @return RunSmokeTestResponse
+     * @return RunSmokeTestResponse RunSmokeTestResponse
      */
     public function runSmokeTest($request)
     {
@@ -13803,10 +14991,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RunTriggerNodeRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param RunTriggerNodeRequest $request RunTriggerNodeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunTriggerNodeResponse
+     * @return RunTriggerNodeResponse RunTriggerNodeResponse
      */
     public function runTriggerNodeWithOptions($request, $runtime)
     {
@@ -13843,9 +15031,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param RunTriggerNodeRequest $request
+     * @param RunTriggerNodeRequest $request RunTriggerNodeRequest
      *
-     * @return RunTriggerNodeResponse
+     * @return RunTriggerNodeResponse RunTriggerNodeResponse
      */
     public function runTriggerNode($request)
     {
@@ -13855,10 +15043,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SaveDataServiceApiTestResultRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 保存api测试结果
+     *  *
+     * @param SaveDataServiceApiTestResultRequest $request SaveDataServiceApiTestResultRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveDataServiceApiTestResultResponse
+     * @return SaveDataServiceApiTestResultResponse SaveDataServiceApiTestResultResponse
      */
     public function saveDataServiceApiTestResultWithOptions($request, $runtime)
     {
@@ -13898,9 +15088,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SaveDataServiceApiTestResultRequest $request
+     * @summary 保存api测试结果
+     *  *
+     * @param SaveDataServiceApiTestResultRequest $request SaveDataServiceApiTestResultRequest
      *
-     * @return SaveDataServiceApiTestResultResponse
+     * @return SaveDataServiceApiTestResultResponse SaveDataServiceApiTestResultResponse
      */
     public function saveDataServiceApiTestResult($request)
     {
@@ -13910,10 +15102,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ScanSensitiveDataRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ScanSensitiveDataRequest $request ScanSensitiveDataRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ScanSensitiveDataResponse
+     * @return ScanSensitiveDataResponse ScanSensitiveDataResponse
      */
     public function scanSensitiveDataWithOptions($request, $runtime)
     {
@@ -13938,9 +15130,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param ScanSensitiveDataRequest $request
+     * @param ScanSensitiveDataRequest $request ScanSensitiveDataRequest
      *
-     * @return ScanSensitiveDataResponse
+     * @return ScanSensitiveDataResponse ScanSensitiveDataResponse
      */
     public function scanSensitiveData($request)
     {
@@ -13950,8 +15142,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **SearchMetaTables**.
-     *   *
+     * @summary For more information about the example on how to use the SearchMetaTables operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+     *  *
+     * @description The operation that you want to perform. Set the value to **SearchMetaTables**.
+     *  *
      * @param SearchMetaTablesRequest $request SearchMetaTablesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -14004,8 +15198,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **SearchMetaTables**.
-     *   *
+     * @summary For more information about the example on how to use the SearchMetaTables operation, see [Examples of DataWorks API operations](https://developer.aliyun.com/article/780879?groupCode=dataworks).
+     *  *
+     * @description The operation that you want to perform. Set the value to **SearchMetaTables**.
+     *  *
      * @param SearchMetaTablesRequest $request SearchMetaTablesRequest
      *
      * @return SearchMetaTablesResponse SearchMetaTablesResponse
@@ -14018,8 +15214,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI SearchNodesByOutput is deprecated
+     *  *
      * Deprecated
      *
      * @param SearchNodesByOutputRequest $request SearchNodesByOutputRequest
@@ -14056,8 +15252,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI SearchNodesByOutput is deprecated
+     *  *
      * Deprecated
      *
      * @param SearchNodesByOutputRequest $request SearchNodesByOutputRequest
@@ -14072,8 +15268,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI SetDataSourceShare is deprecated
+     *  *
      * Deprecated
      *
      * @param SetDataSourceShareRequest $request SetDataSourceShareRequest
@@ -14119,8 +15315,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI SetDataSourceShare is deprecated
+     *  *
      * Deprecated
      *
      * @param SetDataSourceShareRequest $request SetDataSourceShareRequest
@@ -14135,10 +15331,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SetEntityTagsRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary Set entity tags by given qualified name and tags
+     *  *
+     * @param SetEntityTagsRequest $tmpReq  SetEntityTagsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetEntityTagsResponse
+     * @return SetEntityTagsResponse SetEntityTagsResponse
      */
     public function setEntityTagsWithOptions($tmpReq, $runtime)
     {
@@ -14176,9 +15374,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SetEntityTagsRequest $request
+     * @summary Set entity tags by given qualified name and tags
+     *  *
+     * @param SetEntityTagsRequest $request SetEntityTagsRequest
      *
-     * @return SetEntityTagsResponse
+     * @return SetEntityTagsResponse SetEntityTagsResponse
      */
     public function setEntityTags($request)
     {
@@ -14188,10 +15388,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SetSuccessInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The operation that you want to perform. Set the value to **SetSuccessInstance**.
+     *  *
+     * @param SetSuccessInstanceRequest $request SetSuccessInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetSuccessInstanceResponse
+     * @return SetSuccessInstanceResponse SetSuccessInstanceResponse
      */
     public function setSuccessInstanceWithOptions($request, $runtime)
     {
@@ -14222,9 +15424,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SetSuccessInstanceRequest $request
+     * @summary The operation that you want to perform. Set the value to **SetSuccessInstance**.
+     *  *
+     * @param SetSuccessInstanceRequest $request SetSuccessInstanceRequest
      *
-     * @return SetSuccessInstanceResponse
+     * @return SetSuccessInstanceResponse SetSuccessInstanceResponse
      */
     public function setSuccessInstance($request)
     {
@@ -14234,10 +15438,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StartDIJobRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * @summary 启动数据集成新版解决方案任务
+     *  *
+     * @param StartDIJobRequest $tmpReq  StartDIJobRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartDIJobResponse
+     * @return StartDIJobResponse StartDIJobResponse
      */
     public function startDIJobWithOptions($tmpReq, $runtime)
     {
@@ -14276,9 +15482,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StartDIJobRequest $request
+     * @summary 启动数据集成新版解决方案任务
+     *  *
+     * @param StartDIJobRequest $request StartDIJobRequest
      *
-     * @return StartDIJobResponse
+     * @return StartDIJobResponse StartDIJobResponse
      */
     public function startDIJob($request)
     {
@@ -14288,10 +15496,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StartDISyncInstanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary The operation that you want to perform.
+     *  *
+     * @param StartDISyncInstanceRequest $request StartDISyncInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartDISyncInstanceResponse
+     * @return StartDISyncInstanceResponse StartDISyncInstanceResponse
      */
     public function startDISyncInstanceWithOptions($request, $runtime)
     {
@@ -14328,9 +15538,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StartDISyncInstanceRequest $request
+     * @summary The operation that you want to perform.
+     *  *
+     * @param StartDISyncInstanceRequest $request StartDISyncInstanceRequest
      *
-     * @return StartDISyncInstanceResponse
+     * @return StartDISyncInstanceResponse StartDISyncInstanceResponse
      */
     public function startDISyncInstance($request)
     {
@@ -14340,10 +15552,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StartMigrationRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param StartMigrationRequest $request StartMigrationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartMigrationResponse
+     * @return StartMigrationResponse StartMigrationResponse
      */
     public function startMigrationWithOptions($request, $runtime)
     {
@@ -14374,9 +15586,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StartMigrationRequest $request
+     * @param StartMigrationRequest $request StartMigrationRequest
      *
-     * @return StartMigrationResponse
+     * @return StartMigrationResponse StartMigrationResponse
      */
     public function startMigration($request)
     {
@@ -14386,10 +15598,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StopDIJobRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 停止数据集成新版解决方案任务
+     *  *
+     * @param StopDIJobRequest $request StopDIJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopDIJobResponse
+     * @return StopDIJobResponse StopDIJobResponse
      */
     public function stopDIJobWithOptions($request, $runtime)
     {
@@ -14417,9 +15631,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StopDIJobRequest $request
+     * @summary 停止数据集成新版解决方案任务
+     *  *
+     * @param StopDIJobRequest $request StopDIJobRequest
      *
-     * @return StopDIJobResponse
+     * @return StopDIJobResponse StopDIJobResponse
      */
     public function stopDIJob($request)
     {
@@ -14429,10 +15645,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StopDISyncInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The operation that you want to perform.
+     *  *
+     * @param StopDISyncInstanceRequest $request StopDISyncInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopDISyncInstanceResponse
+     * @return StopDISyncInstanceResponse StopDISyncInstanceResponse
      */
     public function stopDISyncInstanceWithOptions($request, $runtime)
     {
@@ -14466,9 +15684,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StopDISyncInstanceRequest $request
+     * @summary The operation that you want to perform.
+     *  *
+     * @param StopDISyncInstanceRequest $request StopDISyncInstanceRequest
      *
-     * @return StopDISyncInstanceResponse
+     * @return StopDISyncInstanceResponse StopDISyncInstanceResponse
      */
     public function stopDISyncInstance($request)
     {
@@ -14478,10 +15698,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StopInstanceRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param StopInstanceRequest $request StopInstanceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstanceWithOptions($request, $runtime)
     {
@@ -14512,9 +15732,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param StopInstanceRequest $request
+     * @param StopInstanceRequest $request StopInstanceRequest
      *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstance($request)
     {
@@ -14524,10 +15744,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SubmitDataServiceApiRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 发布APi
+     *  *
+     * @param SubmitDataServiceApiRequest $request SubmitDataServiceApiRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDataServiceApiResponse
+     * @return SubmitDataServiceApiResponse SubmitDataServiceApiResponse
      */
     public function submitDataServiceApiWithOptions($request, $runtime)
     {
@@ -14561,9 +15783,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SubmitDataServiceApiRequest $request
+     * @summary 发布APi
+     *  *
+     * @param SubmitDataServiceApiRequest $request SubmitDataServiceApiRequest
      *
-     * @return SubmitDataServiceApiResponse
+     * @return SubmitDataServiceApiResponse SubmitDataServiceApiResponse
      */
     public function submitDataServiceApi($request)
     {
@@ -14573,10 +15797,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SubmitFileRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary The operation that you want to perform. Set the value to **SubmitFile**.
+     *  *
+     * @param SubmitFileRequest $request SubmitFileRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitFileResponse
+     * @return SubmitFileResponse SubmitFileResponse
      */
     public function submitFileWithOptions($request, $runtime)
     {
@@ -14616,9 +15842,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SubmitFileRequest $request
+     * @summary The operation that you want to perform. Set the value to **SubmitFile**.
+     *  *
+     * @param SubmitFileRequest $request SubmitFileRequest
      *
-     * @return SubmitFileResponse
+     * @return SubmitFileResponse SubmitFileResponse
      */
     public function submitFile($request)
     {
@@ -14628,10 +15856,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SuspendInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Suspends an instance.
+     *  *
+     * @param SuspendInstanceRequest $request SuspendInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SuspendInstanceResponse
+     * @return SuspendInstanceResponse SuspendInstanceResponse
      */
     public function suspendInstanceWithOptions($request, $runtime)
     {
@@ -14662,9 +15892,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param SuspendInstanceRequest $request
+     * @summary Suspends an instance.
+     *  *
+     * @param SuspendInstanceRequest $request SuspendInstanceRequest
      *
-     * @return SuspendInstanceResponse
+     * @return SuspendInstanceResponse SuspendInstanceResponse
      */
     public function suspendInstance($request)
     {
@@ -14674,10 +15906,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param TerminateDISyncInstanceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary The operation that you want to perform. Set the value to **TerminateDISyncInstance**.
+     *  *
+     * @param TerminateDISyncInstanceRequest $request TerminateDISyncInstanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return TerminateDISyncInstanceResponse
+     * @return TerminateDISyncInstanceResponse TerminateDISyncInstanceResponse
      */
     public function terminateDISyncInstanceWithOptions($request, $runtime)
     {
@@ -14711,9 +15945,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param TerminateDISyncInstanceRequest $request
+     * @summary The operation that you want to perform. Set the value to **TerminateDISyncInstance**.
+     *  *
+     * @param TerminateDISyncInstanceRequest $request TerminateDISyncInstanceRequest
      *
-     * @return TerminateDISyncInstanceResponse
+     * @return TerminateDISyncInstanceResponse TerminateDISyncInstanceResponse
      */
     public function terminateDISyncInstance($request)
     {
@@ -14723,10 +15959,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param TestDataServiceApiRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Tests a DataService Studio API in asynchronous mode. You can call the GetDataServiceApiTest operation to query the test result.
+     *  *
+     * @param TestDataServiceApiRequest $request TestDataServiceApiRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return TestDataServiceApiResponse
+     * @return TestDataServiceApiResponse TestDataServiceApiResponse
      */
     public function testDataServiceApiWithOptions($request, $runtime)
     {
@@ -14771,9 +16009,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param TestDataServiceApiRequest $request
+     * @summary Tests a DataService Studio API in asynchronous mode. You can call the GetDataServiceApiTest operation to query the test result.
+     *  *
+     * @param TestDataServiceApiRequest $request TestDataServiceApiRequest
      *
-     * @return TestDataServiceApiResponse
+     * @return TestDataServiceApiResponse TestDataServiceApiResponse
      */
     public function testDataServiceApi($request)
     {
@@ -14783,10 +16023,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param TestNetworkConnectionRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param TestNetworkConnectionRequest $request TestNetworkConnectionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return TestNetworkConnectionResponse
+     * @return TestNetworkConnectionResponse TestNetworkConnectionResponse
      */
     public function testNetworkConnectionWithOptions($request, $runtime)
     {
@@ -14823,9 +16063,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param TestNetworkConnectionRequest $request
+     * @param TestNetworkConnectionRequest $request TestNetworkConnectionRequest
      *
-     * @return TestNetworkConnectionResponse
+     * @return TestNetworkConnectionResponse TestNetworkConnectionResponse
      */
     public function testNetworkConnection($request)
     {
@@ -14835,10 +16075,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param TopTenElapsedTimeInstanceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param TopTenElapsedTimeInstanceRequest $request TopTenElapsedTimeInstanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return TopTenElapsedTimeInstanceResponse
+     * @return TopTenElapsedTimeInstanceResponse TopTenElapsedTimeInstanceResponse
      */
     public function topTenElapsedTimeInstanceWithOptions($request, $runtime)
     {
@@ -14866,9 +16106,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param TopTenElapsedTimeInstanceRequest $request
+     * @param TopTenElapsedTimeInstanceRequest $request TopTenElapsedTimeInstanceRequest
      *
-     * @return TopTenElapsedTimeInstanceResponse
+     * @return TopTenElapsedTimeInstanceResponse TopTenElapsedTimeInstanceResponse
      */
     public function topTenElapsedTimeInstance($request)
     {
@@ -14878,10 +16118,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param TopTenErrorTimesInstanceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param TopTenErrorTimesInstanceRequest $request TopTenErrorTimesInstanceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return TopTenErrorTimesInstanceResponse
+     * @return TopTenErrorTimesInstanceResponse TopTenErrorTimesInstanceResponse
      */
     public function topTenErrorTimesInstanceWithOptions($request, $runtime)
     {
@@ -14909,9 +16149,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param TopTenErrorTimesInstanceRequest $request
+     * @param TopTenErrorTimesInstanceRequest $request TopTenErrorTimesInstanceRequest
      *
-     * @return TopTenErrorTimesInstanceResponse
+     * @return TopTenErrorTimesInstanceResponse TopTenErrorTimesInstanceResponse
      */
     public function topTenErrorTimesInstance($request)
     {
@@ -14921,10 +16161,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UmountDirectoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 将数据专辑从数据分析的左侧导航目录移除（卸载）
+     *  *
+     * @param UmountDirectoryRequest $request UmountDirectoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UmountDirectoryResponse
+     * @return UmountDirectoryResponse UmountDirectoryResponse
      */
     public function umountDirectoryWithOptions($request, $runtime)
     {
@@ -14958,9 +16200,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UmountDirectoryRequest $request
+     * @summary 将数据专辑从数据分析的左侧导航目录移除（卸载）
+     *  *
+     * @param UmountDirectoryRequest $request UmountDirectoryRequest
      *
-     * @return UmountDirectoryResponse
+     * @return UmountDirectoryResponse UmountDirectoryResponse
      */
     public function umountDirectory($request)
     {
@@ -14970,10 +16214,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateBaselineRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 更新基线
+     *  *
+     * @param UpdateBaselineRequest $tmpReq  UpdateBaselineRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBaselineResponse
+     * @return UpdateBaselineResponse UpdateBaselineResponse
      */
     public function updateBaselineWithOptions($tmpReq, $runtime)
     {
@@ -15045,9 +16291,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateBaselineRequest $request
+     * @summary 更新基线
+     *  *
+     * @param UpdateBaselineRequest $request UpdateBaselineRequest
      *
-     * @return UpdateBaselineResponse
+     * @return UpdateBaselineResponse UpdateBaselineResponse
      */
     public function updateBaseline($request)
     {
@@ -15057,10 +16305,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateBusinessRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Updates a workflow.
+     *  *
+     * @param UpdateBusinessRequest $request UpdateBusinessRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBusinessResponse
+     * @return UpdateBusinessResponse UpdateBusinessResponse
      */
     public function updateBusinessWithOptions($request, $runtime)
     {
@@ -15103,9 +16353,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateBusinessRequest $request
+     * @summary Updates a workflow.
+     *  *
+     * @param UpdateBusinessRequest $request UpdateBusinessRequest
      *
-     * @return UpdateBusinessResponse
+     * @return UpdateBusinessResponse UpdateBusinessResponse
      */
     public function updateBusiness($request)
     {
@@ -15115,8 +16367,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI UpdateConnection is deprecated
+     *  *
      * Deprecated
      *
      * @param UpdateConnectionRequest $request UpdateConnectionRequest
@@ -15162,8 +16414,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI UpdateConnection is deprecated
+     *  *
      * Deprecated
      *
      * @param UpdateConnectionRequest $request UpdateConnectionRequest
@@ -15178,10 +16430,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDIAlarmRuleRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 更新数据集成新版告警规则
+     *  *
+     * @param UpdateDIAlarmRuleRequest $tmpReq  UpdateDIAlarmRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDIAlarmRuleResponse
+     * @return UpdateDIAlarmRuleResponse UpdateDIAlarmRuleResponse
      */
     public function updateDIAlarmRuleWithOptions($tmpReq, $runtime)
     {
@@ -15232,9 +16486,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDIAlarmRuleRequest $request
+     * @summary 更新数据集成新版告警规则
+     *  *
+     * @param UpdateDIAlarmRuleRequest $request UpdateDIAlarmRuleRequest
      *
-     * @return UpdateDIAlarmRuleResponse
+     * @return UpdateDIAlarmRuleResponse UpdateDIAlarmRuleResponse
      */
     public function updateDIAlarmRule($request)
     {
@@ -15244,10 +16500,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDIJobRequest $tmpReq
-     * @param RuntimeOptions     $runtime
+     * @summary 更新数据集成新版解决方案任务
+     *  *
+     * @param UpdateDIJobRequest $tmpReq  UpdateDIJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDIJobResponse
+     * @return UpdateDIJobResponse UpdateDIJobResponse
      */
     public function updateDIJobWithOptions($tmpReq, $runtime)
     {
@@ -15304,9 +16562,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDIJobRequest $request
+     * @summary 更新数据集成新版解决方案任务
+     *  *
+     * @param UpdateDIJobRequest $request UpdateDIJobRequest
      *
-     * @return UpdateDIJobResponse
+     * @return UpdateDIJobResponse UpdateDIJobResponse
      */
     public function updateDIJob($request)
     {
@@ -15316,8 +16576,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **UpdateDIProjectConfig**.
-     *   *
+     * @summary DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](https://help.aliyun.com/document_detail/199008.html).
+     *  *
+     * @description The operation that you want to perform. Set the value to **UpdateDIProjectConfig**.
+     *  *
      * @param UpdateDIProjectConfigRequest $request UpdateDIProjectConfigRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -15358,8 +16620,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **UpdateDIProjectConfig**.
-     *   *
+     * @summary DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization nodes in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](https://help.aliyun.com/document_detail/199008.html).
+     *  *
+     * @description The operation that you want to perform. Set the value to **UpdateDIProjectConfig**.
+     *  *
      * @param UpdateDIProjectConfigRequest $request UpdateDIProjectConfigRequest
      *
      * @return UpdateDIProjectConfigResponse UpdateDIProjectConfigResponse
@@ -15372,10 +16636,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDISyncTaskRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param UpdateDISyncTaskRequest $request UpdateDISyncTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDISyncTaskResponse
+     * @return UpdateDISyncTaskResponse UpdateDISyncTaskResponse
      */
     public function updateDISyncTaskWithOptions($request, $runtime)
     {
@@ -15415,9 +16679,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDISyncTaskRequest $request
+     * @param UpdateDISyncTaskRequest $request UpdateDISyncTaskRequest
      *
-     * @return UpdateDISyncTaskResponse
+     * @return UpdateDISyncTaskResponse UpdateDISyncTaskResponse
      */
     public function updateDISyncTask($request)
     {
@@ -15427,10 +16691,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDataServiceApiRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Updates the information about an API in the development state in DataService Studio.
+     *  *
+     * @param UpdateDataServiceApiRequest $request UpdateDataServiceApiRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDataServiceApiResponse
+     * @return UpdateDataServiceApiResponse UpdateDataServiceApiResponse
      */
     public function updateDataServiceApiWithOptions($request, $runtime)
     {
@@ -15497,9 +16763,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDataServiceApiRequest $request
+     * @summary Updates the information about an API in the development state in DataService Studio.
+     *  *
+     * @param UpdateDataServiceApiRequest $request UpdateDataServiceApiRequest
      *
-     * @return UpdateDataServiceApiResponse
+     * @return UpdateDataServiceApiResponse UpdateDataServiceApiResponse
      */
     public function updateDataServiceApi($request)
     {
@@ -15509,10 +16777,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDataSourceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param UpdateDataSourceRequest $request UpdateDataSourceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDataSourceResponse
+     * @return UpdateDataSourceResponse UpdateDataSourceResponse
      */
     public function updateDataSourceWithOptions($request, $runtime)
     {
@@ -15552,9 +16820,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDataSourceRequest $request
+     * @param UpdateDataSourceRequest $request UpdateDataSourceRequest
      *
-     * @return UpdateDataSourceResponse
+     * @return UpdateDataSourceResponse UpdateDataSourceResponse
      */
     public function updateDataSource($request)
     {
@@ -15564,8 +16832,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
-     *   *
+     * @description When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+     *  *
      * @param UpdateFileRequest $request UpdateFileRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -15684,8 +16952,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
-     *   *
+     * @description When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+     *  *
      * @param UpdateFileRequest $request UpdateFileRequest
      *
      * @return UpdateFileResponse UpdateFileResponse
@@ -15698,10 +16966,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateFolderRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param UpdateFolderRequest $request UpdateFolderRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFolderResponse
+     * @return UpdateFolderResponse UpdateFolderResponse
      */
     public function updateFolderWithOptions($request, $runtime)
     {
@@ -15738,9 +17006,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateFolderRequest $request
+     * @param UpdateFolderRequest $request UpdateFolderRequest
      *
-     * @return UpdateFolderResponse
+     * @return UpdateFolderResponse UpdateFolderResponse
      */
     public function updateFolder($request)
     {
@@ -15750,10 +17018,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateIDEEventResultRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary The operation that you want to perform.
+     *  *
+     * @param UpdateIDEEventResultRequest $request UpdateIDEEventResultRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIDEEventResultResponse
+     * @return UpdateIDEEventResultResponse UpdateIDEEventResultResponse
      */
     public function updateIDEEventResultWithOptions($request, $runtime)
     {
@@ -15790,9 +17060,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateIDEEventResultRequest $request
+     * @summary The operation that you want to perform.
+     *  *
+     * @param UpdateIDEEventResultRequest $request UpdateIDEEventResultRequest
      *
-     * @return UpdateIDEEventResultResponse
+     * @return UpdateIDEEventResultResponse UpdateIDEEventResultResponse
      */
     public function updateIDEEventResult($request)
     {
@@ -15802,10 +17074,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateMetaCategoryRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Updates a category.
+     *  *
+     * @param UpdateMetaCategoryRequest $request UpdateMetaCategoryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMetaCategoryResponse
+     * @return UpdateMetaCategoryResponse UpdateMetaCategoryResponse
      */
     public function updateMetaCategoryWithOptions($request, $runtime)
     {
@@ -15839,9 +17113,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateMetaCategoryRequest $request
+     * @summary Updates a category.
+     *  *
+     * @param UpdateMetaCategoryRequest $request UpdateMetaCategoryRequest
      *
-     * @return UpdateMetaCategoryResponse
+     * @return UpdateMetaCategoryResponse UpdateMetaCategoryResponse
      */
     public function updateMetaCategory($request)
     {
@@ -15851,8 +17127,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * You must configure at least one of the Name and Comment parameters when you update a collection.
-     *   *
+     * @summary Only the name and comment of a collection can be updated.
+     *  *
+     * @description You must configure at least one of the Name and Comment parameters when you update a collection.
+     *  *
      * @param UpdateMetaCollectionRequest $request UpdateMetaCollectionRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -15890,8 +17168,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * You must configure at least one of the Name and Comment parameters when you update a collection.
-     *   *
+     * @summary Only the name and comment of a collection can be updated.
+     *  *
+     * @description You must configure at least one of the Name and Comment parameters when you update a collection.
+     *  *
      * @param UpdateMetaCollectionRequest $request UpdateMetaCollectionRequest
      *
      * @return UpdateMetaCollectionResponse UpdateMetaCollectionResponse
@@ -15904,10 +17184,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateMetaTableRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param UpdateMetaTableRequest $request UpdateMetaTableRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMetaTableResponse
+     * @return UpdateMetaTableResponse UpdateMetaTableResponse
      */
     public function updateMetaTableWithOptions($request, $runtime)
     {
@@ -15967,9 +17247,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateMetaTableRequest $request
+     * @param UpdateMetaTableRequest $request UpdateMetaTableRequest
      *
-     * @return UpdateMetaTableResponse
+     * @return UpdateMetaTableResponse UpdateMetaTableResponse
      */
     public function updateMetaTable($request)
     {
@@ -15979,10 +17259,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateMetaTableIntroWikiRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Updates the instructions on how to use a metatable. If no instruction on how to use the metatable is available, the instructions that are specified by calling this operation are added.
+     *  *
+     * @param UpdateMetaTableIntroWikiRequest $request UpdateMetaTableIntroWikiRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMetaTableIntroWikiResponse
+     * @return UpdateMetaTableIntroWikiResponse UpdateMetaTableIntroWikiResponse
      */
     public function updateMetaTableIntroWikiWithOptions($request, $runtime)
     {
@@ -16015,9 +17297,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateMetaTableIntroWikiRequest $request
+     * @summary Updates the instructions on how to use a metatable. If no instruction on how to use the metatable is available, the instructions that are specified by calling this operation are added.
+     *  *
+     * @param UpdateMetaTableIntroWikiRequest $request UpdateMetaTableIntroWikiRequest
      *
-     * @return UpdateMetaTableIntroWikiResponse
+     * @return UpdateMetaTableIntroWikiResponse UpdateMetaTableIntroWikiResponse
      */
     public function updateMetaTableIntroWiki($request)
     {
@@ -16027,10 +17311,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateNodeOwnerRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param UpdateNodeOwnerRequest $request UpdateNodeOwnerRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateNodeOwnerResponse
+     * @return UpdateNodeOwnerResponse UpdateNodeOwnerResponse
      */
     public function updateNodeOwnerWithOptions($request, $runtime)
     {
@@ -16064,9 +17348,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateNodeOwnerRequest $request
+     * @param UpdateNodeOwnerRequest $request UpdateNodeOwnerRequest
      *
-     * @return UpdateNodeOwnerResponse
+     * @return UpdateNodeOwnerResponse UpdateNodeOwnerResponse
      */
     public function updateNodeOwner($request)
     {
@@ -16076,10 +17360,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateNodeRunModeRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param UpdateNodeRunModeRequest $request UpdateNodeRunModeRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateNodeRunModeResponse
+     * @return UpdateNodeRunModeResponse UpdateNodeRunModeResponse
      */
     public function updateNodeRunModeWithOptions($request, $runtime)
     {
@@ -16113,9 +17397,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateNodeRunModeRequest $request
+     * @param UpdateNodeRunModeRequest $request UpdateNodeRunModeRequest
      *
-     * @return UpdateNodeRunModeResponse
+     * @return UpdateNodeRunModeResponse UpdateNodeRunModeResponse
      */
     public function updateNodeRunMode($request)
     {
@@ -16125,10 +17409,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateQualityFollowerRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param UpdateQualityFollowerRequest $request UpdateQualityFollowerRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateQualityFollowerResponse
+     * @return UpdateQualityFollowerResponse UpdateQualityFollowerResponse
      */
     public function updateQualityFollowerWithOptions($request, $runtime)
     {
@@ -16168,9 +17452,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateQualityFollowerRequest $request
+     * @param UpdateQualityFollowerRequest $request UpdateQualityFollowerRequest
      *
-     * @return UpdateQualityFollowerResponse
+     * @return UpdateQualityFollowerResponse UpdateQualityFollowerResponse
      */
     public function updateQualityFollower($request)
     {
@@ -16180,10 +17464,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateQualityRuleRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param UpdateQualityRuleRequest $request UpdateQualityRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateQualityRuleResponse
+     * @return UpdateQualityRuleResponse UpdateQualityRuleResponse
      */
     public function updateQualityRuleWithOptions($request, $runtime)
     {
@@ -16274,9 +17558,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateQualityRuleRequest $request
+     * @param UpdateQualityRuleRequest $request UpdateQualityRuleRequest
      *
-     * @return UpdateQualityRuleResponse
+     * @return UpdateQualityRuleResponse UpdateQualityRuleResponse
      */
     public function updateQualityRule($request)
     {
@@ -16286,10 +17570,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateRemindRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param UpdateRemindRequest $request UpdateRemindRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRemindResponse
+     * @return UpdateRemindResponse UpdateRemindResponse
      */
     public function updateRemindWithOptions($request, $runtime)
     {
@@ -16368,9 +17652,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateRemindRequest $request
+     * @param UpdateRemindRequest $request UpdateRemindRequest
      *
-     * @return UpdateRemindResponse
+     * @return UpdateRemindResponse UpdateRemindResponse
      */
     public function updateRemind($request)
     {
@@ -16380,10 +17664,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary The operation that you want to perform. Set the value to **UpdateTable**.
+     *  *
+     * @param UpdateTableRequest $request UpdateTableRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTableResponse
+     * @return UpdateTableResponse UpdateTableResponse
      */
     public function updateTableWithOptions($request, $runtime)
     {
@@ -16470,9 +17756,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableRequest $request
+     * @summary The operation that you want to perform. Set the value to **UpdateTable**.
+     *  *
+     * @param UpdateTableRequest $request UpdateTableRequest
      *
-     * @return UpdateTableResponse
+     * @return UpdateTableResponse UpdateTableResponse
      */
     public function updateTable($request)
     {
@@ -16482,10 +17770,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableAddColumnRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param UpdateTableAddColumnRequest $request UpdateTableAddColumnRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTableAddColumnResponse
+     * @return UpdateTableAddColumnResponse UpdateTableAddColumnResponse
      */
     public function updateTableAddColumnWithOptions($request, $runtime)
     {
@@ -16518,9 +17806,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableAddColumnRequest $request
+     * @param UpdateTableAddColumnRequest $request UpdateTableAddColumnRequest
      *
-     * @return UpdateTableAddColumnResponse
+     * @return UpdateTableAddColumnResponse UpdateTableAddColumnResponse
      */
     public function updateTableAddColumn($request)
     {
@@ -16530,10 +17818,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableLevelRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param UpdateTableLevelRequest $request UpdateTableLevelRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTableLevelResponse
+     * @return UpdateTableLevelResponse UpdateTableLevelResponse
      */
     public function updateTableLevelWithOptions($request, $runtime)
     {
@@ -16573,9 +17861,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableLevelRequest $request
+     * @param UpdateTableLevelRequest $request UpdateTableLevelRequest
      *
-     * @return UpdateTableLevelResponse
+     * @return UpdateTableLevelResponse UpdateTableLevelResponse
      */
     public function updateTableLevel($request)
     {
@@ -16585,10 +17873,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableModelInfoRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param UpdateTableModelInfoRequest $request UpdateTableModelInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTableModelInfoResponse
+     * @return UpdateTableModelInfoResponse UpdateTableModelInfoResponse
      */
     public function updateTableModelInfoWithOptions($request, $runtime)
     {
@@ -16628,9 +17916,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableModelInfoRequest $request
+     * @param UpdateTableModelInfoRequest $request UpdateTableModelInfoRequest
      *
-     * @return UpdateTableModelInfoResponse
+     * @return UpdateTableModelInfoResponse UpdateTableModelInfoResponse
      */
     public function updateTableModelInfo($request)
     {
@@ -16640,10 +17928,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableThemeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param UpdateTableThemeRequest $request UpdateTableThemeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTableThemeResponse
+     * @return UpdateTableThemeResponse UpdateTableThemeResponse
      */
     public function updateTableThemeWithOptions($request, $runtime)
     {
@@ -16677,9 +17965,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTableThemeRequest $request
+     * @param UpdateTableThemeRequest $request UpdateTableThemeRequest
      *
-     * @return UpdateTableThemeResponse
+     * @return UpdateTableThemeResponse UpdateTableThemeResponse
      */
     public function updateTableTheme($request)
     {
@@ -16689,10 +17977,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateUdfFileRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param UpdateUdfFileRequest $request UpdateUdfFileRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUdfFileResponse
+     * @return UpdateUdfFileResponse UpdateUdfFileResponse
      */
     public function updateUdfFileWithOptions($request, $runtime)
     {
@@ -16753,9 +18041,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateUdfFileRequest $request
+     * @param UpdateUdfFileRequest $request UpdateUdfFileRequest
      *
-     * @return UpdateUdfFileResponse
+     * @return UpdateUdfFileResponse UpdateUdfFileResponse
      */
     public function updateUdfFile($request)
     {
@@ -16765,10 +18053,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkbenchEventResultRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 更新运维中心扩展程序的回调结果
+     *  *
+     * @param UpdateWorkbenchEventResultRequest $request UpdateWorkbenchEventResultRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkbenchEventResultResponse
+     * @return UpdateWorkbenchEventResultResponse UpdateWorkbenchEventResultResponse
      */
     public function updateWorkbenchEventResultWithOptions($request, $runtime)
     {
@@ -16805,9 +18095,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkbenchEventResultRequest $request
+     * @summary 更新运维中心扩展程序的回调结果
+     *  *
+     * @param UpdateWorkbenchEventResultRequest $request UpdateWorkbenchEventResultRequest
      *
-     * @return UpdateWorkbenchEventResultResponse
+     * @return UpdateWorkbenchEventResultResponse UpdateWorkbenchEventResultResponse
      */
     public function updateWorkbenchEventResult($request)
     {

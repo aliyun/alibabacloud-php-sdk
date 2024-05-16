@@ -14,6 +14,8 @@ class DsgRunSensIdentifyShrinkRequest extends Model
     public $esMetaParamsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10241024
      *
      * @var string

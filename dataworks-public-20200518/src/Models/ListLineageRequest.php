@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLineageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example up
      *
      * @var string
@@ -16,6 +18,8 @@ class ListLineageRequest extends Model
     public $direction;
 
     /**
+     * @description This parameter is required.
+     *
      * @example maxcompute-table.project.table
      *
      * @var string

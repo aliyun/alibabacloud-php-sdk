@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEntityTagsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example maxcompute-table.projectA.tableA
      *
      * @var string

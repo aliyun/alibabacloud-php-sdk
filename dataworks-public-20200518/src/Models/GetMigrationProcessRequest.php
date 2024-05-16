@@ -11,6 +11,7 @@ class GetMigrationProcessRequest extends Model
     /**
      * @description The ID of the migration package. You can call the CreateImportMigration operation to query the ID.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var int
@@ -20,6 +21,7 @@ class GetMigrationProcessRequest extends Model
     /**
      * @description The ID of the workspace. You can go to the Workspace Management page of the DataWorks console to view the ID.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var int

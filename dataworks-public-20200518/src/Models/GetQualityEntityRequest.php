@@ -11,6 +11,7 @@ class GetQualityEntityRequest extends Model
     /**
      * @description The type of the compute engine instance or data source.
      *
+     * This parameter is required.
      * @example odps
      *
      * @var string
@@ -34,6 +35,7 @@ class GetQualityEntityRequest extends Model
     /**
      * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
      *
+     * This parameter is required.
      * @example autotest
      *
      * @var string
@@ -41,8 +43,9 @@ class GetQualityEntityRequest extends Model
     public $projectName;
 
     /**
-     * @description The name of the partitioned table. You can call the [GetMetaTablePartition](~~173923~~) operation to obtain the name.
+     * @description The name of the partitioned table. You can call the [GetMetaTablePartition](https://help.aliyun.com/document_detail/173923.html) operation to obtain the name.
      *
+     * This parameter is required.
      * @example dual
      *
      * @var string

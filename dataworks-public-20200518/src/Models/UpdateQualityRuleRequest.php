@@ -23,8 +23,9 @@ class UpdateQualityRuleRequest extends Model
     public $blockType;
 
     /**
-     * @description The ID of the checker. You can call the [ListQualityRules](~~173995~~) operation to obtain the ID of the checker.
+     * @description The ID of the checker. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the checker.
      *
+     * This parameter is required.
      * @example 9
      *
      * @var int
@@ -48,7 +49,7 @@ class UpdateQualityRuleRequest extends Model
     public $criticalThreshold;
 
     /**
-     * @description The ID of the partition filter expression. You can call the [GetQualityEntity](~~173995~~) operation to obtain the ID of the partition filter expression.
+     * @description The ID of the partition filter expression. You can call the [GetQualityEntity](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the partition filter expression.
      *
      * @example 123
      *
@@ -66,8 +67,9 @@ class UpdateQualityRuleRequest extends Model
     public $expectValue;
 
     /**
-     * @description The ID of the monitoring rule. You can call the [ListQualityRules](~~173995~~) operation to obtain the ID of the monitoring rule.
+     * @description The ID of the monitoring rule. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the monitoring rule.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -77,6 +79,7 @@ class UpdateQualityRuleRequest extends Model
     /**
      * @description The method that is used to collect sample data, such as avg, count, sum, min, max, count_distinct, user_defined, table_count, table_size, table_dt_load_count, table_dt_refuseload_count, null_value, null_value/table_count, (table_count-count_distinct)/table_count, or table_count-count_distinct.
      *
+     * This parameter is required.
      * @example table_count
      *
      * @var string
@@ -124,6 +127,7 @@ class UpdateQualityRuleRequest extends Model
     /**
      * @description The name of the compute engine instance or data source. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the name.
      *
+     * This parameter is required.
      * @example autotest
      *
      * @var string
@@ -133,6 +137,7 @@ class UpdateQualityRuleRequest extends Model
     /**
      * @description The name of the field to be monitored.
      *
+     * This parameter is required.
      * @example id
      *
      * @var string
@@ -176,7 +181,7 @@ class UpdateQualityRuleRequest extends Model
     public $taskSetting;
 
     /**
-     * @description The ID of the monitoring template. You can call the [ListQualityRules](~~173995~~) operation to obtain the ID of the monitoring template that is used to create the monitoring rule.
+     * @description The ID of the monitoring template. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to obtain the ID of the monitoring template that is used to create the monitoring rule.
      *
      * @example 7
      *

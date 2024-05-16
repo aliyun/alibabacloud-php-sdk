@@ -11,6 +11,7 @@ class GetDDLJobStatusRequest extends Model
     /**
      * @description The ID of the DDL task.
      *
+     * This parameter is required.
      * @example abc
      *
      * @var string

@@ -11,6 +11,7 @@ class GetMigrationSummaryRequest extends Model
     /**
      * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -20,7 +21,7 @@ class GetMigrationSummaryRequest extends Model
     /**
      * @description The ID of the migration task.
      *
-     * You can call the [CreateImportMigration](~~2809123~~) operation to obtain the ID of the import task and call the [CreateExportMigration](~~3241603~~) operation to obtain the ID of the export task.
+     * This parameter is required.
      * @example 12345
      *
      * @var int

@@ -11,6 +11,7 @@ class RunSmokeTestRequest extends Model
     /**
      * @description The data timestamp.
      *
+     * This parameter is required.
      * @example 2020-05-26 00:00:00
      *
      * @var string
@@ -20,6 +21,7 @@ class RunSmokeTestRequest extends Model
     /**
      * @description The name of the workflow.
      *
+     * This parameter is required.
      * @example xm_create_test
      *
      * @var string
@@ -27,8 +29,9 @@ class RunSmokeTestRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the ID.
+     * @description The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -47,7 +50,7 @@ class RunSmokeTestRequest extends Model
     /**
      * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
      *
-     * A workspace in basic mode does not have a development environment. For more information, see [Basic mode and standard mode](~~85772~~).
+     * This parameter is required.
      * @example PROD
      *
      * @var string

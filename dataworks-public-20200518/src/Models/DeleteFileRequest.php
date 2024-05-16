@@ -11,6 +11,7 @@ class DeleteFileRequest extends Model
     /**
      * @description The HTTP status code.
      *
+     * This parameter is required.
      * @example 10000001
      *
      * @var int
@@ -28,7 +29,7 @@ class DeleteFileRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the file. You can call the [ListFiles](~~173942~~) operation to query the ID of the file.
+     * @description The ID of the file. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the ID of the file.
      *
      * @example dw_project
      *

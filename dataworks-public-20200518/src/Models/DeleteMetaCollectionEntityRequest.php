@@ -11,6 +11,7 @@ class DeleteMetaCollectionEntityRequest extends Model
     /**
      * @description The unique identifier of the entity.
      *
+     * This parameter is required.
      * @example album.12345
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteMetaCollectionEntityRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example maxcompute.projectA.tableB
      *
      * @var string

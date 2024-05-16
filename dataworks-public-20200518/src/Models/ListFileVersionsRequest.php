@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListFileVersionsRequest extends Model
 {
     /**
-     * @description The ID of the file. You can call the [ListFiles](~~173942~~) operation to query the ID.
+     * @description The ID of the file. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 100000001
      *
      * @var int

@@ -11,7 +11,7 @@ class ListMetaCollectionEntitiesRequest extends Model
     /**
      * @description The type of the entities.
      *
-     * For example, if this parameter is set to maxcompute-table, the entity is a MaxCompute table.
+     * This parameter is required.
      * @example album.12345
      *
      * @var string

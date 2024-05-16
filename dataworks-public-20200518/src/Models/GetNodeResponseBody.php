@@ -17,7 +17,7 @@ class GetNodeResponseBody extends Model
     public $data;
 
     /**
-     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the node ID.
+     * @description The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *

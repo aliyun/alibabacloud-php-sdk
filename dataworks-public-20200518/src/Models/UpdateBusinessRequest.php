@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateBusinessRequest extends Model
 {
     /**
-     * @description The ID of the workflow. You can call the [ListBusiness](~~173945~~) operation to obtain the workflow ID.
+     * @description The ID of the workflow. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to obtain the workflow ID.
      *
+     * This parameter is required.
      * @example 300000
      *
      * @var int
@@ -18,7 +19,7 @@ class UpdateBusinessRequest extends Model
     public $businessId;
 
     /**
-     * @description The name of the workflow. You can call the [ListBusiness](~~173945~~) operation to obtain the workflow name.
+     * @description The name of the workflow. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to obtain the workflow name.
      *
      * @example MyBusiness
      *
@@ -36,7 +37,7 @@ class UpdateBusinessRequest extends Model
     public $description;
 
     /**
-     * @description The owner of the workflow. You can call the [ListBusiness](~~173945~~) operation to obtain the workflow owner.
+     * @description The owner of the workflow. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to obtain the workflow owner.
      *
      * @example 348428****
      *

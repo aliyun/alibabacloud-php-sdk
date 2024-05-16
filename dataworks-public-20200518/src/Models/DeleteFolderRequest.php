@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteFolderRequest extends Model
 {
     /**
-     * @description The ID of the folder. You can call the [ListFolders](~~173955~~) operation to query the ID.
+     * @description The ID of the folder. You can call the [ListFolders](https://help.aliyun.com/document_detail/173955.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 2eb6f9****
      *
      * @var string

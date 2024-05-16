@@ -20,6 +20,7 @@ class CreateMetaCategoryRequest extends Model
     /**
      * @description The name of the category.
      *
+     * This parameter is required.
      * @example category_name
      *
      * @var string

@@ -11,6 +11,7 @@ class ListMigrationsRequest extends Model
     /**
      * @description The ID of the owner.
      *
+     * This parameter is required.
      * @example IMPORT
      *
      * @var string
@@ -47,6 +48,7 @@ class ListMigrationsRequest extends Model
     /**
      * @description The type of the migration task. Valid values: IMPORT and EXPORT.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int

@@ -11,7 +11,7 @@ class UpdateDIProjectConfigRequest extends Model
     /**
      * @description The type of the sources of the synchronization solutions.
      *
-     * If you do not configure this parameter, DataWorks applies the default global configuration to all sources.
+     * This parameter is required.
      * @example odps
      *
      * @var string
@@ -24,6 +24,7 @@ class UpdateDIProjectConfigRequest extends Model
      *   true: The request was successful.
      *   false: The request failed.
      *
+     * This parameter is required.
      * @example {"RENAMECOLUMN":"WARNING","DROPTABLE":"WARNING","CREATETABLE":"WARNING","MODIFYCOLUMN":"WARNING","TRUNCATETABLE":"WARNING","DROPCOLUMN":"WARNING","ADDCOLUMN":"WARNING","RENAMETABLE":"WARNING"}
      *
      * @var string
@@ -33,7 +34,7 @@ class UpdateDIProjectConfigRequest extends Model
     /**
      * @description The type of the destinations of the synchronization solutions. This parameter cannot be left empty.
      *
-     * Valid values: analyticdb_for_mysql, odps, elasticsearch, holo, mysql, and polardb.
+     * This parameter is required.
      * @example 10000
      *
      * @var int

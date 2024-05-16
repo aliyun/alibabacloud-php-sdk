@@ -11,6 +11,7 @@ class CreateDataSourceRequest extends Model
     /**
      * @description The ID of the data source.
      *
+     * This parameter is required.
      * @example {"database":"dbname","instanceName":"instancename","password":"password","rdsOwnerId":"123","username":"username"}
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateDataSourceRequest extends Model
     /**
      * @description The environment in which the data source is used. Valid values: 0 and 1. 0 indicates the development environment. 1 indicates the production environment.
      *
+     * This parameter is required.
      * @example rds
      *
      * @var string
@@ -41,6 +43,7 @@ class CreateDataSourceRequest extends Model
     /**
      * @description The HTTP status code returned.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -64,6 +67,7 @@ class CreateDataSourceRequest extends Model
      *   hybriddb_for_postgresql
      *   holo
      *
+     * This parameter is required.
      * @example abc
      *
      * @var string
@@ -73,6 +77,7 @@ class CreateDataSourceRequest extends Model
     /**
      * @description The description of the data source.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

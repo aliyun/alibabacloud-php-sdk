@@ -11,6 +11,7 @@ class ListInstanceHistoryRequest extends Model
     /**
      * @description The environment of the workspace. Valid values: PROD (production environment) and DEV (development environment).By default, data of instances in the production environment is queried.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

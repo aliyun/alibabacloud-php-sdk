@@ -15,6 +15,8 @@ class DsgRunSensIdentifyRequest extends Model
     public $esMetaParams;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10241024
      *
      * @var string

@@ -136,7 +136,7 @@ class UpdateRemindRequest extends Model
      *   CYCLE_UNFINISHED: The system sends an alert notification if a monitored instance is still running at the end of the specified cycle. In most cases, you can configure this trigger condition for node instances that are scheduled to run by hour.
      *   TIMEOUT: The system monitors an instance when it starts to run and sends an alert notification if the instance is still running after the specified period ends. In most cases, you can configure this trigger condition to monitor the duration of node instances.
      *
-     * For more information, see [Manage custom alert rules](~~138172~~).
+     * For more information, see [Manage custom alert rules](https://help.aliyun.com/document_detail/138172.html).
      * @example 1234
      *
      * @var int
@@ -146,6 +146,7 @@ class UpdateRemindRequest extends Model
     /**
      * @description The end of the period during which no alert notifications are sent. Specify the time in the hh:mm format. Valid values of hh: 0 to 23. Valid values of mm: 0 to 59.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

@@ -20,6 +20,7 @@ class ListMetaDBRequest extends Model
     /**
      * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
+     * This parameter is required.
      * @example emr
      *
      * @var string
@@ -47,6 +48,7 @@ class ListMetaDBRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopDIJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11668
      *
      * @var int

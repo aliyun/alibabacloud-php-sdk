@@ -20,6 +20,7 @@ class CreateQualityEntityRequest extends Model
     /**
      * @description The engine or data source type.
      *
+     * This parameter is required.
      * @example ODPS
      *
      * @var string
@@ -29,6 +30,7 @@ class CreateQualityEntityRequest extends Model
     /**
      * @description The partition expression.
      *
+     * This parameter is required.
      * @example dt=$[yyyymmdd]
      *
      * @var string
@@ -43,6 +45,7 @@ class CreateQualityEntityRequest extends Model
     /**
      * @description The name of the maxcompute project or data source.
      *
+     * This parameter is required.
      * @example autotest
      *
      * @var string
@@ -52,6 +55,7 @@ class CreateQualityEntityRequest extends Model
     /**
      * @description The name of the table.
      *
+     * This parameter is required.
      * @example dual
      *
      * @var string

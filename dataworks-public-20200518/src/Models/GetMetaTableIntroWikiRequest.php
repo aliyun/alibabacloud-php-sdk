@@ -11,6 +11,7 @@ class GetMetaTableIntroWikiRequest extends Model
     /**
      * @description The GUID of the metatable.
      *
+     * This parameter is required.
      * @example odps.engine_name.table_name
      *
      * @var string

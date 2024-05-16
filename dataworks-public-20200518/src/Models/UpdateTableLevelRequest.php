@@ -20,6 +20,7 @@ class UpdateTableLevelRequest extends Model
     /**
      * @description The ID of the table level to be updated. You can call the ListTableLevel operation to obtain the ID.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int
@@ -47,6 +48,7 @@ class UpdateTableLevelRequest extends Model
     /**
      * @description The ID of the DataWorks workspace.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

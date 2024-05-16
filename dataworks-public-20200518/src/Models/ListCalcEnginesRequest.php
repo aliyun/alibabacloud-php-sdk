@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCalcEnginesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ODPS
      *
      * @var string
@@ -44,6 +46,8 @@ class ListCalcEnginesRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 27
      *
      * @var int

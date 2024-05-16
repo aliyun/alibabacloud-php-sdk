@@ -11,6 +11,7 @@ class ListProjectRolesRequest extends Model
     /**
      * @description Dataworks ID of the region where the workspace is located.
      *
+     * This parameter is required.
      * @example 27
      *
      * @var int

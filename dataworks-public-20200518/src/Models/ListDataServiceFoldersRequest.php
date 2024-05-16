@@ -47,6 +47,7 @@ class ListDataServiceFoldersRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var int

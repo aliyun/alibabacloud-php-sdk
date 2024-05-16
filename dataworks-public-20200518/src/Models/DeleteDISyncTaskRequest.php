@@ -14,6 +14,7 @@ class DeleteDISyncTaskRequest extends Model
      *   true: The request is successful.
      *   false: The request failed.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -23,7 +24,7 @@ class DeleteDISyncTaskRequest extends Model
     /**
      * @description The type of the synchronization node in Data Integration.
      *
-     * The parameter value is DI_REALTIME and cannot be changed. The value indicates a real-time synchronization node.
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -31,8 +32,9 @@ class DeleteDISyncTaskRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the real-time synchronization node. You can call the [ListFiles](~~173942~~) operation to query the ID of the node.
+     * @description The ID of the real-time synchronization node. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the ID of the node.
      *
+     * This parameter is required.
      * @example DI_REALTIME
      *
      * @var string

@@ -11,6 +11,7 @@ class GetDataServiceGroupRequest extends Model
     /**
      * @description The ID of the business process.
      *
+     * This parameter is required.
      * @example ds_123abc
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDataServiceGroupRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var int

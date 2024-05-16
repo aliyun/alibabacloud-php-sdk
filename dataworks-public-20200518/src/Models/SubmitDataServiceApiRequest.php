@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitDataServiceApiRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,8 @@ class SubmitDataServiceApiRequest extends Model
     public $apiId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10000
      *
      * @var int

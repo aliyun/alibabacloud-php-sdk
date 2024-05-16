@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetNodeOnBaselineRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1234
      *
      * @var int

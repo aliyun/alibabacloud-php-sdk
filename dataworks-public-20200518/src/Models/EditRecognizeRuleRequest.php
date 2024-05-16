@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EditRecognizeRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dsg-uat
      *
      * @var string
@@ -56,6 +58,8 @@ class EditRecognizeRuleRequest extends Model
     public $levelName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0ce67949-0810-400f-a24a-cc5ffafe1024
      *
      * @var string
@@ -63,11 +67,15 @@ class EditRecognizeRuleRequest extends Model
     public $nodeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $nodeParent;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -94,6 +102,8 @@ class EditRecognizeRuleRequest extends Model
     public $sensitiveDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1a928de7-3962-4e07-93ac-e1973baa1024
      *
      * @var string
@@ -101,6 +111,8 @@ class EditRecognizeRuleRequest extends Model
     public $sensitiveId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sensitiveName;
@@ -113,6 +125,8 @@ class EditRecognizeRuleRequest extends Model
     public $status;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e1970541-6cf5-4d23-b101-d5b66f6e1024
      *
      * @var string
@@ -120,6 +134,8 @@ class EditRecognizeRuleRequest extends Model
     public $templateId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10241024
      *
      * @var string
@@ -127,6 +143,8 @@ class EditRecognizeRuleRequest extends Model
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string

@@ -11,6 +11,7 @@ class columns extends Model
     /**
      * @description The comment of the field.
      *
+     * This parameter is required.
      * @example columnName1
      *
      * @var string
@@ -28,7 +29,7 @@ class columns extends Model
     /**
      * @description The sequence number of the field. You can use this parameter to specify how fields are sorted in a table. By default, fields are sorted in the order in which requests are created.
      *
-     * If the field is a partition field, this parameter is not supported.
+     * This parameter is required.
      * @example string
      *
      * @var string

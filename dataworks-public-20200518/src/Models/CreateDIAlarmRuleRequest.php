@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDIAlarmRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11265
      *
      * @var int
@@ -30,6 +32,8 @@ class CreateDIAlarmRuleRequest extends Model
     public $enabled;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Heartbeat
      *
      * @var string
@@ -37,11 +41,15 @@ class CreateDIAlarmRuleRequest extends Model
     public $metricType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var notificationSettings
      */
     public $notificationSettings;
 
     /**
+     * @description This parameter is required.
+     *
      * @var triggerConditions[]
      */
     public $triggerConditions;

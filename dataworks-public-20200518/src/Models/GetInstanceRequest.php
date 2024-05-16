@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [ListInstances](~~173982~~) operation to query the ID.
+     * @description The ID of the instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/173982.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -20,6 +21,7 @@ class GetInstanceRequest extends Model
     /**
      * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string

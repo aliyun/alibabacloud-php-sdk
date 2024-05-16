@@ -63,7 +63,7 @@ class migrations extends Model
     /**
      * @description The URL that is used to download the package of the export task. You can use the URL to download the package of the export task.
      *
-     * @example An internal system error occurred. datasource kafka region is not cn-chengdu, can\"t open network for it
+     * @example An internal system error occurred. datasource kafka region is not cn-chengdu, can\\"t open network for it
      *
      * @var string
      */

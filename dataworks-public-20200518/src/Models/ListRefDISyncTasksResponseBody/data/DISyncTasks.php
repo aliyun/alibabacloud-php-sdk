@@ -12,7 +12,7 @@ class DISyncTasks extends Model
      * @description The destination data source of the sync node.
      *
      * If the RefType parameter is set to to, the sync nodes that use the specified data source as the destination data source are returned. In this case, the value of this parameter indicates the specified data source.
-     * @example [\"qcc_polardb2\"]
+     * @example [\\"qcc_polardb2\\"]
      *
      * @var string
      */
@@ -22,7 +22,7 @@ class DISyncTasks extends Model
      * @description The source data source of the sync node.
      *
      * If the RefType parameter is set to from, the sync nodes that use the specified data source as the source data source are returned. In this case, the value of this parameter indicates the specified data source.
-     * @example [\"odps_writer\"]
+     * @example [\\"odps_writer\\"]
      *
      * @var string
      */

@@ -53,7 +53,7 @@ class CreateFileRequest extends Model
     /**
      * @description The name of the data source for which the node is run.
      *
-     * You can call the [UpdateDataSource](~~211432~~) operation to query the available data sources in the workspace.
+     * You can call the [UpdateDataSource](https://help.aliyun.com/document_detail/211432.html) operation to query the available data sources in the workspace.
      * @example odps_first
      *
      * @var string
@@ -165,6 +165,7 @@ class CreateFileRequest extends Model
     /**
      * @description The name of the file.
      *
+     * This parameter is required.
      * @var string
      */
     public $fileName;
@@ -172,7 +173,7 @@ class CreateFileRequest extends Model
     /**
      * @description The type of the code in the file.
      *
-     * You can call the [ListFileType](~~212428~~) operation to query the type of the code for the file.
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -195,7 +196,7 @@ class CreateFileRequest extends Model
     public $inputList;
 
     /**
-     * @description The input parameters of the node. The value of this parameter must be in the JSON format. For more information about the input parameters, see the InputContextParameterList parameter in the Response parameters section of the [GetFile](~~173954~~) operation.
+     * @description The input parameters of the node. The value of this parameter must be in the JSON format. For more information about the input parameters, see the InputContextParameterList parameter in the Response parameters section of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
      *
      * This parameter corresponds to the Input Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example [{"ValueSource": "project_001.first_node:bizdate_param","ParameterName": "bizdate_input"}]
@@ -205,7 +206,7 @@ class CreateFileRequest extends Model
     public $inputParameters;
 
     /**
-     * @description The output parameters of the node. The value of this parameter must be in the JSON format. For more information about the output parameters, see the OutputContextParameterList parameter in the Response parameters section of the [GetFile](~~173954~~) operation.
+     * @description The output parameters of the node. The value of this parameter must be in the JSON format. For more information about the output parameters, see the OutputContextParameterList parameter in the Response parameters section of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
      *
      * This parameter corresponds to the Output Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example [{"Type": 1,"Value": "${bizdate}","ParameterName": "bizdate_param"}]
@@ -226,7 +227,7 @@ class CreateFileRequest extends Model
     /**
      * @description The scheduling parameters of the node. Separate multiple parameters with spaces.
      *
-     * This parameter corresponds to the Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information about the configurations of the scheduling parameters, see [Configure scheduling parameters](~~137548~~).
+     * This parameter corresponds to the Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information about the configurations of the scheduling parameters, see [Configure scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
      * @example a=x b=y
      *
      * @var string
@@ -270,7 +271,7 @@ class CreateFileRequest extends Model
     /**
      * @description This parameter is deprecated. Do not use this parameter.
      *
-     * You can call the [ListResourceGroups](~~173913~~) operation to query the available resource groups in the workspace. When you call the operation, set the ResourceGroupType parameter to 1. The response parameter Id indicates the ID of an available resource group.
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace. When you call the operation, set the ResourceGroupType parameter to 1. The response parameter Id indicates the ID of an available resource group.
      * @example 375827434852437
      *
      * @var int
@@ -278,7 +279,7 @@ class CreateFileRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The identifier of the resource group that is used to run the node. You can call the [ListResourceGroups](~~173913~~) operation to query the available resource groups in the workspace.
+     * @description The identifier of the resource group that is used to run the node. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace.
      *
      * @example group_375827434852437
      *

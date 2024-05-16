@@ -54,7 +54,7 @@ class deployments extends Model
     public $executor;
 
     /**
-     * @description The ID of the deployment task. You can call the [GetDeployment](~~173950~~) operation to query the details of the deployment task based on the ID.
+     * @description The ID of the deployment task. You can call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the details of the deployment task based on the ID.
      *
      * @example 11111
      *

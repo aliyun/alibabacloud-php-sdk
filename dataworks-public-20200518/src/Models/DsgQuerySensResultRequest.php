@@ -103,6 +103,8 @@ class DsgQuerySensResultRequest extends Model
     public $table;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10241024
      *
      * @var string

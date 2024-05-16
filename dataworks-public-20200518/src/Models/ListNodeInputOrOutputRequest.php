@@ -14,6 +14,7 @@ class ListNodeInputOrOutputRequest extends Model
      *   input: ancestor nodes
      *   output: descendant nodes
      *
+     * This parameter is required.
      * @example output
      *
      * @var string
@@ -21,8 +22,9 @@ class ListNodeInputOrOutputRequest extends Model
     public $ioType;
 
     /**
-     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the node ID.
+     * @description The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
      *
+     * This parameter is required.
      * @example 12314567
      *
      * @var int
@@ -32,6 +34,7 @@ class ListNodeInputOrOutputRequest extends Model
     /**
      * @description The environment of the workspace. Valid values: DEV and PROD. A value of DEV indicates the development environment. A value of PROD indicates the production environment.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string

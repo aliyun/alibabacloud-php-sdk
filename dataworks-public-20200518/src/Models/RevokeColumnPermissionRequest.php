@@ -14,7 +14,7 @@ class RevokeColumnPermissionRequest extends Model
      *   If you want to revoke permissions from an Alibaba Cloud account, specify this parameter in the ALIYUN$+Alibaba Cloud account format.
      *   If you want to revoke permissions from a Resource Access Management (RAM) user, specify this parameter in the RAM$+RAM user format.
      *
-     * You must specify either this parameter or RevokeUserId. If you specify both this parameter and RevokeUserId, the value of RevokeUserId prevails.
+     * This parameter is required.
      * @example id,name
      *
      * @var string
@@ -22,8 +22,9 @@ class RevokeColumnPermissionRequest extends Model
     public $columns;
 
     /**
-     * @description The name of the MaxCompute table to which the destination fields belong. You can call the [SearchMetaTables](~~173919~~) operation to query the name.
+     * @description The name of the MaxCompute table to which the destination fields belong. You can call the [SearchMetaTables](https://help.aliyun.com/document_detail/173919.html) operation to query the name.
      *
+     * This parameter is required.
      * @example aMaxcomputeProjectName
      *
      * @var string
@@ -52,7 +53,7 @@ class RevokeColumnPermissionRequest extends Model
     /**
      * @description The fields for which you want to revoke permissions from a user. Separate multiple fields with commas (,).
      *
-     * You can revoke the permissions on the fields only in MaxCompute tables.
+     * This parameter is required.
      * @example aTableName
      *
      * @var string
@@ -62,6 +63,7 @@ class RevokeColumnPermissionRequest extends Model
     /**
      * @description The name of the MaxCompute project to which the destination fields belong. You can log on to the DataWorks console and go to the Workspace Management page to obtain the name of the MaxCompute project that is associated with the workspace.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int

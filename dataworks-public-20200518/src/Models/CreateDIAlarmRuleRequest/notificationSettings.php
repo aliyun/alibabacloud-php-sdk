@@ -18,11 +18,15 @@ class notificationSettings extends Model
     public $inhibitionInterval;
 
     /**
+     * @description This parameter is required.
+     *
      * @var notificationChannels[]
      */
     public $notificationChannels;
 
     /**
+     * @description This parameter is required.
+     *
      * @var notificationReceivers[]
      */
     public $notificationReceivers;

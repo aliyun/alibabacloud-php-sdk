@@ -51,8 +51,9 @@ class ListAlertMessagesRequest extends Model
     public $baselineId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd\"T\"HH:mm:ssZ format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-04-02T00:00:00+0800
      *
      * @var string
@@ -60,8 +61,9 @@ class ListAlertMessagesRequest extends Model
     public $beginTime;
 
     /**
-     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd\"T\"HH:mm:ssZ format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-04-04T00:00:00+0800
      *
      * @var string
@@ -71,6 +73,7 @@ class ListAlertMessagesRequest extends Model
     /**
      * @description The number of the page to return. Valid values: 1 to 30. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -80,6 +83,7 @@ class ListAlertMessagesRequest extends Model
     /**
      * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

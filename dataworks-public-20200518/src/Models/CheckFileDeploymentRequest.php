@@ -20,6 +20,7 @@ class CheckFileDeploymentRequest extends Model
     /**
      * @description The ID of the instance to which the file checker belongs. You can obtain the ID from the CheckerInstanceId parameter in the check event logs returned by DataWorks.
      *
+     * This parameter is required.
      * @example 66_123455623_2
      *
      * @var string
@@ -33,6 +34,7 @@ class CheckFileDeploymentRequest extends Model
      *   WARN: The file passes the check, but an alert is reported.
      *   FAIL: The file fails the check.
      *
+     * This parameter is required.
      * @example OK
      *
      * @var string

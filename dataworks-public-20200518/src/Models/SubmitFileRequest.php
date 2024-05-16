@@ -21,6 +21,7 @@ class SubmitFileRequest extends Model
     /**
      * @description The description of the commit operation.
      *
+     * This parameter is required.
      * @example 1000000
      *
      * @var int
@@ -37,7 +38,7 @@ class SubmitFileRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the file. You can call the [ListFiles](~~173942~~) operation to query the ID.
+     * @description The ID of the file. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the ID.
      *
      * @example dw_project
      *

@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @description The description of the metatable.
      *
-     * @example \# Business requirements\n\n\&lt;a name=\&quot;xiw5n\&quot;
+     * @example \\# Business requirements\\n\\n\\&lt;a name=\\&quot;xiw5n\\&quot;
      *
      * @var string
      */

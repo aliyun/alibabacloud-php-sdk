@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
-     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the ID of the node.
+     * @description The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID of the node.
      *
      * @var data
      */
@@ -37,7 +37,7 @@ class ListInstancesResponseBody extends Model
     /**
      * @description The error message that is returned for the instance.
      *
-     * This parameter is deprecated. You can call the [GetInstanceLog](~~173983~~) operation to query the error information related to the node.
+     * This parameter is deprecated. You can call the [GetInstanceLog](https://help.aliyun.com/document_detail/173983.html) operation to query the error information related to the node.
      * @example 200
      *
      * @var int

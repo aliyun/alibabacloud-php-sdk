@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListRefDISyncTasksRequest extends Model
 {
     /**
-     * @description The name of the data source. You can call the [ListDataSources](~~211431~~) operation to query the name of the data source.
+     * @description The name of the data source. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the name of the data source.
      *
+     * This parameter is required.
      * @example mysql_datasource
      *
      * @var string
@@ -38,6 +39,7 @@ class ListRefDISyncTasksRequest extends Model
     /**
      * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -50,6 +52,7 @@ class ListRefDISyncTasksRequest extends Model
      *   from: queries the sync nodes that use the data source as the source data source.
      *   to: queries the sync nodes that use the data source as the destination data source.
      *
+     * This parameter is required.
      * @example from
      *
      * @var string
@@ -62,7 +65,7 @@ class ListRefDISyncTasksRequest extends Model
      *   DI_OFFLINE: batch sync node
      *   DI_REALTIME: real-time sync node
      *
-     * You can specify only one type. The sync solution type is not supported.
+     * This parameter is required.
      * @example DI_OFFLINE
      *
      * @var string

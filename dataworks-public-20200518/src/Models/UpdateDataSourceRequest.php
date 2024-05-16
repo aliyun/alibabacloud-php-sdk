@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDataSourceRequest extends Model
 {
     /**
-     * @description The ID of the data source that you want to update. You can call the [ListDataSources](~~211431~~) operation to obtain the ID.
+     * @description The ID of the data source that you want to update. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to obtain the ID.
      *
      * @example {"accessId":"xssssss","accessKey":"xsaxsaxsa","authType":2,"endpoint":"http://service.odps.aliyun.com/api","project":"xsaxsax","tag":"public"}
      *
@@ -20,6 +20,7 @@ class UpdateDataSourceRequest extends Model
     /**
      * @description Indicates whether the data source is updated.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

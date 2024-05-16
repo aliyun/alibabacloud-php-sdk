@@ -44,6 +44,7 @@ class RunCycleDagNodesRequest extends Model
     /**
      * @description The data timestamp at which data is no longer backfilled. Specify the value in the yyyy-MM-dd 00:00:00 format.
      *
+     * This parameter is required.
      * @example 2020-05-21 00:00:00
      *
      * @var string
@@ -60,8 +61,9 @@ class RunCycleDagNodesRequest extends Model
     public $excludeNodeIds;
 
     /**
-     * @description The ID of the node for which you want to backfill data. If you want to backfill data for multiple nodes, separate the IDs of the nodes with commas (,). You can call the [ListNodes](~~173979~~) operation to query the ID.
+     * @description The ID of the node for which you want to backfill data. If you want to backfill data for multiple nodes, separate the IDs of the nodes with commas (,). You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 74324,74325
      *
      * @var string
@@ -71,6 +73,7 @@ class RunCycleDagNodesRequest extends Model
     /**
      * @description The name of the workflow.
      *
+     * This parameter is required.
      * @example xm_test
      *
      * @var string
@@ -89,6 +92,7 @@ class RunCycleDagNodesRequest extends Model
     /**
      * @description Specifies whether data can be backfilled for multiple nodes at the same time.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -98,6 +102,7 @@ class RunCycleDagNodesRequest extends Model
     /**
      * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string
@@ -105,8 +110,9 @@ class RunCycleDagNodesRequest extends Model
     public $projectEnv;
 
     /**
-     * @description The ID of the node for which data is first backfilled. You can call the [ListNodes](~~173979~~) operation to query the ID.
+     * @description The ID of the node for which data is first backfilled. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -116,6 +122,7 @@ class RunCycleDagNodesRequest extends Model
     /**
      * @description The data timestamp at which data starts to be backfilled. Specify the value in the yyyy-MM-dd 00:00:00 format.
      *
+     * This parameter is required.
      * @example 2020-05-20 00:00:00
      *
      * @var string

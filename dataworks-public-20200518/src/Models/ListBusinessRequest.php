@@ -20,6 +20,7 @@ class ListBusinessRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +30,7 @@ class ListBusinessRequest extends Model
     /**
      * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

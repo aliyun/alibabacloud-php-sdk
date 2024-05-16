@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegisterLineageRelationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var LineageRelationRegisterVO
      */
     public $lineageRelationRegisterVO;

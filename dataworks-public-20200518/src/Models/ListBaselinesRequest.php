@@ -24,11 +24,15 @@ class ListBaselinesRequest extends Model
     public $owner;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +43,8 @@ class ListBaselinesRequest extends Model
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $projectId;

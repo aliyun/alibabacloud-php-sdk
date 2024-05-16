@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DsgStopSensIdentifyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1000001
      *
      * @var int
@@ -16,6 +18,8 @@ class DsgStopSensIdentifyRequest extends Model
     public $jobId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10241024
      *
      * @var string

@@ -11,6 +11,7 @@ class DeleteProjectMemberRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example 27
      *
      * @var int
@@ -18,6 +19,8 @@ class DeleteProjectMemberRequest extends Model
     public $projectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234
      *
      * @var string

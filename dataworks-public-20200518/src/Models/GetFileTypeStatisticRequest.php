@@ -11,6 +11,7 @@ class GetFileTypeStatisticRequest extends Model
     /**
      * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment. The value DEV indicates the development environment.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string
@@ -20,6 +21,7 @@ class GetFileTypeStatisticRequest extends Model
     /**
      * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID.
      *
+     * This parameter is required.
      * @example 123465
      *
      * @var int

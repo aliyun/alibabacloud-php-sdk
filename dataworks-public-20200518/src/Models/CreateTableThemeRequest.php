@@ -11,6 +11,7 @@ class CreateTableThemeRequest extends Model
     /**
      * @description The level of the table folder. Valid values: 1 and 2. A value of 1 indicates a first-level table folder. A value of 2 indicates a second-level table folder.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -20,6 +21,7 @@ class CreateTableThemeRequest extends Model
     /**
      * @description The name of the table folder.
      *
+     * This parameter is required.
      * @var string
      */
     public $name;

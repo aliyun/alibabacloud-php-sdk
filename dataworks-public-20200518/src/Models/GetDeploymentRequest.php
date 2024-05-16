@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDeploymentRequest extends Model
 {
     /**
-     * @description The ID of the deployment task. A deployment task ID is generated when you call the [SubmitFile](~~173944~~) or [DeployFile](~~173956~~) operation.
+     * @description The ID of the deployment task. A deployment task ID is generated when you call the [SubmitFile](https://help.aliyun.com/document_detail/173944.html) or [DeployFile](https://help.aliyun.com/document_detail/173956.html) operation.
      *
+     * This parameter is required.
      * @example 3000001
      *
      * @var int

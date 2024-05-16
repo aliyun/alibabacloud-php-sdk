@@ -11,6 +11,7 @@ class columns extends Model
     /**
      * @description The comment of the field.
      *
+     * This parameter is required.
      * @example abc
      *
      * @var string
@@ -27,6 +28,7 @@ class columns extends Model
     /**
      * @description The sequence number of the field. If the field is a partition field, this parameter is not supported.
      *
+     * This parameter is required.
      * @example string
      *
      * @var string

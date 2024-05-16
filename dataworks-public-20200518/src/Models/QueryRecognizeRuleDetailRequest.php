@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryRecognizeRuleDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sensitiveName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10241024
      *
      * @var string

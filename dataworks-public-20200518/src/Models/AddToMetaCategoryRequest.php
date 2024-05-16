@@ -11,6 +11,7 @@ class AddToMetaCategoryRequest extends Model
     /**
      * @description The ID of the category.
      *
+     * This parameter is required.
      * @example 5
      *
      * @var int
@@ -20,6 +21,7 @@ class AddToMetaCategoryRequest extends Model
     /**
      * @description The GUID of the metatable.
      *
+     * This parameter is required.
      * @example odps.engine_name.table_name
      *
      * @var string

@@ -38,6 +38,7 @@ class GetMetaTableLineageRequest extends Model
     /**
      * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
+     * This parameter is required.
      * @example up
      *
      * @var string

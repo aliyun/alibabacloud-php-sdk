@@ -30,7 +30,7 @@ class connections extends Model
     public $connectionType;
 
     /**
-     * @example {\"database\":\"xxx\",\"instanceName\":\"xxx\",\"password\":\"xxx\",\"rdsOwnerId\":\"xxx\",\"tag\":\"rds\",\"username\":\"xxx\"}
+     * @example {\\"database\\":\\"xxx\\",\\"instanceName\\":\\"xxx\\",\\"password\\":\\"xxx\\",\\"rdsOwnerId\\":\\"xxx\\",\\"tag\\":\\"rds\\",\\"username\\":\\"xxx\\"}
      *
      * @var string
      */

@@ -26,6 +26,8 @@ class UpdateBaselineRequest extends Model
     public $alertSettings;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $baselineId;
@@ -66,6 +68,8 @@ class UpdateBaselineRequest extends Model
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $projectId;

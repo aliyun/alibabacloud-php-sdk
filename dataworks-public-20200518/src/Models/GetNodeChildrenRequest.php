@@ -11,6 +11,7 @@ class GetNodeChildrenRequest extends Model
     /**
      * @description The ID of the node. You can go to the Operation Center page in the DataWorks console to view the ID.
      *
+     * This parameter is required.
      * @example 123456878
      *
      * @var int
@@ -20,6 +21,7 @@ class GetNodeChildrenRequest extends Model
     /**
      * @description The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string

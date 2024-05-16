@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetQualityFollowerRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1234
      *
      * @var int
@@ -21,6 +23,8 @@ class GetQualityFollowerRequest extends Model
     public $projectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example autotest
      *
      * @var string

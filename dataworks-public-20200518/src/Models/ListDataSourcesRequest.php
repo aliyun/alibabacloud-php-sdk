@@ -74,6 +74,7 @@ class ListDataSourcesRequest extends Model
      *   hybriddb_for_postgresql
      *   holo
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

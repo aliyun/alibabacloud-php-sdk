@@ -11,6 +11,7 @@ class ListDagsRequest extends Model
     /**
      * @description The environment of the workspace. Valid values: PROD and DEV. PROD indicates the production environment. DEV indicates the development environment.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int
@@ -20,6 +21,7 @@ class ListDagsRequest extends Model
     /**
      * @description The HTTP status code returned.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string

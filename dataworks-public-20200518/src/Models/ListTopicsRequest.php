@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTopicsRequest extends Model
 {
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\"T\"HH:mm:ssZ format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-03-24T00:00:00+0800
      *
      * @var string
@@ -18,8 +19,9 @@ class ListTopicsRequest extends Model
     public $beginTime;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\"T\"HH:mm:ssZ format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-03-25T23:00:00+0800
      *
      * @var string
@@ -56,6 +58,7 @@ class ListTopicsRequest extends Model
     /**
      * @description The number of the page to return. Valid values: 1 to 30. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -65,6 +68,7 @@ class ListTopicsRequest extends Model
     /**
      * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

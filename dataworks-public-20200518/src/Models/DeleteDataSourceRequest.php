@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataSourceRequest extends Model
 {
     /**
-     * @description The ID of the data source. You can call the [ListDataSources](~~211431~~) operation to obtain the ID.
+     * @description The ID of the data source. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to obtain the ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

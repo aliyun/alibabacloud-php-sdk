@@ -26,7 +26,7 @@ class GenerateDISyncTaskConfigForCreatingRequest extends Model
      *   DI_REALTIME: real-time synchronization node
      *   DI_SOLUTION: synchronization solution
      *
-     * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -36,6 +36,7 @@ class GenerateDISyncTaskConfigForCreatingRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request. This parameter is used to prevent repeated operations that are caused by multiple calls.
      *
+     * This parameter is required.
      * @example {    "type": "realtime",     "version": "1.0",        "setting": {       "resourceGroup":       "S_res_group_280749521950784_1623033752022",        "scheduleResgroupId": 30003913,       "name": "openapi_realtime_solution_0813_1739",       "taskType": "oneclick_to_odps"     },     "steps": [         {             "stepType": "mysql",             "parameter": {                 "connection": [                     {                        "datasourceType": "mysql",                         "datasource": "mysql_pub",                         "table": [                             "xyx"                         ]                     }                 ]             },             "name": "Reader",             "category": "reader"         },         {             "stepType": "odps",             "parameter": {                 "datasource": "odps_first"             },             "name": "Writer",             "category": "writer"         }     ] }
      *
      * @var string
@@ -56,7 +57,7 @@ class GenerateDISyncTaskConfigForCreatingRequest extends Model
      *   If the script contains the SelectedTables parameter, the system synchronizes the tables that you specify in the SelectedTables parameter.
      *   If the script contains the Tables parameter, the system synchronizes the tables that you specify in the Tables parameter.
      *
-     * }
+     * This parameter is required.
      * @example DI_REALTIME
      *
      * @var string

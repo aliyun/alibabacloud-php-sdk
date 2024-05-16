@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryRecognizeDataByRuleTypeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryRecognizeDataByRuleTypeRequest extends Model
     public $recognizeRulesType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10241024
      *
      * @var string

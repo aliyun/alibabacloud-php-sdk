@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteBaselineRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $projectId;

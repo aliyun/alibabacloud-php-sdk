@@ -11,6 +11,7 @@ class CreateDataServiceGroupRequest extends Model
     /**
      * @description The ID of the API group that is associated with the business process in the API Gateway console. You can log on to the API Gateway console and go to the Group Details page to view the ID.
      *
+     * This parameter is required.
      * @example 1000abcd
      *
      * @var string
@@ -29,6 +30,7 @@ class CreateDataServiceGroupRequest extends Model
     /**
      * @description The name of the business process.
      *
+     * This parameter is required.
      * @example Business process name
      *
      * @var string
@@ -38,6 +40,7 @@ class CreateDataServiceGroupRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var int

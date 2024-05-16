@@ -11,6 +11,7 @@ class CreateUdfFileRequest extends Model
     /**
      * @description The name of the class in which the function is defined. This parameter corresponds to the Class Name parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
      *
+     * This parameter is required.
      * @example com.alibaba.DataWorks.api.udf.StringConcat
      *
      * @var string
@@ -34,7 +35,7 @@ class CreateUdfFileRequest extends Model
     /**
      * @description The example for calling the function. This parameter corresponds to the Example parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
      *
-     * @example StringConcat(\"a\", \"b\", \"c\")
+     * @example StringConcat(\\"a\\", \\"b\\", \\"c\\")
      *
      * @var string
      */
@@ -50,6 +51,7 @@ class CreateUdfFileRequest extends Model
     /**
      * @description The name of the file for the function.
      *
+     * This parameter is required.
      * @example StringConcat
      *
      * @var string
@@ -59,6 +61,7 @@ class CreateUdfFileRequest extends Model
     /**
      * @description The type of the function. Valid values: MATH, AGGREGATE, STRING, DATE, ANALYTIC, and OTHER. This parameter corresponds to the Function Type parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
      *
+     * This parameter is required.
      * @example STRING
      *
      * @var string
@@ -94,6 +97,7 @@ class CreateUdfFileRequest extends Model
     /**
      * @description The names of the resources that are referenced by the function. This parameter corresponds to the Resources parameter in the Register Function section of the configuration tab of the function in the DataWorks console. Multiple resource names are separated by commas (,).
      *
+     * This parameter is required.
      * @example string-concat-1.0.0.jar,commons-lang-2.6.jar
      *
      * @var string

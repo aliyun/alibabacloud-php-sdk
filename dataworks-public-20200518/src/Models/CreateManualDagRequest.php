@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateManualDagRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-11-11 00:00:00
      *
      * @var string
@@ -30,6 +32,8 @@ class CreateManualDagRequest extends Model
     public $excludeNodeIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test_workflow
      *
      * @var string
@@ -51,11 +55,15 @@ class CreateManualDagRequest extends Model
     public $nodeParameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectEnv;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test_workspace
      *
      * @var string

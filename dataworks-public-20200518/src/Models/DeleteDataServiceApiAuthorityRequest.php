@@ -11,6 +11,7 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var int
@@ -20,6 +21,7 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     /**
      * @description The ID of the workspace from which you want to revoke the access permissions on the API.
      *
+     * This parameter is required.
      * @example 10002
      *
      * @var int
@@ -29,6 +31,7 @@ class DeleteDataServiceApiAuthorityRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 10003
      *
      * @var int

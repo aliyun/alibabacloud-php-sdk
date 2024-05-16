@@ -11,6 +11,7 @@ class UpdateQualityFollowerRequest extends Model
     /**
      * @description The notification method. Valid values: 1, 2, 4, and 5. 1 indicates that the notification is sent by email. 2 indicates that the notification is sent by email and text message. 4 indicates that the notification is sent by a DingTalk chatbot. 5 indicates that the notification is sent by a DingTalk chatbot to all members in a DingTalk group.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -20,6 +21,7 @@ class UpdateQualityFollowerRequest extends Model
     /**
      * @description The name of the subscriber.
      *
+     * This parameter is required.
      * @example 1912232****
      *
      * @var string
@@ -29,6 +31,7 @@ class UpdateQualityFollowerRequest extends Model
     /**
      * @description The ID of the subscription relationship.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -43,6 +46,7 @@ class UpdateQualityFollowerRequest extends Model
     /**
      * @description The name of the computing engine instance or data source.
      *
+     * This parameter is required.
      * @example autotest
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetFileVersionRequest extends Model
 {
     /**
-     * @description The ID of the file. You can call the [ListFiles](~~173942~~) operation to query the ID.
+     * @description The ID of the file. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1000001
      *
      * @var int
@@ -20,6 +21,7 @@ class GetFileVersionRequest extends Model
     /**
      * @description The file version whose details you want to query.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int

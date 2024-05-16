@@ -36,7 +36,7 @@ class filePropertyContent extends Model
     public $dataSourceName;
 
     /**
-     * @description The ID of the folder to which the file belongs. You can call the [GetFolder](~~173952~~) operation to query the details of the file based on the folder ID.
+     * @description The ID of the folder to which the file belongs. You can call the [GetFolder](https://help.aliyun.com/document_detail/173952.html) operation to query the details of the file based on the folder ID.
      *
      * @example aldurie78l2falure
      *

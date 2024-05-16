@@ -23,6 +23,7 @@ class CreateExportMigrationRequest extends Model
      *   FULL: The export task is used to export all data objects.
      *   INCREMENTAL: The export task is used to export data objects that were modified since the specified point in time. If you set this parameter to INCREMENTAL, you must configure the IncrementalSince parameter.
      *
+     * This parameter is required.
      * @example FULL
      *
      * @var string
@@ -55,7 +56,7 @@ class CreateExportMigrationRequest extends Model
     /**
      * @description The name of the export task.
      *
-     * The name of each export task must be unique. You must ensure that no duplicate export task exists in the current workspace.
+     * This parameter is required.
      * @example test_export_01
      *
      * @var string
@@ -65,6 +66,7 @@ class CreateExportMigrationRequest extends Model
     /**
      * @description The ID of the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryDefaultTemplateResponseBody extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var mixed
      */
     public $data;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9990030003
      *
      * @var string
@@ -21,11 +25,15 @@ class QueryDefaultTemplateResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 400
      *
      * @var int
@@ -33,6 +41,8 @@ class QueryDefaultTemplateResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 102400001
      *
      * @var string
@@ -40,6 +50,8 @@ class QueryDefaultTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

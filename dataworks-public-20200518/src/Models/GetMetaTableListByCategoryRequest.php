@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableListByCategoryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 23
      *
      * @var int

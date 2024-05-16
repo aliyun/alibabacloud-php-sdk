@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryPublicModelEngineRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1234
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryPublicModelEngineRequest extends Model
     public $projectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example show dim tables
      *
      * @var string

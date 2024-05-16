@@ -14,6 +14,7 @@ class StopDISyncInstanceRequest extends Model
      *   true: The request is successful.
      *   false: The request fails.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -23,7 +24,7 @@ class StopDISyncInstanceRequest extends Model
     /**
      * @description The type of the synchronization node that you want to stop. Set the value to DI_REALTIME.
      *
-     * DI_REALTIME indicates a real-time synchronization node.
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -31,8 +32,9 @@ class StopDISyncInstanceRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the synchronization node. You can call the [ListFiles](~~173942~~) operation to obtain the ID.
+     * @description The ID of the synchronization node. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain the ID.
      *
+     * This parameter is required.
      * @example DI_REALTIME
      *
      * @var string

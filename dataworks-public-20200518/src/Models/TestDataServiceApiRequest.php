@@ -15,6 +15,7 @@ class TestDataServiceApiRequest extends Model
     /**
      * @description The ID of the DataService Studio API on which the test is performed.
      *
+     * This parameter is required.
      * @example 12343
      *
      * @var int

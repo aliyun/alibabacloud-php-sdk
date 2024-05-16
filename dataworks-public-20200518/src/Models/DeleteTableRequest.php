@@ -47,6 +47,7 @@ class DeleteTableRequest extends Model
     /**
      * @description The name of the MaxCompute table.
      *
+     * This parameter is required.
      * @example table1
      *
      * @var string

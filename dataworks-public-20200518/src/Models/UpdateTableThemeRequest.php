@@ -11,6 +11,7 @@ class UpdateTableThemeRequest extends Model
     /**
      * @description The name of the table folder.
      *
+     * This parameter is required.
      * @example table folder name
      *
      * @var string
@@ -29,6 +30,7 @@ class UpdateTableThemeRequest extends Model
     /**
      * @description The ID of the table folder.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

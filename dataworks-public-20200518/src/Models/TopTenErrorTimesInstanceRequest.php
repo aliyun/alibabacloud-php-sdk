@@ -11,6 +11,7 @@ class TopTenErrorTimesInstanceRequest extends Model
     /**
      * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID.
      *
+     * This parameter is required.
      * @example 9527
      *
      * @var int

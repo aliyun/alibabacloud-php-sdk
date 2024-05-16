@@ -11,6 +11,7 @@ class CreateMetaCollectionRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example ALBUM
      *
      * @var string
@@ -29,7 +30,7 @@ class CreateMetaCollectionRequest extends Model
     /**
      * @description The comment of the collection.
      *
-     * The comment must be 1 to 64 characters in length.
+     * This parameter is required.
      * @example collection_name
      *
      * @var string

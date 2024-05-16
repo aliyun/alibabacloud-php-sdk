@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRecognizeRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 27f5f5e2-ec60-4567-b1e4-779ac3681024
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteRecognizeRuleRequest extends Model
     public $sensitiveId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10241024
      *
      * @var string

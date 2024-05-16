@@ -20,6 +20,7 @@ class ListPermissionApplyOrdersRequest extends Model
     /**
      * @description The type of the compute engine with which the permission request order is associated. The parameter value is odps and cannot be changed. This value indicates that you can request permissions only on fields of tables in MaxCompute compute engine instances.
      *
+     * This parameter is required.
      * @example odps
      *
      * @var string
@@ -52,6 +53,7 @@ class ListPermissionApplyOrdersRequest extends Model
     /**
      * @description The type of the permission request order. The parameter value is 1 and cannot be changed. This value indicates ACL-based authorization.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -82,6 +84,7 @@ class ListPermissionApplyOrdersRequest extends Model
      *   0: The permission request orders you submitted.
      *   1: The permission request orders you approved.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

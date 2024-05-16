@@ -12,6 +12,7 @@ class applyObject extends Model
     /**
      * @description The permission that you want to request. If you want to request multiple permissions at the same time, separate them with commas (,). You can request only the following permissions: Select, Describe, Drop, Alter, Update, and Download.
      *
+     * This parameter is required.
      * @example Select,Describe
      *
      * @var string
@@ -19,6 +20,8 @@ class applyObject extends Model
     public $actions;
 
     /**
+     * @description This parameter is required.
+     *
      * @var columnMetaList[]
      */
     public $columnMetaList;
@@ -26,6 +29,7 @@ class applyObject extends Model
     /**
      * @description The name of the object on which you want to request permissions. You can request permissions only on MaxCompute tables. Set this parameter to the name of the table on which you want to request permissions.
      *
+     * This parameter is required.
      * @example aTableName
      *
      * @var string

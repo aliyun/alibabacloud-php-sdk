@@ -18,7 +18,7 @@ class projectRoleList extends Model
     /**
      * @description The name of the role.
      *
-     * DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](~~295463~~).
+     * DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
      * @example 1
      *
      * @var int
@@ -33,7 +33,7 @@ class projectRoleList extends Model
     /**
      * @description The code of the role.
      *
-     * DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](~~295463~~).
+     * DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
      * @example 0
      *
      * @var string

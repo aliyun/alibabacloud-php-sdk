@@ -20,6 +20,7 @@ class ListMetaCollectionsRequest extends Model
     /**
      * @description The ID of the collection creator.
      *
+     * This parameter is required.
      * @example ALBUM、ALBUM_CATEGORY
      *
      * @var string

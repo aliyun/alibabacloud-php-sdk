@@ -56,7 +56,7 @@ class nodes extends Model
     /**
      * @description The ID of the owner.
      *
-     * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\u003d$[yyyy-mm-dd-1]"}]
+     * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\\u003d$[yyyy-mm-dd-1]"}]
      *
      * @var string
      */
@@ -77,7 +77,7 @@ class nodes extends Model
     public $fileType;
 
     /**
-     * @description The types of the nodes. You can call the [ListNodes](~~173979~~) operation to query the type of the node.
+     * @description The types of the nodes. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the type of the node.
      *
      * @example 1234
      *
@@ -181,7 +181,7 @@ class nodes extends Model
     public $resGroupName;
 
     /**
-     * @description The types of the nodes. You can call the [ListNodes](~~173979~~) operation to query the type of the node.
+     * @description The types of the nodes. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the type of the node.
      *
      * @example NORMAL
      *

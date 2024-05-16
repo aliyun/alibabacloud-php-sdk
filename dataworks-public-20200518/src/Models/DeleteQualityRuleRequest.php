@@ -16,6 +16,7 @@ class DeleteQualityRuleRequest extends Model
     /**
      * @description The name of the database engine or data source.
      *
+     * This parameter is required.
      * @example autotest
      *
      * @var string
@@ -25,6 +26,7 @@ class DeleteQualityRuleRequest extends Model
     /**
      * @description The ID of the rule.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

@@ -11,6 +11,7 @@ class GetDataServiceApplicationRequest extends Model
     /**
      * @description The ID of the application. You can view the information about the application in the API Gateway console.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -20,6 +21,7 @@ class GetDataServiceApplicationRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var int

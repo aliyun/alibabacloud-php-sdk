@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetBaselineRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int
@@ -16,6 +18,8 @@ class GetBaselineRequest extends Model
     public $baselineId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10000
      *
      * @var int

@@ -11,6 +11,7 @@ class GetInstanceStatusCountRequest extends Model
     /**
      * @description The business date of the instance.
      *
+     * This parameter is required.
      * @example 2020-01-01
      *
      * @var string
@@ -20,6 +21,7 @@ class GetInstanceStatusCountRequest extends Model
     /**
      * @description The running environment in PROD and DEV modes.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string
@@ -29,6 +31,7 @@ class GetInstanceStatusCountRequest extends Model
     /**
      * @description The ID of the DataWorks workspace.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RunManualDagNodesRequest extends Model
 {
     /**
-     * @description The parameters transmitted between nodes in the manually triggered workflow. The parameters are in the following JSON format: { "\<ID of a node in the manually triggered workflow>": "Scheduling parameter settings of the node, which are in the same format as the Parameters parameter on the Properties tab of the DataStudio page", "\<ID of a node in the manually triggered workflow>": "Scheduling parameter settings of the node, which are in the same format as the Parameters parameter on the Properties tab of the DataStudio page" }.
+     * @description The parameters transmitted between nodes in the manually triggered workflow. The parameters are in the following JSON format: { "\\<ID of a node in the manually triggered workflow>": "Scheduling parameter settings of the node, which are in the same format as the Parameters parameter on the Properties tab of the DataStudio page", "\\<ID of a node in the manually triggered workflow>": "Scheduling parameter settings of the node, which are in the same format as the Parameters parameter on the Properties tab of the DataStudio page" }.
      *
      * @example 2020-11-11 00:00:00
      *
@@ -43,6 +43,7 @@ class RunManualDagNodesRequest extends Model
     /**
      * @description The data timestamp. The value must be one or more days before the current date. For example, if the current date is November 11, 2020, set the value to 2020-11-10 00:00:00 or earlier. Specify this parameter in the YYYY-MM-DD 00:00:00 format.
      *
+     * This parameter is required.
      * @example test_workflow
      *
      * @var string
@@ -70,6 +71,7 @@ class RunManualDagNodesRequest extends Model
     /**
      * @description The name of the workspace to which the manually triggered workflow belongs.
      *
+     * This parameter is required.
      * @var string
      */
     public $projectEnv;
@@ -86,6 +88,7 @@ class RunManualDagNodesRequest extends Model
     /**
      * @description The name of the manually triggered workflow.
      *
+     * This parameter is required.
      * @example test_workspace
      *
      * @var string

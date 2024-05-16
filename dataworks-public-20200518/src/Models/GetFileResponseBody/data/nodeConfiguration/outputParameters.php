@@ -11,7 +11,7 @@ class outputParameters extends Model
     /**
      * @description The description of the output parameter of the node.
      *
-     * @example It\"s a context output parameter.
+     * @example It\\"s a context output parameter.
      *
      * @var string
      */

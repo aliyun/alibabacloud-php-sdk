@@ -38,6 +38,7 @@ class CheckMetaPartitionRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example ds=202005
      *
      * @var string

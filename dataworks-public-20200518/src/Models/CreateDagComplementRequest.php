@@ -23,6 +23,8 @@ class CreateDagComplementRequest extends Model
     public $bizEndTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-05-21 00:00:00
      *
      * @var string
@@ -37,6 +39,8 @@ class CreateDagComplementRequest extends Model
     public $excludeNodeIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 74324,74325
      *
      * @var string
@@ -44,6 +48,8 @@ class CreateDagComplementRequest extends Model
     public $includeNodeIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xm_test
      *
      * @var string
@@ -58,6 +64,8 @@ class CreateDagComplementRequest extends Model
     public $nodeParams;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +73,8 @@ class CreateDagComplementRequest extends Model
     public $parallelism;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PROD
      *
      * @var string
@@ -72,6 +82,8 @@ class CreateDagComplementRequest extends Model
     public $projectEnv;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234
      *
      * @var int
@@ -79,6 +91,8 @@ class CreateDagComplementRequest extends Model
     public $rootNodeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-05-20 00:00:00
      *
      * @var string

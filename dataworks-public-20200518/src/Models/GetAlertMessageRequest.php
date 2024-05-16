@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAlertMessageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1421
      *
      * @var string

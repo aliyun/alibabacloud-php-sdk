@@ -29,6 +29,7 @@ class ListBaselineConfigsRequest extends Model
     /**
      * @description The number of the page to return. Valid values: 1 to 30. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -38,6 +39,7 @@ class ListBaselineConfigsRequest extends Model
     /**
      * @description The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -56,6 +58,7 @@ class ListBaselineConfigsRequest extends Model
     /**
      * @description The ID of the workspace. You can call the ListProjects operation to query the ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

@@ -36,6 +36,8 @@ class CreateTableRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var columns[]
      */
     public $columns;
@@ -101,7 +103,7 @@ class CreateTableRequest extends Model
     public $isView;
 
     /**
-     * @description The ID of the associated category. You can call the [GetMetaCategory](~~173932~~) operation to query the ID of the category that can be associated.
+     * @description The ID of the associated category. You can call the [GetMetaCategory](https://help.aliyun.com/document_detail/173932.html) operation to query the ID of the category that can be associated.
      *
      * @example 10
      *
@@ -167,6 +169,7 @@ class CreateTableRequest extends Model
     /**
      * @description The endpoint of MaxCompute.
      *
+     * This parameter is required.
      * @example tableName1
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEntitiesByTagsShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example maxcompute-table
      *
      * @var string
@@ -30,6 +32,8 @@ class ListEntitiesByTagsShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tagsShrink;

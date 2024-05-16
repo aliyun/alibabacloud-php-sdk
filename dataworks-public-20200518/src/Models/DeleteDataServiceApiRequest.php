@@ -11,6 +11,7 @@ class DeleteDataServiceApiRequest extends Model
     /**
      * @description The ID of the API in DataService Studio.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -20,6 +21,7 @@ class DeleteDataServiceApiRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var int

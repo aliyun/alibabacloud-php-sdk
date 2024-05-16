@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The name of the node. You can call the [ListNodes](~~173979~~) operation to query the name of the node.
+     * @description The name of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the name of the node.
      *
      * @var instances[]
      */

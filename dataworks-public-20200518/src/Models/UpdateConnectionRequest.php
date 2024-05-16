@@ -11,6 +11,7 @@ class UpdateConnectionRequest extends Model
     /**
      * @description The ID of the data source.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

@@ -161,6 +161,7 @@ class UpdateTableRequest extends Model
     /**
      * @description The endpoint of MaxCompute. If this parameter is left empty, the endpoint of the MaxCompute project is used.
      *
+     * This parameter is required.
      * @example abc
      *
      * @var string

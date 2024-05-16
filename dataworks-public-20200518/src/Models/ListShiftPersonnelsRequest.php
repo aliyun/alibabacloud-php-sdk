@@ -11,6 +11,7 @@ class ListShiftPersonnelsRequest extends Model
     /**
      * @description The time when the on-duty engineer ends a shift. Set the value to a UNIX timestamp.
      *
+     * This parameter is required.
      * @example 1593950832000
      *
      * @var int
@@ -20,6 +21,7 @@ class ListShiftPersonnelsRequest extends Model
     /**
      * @description The ID of the request. You can use the ID to troubleshoot issues.
      *
+     * This parameter is required.
      * @example 1593950832000
      *
      * @var int
@@ -38,6 +40,7 @@ class ListShiftPersonnelsRequest extends Model
     /**
      * @description The type of on-duty engineers that you want to query. Valid values: ALL, PRIMARY, BACKUP, and DESIGNATED_USER.
      *
+     * This parameter is required.
      * @example 2ab6456ada634b2f938ee******9b45b
      *
      * @var string

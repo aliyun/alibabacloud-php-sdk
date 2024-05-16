@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDIAlarmRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 34971
      *
      * @var int

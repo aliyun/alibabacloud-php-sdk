@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetFileRequest extends Model
 {
     /**
-     * @description The ID of the file. You can call the [ListFiles](~~173942~~) operation to obtain the ID.
+     * @description The ID of the file. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain the ID.
      *
      * @example 100000001
      *
@@ -18,7 +18,7 @@ class GetFileRequest extends Model
     public $fileId;
 
     /**
-     * @description The ID of the node that is scheduled. You can call the [ListFiles](~~173942~~) operation to obtain the node ID.
+     * @description The ID of the node that is scheduled. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain the node ID.
      *
      * @example 200000001
      *

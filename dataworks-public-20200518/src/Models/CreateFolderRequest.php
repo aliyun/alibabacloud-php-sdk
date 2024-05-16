@@ -11,6 +11,7 @@ class CreateFolderRequest extends Model
     /**
      * @description The HTTP status code returned.
      *
+     * This parameter is required.
      * @var string
      */
     public $folderPath;

@@ -11,6 +11,7 @@ class GetBaselineKeyPathRequest extends Model
     /**
      * @description The name of the event.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -20,6 +21,7 @@ class GetBaselineKeyPathRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example 2020-07-07T00:00:00+0800
      *
      * @var string
@@ -29,6 +31,7 @@ class GetBaselineKeyPathRequest extends Model
     /**
      * @description The ID of the event.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

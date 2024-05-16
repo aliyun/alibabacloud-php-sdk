@@ -54,6 +54,7 @@ class ListDataServicePublishedApisRequest extends Model
     /**
      * @description The number of entries to return on each page. Default value: 10. A maximum of 100 entries can be returned on each page.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int

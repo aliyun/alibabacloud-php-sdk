@@ -11,6 +11,7 @@ class ListProgramTypeCountRequest extends Model
     /**
      * @description The environment of the workspace, including projects in PROD and DEV.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string
@@ -20,6 +21,7 @@ class ListProgramTypeCountRequest extends Model
     /**
      * @description The ID of the DataWorks workspace.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

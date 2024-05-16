@@ -11,6 +11,7 @@ class RestartInstanceRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -20,6 +21,7 @@ class RestartInstanceRequest extends Model
     /**
      * @description The environment of the workspace. Valid values: PROD and DEV.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string

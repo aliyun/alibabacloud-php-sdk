@@ -11,6 +11,7 @@ class ListEnabledExtensionsForProjectRequest extends Model
     /**
      * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=a2c4g.11186623.0.0.6b4d4941azHd2k) and go to the Workspace Management page to obtain the workspace ID.
      *
+     * This parameter is required.
      * @example commit-file
      *
      * @var string
@@ -29,7 +30,7 @@ class ListEnabledExtensionsForProjectRequest extends Model
     /**
      * @description The type of the code for the file.
      *
-     * You can call the [ListFileType](~~212428~~) operation to query the type of the code for the file.
+     * This parameter is required.
      * @example 10000
      *
      * @var int

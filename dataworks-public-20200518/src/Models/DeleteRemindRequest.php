@@ -11,6 +11,7 @@ class DeleteRemindRequest extends Model
     /**
      * @description The ID of the custom alert rule.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

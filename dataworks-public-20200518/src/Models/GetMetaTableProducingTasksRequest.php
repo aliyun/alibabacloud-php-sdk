@@ -37,6 +37,8 @@ class GetMetaTableProducingTasksRequest extends Model
     public $schemaName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example odps.sample_project.sample_table
      *
      * @var string

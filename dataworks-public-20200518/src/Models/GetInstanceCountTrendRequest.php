@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceCountTrendRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-04-02T00:00:00+0800
      *
      * @var string
@@ -16,6 +18,8 @@ class GetInstanceCountTrendRequest extends Model
     public $beginDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-09-10T00:00:00+0800
      *
      * @var string
@@ -23,6 +27,8 @@ class GetInstanceCountTrendRequest extends Model
     public $endDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10000
      *
      * @var int

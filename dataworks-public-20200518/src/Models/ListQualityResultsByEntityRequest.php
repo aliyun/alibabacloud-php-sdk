@@ -11,6 +11,7 @@ class ListQualityResultsByEntityRequest extends Model
     /**
      * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
      *
+     * This parameter is required.
      * @example 2020-09-21 00:00:00
      *
      * @var string
@@ -20,6 +21,7 @@ class ListQualityResultsByEntityRequest extends Model
     /**
      * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 152322134
      *
      * @var int
@@ -29,6 +31,7 @@ class ListQualityResultsByEntityRequest extends Model
     /**
      * @description The error message returned.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -38,6 +41,7 @@ class ListQualityResultsByEntityRequest extends Model
     /**
      * @description The HTTP status code returned.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -52,6 +56,7 @@ class ListQualityResultsByEntityRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example autotest
      *
      * @var string
@@ -61,6 +66,7 @@ class ListQualityResultsByEntityRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 2020-09-20 00:00:00
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchNodesByOutputRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aaaaa.1231412_out,bbbb.12313123_out
      *
      * @var string
@@ -16,6 +18,8 @@ class SearchNodesByOutputRequest extends Model
     public $outputs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PROD
      *
      * @var string

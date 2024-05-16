@@ -16,6 +16,7 @@ class GetQualityRuleRequest extends Model
     /**
      * @description The name of the compute engine instance or data source.
      *
+     * This parameter is required.
      * @example autotest
      *
      * @var string
@@ -23,8 +24,9 @@ class GetQualityRuleRequest extends Model
     public $projectName;
 
     /**
-     * @description The ID of the monitoring rule. You can call the [ListQualityRules](~~173995~~) operation to query the ID.
+     * @description The ID of the monitoring rule. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

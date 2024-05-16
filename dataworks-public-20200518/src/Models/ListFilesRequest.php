@@ -55,7 +55,7 @@ class ListFilesRequest extends Model
     public $needContent;
 
     /**
-     * @description The ID of the node that is scheduled. You can call the [ListNodes](~~173979~~) operation to query the ID of the node.
+     * @description The ID of the node that is scheduled. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID of the node.
      *
      * @example 123541234
      *

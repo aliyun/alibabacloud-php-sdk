@@ -14,6 +14,7 @@ class DeployDISyncTaskRequest extends Model
      *   true: The request is successful.
      *   false: The request fails.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -26,6 +27,7 @@ class DeployDISyncTaskRequest extends Model
      *   DI_REALTIME: real-time synchronization node
      *   DI_SOLUTION: data synchronization solution
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -36,7 +38,7 @@ class DeployDISyncTaskRequest extends Model
      * @description *   If you set the TaskType parameter to DI_REALTIME, set the FileId parameter to the ID of the real-time synchronization node that you want to deploy.
      *   If you set the TaskType parameter to DI_SOLUTION, set the FileId parameter to the ID of the data synchronization solution that you want to deploy.
      *
-     * You can call the [ListFiles](~~173942~~) operation to query the ID of the real-time synchronization node or data synchronization solution.
+     * This parameter is required.
      * @example DI_REALTIME
      *
      * @var string

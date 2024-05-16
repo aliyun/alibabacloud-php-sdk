@@ -11,7 +11,7 @@ class dataEntityList extends Model
     /**
      * @description The type of the change.
      *
-     * @example "[{\"action\":\"ADD_COLUMN\",\"value\":[{\"originName\":\"\",\"originType\":\"\",\"originComment\":\"\",\"name\":\"id\",\"type\":\"struct<name:string>\",\"comment\":\"\"}]}]",
+     * @example "[{\\"action\\":\\"ADD_COLUMN\\",\\"value\\":[{\\"originName\\":\\"\\",\\"originType\\":\\"\\",\\"originComment\\":\\"\\",\\"name\\":\\"id\\",\\"type\\":\\"struct<name:string>\\",\\"comment\\":\\"\\"}]}]",
      *
      * @var string
      */

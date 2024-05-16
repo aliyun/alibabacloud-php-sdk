@@ -11,6 +11,7 @@ class GetExtensionRequest extends Model
     /**
      * @description The unique code of the extension.
      *
+     * This parameter is required.
      * @example ce4*********086da5
      *
      * @var string

@@ -49,6 +49,7 @@ class CreateImportMigrationRequest extends Model
     /**
      * @description The name of the import task. The name must be unique within the workspace.
      *
+     * This parameter is required.
      * @example test_import_001
      *
      * @var string
@@ -60,6 +61,7 @@ class CreateImportMigrationRequest extends Model
      *
      **The import package must be uploaded. Example of the upload method:**`  Config config = new Config(); config.setAccessKeyId(accessId); config.setAccessKeySecret(accessKey); config.setEndpoint(popEndpoint); config.setRegionId(regionId); Client client = new Client(config); CreateImportMigrationAdvanceRequest request = new CreateImportMigrationAdvanceRequest(); request.setName("test_migration_api_" + System.currentTimeMillis()); request.setProjectId(123456L); request.setPackageType("DATAWORKS_MODEL"); request.setPackageFileObject(new FileInputStream("/home/admin/Downloads/test.zip")); RuntimeOptions runtime = new RuntimeOptions(); CreateImportMigrationResponse response = client.createImportMigrationAdvance(request, runtime); ... `
      *
+     * This parameter is required.
      * @example /home/admin/xxx/import.zip
      *
      * @var string
@@ -73,6 +75,7 @@ class CreateImportMigrationRequest extends Model
      *   DATAWORKS_V2 (Apsara Stack DataWorks V3.6.1 to V3.11)
      *   DATAWORKS_V3 (Apsara Stack DataWorks V3.12 and later)
      *
+     * This parameter is required.
      * @example DATAWORKS_MODEL
      *
      * @var string
@@ -82,6 +85,7 @@ class CreateImportMigrationRequest extends Model
     /**
      * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var int

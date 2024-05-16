@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDIAlarmRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 34994
      *
      * @var int

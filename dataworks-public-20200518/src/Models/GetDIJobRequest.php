@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDIJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11588
      *
      * @var int

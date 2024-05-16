@@ -11,6 +11,7 @@ class GetTopicRequest extends Model
     /**
      * @description The ID of the request. You can troubleshoot issues based on the ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

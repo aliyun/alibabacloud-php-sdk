@@ -15,11 +15,15 @@ class CreateBaselineRequest extends Model
     public $alertMarginThreshold;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $baselineName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $baselineType;
@@ -30,21 +34,29 @@ class CreateBaselineRequest extends Model
     public $nodeIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var overtimeSettings[]
      */
     public $overtimeSettings;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $projectId;

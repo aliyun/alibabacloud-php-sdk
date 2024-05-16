@@ -382,7 +382,7 @@ class ruleChecks extends Model
     /**
      * @description The filter condition of the monitoring rule.
      *
-     * @example type!=\"type2\"
+     * @example type!=\\"type2\\"
      *
      * @var string
      */

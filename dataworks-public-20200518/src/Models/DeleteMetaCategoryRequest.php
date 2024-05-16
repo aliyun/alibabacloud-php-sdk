@@ -11,6 +11,7 @@ class DeleteMetaCategoryRequest extends Model
     /**
      * @description The ID of the category.
      *
+     * This parameter is required.
      * @example 23
      *
      * @var int

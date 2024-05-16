@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RunTriggerNodeRequest extends Model
 {
     /**
-     * @description The ID of the DataWorks workspace to which the manually triggered node belongs. You can call the [ListProjects](~~178393~~) operation to query the ID.
+     * @description The ID of the DataWorks workspace to which the manually triggered node belongs. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var int
@@ -20,6 +21,7 @@ class RunTriggerNodeRequest extends Model
     /**
      * @description The data timestamp of the manually triggered node instance.
      *
+     * This parameter is required.
      * @example 1606200230105
      *
      * @var int
@@ -29,6 +31,7 @@ class RunTriggerNodeRequest extends Model
     /**
      * @description The scheduled time to run the manually triggered node. Set the value to a 13-digit timestamp in milliseconds.
      *
+     * This parameter is required.
      * @example 1606200230105
      *
      * @var int
@@ -36,8 +39,9 @@ class RunTriggerNodeRequest extends Model
     public $cycleTime;
 
     /**
-     * @description The ID of the manually triggered node. You can call the [ListNodes](~~173979~~) operation to query the ID.
+     * @description The ID of the manually triggered node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 10000011
      *
      * @var int

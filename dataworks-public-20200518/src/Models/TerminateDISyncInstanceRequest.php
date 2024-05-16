@@ -14,6 +14,7 @@ class TerminateDISyncInstanceRequest extends Model
      *   true: The request is successful.
      *   false: The request fails.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -23,6 +24,7 @@ class TerminateDISyncInstanceRequest extends Model
     /**
      * @description The type of the node. A value of DI_REALTIME indicates that the node is a real-time synchronization node.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -32,6 +34,7 @@ class TerminateDISyncInstanceRequest extends Model
     /**
      * @description The ID of the real-time synchronization node.
      *
+     * This parameter is required.
      * @example DI_REALTIME
      *
      * @var string

@@ -11,6 +11,7 @@ class column extends Model
     /**
      * @description The name of the field.
      *
+     * This parameter is required.
      * @example abc
      *
      * @var string
@@ -27,6 +28,7 @@ class column extends Model
     /**
      * @description The type of the field. For more information, see MaxCompute field types.
      *
+     * This parameter is required.
      * @example string
      *
      * @var string

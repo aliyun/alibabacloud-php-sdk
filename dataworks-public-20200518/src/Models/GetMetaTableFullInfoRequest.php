@@ -27,7 +27,7 @@ class GetMetaTableFullInfoRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The name of the metadatabase of the EMR cluster. You can call the [ListMetaDB](~~185662~~) operation to query the name of the metadatabase.
+     * @description The name of the metadatabase of the EMR cluster. You can call the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) operation to query the name of the metadatabase.
      *
      * @example abc
      *
@@ -54,7 +54,7 @@ class GetMetaTableFullInfoRequest extends Model
     public $pageSize;
 
     /**
-     * @description The GUID of the metatable. You can call the [GetMetaDBTableList](~~173916~~) operation to query the GUID of the metatable.
+     * @description The GUID of the metatable. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the GUID of the metatable.
      *
      * @example odps.engine_name.table_name
      *
@@ -63,7 +63,7 @@ class GetMetaTableFullInfoRequest extends Model
     public $tableGuid;
 
     /**
-     * @description The name of the metatable in the EMR cluster. You can call the [GetMetaDBTableList](~~173916~~) operation to query the name of the metatable.
+     * @description The name of the metatable in the EMR cluster. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the name of the metatable.
      *
      * @example abc
      *

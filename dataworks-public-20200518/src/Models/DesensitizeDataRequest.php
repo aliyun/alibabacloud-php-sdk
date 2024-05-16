@@ -11,6 +11,7 @@ class DesensitizeDataRequest extends Model
     /**
      * @description The data that you want to mask.
      *
+     * This parameter is required.
      * @example 15365291784
      *
      * @var string
@@ -20,6 +21,7 @@ class DesensitizeDataRequest extends Model
     /**
      * @description The code of the data masking scene. You can view the code on the Data Masking page in Data Security Guard of the DataWorks console.
      *
+     * This parameter is required.
      * @example _default_scene_code
      *
      * @var string

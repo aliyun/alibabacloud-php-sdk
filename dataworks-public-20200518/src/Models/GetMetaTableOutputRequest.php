@@ -11,6 +11,7 @@ class GetMetaTableOutputRequest extends Model
     /**
      * @description The HTTP status code returned.
      *
+     * This parameter is required.
      * @example 2022-02-15
      *
      * @var string
@@ -38,6 +39,7 @@ class GetMetaTableOutputRequest extends Model
     /**
      * @description The ID of the node.
      *
+     * This parameter is required.
      * @example 2020-02-02
      *
      * @var string
@@ -47,6 +49,7 @@ class GetMetaTableOutputRequest extends Model
     /**
      * @description The end date of the time range to query. The end date must be within the previous 30 days.
      *
+     * This parameter is required.
      * @example odps.sample_project.sample_table
      *
      * @var string

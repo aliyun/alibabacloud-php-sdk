@@ -11,6 +11,7 @@ class GetDataServicePublishedApiRequest extends Model
     /**
      * @description The ID of the API.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var int
@@ -20,6 +21,7 @@ class GetDataServicePublishedApiRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 10002
      *
      * @var int

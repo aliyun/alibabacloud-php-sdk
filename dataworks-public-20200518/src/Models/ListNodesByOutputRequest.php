@@ -11,6 +11,7 @@ class ListNodesByOutputRequest extends Model
     /**
      * @description The output name of the node. You can specify multiple output names. In this case, separate them with commas (,).
      *
+     * This parameter is required.
      * @example aaaaa.1231412_out,bbbb.12313123_out
      *
      * @var string
@@ -20,6 +21,7 @@ class ListNodesByOutputRequest extends Model
     /**
      * @description The environment type. Valid values: PROD and DEV. The value PROD indicates the production environment. The value DEV indicates the development environment.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string

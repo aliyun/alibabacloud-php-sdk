@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTableAddColumnRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var column[]
      */
     public $column;
@@ -17,6 +19,7 @@ class UpdateTableAddColumnRequest extends Model
     /**
      * @description The globally unique identifier (GUID) of the MaxCompute table. Specify the GUID in the odps.projectName.tableName format.
      *
+     * This parameter is required.
      * @example odps.engine_name.table_name
      *
      * @var string

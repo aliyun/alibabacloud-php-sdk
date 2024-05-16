@@ -51,7 +51,7 @@ class UpdateFileRequest extends Model
     public $autoRerunTimes;
 
     /**
-     * @description The name of the connected data source that is used to run the node. You can call the [ListDataSources](~~211431~~) operation to query the available data sources of the workspace.
+     * @description The name of the connected data source that is used to run the node. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the available data sources of the workspace.
      *
      * @example odps_first
      *
@@ -151,8 +151,9 @@ class UpdateFileRequest extends Model
     public $fileFolderPath;
 
     /**
-     * @description The ID of the file. You can call the [ListFiles](~~173942~~) operation to obtain the ID.
+     * @description The ID of the file. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain the ID.
      *
+     * This parameter is required.
      * @example 100000001
      *
      * @var int
@@ -162,7 +163,7 @@ class UpdateFileRequest extends Model
     /**
      * @description The name of the file. You can set the FileName parameter to a new value to change the file name.
      *
-     * You can call the [ListFiles](~~173942~~) operation to query the ID of the file whose name you want to change. Then, you can set the FileId parameter to the ID and set the FileName parameter to a new value when you call the [UpdateFile](~~173951~~) operation.
+     * You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the ID of the file whose name you want to change. Then, you can set the FileId parameter to the ID and set the FileName parameter to a new value when you call the [UpdateFile](https://help.aliyun.com/document_detail/173951.html) operation.
      * @example ods_user_info_d
      *
      * @var string
@@ -185,7 +186,7 @@ class UpdateFileRequest extends Model
     public $inputList;
 
     /**
-     * @description The input parameters of the node. This parameter is configured in the JSON format. For more information about the input parameters, refer to the InputContextParameterList parameter in the Response parameters section of the [GetFile](~~173954~~) operation.
+     * @description The input parameters of the node. This parameter is configured in the JSON format. For more information about the input parameters, refer to the InputContextParameterList parameter in the Response parameters section of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
      *
      * This parameter corresponds to the Input Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example [{"ValueSource": "project_001.first_node:bizdate_param","ParameterName": "bizdate_input"}]
@@ -205,7 +206,7 @@ class UpdateFileRequest extends Model
     public $outputList;
 
     /**
-     * @description The output parameters of the node. This parameter is configured in the JSON format. For more information about the output parameters, refer to the OutputContextParameterList parameter in the Response parameters section of the [GetFile](~~173954~~) operation.
+     * @description The output parameters of the node. This parameter is configured in the JSON format. For more information about the output parameters, refer to the OutputContextParameterList parameter in the Response parameters section of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
      *
      * This parameter corresponds to the Output Parameters table in the Input and Output Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
      * @example [{"Type": 1,"Value": "${bizdate}","ParameterName": "bizdate_param"}]
@@ -226,7 +227,7 @@ class UpdateFileRequest extends Model
     /**
      * @description The scheduling parameters of the node.
      *
-     * This parameter corresponds to the Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information, see [Configure scheduling parameters](~~137548~~).
+     * This parameter corresponds to the Parameters section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information, see [Configure scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
      * @example x=a y=b z=c
      *
      * @var string
@@ -267,7 +268,7 @@ class UpdateFileRequest extends Model
     public $rerunMode;
 
     /**
-     * @description The identifier of the resource group that is used to run the node. You can call the [ListResourceGroups](~~173913~~) operation to query the available resource groups in the workspace.
+     * @description The identifier of the resource group that is used to run the node. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace.
      *
      * @example default_group
      *

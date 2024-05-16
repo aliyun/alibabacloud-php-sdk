@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDagTestRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2020-05-26 00:00:00
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDagTestRequest extends Model
     public $bizdate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xm_create_test
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateDagTestRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234
      *
      * @var int
@@ -37,6 +43,8 @@ class CreateDagTestRequest extends Model
     public $nodeParams;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PROD
      *
      * @var string

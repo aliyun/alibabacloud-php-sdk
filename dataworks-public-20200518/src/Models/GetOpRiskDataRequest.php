@@ -11,6 +11,7 @@ class GetOpRiskDataRequest extends Model
     /**
      * @description The date on which the access records were queried. Specify the value in the yyyyMMdd format.
      *
+     * This parameter is required.
      * @example 20210221
      *
      * @var string
@@ -36,6 +37,7 @@ class GetOpRiskDataRequest extends Model
     /**
      * @description The number of the page to return. Minimum value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -45,6 +47,7 @@ class GetOpRiskDataRequest extends Model
     /**
      * @description The number of entries to return on each page. Maximum value: 1000.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int

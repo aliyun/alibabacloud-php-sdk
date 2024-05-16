@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PublishDataServiceApiRequest extends Model
 {
     /**
-     * @description The ID of the API. You can call the [ListDataServiceApis](~~174009~~) operation to obtain the ID.
+     * @description The ID of the API. You can call the [ListDataServiceApis](https://help.aliyun.com/document_detail/174009.html) operation to obtain the ID.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -20,6 +21,7 @@ class PublishDataServiceApiRequest extends Model
     /**
      * @description The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the workspace ID.
      *
+     * This parameter is required.
      * @example 10001
      *
      * @var int

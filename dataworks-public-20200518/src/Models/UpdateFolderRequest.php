@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateFolderRequest extends Model
 {
     /**
-     * @description The ID of the folder. You can call the [ListFolders](~~173955~~) operation to query the ID.
+     * @description The ID of the folder. You can call the [ListFolders](https://help.aliyun.com/document_detail/173955.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 2735c2c19d58
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateFolderRequest extends Model
     /**
      * @description The name of the folder.
      *
+     * This parameter is required.
      * @example MySecondFolder
      *
      * @var string

@@ -18,8 +18,9 @@ class ListBaselineStatusesRequest extends Model
     public $baselineTypes;
 
     /**
-     * @description The data timestamp of the baseline instance. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\"T\"HH:mm:ssZ format. The time must be in UTC.
+     * @description The data timestamp of the baseline instance. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-07-07T00:00:00+0800
      *
      * @var string
@@ -47,6 +48,7 @@ class ListBaselineStatusesRequest extends Model
     /**
      * @description The number of the page to return. Valid values: 1 to 30. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -56,6 +58,7 @@ class ListBaselineStatusesRequest extends Model
     /**
      * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

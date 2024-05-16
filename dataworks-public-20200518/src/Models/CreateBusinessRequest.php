@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBusinessRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $businessName;

@@ -65,6 +65,7 @@ class ListNodesRequest extends Model
     /**
      * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string
@@ -74,6 +75,7 @@ class ListNodesRequest extends Model
     /**
      * @description The ID of the owner.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

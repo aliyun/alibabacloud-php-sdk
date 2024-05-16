@@ -11,7 +11,7 @@ class RevokeTablePermissionRequest extends Model
     /**
      * @description The permissions that you want to revoke. Separate multiple permissions with commas (,).
      *
-     * You can revoke only the SELECT, DESCRIBE, and DOWNLOAD permissions on MaxCompute tables.
+     * This parameter is required.
      * @example Select,Describe
      *
      * @var string
@@ -21,6 +21,7 @@ class RevokeTablePermissionRequest extends Model
     /**
      * @description The name of the MaxCompute project to which the table belongs. You can log on to the DataWorks console and go to the Workspace Management page to obtain the MaxCompute project name.
      *
+     * This parameter is required.
      * @example aMaxcomputeProjectName
      *
      * @var string
@@ -51,8 +52,9 @@ class RevokeTablePermissionRequest extends Model
     public $revokeUserName;
 
     /**
-     * @description The name of the MaxCompute table. You can call the [SearchMetaTables](~~173919~~) operation to query the table name.
+     * @description The name of the MaxCompute table. You can call the [SearchMetaTables](https://help.aliyun.com/document_detail/173919.html) operation to query the table name.
      *
+     * This parameter is required.
      * @example aTableName
      *
      * @var string
@@ -62,6 +64,7 @@ class RevokeTablePermissionRequest extends Model
     /**
      * @description The ID of the DataWorks workspace with which the MaxCompute project is associated. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int

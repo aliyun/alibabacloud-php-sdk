@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetFolderRequest extends Model
 {
     /**
-     * @description The ID of the folder. You can call the [ListFolders](~~173955~~) operation to query the ID.
+     * @description The ID of the folder. You can call the [ListFolders](https://help.aliyun.com/document_detail/173955.html) operation to query the ID.
      *
      * You must specify either this parameter or the FolderPath parameter.
      * @example 273****
@@ -19,7 +19,7 @@ class GetFolderRequest extends Model
     public $folderId;
 
     /**
-     * @description The path of the folder. You can call the [ListFolders](~~173955~~) operation to query the path.
+     * @description The path of the folder. You can call the [ListFolders](https://help.aliyun.com/document_detail/173955.html) operation to query the path.
      *
      * You must specify either this parameter or the FolderId parameter.
      * @var string

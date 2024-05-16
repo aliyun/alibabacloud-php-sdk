@@ -33,6 +33,7 @@ class ListFileTypeRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -42,6 +43,7 @@ class ListFileTypeRequest extends Model
     /**
      * @description The number of entries to return on each page. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 50
      *
      * @var int

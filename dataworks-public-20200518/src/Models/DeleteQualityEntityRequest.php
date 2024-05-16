@@ -11,6 +11,7 @@ class DeleteQualityEntityRequest extends Model
     /**
      * @description The ID of the partition filter expression.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -20,6 +21,7 @@ class DeleteQualityEntityRequest extends Model
     /**
      * @description The type of the compute engine instance or data source. Valid values: EMR, Hologres, AnalyticDB for PostgreSQL, CDH, MaxCompute, Kafka and DataHub.
      *
+     * This parameter is required.
      * @example ODPS
      *
      * @var string
@@ -34,6 +36,7 @@ class DeleteQualityEntityRequest extends Model
     /**
      * @description The name of the compute engine instance or data source.
      *
+     * This parameter is required.
      * @example autotest
      *
      * @var string

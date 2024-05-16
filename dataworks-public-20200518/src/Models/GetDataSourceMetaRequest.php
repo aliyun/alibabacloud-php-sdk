@@ -11,6 +11,7 @@ class GetDataSourceMetaRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example mysql_name
      *
      * @var string
@@ -53,6 +54,7 @@ class GetDataSourceMetaRequest extends Model
     /**
      * @description The name of the data source.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int

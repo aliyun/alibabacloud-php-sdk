@@ -11,6 +11,7 @@ class DeleteMetaCollectionRequest extends Model
     /**
      * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
      *
+     * This parameter is required.
      * @example album.12333
      *
      * @var string

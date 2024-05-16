@@ -37,6 +37,8 @@ class ListDIJobsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1967
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceErrorRankRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 9527
      *
      * @var int

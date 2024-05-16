@@ -56,6 +56,7 @@ class GetMetaColumnLineageRequest extends Model
     /**
      * @description Specifies whether to query the ancestor or descendant lineage of the field. The value up indicates the ancestor lineage. The value down indicates the descendant lineage.
      *
+     * This parameter is required.
      * @example up
      *
      * @var string

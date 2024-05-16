@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLineageRelationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $destEntityQualifiedName;
@@ -19,6 +21,8 @@ class DeleteLineageRelationRequest extends Model
     public $relationshipGuid;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $srcEntityQualifiedName;

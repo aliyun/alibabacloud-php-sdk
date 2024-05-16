@@ -50,7 +50,7 @@ class extensions extends Model
     public $modifyUser;
 
     /**
-     * @description The parameter settings of the extension. For more information, see [Configure extension parameters](~~405354~~).
+     * @description The parameter settings of the extension. For more information, see [Configure extension parameters](https://help.aliyun.com/document_detail/405354.html).
      *
      * @example 21323672*******55500
      *

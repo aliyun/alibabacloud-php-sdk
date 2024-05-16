@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EstablishRelationTableToBusinessRequest extends Model
 {
     /**
-     * @description The ID of the workflow. You can call the [ListBusiness](~~173945~~) operation to query the ID.
+     * @description The ID of the workflow. You can call the [ListBusiness](https://help.aliyun.com/document_detail/173945.html) operation to query the ID.
      *
+     * This parameter is required.
      * @example 1000001
      *
      * @var string
@@ -18,7 +19,7 @@ class EstablishRelationTableToBusinessRequest extends Model
     public $businessId;
 
     /**
-     * @description The ID of the folder. You can call the [GetFolder](~~173952~~) or [ListFolders](~~173955~~) operation to query the ID.
+     * @description The ID of the folder. You can call the [GetFolder](https://help.aliyun.com/document_detail/173952.html) or [ListFolders](https://help.aliyun.com/document_detail/173955.html) operation to query the ID.
      *
      * @example 2eb6f9****
      *
@@ -46,8 +47,9 @@ class EstablishRelationTableToBusinessRequest extends Model
     public $projectIdentifier;
 
     /**
-     * @description The universally unique identifier (UUID) of the table. You can call the [SearchMetaTables](~~173919~~) operation to query the UUID.
+     * @description The universally unique identifier (UUID) of the table. You can call the [SearchMetaTables](https://help.aliyun.com/document_detail/173919.html) operation to query the UUID.
      *
+     * This parameter is required.
      * @example odps.dw_project.tb1
      *
      * @var string

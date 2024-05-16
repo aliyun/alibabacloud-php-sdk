@@ -23,6 +23,8 @@ class GetNodeTypeListInfoRequest extends Model
     public $locale;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +32,8 @@ class GetNodeTypeListInfoRequest extends Model
     public $pageNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 50
      *
      * @var int

@@ -14,6 +14,7 @@ class ApprovePermissionApplyOrderRequest extends Model
      *   1: Approve the permission request order.
      *   2: Reject the permission request order.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -23,6 +24,7 @@ class ApprovePermissionApplyOrderRequest extends Model
     /**
      * @description The comment on the approval.
      *
+     * This parameter is required.
      * @example agree
      *
      * @var string
@@ -32,6 +34,7 @@ class ApprovePermissionApplyOrderRequest extends Model
     /**
      * @description The ID of the permission request order. You can call the ListPermissionApplyOrders operation to obtain the order ID.
      *
+     * This parameter is required.
      * @example 48f36729-05f9-4a40-9286-933fd940f30a
      *
      * @var string

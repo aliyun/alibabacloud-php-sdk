@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListNodeIORequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example output
      *
      * @var string
@@ -16,6 +18,8 @@ class ListNodeIORequest extends Model
     public $ioType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234
      *
      * @var int
@@ -23,6 +27,8 @@ class ListNodeIORequest extends Model
     public $nodeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PROD
      *
      * @var string

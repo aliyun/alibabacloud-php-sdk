@@ -11,6 +11,7 @@ class GetNodeRequest extends Model
     /**
      * @description The interval at which the node is rerun after the node fails to run.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -20,6 +21,7 @@ class GetNodeRequest extends Model
     /**
      * @description The priority of the node. Valid values: 1, 3, 5, 7, and 8.
      *
+     * This parameter is required.
      * @example PROD
      *
      * @var string

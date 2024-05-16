@@ -11,6 +11,7 @@ class ListTableLevelRequest extends Model
     /**
      * @description The type of the table level. Valid values: 1 and 2. A value of 1 indicates the logical level. A value of 2 indicates the physical level.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -38,6 +39,7 @@ class ListTableLevelRequest extends Model
     /**
      * @description The ID of the DataWorks workspace. You can log on to the DataWorks console to obtain the ID.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

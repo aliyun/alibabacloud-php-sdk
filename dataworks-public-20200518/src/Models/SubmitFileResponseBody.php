@@ -34,7 +34,7 @@ class SubmitFileResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the deployment task. The ID is used as the value of a specific request parameter when you call the [GetDeployment](~~173950~~) operation to query the details of the deployment task.
+     * @description The ID of the deployment task. The ID is used as the value of a specific request parameter when you call the [GetDeployment](https://help.aliyun.com/document_detail/173950.html) operation to query the details of the deployment task.
      *
      * @example 200
      *

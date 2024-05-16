@@ -30,6 +30,7 @@ class UpdateMetaCollectionRequest extends Model
     /**
      * @description The name of the collection.
      *
+     * This parameter is required.
      * @example album.396397
      *
      * @var string

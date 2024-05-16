@@ -11,6 +11,7 @@ class RemoveProjectMemberFromRoleRequest extends Model
     /**
      * @description The ID of the DataWorks workspace.
      *
+     * This parameter is required.
      * @example 27
      *
      * @var int
@@ -25,13 +26,14 @@ class RemoveProjectMemberFromRoleRequest extends Model
      *   role_project_owner: workspace owner
      *   role_project_admin: workspace administrator
      *   role_project_dev: developer
-     *   role_project_pe: O\&M engineer
+     *   role_project_pe: O\\&M engineer
      *   role_project_deploy: deployment expert
      *   role_project_guest: visitor
      *   role_project_security: security administrator
      *   role_project_tester: experiencer
      *   role_project_erd: model designer
      *
+     * This parameter is required.
      * @example role_project_guest
      *
      * @var string
@@ -41,6 +43,7 @@ class RemoveProjectMemberFromRoleRequest extends Model
     /**
      * @description The ID of the user.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var string

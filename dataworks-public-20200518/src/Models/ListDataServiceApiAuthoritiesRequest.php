@@ -38,6 +38,7 @@ class ListDataServiceApiAuthoritiesRequest extends Model
     /**
      * @description The ID of the workspace.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int

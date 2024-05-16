@@ -11,6 +11,7 @@ class SetDataSourceShareRequest extends Model
     /**
      * @description The name of the data source to be shared.
      *
+     * This parameter is required.
      * @example mysql_name
      *
      * @var string
@@ -30,8 +31,9 @@ class SetDataSourceShareRequest extends Model
     public $envType;
 
     /**
-     * @description The ID of the DataWorks workspace to which the data source belongs. You can call the [ListProjects](~~178393~~) operation to query the ID of the workspace.
+     * @description The ID of the DataWorks workspace to which the data source belongs. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID of the workspace.
      *
+     * This parameter is required.
      * @example 10000
      *
      * @var int
@@ -54,7 +56,7 @@ class SetDataSourceShareRequest extends Model
     public $projectPermissions;
 
     /**
-     * @description The user to whom the data source is to be shared. If you set this parameter, the specified user can view or use the data source. The value must be a JSON array. Example: {"projectId":10000,"users":\[{"userId":"276184575345452131","permission":"WRITE"},"sharedName":"PX_DATAHUB1.shared_name"}].
+     * @description The user to whom the data source is to be shared. If you set this parameter, the specified user can view or use the data source. The value must be a JSON array. Example: {"projectId":10000,"users":[{"userId":"276184575345452131","permission":"WRITE"},"sharedName":"PX_DATAHUB1.shared_name"}].
      *
      * Field description:
      *

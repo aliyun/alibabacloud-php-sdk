@@ -11,6 +11,7 @@ class ScanSensitiveDataRequest extends Model
     /**
      * @description The data that you want to check.
      *
+     * This parameter is required.
      * @example 13900001234
      *
      * @var string

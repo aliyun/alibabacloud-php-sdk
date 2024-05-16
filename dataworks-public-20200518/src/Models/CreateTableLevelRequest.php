@@ -20,6 +20,7 @@ class CreateTableLevelRequest extends Model
     /**
      * @description The ID of the region where the service is activated.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +30,7 @@ class CreateTableLevelRequest extends Model
     /**
      * @description Level 1
      *
+     * This parameter is required.
      * @example The description of the table level.
      *
      * @var string
