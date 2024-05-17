@@ -76,7 +76,7 @@ class imageComponentSet extends Model
     public $owner;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the image component belongs.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -85,7 +85,7 @@ class imageComponentSet extends Model
     public $resourceGroupId;
 
     /**
-     * @description The operating system type supported by the image component.
+     * @description The type of the operating system supported by the image component.
      *
      * @example Linux
      *

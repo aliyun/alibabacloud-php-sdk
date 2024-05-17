@@ -180,6 +180,11 @@ class ImportImageRequest extends Model
     public $roleName;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the cloud box, which is used to uniquely identify a storage location in the cloud.
+     *
+     * The ARN must be in the `arn:acs:cloudbox:{RegionId}:{AliUid}:cloudbox/{CloudBoxId}` format. Replace the `{RegionId}` variable with the region ID of the cloud box, the `{AliUid}` variable with the ID of the Alibaba Cloud account to which the cloud box belongs, and the `{CloudBoxId}` variable with the ID of the cloud box.
+     * @example arn:acs:cloudbox:cn-hangzhou:123456:cloudbox/cb-xx***123
+     *
      * @var string
      */
     public $storageLocationArn;

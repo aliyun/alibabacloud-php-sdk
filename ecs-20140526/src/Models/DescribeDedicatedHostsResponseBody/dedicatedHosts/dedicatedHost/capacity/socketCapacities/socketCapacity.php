@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class socketCapacity extends Model
 {
     /**
-     * @description The amount of available memory. Unit: GiB.
+     * @description The amount of available memory space. Unit: GiB.
      *
      * @example 65
      *
@@ -36,7 +36,7 @@ class socketCapacity extends Model
     public $socketId;
 
     /**
-     * @description The total amount of memory. Unit: GiB.
+     * @description The total capacity of the memory. Unit: GiB.
      *
      * @example 128
      *

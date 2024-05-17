@@ -9,16 +9,20 @@ use AlibabaCloud\Tea\Model;
 class AssignIpv6AddressesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+     *
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The IPv6 addresses that you want to assign to the ENI. You can specify up to 10 IPv6 addresses.
+     * @description The IPv6 addresses to assign to the ENI. Valid values of N: 1 to 10.
      *
      * Example: Ipv6Address.1=2001:db8:1234:1a00::\\*\\*\\*\\*
      *
-     * > You must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but cannot specify both.
+     * >  You must specify `Ipv6Addresses.N` or `Ipv6AddressCount`, but not both.
      * @example 2001:db8:1234:1a00::****
      *
      * @var string[]
@@ -26,9 +30,9 @@ class AssignIpv6AddressesRequest extends Model
     public $ipv6Address;
 
     /**
-     * @description The number of IPv6 addresses that you want to generate at random for the ENI. Valid values: 1 to 10.
+     * @description The number of IPv6 addresses to randomly generate for the ENI. Valid values: 1 to 10.
      *
-     * > You must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but cannot specify both.
+     * >  You must specify `Ipv6Addresses.N` or `Ipv6AddressCount`, but not both.
      * @example 1
      *
      * @var int
@@ -36,15 +40,17 @@ class AssignIpv6AddressesRequest extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description The IPv6 prefixes to assign to the ENI. Valid values of N: 1 to 10.
      *
+     * >  To assign IPv6 prefixes to the ENI, you must specify Ipv6Prefix.N or Ipv6PrefixCount, but not both.
      * @var string[]
      */
     public $ipv6Prefix;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description The number of IPv6 prefixes to assign to the ENI. Valid values: 1 to 10.
      *
+     * >  To assign IPv6 prefixes to the ENI, you must specify Ipv6Prefix.N or Ipv6PrefixCount, but not both.
      * @example hide
      *
      * @var int

@@ -18,15 +18,17 @@ class AssignPrivateIpAddressesRequest extends Model
     public $clientToken;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description The IPv4 prefixes to assign to the ENI. Valid values of N: 1 to 10.
      *
+     * >  To assign IPv4 prefixes to the ENI, you must specify the Ipv4Prefix.N or Ipv4PrefixCount parameter, but not both.
      * @var string[]
      */
     public $ipv4Prefix;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description The number of IPv4 prefixes to be randomly generated for the ENI. Valid values: 1 to 10.
      *
+     * >  To assign IPv4 prefixes to the ENI, you must specify the Ipv4Prefix.N or Ipv4PrefixCount parameter, but not both.
      * @example hide
      *
      * @var int

@@ -9,9 +9,12 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
-     * @description The capacity of the new system disk. Unit: GiB. Valid values: Max{20, Size of the image specified by ImageId} to 500.
+     * @description The capacity of the new system disk. Unit: GiB. Valid values:
      *
-     * > If the capacity of the new system disk exceeds `Max{20, Capacity of the original system disk}`, you are charged for the excess capacity.
+     *   Basic disk: Max{20, Size of the image corresponding to ImageId} to 500.
+     *   Other disks: Max{20, Size of the image corresponding to ImageId} to 2,048.
+     *
+     * >  If the capacity of the new system disk exceeds `Max{20, Capacity of the original system disk}`, you are charged for excess capacity.
      * @example 80
      *
      * @var int

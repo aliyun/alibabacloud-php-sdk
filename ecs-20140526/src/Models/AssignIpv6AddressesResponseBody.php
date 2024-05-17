@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class AssignIpv6AddressesResponseBody extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description The IPv6 prefixes of the ENI.
      *
      * @var ipv6PrefixSets
      */

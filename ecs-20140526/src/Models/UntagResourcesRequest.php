@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags from the resource. This parameter is valid only when the TagKey.N parameter is not specified. Valid values:
+     * @description Specifies whether to remove all tags from the resource. This parameter takes effect only if you do not specify TagKey.N. Valid values:
      *
      *   true
      *   false
@@ -42,7 +42,7 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource IDs.
+     * @description The resource IDs. Valid values of N: 1 to 50.
      *
      * This parameter is required.
      * @example i-bp67acfmxazb4ph****
@@ -79,6 +79,8 @@ class UntagResourcesRequest extends Model
      *   snapshotpolicy: automatic snapshot policy
      *   elasticityassurance: elasticity assurance
      *   capacityreservation: capacity reservation
+     *   command: Cloud Assistant command
+     *   invocation: Cloud Assistant command execution result
      *
      * This parameter is required.
      * @example instance
@@ -88,7 +90,7 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tag keys of the resource.
+     * @description The tag keys. Valid values of N: 1 to 20.
      *
      * @example TestKey
      *

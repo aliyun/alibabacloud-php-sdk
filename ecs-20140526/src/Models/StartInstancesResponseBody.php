@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class StartInstancesResponseBody extends Model
 {
     /**
-     * @description The error code that is returned for the operation on the ECS instance. The value 200 indicates that the operation is successful. For more information, see the "Error codes" section in this topic.
+     * @description The status of the instances before and after the operation is called and the operation results.
      *
      * @var instanceResponses
      */

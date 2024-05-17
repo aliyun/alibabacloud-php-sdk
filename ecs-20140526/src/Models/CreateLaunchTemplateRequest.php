@@ -368,7 +368,7 @@ class CreateLaunchTemplateRequest extends Model
      *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
      *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
      *
-     * >  This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit or SpotAsPriceGo.
+     * >  This parameter takes effect only if SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
      * @example 1
      *
      * @var int
@@ -421,7 +421,7 @@ class CreateLaunchTemplateRequest extends Model
     public $templateTag;
 
     /**
-     * @description The user data of the instance. The user data must be encoded in Base64. The maximum size of raw data is 16 KB.
+     * @description The user data of the instance. The user data must be encoded in Base64. The maximum size of raw data is 32 KB.
      *
      * @example ZWNobyBoZWxsbyBlY3Mh
      *

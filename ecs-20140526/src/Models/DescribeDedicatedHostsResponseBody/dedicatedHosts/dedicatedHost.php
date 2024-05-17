@@ -24,10 +24,10 @@ class dedicatedHost extends Model
     public $schedulerOptions;
 
     /**
-     * @description The policy used to migrate the instances deployed on the dedicated host when the dedicated host fails. Valid values:
+     * @description The policy used to migrate the ECS instances deployed on the dedicated host when the dedicated host fails. Valid values:
      *
-     *   Migrate: The instances are migrated to another physical server. Instances that are not in the Stopped state when the dedicated host fails are restarted.
-     *   Stop: The instances are stopped. If the dedicated host cannot be repaired, the instances are migrated to another physical server and restarted.
+     *   Migrate: The instances are migrated to another physical machine. Instances that are not in the Stopped state when the dedicated host fails are restarted.
+     *   Stop: The instances are stopped. If the dedicated host cannot be restored, the instances are migrated to another physical machine and then restarted.
      *
      * If the dedicated host has cloud disks attached, the default value is Migrate. If the dedicated host has local disks attached, the default value is Stop.
      * @example Migrate
@@ -42,7 +42,7 @@ class dedicatedHost extends Model
      *   on: The dedicated host was added to the resource pool for automatic deployment.
      *   off: The dedicated host was not added to the resource pool for automatic deployment.
      *
-     * For more information about automatic deployment, see the "Automatic deployment" section in [Functions and features](https://help.aliyun.com/document_detail/118938.html).
+     * For information about automatic deployment, see the "Automatic deployment" section in [Functions and features](https://help.aliyun.com/document_detail/118938.html).
      * @example on
      *
      * @var string
@@ -50,7 +50,7 @@ class dedicatedHost extends Model
     public $autoPlacement;
 
     /**
-     * @description The automatic release time of the instances deployed on the dedicated host. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
+     * @description The automatic release time of the dedicated host. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
      *
      * @example 2017-01-01T12:00Z
      *
@@ -238,7 +238,7 @@ class dedicatedHost extends Model
     public $resourceGroupId;
 
     /**
-     * @description The unit of the subscription period. Valid values:
+     * @description The unit of the subscription duration. Valid values:
      *
      *   Month
      *   Year
@@ -259,11 +259,11 @@ class dedicatedHost extends Model
     public $sockets;
 
     /**
-     * @description The status of the dedicated host. Valid values:
+     * @description The state of the dedicated host. Valid values:
      *
-     *   Available: The dedicated host is running normally.
-     *   UnderAssessment: The dedicated host is available but has potential risks that may cause the ECS instances on the dedicated host to fail.
-     *   PermanentFailure: The dedicated host has permanent failures and is unavailable.
+     *   Available: The dedicated host was running as expected.
+     *   UnderAssessment: The dedicated host was available but had potential risks that may cause the ECS instances on the dedicated host to fail.
+     *   PermanentFailure: The dedicated host had permanent failures and was unavailable.
      *
      * @example Available
      *

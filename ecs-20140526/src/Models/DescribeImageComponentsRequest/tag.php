@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N of the image component. Valid values of N: 1 to 20.
+     * @description The key of tag N. Valid values of N: 1 to 20.
      *
      * @example TestKey
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of tag N of the image component. Valid values of N: 1 to 20.
+     * @description The value of tag N. Valid values of N: 1 to 20.
      *
      * @example TestValue
      *

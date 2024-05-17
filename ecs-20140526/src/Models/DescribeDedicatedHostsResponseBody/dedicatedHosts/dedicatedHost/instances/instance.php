@@ -27,7 +27,7 @@ class instance extends Model
     public $instanceOwnerId;
 
     /**
-     * @description The instance type of the ECS instance.
+     * @description The instance type of the ECS instance that was created on the dedicated host.
      *
      * @example ecs.g5.large
      *

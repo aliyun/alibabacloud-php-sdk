@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeRespo
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv4PrefixSets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv6PrefixSets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\ipv6Sets;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\networkInterfaceTrafficConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\privateIpSets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\securityGroupIds;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody\slaveInterfaceSpecification;
@@ -132,6 +133,11 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
      * @var string
      */
     public $networkInterfaceName;
+
+    /**
+     * @var networkInterfaceTrafficConfig
+     */
+    public $networkInterfaceTrafficConfig;
 
     /**
      * @description The communication model of the ENI. Valid values:
@@ -278,7 +284,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $tags;
 
     /**
-     * @description >  This parameter is in invitational preview and unavailable for general users.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example null
      *
@@ -339,6 +345,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         'macAddress'                      => 'MacAddress',
         'networkInterfaceId'              => 'NetworkInterfaceId',
         'networkInterfaceName'            => 'NetworkInterfaceName',
+        'networkInterfaceTrafficConfig'   => 'NetworkInterfaceTrafficConfig',
         'networkInterfaceTrafficMode'     => 'NetworkInterfaceTrafficMode',
         'ownerId'                         => 'OwnerId',
         'privateIpAddress'                => 'PrivateIpAddress',
@@ -408,6 +415,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         }
         if (null !== $this->networkInterfaceName) {
             $res['NetworkInterfaceName'] = $this->networkInterfaceName;
+        }
+        if (null !== $this->networkInterfaceTrafficConfig) {
+            $res['NetworkInterfaceTrafficConfig'] = null !== $this->networkInterfaceTrafficConfig ? $this->networkInterfaceTrafficConfig->toMap() : null;
         }
         if (null !== $this->networkInterfaceTrafficMode) {
             $res['NetworkInterfaceTrafficMode'] = $this->networkInterfaceTrafficMode;
@@ -519,6 +529,9 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
         }
         if (isset($map['NetworkInterfaceName'])) {
             $model->networkInterfaceName = $map['NetworkInterfaceName'];
+        }
+        if (isset($map['NetworkInterfaceTrafficConfig'])) {
+            $model->networkInterfaceTrafficConfig = networkInterfaceTrafficConfig::fromMap($map['NetworkInterfaceTrafficConfig']);
         }
         if (isset($map['NetworkInterfaceTrafficMode'])) {
             $model->networkInterfaceTrafficMode = $map['NetworkInterfaceTrafficMode'];

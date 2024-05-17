@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\connectionTrackingConfiguration;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\networkInterfaceTrafficConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
@@ -135,6 +136,11 @@ class CreateNetworkInterfaceRequest extends Model
      * @var string
      */
     public $networkInterfaceName;
+
+    /**
+     * @var networkInterfaceTrafficConfig
+     */
+    public $networkInterfaceTrafficConfig;
 
     /**
      * @description The communication mode of the ENI. Valid values:
@@ -325,6 +331,7 @@ class CreateNetworkInterfaceRequest extends Model
         'ipv6Prefix'                      => 'Ipv6Prefix',
         'ipv6PrefixCount'                 => 'Ipv6PrefixCount',
         'networkInterfaceName'            => 'NetworkInterfaceName',
+        'networkInterfaceTrafficConfig'   => 'NetworkInterfaceTrafficConfig',
         'networkInterfaceTrafficMode'     => 'NetworkInterfaceTrafficMode',
         'ownerAccount'                    => 'OwnerAccount',
         'ownerId'                         => 'OwnerId',
@@ -391,6 +398,9 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (null !== $this->networkInterfaceName) {
             $res['NetworkInterfaceName'] = $this->networkInterfaceName;
+        }
+        if (null !== $this->networkInterfaceTrafficConfig) {
+            $res['NetworkInterfaceTrafficConfig'] = null !== $this->networkInterfaceTrafficConfig ? $this->networkInterfaceTrafficConfig->toMap() : null;
         }
         if (null !== $this->networkInterfaceTrafficMode) {
             $res['NetworkInterfaceTrafficMode'] = $this->networkInterfaceTrafficMode;
@@ -511,6 +521,9 @@ class CreateNetworkInterfaceRequest extends Model
         }
         if (isset($map['NetworkInterfaceName'])) {
             $model->networkInterfaceName = $map['NetworkInterfaceName'];
+        }
+        if (isset($map['NetworkInterfaceTrafficConfig'])) {
+            $model->networkInterfaceTrafficConfig = networkInterfaceTrafficConfig::fromMap($map['NetworkInterfaceTrafficConfig']);
         }
         if (isset($map['NetworkInterfaceTrafficMode'])) {
             $model->networkInterfaceTrafficMode = $map['NetworkInterfaceTrafficMode'];

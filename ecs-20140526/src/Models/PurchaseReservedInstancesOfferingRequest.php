@@ -20,7 +20,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal duration of the reserved instance. Unit: months. This parameter takes effect only when AutoRenew is set to true.
+     * @description The auto-renewal term of the reserved instance. Unit: months. This parameter takes effect only when AutoRenew is set to true.
      *
      * Default value when PeriodUnit is set to Year: 12.
      * @example 1

@@ -16,10 +16,7 @@ class ReplaceSystemDiskRequest extends Model
     public $systemDisk;
 
     /**
-     * @description The system architecture. Valid values:
-     *
-     *   i386
-     *   x86_64
+     * @description >  This parameter is deprecated.
      *
      * @example i386
      *
@@ -44,9 +41,8 @@ class ReplaceSystemDiskRequest extends Model
     public $clientToken;
 
     /**
-     * @description The disk ID.
+     * @description >  This parameter is deprecated. To improve compatibility, we recommend that you use `ImageId`.
      *
-     * > This feature is available to select users. To use this feature, [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm).
      * @example d-bp67acfmxazb4ph****
      *
      * @var string
@@ -147,10 +143,7 @@ class ReplaceSystemDiskRequest extends Model
     public $passwordInherit;
 
     /**
-     * @description The operating system distribution. Valid values:
-     *
-     *   CentOS
-     *   Ubuntu
+     * @description >  This parameter is deprecated.
      *
      * @example CentOS
      *

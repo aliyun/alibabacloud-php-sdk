@@ -35,7 +35,7 @@ class systemDisk extends Model
      *   cloud: basic disk.
      *   cloud_efficiency: ultra disk.
      *   cloud_ssd: standard SSD.
-     *   cloud_auto: enhanced SSD (ESSD) AutoPL disk.
+     *   cloud_auto: Enterprise SSD (ESSD) AutoPL disk.
      *   cloud_essd: ESSD. You can use `SystemDisk.PerformanceLevel` to set the performance level of the ESSD to use as the system disk.
      *   cloud_essd_entry: ESSD Entry disk.
      *

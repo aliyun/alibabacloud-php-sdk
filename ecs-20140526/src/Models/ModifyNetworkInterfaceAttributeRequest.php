@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeRequest\connectionTrackingConfiguration;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeRequest\networkInterfaceTrafficConfig;
 use AlibabaCloud\Tea\Model;
 
 class ModifyNetworkInterfaceAttributeRequest extends Model
@@ -55,6 +56,11 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
      * @var string
      */
     public $networkInterfaceName;
+
+    /**
+     * @var networkInterfaceTrafficConfig
+     */
+    public $networkInterfaceTrafficConfig;
 
     /**
      * @var string
@@ -142,6 +148,7 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         'description'                     => 'Description',
         'networkInterfaceId'              => 'NetworkInterfaceId',
         'networkInterfaceName'            => 'NetworkInterfaceName',
+        'networkInterfaceTrafficConfig'   => 'NetworkInterfaceTrafficConfig',
         'ownerAccount'                    => 'OwnerAccount',
         'ownerId'                         => 'OwnerId',
         'queueNumber'                     => 'QueueNumber',
@@ -174,6 +181,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         }
         if (null !== $this->networkInterfaceName) {
             $res['NetworkInterfaceName'] = $this->networkInterfaceName;
+        }
+        if (null !== $this->networkInterfaceTrafficConfig) {
+            $res['NetworkInterfaceTrafficConfig'] = null !== $this->networkInterfaceTrafficConfig ? $this->networkInterfaceTrafficConfig->toMap() : null;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -228,6 +238,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
         }
         if (isset($map['NetworkInterfaceName'])) {
             $model->networkInterfaceName = $map['NetworkInterfaceName'];
+        }
+        if (isset($map['NetworkInterfaceTrafficConfig'])) {
+            $model->networkInterfaceTrafficConfig = networkInterfaceTrafficConfig::fromMap($map['NetworkInterfaceTrafficConfig']);
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

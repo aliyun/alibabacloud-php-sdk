@@ -58,6 +58,9 @@ class DescribeDedicatedHostsRequest extends Model
     public $lockReason;
 
     /**
+     * @description The maximum number of entries per page. If you specify this parameter, both MaxResults and NextToken are used for a paged query.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -65,6 +68,8 @@ class DescribeDedicatedHostsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example e71d8a535bd9cc11
      *
      * @var string
@@ -132,7 +137,10 @@ class DescribeDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to display socket capacity information.
+     * @description Specifies whether to display socket information. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

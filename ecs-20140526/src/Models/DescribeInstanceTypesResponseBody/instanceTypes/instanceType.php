@@ -115,7 +115,7 @@ class instanceType extends Model
     public $eniTrunkSupported;
 
     /**
-     * @description The number of elastic RDMA interfaces (ERIs).
+     * @description The number of ERIs.
      *
      * >  This parameter is in invitational preview and is not publicly available.
      * @example 0
@@ -134,7 +134,7 @@ class instanceType extends Model
     public $GPUAmount;
 
     /**
-     * @description The amount of GPU memory per GPU. Unit: GiB.
+     * @description The amount of GPU memory per GPU. Unit: GiB
      *
      * @example 32
      *
@@ -181,22 +181,22 @@ class instanceType extends Model
     /**
      * @description The category of the instance type. Valid values:
      *
-     *   General-purpose: general-purpose instance type
-     *   Compute-optimized: compute-optimized instance type
-     *   Memory-optimized: memory-optimized instance type
-     *   Big data: big data instance type
-     *   Local SSDs: instance type with local SSDs
-     *   High Clock Speed: instance type with high clock speeds
-     *   Enhanced: enhanced instance type
-     *   Shared: shared instance type
-     *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type
-     *   Visual Compute-optimized: visual compute-optimized instance type
-     *   Heterogeneous Service: heterogeneous service instance type
-     *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type
-     *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type
-     *   ECS Bare Metal: ECS Bare Metal Instance type
-     *   Super Computing Cluster: SCC instance type
-     *   High Performance Compute: high-performance computing instance type
+     *   General-purpose
+     *   Compute-optimized
+     *   Memory-optimized
+     *   Big data
+     *   Local SSDs
+     *   High Clock Speed
+     *   Enhanced
+     *   Shared
+     *   Compute-optimized with GPU
+     *   Visual Compute-optimized
+     *   Heterogeneous Service
+     *   Compute-optimized with FPGA
+     *   Compute-optimized with NPU
+     *   ECS Bare Metal
+     *   Super Computing Cluster
+     *   High Performance Compute
      *
      * @example Big data
      *
@@ -263,7 +263,7 @@ class instanceType extends Model
     public $localStorageAmount;
 
     /**
-     * @description The capacity of each local disk attached per instance. Unit: GiB.
+     * @description The capacity of each local disk. Unit: GiB
      *
      * @example 5000
      *
@@ -274,8 +274,8 @@ class instanceType extends Model
     /**
      * @description The category of local disks. For more information, see [Local disks](https://help.aliyun.com/document_detail/63138.html). Valid values:
      *
-     *   local_hdd_pro: local SATA HDDs, which are attached to d1ne or d1 instances.
-     *   local_ssd_pro: local NVMe SSDs, which are attached to i2, i2g, i1, ga1, or gn5 instances.
+     *   local_hdd_pro: local SATA HDDs, which are attached to d1ne or d1 instances
+     *   local_ssd_pro: local NVMe SSDs, which are attached to i2, i2g, i1, ga1, or gn5 instances
      *
      * @example local_ssd_pro
      *
@@ -293,7 +293,7 @@ class instanceType extends Model
     public $maximumQueueNumberPerEni;
 
     /**
-     * @description The memory size. Unit: GiB.
+     * @description The memory size. Unit: GiB
      *
      * @example 16
      *
@@ -311,7 +311,7 @@ class instanceType extends Model
     public $networkCardQuantity;
 
     /**
-     * @description The information about the network cards.
+     * @description The information of the network cards.
      *
      * @var networkCards
      */
@@ -360,7 +360,7 @@ class instanceType extends Model
     public $primaryEniQueueNumber;
 
     /**
-     * @description The maximum number of QP queues per ERI.
+     * @description The maximum number of QPs per ERI.
      *
      * @example 22
      *
@@ -378,7 +378,7 @@ class instanceType extends Model
     public $secondaryEniQueueNumber;
 
     /**
-     * @description 规格支持的启动模式。
+     * @description The boot modes supported by the instance type.
      *
      * @var supportedBootModes
      */

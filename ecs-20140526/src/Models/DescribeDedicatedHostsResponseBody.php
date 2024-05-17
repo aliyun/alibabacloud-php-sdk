@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsResponseBody extends Model
 {
     /**
-     * @description Information about the dedicated hosts.
+     * @description Details about the dedicated hosts.
      *
      * @var dedicatedHosts
      */
     public $dedicatedHosts;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. If the return value of this parameter is empty when you specify MaxResults and NextToken for a paged query, no more results are to be returned.
+     *
      * @example e71d8a535bd9cc11
      *
      * @var string

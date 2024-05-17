@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class assignedPrivateIpAddressesSet extends Model
 {
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description Details about the assigned IPv4 prefixes.
      *
      * @var ipv4PrefixSet
      */

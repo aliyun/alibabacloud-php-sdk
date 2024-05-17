@@ -18,7 +18,7 @@ class StopInvocationRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of instance N on which you want to stop the process of the Cloud Assistant command. You can specify up to 50 instance IDs in each request. Valid values of N: 1 to 50.
+     * @description The ID of the command task. You can call the [DescribeInvocations](https://help.aliyun.com/document_detail/64840.html) operation to query all task IDs.
      *
      * This parameter is required.
      * @example t-7d2a745b412b4601b2d47f6a768d****

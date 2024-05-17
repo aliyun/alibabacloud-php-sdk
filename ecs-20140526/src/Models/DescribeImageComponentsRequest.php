@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageComponentsRequest extends Model
 {
     /**
-     * @description The IDs of the image components. You can specify up to 20 image components.
+     * @description The IDs of image components. Valid values of N: 1 to 20.
      *
      * @example ic-bp67acfmxazb4p****
      *
@@ -19,7 +19,7 @@ class DescribeImageComponentsRequest extends Model
     public $imageComponentId;
 
     /**
-     * @description The maximum number of entries to return on each page. Valid values: 1 to 500.
+     * @description The number of entries per page. Valid values: 1 to 500.
      *
      * Default value: 50.
      * @example 50
@@ -38,7 +38,7 @@ class DescribeImageComponentsRequest extends Model
     public $name;
 
     /**
-     * @description The query token. Set the value to the `NextToken` value returned in the last call to the DescribeImageComponents operation. Leave this parameter empty the first time you call this operation.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
      *
      * @example AAAAAdDWBF2****
      *
@@ -99,7 +99,7 @@ class DescribeImageComponentsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags
+     * @description The tags of the image component.
      *
      * @var tag[]
      */

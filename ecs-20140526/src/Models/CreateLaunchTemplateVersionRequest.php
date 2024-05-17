@@ -18,7 +18,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $systemDisk;
 
     /**
-     * @description The automatic release time of the instance. Specify the time in the [ISO 8601 standard](https://help.aliyun.com/document_detail/25696.html) in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The automatic release time of the instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      *   If the value of `ss` is not `00`, the time is automatically rounded down to the nearest minute based on the value of `mm`.
      *   The specified time must be at least 30 minutes later than the current time.
@@ -373,7 +373,7 @@ class CreateLaunchTemplateVersionRequest extends Model
      *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
      *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
      *
-     * >  This parameter takes effect only if you set SpotStrategy to SpotWithPriceLimit or SpotAsPriceGo.
+     * >  This parameter takes effect only if SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
      * @example 1
      *
      * @var int
@@ -410,7 +410,7 @@ class CreateLaunchTemplateVersionRequest extends Model
     public $tag;
 
     /**
-     * @description The user data of the instance. The user data must be encoded in Base64. The maximum size of raw data is 16 KB.
+     * @description The user data of the instance. The user data must be encoded in Base64. The maximum size of raw data is 32 KB.
      *
      * @example ZWNobyBoZWxsbyBl****
      *
