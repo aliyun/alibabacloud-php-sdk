@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMcubeWhitelistsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -24,6 +26,8 @@ class ListMcubeWhitelistsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
@@ -34,6 +38,8 @@ class ListMcubeWhitelistsRequest extends Model
     public $whitelistName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

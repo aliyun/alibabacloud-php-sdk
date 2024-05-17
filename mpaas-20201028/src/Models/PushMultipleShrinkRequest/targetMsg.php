@@ -14,11 +14,15 @@ class targetMsg extends Model
     public $extendedParams;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $msgKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $target;

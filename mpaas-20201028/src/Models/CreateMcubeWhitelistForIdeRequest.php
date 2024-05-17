@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateMcubeWhitelistForIdeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $whitelistValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelPushSchedulerRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -19,11 +21,15 @@ class CancelPushSchedulerRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $uniqueIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

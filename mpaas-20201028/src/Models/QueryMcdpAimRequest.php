@@ -14,6 +14,8 @@ class QueryMcdpAimRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $id;

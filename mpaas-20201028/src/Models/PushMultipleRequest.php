@@ -20,6 +20,8 @@ class PushMultipleRequest extends Model
     public $activityEvent;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -35,6 +37,8 @@ class PushMultipleRequest extends Model
     public $classification;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $deliveryType;
@@ -45,6 +49,8 @@ class PushMultipleRequest extends Model
     public $dismissalDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $expiredSeconds;
@@ -85,6 +91,8 @@ class PushMultipleRequest extends Model
     public $strategyType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var targetMsg[]
      */
     public $targetMsg;
@@ -95,6 +103,8 @@ class PushMultipleRequest extends Model
     public $taskName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;
@@ -105,6 +115,8 @@ class PushMultipleRequest extends Model
     public $thirdChannelCategory;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

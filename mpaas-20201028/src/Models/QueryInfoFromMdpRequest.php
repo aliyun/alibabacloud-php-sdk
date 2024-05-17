@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryInfoFromMdpRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ALIPUBE5C3F6D091419
      *
      * @var string
@@ -37,6 +39,8 @@ class QueryInfoFromMdpRequest extends Model
     public $mobileSha256;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000
      *
      * @var string
@@ -51,6 +55,8 @@ class QueryInfoFromMdpRequest extends Model
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example default
      *
      * @var string

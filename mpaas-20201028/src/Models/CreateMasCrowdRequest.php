@@ -14,6 +14,8 @@ class CreateMasCrowdRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $mpaasMappcenterMcdpMasCrowdCreateJsonStr;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMpsSchedulerListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -44,6 +46,8 @@ class QueryMpsSchedulerListRequest extends Model
     public $uniqueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

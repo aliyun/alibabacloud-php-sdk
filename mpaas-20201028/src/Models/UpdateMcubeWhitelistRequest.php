@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateMcubeWhitelistRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $id;
@@ -24,6 +28,8 @@ class UpdateMcubeWhitelistRequest extends Model
     public $keyIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $onexFlag;
@@ -34,11 +40,15 @@ class UpdateMcubeWhitelistRequest extends Model
     public $ossUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class PushUnBindRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $deliveryToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

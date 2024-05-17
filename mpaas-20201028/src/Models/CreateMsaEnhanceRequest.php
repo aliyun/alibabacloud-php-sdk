@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateMsaEnhanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $mpaasMappcenterMsaEnhanceCreateJsonStr;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

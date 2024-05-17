@@ -24,16 +24,22 @@ class ExportMappCenterAppConfigRequest extends Model
     public $certRsaBase64;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $identifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $onexFlag;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $systemType;

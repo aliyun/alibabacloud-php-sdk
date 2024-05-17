@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetMdsMiniConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $h5Id;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

@@ -14,6 +14,8 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
     public $apkProtector;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -39,6 +41,8 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
     public $emulatorEnvironment;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $id;
@@ -89,6 +93,8 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
     public $taskType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
@@ -104,6 +110,8 @@ class StartUserAppAsyncEnhanceInMsaRequest extends Model
     public $useAShield;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

@@ -4,50 +4,43 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateLinkResponseBody\resultContent;
 use AlibabaCloud\Tea\Model;
 
-class QueryInfoFromMdpResponseBody extends Model
+class CreateLinkResponseBody extends Model
 {
     /**
-     * @example {\\"db0797452ccafce84d7c151eb81596099bda3f097693d1e18b588804e6742ced\\":{\\"riskScore\\":\\"3\\"}}
+     * @description Id of the request
      *
-     * @var string
-     */
-    public $data;
-
-    /**
-     * @example 11E66B29-9E5E-5C10-B64E-B5A0E0F26355
+     * @example 0CC8A9CB-9BA3-13FD-A404-6E2E7461881A
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example OK
+     * @example 100
      *
-     * @var int
+     * @var string
      */
     public $resultCode;
 
     /**
-     * @example SYSTEM_ERROR
+     * @var resultContent
+     */
+    public $resultContent;
+
+    /**
+     * @example success
      *
      * @var string
      */
     public $resultMessage;
-
-    /**
-     * @example True
-     *
-     * @var bool
-     */
-    public $success;
     protected $_name = [
-        'data'          => 'Data',
         'requestId'     => 'RequestId',
         'resultCode'    => 'ResultCode',
+        'resultContent' => 'ResultContent',
         'resultMessage' => 'ResultMessage',
-        'success'       => 'Success',
     ];
 
     public function validate()
@@ -57,20 +50,17 @@ class QueryInfoFromMdpResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+        if (null !== $this->resultContent) {
+            $res['ResultContent'] = null !== $this->resultContent ? $this->resultContent->toMap() : null;
+        }
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -79,25 +69,22 @@ class QueryInfoFromMdpResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return QueryInfoFromMdpResponseBody
+     * @return CreateLinkResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+        if (isset($map['ResultContent'])) {
+            $model->resultContent = resultContent::fromMap($map['ResultContent']);
+        }
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

@@ -14,6 +14,8 @@ class PushBroadcastRequest extends Model
     public $androidChannel;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -34,11 +36,15 @@ class PushBroadcastRequest extends Model
     public $classification;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $deliveryType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $expiredSeconds;
@@ -54,6 +60,8 @@ class PushBroadcastRequest extends Model
     public $miChannelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $msgkey;
@@ -99,6 +107,8 @@ class PushBroadcastRequest extends Model
     public $templateKeyValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;
@@ -114,6 +124,8 @@ class PushBroadcastRequest extends Model
     public $unBindPeriod;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

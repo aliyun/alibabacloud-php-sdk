@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryPushAnalysisCoreIndexRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -19,6 +21,8 @@ class QueryPushAnalysisCoreIndexRequest extends Model
     public $channel;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $endTime;
@@ -29,6 +33,8 @@ class QueryPushAnalysisCoreIndexRequest extends Model
     public $platform;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $startTime;
@@ -44,6 +50,8 @@ class QueryPushAnalysisCoreIndexRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

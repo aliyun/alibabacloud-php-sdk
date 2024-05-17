@@ -14,6 +14,8 @@ class QueryMdsUpgradeTaskDetailRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $taskId;

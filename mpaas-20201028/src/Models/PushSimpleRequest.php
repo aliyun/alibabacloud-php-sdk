@@ -19,6 +19,8 @@ class PushSimpleRequest extends Model
     public $activityEvent;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -34,11 +36,15 @@ class PushSimpleRequest extends Model
     public $classification;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $deliveryType;
@@ -49,6 +55,8 @@ class PushSimpleRequest extends Model
     public $dismissalDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $expiredSeconds;
@@ -124,6 +132,8 @@ class PushSimpleRequest extends Model
     public $strategyType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $targetMsgkey;
@@ -139,6 +149,8 @@ class PushSimpleRequest extends Model
     public $thirdChannelCategory;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;
@@ -149,6 +161,8 @@ class PushSimpleRequest extends Model
     public $uri;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

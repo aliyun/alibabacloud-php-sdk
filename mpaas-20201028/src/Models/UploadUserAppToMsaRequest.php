@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UploadUserAppToMsaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -19,11 +21,15 @@ class UploadUserAppToMsaRequest extends Model
     public $fileUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

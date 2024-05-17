@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryPushSchedulerListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $endTime;
@@ -29,6 +33,8 @@ class QueryPushSchedulerListRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $startTime;
@@ -44,6 +50,8 @@ class QueryPushSchedulerListRequest extends Model
     public $uniqueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

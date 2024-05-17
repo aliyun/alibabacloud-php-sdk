@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryPushAnalysisTaskListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -24,6 +26,8 @@ class QueryPushAnalysisTaskListRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $startTime;
@@ -39,6 +43,8 @@ class QueryPushAnalysisTaskListRequest extends Model
     public $taskName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

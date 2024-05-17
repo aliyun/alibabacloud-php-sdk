@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMcubePublicTaskStatusRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMcubePublicTaskStatusResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CopyMcdpGroupRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CopyMcdpGroupResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateLinkRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateLinkResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMasCrowdRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMasCrowdResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMasFunnelRequest;
@@ -180,6 +182,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushUnBindRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushUnBindResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryInfoFromMdpRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryInfoFromMdpResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryLinkRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryLinkResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMappCenterAppRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMappCenterAppResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcdpAimRequest;
@@ -328,10 +332,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param AddMdsMiniConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param AddMdsMiniConfigRequest $request AddMdsMiniConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddMdsMiniConfigResponse
+     * @return AddMdsMiniConfigResponse AddMdsMiniConfigResponse
      */
     public function addMdsMiniConfigWithOptions($request, $runtime)
     {
@@ -368,9 +372,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param AddMdsMiniConfigRequest $request
+     * @param AddMdsMiniConfigRequest $request AddMdsMiniConfigRequest
      *
-     * @return AddMdsMiniConfigResponse
+     * @return AddMdsMiniConfigResponse AddMdsMiniConfigResponse
      */
     public function addMdsMiniConfig($request)
     {
@@ -380,10 +384,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CancelPushSchedulerRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CancelPushSchedulerRequest $request CancelPushSchedulerRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelPushSchedulerResponse
+     * @return CancelPushSchedulerResponse CancelPushSchedulerResponse
      */
     public function cancelPushSchedulerWithOptions($request, $runtime)
     {
@@ -420,9 +424,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CancelPushSchedulerRequest $request
+     * @param CancelPushSchedulerRequest $request CancelPushSchedulerRequest
      *
-     * @return CancelPushSchedulerResponse
+     * @return CancelPushSchedulerResponse CancelPushSchedulerResponse
      */
     public function cancelPushScheduler($request)
     {
@@ -432,10 +436,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ChangeMcubeMiniTaskStatusRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param ChangeMcubeMiniTaskStatusRequest $request ChangeMcubeMiniTaskStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeMcubeMiniTaskStatusResponse
+     * @return ChangeMcubeMiniTaskStatusResponse ChangeMcubeMiniTaskStatusResponse
      */
     public function changeMcubeMiniTaskStatusWithOptions($request, $runtime)
     {
@@ -481,9 +485,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ChangeMcubeMiniTaskStatusRequest $request
+     * @param ChangeMcubeMiniTaskStatusRequest $request ChangeMcubeMiniTaskStatusRequest
      *
-     * @return ChangeMcubeMiniTaskStatusResponse
+     * @return ChangeMcubeMiniTaskStatusResponse ChangeMcubeMiniTaskStatusResponse
      */
     public function changeMcubeMiniTaskStatus($request)
     {
@@ -493,10 +497,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ChangeMcubeNebulaTaskStatusRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ChangeMcubeNebulaTaskStatusRequest $request ChangeMcubeNebulaTaskStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeMcubeNebulaTaskStatusResponse
+     * @return ChangeMcubeNebulaTaskStatusResponse ChangeMcubeNebulaTaskStatusResponse
      */
     public function changeMcubeNebulaTaskStatusWithOptions($request, $runtime)
     {
@@ -542,9 +546,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ChangeMcubeNebulaTaskStatusRequest $request
+     * @param ChangeMcubeNebulaTaskStatusRequest $request ChangeMcubeNebulaTaskStatusRequest
      *
-     * @return ChangeMcubeNebulaTaskStatusResponse
+     * @return ChangeMcubeNebulaTaskStatusResponse ChangeMcubeNebulaTaskStatusResponse
      */
     public function changeMcubeNebulaTaskStatus($request)
     {
@@ -554,10 +558,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ChangeMcubePublicTaskStatusRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ChangeMcubePublicTaskStatusRequest $request ChangeMcubePublicTaskStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeMcubePublicTaskStatusResponse
+     * @return ChangeMcubePublicTaskStatusResponse ChangeMcubePublicTaskStatusResponse
      */
     public function changeMcubePublicTaskStatusWithOptions($request, $runtime)
     {
@@ -597,9 +601,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ChangeMcubePublicTaskStatusRequest $request
+     * @param ChangeMcubePublicTaskStatusRequest $request ChangeMcubePublicTaskStatusRequest
      *
-     * @return ChangeMcubePublicTaskStatusResponse
+     * @return ChangeMcubePublicTaskStatusResponse ChangeMcubePublicTaskStatusResponse
      */
     public function changeMcubePublicTaskStatus($request)
     {
@@ -609,10 +613,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CopyMcdpGroupRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param CopyMcdpGroupRequest $request CopyMcdpGroupRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopyMcdpGroupResponse
+     * @return CopyMcdpGroupResponse CopyMcdpGroupResponse
      */
     public function copyMcdpGroupWithOptions($request, $runtime)
     {
@@ -649,9 +653,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CopyMcdpGroupRequest $request
+     * @param CopyMcdpGroupRequest $request CopyMcdpGroupRequest
      *
-     * @return CopyMcdpGroupResponse
+     * @return CopyMcdpGroupResponse CopyMcdpGroupResponse
      */
     public function copyMcdpGroup($request)
     {
@@ -661,10 +665,72 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMasCrowdRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 创建短链
+     *  *
+     * @param CreateLinkRequest $request CreateLinkRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMasCrowdResponse
+     * @return CreateLinkResponse CreateLinkResponse
+     */
+    public function createLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->cors)) {
+            $body['Cors'] = $request->cors;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $body['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->dynamicfield)) {
+            $body['Dynamicfield'] = $request->dynamicfield;
+        }
+        if (!Utils::isUnset($request->targetUrl)) {
+            $body['TargetUrl'] = $request->targetUrl;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLink',
+            'version'     => '2020-10-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建短链
+     *  *
+     * @param CreateLinkRequest $request CreateLinkRequest
+     *
+     * @return CreateLinkResponse CreateLinkResponse
+     */
+    public function createLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateMasCrowdRequest $request CreateMasCrowdRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateMasCrowdResponse CreateMasCrowdResponse
      */
     public function createMasCrowdWithOptions($request, $runtime)
     {
@@ -701,9 +767,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMasCrowdRequest $request
+     * @param CreateMasCrowdRequest $request CreateMasCrowdRequest
      *
-     * @return CreateMasCrowdResponse
+     * @return CreateMasCrowdResponse CreateMasCrowdResponse
      */
     public function createMasCrowd($request)
     {
@@ -713,10 +779,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMasFunnelRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param CreateMasFunnelRequest $request CreateMasFunnelRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMasFunnelResponse
+     * @return CreateMasFunnelResponse CreateMasFunnelResponse
      */
     public function createMasFunnelWithOptions($request, $runtime)
     {
@@ -753,9 +819,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMasFunnelRequest $request
+     * @param CreateMasFunnelRequest $request CreateMasFunnelRequest
      *
-     * @return CreateMasFunnelResponse
+     * @return CreateMasFunnelResponse CreateMasFunnelResponse
      */
     public function createMasFunnel($request)
     {
@@ -765,10 +831,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpEventRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param CreateMcdpEventRequest $request CreateMcdpEventRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcdpEventResponse
+     * @return CreateMcdpEventResponse CreateMcdpEventResponse
      */
     public function createMcdpEventWithOptions($request, $runtime)
     {
@@ -805,9 +871,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpEventRequest $request
+     * @param CreateMcdpEventRequest $request CreateMcdpEventRequest
      *
-     * @return CreateMcdpEventResponse
+     * @return CreateMcdpEventResponse CreateMcdpEventResponse
      */
     public function createMcdpEvent($request)
     {
@@ -817,10 +883,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpEventAttributeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param CreateMcdpEventAttributeRequest $request CreateMcdpEventAttributeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcdpEventAttributeResponse
+     * @return CreateMcdpEventAttributeResponse CreateMcdpEventAttributeResponse
      */
     public function createMcdpEventAttributeWithOptions($request, $runtime)
     {
@@ -857,9 +923,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpEventAttributeRequest $request
+     * @param CreateMcdpEventAttributeRequest $request CreateMcdpEventAttributeRequest
      *
-     * @return CreateMcdpEventAttributeResponse
+     * @return CreateMcdpEventAttributeResponse CreateMcdpEventAttributeResponse
      */
     public function createMcdpEventAttribute($request)
     {
@@ -869,10 +935,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param CreateMcdpGroupRequest $request CreateMcdpGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcdpGroupResponse
+     * @return CreateMcdpGroupResponse CreateMcdpGroupResponse
      */
     public function createMcdpGroupWithOptions($request, $runtime)
     {
@@ -909,9 +975,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpGroupRequest $request
+     * @param CreateMcdpGroupRequest $request CreateMcdpGroupRequest
      *
-     * @return CreateMcdpGroupResponse
+     * @return CreateMcdpGroupResponse CreateMcdpGroupResponse
      */
     public function createMcdpGroup($request)
     {
@@ -921,10 +987,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpMaterialRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param CreateMcdpMaterialRequest $request CreateMcdpMaterialRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcdpMaterialResponse
+     * @return CreateMcdpMaterialResponse CreateMcdpMaterialResponse
      */
     public function createMcdpMaterialWithOptions($request, $runtime)
     {
@@ -961,9 +1027,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpMaterialRequest $request
+     * @param CreateMcdpMaterialRequest $request CreateMcdpMaterialRequest
      *
-     * @return CreateMcdpMaterialResponse
+     * @return CreateMcdpMaterialResponse CreateMcdpMaterialResponse
      */
     public function createMcdpMaterial($request)
     {
@@ -973,10 +1039,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpZoneRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param CreateMcdpZoneRequest $request CreateMcdpZoneRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcdpZoneResponse
+     * @return CreateMcdpZoneResponse CreateMcdpZoneResponse
      */
     public function createMcdpZoneWithOptions($request, $runtime)
     {
@@ -1013,9 +1079,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpZoneRequest $request
+     * @param CreateMcdpZoneRequest $request CreateMcdpZoneRequest
      *
-     * @return CreateMcdpZoneResponse
+     * @return CreateMcdpZoneResponse CreateMcdpZoneResponse
      */
     public function createMcdpZone($request)
     {
@@ -1025,10 +1091,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeMiniAppRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param CreateMcubeMiniAppRequest $request CreateMcubeMiniAppRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeMiniAppResponse
+     * @return CreateMcubeMiniAppResponse CreateMcubeMiniAppResponse
      */
     public function createMcubeMiniAppWithOptions($request, $runtime)
     {
@@ -1068,9 +1134,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeMiniAppRequest $request
+     * @param CreateMcubeMiniAppRequest $request CreateMcubeMiniAppRequest
      *
-     * @return CreateMcubeMiniAppResponse
+     * @return CreateMcubeMiniAppResponse CreateMcubeMiniAppResponse
      */
     public function createMcubeMiniApp($request)
     {
@@ -1080,10 +1146,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeMiniTaskRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateMcubeMiniTaskRequest $request CreateMcubeMiniTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeMiniTaskResponse
+     * @return CreateMcubeMiniTaskResponse CreateMcubeMiniTaskResponse
      */
     public function createMcubeMiniTaskWithOptions($request, $runtime)
     {
@@ -1141,9 +1207,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeMiniTaskRequest $request
+     * @param CreateMcubeMiniTaskRequest $request CreateMcubeMiniTaskRequest
      *
-     * @return CreateMcubeMiniTaskResponse
+     * @return CreateMcubeMiniTaskResponse CreateMcubeMiniTaskResponse
      */
     public function createMcubeMiniTask($request)
     {
@@ -1153,10 +1219,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeNebulaAppRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateMcubeNebulaAppRequest $request CreateMcubeNebulaAppRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeNebulaAppResponse
+     * @return CreateMcubeNebulaAppResponse CreateMcubeNebulaAppResponse
      */
     public function createMcubeNebulaAppWithOptions($request, $runtime)
     {
@@ -1196,9 +1262,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeNebulaAppRequest $request
+     * @param CreateMcubeNebulaAppRequest $request CreateMcubeNebulaAppRequest
      *
-     * @return CreateMcubeNebulaAppResponse
+     * @return CreateMcubeNebulaAppResponse CreateMcubeNebulaAppResponse
      */
     public function createMcubeNebulaApp($request)
     {
@@ -1208,10 +1274,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeNebulaResourceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param CreateMcubeNebulaResourceRequest $request CreateMcubeNebulaResourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeNebulaResourceResponse
+     * @return CreateMcubeNebulaResourceResponse CreateMcubeNebulaResourceResponse
      */
     public function createMcubeNebulaResourceWithOptions($request, $runtime)
     {
@@ -1296,9 +1362,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeNebulaResourceRequest $request
+     * @param CreateMcubeNebulaResourceRequest $request CreateMcubeNebulaResourceRequest
      *
-     * @return CreateMcubeNebulaResourceResponse
+     * @return CreateMcubeNebulaResourceResponse CreateMcubeNebulaResourceResponse
      */
     public function createMcubeNebulaResource($request)
     {
@@ -1308,10 +1374,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeNebulaTaskRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param CreateMcubeNebulaTaskRequest $request CreateMcubeNebulaTaskRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeNebulaTaskResponse
+     * @return CreateMcubeNebulaTaskResponse CreateMcubeNebulaTaskResponse
      */
     public function createMcubeNebulaTaskWithOptions($request, $runtime)
     {
@@ -1450,9 +1516,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeNebulaTaskRequest $request
+     * @param CreateMcubeNebulaTaskRequest $request CreateMcubeNebulaTaskRequest
      *
-     * @return CreateMcubeNebulaTaskResponse
+     * @return CreateMcubeNebulaTaskResponse CreateMcubeNebulaTaskResponse
      */
     public function createMcubeNebulaTask($request)
     {
@@ -1462,10 +1528,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeUpgradePackageRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param CreateMcubeUpgradePackageRequest $request CreateMcubeUpgradePackageRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeUpgradePackageResponse
+     * @return CreateMcubeUpgradePackageResponse CreateMcubeUpgradePackageResponse
      */
     public function createMcubeUpgradePackageWithOptions($request, $runtime)
     {
@@ -1544,9 +1610,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeUpgradePackageRequest $request
+     * @param CreateMcubeUpgradePackageRequest $request CreateMcubeUpgradePackageRequest
      *
-     * @return CreateMcubeUpgradePackageResponse
+     * @return CreateMcubeUpgradePackageResponse CreateMcubeUpgradePackageResponse
      */
     public function createMcubeUpgradePackage($request)
     {
@@ -1556,10 +1622,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeUpgradeTaskRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param CreateMcubeUpgradeTaskRequest $request CreateMcubeUpgradeTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeUpgradeTaskResponse
+     * @return CreateMcubeUpgradeTaskResponse CreateMcubeUpgradeTaskResponse
      */
     public function createMcubeUpgradeTaskWithOptions($request, $runtime)
     {
@@ -1626,9 +1692,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeUpgradeTaskRequest $request
+     * @param CreateMcubeUpgradeTaskRequest $request CreateMcubeUpgradeTaskRequest
      *
-     * @return CreateMcubeUpgradeTaskResponse
+     * @return CreateMcubeUpgradeTaskResponse CreateMcubeUpgradeTaskResponse
      */
     public function createMcubeUpgradeTask($request)
     {
@@ -1638,10 +1704,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeVhostRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param CreateMcubeVhostRequest $request CreateMcubeVhostRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeVhostResponse
+     * @return CreateMcubeVhostResponse CreateMcubeVhostResponse
      */
     public function createMcubeVhostWithOptions($request, $runtime)
     {
@@ -1678,9 +1744,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeVhostRequest $request
+     * @param CreateMcubeVhostRequest $request CreateMcubeVhostRequest
      *
-     * @return CreateMcubeVhostResponse
+     * @return CreateMcubeVhostResponse CreateMcubeVhostResponse
      */
     public function createMcubeVhost($request)
     {
@@ -1690,10 +1756,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeWhitelistRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateMcubeWhitelistRequest $request CreateMcubeWhitelistRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeWhitelistResponse
+     * @return CreateMcubeWhitelistResponse CreateMcubeWhitelistResponse
      */
     public function createMcubeWhitelistWithOptions($request, $runtime)
     {
@@ -1733,9 +1799,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeWhitelistRequest $request
+     * @param CreateMcubeWhitelistRequest $request CreateMcubeWhitelistRequest
      *
-     * @return CreateMcubeWhitelistResponse
+     * @return CreateMcubeWhitelistResponse CreateMcubeWhitelistResponse
      */
     public function createMcubeWhitelist($request)
     {
@@ -1745,10 +1811,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeWhitelistForIdeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param CreateMcubeWhitelistForIdeRequest $request CreateMcubeWhitelistForIdeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeWhitelistForIdeResponse
+     * @return CreateMcubeWhitelistForIdeResponse CreateMcubeWhitelistForIdeResponse
      */
     public function createMcubeWhitelistForIdeWithOptions($request, $runtime)
     {
@@ -1788,9 +1854,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeWhitelistForIdeRequest $request
+     * @param CreateMcubeWhitelistForIdeRequest $request CreateMcubeWhitelistForIdeRequest
      *
-     * @return CreateMcubeWhitelistForIdeResponse
+     * @return CreateMcubeWhitelistForIdeResponse CreateMcubeWhitelistForIdeResponse
      */
     public function createMcubeWhitelistForIde($request)
     {
@@ -1800,10 +1866,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMdsMiniprogramTaskRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param CreateMdsMiniprogramTaskRequest $request CreateMdsMiniprogramTaskRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMdsMiniprogramTaskResponse
+     * @return CreateMdsMiniprogramTaskResponse CreateMdsMiniprogramTaskResponse
      */
     public function createMdsMiniprogramTaskWithOptions($request, $runtime)
     {
@@ -1867,9 +1933,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMdsMiniprogramTaskRequest $request
+     * @param CreateMdsMiniprogramTaskRequest $request CreateMdsMiniprogramTaskRequest
      *
-     * @return CreateMdsMiniprogramTaskResponse
+     * @return CreateMdsMiniprogramTaskResponse CreateMdsMiniprogramTaskResponse
      */
     public function createMdsMiniprogramTask($request)
     {
@@ -1879,10 +1945,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMsaEnhanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param CreateMsaEnhanceRequest $request CreateMsaEnhanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMsaEnhanceResponse
+     * @return CreateMsaEnhanceResponse CreateMsaEnhanceResponse
      */
     public function createMsaEnhanceWithOptions($request, $runtime)
     {
@@ -1919,9 +1985,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMsaEnhanceRequest $request
+     * @param CreateMsaEnhanceRequest $request CreateMsaEnhanceRequest
      *
-     * @return CreateMsaEnhanceResponse
+     * @return CreateMsaEnhanceResponse CreateMsaEnhanceResponse
      */
     public function createMsaEnhance($request)
     {
@@ -1931,10 +1997,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateOpenGlobalDataRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateOpenGlobalDataRequest $request CreateOpenGlobalDataRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOpenGlobalDataResponse
+     * @return CreateOpenGlobalDataResponse CreateOpenGlobalDataResponse
      */
     public function createOpenGlobalDataWithOptions($request, $runtime)
     {
@@ -2001,9 +2067,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateOpenGlobalDataRequest $request
+     * @param CreateOpenGlobalDataRequest $request CreateOpenGlobalDataRequest
      *
-     * @return CreateOpenGlobalDataResponse
+     * @return CreateOpenGlobalDataResponse CreateOpenGlobalDataResponse
      */
     public function createOpenGlobalData($request)
     {
@@ -2013,10 +2079,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateOpenSingleDataRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateOpenSingleDataRequest $request CreateOpenSingleDataRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOpenSingleDataResponse
+     * @return CreateOpenSingleDataResponse CreateOpenSingleDataResponse
      */
     public function createOpenSingleDataWithOptions($request, $runtime)
     {
@@ -2080,9 +2146,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateOpenSingleDataRequest $request
+     * @param CreateOpenSingleDataRequest $request CreateOpenSingleDataRequest
      *
-     * @return CreateOpenSingleDataResponse
+     * @return CreateOpenSingleDataResponse CreateOpenSingleDataResponse
      */
     public function createOpenSingleData($request)
     {
@@ -2092,10 +2158,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteCubecardWhitelistContentRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param DeleteCubecardWhitelistContentRequest $request DeleteCubecardWhitelistContentRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCubecardWhitelistContentResponse
+     * @return DeleteCubecardWhitelistContentResponse DeleteCubecardWhitelistContentResponse
      */
     public function deleteCubecardWhitelistContentWithOptions($request, $runtime)
     {
@@ -2135,9 +2201,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteCubecardWhitelistContentRequest $request
+     * @param DeleteCubecardWhitelistContentRequest $request DeleteCubecardWhitelistContentRequest
      *
-     * @return DeleteCubecardWhitelistContentResponse
+     * @return DeleteCubecardWhitelistContentResponse DeleteCubecardWhitelistContentResponse
      */
     public function deleteCubecardWhitelistContent($request)
     {
@@ -2147,10 +2213,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpAimRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DeleteMcdpAimRequest $request DeleteMcdpAimRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcdpAimResponse
+     * @return DeleteMcdpAimResponse DeleteMcdpAimResponse
      */
     public function deleteMcdpAimWithOptions($request, $runtime)
     {
@@ -2187,9 +2253,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpAimRequest $request
+     * @param DeleteMcdpAimRequest $request DeleteMcdpAimRequest
      *
-     * @return DeleteMcdpAimResponse
+     * @return DeleteMcdpAimResponse DeleteMcdpAimResponse
      */
     public function deleteMcdpAim($request)
     {
@@ -2199,10 +2265,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpCrowdRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DeleteMcdpCrowdRequest $request DeleteMcdpCrowdRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcdpCrowdResponse
+     * @return DeleteMcdpCrowdResponse DeleteMcdpCrowdResponse
      */
     public function deleteMcdpCrowdWithOptions($request, $runtime)
     {
@@ -2239,9 +2305,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpCrowdRequest $request
+     * @param DeleteMcdpCrowdRequest $request DeleteMcdpCrowdRequest
      *
-     * @return DeleteMcdpCrowdResponse
+     * @return DeleteMcdpCrowdResponse DeleteMcdpCrowdResponse
      */
     public function deleteMcdpCrowd($request)
     {
@@ -2251,10 +2317,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpEventAttributeByIdRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DeleteMcdpEventAttributeByIdRequest $request DeleteMcdpEventAttributeByIdRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcdpEventAttributeByIdResponse
+     * @return DeleteMcdpEventAttributeByIdResponse DeleteMcdpEventAttributeByIdResponse
      */
     public function deleteMcdpEventAttributeByIdWithOptions($request, $runtime)
     {
@@ -2291,9 +2357,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpEventAttributeByIdRequest $request
+     * @param DeleteMcdpEventAttributeByIdRequest $request DeleteMcdpEventAttributeByIdRequest
      *
-     * @return DeleteMcdpEventAttributeByIdResponse
+     * @return DeleteMcdpEventAttributeByIdResponse DeleteMcdpEventAttributeByIdResponse
      */
     public function deleteMcdpEventAttributeById($request)
     {
@@ -2303,10 +2369,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpEventByIdRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DeleteMcdpEventByIdRequest $request DeleteMcdpEventByIdRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcdpEventByIdResponse
+     * @return DeleteMcdpEventByIdResponse DeleteMcdpEventByIdResponse
      */
     public function deleteMcdpEventByIdWithOptions($request, $runtime)
     {
@@ -2343,9 +2409,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpEventByIdRequest $request
+     * @param DeleteMcdpEventByIdRequest $request DeleteMcdpEventByIdRequest
      *
-     * @return DeleteMcdpEventByIdResponse
+     * @return DeleteMcdpEventByIdResponse DeleteMcdpEventByIdResponse
      */
     public function deleteMcdpEventById($request)
     {
@@ -2355,10 +2421,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpMaterialRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DeleteMcdpMaterialRequest $request DeleteMcdpMaterialRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcdpMaterialResponse
+     * @return DeleteMcdpMaterialResponse DeleteMcdpMaterialResponse
      */
     public function deleteMcdpMaterialWithOptions($request, $runtime)
     {
@@ -2395,9 +2461,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpMaterialRequest $request
+     * @param DeleteMcdpMaterialRequest $request DeleteMcdpMaterialRequest
      *
-     * @return DeleteMcdpMaterialResponse
+     * @return DeleteMcdpMaterialResponse DeleteMcdpMaterialResponse
      */
     public function deleteMcdpMaterial($request)
     {
@@ -2407,10 +2473,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpZoneRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DeleteMcdpZoneRequest $request DeleteMcdpZoneRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcdpZoneResponse
+     * @return DeleteMcdpZoneResponse DeleteMcdpZoneResponse
      */
     public function deleteMcdpZoneWithOptions($request, $runtime)
     {
@@ -2447,9 +2513,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpZoneRequest $request
+     * @param DeleteMcdpZoneRequest $request DeleteMcdpZoneRequest
      *
-     * @return DeleteMcdpZoneResponse
+     * @return DeleteMcdpZoneResponse DeleteMcdpZoneResponse
      */
     public function deleteMcdpZone($request)
     {
@@ -2459,10 +2525,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeMiniAppRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DeleteMcubeMiniAppRequest $request DeleteMcubeMiniAppRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcubeMiniAppResponse
+     * @return DeleteMcubeMiniAppResponse DeleteMcubeMiniAppResponse
      */
     public function deleteMcubeMiniAppWithOptions($request, $runtime)
     {
@@ -2499,9 +2565,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeMiniAppRequest $request
+     * @param DeleteMcubeMiniAppRequest $request DeleteMcubeMiniAppRequest
      *
-     * @return DeleteMcubeMiniAppResponse
+     * @return DeleteMcubeMiniAppResponse DeleteMcubeMiniAppResponse
      */
     public function deleteMcubeMiniApp($request)
     {
@@ -2511,10 +2577,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeNebulaAppRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteMcubeNebulaAppRequest $request DeleteMcubeNebulaAppRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcubeNebulaAppResponse
+     * @return DeleteMcubeNebulaAppResponse DeleteMcubeNebulaAppResponse
      */
     public function deleteMcubeNebulaAppWithOptions($request, $runtime)
     {
@@ -2551,9 +2617,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeNebulaAppRequest $request
+     * @param DeleteMcubeNebulaAppRequest $request DeleteMcubeNebulaAppRequest
      *
-     * @return DeleteMcubeNebulaAppResponse
+     * @return DeleteMcubeNebulaAppResponse DeleteMcubeNebulaAppResponse
      */
     public function deleteMcubeNebulaApp($request)
     {
@@ -2563,10 +2629,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeUpgradeResourceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DeleteMcubeUpgradeResourceRequest $request DeleteMcubeUpgradeResourceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcubeUpgradeResourceResponse
+     * @return DeleteMcubeUpgradeResourceResponse DeleteMcubeUpgradeResourceResponse
      */
     public function deleteMcubeUpgradeResourceWithOptions($request, $runtime)
     {
@@ -2606,9 +2672,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeUpgradeResourceRequest $request
+     * @param DeleteMcubeUpgradeResourceRequest $request DeleteMcubeUpgradeResourceRequest
      *
-     * @return DeleteMcubeUpgradeResourceResponse
+     * @return DeleteMcubeUpgradeResourceResponse DeleteMcubeUpgradeResourceResponse
      */
     public function deleteMcubeUpgradeResource($request)
     {
@@ -2618,10 +2684,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeWhitelistRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteMcubeWhitelistRequest $request DeleteMcubeWhitelistRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcubeWhitelistResponse
+     * @return DeleteMcubeWhitelistResponse DeleteMcubeWhitelistResponse
      */
     public function deleteMcubeWhitelistWithOptions($request, $runtime)
     {
@@ -2658,9 +2724,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeWhitelistRequest $request
+     * @param DeleteMcubeWhitelistRequest $request DeleteMcubeWhitelistRequest
      *
-     * @return DeleteMcubeWhitelistResponse
+     * @return DeleteMcubeWhitelistResponse DeleteMcubeWhitelistResponse
      */
     public function deleteMcubeWhitelist($request)
     {
@@ -2670,10 +2736,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMdsWhitelistContentRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DeleteMdsWhitelistContentRequest $request DeleteMdsWhitelistContentRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMdsWhitelistContentResponse
+     * @return DeleteMdsWhitelistContentResponse DeleteMdsWhitelistContentResponse
      */
     public function deleteMdsWhitelistContentWithOptions($request, $runtime)
     {
@@ -2713,9 +2779,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMdsWhitelistContentRequest $request
+     * @param DeleteMdsWhitelistContentRequest $request DeleteMdsWhitelistContentRequest
      *
-     * @return DeleteMdsWhitelistContentResponse
+     * @return DeleteMdsWhitelistContentResponse DeleteMdsWhitelistContentResponse
      */
     public function deleteMdsWhitelistContent($request)
     {
@@ -2725,10 +2791,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ExistMcubeRsaKeyRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ExistMcubeRsaKeyRequest $request ExistMcubeRsaKeyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExistMcubeRsaKeyResponse
+     * @return ExistMcubeRsaKeyResponse ExistMcubeRsaKeyResponse
      */
     public function existMcubeRsaKeyWithOptions($request, $runtime)
     {
@@ -2762,9 +2828,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ExistMcubeRsaKeyRequest $request
+     * @param ExistMcubeRsaKeyRequest $request ExistMcubeRsaKeyRequest
      *
-     * @return ExistMcubeRsaKeyResponse
+     * @return ExistMcubeRsaKeyResponse ExistMcubeRsaKeyResponse
      */
     public function existMcubeRsaKey($request)
     {
@@ -2774,10 +2840,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ExportMappCenterAppConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param ExportMappCenterAppConfigRequest $request ExportMappCenterAppConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportMappCenterAppConfigResponse
+     * @return ExportMappCenterAppConfigResponse ExportMappCenterAppConfigResponse
      */
     public function exportMappCenterAppConfigWithOptions($request, $runtime)
     {
@@ -2823,9 +2889,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ExportMappCenterAppConfigRequest $request
+     * @param ExportMappCenterAppConfigRequest $request ExportMappCenterAppConfigRequest
      *
-     * @return ExportMappCenterAppConfigResponse
+     * @return ExportMappCenterAppConfigResponse ExportMappCenterAppConfigResponse
      */
     public function exportMappCenterAppConfig($request)
     {
@@ -2835,10 +2901,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetFileTokenForUploadToMsaRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param GetFileTokenForUploadToMsaRequest $request GetFileTokenForUploadToMsaRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFileTokenForUploadToMsaResponse
+     * @return GetFileTokenForUploadToMsaResponse GetFileTokenForUploadToMsaResponse
      */
     public function getFileTokenForUploadToMsaWithOptions($request, $runtime)
     {
@@ -2875,9 +2941,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetFileTokenForUploadToMsaRequest $request
+     * @param GetFileTokenForUploadToMsaRequest $request GetFileTokenForUploadToMsaRequest
      *
-     * @return GetFileTokenForUploadToMsaResponse
+     * @return GetFileTokenForUploadToMsaResponse GetFileTokenForUploadToMsaResponse
      */
     public function getFileTokenForUploadToMsa($request)
     {
@@ -2887,10 +2953,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetLogUrlInMsaRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetLogUrlInMsaRequest $request GetLogUrlInMsaRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLogUrlInMsaResponse
+     * @return GetLogUrlInMsaResponse GetLogUrlInMsaResponse
      */
     public function getLogUrlInMsaWithOptions($request, $runtime)
     {
@@ -2927,9 +2993,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetLogUrlInMsaRequest $request
+     * @param GetLogUrlInMsaRequest $request GetLogUrlInMsaRequest
      *
-     * @return GetLogUrlInMsaResponse
+     * @return GetLogUrlInMsaResponse GetLogUrlInMsaResponse
      */
     public function getLogUrlInMsa($request)
     {
@@ -2939,10 +3005,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeFileTokenRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetMcubeFileTokenRequest $request GetMcubeFileTokenRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMcubeFileTokenResponse
+     * @return GetMcubeFileTokenResponse GetMcubeFileTokenResponse
      */
     public function getMcubeFileTokenWithOptions($request, $runtime)
     {
@@ -2979,9 +3045,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeFileTokenRequest $request
+     * @param GetMcubeFileTokenRequest $request GetMcubeFileTokenRequest
      *
-     * @return GetMcubeFileTokenResponse
+     * @return GetMcubeFileTokenResponse GetMcubeFileTokenResponse
      */
     public function getMcubeFileToken($request)
     {
@@ -2991,10 +3057,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeNebulaResourceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetMcubeNebulaResourceRequest $request GetMcubeNebulaResourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMcubeNebulaResourceResponse
+     * @return GetMcubeNebulaResourceResponse GetMcubeNebulaResourceResponse
      */
     public function getMcubeNebulaResourceWithOptions($request, $runtime)
     {
@@ -3031,9 +3097,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeNebulaResourceRequest $request
+     * @param GetMcubeNebulaResourceRequest $request GetMcubeNebulaResourceRequest
      *
-     * @return GetMcubeNebulaResourceResponse
+     * @return GetMcubeNebulaResourceResponse GetMcubeNebulaResourceResponse
      */
     public function getMcubeNebulaResource($request)
     {
@@ -3043,10 +3109,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeNebulaTaskDetailRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param GetMcubeNebulaTaskDetailRequest $request GetMcubeNebulaTaskDetailRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMcubeNebulaTaskDetailResponse
+     * @return GetMcubeNebulaTaskDetailResponse GetMcubeNebulaTaskDetailResponse
      */
     public function getMcubeNebulaTaskDetailWithOptions($request, $runtime)
     {
@@ -3083,9 +3149,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeNebulaTaskDetailRequest $request
+     * @param GetMcubeNebulaTaskDetailRequest $request GetMcubeNebulaTaskDetailRequest
      *
-     * @return GetMcubeNebulaTaskDetailResponse
+     * @return GetMcubeNebulaTaskDetailResponse GetMcubeNebulaTaskDetailResponse
      */
     public function getMcubeNebulaTaskDetail($request)
     {
@@ -3095,10 +3161,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeUpgradePackageInfoRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param GetMcubeUpgradePackageInfoRequest $request GetMcubeUpgradePackageInfoRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMcubeUpgradePackageInfoResponse
+     * @return GetMcubeUpgradePackageInfoResponse GetMcubeUpgradePackageInfoResponse
      */
     public function getMcubeUpgradePackageInfoWithOptions($request, $runtime)
     {
@@ -3135,9 +3201,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeUpgradePackageInfoRequest $request
+     * @param GetMcubeUpgradePackageInfoRequest $request GetMcubeUpgradePackageInfoRequest
      *
-     * @return GetMcubeUpgradePackageInfoResponse
+     * @return GetMcubeUpgradePackageInfoResponse GetMcubeUpgradePackageInfoResponse
      */
     public function getMcubeUpgradePackageInfo($request)
     {
@@ -3147,10 +3213,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeUpgradeTaskInfoRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param GetMcubeUpgradeTaskInfoRequest $request GetMcubeUpgradeTaskInfoRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMcubeUpgradeTaskInfoResponse
+     * @return GetMcubeUpgradeTaskInfoResponse GetMcubeUpgradeTaskInfoResponse
      */
     public function getMcubeUpgradeTaskInfoWithOptions($request, $runtime)
     {
@@ -3187,9 +3253,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeUpgradeTaskInfoRequest $request
+     * @param GetMcubeUpgradeTaskInfoRequest $request GetMcubeUpgradeTaskInfoRequest
      *
-     * @return GetMcubeUpgradeTaskInfoResponse
+     * @return GetMcubeUpgradeTaskInfoResponse GetMcubeUpgradeTaskInfoResponse
      */
     public function getMcubeUpgradeTaskInfo($request)
     {
@@ -3199,10 +3265,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMdsMiniConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param GetMdsMiniConfigRequest $request GetMdsMiniConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMdsMiniConfigResponse
+     * @return GetMdsMiniConfigResponse GetMdsMiniConfigResponse
      */
     public function getMdsMiniConfigWithOptions($request, $runtime)
     {
@@ -3239,9 +3305,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMdsMiniConfigRequest $request
+     * @param GetMdsMiniConfigRequest $request GetMdsMiniConfigRequest
      *
-     * @return GetMdsMiniConfigResponse
+     * @return GetMdsMiniConfigResponse GetMdsMiniConfigResponse
      */
     public function getMdsMiniConfig($request)
     {
@@ -3251,10 +3317,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetUserAppDonwloadUrlInMsaRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param GetUserAppDonwloadUrlInMsaRequest $request GetUserAppDonwloadUrlInMsaRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserAppDonwloadUrlInMsaResponse
+     * @return GetUserAppDonwloadUrlInMsaResponse GetUserAppDonwloadUrlInMsaResponse
      */
     public function getUserAppDonwloadUrlInMsaWithOptions($request, $runtime)
     {
@@ -3291,9 +3357,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetUserAppDonwloadUrlInMsaRequest $request
+     * @param GetUserAppDonwloadUrlInMsaRequest $request GetUserAppDonwloadUrlInMsaRequest
      *
-     * @return GetUserAppDonwloadUrlInMsaResponse
+     * @return GetUserAppDonwloadUrlInMsaResponse GetUserAppDonwloadUrlInMsaResponse
      */
     public function getUserAppDonwloadUrlInMsa($request)
     {
@@ -3303,10 +3369,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetUserAppEnhanceProcessInMsaRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param GetUserAppEnhanceProcessInMsaRequest $request GetUserAppEnhanceProcessInMsaRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserAppEnhanceProcessInMsaResponse
+     * @return GetUserAppEnhanceProcessInMsaResponse GetUserAppEnhanceProcessInMsaResponse
      */
     public function getUserAppEnhanceProcessInMsaWithOptions($request, $runtime)
     {
@@ -3343,9 +3409,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetUserAppEnhanceProcessInMsaRequest $request
+     * @param GetUserAppEnhanceProcessInMsaRequest $request GetUserAppEnhanceProcessInMsaRequest
      *
-     * @return GetUserAppEnhanceProcessInMsaResponse
+     * @return GetUserAppEnhanceProcessInMsaResponse GetUserAppEnhanceProcessInMsaResponse
      */
     public function getUserAppEnhanceProcessInMsa($request)
     {
@@ -3355,10 +3421,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetUserAppUploadProcessInMsaRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param GetUserAppUploadProcessInMsaRequest $request GetUserAppUploadProcessInMsaRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserAppUploadProcessInMsaResponse
+     * @return GetUserAppUploadProcessInMsaResponse GetUserAppUploadProcessInMsaResponse
      */
     public function getUserAppUploadProcessInMsaWithOptions($request, $runtime)
     {
@@ -3395,9 +3461,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetUserAppUploadProcessInMsaRequest $request
+     * @param GetUserAppUploadProcessInMsaRequest $request GetUserAppUploadProcessInMsaRequest
      *
-     * @return GetUserAppUploadProcessInMsaResponse
+     * @return GetUserAppUploadProcessInMsaResponse GetUserAppUploadProcessInMsaResponse
      */
     public function getUserAppUploadProcessInMsa($request)
     {
@@ -3407,9 +3473,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMappCenterAppsResponse
+     * @return ListMappCenterAppsResponse ListMappCenterAppsResponse
      */
     public function listMappCenterAppsWithOptions($runtime)
     {
@@ -3430,7 +3496,7 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @return ListMappCenterAppsResponse
+     * @return ListMappCenterAppsResponse ListMappCenterAppsResponse
      */
     public function listMappCenterApps()
     {
@@ -3440,9 +3506,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMappCenterWorkspacesResponse
+     * @return ListMappCenterWorkspacesResponse ListMappCenterWorkspacesResponse
      */
     public function listMappCenterWorkspacesWithOptions($runtime)
     {
@@ -3463,7 +3529,7 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @return ListMappCenterWorkspacesResponse
+     * @return ListMappCenterWorkspacesResponse ListMappCenterWorkspacesResponse
      */
     public function listMappCenterWorkspaces()
     {
@@ -3473,10 +3539,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcdpAimRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param ListMcdpAimRequest $request ListMcdpAimRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMcdpAimResponse
+     * @return ListMcdpAimResponse ListMcdpAimResponse
      */
     public function listMcdpAimWithOptions($request, $runtime)
     {
@@ -3534,9 +3600,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcdpAimRequest $request
+     * @param ListMcdpAimRequest $request ListMcdpAimRequest
      *
-     * @return ListMcdpAimResponse
+     * @return ListMcdpAimResponse ListMcdpAimResponse
      */
     public function listMcdpAim($request)
     {
@@ -3546,10 +3612,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeMiniAppsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListMcubeMiniAppsRequest $request ListMcubeMiniAppsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeMiniAppsResponse
+     * @return ListMcubeMiniAppsResponse ListMcubeMiniAppsResponse
      */
     public function listMcubeMiniAppsWithOptions($request, $runtime)
     {
@@ -3592,9 +3658,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeMiniAppsRequest $request
+     * @param ListMcubeMiniAppsRequest $request ListMcubeMiniAppsRequest
      *
-     * @return ListMcubeMiniAppsResponse
+     * @return ListMcubeMiniAppsResponse ListMcubeMiniAppsResponse
      */
     public function listMcubeMiniApps($request)
     {
@@ -3604,10 +3670,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeMiniPackagesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ListMcubeMiniPackagesRequest $request ListMcubeMiniPackagesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeMiniPackagesResponse
+     * @return ListMcubeMiniPackagesResponse ListMcubeMiniPackagesResponse
      */
     public function listMcubeMiniPackagesWithOptions($request, $runtime)
     {
@@ -3653,9 +3719,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeMiniPackagesRequest $request
+     * @param ListMcubeMiniPackagesRequest $request ListMcubeMiniPackagesRequest
      *
-     * @return ListMcubeMiniPackagesResponse
+     * @return ListMcubeMiniPackagesResponse ListMcubeMiniPackagesResponse
      */
     public function listMcubeMiniPackages($request)
     {
@@ -3665,10 +3731,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeMiniTasksRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ListMcubeMiniTasksRequest $request ListMcubeMiniTasksRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeMiniTasksResponse
+     * @return ListMcubeMiniTasksResponse ListMcubeMiniTasksResponse
      */
     public function listMcubeMiniTasksWithOptions($request, $runtime)
     {
@@ -3705,9 +3771,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeMiniTasksRequest $request
+     * @param ListMcubeMiniTasksRequest $request ListMcubeMiniTasksRequest
      *
-     * @return ListMcubeMiniTasksResponse
+     * @return ListMcubeMiniTasksResponse ListMcubeMiniTasksResponse
      */
     public function listMcubeMiniTasks($request)
     {
@@ -3717,10 +3783,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeNebulaAppsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ListMcubeNebulaAppsRequest $request ListMcubeNebulaAppsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeNebulaAppsResponse
+     * @return ListMcubeNebulaAppsResponse ListMcubeNebulaAppsResponse
      */
     public function listMcubeNebulaAppsWithOptions($request, $runtime)
     {
@@ -3763,9 +3829,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeNebulaAppsRequest $request
+     * @param ListMcubeNebulaAppsRequest $request ListMcubeNebulaAppsRequest
      *
-     * @return ListMcubeNebulaAppsResponse
+     * @return ListMcubeNebulaAppsResponse ListMcubeNebulaAppsResponse
      */
     public function listMcubeNebulaApps($request)
     {
@@ -3775,10 +3841,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeNebulaResourcesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ListMcubeNebulaResourcesRequest $request ListMcubeNebulaResourcesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeNebulaResourcesResponse
+     * @return ListMcubeNebulaResourcesResponse ListMcubeNebulaResourcesResponse
      */
     public function listMcubeNebulaResourcesWithOptions($request, $runtime)
     {
@@ -3821,9 +3887,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeNebulaResourcesRequest $request
+     * @param ListMcubeNebulaResourcesRequest $request ListMcubeNebulaResourcesRequest
      *
-     * @return ListMcubeNebulaResourcesResponse
+     * @return ListMcubeNebulaResourcesResponse ListMcubeNebulaResourcesResponse
      */
     public function listMcubeNebulaResources($request)
     {
@@ -3833,10 +3899,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeNebulaTasksRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param ListMcubeNebulaTasksRequest $request ListMcubeNebulaTasksRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeNebulaTasksResponse
+     * @return ListMcubeNebulaTasksResponse ListMcubeNebulaTasksResponse
      */
     public function listMcubeNebulaTasksWithOptions($request, $runtime)
     {
@@ -3873,9 +3939,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeNebulaTasksRequest $request
+     * @param ListMcubeNebulaTasksRequest $request ListMcubeNebulaTasksRequest
      *
-     * @return ListMcubeNebulaTasksResponse
+     * @return ListMcubeNebulaTasksResponse ListMcubeNebulaTasksResponse
      */
     public function listMcubeNebulaTasks($request)
     {
@@ -3885,10 +3951,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeUpgradePackagesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ListMcubeUpgradePackagesRequest $request ListMcubeUpgradePackagesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeUpgradePackagesResponse
+     * @return ListMcubeUpgradePackagesResponse ListMcubeUpgradePackagesResponse
      */
     public function listMcubeUpgradePackagesWithOptions($request, $runtime)
     {
@@ -3928,9 +3994,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeUpgradePackagesRequest $request
+     * @param ListMcubeUpgradePackagesRequest $request ListMcubeUpgradePackagesRequest
      *
-     * @return ListMcubeUpgradePackagesResponse
+     * @return ListMcubeUpgradePackagesResponse ListMcubeUpgradePackagesResponse
      */
     public function listMcubeUpgradePackages($request)
     {
@@ -3940,10 +4006,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeUpgradeTasksRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ListMcubeUpgradeTasksRequest $request ListMcubeUpgradeTasksRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeUpgradeTasksResponse
+     * @return ListMcubeUpgradeTasksResponse ListMcubeUpgradeTasksResponse
      */
     public function listMcubeUpgradeTasksWithOptions($request, $runtime)
     {
@@ -3980,9 +4046,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeUpgradeTasksRequest $request
+     * @param ListMcubeUpgradeTasksRequest $request ListMcubeUpgradeTasksRequest
      *
-     * @return ListMcubeUpgradeTasksResponse
+     * @return ListMcubeUpgradeTasksResponse ListMcubeUpgradeTasksResponse
      */
     public function listMcubeUpgradeTasks($request)
     {
@@ -3992,10 +4058,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeWhitelistsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ListMcubeWhitelistsRequest $request ListMcubeWhitelistsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeWhitelistsResponse
+     * @return ListMcubeWhitelistsResponse ListMcubeWhitelistsResponse
      */
     public function listMcubeWhitelistsWithOptions($request, $runtime)
     {
@@ -4038,9 +4104,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeWhitelistsRequest $request
+     * @param ListMcubeWhitelistsRequest $request ListMcubeWhitelistsRequest
      *
-     * @return ListMcubeWhitelistsResponse
+     * @return ListMcubeWhitelistsResponse ListMcubeWhitelistsResponse
      */
     public function listMcubeWhitelists($request)
     {
@@ -4050,10 +4116,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMgsApiRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param ListMgsApiRequest $request ListMgsApiRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMgsApiResponse
+     * @return ListMgsApiResponse ListMgsApiResponse
      */
     public function listMgsApiWithOptions($request, $runtime)
     {
@@ -4126,9 +4192,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMgsApiRequest $request
+     * @param ListMgsApiRequest $request ListMgsApiRequest
      *
-     * @return ListMgsApiResponse
+     * @return ListMgsApiResponse ListMgsApiResponse
      */
     public function listMgsApi($request)
     {
@@ -4138,10 +4204,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param LogMsaQueryRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param LogMsaQueryRequest $request LogMsaQueryRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return LogMsaQueryResponse
+     * @return LogMsaQueryResponse LogMsaQueryResponse
      */
     public function logMsaQueryWithOptions($request, $runtime)
     {
@@ -4181,9 +4247,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param LogMsaQueryRequest $request
+     * @param LogMsaQueryRequest $request LogMsaQueryRequest
      *
-     * @return LogMsaQueryResponse
+     * @return LogMsaQueryResponse LogMsaQueryResponse
      */
     public function logMsaQuery($request)
     {
@@ -4193,10 +4259,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param MTRSOCRServiceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary OCR通用接口
+     *  *
+     * @param MTRSOCRServiceRequest $request MTRSOCRServiceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return MTRSOCRServiceResponse
+     * @return MTRSOCRServiceResponse MTRSOCRServiceResponse
      */
     public function mTRSOCRServiceWithOptions($request, $runtime)
     {
@@ -4239,9 +4307,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param MTRSOCRServiceRequest $request
+     * @summary OCR通用接口
+     *  *
+     * @param MTRSOCRServiceRequest $request MTRSOCRServiceRequest
      *
-     * @return MTRSOCRServiceResponse
+     * @return MTRSOCRServiceResponse MTRSOCRServiceResponse
      */
     public function mTRSOCRService($request)
     {
@@ -4251,10 +4321,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiAddActiveCodeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 新增主扫码
+     *  *
+     * @param OpenApiAddActiveCodeRequest $request OpenApiAddActiveCodeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenApiAddActiveCodeResponse
+     * @return OpenApiAddActiveCodeResponse OpenApiAddActiveCodeResponse
      */
     public function openApiAddActiveCodeWithOptions($request, $runtime)
     {
@@ -4291,9 +4363,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiAddActiveCodeRequest $request
+     * @summary 新增主扫码
+     *  *
+     * @param OpenApiAddActiveCodeRequest $request OpenApiAddActiveCodeRequest
      *
-     * @return OpenApiAddActiveCodeResponse
+     * @return OpenApiAddActiveCodeResponse OpenApiAddActiveCodeResponse
      */
     public function openApiAddActiveCode($request)
     {
@@ -4303,10 +4377,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiAddActiveSceneRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 新增场景
+     *  *
+     * @param OpenApiAddActiveSceneRequest $request OpenApiAddActiveSceneRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenApiAddActiveSceneResponse
+     * @return OpenApiAddActiveSceneResponse OpenApiAddActiveSceneResponse
      */
     public function openApiAddActiveSceneWithOptions($request, $runtime)
     {
@@ -4343,9 +4419,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiAddActiveSceneRequest $request
+     * @summary 新增场景
+     *  *
+     * @param OpenApiAddActiveSceneRequest $request OpenApiAddActiveSceneRequest
      *
-     * @return OpenApiAddActiveSceneResponse
+     * @return OpenApiAddActiveSceneResponse OpenApiAddActiveSceneResponse
      */
     public function openApiAddActiveScene($request)
     {
@@ -4355,10 +4433,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiCallbackRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 用户注册
+     *  *
+     * @param OpenApiCallbackRequest $request OpenApiCallbackRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenApiCallbackResponse
+     * @return OpenApiCallbackResponse OpenApiCallbackResponse
      */
     public function openApiCallbackWithOptions($request, $runtime)
     {
@@ -4395,9 +4475,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiCallbackRequest $request
+     * @summary 用户注册
+     *  *
+     * @param OpenApiCallbackRequest $request OpenApiCallbackRequest
      *
-     * @return OpenApiCallbackResponse
+     * @return OpenApiCallbackResponse OpenApiCallbackResponse
      */
     public function openApiCallback($request)
     {
@@ -4407,10 +4489,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiDecodeRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 解码
+     *  *
+     * @param OpenApiDecodeRequest $request OpenApiDecodeRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenApiDecodeResponse
+     * @return OpenApiDecodeResponse OpenApiDecodeResponse
      */
     public function openApiDecodeWithOptions($request, $runtime)
     {
@@ -4447,9 +4531,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiDecodeRequest $request
+     * @summary 解码
+     *  *
+     * @param OpenApiDecodeRequest $request OpenApiDecodeRequest
      *
-     * @return OpenApiDecodeResponse
+     * @return OpenApiDecodeResponse OpenApiDecodeResponse
      */
     public function openApiDecode($request)
     {
@@ -4459,10 +4545,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiDeleteActiveCodeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 删除主扫码
+     *  *
+     * @param OpenApiDeleteActiveCodeRequest $request OpenApiDeleteActiveCodeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenApiDeleteActiveCodeResponse
+     * @return OpenApiDeleteActiveCodeResponse OpenApiDeleteActiveCodeResponse
      */
     public function openApiDeleteActiveCodeWithOptions($request, $runtime)
     {
@@ -4499,9 +4587,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiDeleteActiveCodeRequest $request
+     * @summary 删除主扫码
+     *  *
+     * @param OpenApiDeleteActiveCodeRequest $request OpenApiDeleteActiveCodeRequest
      *
-     * @return OpenApiDeleteActiveCodeResponse
+     * @return OpenApiDeleteActiveCodeResponse OpenApiDeleteActiveCodeResponse
      */
     public function openApiDeleteActiveCode($request)
     {
@@ -4511,10 +4601,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiEncodeRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 编码
+     *  *
+     * @param OpenApiEncodeRequest $request OpenApiEncodeRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenApiEncodeResponse
+     * @return OpenApiEncodeResponse OpenApiEncodeResponse
      */
     public function openApiEncodeWithOptions($request, $runtime)
     {
@@ -4551,9 +4643,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiEncodeRequest $request
+     * @summary 编码
+     *  *
+     * @param OpenApiEncodeRequest $request OpenApiEncodeRequest
      *
-     * @return OpenApiEncodeResponse
+     * @return OpenApiEncodeResponse OpenApiEncodeResponse
      */
     public function openApiEncode($request)
     {
@@ -4563,10 +4657,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiQueryActiveCodeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 主扫码查询
+     *  *
+     * @param OpenApiQueryActiveCodeRequest $request OpenApiQueryActiveCodeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenApiQueryActiveCodeResponse
+     * @return OpenApiQueryActiveCodeResponse OpenApiQueryActiveCodeResponse
      */
     public function openApiQueryActiveCodeWithOptions($request, $runtime)
     {
@@ -4603,9 +4699,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiQueryActiveCodeRequest $request
+     * @summary 主扫码查询
+     *  *
+     * @param OpenApiQueryActiveCodeRequest $request OpenApiQueryActiveCodeRequest
      *
-     * @return OpenApiQueryActiveCodeResponse
+     * @return OpenApiQueryActiveCodeResponse OpenApiQueryActiveCodeResponse
      */
     public function openApiQueryActiveCode($request)
     {
@@ -4615,10 +4713,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiQueryActiveSceneRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询场景
+     *  *
+     * @param OpenApiQueryActiveSceneRequest $request OpenApiQueryActiveSceneRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenApiQueryActiveSceneResponse
+     * @return OpenApiQueryActiveSceneResponse OpenApiQueryActiveSceneResponse
      */
     public function openApiQueryActiveSceneWithOptions($request, $runtime)
     {
@@ -4655,9 +4755,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiQueryActiveSceneRequest $request
+     * @summary 查询场景
+     *  *
+     * @param OpenApiQueryActiveSceneRequest $request OpenApiQueryActiveSceneRequest
      *
-     * @return OpenApiQueryActiveSceneResponse
+     * @return OpenApiQueryActiveSceneResponse OpenApiQueryActiveSceneResponse
      */
     public function openApiQueryActiveScene($request)
     {
@@ -4667,10 +4769,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiUniqueEncodeRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 生成唯一被扫码
+     *  *
+     * @param OpenApiUniqueEncodeRequest $request OpenApiUniqueEncodeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenApiUniqueEncodeResponse
+     * @return OpenApiUniqueEncodeResponse OpenApiUniqueEncodeResponse
      */
     public function openApiUniqueEncodeWithOptions($request, $runtime)
     {
@@ -4707,9 +4811,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiUniqueEncodeRequest $request
+     * @summary 生成唯一被扫码
+     *  *
+     * @param OpenApiUniqueEncodeRequest $request OpenApiUniqueEncodeRequest
      *
-     * @return OpenApiUniqueEncodeResponse
+     * @return OpenApiUniqueEncodeResponse OpenApiUniqueEncodeResponse
      */
     public function openApiUniqueEncode($request)
     {
@@ -4719,10 +4825,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiUpdateActiveCodeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 更新主扫码
+     *  *
+     * @param OpenApiUpdateActiveCodeRequest $request OpenApiUpdateActiveCodeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenApiUpdateActiveCodeResponse
+     * @return OpenApiUpdateActiveCodeResponse OpenApiUpdateActiveCodeResponse
      */
     public function openApiUpdateActiveCodeWithOptions($request, $runtime)
     {
@@ -4759,9 +4867,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiUpdateActiveCodeRequest $request
+     * @summary 更新主扫码
+     *  *
+     * @param OpenApiUpdateActiveCodeRequest $request OpenApiUpdateActiveCodeRequest
      *
-     * @return OpenApiUpdateActiveCodeResponse
+     * @return OpenApiUpdateActiveCodeResponse OpenApiUpdateActiveCodeResponse
      */
     public function openApiUpdateActiveCode($request)
     {
@@ -4771,10 +4881,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiUpdateActiveSceneRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 更新场景
+     *  *
+     * @param OpenApiUpdateActiveSceneRequest $request OpenApiUpdateActiveSceneRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenApiUpdateActiveSceneResponse
+     * @return OpenApiUpdateActiveSceneResponse OpenApiUpdateActiveSceneResponse
      */
     public function openApiUpdateActiveSceneWithOptions($request, $runtime)
     {
@@ -4811,9 +4923,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param OpenApiUpdateActiveSceneRequest $request
+     * @summary 更新场景
+     *  *
+     * @param OpenApiUpdateActiveSceneRequest $request OpenApiUpdateActiveSceneRequest
      *
-     * @return OpenApiUpdateActiveSceneResponse
+     * @return OpenApiUpdateActiveSceneResponse OpenApiUpdateActiveSceneResponse
      */
     public function openApiUpdateActiveScene($request)
     {
@@ -4823,10 +4937,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushBindRequest $request
-     * @param RuntimeOptions  $runtime
+     * @param PushBindRequest $request PushBindRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushBindResponse
+     * @return PushBindResponse PushBindResponse
      */
     public function pushBindWithOptions($request, $runtime)
     {
@@ -4869,9 +4983,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushBindRequest $request
+     * @param PushBindRequest $request PushBindRequest
      *
-     * @return PushBindResponse
+     * @return PushBindResponse PushBindResponse
      */
     public function pushBind($request)
     {
@@ -4881,10 +4995,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushBroadcastRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @param PushBroadcastRequest $tmpReq  PushBroadcastRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushBroadcastResponse
+     * @return PushBroadcastResponse PushBroadcastResponse
      */
     public function pushBroadcastWithOptions($tmpReq, $runtime)
     {
@@ -4980,9 +5094,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushBroadcastRequest $request
+     * @param PushBroadcastRequest $request PushBroadcastRequest
      *
-     * @return PushBroadcastResponse
+     * @return PushBroadcastResponse PushBroadcastResponse
      */
     public function pushBroadcast($request)
     {
@@ -4992,10 +5106,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushMultipleRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @param PushMultipleRequest $tmpReq  PushMultipleRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushMultipleResponse
+     * @return PushMultipleResponse PushMultipleResponse
      */
     public function pushMultipleWithOptions($tmpReq, $runtime)
     {
@@ -5085,9 +5199,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushMultipleRequest $request
+     * @param PushMultipleRequest $request PushMultipleRequest
      *
-     * @return PushMultipleResponse
+     * @return PushMultipleResponse PushMultipleResponse
      */
     public function pushMultiple($request)
     {
@@ -5097,10 +5211,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushReportRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param PushReportRequest $request PushReportRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushReportResponse
+     * @return PushReportResponse PushReportResponse
      */
     public function pushReportWithOptions($request, $runtime)
     {
@@ -5164,9 +5278,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushReportRequest $request
+     * @param PushReportRequest $request PushReportRequest
      *
-     * @return PushReportResponse
+     * @return PushReportResponse PushReportResponse
      */
     public function pushReport($request)
     {
@@ -5176,10 +5290,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushSimpleRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * @param PushSimpleRequest $tmpReq  PushSimpleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushSimpleResponse
+     * @return PushSimpleResponse PushSimpleResponse
      */
     public function pushSimpleWithOptions($tmpReq, $runtime)
     {
@@ -5296,9 +5410,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushSimpleRequest $request
+     * @param PushSimpleRequest $request PushSimpleRequest
      *
-     * @return PushSimpleResponse
+     * @return PushSimpleResponse PushSimpleResponse
      */
     public function pushSimple($request)
     {
@@ -5308,10 +5422,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushTemplateRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @param PushTemplateRequest $tmpReq  PushTemplateRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushTemplateResponse
+     * @return PushTemplateResponse PushTemplateResponse
      */
     public function pushTemplateWithOptions($tmpReq, $runtime)
     {
@@ -5416,9 +5530,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushTemplateRequest $request
+     * @param PushTemplateRequest $request PushTemplateRequest
      *
-     * @return PushTemplateResponse
+     * @return PushTemplateResponse PushTemplateResponse
      */
     public function pushTemplate($request)
     {
@@ -5428,10 +5542,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushUnBindRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param PushUnBindRequest $request PushUnBindRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushUnBindResponse
+     * @return PushUnBindResponse PushUnBindResponse
      */
     public function pushUnBindWithOptions($request, $runtime)
     {
@@ -5468,9 +5582,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushUnBindRequest $request
+     * @param PushUnBindRequest $request PushUnBindRequest
      *
-     * @return PushUnBindResponse
+     * @return PushUnBindResponse PushUnBindResponse
      */
     public function pushUnBind($request)
     {
@@ -5480,10 +5594,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryInfoFromMdpRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询Device+服务的
+     *  *
+     * @param QueryInfoFromMdpRequest $request QueryInfoFromMdpRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryInfoFromMdpResponse
+     * @return QueryInfoFromMdpResponse QueryInfoFromMdpResponse
      */
     public function queryInfoFromMdpWithOptions($request, $runtime)
     {
@@ -5529,9 +5645,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryInfoFromMdpRequest $request
+     * @summary 查询Device+服务的
+     *  *
+     * @param QueryInfoFromMdpRequest $request QueryInfoFromMdpRequest
      *
-     * @return QueryInfoFromMdpResponse
+     * @return QueryInfoFromMdpResponse QueryInfoFromMdpResponse
      */
     public function queryInfoFromMdp($request)
     {
@@ -5541,10 +5659,63 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMappCenterAppRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询短链
+     *  *
+     * @param QueryLinkRequest $request QueryLinkRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMappCenterAppResponse
+     * @return QueryLinkResponse QueryLinkResponse
+     */
+    public function queryLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryLink',
+            'version'     => '2020-10-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询短链
+     *  *
+     * @param QueryLinkRequest $request QueryLinkRequest
+     *
+     * @return QueryLinkResponse QueryLinkResponse
+     */
+    public function queryLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryMappCenterAppRequest $request QueryMappCenterAppRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryMappCenterAppResponse QueryMappCenterAppResponse
      */
     public function queryMappCenterAppWithOptions($request, $runtime)
     {
@@ -5575,9 +5746,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMappCenterAppRequest $request
+     * @param QueryMappCenterAppRequest $request QueryMappCenterAppRequest
      *
-     * @return QueryMappCenterAppResponse
+     * @return QueryMappCenterAppResponse QueryMappCenterAppResponse
      */
     public function queryMappCenterApp($request)
     {
@@ -5587,10 +5758,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcdpAimRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param QueryMcdpAimRequest $request QueryMcdpAimRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMcdpAimResponse
+     * @return QueryMcdpAimResponse QueryMcdpAimResponse
      */
     public function queryMcdpAimWithOptions($request, $runtime)
     {
@@ -5627,9 +5798,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcdpAimRequest $request
+     * @param QueryMcdpAimRequest $request QueryMcdpAimRequest
      *
-     * @return QueryMcdpAimResponse
+     * @return QueryMcdpAimResponse QueryMcdpAimResponse
      */
     public function queryMcdpAim($request)
     {
@@ -5639,10 +5810,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcdpZoneRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param QueryMcdpZoneRequest $request QueryMcdpZoneRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMcdpZoneResponse
+     * @return QueryMcdpZoneResponse QueryMcdpZoneResponse
      */
     public function queryMcdpZoneWithOptions($request, $runtime)
     {
@@ -5679,9 +5850,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcdpZoneRequest $request
+     * @param QueryMcdpZoneRequest $request QueryMcdpZoneRequest
      *
-     * @return QueryMcdpZoneResponse
+     * @return QueryMcdpZoneResponse QueryMcdpZoneResponse
      */
     public function queryMcdpZone($request)
     {
@@ -5691,10 +5862,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcubeMiniPackageRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param QueryMcubeMiniPackageRequest $request QueryMcubeMiniPackageRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMcubeMiniPackageResponse
+     * @return QueryMcubeMiniPackageResponse QueryMcubeMiniPackageResponse
      */
     public function queryMcubeMiniPackageWithOptions($request, $runtime)
     {
@@ -5734,9 +5905,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcubeMiniPackageRequest $request
+     * @param QueryMcubeMiniPackageRequest $request QueryMcubeMiniPackageRequest
      *
-     * @return QueryMcubeMiniPackageResponse
+     * @return QueryMcubeMiniPackageResponse QueryMcubeMiniPackageResponse
      */
     public function queryMcubeMiniPackage($request)
     {
@@ -5746,10 +5917,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcubeMiniTaskRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param QueryMcubeMiniTaskRequest $request QueryMcubeMiniTaskRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMcubeMiniTaskResponse
+     * @return QueryMcubeMiniTaskResponse QueryMcubeMiniTaskResponse
      */
     public function queryMcubeMiniTaskWithOptions($request, $runtime)
     {
@@ -5786,9 +5957,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcubeMiniTaskRequest $request
+     * @param QueryMcubeMiniTaskRequest $request QueryMcubeMiniTaskRequest
      *
-     * @return QueryMcubeMiniTaskResponse
+     * @return QueryMcubeMiniTaskResponse QueryMcubeMiniTaskResponse
      */
     public function queryMcubeMiniTask($request)
     {
@@ -5798,10 +5969,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcubeVhostRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param QueryMcubeVhostRequest $request QueryMcubeVhostRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMcubeVhostResponse
+     * @return QueryMcubeVhostResponse QueryMcubeVhostResponse
      */
     public function queryMcubeVhostWithOptions($request, $runtime)
     {
@@ -5835,9 +6006,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcubeVhostRequest $request
+     * @param QueryMcubeVhostRequest $request QueryMcubeVhostRequest
      *
-     * @return QueryMcubeVhostResponse
+     * @return QueryMcubeVhostResponse QueryMcubeVhostResponse
      */
     public function queryMcubeVhost($request)
     {
@@ -5847,10 +6018,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMdsUpgradeTaskDetailRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param QueryMdsUpgradeTaskDetailRequest $request QueryMdsUpgradeTaskDetailRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMdsUpgradeTaskDetailResponse
+     * @return QueryMdsUpgradeTaskDetailResponse QueryMdsUpgradeTaskDetailResponse
      */
     public function queryMdsUpgradeTaskDetailWithOptions($request, $runtime)
     {
@@ -5887,9 +6058,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMdsUpgradeTaskDetailRequest $request
+     * @param QueryMdsUpgradeTaskDetailRequest $request QueryMdsUpgradeTaskDetailRequest
      *
-     * @return QueryMdsUpgradeTaskDetailResponse
+     * @return QueryMdsUpgradeTaskDetailResponse QueryMdsUpgradeTaskDetailResponse
      */
     public function queryMdsUpgradeTaskDetail($request)
     {
@@ -5899,10 +6070,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMgsApipageRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param QueryMgsApipageRequest $request QueryMgsApipageRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMgsApipageResponse
+     * @return QueryMgsApipageResponse QueryMgsApipageResponse
      */
     public function queryMgsApipageWithOptions($request, $runtime)
     {
@@ -5975,9 +6146,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMgsApipageRequest $request
+     * @param QueryMgsApipageRequest $request QueryMgsApipageRequest
      *
-     * @return QueryMgsApipageResponse
+     * @return QueryMgsApipageResponse QueryMgsApipageResponse
      */
     public function queryMgsApipage($request)
     {
@@ -5987,10 +6158,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMgsApirestRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param QueryMgsApirestRequest $request QueryMgsApirestRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMgsApirestResponse
+     * @return QueryMgsApirestResponse QueryMgsApirestResponse
      */
     public function queryMgsApirestWithOptions($request, $runtime)
     {
@@ -6033,9 +6204,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMgsApirestRequest $request
+     * @param QueryMgsApirestRequest $request QueryMgsApirestRequest
      *
-     * @return QueryMgsApirestResponse
+     * @return QueryMgsApirestResponse QueryMgsApirestResponse
      */
     public function queryMgsApirest($request)
     {
@@ -6045,10 +6216,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMgsTestreqbodyautogenRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param QueryMgsTestreqbodyautogenRequest $request QueryMgsTestreqbodyautogenRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMgsTestreqbodyautogenResponse
+     * @return QueryMgsTestreqbodyautogenResponse QueryMgsTestreqbodyautogenResponse
      */
     public function queryMgsTestreqbodyautogenWithOptions($request, $runtime)
     {
@@ -6088,9 +6259,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMgsTestreqbodyautogenRequest $request
+     * @param QueryMgsTestreqbodyautogenRequest $request QueryMgsTestreqbodyautogenRequest
      *
-     * @return QueryMgsTestreqbodyautogenResponse
+     * @return QueryMgsTestreqbodyautogenResponse QueryMgsTestreqbodyautogenResponse
      */
     public function queryMgsTestreqbodyautogen($request)
     {
@@ -6100,10 +6271,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMpsSchedulerListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param QueryMpsSchedulerListRequest $request QueryMpsSchedulerListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMpsSchedulerListResponse
+     * @return QueryMpsSchedulerListResponse QueryMpsSchedulerListResponse
      */
     public function queryMpsSchedulerListWithOptions($request, $runtime)
     {
@@ -6152,9 +6323,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMpsSchedulerListRequest $request
+     * @param QueryMpsSchedulerListRequest $request QueryMpsSchedulerListRequest
      *
-     * @return QueryMpsSchedulerListResponse
+     * @return QueryMpsSchedulerListResponse QueryMpsSchedulerListResponse
      */
     public function queryMpsSchedulerList($request)
     {
@@ -6164,10 +6335,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushAnalysisCoreIndexRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param QueryPushAnalysisCoreIndexRequest $request QueryPushAnalysisCoreIndexRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPushAnalysisCoreIndexResponse
+     * @return QueryPushAnalysisCoreIndexResponse QueryPushAnalysisCoreIndexResponse
      */
     public function queryPushAnalysisCoreIndexWithOptions($request, $runtime)
     {
@@ -6216,9 +6387,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushAnalysisCoreIndexRequest $request
+     * @param QueryPushAnalysisCoreIndexRequest $request QueryPushAnalysisCoreIndexRequest
      *
-     * @return QueryPushAnalysisCoreIndexResponse
+     * @return QueryPushAnalysisCoreIndexResponse QueryPushAnalysisCoreIndexResponse
      */
     public function queryPushAnalysisCoreIndex($request)
     {
@@ -6228,10 +6399,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushAnalysisTaskDetailRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param QueryPushAnalysisTaskDetailRequest $request QueryPushAnalysisTaskDetailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPushAnalysisTaskDetailResponse
+     * @return QueryPushAnalysisTaskDetailResponse QueryPushAnalysisTaskDetailResponse
      */
     public function queryPushAnalysisTaskDetailWithOptions($request, $runtime)
     {
@@ -6265,9 +6436,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushAnalysisTaskDetailRequest $request
+     * @param QueryPushAnalysisTaskDetailRequest $request QueryPushAnalysisTaskDetailRequest
      *
-     * @return QueryPushAnalysisTaskDetailResponse
+     * @return QueryPushAnalysisTaskDetailResponse QueryPushAnalysisTaskDetailResponse
      */
     public function queryPushAnalysisTaskDetail($request)
     {
@@ -6277,10 +6448,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushAnalysisTaskListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param QueryPushAnalysisTaskListRequest $request QueryPushAnalysisTaskListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPushAnalysisTaskListResponse
+     * @return QueryPushAnalysisTaskListResponse QueryPushAnalysisTaskListResponse
      */
     public function queryPushAnalysisTaskListWithOptions($request, $runtime)
     {
@@ -6326,9 +6497,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushAnalysisTaskListRequest $request
+     * @param QueryPushAnalysisTaskListRequest $request QueryPushAnalysisTaskListRequest
      *
-     * @return QueryPushAnalysisTaskListResponse
+     * @return QueryPushAnalysisTaskListResponse QueryPushAnalysisTaskListResponse
      */
     public function queryPushAnalysisTaskList($request)
     {
@@ -6338,10 +6509,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushSchedulerListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param QueryPushSchedulerListRequest $request QueryPushSchedulerListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryPushSchedulerListResponse
+     * @return QueryPushSchedulerListResponse QueryPushSchedulerListResponse
      */
     public function queryPushSchedulerListWithOptions($request, $runtime)
     {
@@ -6390,9 +6561,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushSchedulerListRequest $request
+     * @param QueryPushSchedulerListRequest $request QueryPushSchedulerListRequest
      *
-     * @return QueryPushSchedulerListResponse
+     * @return QueryPushSchedulerListResponse QueryPushSchedulerListResponse
      */
     public function queryPushSchedulerList($request)
     {
@@ -6402,10 +6573,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RevokePushMessageRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param RevokePushMessageRequest $request RevokePushMessageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokePushMessageResponse
+     * @return RevokePushMessageResponse RevokePushMessageResponse
      */
     public function revokePushMessageWithOptions($request, $runtime)
     {
@@ -6442,9 +6613,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RevokePushMessageRequest $request
+     * @param RevokePushMessageRequest $request RevokePushMessageRequest
      *
-     * @return RevokePushMessageResponse
+     * @return RevokePushMessageResponse RevokePushMessageResponse
      */
     public function revokePushMessage($request)
     {
@@ -6454,10 +6625,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RevokePushTaskRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param RevokePushTaskRequest $request RevokePushTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokePushTaskResponse
+     * @return RevokePushTaskResponse RevokePushTaskResponse
      */
     public function revokePushTaskWithOptions($request, $runtime)
     {
@@ -6491,9 +6662,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RevokePushTaskRequest $request
+     * @param RevokePushTaskRequest $request RevokePushTaskRequest
      *
-     * @return RevokePushTaskResponse
+     * @return RevokePushTaskResponse RevokePushTaskResponse
      */
     public function revokePushTask($request)
     {
@@ -6503,10 +6674,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RunMsaDiffRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param RunMsaDiffRequest $request RunMsaDiffRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunMsaDiffResponse
+     * @return RunMsaDiffResponse RunMsaDiffResponse
      */
     public function runMsaDiffWithOptions($request, $runtime)
     {
@@ -6543,9 +6714,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RunMsaDiffRequest $request
+     * @param RunMsaDiffRequest $request RunMsaDiffRequest
      *
-     * @return RunMsaDiffResponse
+     * @return RunMsaDiffResponse RunMsaDiffResponse
      */
     public function runMsaDiff($request)
     {
@@ -6555,10 +6726,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param SaveMgsApirestRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param SaveMgsApirestRequest $request SaveMgsApirestRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveMgsApirestResponse
+     * @return SaveMgsApirestResponse SaveMgsApirestResponse
      */
     public function saveMgsApirestWithOptions($request, $runtime)
     {
@@ -6595,9 +6766,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param SaveMgsApirestRequest $request
+     * @param SaveMgsApirestRequest $request SaveMgsApirestRequest
      *
-     * @return SaveMgsApirestResponse
+     * @return SaveMgsApirestResponse SaveMgsApirestResponse
      */
     public function saveMgsApirest($request)
     {
@@ -6607,10 +6778,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param StartUserAppAsyncEnhanceInMsaRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param StartUserAppAsyncEnhanceInMsaRequest $request StartUserAppAsyncEnhanceInMsaRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartUserAppAsyncEnhanceInMsaResponse
+     * @return StartUserAppAsyncEnhanceInMsaResponse StartUserAppAsyncEnhanceInMsaResponse
      */
     public function startUserAppAsyncEnhanceInMsaWithOptions($request, $runtime)
     {
@@ -6695,9 +6866,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param StartUserAppAsyncEnhanceInMsaRequest $request
+     * @param StartUserAppAsyncEnhanceInMsaRequest $request StartUserAppAsyncEnhanceInMsaRequest
      *
-     * @return StartUserAppAsyncEnhanceInMsaResponse
+     * @return StartUserAppAsyncEnhanceInMsaResponse StartUserAppAsyncEnhanceInMsaResponse
      */
     public function startUserAppAsyncEnhanceInMsa($request)
     {
@@ -6707,10 +6878,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UpdateMcubeWhitelistRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param UpdateMcubeWhitelistRequest $request UpdateMcubeWhitelistRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMcubeWhitelistResponse
+     * @return UpdateMcubeWhitelistResponse UpdateMcubeWhitelistResponse
      */
     public function updateMcubeWhitelistWithOptions($request, $runtime)
     {
@@ -6756,9 +6927,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UpdateMcubeWhitelistRequest $request
+     * @param UpdateMcubeWhitelistRequest $request UpdateMcubeWhitelistRequest
      *
-     * @return UpdateMcubeWhitelistResponse
+     * @return UpdateMcubeWhitelistResponse UpdateMcubeWhitelistResponse
      */
     public function updateMcubeWhitelist($request)
     {
@@ -6768,10 +6939,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UpdateMpaasAppInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param UpdateMpaasAppInfoRequest $request UpdateMpaasAppInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMpaasAppInfoResponse
+     * @return UpdateMpaasAppInfoResponse UpdateMpaasAppInfoResponse
      */
     public function updateMpaasAppInfoWithOptions($request, $runtime)
     {
@@ -6817,9 +6988,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UpdateMpaasAppInfoRequest $request
+     * @param UpdateMpaasAppInfoRequest $request UpdateMpaasAppInfoRequest
      *
-     * @return UpdateMpaasAppInfoResponse
+     * @return UpdateMpaasAppInfoResponse UpdateMpaasAppInfoResponse
      */
     public function updateMpaasAppInfo($request)
     {
@@ -6829,10 +7000,12 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UploadBitcodeToMsaRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 上传字节码到msa进行加固
+     *  *
+     * @param UploadBitcodeToMsaRequest $request UploadBitcodeToMsaRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadBitcodeToMsaResponse
+     * @return UploadBitcodeToMsaResponse UploadBitcodeToMsaResponse
      */
     public function uploadBitcodeToMsaWithOptions($request, $runtime)
     {
@@ -6878,9 +7051,11 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UploadBitcodeToMsaRequest $request
+     * @summary 上传字节码到msa进行加固
+     *  *
+     * @param UploadBitcodeToMsaRequest $request UploadBitcodeToMsaRequest
      *
-     * @return UploadBitcodeToMsaResponse
+     * @return UploadBitcodeToMsaResponse UploadBitcodeToMsaResponse
      */
     public function uploadBitcodeToMsa($request)
     {
@@ -6890,10 +7065,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UploadMcubeMiniPackageRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param UploadMcubeMiniPackageRequest $request UploadMcubeMiniPackageRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadMcubeMiniPackageResponse
+     * @return UploadMcubeMiniPackageResponse UploadMcubeMiniPackageResponse
      */
     public function uploadMcubeMiniPackageWithOptions($request, $runtime)
     {
@@ -6993,9 +7168,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UploadMcubeMiniPackageRequest $request
+     * @param UploadMcubeMiniPackageRequest $request UploadMcubeMiniPackageRequest
      *
-     * @return UploadMcubeMiniPackageResponse
+     * @return UploadMcubeMiniPackageResponse UploadMcubeMiniPackageResponse
      */
     public function uploadMcubeMiniPackage($request)
     {
@@ -7005,10 +7180,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UploadMcubeRsaKeyRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param UploadMcubeRsaKeyRequest $request UploadMcubeRsaKeyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadMcubeRsaKeyResponse
+     * @return UploadMcubeRsaKeyResponse UploadMcubeRsaKeyResponse
      */
     public function uploadMcubeRsaKeyWithOptions($request, $runtime)
     {
@@ -7048,9 +7223,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UploadMcubeRsaKeyRequest $request
+     * @param UploadMcubeRsaKeyRequest $request UploadMcubeRsaKeyRequest
      *
-     * @return UploadMcubeRsaKeyResponse
+     * @return UploadMcubeRsaKeyResponse UploadMcubeRsaKeyResponse
      */
     public function uploadMcubeRsaKey($request)
     {
@@ -7060,10 +7235,10 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UploadUserAppToMsaRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param UploadUserAppToMsaRequest $request UploadUserAppToMsaRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadUserAppToMsaResponse
+     * @return UploadUserAppToMsaResponse UploadUserAppToMsaResponse
      */
     public function uploadUserAppToMsaWithOptions($request, $runtime)
     {
@@ -7100,9 +7275,9 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UploadUserAppToMsaRequest $request
+     * @param UploadUserAppToMsaRequest $request UploadUserAppToMsaRequest
      *
-     * @return UploadUserAppToMsaResponse
+     * @return UploadUserAppToMsaResponse UploadUserAppToMsaResponse
      */
     public function uploadUserAppToMsa($request)
     {

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UploadMcubeMiniPackageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $autoInstall;
@@ -24,21 +28,29 @@ class UploadMcubeMiniPackageRequest extends Model
     public $clientVersionMax;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clientVersionMin;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $enableKeepAlive;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $enableOptionMenu;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $enableTabBar;
@@ -49,16 +61,22 @@ class UploadMcubeMiniPackageRequest extends Model
     public $extendInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $h5Id;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $h5Name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $h5Version;
@@ -74,46 +92,64 @@ class UploadMcubeMiniPackageRequest extends Model
     public $iconUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $installType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $mainUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $onexFlag;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $packageType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $resourceFileUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $resourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userId;
@@ -124,11 +160,15 @@ class UploadMcubeMiniPackageRequest extends Model
     public $uuid;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $vhost;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

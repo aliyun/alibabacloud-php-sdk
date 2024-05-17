@@ -6,50 +6,62 @@ namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListMcubeMiniAppsRequest extends Model
+class CreateLinkRequest extends Model
 {
     /**
      * @description This parameter is required.
+     *
+     * @example BB5953C300957
      *
      * @var string
      */
     public $appId;
 
     /**
+     * @example false
+     *
      * @var string
      */
-    public $keyword;
+    public $cors;
 
     /**
-     * @var int
+     * @example x519.cn
+     *
+     * @var string
      */
-    public $pageNum;
+    public $domain;
 
     /**
-     * @var int
+     * @example txt
+     *
+     * @var string
      */
-    public $pageSize;
+    public $dynamicfield;
 
     /**
      * @description This parameter is required.
      *
+     * @example https://********
+     *
      * @var string
      */
-    public $tenantId;
+    public $targetUrl;
 
     /**
      * @description This parameter is required.
+     *
+     * @example default
      *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'keyword'     => 'Keyword',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
-        'tenantId'    => 'TenantId',
-        'workspaceId' => 'WorkspaceId',
+        'appId'        => 'AppId',
+        'cors'         => 'Cors',
+        'domain'       => 'Domain',
+        'dynamicfield' => 'Dynamicfield',
+        'targetUrl'    => 'TargetUrl',
+        'workspaceId'  => 'WorkspaceId',
     ];
 
     public function validate()
@@ -62,17 +74,17 @@ class ListMcubeMiniAppsRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
+        if (null !== $this->cors) {
+            $res['Cors'] = $this->cors;
         }
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->dynamicfield) {
+            $res['Dynamicfield'] = $this->dynamicfield;
         }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
+        if (null !== $this->targetUrl) {
+            $res['TargetUrl'] = $this->targetUrl;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -84,7 +96,7 @@ class ListMcubeMiniAppsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListMcubeMiniAppsRequest
+     * @return CreateLinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -92,17 +104,17 @@ class ListMcubeMiniAppsRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
+        if (isset($map['Cors'])) {
+            $model->cors = $map['Cors'];
         }
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['Dynamicfield'])) {
+            $model->dynamicfield = $map['Dynamicfield'];
         }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
+        if (isset($map['TargetUrl'])) {
+            $model->targetUrl = $map['TargetUrl'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

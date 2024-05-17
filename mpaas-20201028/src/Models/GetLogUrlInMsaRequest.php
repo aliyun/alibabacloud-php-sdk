@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLogUrlInMsaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -19,11 +21,15 @@ class GetLogUrlInMsaRequest extends Model
     public $id;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

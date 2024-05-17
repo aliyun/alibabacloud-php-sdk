@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOpenSingleDataRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -24,6 +26,8 @@ class CreateOpenSingleDataRequest extends Model
     public $appMinVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bizType;
@@ -39,6 +43,8 @@ class CreateOpenSingleDataRequest extends Model
     public $extAttrStr;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $linkToken;
@@ -49,11 +55,15 @@ class CreateOpenSingleDataRequest extends Model
     public $osType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $payload;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $thirdMsgId;
@@ -69,6 +79,8 @@ class CreateOpenSingleDataRequest extends Model
     public $validTimeStart;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

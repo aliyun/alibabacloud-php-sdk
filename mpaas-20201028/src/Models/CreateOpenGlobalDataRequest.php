@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOpenGlobalDataRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -24,6 +26,8 @@ class CreateOpenGlobalDataRequest extends Model
     public $appMinVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bizType;
@@ -49,11 +53,15 @@ class CreateOpenGlobalDataRequest extends Model
     public $osType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $payload;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $thirdMsgId;
@@ -74,6 +82,8 @@ class CreateOpenGlobalDataRequest extends Model
     public $validTimeStart;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMcubeMiniTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -29,26 +31,36 @@ class CreateMcubeMiniTaskRequest extends Model
     public $greyNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $memo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $packageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $publishMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $publishType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
@@ -59,6 +71,8 @@ class CreateMcubeMiniTaskRequest extends Model
     public $whitelistIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

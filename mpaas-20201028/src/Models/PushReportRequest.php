@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PushReportRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -29,6 +31,8 @@ class PushReportRequest extends Model
     public $connectType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $deliveryToken;
@@ -49,6 +53,8 @@ class PushReportRequest extends Model
     public $model;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $osType;
@@ -69,6 +75,8 @@ class PushReportRequest extends Model
     public $thirdChannelDeviceToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

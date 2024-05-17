@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFileTokenForUploadToMsaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -19,11 +21,15 @@ class GetFileTokenForUploadToMsaRequest extends Model
     public $onexFlag;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

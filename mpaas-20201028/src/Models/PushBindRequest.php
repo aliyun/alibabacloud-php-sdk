@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class PushBindRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $deliveryToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $osType;
@@ -29,11 +35,15 @@ class PushBindRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

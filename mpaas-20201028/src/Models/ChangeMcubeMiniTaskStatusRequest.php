@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ChangeMcubeMiniTaskStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $packageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $taskStatus;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

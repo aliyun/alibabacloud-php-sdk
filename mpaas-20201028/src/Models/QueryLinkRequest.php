@@ -6,9 +6,13 @@ namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateMcdpEventRequest extends Model
+class QueryLinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example BB5953C300957
+     *
      * @var string
      */
     public $appId;
@@ -16,24 +20,24 @@ class CreateMcdpEventRequest extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 8hGb9SyJARqp7V4PGP92X
+     *
      * @var string
      */
-    public $mpaasMappcenterMcdpEventCreateJsonStr;
+    public $url;
 
     /**
-     * @var string
-     */
-    public $tenantId;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example default
+     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'appId'                                 => 'AppId',
-        'mpaasMappcenterMcdpEventCreateJsonStr' => 'MpaasMappcenterMcdpEventCreateJsonStr',
-        'tenantId'                              => 'TenantId',
-        'workspaceId'                           => 'WorkspaceId',
+        'appId'       => 'AppId',
+        'url'         => 'Url',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -46,11 +50,8 @@ class CreateMcdpEventRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->mpaasMappcenterMcdpEventCreateJsonStr) {
-            $res['MpaasMappcenterMcdpEventCreateJsonStr'] = $this->mpaasMappcenterMcdpEventCreateJsonStr;
-        }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -62,7 +63,7 @@ class CreateMcdpEventRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateMcdpEventRequest
+     * @return QueryLinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -70,11 +71,8 @@ class CreateMcdpEventRequest extends Model
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
-        if (isset($map['MpaasMappcenterMcdpEventCreateJsonStr'])) {
-            $model->mpaasMappcenterMcdpEventCreateJsonStr = $map['MpaasMappcenterMcdpEventCreateJsonStr'];
-        }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

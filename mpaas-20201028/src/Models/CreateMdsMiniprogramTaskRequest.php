@@ -29,6 +29,8 @@ class CreateMdsMiniprogramTaskRequest extends Model
     public $greyNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $id;
@@ -39,6 +41,8 @@ class CreateMdsMiniprogramTaskRequest extends Model
     public $memo;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $packageId;
@@ -49,6 +53,8 @@ class CreateMdsMiniprogramTaskRequest extends Model
     public $publishMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $publishType;

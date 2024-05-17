@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LogMsaQueryRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -24,11 +26,15 @@ class LogMsaQueryRequest extends Model
     public $onexFlag;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;

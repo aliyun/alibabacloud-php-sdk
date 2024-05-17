@@ -16,6 +16,8 @@ class MTRSOCRServiceRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xydasf==ac
      *
      * @var string
@@ -35,6 +37,8 @@ class MTRSOCRServiceRequest extends Model
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ID_CARD_OCR
      *
      * @var string

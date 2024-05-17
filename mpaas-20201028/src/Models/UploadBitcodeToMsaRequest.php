@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UploadBitcodeToMsaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ALIPUBE5C3F6D091419
      *
      * @var string
@@ -37,6 +39,8 @@ class UploadBitcodeToMsaRequest extends Model
     public $license;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ZXCXMAHQ-zh_CN
      *
      * @var string
@@ -49,6 +53,8 @@ class UploadBitcodeToMsaRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dev
      *
      * @var string

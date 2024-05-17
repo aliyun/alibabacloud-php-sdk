@@ -19,6 +19,8 @@ class PushTemplateRequest extends Model
     public $activityEvent;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
@@ -34,6 +36,8 @@ class PushTemplateRequest extends Model
     public $classification;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $deliveryType;
@@ -44,6 +48,8 @@ class PushTemplateRequest extends Model
     public $dismissalDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $expiredSeconds;
@@ -104,6 +110,8 @@ class PushTemplateRequest extends Model
     public $strategyType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $targetMsgkey;
@@ -119,6 +127,8 @@ class PushTemplateRequest extends Model
     public $templateKeyValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;
@@ -129,6 +139,8 @@ class PushTemplateRequest extends Model
     public $thirdChannelCategory;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $workspaceId;
