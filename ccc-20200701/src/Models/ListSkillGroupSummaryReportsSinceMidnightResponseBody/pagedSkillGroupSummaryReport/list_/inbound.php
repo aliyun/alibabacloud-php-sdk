@@ -86,6 +86,11 @@ class inbound extends Model
     public $callsOffered;
 
     /**
+     * @var int
+     */
+    public $callsQueuingTimeout;
+
+    /**
      * @example 0
      *
      * @var int
@@ -105,6 +110,11 @@ class inbound extends Model
      * @var int
      */
     public $callsServiceLevel30;
+
+    /**
+     * @var int
+     */
+    public $callsTimeout;
 
     /**
      * @example 0
@@ -229,9 +239,11 @@ class inbound extends Model
         'callsBlindTransferOut'                     => 'CallsBlindTransferOut',
         'callsHandled'                              => 'CallsHandled',
         'callsOffered'                              => 'CallsOffered',
+        'callsQueuingTimeout'                       => 'CallsQueuingTimeout',
         'callsServiceLevel10'                       => 'CallsServiceLevel10',
         'callsServiceLevel20'                       => 'CallsServiceLevel20',
         'callsServiceLevel30'                       => 'CallsServiceLevel30',
+        'callsTimeout'                              => 'CallsTimeout',
         'giveUpByAgentOfQueueCount'                 => 'GiveUpByAgentOfQueueCount',
         'handleRate'                                => 'HandleRate',
         'inComingQueueOfQueueCount'                 => 'InComingQueueOfQueueCount',
@@ -290,6 +302,9 @@ class inbound extends Model
         if (null !== $this->callsOffered) {
             $res['CallsOffered'] = $this->callsOffered;
         }
+        if (null !== $this->callsQueuingTimeout) {
+            $res['CallsQueuingTimeout'] = $this->callsQueuingTimeout;
+        }
         if (null !== $this->callsServiceLevel10) {
             $res['CallsServiceLevel10'] = $this->callsServiceLevel10;
         }
@@ -298,6 +313,9 @@ class inbound extends Model
         }
         if (null !== $this->callsServiceLevel30) {
             $res['CallsServiceLevel30'] = $this->callsServiceLevel30;
+        }
+        if (null !== $this->callsTimeout) {
+            $res['CallsTimeout'] = $this->callsTimeout;
         }
         if (null !== $this->giveUpByAgentOfQueueCount) {
             $res['GiveUpByAgentOfQueueCount'] = $this->giveUpByAgentOfQueueCount;
@@ -392,6 +410,9 @@ class inbound extends Model
         if (isset($map['CallsOffered'])) {
             $model->callsOffered = $map['CallsOffered'];
         }
+        if (isset($map['CallsQueuingTimeout'])) {
+            $model->callsQueuingTimeout = $map['CallsQueuingTimeout'];
+        }
         if (isset($map['CallsServiceLevel10'])) {
             $model->callsServiceLevel10 = $map['CallsServiceLevel10'];
         }
@@ -400,6 +421,9 @@ class inbound extends Model
         }
         if (isset($map['CallsServiceLevel30'])) {
             $model->callsServiceLevel30 = $map['CallsServiceLevel30'];
+        }
+        if (isset($map['CallsTimeout'])) {
+            $model->callsTimeout = $map['CallsTimeout'];
         }
         if (isset($map['GiveUpByAgentOfQueueCount'])) {
             $model->giveUpByAgentOfQueueCount = $map['GiveUpByAgentOfQueueCount'];
