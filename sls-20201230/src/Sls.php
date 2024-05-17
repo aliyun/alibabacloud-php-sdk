@@ -7046,6 +7046,9 @@ class Sls extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->fetchQuota)) {
+            $query['fetchQuota'] = $request->fetchQuota;
+        }
         if (!Utils::isUnset($request->offset)) {
             $query['offset'] = $request->offset;
         }

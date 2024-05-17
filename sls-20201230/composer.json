@@ -11,10 +11,10 @@
   ],
   "require": {
     "php": ">5.5",
-    "alibabacloud/tea-utils": "^0.2.19",
+    "alibabacloud/tea-utils": "^0.2.20",
     "alibabacloud/gateway-spi": "^1",
     "alibabacloud/gateway-sls": "^0.0.11",
-    "alibabacloud/darabonba-openapi": "^0.2.10",
+    "alibabacloud/darabonba-openapi": "^0.2.11",
     "alibabacloud/openapi-util": "^0.1.10|^0.2.1"
   },
   "autoload": {

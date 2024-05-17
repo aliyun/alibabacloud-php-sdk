@@ -14,6 +14,13 @@ class Project extends Model
     public $createTime;
 
     /**
+     * @example LRS
+     *
+     * @var string
+     */
+    public $dataRedundancyType;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
@@ -38,6 +45,11 @@ class Project extends Model
     public $projectName;
 
     /**
+     * @var mixed[]
+     */
+    public $quota;
+
+    /**
      * @var string
      */
     public $region;
@@ -52,14 +64,16 @@ class Project extends Model
      */
     public $status;
     protected $_name = [
-        'createTime'      => 'createTime',
-        'description'     => 'description',
-        'lastModifyTime'  => 'lastModifyTime',
-        'owner'           => 'owner',
-        'projectName'     => 'projectName',
-        'region'          => 'region',
-        'resourceGroupId' => 'resourceGroupId',
-        'status'          => 'status',
+        'createTime'         => 'createTime',
+        'dataRedundancyType' => 'dataRedundancyType',
+        'description'        => 'description',
+        'lastModifyTime'     => 'lastModifyTime',
+        'owner'              => 'owner',
+        'projectName'        => 'projectName',
+        'quota'              => 'quota',
+        'region'             => 'region',
+        'resourceGroupId'    => 'resourceGroupId',
+        'status'             => 'status',
     ];
 
     public function validate()
@@ -72,6 +86,9 @@ class Project extends Model
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+        if (null !== $this->dataRedundancyType) {
+            $res['dataRedundancyType'] = $this->dataRedundancyType;
+        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -83,6 +100,9 @@ class Project extends Model
         }
         if (null !== $this->projectName) {
             $res['projectName'] = $this->projectName;
+        }
+        if (null !== $this->quota) {
+            $res['quota'] = $this->quota;
         }
         if (null !== $this->region) {
             $res['region'] = $this->region;
@@ -108,6 +128,9 @@ class Project extends Model
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+        if (isset($map['dataRedundancyType'])) {
+            $model->dataRedundancyType = $map['dataRedundancyType'];
+        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -119,6 +142,9 @@ class Project extends Model
         }
         if (isset($map['projectName'])) {
             $model->projectName = $map['projectName'];
+        }
+        if (isset($map['quota'])) {
+            $model->quota = $map['quota'];
         }
         if (isset($map['region'])) {
             $model->region = $map['region'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListProjectRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $fetchQuota;
+
+    /**
      * @description The line from which the query starts. Default value: 0.
      *
      * @example 0
@@ -40,6 +45,7 @@ class ListProjectRequest extends Model
      */
     public $size;
     protected $_name = [
+        'fetchQuota'      => 'fetchQuota',
         'offset'          => 'offset',
         'projectName'     => 'projectName',
         'resourceGroupId' => 'resourceGroupId',
@@ -53,6 +59,9 @@ class ListProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fetchQuota) {
+            $res['fetchQuota'] = $this->fetchQuota;
+        }
         if (null !== $this->offset) {
             $res['offset'] = $this->offset;
         }
@@ -77,6 +86,9 @@ class ListProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['fetchQuota'])) {
+            $model->fetchQuota = $map['fetchQuota'];
+        }
         if (isset($map['offset'])) {
             $model->offset = $map['offset'];
         }
