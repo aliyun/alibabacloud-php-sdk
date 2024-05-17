@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class Task extends Model
 {
     /**
+     * @var string[]
+     */
+    public $archives;
+
+    /**
      * @var string
      */
     public $artifactUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bizId;
@@ -29,6 +36,8 @@ class Task extends Model
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $creator;
@@ -61,9 +70,23 @@ class Task extends Model
     /**
      * @var string
      */
+    public $extraSparkSubmitParams;
+
+    /**
+     * @var string[]
+     */
+    public $files;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
     public $gmtCreated;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $gmtModified;
@@ -74,9 +97,16 @@ class Task extends Model
     public $hasChanged;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $hasCommited;
+
+    /**
+     * @var string[]
+     */
+    public $jars;
 
     /**
      * @var string
@@ -84,11 +114,15 @@ class Task extends Model
     public $lastRunResourceQueueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $modifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -111,11 +145,15 @@ class Task extends Model
     public $sparkConf;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $sparkDriverCores;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $sparkDriverMemory;
@@ -126,26 +164,36 @@ class Task extends Model
     public $sparkEntrypoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $sparkExecutorCores;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $sparkExecutorMemory;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sparkLogLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sparkLogPath;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sparkVersion;
@@ -156,10 +204,13 @@ class Task extends Model
     public $tags;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $type;
     protected $_name = [
+        'archives'               => 'archives',
         'artifactUrl'            => 'artifactUrl',
         'bizId'                  => 'bizId',
         'categoryBizId'          => 'categoryBizId',
@@ -170,10 +221,13 @@ class Task extends Model
         'defaultResourceQueueId' => 'defaultResourceQueueId',
         'defaultSqlComputeId'    => 'defaultSqlComputeId',
         'extraArtifactIds'       => 'extraArtifactIds',
+        'extraSparkSubmitParams' => 'extraSparkSubmitParams',
+        'files'                  => 'files',
         'gmtCreated'             => 'gmtCreated',
         'gmtModified'            => 'gmtModified',
         'hasChanged'             => 'hasChanged',
         'hasCommited'            => 'hasCommited',
+        'jars'                   => 'jars',
         'lastRunResourceQueueId' => 'lastRunResourceQueueId',
         'modifier'               => 'modifier',
         'name'                   => 'name',
@@ -199,6 +253,9 @@ class Task extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->archives) {
+            $res['archives'] = $this->archives;
+        }
         if (null !== $this->artifactUrl) {
             $res['artifactUrl'] = $this->artifactUrl;
         }
@@ -229,6 +286,12 @@ class Task extends Model
         if (null !== $this->extraArtifactIds) {
             $res['extraArtifactIds'] = $this->extraArtifactIds;
         }
+        if (null !== $this->extraSparkSubmitParams) {
+            $res['extraSparkSubmitParams'] = $this->extraSparkSubmitParams;
+        }
+        if (null !== $this->files) {
+            $res['files'] = $this->files;
+        }
         if (null !== $this->gmtCreated) {
             $res['gmtCreated'] = $this->gmtCreated;
         }
@@ -240,6 +303,9 @@ class Task extends Model
         }
         if (null !== $this->hasCommited) {
             $res['hasCommited'] = $this->hasCommited;
+        }
+        if (null !== $this->jars) {
+            $res['jars'] = $this->jars;
         }
         if (null !== $this->lastRunResourceQueueId) {
             $res['lastRunResourceQueueId'] = $this->lastRunResourceQueueId;
@@ -307,6 +373,11 @@ class Task extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['archives'])) {
+            if (!empty($map['archives'])) {
+                $model->archives = $map['archives'];
+            }
+        }
         if (isset($map['artifactUrl'])) {
             $model->artifactUrl = $map['artifactUrl'];
         }
@@ -339,6 +410,14 @@ class Task extends Model
                 $model->extraArtifactIds = $map['extraArtifactIds'];
             }
         }
+        if (isset($map['extraSparkSubmitParams'])) {
+            $model->extraSparkSubmitParams = $map['extraSparkSubmitParams'];
+        }
+        if (isset($map['files'])) {
+            if (!empty($map['files'])) {
+                $model->files = $map['files'];
+            }
+        }
         if (isset($map['gmtCreated'])) {
             $model->gmtCreated = $map['gmtCreated'];
         }
@@ -350,6 +429,11 @@ class Task extends Model
         }
         if (isset($map['hasCommited'])) {
             $model->hasCommited = $map['hasCommited'];
+        }
+        if (isset($map['jars'])) {
+            if (!empty($map['jars'])) {
+                $model->jars = $map['jars'];
+            }
         }
         if (isset($map['lastRunResourceQueueId'])) {
             $model->lastRunResourceQueueId = $map['lastRunResourceQueueId'];

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class Template extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $creator;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $modifier;
@@ -34,36 +42,50 @@ class Template extends Model
     public $sparkConf;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $sparkDriverCores;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $sparkDriverMemory;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $sparkExecutorCores;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $sparkExecutorMemory;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sparkLogLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sparkLogPath;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sparkVersion;

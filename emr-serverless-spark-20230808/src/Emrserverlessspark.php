@@ -55,13 +55,15 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 取消jobRun作业
+     *  *
      * @param string              $workspaceId
      * @param string              $jobRunId
-     * @param CancelJobRunRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param CancelJobRunRequest $request     CancelJobRunRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CancelJobRunResponse
+     * @return CancelJobRunResponse CancelJobRunResponse
      */
     public function cancelJobRunWithOptions($workspaceId, $jobRunId, $request, $headers, $runtime)
     {
@@ -90,11 +92,13 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 取消jobRun作业
+     *  *
      * @param string              $workspaceId
      * @param string              $jobRunId
-     * @param CancelJobRunRequest $request
+     * @param CancelJobRunRequest $request     CancelJobRunRequest
      *
-     * @return CancelJobRunResponse
+     * @return CancelJobRunResponse CancelJobRunResponse
      */
     public function cancelJobRun($workspaceId, $jobRunId, $request)
     {
@@ -105,13 +109,15 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务
+     *  *
      * @param string           $workspaceId
      * @param string           $jobRunId
-     * @param GetJobRunRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param GetJobRunRequest $request     GetJobRunRequest
+     * @param string[]         $headers     map
+     * @param RuntimeOptions   $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetJobRunResponse
+     * @return GetJobRunResponse GetJobRunResponse
      */
     public function getJobRunWithOptions($workspaceId, $jobRunId, $request, $headers, $runtime)
     {
@@ -140,11 +146,13 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 获取任务
+     *  *
      * @param string           $workspaceId
      * @param string           $jobRunId
-     * @param GetJobRunRequest $request
+     * @param GetJobRunRequest $request     GetJobRunRequest
      *
-     * @return GetJobRunResponse
+     * @return GetJobRunResponse GetJobRunResponse
      */
     public function getJobRun($workspaceId, $jobRunId, $request)
     {
@@ -155,12 +163,14 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 查询run列表
+     *  *
      * @param string             $workspaceId
-     * @param ListJobRunsRequest $tmpReq
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param ListJobRunsRequest $tmpReq      ListJobRunsRequest
+     * @param string[]           $headers     map
+     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListJobRunsResponse
+     * @return ListJobRunsResponse ListJobRunsResponse
      */
     public function listJobRunsWithOptions($workspaceId, $tmpReq, $headers, $runtime)
     {
@@ -233,10 +243,12 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 查询run列表
+     *  *
      * @param string             $workspaceId
-     * @param ListJobRunsRequest $request
+     * @param ListJobRunsRequest $request     ListJobRunsRequest
      *
-     * @return ListJobRunsResponse
+     * @return ListJobRunsResponse ListJobRunsResponse
      */
     public function listJobRuns($workspaceId, $request)
     {
@@ -247,12 +259,14 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 启动作业
+     *  *
      * @param string             $workspaceId
-     * @param StartJobRunRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param StartJobRunRequest $request     StartJobRunRequest
+     * @param string[]           $headers     map
+     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
      *
-     * @return StartJobRunResponse
+     * @return StartJobRunResponse StartJobRunResponse
      */
     public function startJobRunWithOptions($workspaceId, $request, $headers, $runtime)
     {
@@ -313,10 +327,12 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 启动作业
+     *  *
      * @param string             $workspaceId
-     * @param StartJobRunRequest $request
+     * @param StartJobRunRequest $request     StartJobRunRequest
      *
-     * @return StartJobRunResponse
+     * @return StartJobRunResponse StartJobRunResponse
      */
     public function startJobRun($workspaceId, $request)
     {

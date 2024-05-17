@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class Category extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $creator;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $modifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
@@ -44,6 +56,8 @@ class Category extends Model
     public $parentBizId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $type;

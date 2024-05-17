@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SparkConf extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $value;

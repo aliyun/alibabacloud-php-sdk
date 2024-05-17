@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class Credential extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $accessId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dir;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $expire;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $policy;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $securityToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $signature;

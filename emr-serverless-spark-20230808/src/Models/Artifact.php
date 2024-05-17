@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class Artifact extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $creator;
@@ -24,26 +28,36 @@ class Artifact extends Model
     public $credential;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $modifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
