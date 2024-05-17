@@ -24,6 +24,7 @@ class DescribeDownloadBackupSetStorageInfoRequest extends Model
      *   Valid values: 300 to 86400. Unit: seconds. This means that you can specify a validity period in the range of 5 minutes to 1 day.
      *   Before you specify this parameter, convert the validity period to seconds. For example, if you want to set the validity period of the URL to 5 minutes, enter 300.
      *
+     * This parameter is required.
      * @example 300
      *
      * @var string
@@ -41,8 +42,9 @@ class DescribeDownloadBackupSetStorageInfoRequest extends Model
     public $instanceName;
 
     /**
-     * @description The ID of the region in which the instance resides. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the region ID of the instance.
+     * @description The ID of the region in which the instance resides. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/26231.html) operation to query the region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -50,10 +52,10 @@ class DescribeDownloadBackupSetStorageInfoRequest extends Model
     public $regionCode;
 
     /**
-     * @description The ID of the download task.
+     * @description The download task ID.
      *
      *   The **BackupSetId** and **InstanceName** parameters are required if you do not specify the **TaskId** parameter.
-     *   You can go to the instance details page in the Alibaba Cloud Management Console and click **Backup and Restoration** in the left-side navigation pane. On the **Backup Download** tab, view the task ID.
+     *   To view the download task ID, go to the instance details page in the console and click **Backup and Restoration** in the left-side navigation pane. On the **Backup Download** tab, view the task ID.
      *
      * @example dt-s0ugzak9****
      *

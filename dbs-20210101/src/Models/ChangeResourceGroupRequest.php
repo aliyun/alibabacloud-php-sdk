@@ -20,6 +20,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The ID of the resource group to which you want to move the resource.
      *
+     * This parameter is required.
      * @example rg-aekz4kee6******
      *
      * @var string
@@ -38,6 +39,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The ID of the resource.
      *
+     * This parameter is required.
      * @example dbs1jyajqk******
      *
      * @var string
@@ -47,6 +49,7 @@ class ChangeResourceGroupRequest extends Model
     /**
      * @description The type of the resource. Set the value to backupplan.
      *
+     * This parameter is required.
      * @example backupplan
      *
      * @var string

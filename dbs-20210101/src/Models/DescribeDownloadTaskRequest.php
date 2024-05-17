@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadTaskRequest extends Model
 {
     /**
-     * @description The ID of the backup set generated when you create a download task. You can call the [DescribeBackups](~~26273~~) operation to query the ID.
+     * @description The ID of the backup set generated when you create a download task. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/26273.html) operation to query the ID.
      *
      * @example 216****
      *
@@ -27,7 +27,7 @@ class DescribeDownloadTaskRequest extends Model
     public $currentPage;
 
     /**
-     * @description The ID of the Database Backup (DBS) data source. Specify the parameter in the format of *ds-${Instance ID}\_${regionId}*.
+     * @description The ID of the Database Backup (DBS) data source. Specify the parameter in the format of *ds-${Instance ID}_${regionId}*.
      *
      * @example ds-rm-2ze8g2am97624****_cn-hangzhou
      *
@@ -85,8 +85,9 @@ class DescribeDownloadTaskRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which the instance resides. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the region ID of the instance.
+     * @description The ID of the region in which the instance resides. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/26231.html) operation to query the region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

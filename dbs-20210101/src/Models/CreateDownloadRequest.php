@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDownloadRequest extends Model
 {
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackups](~~26273~~) operation to query the ID of the backup set.
+     * @description The ID of the backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/26273.html) operation to query the ID of the backup set.
      *
      * > This parameter is required if the BakSetType parameter is set to full.
      * @example 146005****
@@ -19,7 +19,7 @@ class CreateDownloadRequest extends Model
     public $bakSetId;
 
     /**
-     * @description The size of the full backup set. Unit: bytes. You can call the [DescribeBackups](~~26273~~) operation to query the size of the full backup set.
+     * @description The size of the full backup set. Unit: bytes. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/26273.html) operation to query the size of the full backup set.
      *
      * @example 216****
      *
@@ -66,6 +66,7 @@ class CreateDownloadRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example rm-wz994c1t1****
      *
      * @var string
@@ -73,8 +74,9 @@ class CreateDownloadRequest extends Model
     public $instanceName;
 
     /**
-     * @description The ID of the region in which the instance resides. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the region ID of the instance.
+     * @description The ID of the region in which the instance resides. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/26231.html) operation to query the region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -85,7 +87,7 @@ class CreateDownloadRequest extends Model
      * @description The name of the OSS bucket that is used to store the backup set.
      *
      *   This parameter is required if the TargetType parameter is set to OSS.
-     *   Make sure that your account is granted the **AliyunDBSDefaultRole** permission. For more information, see [Use RAM for resource authorization](~~26307~~). You can also grant permissions based on the operation instructions in the Resource Access Management (RAM) console.
+     *   Make sure that your account is granted the **AliyunDBSDefaultRole** permission. For more information, see [Use RAM for resource authorization](https://help.aliyun.com/document_detail/26307.html). You can also grant permissions based on the operation instructions in the Resource Access Management (RAM) console.
      *
      * @example test123
      *

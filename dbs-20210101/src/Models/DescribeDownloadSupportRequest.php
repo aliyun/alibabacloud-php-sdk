@@ -11,6 +11,7 @@ class DescribeDownloadSupportRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example rm-bp1a48p922r4b****
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeDownloadSupportRequest extends Model
     public $instanceName;
 
     /**
-     * @description The ID of the region in which the instance resides. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the region ID of the instance.
+     * @description The ID of the region in which the instance resides. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/26231.html) operation to query the region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

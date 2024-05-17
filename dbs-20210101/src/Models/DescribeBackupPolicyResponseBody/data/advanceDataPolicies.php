@@ -65,6 +65,11 @@ class advanceDataPolicies extends Model
     public $filterValue;
 
     /**
+     * @var string
+     */
+    public $policyId;
+
+    /**
      * @example delay
      *
      * @var string
@@ -107,6 +112,7 @@ class advanceDataPolicies extends Model
         'filterKey'      => 'FilterKey',
         'filterType'     => 'FilterType',
         'filterValue'    => 'FilterValue',
+        'policyId'       => 'PolicyId',
         'retentionType'  => 'RetentionType',
         'retentionValue' => 'RetentionValue',
         'srcRegion'      => 'SrcRegion',
@@ -144,6 +150,9 @@ class advanceDataPolicies extends Model
         }
         if (null !== $this->filterValue) {
             $res['FilterValue'] = $this->filterValue;
+        }
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
         }
         if (null !== $this->retentionType) {
             $res['RetentionType'] = $this->retentionType;
@@ -195,6 +204,9 @@ class advanceDataPolicies extends Model
         }
         if (isset($map['FilterValue'])) {
             $model->filterValue = $map['FilterValue'];
+        }
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
         if (isset($map['RetentionType'])) {
             $model->retentionType = $map['RetentionType'];

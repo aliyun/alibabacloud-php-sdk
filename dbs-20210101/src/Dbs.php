@@ -103,10 +103,12 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Moves a resource from one resource group to another.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -146,9 +148,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary Moves a resource from one resource group to another.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -158,16 +162,18 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   ApsaraDB RDS for MySQL
-     *   * *   ApsaraDB RDS for PostgreSQL
-     *   * *   PolarDB for MySQL
-     *   * ### [](#)References
-     *   * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
-     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
-     *   *
+     * @summary Creates an advanced download task for an ApsaraDB RDS for MySQL instance, an ApsaraDB RDS for PostgreSQL instance, or a PolarDB for MySQL cluster.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   ApsaraDB RDS for MySQL
+     * *   ApsaraDB RDS for PostgreSQL
+     * *   PolarDB for MySQL
+     * ### [](#)References
+     * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+     * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+     * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+     * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+     *  *
      * @param CreateDownloadRequest $request CreateDownloadRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -229,16 +235,18 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   ApsaraDB RDS for MySQL
-     *   * *   ApsaraDB RDS for PostgreSQL
-     *   * *   PolarDB for MySQL
-     *   * ### [](#)References
-     *   * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
-     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
-     *   *
+     * @summary Creates an advanced download task for an ApsaraDB RDS for MySQL instance, an ApsaraDB RDS for PostgreSQL instance, or a PolarDB for MySQL cluster.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   ApsaraDB RDS for MySQL
+     * *   ApsaraDB RDS for PostgreSQL
+     * *   PolarDB for MySQL
+     * ### [](#)References
+     * For the instances that meet your business requirements, you can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+     * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+     * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+     * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+     *  *
      * @param CreateDownloadRequest $request CreateDownloadRequest
      *
      * @return CreateDownloadResponse CreateDownloadResponse
@@ -251,8 +259,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
-     *   *
+     * @summary Releases a sandbox instance.
+     *  *
+     * @description This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
+     *  *
      * @param DeleteSandboxInstanceRequest $request DeleteSandboxInstanceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -290,8 +300,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
-     *   *
+     * @summary Releases a sandbox instance.
+     *  *
+     * @description This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
+     *  *
      * @param DeleteSandboxInstanceRequest $request DeleteSandboxInstanceRequest
      *
      * @return DeleteSandboxInstanceResponse DeleteSandboxInstanceResponse
@@ -304,10 +316,12 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupDataListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 备份数据列表查询接口
+     *  *
+     * @param DescribeBackupDataListRequest $request DescribeBackupDataListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupDataListResponse
+     * @return DescribeBackupDataListResponse DescribeBackupDataListResponse
      */
     public function describeBackupDataListWithOptions($request, $runtime)
     {
@@ -380,9 +394,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupDataListRequest $request
+     * @summary 备份数据列表查询接口
+     *  *
+     * @param DescribeBackupDataListRequest $request DescribeBackupDataListRequest
      *
-     * @return DescribeBackupDataListResponse
+     * @return DescribeBackupDataListResponse DescribeBackupDataListResponse
      */
     public function describeBackupDataList($request)
     {
@@ -392,10 +408,12 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 获取备份策略接口
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
@@ -426,9 +444,11 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
+     * @summary 获取备份策略接口
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -438,10 +458,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBTablesRecoveryBackupSetRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param DescribeDBTablesRecoveryBackupSetRequest $request DescribeDBTablesRecoveryBackupSetRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBTablesRecoveryBackupSetResponse
+     * @return DescribeDBTablesRecoveryBackupSetResponse DescribeDBTablesRecoveryBackupSetResponse
      */
     public function describeDBTablesRecoveryBackupSetWithOptions($request, $runtime)
     {
@@ -472,9 +492,9 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBTablesRecoveryBackupSetRequest $request
+     * @param DescribeDBTablesRecoveryBackupSetRequest $request DescribeDBTablesRecoveryBackupSetRequest
      *
-     * @return DescribeDBTablesRecoveryBackupSetResponse
+     * @return DescribeDBTablesRecoveryBackupSetResponse DescribeDBTablesRecoveryBackupSetResponse
      */
     public function describeDBTablesRecoveryBackupSet($request)
     {
@@ -484,10 +504,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBTablesRecoveryStateRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeDBTablesRecoveryStateRequest $request DescribeDBTablesRecoveryStateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBTablesRecoveryStateResponse
+     * @return DescribeDBTablesRecoveryStateResponse DescribeDBTablesRecoveryStateResponse
      */
     public function describeDBTablesRecoveryStateWithOptions($request, $runtime)
     {
@@ -518,9 +538,9 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBTablesRecoveryStateRequest $request
+     * @param DescribeDBTablesRecoveryStateRequest $request DescribeDBTablesRecoveryStateRequest
      *
-     * @return DescribeDBTablesRecoveryStateResponse
+     * @return DescribeDBTablesRecoveryStateResponse DescribeDBTablesRecoveryStateResponse
      */
     public function describeDBTablesRecoveryState($request)
     {
@@ -530,10 +550,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBTablesRecoveryTimeRangeRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param DescribeDBTablesRecoveryTimeRangeRequest $request DescribeDBTablesRecoveryTimeRangeRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBTablesRecoveryTimeRangeResponse
+     * @return DescribeDBTablesRecoveryTimeRangeResponse DescribeDBTablesRecoveryTimeRangeResponse
      */
     public function describeDBTablesRecoveryTimeRangeWithOptions($request, $runtime)
     {
@@ -564,9 +584,9 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBTablesRecoveryTimeRangeRequest $request
+     * @param DescribeDBTablesRecoveryTimeRangeRequest $request DescribeDBTablesRecoveryTimeRangeRequest
      *
-     * @return DescribeDBTablesRecoveryTimeRangeResponse
+     * @return DescribeDBTablesRecoveryTimeRangeResponse DescribeDBTablesRecoveryTimeRangeResponse
      */
     public function describeDBTablesRecoveryTimeRange($request)
     {
@@ -576,15 +596,17 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   ApsaraDB RDS for MySQL
-     *   * *   ApsaraDB RDS for PostgreSQL
-     *   * *   PolarDB for MySQL
-     *   * ### [](#)References
-     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
-     *   *
+     * @summary Queries the storage information of a downloaded backup set.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   ApsaraDB RDS for MySQL
+     * *   ApsaraDB RDS for PostgreSQL
+     * *   PolarDB for MySQL
+     * ### [](#)References
+     * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+     * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+     * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+     *  *
      * @param DescribeDownloadBackupSetStorageInfoRequest $request DescribeDownloadBackupSetStorageInfoRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -628,15 +650,17 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   ApsaraDB RDS for MySQL
-     *   * *   ApsaraDB RDS for PostgreSQL
-     *   * *   PolarDB for MySQL
-     *   * ### [](#)References
-     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
-     *   *
+     * @summary Queries the storage information of a downloaded backup set.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   ApsaraDB RDS for MySQL
+     * *   ApsaraDB RDS for PostgreSQL
+     * *   PolarDB for MySQL
+     * ### [](#)References
+     * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+     * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+     * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+     *  *
      * @param DescribeDownloadBackupSetStorageInfoRequest $request DescribeDownloadBackupSetStorageInfoRequest
      *
      * @return DescribeDownloadBackupSetStorageInfoResponse DescribeDownloadBackupSetStorageInfoResponse
@@ -649,16 +673,18 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   ApsaraDB RDS for MySQL
-     *   * *   ApsaraDB RDS for PostgreSQL
-     *   * *   PolarDB for MySQL
-     *   * ### [](#)References
-     *   * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
-     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
-     *   *
+     * @summary Queries whether an instance supports the advanced download feature.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   ApsaraDB RDS for MySQL
+     * *   ApsaraDB RDS for PostgreSQL
+     * *   PolarDB for MySQL
+     * ### [](#)References
+     * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+     * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+     * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+     * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+     *  *
      * @param DescribeDownloadSupportRequest $request DescribeDownloadSupportRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -693,16 +719,18 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   ApsaraDB RDS for MySQL
-     *   * *   ApsaraDB RDS for PostgreSQL
-     *   * *   PolarDB for MySQL
-     *   * ### [](#)References
-     *   * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
-     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
-     *   *
+     * @summary Queries whether an instance supports the advanced download feature.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   ApsaraDB RDS for MySQL
+     * *   ApsaraDB RDS for PostgreSQL
+     * *   PolarDB for MySQL
+     * ### [](#)References
+     * You can create an advanced download task by point in time or backup set. You can set the download destination to a URL or directly upload the downloaded backup set to your Object Storage Service (OSS) bucket to facilitate data analysis and offline archiving.
+     * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+     * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+     * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+     *  *
      * @param DescribeDownloadSupportRequest $request DescribeDownloadSupportRequest
      *
      * @return DescribeDownloadSupportResponse DescribeDownloadSupportResponse
@@ -715,15 +743,17 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   ApsaraDB RDS for MySQL
-     *   * *   ApsaraDB RDS for PostgreSQL
-     *   * *   PolarDB for MySQL
-     *   * ### [](#)References
-     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
-     *   *
+     * @summary Queries the advanced download tasks for an ApsaraDB RDS for MySQL instance, an ApsaraDB RDS for PostgreSQL instance, or a PolarDB for MySQL cluster.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   ApsaraDB RDS for MySQL
+     * *   ApsaraDB RDS for PostgreSQL
+     * *   PolarDB for MySQL
+     * ### [](#)References
+     * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+     * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+     * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+     *  *
      * @param DescribeDownloadTaskRequest $request DescribeDownloadTaskRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -788,15 +818,17 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   ApsaraDB RDS for MySQL
-     *   * *   ApsaraDB RDS for PostgreSQL
-     *   * *   PolarDB for MySQL
-     *   * ### [](#)References
-     *   * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](~~98819~~)
-     *   * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](~~96774~~)
-     *   * *   [Download the backup files of a PolarDB for MySQL cluster](~~2627635~~).
-     *   *
+     * @summary Queries the advanced download tasks for an ApsaraDB RDS for MySQL instance, an ApsaraDB RDS for PostgreSQL instance, or a PolarDB for MySQL cluster.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   ApsaraDB RDS for MySQL
+     * *   ApsaraDB RDS for PostgreSQL
+     * *   PolarDB for MySQL
+     * ### [](#)References
+     * *   [Download the backup files of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98819.html)
+     * *   [Download the backup files of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96774.html)
+     * *   [Download the backup files of a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/2627635.html)
+     *  *
      * @param DescribeDownloadTaskRequest $request DescribeDownloadTaskRequest
      *
      * @return DescribeDownloadTaskResponse DescribeDownloadTaskResponse
@@ -809,8 +841,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
-     *   *
+     * @summary Queries the snapshots of an instance.
+     *  *
+     * @description Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/203154.html) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](https://help.aliyun.com/document_detail/185577.html). This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
+     *  *
      * @param DescribeSandboxBackupSetsRequest $request DescribeSandboxBackupSetsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -851,8 +885,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
-     *   *
+     * @summary Queries the snapshots of an instance.
+     *  *
+     * @description Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/203154.html) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](https://help.aliyun.com/document_detail/185577.html). This operation is available only for the Database Backup (DBS) API of the 2021-01-01 version.
+     *  *
      * @param DescribeSandboxBackupSetsRequest $request DescribeSandboxBackupSetsRequest
      *
      * @return DescribeSandboxBackupSetsResponse DescribeSandboxBackupSetsResponse
@@ -865,8 +901,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-     *   *
+     * @summary Queries sandbox instances that are created within an account.
+     *  *
+     * @description This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *  *
      * @param DescribeSandboxInstancesRequest $request DescribeSandboxInstancesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -907,8 +945,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-     *   *
+     * @summary Queries sandbox instances that are created within an account.
+     *  *
+     * @description This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *  *
      * @param DescribeSandboxInstancesRequest $request DescribeSandboxInstancesRequest
      *
      * @return DescribeSandboxInstancesResponse DescribeSandboxInstancesResponse
@@ -921,8 +961,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-     *   *
+     * @summary Queries the recoverable time range of a sandbox instance.
+     *  *
+     * @description Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/203154.html) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](https://help.aliyun.com/document_detail/185577.html). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *  *
      * @param DescribeSandboxRecoveryTimeRequest $request DescribeSandboxRecoveryTimeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -954,8 +996,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](~~203154~~) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](~~185577~~). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
-     *   *
+     * @summary Queries the recoverable time range of a sandbox instance.
+     *  *
+     * @description Before you call this operation, you must enable the sandbox feature for the database instance. For more information, see [Use the emergency recovery feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/203154.html) or [Create a sandbox instance for emergency disaster recovery of a self-managed MySQL database](https://help.aliyun.com/document_detail/185577.html). This operation is available only in Database Backup (DBS) API of the 2021-01-01 version.
+     *  *
      * @param DescribeSandboxRecoveryTimeRequest $request DescribeSandboxRecoveryTimeRequest
      *
      * @return DescribeSandboxRecoveryTimeResponse DescribeSandboxRecoveryTimeResponse
@@ -968,10 +1012,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBTablesRecoveryStateRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param ModifyDBTablesRecoveryStateRequest $request ModifyDBTablesRecoveryStateRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBTablesRecoveryStateResponse
+     * @return ModifyDBTablesRecoveryStateResponse ModifyDBTablesRecoveryStateResponse
      */
     public function modifyDBTablesRecoveryStateWithOptions($request, $runtime)
     {
@@ -1008,9 +1052,9 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBTablesRecoveryStateRequest $request
+     * @param ModifyDBTablesRecoveryStateRequest $request ModifyDBTablesRecoveryStateRequest
      *
-     * @return ModifyDBTablesRecoveryStateResponse
+     * @return ModifyDBTablesRecoveryStateResponse ModifyDBTablesRecoveryStateResponse
      */
     public function modifyDBTablesRecoveryState($request)
     {
@@ -1020,10 +1064,10 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param SupportDBTableRecoveryRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param SupportDBTableRecoveryRequest $request SupportDBTableRecoveryRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SupportDBTableRecoveryResponse
+     * @return SupportDBTableRecoveryResponse SupportDBTableRecoveryResponse
      */
     public function supportDBTableRecoveryWithOptions($request, $runtime)
     {
@@ -1054,9 +1098,9 @@ class Dbs extends OpenApiClient
     }
 
     /**
-     * @param SupportDBTableRecoveryRequest $request
+     * @param SupportDBTableRecoveryRequest $request SupportDBTableRecoveryRequest
      *
-     * @return SupportDBTableRecoveryResponse
+     * @return SupportDBTableRecoveryResponse SupportDBTableRecoveryResponse
      */
     public function supportDBTableRecovery($request)
     {

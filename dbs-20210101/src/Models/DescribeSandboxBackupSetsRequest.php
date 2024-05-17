@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSandboxBackupSetsRequest extends Model
 {
     /**
-     * @description The ID of the backup schedule. You can call the [DescribeBackupPlanList](~~437215~~) operation to query the ID of the backup schedule.
+     * @description The ID of the backup schedule. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/437215.html) operation to query the ID of the backup schedule.
      *
-     * > If your instance is an ApsaraDB RDS for MySQL instance, you can [configure automatic access to a data source](~~193091~~) to automatically add the instance to DBS and obtain the ID of the backup schedule.
+     * This parameter is required.
      * @example 1hxxxx8xxxxxa
      *
      * @var string
@@ -40,8 +40,8 @@ class DescribeSandboxBackupSetsRequest extends Model
      * @description The number of entries to return on each page. Valid values:
      *
      *   30: This is the default value.
-     *   50\.
-     *   100\.
+     *   50\\.
+     *   100\\.
      *
      * @example 30
      *
