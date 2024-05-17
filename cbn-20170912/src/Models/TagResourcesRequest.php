@@ -31,6 +31,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The IDs of the resources. You can enter most at 20 resource IDs.
      *
+     * This parameter is required.
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string[]
@@ -50,6 +51,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to **cen**, which specifies a CEN instance.
      *
+     * This parameter is required.
      * @example cen
      *
      * @var string
@@ -59,6 +61,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The list of tags that you want to associate with the resources.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

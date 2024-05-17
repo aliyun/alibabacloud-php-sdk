@@ -77,6 +77,7 @@ class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
     /**
      * @description The ID of the VPC connection.
      *
+     * This parameter is required.
      * @example tr-attach-nls9fzkfat8934****
      *
      * @var string
@@ -86,7 +87,7 @@ class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
     /**
      * @description The name of the VPC connection.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example testname
      *
      * @var string

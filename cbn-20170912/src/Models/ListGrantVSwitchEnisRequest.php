@@ -11,6 +11,7 @@ class ListGrantVSwitchEnisRequest extends Model
     /**
      * @description The ID of the CEN instance to which the VPC is attached.
      *
+     * This parameter is required.
      * @example cen-a7syd349kne38g****
      *
      * @var string
@@ -88,6 +89,7 @@ class ListGrantVSwitchEnisRequest extends Model
     /**
      * @description The ID of a vSwitch in the VPC. You can specify only one vSwitch in each call.
      *
+     * This parameter is required.
      * @example vsw-p0w9s2ig1jnwgrbzl****
      *
      * @var string
@@ -97,6 +99,7 @@ class ListGrantVSwitchEnisRequest extends Model
     /**
      * @description The ID of the VPC.
      *
+     * This parameter is required.
      * @example vpc-p0w9alkte4w2htrqe****
      *
      * @var string

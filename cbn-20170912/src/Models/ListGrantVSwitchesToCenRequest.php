@@ -11,6 +11,7 @@ class ListGrantVSwitchesToCenRequest extends Model
     /**
      * @description The CEN instance ID.
      *
+     * This parameter is required.
      * @example cen-44m0p68spvlrqq****
      *
      * @var string
@@ -48,7 +49,7 @@ class ListGrantVSwitchesToCenRequest extends Model
     /**
      * @description The region ID of the VPC.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -68,6 +69,7 @@ class ListGrantVSwitchesToCenRequest extends Model
     /**
      * @description The VPC ID.
      *
+     * This parameter is required.
      * @example vpc-bp12ge2tq5gzdc915****
      *
      * @var string
@@ -80,7 +82,7 @@ class ListGrantVSwitchesToCenRequest extends Model
      *   If you specify a zone ID, the system queries the information about the vSwitches in the specified zone.
      *   If you do not specify a zone ID, the system queries the information about the vSwitches in all zones.
      *
-     * You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
+     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
      * @example cn-hangzhou-h
      *
      * @var string

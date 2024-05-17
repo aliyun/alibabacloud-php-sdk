@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTransitRouterMulticastDomainVSwitchesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cen-44m0p68spvlrqq****
      *
      * @var string
@@ -55,6 +57,8 @@ class ListTransitRouterMulticastDomainVSwitchesRequest extends Model
     public $vSwitchIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vpc-p0wr1cd4fcuxy3ui0****
      *
      * @var string

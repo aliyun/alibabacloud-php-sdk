@@ -31,6 +31,8 @@ class CreateTransitRouterEcrAttachmentRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecr-upyc0viial107r****
      *
      * @var string

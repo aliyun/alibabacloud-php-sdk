@@ -43,8 +43,8 @@ class DeleteTransitRouterCidrRequest extends Model
     /**
      * @description The ID of the region where the transit router is deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
-     * @example ap-southeast-2
+     * This parameter is required.
+     * @example cn-hangzhou
      *
      * @var string
      */
@@ -63,7 +63,7 @@ class DeleteTransitRouterCidrRequest extends Model
     /**
      * @description The ID of the CIDR block.
      *
-     * You can call the [ListTransitRouterCidr](~~462772~~) operation to query the ID of a CIDR block.
+     * This parameter is required.
      * @example cidr-0zv0q9crqpntzz****
      *
      * @var string
@@ -73,6 +73,7 @@ class DeleteTransitRouterCidrRequest extends Model
     /**
      * @description The ID of the transit router.
      *
+     * This parameter is required.
      * @example tr-p0w3x8c9em72a40nw****
      *
      * @var string

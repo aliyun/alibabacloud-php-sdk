@@ -11,9 +11,9 @@ class DeleteTransitRouterVpnAttachmentRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -35,8 +35,8 @@ class DeleteTransitRouterVpnAttachmentRequest extends Model
     /**
      * @description Specifies whether to forcefully delete the VPN attachment. Valid values:
      *
-     *   **false** (default): checks the related resources, such as associated forwarding correlations and route learning policies, before the VPN attachment is deleted. If such a resource exists, the VPN attachment is not deleted and an error message is returned.
-     *   **true**: deletes the VPN attachment and the related resources.
+     *   **false** (default): Check for resource dependencies, such as associated forwarding and route learning, before the VPN attachment is deleted. If such resources exist, the VPN attachment is not deleted and an error message is returned.
+     *   **true**: Delete the resource dependencies along with the VPN attachment.
      *
      * @example false
      *
@@ -67,6 +67,7 @@ class DeleteTransitRouterVpnAttachmentRequest extends Model
     /**
      * @description The ID of the VPN attachment.
      *
+     * This parameter is required.
      * @example tr-attach-b9xj1dv69600kj****
      *
      * @var string

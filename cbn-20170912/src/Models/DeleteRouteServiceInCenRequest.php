@@ -11,6 +11,7 @@ class DeleteRouteServiceInCenRequest extends Model
     /**
      * @description The ID of the region where the cloud service is accessed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteRouteServiceInCenRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -29,6 +31,7 @@ class DeleteRouteServiceInCenRequest extends Model
     /**
      * @description The IP addresses or CIDR blocks of the cloud service.
      *
+     * This parameter is required.
      * @example 100.118.28.0/24
      *
      * @var string
@@ -38,7 +41,7 @@ class DeleteRouteServiceInCenRequest extends Model
     /**
      * @description The region ID of the cloud service.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

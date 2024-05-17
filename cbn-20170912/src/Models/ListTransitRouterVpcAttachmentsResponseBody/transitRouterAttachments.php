@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class transitRouterAttachments extends Model
 {
     /**
-     * @description Indicates whether the Enterprise Edition transit router automatically advertises routes to VPCs. Valid values:
+     * @description Indicates whether the Enterprise Edition transit router can automatically advertise routes to the VPC. Valid values:
      *
-     *   **false:** (default)
+     *   **false**
      *   **true**
      *
      * @example true
@@ -23,7 +23,7 @@ class transitRouterAttachments extends Model
     public $autoPublishRouteEnabled;
 
     /**
-     * @description The CEN instance ID.
+     * @description The ID of the CEN instance.
      *
      * @example cen-j3jzhw1zpau2km****
      *
@@ -34,7 +34,7 @@ class transitRouterAttachments extends Model
     /**
      * @description The billing method of the VPC connection.
      *
-     * Only **POSTPAY** may be returned, which is the default value and specifies the pay-as-you-go billing method.
+     * Only **POSTPAY** may be returned, which indicates the default pay-as-you-go billing method.
      * @example POSTPAY
      *
      * @var string
@@ -44,7 +44,7 @@ class transitRouterAttachments extends Model
     /**
      * @description The time when the VPC connection was created.
      *
-     * The time follows the ISO8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      * @example 2021-06-15T02:14Z
      *
      * @var string
@@ -79,7 +79,6 @@ class transitRouterAttachments extends Model
      *   **Attached**
      *   **Attaching**
      *   **Detaching**
-     *   **Detached**
      *
      * @example Attached
      *
@@ -88,7 +87,7 @@ class transitRouterAttachments extends Model
     public $status;
 
     /**
-     * @description The information about the tags.
+     * @description The tag key.
      *
      * @var tags[]
      */
@@ -104,7 +103,7 @@ class transitRouterAttachments extends Model
     public $transitRouterAttachmentDescription;
 
     /**
-     * @description The ID of the VPC connection.
+     * @description The VPC connection ID.
      *
      * @example tr-attach-nls9fzkfat8934****
      *
@@ -122,7 +121,7 @@ class transitRouterAttachments extends Model
     public $transitRouterAttachmentName;
 
     /**
-     * @description The ID of the Enterprise Edition transit router.
+     * @description The description of the Enterprise Edition transit router.
      *
      * @example tr-bp1su1ytdxtataupl****
      *
@@ -158,7 +157,7 @@ class transitRouterAttachments extends Model
     public $vpcRegionId;
 
     /**
-     * @description The primary and secondary zones of the VPC connection and the vSwitches and elastic network interfaces (ENIs) of the VPC.
+     * @description The primary and secondary zones, vSwitches, and ENIs of the VPC.
      *
      * @var zoneMappings[]
      */

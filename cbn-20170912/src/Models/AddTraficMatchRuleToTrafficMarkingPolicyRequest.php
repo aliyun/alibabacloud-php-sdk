@@ -44,6 +44,8 @@ class AddTraficMatchRuleToTrafficMarkingPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example tm-u9nxup5kww5po8****
      *
      * @var string

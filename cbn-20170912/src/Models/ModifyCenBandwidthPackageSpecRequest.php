@@ -21,6 +21,7 @@ class ModifyCenBandwidthPackageSpecRequest extends Model
     /**
      * @description The ID of the bandwidth plan.
      *
+     * This parameter is required.
      * @example cenbwp-4c2zaavbvh5x****
      *
      * @var string

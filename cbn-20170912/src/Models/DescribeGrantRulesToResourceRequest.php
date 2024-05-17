@@ -47,6 +47,7 @@ class DescribeGrantRulesToResourceRequest extends Model
      *   **ExpressConnect**: virtual border router (VBR)
      *   **VPN**: IPsec-VPN connection
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -56,7 +57,7 @@ class DescribeGrantRulesToResourceRequest extends Model
     /**
      * @description The region ID of the network instance.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -66,6 +67,7 @@ class DescribeGrantRulesToResourceRequest extends Model
     /**
      * @description The network instance ID.
      *
+     * This parameter is required.
      * @example vpc-p0wfut1iqauelpdpb****
      *
      * @var string

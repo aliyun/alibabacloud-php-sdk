@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetCenInterRegionBandwidthLimitRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 8
      *
      * @var int
@@ -16,6 +18,15 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
     public $bandwidthLimit;
 
     /**
+     * @example BandwidthPackage
+     *
+     * @var string
+     */
+    public $bandwidthType;
+
+    /**
+     * @description This parameter is required.
+     *
      * @example cen-7qthudw0ll6jmx****
      *
      * @var string
@@ -23,6 +34,8 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
     public $cenId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +43,8 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
     public $localRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example us-west-1
      *
      * @var string
@@ -57,6 +72,7 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'bandwidthLimit'       => 'BandwidthLimit',
+        'bandwidthType'        => 'BandwidthType',
         'cenId'                => 'CenId',
         'localRegionId'        => 'LocalRegionId',
         'oppositeRegionId'     => 'OppositeRegionId',
@@ -75,6 +91,9 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
         $res = [];
         if (null !== $this->bandwidthLimit) {
             $res['BandwidthLimit'] = $this->bandwidthLimit;
+        }
+        if (null !== $this->bandwidthType) {
+            $res['BandwidthType'] = $this->bandwidthType;
         }
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
@@ -111,6 +130,9 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
         $model = new self();
         if (isset($map['BandwidthLimit'])) {
             $model->bandwidthLimit = $map['BandwidthLimit'];
+        }
+        if (isset($map['BandwidthType'])) {
+            $model->bandwidthType = $map['BandwidthType'];
         }
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];

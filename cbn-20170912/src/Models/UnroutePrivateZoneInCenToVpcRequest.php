@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnroutePrivateZoneInCenToVpcRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class UnroutePrivateZoneInCenToVpcRequest extends Model
     public $accessRegionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string

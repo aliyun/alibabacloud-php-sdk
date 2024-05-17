@@ -50,6 +50,8 @@ class UpdateTransitRouterEcrAttachmentAttributeRequest extends Model
     public $transitRouterAttachmentDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example tr-attach-r6g0m3epjehw57****
      *
      * @var string

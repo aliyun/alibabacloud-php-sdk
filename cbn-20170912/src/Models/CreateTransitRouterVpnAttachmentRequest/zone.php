@@ -11,8 +11,8 @@ class zone extends Model
     /**
      * @description The zone ID of the read-only instance.
      *
-     * You can call the [ListTransitRouterAvailableResource](~~261356~~) operation to query the most recent zone list.
-     * @example ap-southeast-2a
+     * This parameter is required.
+     * @example cn-hangzhou-h
      *
      * @var string
      */

@@ -11,6 +11,7 @@ class PublishRouteEntriesRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -20,6 +21,7 @@ class PublishRouteEntriesRequest extends Model
     /**
      * @description The ID of the network instance.
      *
+     * This parameter is required.
      * @example vpc-rj9gt5nll27onu****
      *
      * @var string
@@ -29,7 +31,7 @@ class PublishRouteEntriesRequest extends Model
     /**
      * @description The ID of the region where the network instance is deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example us-west-1
      *
      * @var string
@@ -39,6 +41,7 @@ class PublishRouteEntriesRequest extends Model
     /**
      * @description The ID of the route table configured on the network instance.
      *
+     * This parameter is required.
      * @example vtb-bp174d1gje7****
      *
      * @var string
@@ -51,6 +54,7 @@ class PublishRouteEntriesRequest extends Model
      *   **VPC**: VPC
      *   **VBR**: VBR
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -60,6 +64,7 @@ class PublishRouteEntriesRequest extends Model
     /**
      * @description The destination CIDR block of the route that you want to advertise.
      *
+     * This parameter is required.
      * @example 172.16.1.0/24
      *
      * @var string

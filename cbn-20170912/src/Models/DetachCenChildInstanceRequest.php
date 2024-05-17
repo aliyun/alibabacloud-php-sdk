@@ -11,6 +11,7 @@ class DetachCenChildInstanceRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-7qthudw0ll6jmx****
      *
      * @var string
@@ -29,6 +30,7 @@ class DetachCenChildInstanceRequest extends Model
     /**
      * @description The ID of the network instance that you want to detach from the CEN instance.
      *
+     * This parameter is required.
      * @example vpc-bp18sth14qii3pnvx****
      *
      * @var string
@@ -47,7 +49,7 @@ class DetachCenChildInstanceRequest extends Model
     /**
      * @description The ID of the region where the network instance is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -61,6 +63,7 @@ class DetachCenChildInstanceRequest extends Model
      *   **VBR**: virtual border router (VBR)
      *   **CCN**: Cloud Connect Network (CCN) instance
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string

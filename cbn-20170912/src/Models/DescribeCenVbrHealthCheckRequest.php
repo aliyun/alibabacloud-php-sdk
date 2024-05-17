@@ -76,7 +76,7 @@ class DescribeCenVbrHealthCheckRequest extends Model
     /**
      * @description The ID of the region where the VBRs are deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

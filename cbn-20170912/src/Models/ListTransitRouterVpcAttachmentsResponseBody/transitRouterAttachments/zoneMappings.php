@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class zoneMappings extends Model
 {
     /**
-     * @description The ID of the ENI that is associated with the vSwitch of the Enterprise Edition transit router.
+     * @description The ID of the ENI created by the Enterprise Edition transit router in the vSwitch.
      *
      * @example eni-bp149hmyaqegerml****
      *

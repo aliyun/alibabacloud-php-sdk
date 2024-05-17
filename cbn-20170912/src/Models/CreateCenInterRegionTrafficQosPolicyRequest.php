@@ -54,7 +54,7 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
     /**
      * @description The description of the QoS policy.
      *
-     * The description must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The description must start with a letter.
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
      * @example desctest
      *
      * @var string
@@ -64,7 +64,7 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
     /**
      * @description The name of the QoS policy.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example nametest
      *
      * @var string
@@ -74,7 +74,7 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
     /**
      * @description The information about the QoS queue.
      *
-     * You can call this operation to create at most three QoS queues. To create more queues, you must call the CreateCenInterRegionTrafficQosQueue operation.
+     * You can add at most three QoS queues in a QoS policy by calling this operation. To add more QoS queues, call the CreateCenInterRegionTrafficQosQueue operation.
      * @var trafficQosQueues[]
      */
     public $trafficQosQueues;
@@ -82,6 +82,7 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
     /**
      * @description The ID of the inter-region connection.
      *
+     * This parameter is required.
      * @example tr-attach-r6g0m3epjehw57****
      *
      * @var string
@@ -91,6 +92,7 @@ class CreateCenInterRegionTrafficQosPolicyRequest extends Model
     /**
      * @description The ID of the transit router.
      *
+     * This parameter is required.
      * @example tr-8vbuqeo5h5pu3m01d****
      *
      * @var string

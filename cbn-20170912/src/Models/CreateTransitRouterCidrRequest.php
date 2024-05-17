@@ -11,6 +11,7 @@ class CreateTransitRouterCidrRequest extends Model
     /**
      * @description The CIDR block of the transit router.
      *
+     * This parameter is required.
      * @example 192.168.10.0/24
      *
      * @var string
@@ -20,7 +21,7 @@ class CreateTransitRouterCidrRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426****
      *
      * @var string
@@ -71,10 +72,13 @@ class CreateTransitRouterCidrRequest extends Model
 
     /**
      * @description Specifies whether to allow the system to automatically add a route that points to the CIDR block to the route table of the transit router.
-     * - **true** (default): yes
      *
-     * The blackhole route is advertised only to the route tables of virtual border routers (VBRs) that are connected to the transit router.
-     * - **false**: no
+     *   **true** (default)
+     *
+     * A blackhole route whose destination CIDR block is the transit router CIDR block, which refers to the CIDR block from which gateway IP addresses are allocated to the IPsec-VPN connection. The blackhole route is advertised only to the route tables of virtual border routers (VBRs) connected to the transit router.
+     *
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -84,8 +88,8 @@ class CreateTransitRouterCidrRequest extends Model
     /**
      * @description The region ID of the transit router.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
-     * @example ap-southeast-2
+     * This parameter is required.
+     * @example cn-hangzhou
      *
      * @var string
      */
@@ -104,6 +108,7 @@ class CreateTransitRouterCidrRequest extends Model
     /**
      * @description The ID of the transit router.
      *
+     * This parameter is required.
      * @example tr-p0w3x8c9em72a40nw****
      *
      * @var string

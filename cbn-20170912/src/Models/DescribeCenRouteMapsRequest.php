@@ -11,6 +11,7 @@ class DescribeCenRouteMapsRequest extends Model
     /**
      * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
+     * This parameter is required.
      * @example cen-wx12mmlt17ld82****
      *
      * @var string
@@ -20,7 +21,7 @@ class DescribeCenRouteMapsRequest extends Model
     /**
      * @description The region ID of the routing policy.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

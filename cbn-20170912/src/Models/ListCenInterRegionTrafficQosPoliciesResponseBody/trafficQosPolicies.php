@@ -37,13 +37,12 @@ class trafficQosPolicies extends Model
     public $trafficQosPolicyName;
 
     /**
-     * @description The status of the QoS policy. Valid values:
+     * @description The status of the QoS policy.
      *
      *   **Creating**: The QoS policy is being created.
      *   **Active**: The QoS policy is available.
-     *   **Modifying**: The QoS policy is being modified
+     *   **Modifying**: The policy is being modified.
      *   **Deleting**: The QoS policy is being deleted.
-     *   **Deleted**: The QoS policy is deleted.
      *
      * @example Creating
      *

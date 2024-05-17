@@ -11,6 +11,7 @@ class DescribeCenAttachedChildInstanceAttributeRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-5mv960yjhja0dh****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeCenAttachedChildInstanceAttributeRequest extends Model
     /**
      * @description The ID of the network instance that is attached to the CEN instance.
      *
+     * This parameter is required.
      * @example vpc-2zebdboka7d7t37vo****
      *
      * @var string
@@ -29,7 +31,7 @@ class DescribeCenAttachedChildInstanceAttributeRequest extends Model
     /**
      * @description The region ID of the network instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -43,6 +45,7 @@ class DescribeCenAttachedChildInstanceAttributeRequest extends Model
      *   **VBR**: virtual border router (VBR)
      *   **CCN**: Cloud Connect Network (CCN) instance
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string

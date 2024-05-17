@@ -60,6 +60,7 @@ class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends Model
     /**
      * @description The queue ID.
      *
+     * This parameter is required.
      * @example qos-queue-nv2vfzqkewhk4t****
      *
      * @var string

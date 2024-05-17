@@ -65,9 +65,9 @@ class UpdateTransitRouterVpnAttachmentAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The new description of the VPN connection.
+     * @description The new description of the VPN attachment.
      *
-     * The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
+     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
      * @example desctest
      *
      * @var string
@@ -77,6 +77,7 @@ class UpdateTransitRouterVpnAttachmentAttributeRequest extends Model
     /**
      * @description The ID of the VPN attachment.
      *
+     * This parameter is required.
      * @example tr-attach-a6p8voaodog5c0****
      *
      * @var string
@@ -84,9 +85,9 @@ class UpdateTransitRouterVpnAttachmentAttributeRequest extends Model
     public $transitRouterAttachmentId;
 
     /**
-     * @description The name of the VPN connection.
+     * @description The name of the VPN attachment.
      *
-     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example nametest
      *
      * @var string

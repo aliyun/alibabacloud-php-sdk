@@ -45,7 +45,7 @@ class UpdateTransitRouterRequest extends Model
     /**
      * @description The region ID of the transit router.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -75,6 +75,7 @@ class UpdateTransitRouterRequest extends Model
     /**
      * @description The transit router ID.
      *
+     * This parameter is required.
      * @example tr-uf654ttymmljlvh2x****
      *
      * @var string

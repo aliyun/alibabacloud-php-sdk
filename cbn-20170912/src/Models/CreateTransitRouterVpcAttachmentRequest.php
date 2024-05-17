@@ -43,7 +43,7 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -75,7 +75,7 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
     /**
      * @description The ID of the region where the VPC is deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -132,6 +132,7 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
     /**
      * @description The VPC ID.
      *
+     * This parameter is required.
      * @example vpc-bp1kbjcre9vtsebo1****
      *
      * @var string
@@ -151,7 +152,7 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
     /**
      * @description A zone that supports Enterprise Edition transit routers.
      *
-     * You can specify at most 10 zones.
+     * This parameter is required.
      * @var zoneMappings[]
      */
     public $zoneMappings;

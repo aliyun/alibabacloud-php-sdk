@@ -90,7 +90,7 @@ class ListTransitRouterPrefixListAssociationRequest extends Model
     /**
      * @description The ID of the region where the transit router is deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -122,6 +122,7 @@ class ListTransitRouterPrefixListAssociationRequest extends Model
     /**
      * @description The ID of the transit router.
      *
+     * This parameter is required.
      * @example tr-6ehx7q2jze8ch5ji0****
      *
      * @var string

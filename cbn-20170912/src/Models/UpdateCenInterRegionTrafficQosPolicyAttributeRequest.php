@@ -63,6 +63,7 @@ class UpdateCenInterRegionTrafficQosPolicyAttributeRequest extends Model
     /**
      * @description The ID of the QoS policy.
      *
+     * This parameter is required.
      * @example qos-eczzew0v1kzrb5****
      *
      * @var string

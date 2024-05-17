@@ -19,10 +19,10 @@ class DeregisterTransitRouterMulticastGroupMembersRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
+     * @description Specifies whether to perform a dry run, without performing the actual request. Valid values:
      *
-     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false** (default): preforms a dry run and sends the request.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request.
      *
      * @example false
      *
@@ -33,6 +33,7 @@ class DeregisterTransitRouterMulticastGroupMembersRequest extends Model
     /**
      * @description The IP address of the multicast group to which the multicast members belong.
      *
+     * This parameter is required.
      * @example 239.XX.XX.2
      *
      * @var string
@@ -76,6 +77,7 @@ class DeregisterTransitRouterMulticastGroupMembersRequest extends Model
     /**
      * @description The ID of the multicast domain to which the multicast members belong.
      *
+     * This parameter is required.
      * @example tr-mcast-domain-91wpg6wbhchjeq****
      *
      * @var string

@@ -36,7 +36,7 @@ class CreateTrafficMarkingPolicyRequest extends Model
     /**
      * @description The differentiated services code point (DSCP) value to be added to packets that match the traffic classification rule. Valid values: **0** to **63**.
      *
-     * The DSCP value of each traffic marking policy on a transit router must be unique.
+     * This parameter is required.
      * @example 5
      *
      * @var int
@@ -56,7 +56,7 @@ class CreateTrafficMarkingPolicyRequest extends Model
     /**
      * @description The priority value of the traffic marking policy. Valid values: **1** to **100**.
      *
-     * The priority value of each traffic marking policy on a transit router must be unique. A smaller value specifies a higher priority.
+     * This parameter is required.
      * @example 5
      *
      * @var int
@@ -104,6 +104,7 @@ class CreateTrafficMarkingPolicyRequest extends Model
     /**
      * @description The ID of the transit router.
      *
+     * This parameter is required.
      * @example tr-8vbuqeo5h5pu3m01d****
      *
      * @var string

@@ -23,6 +23,8 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public $dryRun;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $dscps;
@@ -52,6 +54,8 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public $qosQueueName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var string
@@ -69,6 +73,8 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example qos-qdvybn468kaoxx****
      *
      * @var string

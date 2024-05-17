@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class trafficQosQueues extends Model
 {
     /**
+     * @description The differentiated services code point (DSCP) value that matches the current queue.
+     *
      * @var int[]
      */
     public $dscps;
 
     /**
+     * @description The percentage of bandwidth resources that can be allocated to the current queue.
+     *
+     * For example, a value of 1 indicates that 1 percent of bandwidth resources can be allocated to the queue.
      * @example 1
      *
      * @var int
@@ -21,6 +26,11 @@ class trafficQosQueues extends Model
     public $remainBandwidthPercent;
 
     /**
+     * @description The status of the queue. Valid values:
+     *
+     * - **Creating**: The queue is being created.
+     * - **Active**: The queue is available.
+     * - **Deleting**: The queue is being deleted.
      * @example Active
      *
      * @var string
@@ -28,6 +38,8 @@ class trafficQosQueues extends Model
     public $status;
 
     /**
+     * @description The ID of the QoS policy.
+     *
      * @example qos-fv2qq9yqrsjowp****
      *
      * @var string
@@ -35,6 +47,8 @@ class trafficQosQueues extends Model
     public $trafficQosPolicyId;
 
     /**
+     * @description The description of the queue.
+     *
      * @example qosQueueDescription
      *
      * @var string
@@ -42,6 +56,8 @@ class trafficQosQueues extends Model
     public $trafficQosQueueDescription;
 
     /**
+     * @description The ID of the queue.
+     *
      * @example qos-queue-siakjb2nn9gz5z****
      *
      * @var string
@@ -49,6 +65,8 @@ class trafficQosQueues extends Model
     public $trafficQosQueueId;
 
     /**
+     * @description The name of the queue.
+     *
      * @example qosQueueName
      *
      * @var string
@@ -56,6 +74,8 @@ class trafficQosQueues extends Model
     public $trafficQosQueueName;
 
     /**
+     * @description The ID of the inter-region connection.
+     *
      * @example tr-attach-nzrcv25d7ezt23****
      *
      * @var string
@@ -63,6 +83,8 @@ class trafficQosQueues extends Model
     public $transitRouterAttachmentId;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-p0wwagjv6fvxt4b7y****
      *
      * @var string

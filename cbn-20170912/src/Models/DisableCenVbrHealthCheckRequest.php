@@ -11,6 +11,7 @@ class DisableCenVbrHealthCheckRequest extends Model
     /**
      * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
+     * This parameter is required.
      * @example cen-sjfoejfghhjgghjghkg****
      *
      * @var string
@@ -40,6 +41,7 @@ class DisableCenVbrHealthCheckRequest extends Model
     /**
      * @description The ID of the VBR.
      *
+     * This parameter is required.
      * @example vbr-wz95o9aylj181n5****
      *
      * @var string
@@ -59,7 +61,7 @@ class DisableCenVbrHealthCheckRequest extends Model
     /**
      * @description The ID of the region where the VBR is deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

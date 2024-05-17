@@ -78,8 +78,8 @@ class CreateTransitRouterVpnAttachmentRequest extends Model
     /**
      * @description The ID of the region where the transit router is deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
-     * @example ap-southeast-2
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+     * @example cn-hangzhou
      *
      * @var string
      */
@@ -116,7 +116,7 @@ class CreateTransitRouterVpnAttachmentRequest extends Model
     /**
      * @description The name of the VPN attachment.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example nametest
      *
      * @var string
@@ -135,6 +135,7 @@ class CreateTransitRouterVpnAttachmentRequest extends Model
     /**
      * @description The ID of the IPsec-VPN attachment.
      *
+     * This parameter is required.
      * @example vco-p0w042cqwvlhl4zyw****
      *
      * @var string
@@ -156,7 +157,7 @@ class CreateTransitRouterVpnAttachmentRequest extends Model
     /**
      * @description The ID of the zone in the current region.
      *
-     * Resources are deployed in the specified zone.
+     * This parameter is required.
      * @var zone[]
      */
     public $zone;

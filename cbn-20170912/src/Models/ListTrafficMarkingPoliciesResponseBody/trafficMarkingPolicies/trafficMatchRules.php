@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class trafficMatchRules extends Model
 {
     /**
-     * @description The destination CIDR block used to match data packets.
+     * @description The destination CIDR block that is used to match packets.
      *
      * @example 192.168.120.0/24
      *
@@ -27,6 +27,7 @@ class trafficMatchRules extends Model
     /**
      * @description The DSCP value used to match data packets.
      *
+     * >  If the value of the **MatchDscp** parameter is -1, data packets are considered a match regardless of the DSCP value.
      * @example 6
      *
      * @var int
@@ -34,9 +35,9 @@ class trafficMatchRules extends Model
     public $matchDscp;
 
     /**
-     * @description The protocol used to match data packets.
+     * @description The protocol that is used to match packets.
      *
-     * > Traffic marking policies support multiple protocols. For more information, see the documentation of CEN.
+     * >  Traffic marking policies support multiple protocols. For more information, see the documentation of CEN.
      * @example HTTP
      *
      * @var string
@@ -44,7 +45,7 @@ class trafficMatchRules extends Model
     public $protocol;
 
     /**
-     * @description The source CIDR block used to match data packets.
+     * @description The source CIDR block that is used to match packets.
      *
      * @example 192.168.10.0/24
      *
@@ -92,7 +93,6 @@ class trafficMatchRules extends Model
      *   **Creating**: The rule is being created.
      *   **Active**: The rule is available.
      *   **Deleting**: The rule is being deleted.
-     *   **Deleted**: The rule is deleted.
      *
      * @example Creating
      *

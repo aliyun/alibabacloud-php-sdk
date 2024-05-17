@@ -21,8 +21,8 @@ class transitRouterMulticastDomains extends Model
     /**
      * @description The region ID of the transit router.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
-     * @example ap-southeast-2
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+     * @example cn-hangzhou
      *
      * @var string
      */

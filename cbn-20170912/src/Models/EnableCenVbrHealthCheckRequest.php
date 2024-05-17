@@ -11,6 +11,7 @@ class EnableCenVbrHealthCheckRequest extends Model
     /**
      * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
+     * This parameter is required.
      * @example cen-hahhfskfkseig****
      *
      * @var string
@@ -67,7 +68,7 @@ class EnableCenVbrHealthCheckRequest extends Model
     /**
      * @description The destination IP address for the health check.
      *
-     * Set the destination IP address to the IP address of the VBR on the customer side.
+     * This parameter is required.
      * @example 10.XX.XX.1
      *
      * @var string
@@ -106,6 +107,7 @@ class EnableCenVbrHealthCheckRequest extends Model
     /**
      * @description The ID of the VBR.
      *
+     * This parameter is required.
      * @example vbr-wz95o9aylj181n5mzk****
      *
      * @var string
@@ -125,7 +127,7 @@ class EnableCenVbrHealthCheckRequest extends Model
     /**
      * @description The ID of the region where the VBR is deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-shenzhen
      *
      * @var string

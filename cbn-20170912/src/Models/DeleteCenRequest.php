@@ -11,6 +11,7 @@ class DeleteCenRequest extends Model
     /**
      * @description The CEN instance ID.
      *
+     * This parameter is required.
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string

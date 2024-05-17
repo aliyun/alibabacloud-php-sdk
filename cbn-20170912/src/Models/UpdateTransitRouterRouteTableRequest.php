@@ -73,6 +73,7 @@ class UpdateTransitRouterRouteTableRequest extends Model
     /**
      * @description The ID of the route table of the Enterprise Edition transit router.
      *
+     * This parameter is required.
      * @example vtb-bp1dudbh2d5na6b50****
      *
      * @var string

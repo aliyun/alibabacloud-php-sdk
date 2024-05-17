@@ -11,6 +11,7 @@ class ModifyCenAttributeRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -30,7 +31,7 @@ class ModifyCenAttributeRequest extends Model
     /**
      * @description The name of the CEN instance.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter and cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string

@@ -71,6 +71,7 @@ class DescribeTransitRouteTableAggregationRequest extends Model
     /**
      * @description The ID of the route table of the Enterprise Edition transit router.
      *
+     * This parameter is required.
      * @example vtb-6ehgc262hr170qgyc****
      *
      * @var string

@@ -27,6 +27,11 @@ class cenInterRegionBandwidthLimit extends Model
     public $bandwidthPackageId;
 
     /**
+     * @var string
+     */
+    public $bandwidthType;
+
+    /**
      * @description The CEN instance ID.
      *
      * @example cen-pfa6ugf3xl0qsd****
@@ -47,7 +52,7 @@ class cenInterRegionBandwidthLimit extends Model
     /**
      * @description The ID of the local region.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
      * @example ccn-cn-shanghai
      *
      * @var string
@@ -77,6 +82,7 @@ class cenInterRegionBandwidthLimit extends Model
     protected $_name = [
         'bandwidthLimit'     => 'BandwidthLimit',
         'bandwidthPackageId' => 'BandwidthPackageId',
+        'bandwidthType'      => 'BandwidthType',
         'cenId'              => 'CenId',
         'geographicSpanId'   => 'GeographicSpanId',
         'localRegionId'      => 'LocalRegionId',
@@ -96,6 +102,9 @@ class cenInterRegionBandwidthLimit extends Model
         }
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
+        }
+        if (null !== $this->bandwidthType) {
+            $res['BandwidthType'] = $this->bandwidthType;
         }
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
@@ -129,6 +138,9 @@ class cenInterRegionBandwidthLimit extends Model
         }
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
+        }
+        if (isset($map['BandwidthType'])) {
+            $model->bandwidthType = $map['BandwidthType'];
         }
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];

@@ -36,7 +36,7 @@ class deleteTrafficMatchRules extends Model
     /**
      * @description The protocol that is used to match packets.
      *
-     * You can call the [ListTrafficMarkingPolicies](~~468322~~) operation to query the details about a traffic classification rule.
+     * You can call the [ListTrafficMarkingPolicies](https://help.aliyun.com/document_detail/468322.html) operation to query the details about a traffic classification rule.
      * @example TCP
      *
      * @var string

@@ -45,6 +45,7 @@ class DeleteCenInterRegionTrafficQosQueueRequest extends Model
     /**
      * @description The ID of the queue.
      *
+     * This parameter is required.
      * @example qos-queue-nv2vfzqkewhk4t****
      *
      * @var string

@@ -11,7 +11,7 @@ class zoneMappings extends Model
     /**
      * @description A vSwitch that is deployed in the zone that supports Enterprise Edition transit routers.
      *
-     * You can specify vSwitches for at most 10 zones in each call.
+     * This parameter is required.
      * @example vsw-bp1a214sbus8z3b54****
      *
      * @var string
@@ -21,7 +21,7 @@ class zoneMappings extends Model
     /**
      * @description The ID of the zone that supports Enterprise Edition transit routers.
      *
-     * You can specify at most 10 zones in each call.
+     * This parameter is required.
      * @example cn-hangzhou-h
      *
      * @var string

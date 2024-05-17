@@ -65,6 +65,7 @@ class UpdateTransitRouterRouteEntryRequest extends Model
     /**
      * @description The ID of the route.
      *
+     * This parameter is required.
      * @example rte-ksssq7kto4wfdx****
      *
      * @var string

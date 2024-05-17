@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCenBandwidthPackageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cenbwp-4c2zaavbvh5f42****
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeGrantRulesToCenRequest extends Model
     /**
      * @description The CEN instance ID.
      *
+     * This parameter is required.
      * @example cen-nye53d7p3hzyu4****
      *
      * @var string
@@ -75,6 +76,7 @@ class DescribeGrantRulesToCenRequest extends Model
      *   **CCN**
      *   **VPN**
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -84,7 +86,7 @@ class DescribeGrantRulesToCenRequest extends Model
     /**
      * @description The region ID of the network instance.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

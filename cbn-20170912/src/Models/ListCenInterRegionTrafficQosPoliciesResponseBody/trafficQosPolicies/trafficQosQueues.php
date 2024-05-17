@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class trafficQosQueues extends Model
 {
     /**
-     * @description The differentiated services code point (DSCP) value used to match packets in the queue.
+     * @description The differentiated services code point (DSCP) value that is used to match packets.
      *
      * @var int[]
      */
@@ -25,7 +25,7 @@ class trafficQosQueues extends Model
     public $qosQueueDescription;
 
     /**
-     * @description The ID of the queue.
+     * @description The queue ID.
      *
      * @example qos-queue-njcrmr9fiu1jii****
      *

@@ -41,6 +41,7 @@ class DescribeTransitRouteTableAggregationDetailRequest extends Model
     /**
      * @description The destination CIDR block of the aggregate route.
      *
+     * This parameter is required.
      * @example 192.168.10.0/24
      *
      * @var string
@@ -50,6 +51,7 @@ class DescribeTransitRouteTableAggregationDetailRequest extends Model
     /**
      * @description The ID of the route table of the Enterprise Edition transit router.
      *
+     * This parameter is required.
      * @example vtb-6ehgc262hr170qgyc****
      *
      * @var string

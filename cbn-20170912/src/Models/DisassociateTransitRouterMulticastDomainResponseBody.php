@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisassociateTransitRouterMulticastDomainResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 6F6B3FF0-45D1-5416-B189-C45A42A0222B
      *
      * @var string

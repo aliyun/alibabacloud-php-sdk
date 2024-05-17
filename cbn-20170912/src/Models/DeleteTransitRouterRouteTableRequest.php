@@ -55,6 +55,7 @@ class DeleteTransitRouterRouteTableRequest extends Model
     /**
      * @description The ID of the custom route table.
      *
+     * This parameter is required.
      * @example vtb-bp1xbcgpgcz9axl9m****
      *
      * @var string

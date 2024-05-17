@@ -55,6 +55,7 @@ class DisableTransitRouterRouteTablePropagationRequest extends Model
     /**
      * @description The ID of the network instance connection.
      *
+     * This parameter is required.
      * @example tr-attach-vx6iwhjr1x1j78****
      *
      * @var string
@@ -64,6 +65,7 @@ class DisableTransitRouterRouteTablePropagationRequest extends Model
     /**
      * @description The ID of the route table of the Enterprise Edition transit router.
      *
+     * This parameter is required.
      * @example vtb-bp1dudbh2d5na6b50****
      *
      * @var string

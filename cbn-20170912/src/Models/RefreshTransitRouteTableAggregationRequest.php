@@ -36,6 +36,8 @@ class RefreshTransitRouteTableAggregationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 192.168.53.0/24
      *
      * @var string
@@ -43,6 +45,8 @@ class RefreshTransitRouteTableAggregationRequest extends Model
     public $transitRouteTableAggregationCidr;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vtb-iq8qgruq1ry8jc7vt****
      *
      * @var string

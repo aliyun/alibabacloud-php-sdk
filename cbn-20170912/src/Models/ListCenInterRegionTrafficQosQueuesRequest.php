@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCenInterRegionTrafficQosQueuesRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -16,7 +18,10 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public $maxResults;
 
     /**
-     * @example 2ca1ed1573cbfd3a
+     * @description The token that determines the start point of the query.
+     *
+     * - If NextToken was returned in the previous query, specify the value to obtain the next set of results.
+     * @example 2ca1ed1573cb****
      *
      * @var string
      */
@@ -43,6 +48,8 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the QoS policy.
+     *
      * @example qos-rnghap5gc8155x****
      *
      * @var string
@@ -50,6 +57,8 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public $trafficQosPolicyId;
 
     /**
+     * @description The description of the queue.
+     *
      * @example qosQueueDescription
      *
      * @var string
@@ -57,6 +66,8 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public $trafficQosQueueDescription;
 
     /**
+     * @description The ID of the queue.
+     *
      * @example qos-queue-siakjb2nn9gz5z****
      *
      * @var string
@@ -64,6 +75,8 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public $trafficQosQueueId;
 
     /**
+     * @description The name of the queue.
+     *
      * @example qosQueueName
      *
      * @var string
@@ -71,6 +84,8 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public $trafficQosQueueName;
 
     /**
+     * @description The ID of the inter-region connection.
+     *
      * @example tr-attach-a6p8voaodog5c0****
      *
      * @var string
@@ -78,6 +93,8 @@ class ListCenInterRegionTrafficQosQueuesRequest extends Model
     public $transitRouterAttachmentId;
 
     /**
+     * @description The ID of the transit router.
+     *
      * @example tr-bp1rmwxnk221e3fas****
      *
      * @var string

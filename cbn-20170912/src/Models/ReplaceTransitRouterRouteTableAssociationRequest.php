@@ -55,6 +55,7 @@ class ReplaceTransitRouterRouteTableAssociationRequest extends Model
     /**
      * @description The ID of the network instance connection.
      *
+     * This parameter is required.
      * @example tr-attach-071g5j5tefg4x6****
      *
      * @var string
@@ -64,6 +65,7 @@ class ReplaceTransitRouterRouteTableAssociationRequest extends Model
     /**
      * @description The ID of the route table with which you want to associate the network instance connection.
      *
+     * This parameter is required.
      * @example vtb-bp1cprmc6xmzjd66i****
      *
      * @var string

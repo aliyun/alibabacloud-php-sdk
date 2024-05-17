@@ -41,7 +41,7 @@ class transitRouters extends Model
     /**
      * @description The ID of the region where the transit router is deployed.
      *
-     * @example ap-southeast-2
+     * @example cn-hangzhou
      *
      * @var string
      */

@@ -49,7 +49,7 @@ class ListTrafficMarkingPoliciesResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The list of traffic marking policies.
+     * @description The information about the traffic marking policy.
      *
      * @var trafficMarkingPolicies[]
      */

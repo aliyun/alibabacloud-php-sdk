@@ -36,6 +36,8 @@ class CreateTransitRouterPrefixListAssociationRequest extends Model
      * @description The ID of the next hop.
      *
      * > If **NextHopType** is set to **BlackHole**, you must set this parameter to **BlackHole**.
+     *
+     * This parameter is required.
      * @example tr-attach-flbq507rg2ckrj****
      *
      * @var string
@@ -78,6 +80,7 @@ class CreateTransitRouterPrefixListAssociationRequest extends Model
     /**
      * @description The ID of the prefix list.
      *
+     * This parameter is required.
      * @example pl-6ehtn5kqxgeyy08fi****
      *
      * @var string
@@ -87,7 +90,7 @@ class CreateTransitRouterPrefixListAssociationRequest extends Model
     /**
      * @description The ID of the region where the transit router is deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -107,6 +110,7 @@ class CreateTransitRouterPrefixListAssociationRequest extends Model
     /**
      * @description The ID of the transit router.
      *
+     * This parameter is required.
      * @example tr-6ehx7q2jze8ch5ji0****
      *
      * @var string
@@ -116,6 +120,7 @@ class CreateTransitRouterPrefixListAssociationRequest extends Model
     /**
      * @description The ID of the route table of the transit router.
      *
+     * This parameter is required.
      * @example vtb-6ehgc262hr170qgyc****
      *
      * @var string

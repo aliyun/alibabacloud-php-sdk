@@ -52,7 +52,7 @@ class ListTrafficMarkingPoliciesRequest extends Model
     /**
      * @description The description of the traffic marking policy.
      *
-     * The description must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The description must start with a letter.
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
      * @example desctest
      *
      * @var string
@@ -71,7 +71,7 @@ class ListTrafficMarkingPoliciesRequest extends Model
     /**
      * @description The name of the traffic marking policy.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example nametest
      *
      * @var string

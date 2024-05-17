@@ -11,6 +11,7 @@ class DeleteCenChildInstanceRouteEntryToAttachmentRequest extends Model
     /**
      * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
+     * This parameter is required.
      * @example cen-wgcl0ik5o8jakq****
      *
      * @var string
@@ -32,6 +33,7 @@ class DeleteCenChildInstanceRouteEntryToAttachmentRequest extends Model
     /**
      * @description The destination CIDR block of the route.
      *
+     * This parameter is required.
      * @example 10.0.1.0/24
      *
      * @var string
@@ -74,6 +76,7 @@ class DeleteCenChildInstanceRouteEntryToAttachmentRequest extends Model
     /**
      * @description The ID of the route table configured on the network instance.
      *
+     * This parameter is required.
      * @example vtb-bp1osd9opvegfpowc****
      *
      * @var string
@@ -83,6 +86,7 @@ class DeleteCenChildInstanceRouteEntryToAttachmentRequest extends Model
     /**
      * @description The ID of the network instance connection.
      *
+     * This parameter is required.
      * @example tr-attach-r1qhupkc19iadz****
      *
      * @var string

@@ -55,7 +55,6 @@ class RemoveTrafficMatchRuleFromTrafficMarkingPolicyRequest extends Model
     /**
      * @description The ID of the traffic classification rule.
      *
-     * You can specify at most 20 traffic classification rules.
      * @var string[]
      */
     public $trafficMarkRuleIds;
@@ -63,6 +62,7 @@ class RemoveTrafficMatchRuleFromTrafficMarkingPolicyRequest extends Model
     /**
      * @description The ID of the traffic marking policy.
      *
+     * This parameter is required.
      * @example tm-d33hdczo3qo8ta****
      *
      * @var string

@@ -10,13 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListCenInterRegionTrafficQosQueuesResponseBody extends Model
 {
     /**
-     * @example 0151fa6aa1ed43b7
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     * - If NextToken was returned in the previous query, specify the value to obtain the next set of results.
+     * @example 0151fa6aa1ed****
      *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1D1E15D2-416D-54F3-BDD9-BC27DE4C6352
      *
      * @var string
@@ -24,6 +29,8 @@ class ListCenInterRegionTrafficQosQueuesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description A list of queues.
+     *
      * @var trafficQosQueues[]
      */
     public $trafficQosQueues;

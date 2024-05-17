@@ -53,6 +53,7 @@ class DeleteTransitRouterMulticastDomainRequest extends Model
     /**
      * @description The ID of the multicast domain.
      *
+     * This parameter is required.
      * @example tr-mcast-domain-40cwj0rgzgdtam****
      *
      * @var string

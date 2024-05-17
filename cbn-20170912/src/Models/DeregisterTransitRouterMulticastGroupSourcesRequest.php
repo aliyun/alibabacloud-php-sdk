@@ -33,6 +33,7 @@ class DeregisterTransitRouterMulticastGroupSourcesRequest extends Model
     /**
      * @description The IP address of the multicast group to which the multicast source belongs.
      *
+     * This parameter is required.
      * @example 239.XX.XX.2
      *
      * @var string
@@ -69,6 +70,7 @@ class DeregisterTransitRouterMulticastGroupSourcesRequest extends Model
     /**
      * @description The ID of the multicast domain to which the multicast source belongs.
      *
+     * This parameter is required.
      * @example tr-mcast-domain-91wpg6wbhchjeq****
      *
      * @var string

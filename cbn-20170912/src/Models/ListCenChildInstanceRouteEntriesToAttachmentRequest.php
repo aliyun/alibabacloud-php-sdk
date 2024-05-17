@@ -21,6 +21,7 @@ class ListCenChildInstanceRouteEntriesToAttachmentRequest extends Model
     /**
      * @description The ID of the route table configured on the network instance.
      *
+     * This parameter is required.
      * @example vtb-bp174d1gje79u1g4t****
      *
      * @var string
@@ -87,6 +88,7 @@ class ListCenChildInstanceRouteEntriesToAttachmentRequest extends Model
     /**
      * @description The ID of the network instance connection.
      *
+     * This parameter is required.
      * @example tr-attach-r6g0m3epjehw57****
      *
      * @var string

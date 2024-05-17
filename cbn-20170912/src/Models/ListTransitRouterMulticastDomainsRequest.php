@@ -62,8 +62,8 @@ class ListTransitRouterMulticastDomainsRequest extends Model
     /**
      * @description The region ID of the transit router.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
-     * @example ap-southeast-2
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+     * @example cn-hangzhou
      *
      * @var string
      */
@@ -82,7 +82,7 @@ class ListTransitRouterMulticastDomainsRequest extends Model
     /**
      * @description The tags.
      *
-     * You can specify at most 20 tags in each call.
+     * You can specify up to 20 tags in each call.
      * @var tag[]
      */
     public $tag;

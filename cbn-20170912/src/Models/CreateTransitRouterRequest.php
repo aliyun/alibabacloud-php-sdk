@@ -13,6 +13,7 @@ class CreateTransitRouterRequest extends Model
     /**
      * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
+     * This parameter is required.
      * @example cen-j3jzhw1zpau2km****
      *
      * @var string
@@ -55,7 +56,7 @@ class CreateTransitRouterRequest extends Model
     /**
      * @description The ID of the region where the Enterprise Edition transit router is deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-zhangjiakou
      *
      * @var string
@@ -78,7 +79,7 @@ class CreateTransitRouterRequest extends Model
      *   **false** (default): no
      *   **true**: yes
      *
-     * The multicast feature is supported only in specific regions. You can call [ListTransitRouterAvailableResource](~~261356~~) to query the regions that support multicast.
+     * The multicast feature is supported only in specific regions. You can call [ListTransitRouterAvailableResource](https://help.aliyun.com/document_detail/261356.html) to query the regions that support multicast.
      * @example false
      *
      * @var bool

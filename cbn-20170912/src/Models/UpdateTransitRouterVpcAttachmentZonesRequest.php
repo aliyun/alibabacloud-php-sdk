@@ -69,6 +69,7 @@ class UpdateTransitRouterVpcAttachmentZonesRequest extends Model
     /**
      * @description The ID of the VPC connection.
      *
+     * This parameter is required.
      * @example tr-attach-9bbqyygouv4cpn****
      *
      * @var string

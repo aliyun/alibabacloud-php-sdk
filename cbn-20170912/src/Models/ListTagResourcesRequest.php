@@ -93,6 +93,7 @@ class ListTagResourcesRequest extends Model
      *
      **TransitRouterMulticastDomain**: multicast domain
      *
+     * This parameter is required.
      * @example cen
      *
      * @var string

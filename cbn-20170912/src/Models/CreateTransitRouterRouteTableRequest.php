@@ -72,6 +72,7 @@ class CreateTransitRouterRouteTableRequest extends Model
     /**
      * @description The ID of the Enterprise Edition transit router.
      *
+     * This parameter is required.
      * @example tr-bp1su1ytdxtataupl****
      *
      * @var string

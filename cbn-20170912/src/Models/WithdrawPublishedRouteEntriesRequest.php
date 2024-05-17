@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class WithdrawPublishedRouteEntriesRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
+     * This parameter is required.
      * @example cen-sxjfjkjfkjfiein****
      *
      * @var string
@@ -16,6 +19,9 @@ class WithdrawPublishedRouteEntriesRequest extends Model
     public $cenId;
 
     /**
+     * @description The ID of the attached network instance.
+     *
+     * This parameter is required.
      * @example vpc-rj9gt5nll27onu7****
      *
      * @var string
@@ -23,6 +29,9 @@ class WithdrawPublishedRouteEntriesRequest extends Model
     public $childInstanceId;
 
     /**
+     * @description The ID of the region where the attached network instance is created.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +39,9 @@ class WithdrawPublishedRouteEntriesRequest extends Model
     public $childInstanceRegionId;
 
     /**
+     * @description The ID of the route table of the attached network instance.
+     *
+     * This parameter is required.
      * @example vtb-bp174d1gje79u1g4t****
      *
      * @var string
@@ -37,6 +49,11 @@ class WithdrawPublishedRouteEntriesRequest extends Model
     public $childInstanceRouteTableId;
 
     /**
+     * @description The type of the attached network instance.
+     *
+     * Set the value to **VPC**, which indicates a virtual private cloud (VPC).
+     *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -44,6 +61,11 @@ class WithdrawPublishedRouteEntriesRequest extends Model
     public $childInstanceType;
 
     /**
+     * @description The destination CIDR block of the route that you want to withdraw.
+     *
+     * This parameter is required.
+     * @example 172.XX.XX.0/24
+     *
      * @var string
      */
     public $destinationCidrBlock;

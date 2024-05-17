@@ -56,6 +56,8 @@ class DeleteTransitRouteTableAggregationRequest extends Model
      * >  The following CIDR blocks are not supported:
      * >*   CIDR blocks that start with 0 or 100.64.
      * >*   Multicast CIDR blocks, including 224.0.0.1 to 239.255.255.254.
+     *
+     * This parameter is required.
      * @example 192.168.10.0/24
      *
      * @var string
@@ -65,6 +67,7 @@ class DeleteTransitRouteTableAggregationRequest extends Model
     /**
      * @description The ID of the route table of the Enterprise Edition transit router.
      *
+     * This parameter is required.
      * @example vtb-6ehgc262hr170qgyc****
      *
      * @var string

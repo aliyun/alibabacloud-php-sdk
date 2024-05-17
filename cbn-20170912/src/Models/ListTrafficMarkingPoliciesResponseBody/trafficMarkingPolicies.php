@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class trafficMarkingPolicies extends Model
 {
     /**
-     * @description The differentiated services code point (DSCP) value of the traffic marking policy.
+     * @description The Differentiated Service Code Point (DSCP) value of the traffic marking policy.
      *
      * @example 5
      *
@@ -21,7 +21,7 @@ class trafficMarkingPolicies extends Model
     /**
      * @description The priority of the traffic marking policy.
      *
-     * A smaller value indicates a higher priority.
+     * A lower value indicates a higher priority.
      * @example 5
      *
      * @var int
@@ -60,9 +60,8 @@ class trafficMarkingPolicies extends Model
      *
      *   **Creating**: The policy is being created.
      *   **Active**: The policy is available.
-     *   **Modifying**: The policy is being modified
+     *   **Modifying**: The policy is being modified.
      *   **Deleting**: The policy is being deleted.
-     *   **Deleted**: The policy is deleted.
      *
      * @example Creating
      *
@@ -71,7 +70,7 @@ class trafficMarkingPolicies extends Model
     public $trafficMarkingPolicyStatus;
 
     /**
-     * @description The list of traffic classification rules.
+     * @description The traffic classification rules.
      *
      * @var trafficMatchRules[]
      */

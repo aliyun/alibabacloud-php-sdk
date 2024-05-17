@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AssociateTransitRouterMulticastDomainRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The client token can contain only ASCII characters.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +19,11 @@ class AssociateTransitRouterMulticastDomainRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether only to precheck the API request. Valid values:
+     *
+     *   **true**: prechecks the request but does not associate the vSwitch with the multicast domain. The system checks the required parameters, the request format, and the service limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. The vSwitch is associated with the multicast domain after the request passes the precheck.
+     *
      * @example false
      *
      * @var bool
@@ -43,6 +51,9 @@ class AssociateTransitRouterMulticastDomainRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VPC connection.
+     *
+     * This parameter is required.
      * @example tr-attach-g3kz2k3u76amsk****
      *
      * @var string
@@ -50,6 +61,9 @@ class AssociateTransitRouterMulticastDomainRequest extends Model
     public $transitRouterAttachmentId;
 
     /**
+     * @description The ID of the multicast domain.
+     *
+     * This parameter is required.
      * @example tr-mcast-domain-91wpg6wbhchjeq****
      *
      * @var string
@@ -57,6 +71,9 @@ class AssociateTransitRouterMulticastDomainRequest extends Model
     public $transitRouterMulticastDomainId;
 
     /**
+     * @description The vSwitch IDs.
+     *
+     * You can specify at most five vSwitch IDs in each call.
      * @var string[]
      */
     public $vSwitchIds;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class childInstance extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-j3jzhw1zpau2km****
      *
      * @var string
@@ -16,6 +18,9 @@ class childInstance extends Model
     public $cenId;
 
     /**
+     * @description The time when the network instance was attached to the CEN instance.
+     *
+     * The time follows the ISO8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
      * @example 2021-08-10T06:27Z
      *
      * @var string
@@ -23,6 +28,8 @@ class childInstance extends Model
     public $childInstanceAttachTime;
 
     /**
+     * @description The ID of the network instance.
+     *
      * @example vpc-8vb1lu55yt9rlwgxl****
      *
      * @var string
@@ -30,6 +37,8 @@ class childInstance extends Model
     public $childInstanceId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the network instance belongs.
+     *
      * @example 1688000000000000
      *
      * @var int
@@ -37,6 +46,8 @@ class childInstance extends Model
     public $childInstanceOwnerId;
 
     /**
+     * @description The ID of the region where the network instance is deployed.
+     *
      * @example cn-zhangjiakou
      *
      * @var string
@@ -44,6 +55,12 @@ class childInstance extends Model
     public $childInstanceRegionId;
 
     /**
+     * @description The type of the network instance. Valid values:
+     *
+     *   **VPC**: VPC
+     *   **VBR**: VBR
+     *   **CCN**: CCN instance
+     *
      * @example VPC
      *
      * @var string
@@ -51,6 +68,12 @@ class childInstance extends Model
     public $childInstanceType;
 
     /**
+     * @description The status of the network instance. Valid values:
+     *
+     *   **Attaching**: The network instance is being created on the transit router.
+     *   **Attached**: The network instance has been created on the transit router.
+     *   **Detaching**: The network instance is being deleted from the transit router.
+     *
      * @example Attached
      *
      * @var string

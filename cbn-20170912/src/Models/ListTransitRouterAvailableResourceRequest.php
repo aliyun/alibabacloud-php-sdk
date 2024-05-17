@@ -21,8 +21,8 @@ class ListTransitRouterAvailableResourceRequest extends Model
     /**
      * @description The region ID of the Enterprise Edition transit router.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
-     * @example ap-southeast-2
+     * This parameter is required.
+     * @example cn-hangzhou
      *
      * @var string
      */

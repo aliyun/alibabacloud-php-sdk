@@ -62,6 +62,7 @@ class RemoveTraficMatchRuleFromTrafficMarkingPolicyRequest extends Model
     /**
      * @description The ID of the traffic marking policy.
      *
+     * This parameter is required.
      * @example tm-d33hdczo3qo8ta****
      *
      * @var string

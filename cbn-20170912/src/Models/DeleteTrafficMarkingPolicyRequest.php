@@ -55,6 +55,7 @@ class DeleteTrafficMarkingPolicyRequest extends Model
     /**
      * @description The ID of the traffic marking policy.
      *
+     * This parameter is required.
      * @example tm-u9nxup5kww5po8****
      *
      * @var string

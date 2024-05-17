@@ -55,6 +55,7 @@ class DeleteTransitRouterRequest extends Model
     /**
      * @description The ID of the transit router.
      *
+     * This parameter is required.
      * @example tr-uf654ttymmljlvh2x****
      *
      * @var string

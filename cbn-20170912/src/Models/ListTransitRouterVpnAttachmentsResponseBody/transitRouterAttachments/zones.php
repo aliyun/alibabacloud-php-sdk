@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
-     * You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
-     * @example ap-southeast-2a
+     * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the most recent zone list.
+     * @example cn-hangzhou-h
      *
      * @var string
      */

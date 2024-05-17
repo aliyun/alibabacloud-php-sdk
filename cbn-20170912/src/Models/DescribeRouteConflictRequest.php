@@ -11,6 +11,7 @@ class DescribeRouteConflictRequest extends Model
     /**
      * @description The ID of the network instance that you want to query.
      *
+     * This parameter is required.
      * @example ccn-0q3b7oviikmm9h****
      *
      * @var string
@@ -20,7 +21,7 @@ class DescribeRouteConflictRequest extends Model
     /**
      * @description The ID of the region where the network instance is deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example ccn-cn-shanghai
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeRouteConflictRequest extends Model
     /**
      * @description The ID of the route table that is configured on the network instance.
      *
+     * This parameter is required.
      * @example vtb-bp174d1gje79u1g4t****
      *
      * @var string
@@ -43,6 +45,7 @@ class DescribeRouteConflictRequest extends Model
      *   **VBR**: virtual border router (VBR)
      *   **CCN**: Cloud Connect Network (CCN) instance
      *
+     * This parameter is required.
      * @example CCN
      *
      * @var string

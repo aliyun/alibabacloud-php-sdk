@@ -47,6 +47,7 @@ class CreateCenBandwidthPackageRequest extends Model
     /**
      * @description The maximum bandwidth value of the bandwidth plan. Unit: Mbit/s. Valid values: **2** to **10000**.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -90,6 +91,7 @@ class CreateCenBandwidthPackageRequest extends Model
      *   **Europe**: Europe
      *   **Australia**: Australia
      *
+     * This parameter is required.
      * @example China
      *
      * @var string
@@ -105,6 +107,7 @@ class CreateCenBandwidthPackageRequest extends Model
      *   **Europe**: Europe
      *   **Australia**: Australia
      *
+     * This parameter is required.
      * @example China
      *
      * @var string
@@ -114,7 +117,7 @@ class CreateCenBandwidthPackageRequest extends Model
     /**
      * @description The name of the bandwidth plan.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter and cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter and cannot start with `http://` or `https://`.
      * @example nametest
      *
      * @var string

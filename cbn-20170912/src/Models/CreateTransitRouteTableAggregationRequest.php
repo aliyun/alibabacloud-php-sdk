@@ -56,6 +56,8 @@ class CreateTransitRouteTableAggregationRequest extends Model
      * >  The following CIDR blocks are not supported:
      * >*   CIDR blocks that start with 0 or 100.64.
      * >*   Multicast CIDR blocks, including 224.0.0.1 to 239.255.255.254.
+     *
+     * This parameter is required.
      * @example 192.168.10.0/24
      *
      * @var string
@@ -65,7 +67,7 @@ class CreateTransitRouteTableAggregationRequest extends Model
     /**
      * @description The description of the aggregate route.
      *
-     * The description must be 0 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ \_ -.
+     * The description must be 0 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ _ -.
      * @example desctest
      *
      * @var string
@@ -75,7 +77,7 @@ class CreateTransitRouteTableAggregationRequest extends Model
     /**
      * @description The name of the aggregate route.
      *
-     * The name must be 1 to 128 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ \_ -. You can also leave the name empty.
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ _ -. You can also leave the name empty.
      * @example nametest
      *
      * @var string
@@ -86,6 +88,8 @@ class CreateTransitRouteTableAggregationRequest extends Model
      * @description The scope of networks that you want to advertise the aggregate route.
      *
      * Set the value to **VPC**, which specified that the aggregate route is advertised to VPCs that are in associated forwarding relationship with a route table of the Enterprise Edition transit router and have route synchronization enabled.
+     *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -95,6 +99,7 @@ class CreateTransitRouteTableAggregationRequest extends Model
     /**
      * @description The ID of the route table of the Enterprise Edition transit router.
      *
+     * This parameter is required.
      * @example vtb-iq8qgruq1ry8jc7vt****
      *
      * @var string

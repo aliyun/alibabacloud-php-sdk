@@ -11,6 +11,7 @@ class RevokeInstanceFromTransitRouterRequest extends Model
     /**
      * @description The ID of the Cloud Enterprise Network (CEN) instance to which the transit router belongs.
      *
+     * This parameter is required.
      * @example cen-44m0p68spvlrqq****
      *
      * @var string
@@ -20,6 +21,7 @@ class RevokeInstanceFromTransitRouterRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
      *
+     * This parameter is required.
      * @example 1250123456123456
      *
      * @var int
@@ -29,6 +31,7 @@ class RevokeInstanceFromTransitRouterRequest extends Model
     /**
      * @description The network instance ID.
      *
+     * This parameter is required.
      * @example vpc-bp1h8vbrbcgohcju5****
      *
      * @var string
@@ -42,6 +45,7 @@ class RevokeInstanceFromTransitRouterRequest extends Model
      *   **ExpressConnect**: VBR
      *   **VPN**: IPsec connection
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -61,7 +65,7 @@ class RevokeInstanceFromTransitRouterRequest extends Model
     /**
      * @description The region ID of the network instance.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

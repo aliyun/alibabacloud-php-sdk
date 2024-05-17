@@ -31,8 +31,8 @@ class ListTransitRouterMulticastGroupsRequest extends Model
     /**
      * @description Specified whether to query the multicast members. Valid values:
      *
-     *   **false**: no
-     *   **true**: yes
+     *   **false**
+     *   **true**
      *
      * >- If you set only one of them or both of them, the specified values prevail.
      * @example false
@@ -44,10 +44,12 @@ class ListTransitRouterMulticastGroupsRequest extends Model
     /**
      * @description Specifies whether to query the multicast sources. Valid values:
      *
-     *   **false**: no
-     *   **true**: yes
+     *   **false**
+     *   **true**
      *
-     * >- If you set only one of them or both of them, the specified values prevail.
+     * > - This parameter must be specified together with the IsGroupMember parameter.
+     * > *   If you do not specify IsGroupMember or IsGroupSource, both the multicast sources and members are queried.
+     * > *   If you specify only one of them or both of them, the specified values prevail.
      * @example true
      *
      * @var bool
@@ -131,8 +133,9 @@ class ListTransitRouterMulticastGroupsRequest extends Model
     public $resourceType;
 
     /**
-     * @description The ID of the network instance connection.
+     * @description The ID of the network instance connection
      *
+     * You must configure one of the TransitRouterMulticastDomainId and TransitRouterAttachmentId parameters.
      * @example tr-attach-g3kz2k3u76amsk****
      *
      * @var string
@@ -142,6 +145,7 @@ class ListTransitRouterMulticastGroupsRequest extends Model
     /**
      * @description The ID of the multicast domain.
      *
+     * You must configure one of the TransitRouterMulticastDomainId and TransitRouterAttachmentId parameters.
      * @example tr-mcast-domain-5mjb5gjb6dgu98****
      *
      * @var string

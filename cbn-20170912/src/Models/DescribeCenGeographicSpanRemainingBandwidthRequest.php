@@ -11,6 +11,7 @@ class DescribeCenGeographicSpanRemainingBandwidthRequest extends Model
     /**
      * @description The ID of the Cloud Enterprise Network (CEN) instance to which the bandwidth plan is associated.
      *
+     * This parameter is required.
      * @example cen-nh98vzx8gfhlwn****
      *
      * @var string
@@ -26,6 +27,7 @@ class DescribeCenGeographicSpanRemainingBandwidthRequest extends Model
      *   **Europe**: Europe
      *   **Australia**: Australia
      *
+     * This parameter is required.
      * @example China
      *
      * @var string
@@ -41,6 +43,7 @@ class DescribeCenGeographicSpanRemainingBandwidthRequest extends Model
      *   **Europe**: Europe
      *   **Australia**: Australia
      *
+     * This parameter is required.
      * @example North-America
      *
      * @var string

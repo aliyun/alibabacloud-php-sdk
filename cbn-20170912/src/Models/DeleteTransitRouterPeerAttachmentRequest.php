@@ -67,6 +67,7 @@ class DeleteTransitRouterPeerAttachmentRequest extends Model
     /**
      * @description The ID of the inter-region connection.
      *
+     * This parameter is required.
      * @example tr-attach-gyjhtx9sjsxhm6****
      *
      * @var string

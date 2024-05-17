@@ -11,6 +11,7 @@ class ModifyFlowLogAttributeRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -40,6 +41,7 @@ class ModifyFlowLogAttributeRequest extends Model
     /**
      * @description The ID of the flow log.
      *
+     * This parameter is required.
      * @example flowlog-m5evbtbpt****
      *
      * @var string
@@ -69,7 +71,7 @@ class ModifyFlowLogAttributeRequest extends Model
     /**
      * @description The ID of the region where the flow log is deployed.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

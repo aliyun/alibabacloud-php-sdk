@@ -57,8 +57,8 @@ class ListTransitRoutersRequest extends Model
     /**
      * @description The ID of the region where the transit router is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
-     * @example ap-southeast-2
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+     * @example cn-hangzhou
      *
      * @var string
      */
@@ -109,7 +109,7 @@ class ListTransitRoutersRequest extends Model
     /**
      * @description The name of the Enterprise Edition transit router.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example testname
      *
      * @var string

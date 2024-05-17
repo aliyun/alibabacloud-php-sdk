@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TempUpgradeCenBandwidthPackageSpecRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,8 @@ class TempUpgradeCenBandwidthPackageSpecRequest extends Model
     public $bandwidth;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cenbwp-y08yosedeqlpua****
      *
      * @var string
@@ -23,6 +27,8 @@ class TempUpgradeCenBandwidthPackageSpecRequest extends Model
     public $cenBandwidthPackageId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-07-24T13:00:52Z
      *
      * @var string

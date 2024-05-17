@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class trafficQosQueues extends Model
 {
     /**
-     * @description The DSCP value that matches the current queue.
+     * @description The Differentiated Services Code Point (DSCP) value that matches the current queue.
      *
-     * Each QoS policy supports up to three queues. You can specify at most 60 DSCP values for each queue. Separate DSCP values with commas (,).
+     * Each QoS policy supports at most three queues. You can specify at most 60 DSCP values for each queue. Separate multiple DCSP values with commas (,).
      * @var int[]
      */
     public $dscps;
@@ -19,7 +19,7 @@ class trafficQosQueues extends Model
     /**
      * @description The description of the current queue.
      *
-     * The description must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The description must start with a letter.
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
      * @example desctest
      *
      * @var string
@@ -29,7 +29,7 @@ class trafficQosQueues extends Model
     /**
      * @description The name of the current queue.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example nametest
      *
      * @var string
@@ -37,11 +37,11 @@ class trafficQosQueues extends Model
     public $qosQueueName;
 
     /**
-     * @description The percentage of bandwidth resources that can be allocated to the current queue.
+     * @description The percentage of the inter-region bandwidth that can be used by the queue.
      *
-     * Each QoS policy supports up to three queues. You can specify a percentage of bandwidth resources for each queue.
+     * Each QoS policy supports at most three queues. You can specify a valid percentage for each queue.
      *
-     * If you enter **1**, it indicates that the current queue can consume at most \*\*1%\*\* of the bandwidth resources.
+     * For example, a value of **1** specifies that the queue can consume 1% of the inter-region bandwidth.
      *
      * >  The sum of the percentage values of all the queues in a QoS policy cannot exceed 100%.
      * @example 1

@@ -11,6 +11,7 @@ class ResolveAndRouteServiceInCenRequest extends Model
     /**
      * @description The IDs of the regions where the cloud service is accessed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string[]
@@ -20,6 +21,7 @@ class ResolveAndRouteServiceInCenRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-ckwa2hhmuislse****
      *
      * @var string
@@ -51,7 +53,7 @@ class ResolveAndRouteServiceInCenRequest extends Model
     /**
      * @description The IP addresses or CIDR blocks of the cloud service.
      *
-     * > In most cases, multiple IP addresses or CIDR blocks are assigned to a cloud service. We recommend that you call this operation multiple times to add all IP addresses and CIDR blocks of the cloud service.
+     * This parameter is required.
      * @example 100.118.28.0/24
      *
      * @var string
@@ -61,6 +63,7 @@ class ResolveAndRouteServiceInCenRequest extends Model
     /**
      * @description The ID of the region in which the cloud service is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -70,6 +73,7 @@ class ResolveAndRouteServiceInCenRequest extends Model
     /**
      * @description The ID of the VPC that is associated with the cloud service.
      *
+     * This parameter is required.
      * @example vpc-o6woh5s494zueq40v****
      *
      * @var string

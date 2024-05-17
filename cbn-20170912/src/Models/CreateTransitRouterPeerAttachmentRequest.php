@@ -112,6 +112,7 @@ class CreateTransitRouterPeerAttachmentRequest extends Model
     /**
      * @description The ID of the peer transit router.
      *
+     * This parameter is required.
      * @example tr-m5eq27g6bndum7e88****
      *
      * @var string
@@ -130,7 +131,7 @@ class CreateTransitRouterPeerAttachmentRequest extends Model
     /**
      * @description The ID of the region where the local Enterprise Edition transit router is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

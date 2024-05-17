@@ -65,6 +65,7 @@ class CreateTransitRouterRouteEntryRequest extends Model
     /**
      * @description The destination CIDR block of the route.
      *
+     * This parameter is required.
      * @example 192.168.0.0/24
      *
      * @var string
@@ -96,6 +97,7 @@ class CreateTransitRouterRouteEntryRequest extends Model
      *   **BlackHole**: routes network traffic to a black hole. All packets that match this route are dropped. If you select this option, you do not need to specify the next hop information.
      *   **Attachment**: routes network traffic to a network instance connection. If you select this option, you must specify the ID of the network instance connection. All packets that match this route are routed to the specified network instance connection.
      *
+     * This parameter is required.
      * @example BlackHole
      *
      * @var string
@@ -105,6 +107,7 @@ class CreateTransitRouterRouteEntryRequest extends Model
     /**
      * @description The ID of the route table of the Enterprise Edition transit router.
      *
+     * This parameter is required.
      * @example vtb-bp1dudbh2d5na6b50****
      *
      * @var string

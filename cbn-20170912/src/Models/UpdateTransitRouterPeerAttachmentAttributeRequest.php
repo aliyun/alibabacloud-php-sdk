@@ -121,6 +121,7 @@ class UpdateTransitRouterPeerAttachmentAttributeRequest extends Model
     /**
      * @description The ID of the inter-region connection.
      *
+     * This parameter is required.
      * @example tr-attach-ft94dcrbc3e5taun3x
      *
      * @var string

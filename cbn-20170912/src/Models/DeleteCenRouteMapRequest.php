@@ -11,6 +11,7 @@ class DeleteCenRouteMapRequest extends Model
     /**
      * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
+     * This parameter is required.
      * @example cen-7qthudw0ll6jm****
      *
      * @var string
@@ -20,7 +21,7 @@ class DeleteCenRouteMapRequest extends Model
     /**
      * @description The ID of the region in which the routing policy is applied.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +51,7 @@ class DeleteCenRouteMapRequest extends Model
     /**
      * @description The ID of the routing policy.
      *
+     * This parameter is required.
      * @example cenrmap-abcdedfghij****
      *
      * @var string

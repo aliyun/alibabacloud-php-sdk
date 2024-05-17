@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenAttachedChildInstancesRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
+     * This parameter is required.
      * @example cen-j3jzhw1zpau2km****
      *
      * @var string
@@ -16,6 +19,9 @@ class DescribeCenAttachedChildInstancesRequest extends Model
     public $cenId;
 
     /**
+     * @description The ID of the region where the network instance is deployed.
+     *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-zhangjiakou
      *
      * @var string
@@ -23,6 +29,12 @@ class DescribeCenAttachedChildInstancesRequest extends Model
     public $childInstanceRegionId;
 
     /**
+     * @description The type of the network instance. Valid values:
+     *
+     *   **VPC**: virtual private cloud (VPC)
+     *   **VBR**: virtual border router (VBR)
+     *   **CCN**: Cloud Connect Network (CCN) instance
+     *
      * @example VPC
      *
      * @var string
@@ -40,6 +52,8 @@ class DescribeCenAttachedChildInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -47,6 +61,8 @@ class DescribeCenAttachedChildInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     *
      * @example 10
      *
      * @var int

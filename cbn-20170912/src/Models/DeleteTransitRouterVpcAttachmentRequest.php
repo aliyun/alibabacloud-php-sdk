@@ -67,6 +67,7 @@ class DeleteTransitRouterVpcAttachmentRequest extends Model
     /**
      * @description The ID of the VPC connection.
      *
+     * This parameter is required.
      * @example tr-attach-ia340z7xis7t5s****
      *
      * @var string

@@ -70,7 +70,7 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
     /**
      * @description The new description of the traffic marking policy.
      *
-     * The description must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The description must start with a letter.
+     * The description must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The description must start with a letter.
      * @example desctest
      *
      * @var string
@@ -80,6 +80,7 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
     /**
      * @description The ID of the traffic marking policy.
      *
+     * This parameter is required.
      * @example tm-u9nxup5kww5po8****
      *
      * @var string
@@ -89,7 +90,7 @@ class UpdateTrafficMarkingPolicyAttributeRequest extends Model
     /**
      * @description The new name of the traffic marking policy.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example nametest
      *
      * @var string

@@ -23,6 +23,7 @@ class CreateCenRouteMapRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
+     * This parameter is required.
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -32,7 +33,7 @@ class CreateCenRouteMapRequest extends Model
     /**
      * @description The ID of the region in which the routing policy is applied.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -83,7 +84,7 @@ class CreateCenRouteMapRequest extends Model
     /**
      * @description The description of the routing policy.
      *
-     * The description must be 2 to 256 characters in length, and can contain letters, digits, hyphens (-), periods (.), and underscores (\_). It must start with a letter and cannot start with `http://` or `https://`.
+     * The description must be 2 to 256 characters in length, and can contain letters, digits, hyphens (-), periods (.), and underscores (_). It must start with a letter and cannot start with `http://` or `https://`.
      * @example desctest
      *
      * @var string
@@ -162,6 +163,7 @@ class CreateCenRouteMapRequest extends Model
      *   **Permit**: the route is permitted.
      *   **Deny**: the route is denied.
      *
+     * This parameter is required.
      * @example Permit
      *
      * @var string
@@ -268,7 +270,7 @@ class CreateCenRouteMapRequest extends Model
     /**
      * @description The priority of the routing policy. Valid values: **1** to **100**. A smaller value indicates a higher priority.
      *
-     * > You cannot specify the same priority for routing policies that apply in the same region and direction. The system matches routes against the match conditions of routing policies in descending order of priority. A smaller value indicates a higher priority. You must set the priorities to proper values.
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -351,7 +353,7 @@ class CreateCenRouteMapRequest extends Model
     /**
      * @description The IDs of the source regions from which routes are evaluated. You can enter at most 32 region IDs.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
      * @example cn-beijing
      *
      * @var string[]
@@ -386,7 +388,7 @@ class CreateCenRouteMapRequest extends Model
      *
      *   **RegionOut**: Routes are advertised from the gateways in the regions that are connected by the CEN instance.
      *
-     * For example, routes are advertised from the gateway deployed in the current region to network instances deployed in the same region, or to gateways deployed in other regions.
+     * This parameter is required.
      * @example RegionIn
      *
      * @var string
