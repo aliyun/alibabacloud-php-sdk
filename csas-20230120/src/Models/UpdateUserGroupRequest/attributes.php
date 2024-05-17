@@ -16,6 +16,8 @@ class attributes extends Model
     public $idpId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Equal
      *
      * @var string
@@ -23,6 +25,8 @@ class attributes extends Model
     public $relation;
 
     /**
+     * @description This parameter is required.
+     *
      * @example department
      *
      * @var string
@@ -30,6 +34,8 @@ class attributes extends Model
     public $userGroupType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $value;

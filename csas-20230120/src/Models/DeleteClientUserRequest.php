@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteClientUserRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 27058
      *
      * @var string

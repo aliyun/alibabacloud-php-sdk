@@ -15,6 +15,8 @@ class CreatePrivateAccessPolicyRequest extends Model
     public $applicationIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Application
      *
      * @var string
@@ -37,6 +39,8 @@ class CreatePrivateAccessPolicyRequest extends Model
     public $deviceAttributeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example private_access_policy_name
      *
      * @var string
@@ -44,6 +48,8 @@ class CreatePrivateAccessPolicyRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Allow
      *
      * @var string
@@ -51,6 +57,8 @@ class CreatePrivateAccessPolicyRequest extends Model
     public $policyAction;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +66,8 @@ class CreatePrivateAccessPolicyRequest extends Model
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Enabled
      *
      * @var string
@@ -80,6 +90,8 @@ class CreatePrivateAccessPolicyRequest extends Model
      * @description 内网访问策略的用户组类型。取值：
      * - **Normal**：普通用户组。
      * - **Custom**：自定义用户组。
+     *
+     * This parameter is required.
      * @example Normal
      *
      * @var string

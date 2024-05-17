@@ -16,6 +16,8 @@ class CreateRegistrationPolicyRequest extends Model
     public $companyLimitCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LimitAll
      *
      * @var string
@@ -28,6 +30,8 @@ class CreateRegistrationPolicyRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example UserGroupAll
      *
      * @var string
@@ -35,6 +39,8 @@ class CreateRegistrationPolicyRequest extends Model
     public $matchMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example registration_policy_name
      *
      * @var string
@@ -47,6 +53,8 @@ class CreateRegistrationPolicyRequest extends Model
     public $personalLimitCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LimitDiff
      *
      * @var string
@@ -61,6 +69,8 @@ class CreateRegistrationPolicyRequest extends Model
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Enabled
      *
      * @var string

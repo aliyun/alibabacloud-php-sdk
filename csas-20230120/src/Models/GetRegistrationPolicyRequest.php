@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRegistrationPolicyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example reg-policy-dcbfd33cb004****
      *
      * @var string

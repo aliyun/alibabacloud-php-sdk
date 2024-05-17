@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateIdpDepartmentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $departmentName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1222
      *
      * @var string

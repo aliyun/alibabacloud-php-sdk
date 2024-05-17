@@ -30,6 +30,8 @@ class ListClientUsersRequest extends Model
     public $email;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1071
      *
      * @var string

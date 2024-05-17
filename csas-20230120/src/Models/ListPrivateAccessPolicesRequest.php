@@ -21,6 +21,8 @@ class ListPrivateAccessPolicesRequest extends Model
     public $applicationName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +37,8 @@ class ListPrivateAccessPolicesRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

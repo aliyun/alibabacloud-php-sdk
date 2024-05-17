@@ -21,6 +21,8 @@ class CreateClientUserRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example johndoe@example.com
      *
      * @var string
@@ -28,6 +30,8 @@ class CreateClientUserRequest extends Model
     public $email;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 727
      *
      * @var string
@@ -49,6 +53,8 @@ class CreateClientUserRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $username;

@@ -16,6 +16,8 @@ class ListIdpDepartmentsRequest extends Model
     public $currentPage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1440
      *
      * @var string

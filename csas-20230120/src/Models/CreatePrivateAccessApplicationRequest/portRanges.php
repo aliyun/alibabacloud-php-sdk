@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class portRanges extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 80
      *
      * @var int
@@ -16,6 +18,8 @@ class portRanges extends Model
     public $begin;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 81
      *
      * @var int

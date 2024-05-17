@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateUserGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var attributes[]
      */
     public $attributes;
@@ -20,6 +22,8 @@ class CreateUserGroupRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user_group_name
      *
      * @var string

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateUsersStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $saseUserIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Enabled
      *
      * @var string

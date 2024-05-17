@@ -16,6 +16,8 @@ class ListDynamicRoutesRequest extends Model
     public $applicationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +44,8 @@ class ListDynamicRoutesRequest extends Model
     public $nextHop;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

@@ -51,6 +51,8 @@ class UpdatePrivateAccessPolicyRequest extends Model
     public $policyAction;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pa-policy-63b2f1844b86****
      *
      * @var string

@@ -16,6 +16,8 @@ class ListRegistrationPoliciesRequest extends Model
     public $companyLimitType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +39,8 @@ class ListRegistrationPoliciesRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

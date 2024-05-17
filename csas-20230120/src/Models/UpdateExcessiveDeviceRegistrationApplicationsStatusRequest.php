@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateExcessiveDeviceRegistrationApplicationsStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $applicationIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Approved
      *
      * @var string

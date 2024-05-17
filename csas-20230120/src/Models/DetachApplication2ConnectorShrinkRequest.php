@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetachApplication2ConnectorShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $applicationIdsShrink;
@@ -16,6 +18,7 @@ class DetachApplication2ConnectorShrinkRequest extends Model
     /**
      * @description ConnectorID。
      *
+     * This parameter is required.
      * @example connector-94db94e06b98****
      *
      * @var string

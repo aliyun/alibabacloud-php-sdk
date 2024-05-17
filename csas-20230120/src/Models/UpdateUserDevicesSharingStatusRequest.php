@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserDevicesSharingStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $deviceTags;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

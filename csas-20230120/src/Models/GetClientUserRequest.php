@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetClientUserRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 598
      *
      * @var string
@@ -16,6 +18,8 @@ class GetClientUserRequest extends Model
     public $idpConfigId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $username;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePrivateAccessApplicationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $addresses;
@@ -20,6 +22,8 @@ class CreatePrivateAccessApplicationRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example private_access_application_name
      *
      * @var string
@@ -27,11 +31,15 @@ class CreatePrivateAccessApplicationRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var portRanges[]
      */
     public $portRanges;
 
     /**
+     * @description This parameter is required.
+     *
      * @example All
      *
      * @var string
@@ -39,6 +47,8 @@ class CreatePrivateAccessApplicationRequest extends Model
     public $protocol;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Enabled
      *
      * @var string

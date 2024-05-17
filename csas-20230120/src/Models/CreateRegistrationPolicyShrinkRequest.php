@@ -14,6 +14,8 @@ class CreateRegistrationPolicyShrinkRequest extends Model
     public $companyLimitCountShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LimitAll
      *
      * @var string
@@ -26,6 +28,8 @@ class CreateRegistrationPolicyShrinkRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example UserGroupAll
      *
      * @var string
@@ -33,6 +37,8 @@ class CreateRegistrationPolicyShrinkRequest extends Model
     public $matchMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example registration_policy_name
      *
      * @var string
@@ -45,6 +51,8 @@ class CreateRegistrationPolicyShrinkRequest extends Model
     public $personalLimitCountShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LimitDiff
      *
      * @var string
@@ -59,6 +67,8 @@ class CreateRegistrationPolicyShrinkRequest extends Model
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Enabled
      *
      * @var string

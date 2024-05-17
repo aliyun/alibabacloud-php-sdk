@@ -14,6 +14,8 @@ class ListConnectorsRequest extends Model
     public $connectorIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +30,8 @@ class ListConnectorsRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

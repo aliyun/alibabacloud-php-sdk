@@ -14,6 +14,8 @@ class CreatePrivateAccessTagRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example tag_name
      *
      * @var string

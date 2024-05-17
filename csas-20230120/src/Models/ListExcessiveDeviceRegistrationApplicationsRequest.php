@@ -14,6 +14,8 @@ class ListExcessiveDeviceRegistrationApplicationsRequest extends Model
     public $applicationIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -47,6 +49,8 @@ class ListExcessiveDeviceRegistrationApplicationsRequest extends Model
     public $mac;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

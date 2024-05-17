@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePrivateAccessApplicationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pa-application-e12860ef6c48****
      *
      * @var string

@@ -26,6 +26,8 @@ class UpdateDynamicRouteRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dr-ca9fddfac7c6****
      *
      * @var string

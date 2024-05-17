@@ -15,6 +15,8 @@ class UpdatePrivateAccessApplicationRequest extends Model
     public $addresses;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pa-application-e12860ef6c48****
      *
      * @var string

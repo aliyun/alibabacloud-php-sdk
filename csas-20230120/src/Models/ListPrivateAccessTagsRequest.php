@@ -23,6 +23,7 @@ class ListPrivateAccessTagsRequest extends Model
     /**
      * @description The page number. Valid values: 1 to 10000.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -30,7 +31,7 @@ class ListPrivateAccessTagsRequest extends Model
     public $currentPage;
 
     /**
-     * @description The name of the internal access tag. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     * @description The name of the internal access tag. The name must be 1 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
      *
      * @example tag_name
      *
@@ -41,6 +42,7 @@ class ListPrivateAccessTagsRequest extends Model
     /**
      * @description The number of entries per page. Valid values: 1 to 1000.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

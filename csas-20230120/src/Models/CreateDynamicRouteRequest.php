@@ -14,6 +14,8 @@ class CreateDynamicRouteRequest extends Model
     public $applicationIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Application
      *
      * @var string
@@ -26,6 +28,8 @@ class CreateDynamicRouteRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example connector
      *
      * @var string
@@ -33,6 +37,8 @@ class CreateDynamicRouteRequest extends Model
     public $dynamicRouteType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dynamic_route_name
      *
      * @var string
@@ -40,6 +46,8 @@ class CreateDynamicRouteRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example connector-8ccb13b6f52c****
      *
      * @var string
@@ -47,6 +55,8 @@ class CreateDynamicRouteRequest extends Model
     public $nextHop;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 99
      *
      * @var int
@@ -54,11 +64,15 @@ class CreateDynamicRouteRequest extends Model
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $regionIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Disabled
      *
      * @var string

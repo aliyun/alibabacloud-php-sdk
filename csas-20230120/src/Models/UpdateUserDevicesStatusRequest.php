@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserDevicesStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Unbound
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateUserDevicesStatusRequest extends Model
     public $deviceAction;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $deviceTags;

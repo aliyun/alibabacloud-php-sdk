@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPrivateAccessPolicyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pa-policy-63b2f1844b86****
      *
      * @var string

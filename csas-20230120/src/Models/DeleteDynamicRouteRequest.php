@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDynamicRouteRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dr-ca9fddfac7c6****
      *
      * @var string

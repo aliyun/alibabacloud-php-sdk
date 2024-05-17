@@ -28,6 +28,8 @@ class UpdateClientUserRequest extends Model
     public $email;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20644
      *
      * @var string

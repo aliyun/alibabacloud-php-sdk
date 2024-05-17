@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetIdpConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1465
      *
      * @var string

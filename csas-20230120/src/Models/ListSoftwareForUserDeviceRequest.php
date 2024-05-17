@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSoftwareForUserDeviceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListSoftwareForUserDeviceRequest extends Model
     public $currentPage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 36efa42d-2c32-c4dc-e3fc-8541e33a****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListSoftwareForUserDeviceRequest extends Model
     public $deviceTag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

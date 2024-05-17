@@ -16,6 +16,8 @@ class ListUserGroupsRequest extends Model
     public $attributeValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -39,6 +41,8 @@ class ListUserGroupsRequest extends Model
     public $PAPolicyId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

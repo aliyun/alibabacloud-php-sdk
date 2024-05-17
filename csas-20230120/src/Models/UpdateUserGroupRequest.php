@@ -27,6 +27,8 @@ class UpdateUserGroupRequest extends Model
     public $modifyType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example usergroup-6f1ef2fc56b6****
      *
      * @var string

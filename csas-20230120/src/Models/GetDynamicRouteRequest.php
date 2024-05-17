@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDynamicRouteRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example dr-16ff07c8207d****
      *
      * @var string

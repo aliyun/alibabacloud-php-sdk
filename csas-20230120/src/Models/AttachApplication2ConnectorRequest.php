@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachApplication2ConnectorRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $applicationIds;
@@ -16,6 +18,7 @@ class AttachApplication2ConnectorRequest extends Model
     /**
      * @description ConnectorID。
      *
+     * This parameter is required.
      * @example connector-94db94e06b98****
      *
      * @var string

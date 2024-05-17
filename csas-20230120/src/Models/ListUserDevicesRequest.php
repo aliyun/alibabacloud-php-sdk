@@ -14,6 +14,8 @@ class ListUserDevicesRequest extends Model
     public $appStatuses;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +67,11 @@ class ListUserDevicesRequest extends Model
     public $iaStatuses;
 
     /**
+     * @var string
+     */
+    public $innerIp;
+
+    /**
      * @example 00:16:XX:XX:7c:46
      *
      * @var string
@@ -82,6 +89,8 @@ class ListUserDevicesRequest extends Model
     public $paStatuses;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -122,6 +131,7 @@ class ListUserDevicesRequest extends Model
         'dlpStatuses'    => 'DlpStatuses',
         'hostname'       => 'Hostname',
         'iaStatuses'     => 'IaStatuses',
+        'innerIp'        => 'InnerIp',
         'mac'            => 'Mac',
         'nacStatuses'    => 'NacStatuses',
         'paStatuses'     => 'PaStatuses',
@@ -168,6 +178,9 @@ class ListUserDevicesRequest extends Model
         }
         if (null !== $this->iaStatuses) {
             $res['IaStatuses'] = $this->iaStatuses;
+        }
+        if (null !== $this->innerIp) {
+            $res['InnerIp'] = $this->innerIp;
         }
         if (null !== $this->mac) {
             $res['Mac'] = $this->mac;
@@ -246,6 +259,9 @@ class ListUserDevicesRequest extends Model
             if (!empty($map['IaStatuses'])) {
                 $model->iaStatuses = $map['IaStatuses'];
             }
+        }
+        if (isset($map['InnerIp'])) {
+            $model->innerIp = $map['InnerIp'];
         }
         if (isset($map['Mac'])) {
             $model->mac = $map['Mac'];

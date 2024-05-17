@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteIdpDepartmentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 10829
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteIdpDepartmentRequest extends Model
     public $departmentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 507
      *
      * @var string

@@ -52,6 +52,8 @@ class UpdateRegistrationPolicyShrinkRequest extends Model
     public $personalLimitType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example reg-policy-63b2f1844b86****
      *
      * @var string

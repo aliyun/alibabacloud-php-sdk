@@ -185,10 +185,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param AttachApplication2ConnectorRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * @summary 挂载connector的应用
+     *  *
+     * @param AttachApplication2ConnectorRequest $tmpReq  AttachApplication2ConnectorRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachApplication2ConnectorResponse
+     * @return AttachApplication2ConnectorResponse AttachApplication2ConnectorResponse
      */
     public function attachApplication2ConnectorWithOptions($tmpReq, $runtime)
     {
@@ -224,9 +226,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param AttachApplication2ConnectorRequest $request
+     * @summary 挂载connector的应用
+     *  *
+     * @param AttachApplication2ConnectorRequest $request AttachApplication2ConnectorRequest
      *
-     * @return AttachApplication2ConnectorResponse
+     * @return AttachApplication2ConnectorResponse AttachApplication2ConnectorResponse
      */
     public function attachApplication2Connector($request)
     {
@@ -236,10 +240,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreateClientUserRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 创建自定义身份源用户
+     *  *
+     * @param CreateClientUserRequest $request CreateClientUserRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateClientUserResponse
+     * @return CreateClientUserResponse CreateClientUserResponse
      */
     public function createClientUserWithOptions($request, $runtime)
     {
@@ -285,9 +291,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreateClientUserRequest $request
+     * @summary 创建自定义身份源用户
+     *  *
+     * @param CreateClientUserRequest $request CreateClientUserRequest
      *
-     * @return CreateClientUserResponse
+     * @return CreateClientUserResponse CreateClientUserResponse
      */
     public function createClientUser($request)
     {
@@ -297,10 +305,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreateDynamicRouteRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 创建动态路由
+     *  *
+     * @param CreateDynamicRouteRequest $request CreateDynamicRouteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDynamicRouteResponse
+     * @return CreateDynamicRouteResponse CreateDynamicRouteResponse
      */
     public function createDynamicRouteWithOptions($request, $runtime)
     {
@@ -357,9 +367,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreateDynamicRouteRequest $request
+     * @summary 创建动态路由
+     *  *
+     * @param CreateDynamicRouteRequest $request CreateDynamicRouteRequest
      *
-     * @return CreateDynamicRouteResponse
+     * @return CreateDynamicRouteResponse CreateDynamicRouteResponse
      */
     public function createDynamicRoute($request)
     {
@@ -369,10 +381,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreateIdpDepartmentRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 创建自定义身份源部门
+     *  *
+     * @param CreateIdpDepartmentRequest $request CreateIdpDepartmentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIdpDepartmentResponse
+     * @return CreateIdpDepartmentResponse CreateIdpDepartmentResponse
      */
     public function createIdpDepartmentWithOptions($request, $runtime)
     {
@@ -403,9 +417,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreateIdpDepartmentRequest $request
+     * @summary 创建自定义身份源部门
+     *  *
+     * @param CreateIdpDepartmentRequest $request CreateIdpDepartmentRequest
      *
-     * @return CreateIdpDepartmentResponse
+     * @return CreateIdpDepartmentResponse CreateIdpDepartmentResponse
      */
     public function createIdpDepartment($request)
     {
@@ -415,10 +431,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreatePrivateAccessApplicationRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 创建内网访问应用
+     *  *
+     * @param CreatePrivateAccessApplicationRequest $request CreatePrivateAccessApplicationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePrivateAccessApplicationResponse
+     * @return CreatePrivateAccessApplicationResponse CreatePrivateAccessApplicationResponse
      */
     public function createPrivateAccessApplicationWithOptions($request, $runtime)
     {
@@ -466,9 +484,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreatePrivateAccessApplicationRequest $request
+     * @summary 创建内网访问应用
+     *  *
+     * @param CreatePrivateAccessApplicationRequest $request CreatePrivateAccessApplicationRequest
      *
-     * @return CreatePrivateAccessApplicationResponse
+     * @return CreatePrivateAccessApplicationResponse CreatePrivateAccessApplicationResponse
      */
     public function createPrivateAccessApplication($request)
     {
@@ -478,10 +498,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreatePrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 创建内网访问策略
+     *  *
+     * @param CreatePrivateAccessPolicyRequest $request CreatePrivateAccessPolicyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePrivateAccessPolicyResponse
+     * @return CreatePrivateAccessPolicyResponse CreatePrivateAccessPolicyResponse
      */
     public function createPrivateAccessPolicyWithOptions($request, $runtime)
     {
@@ -544,9 +566,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreatePrivateAccessPolicyRequest $request
+     * @summary 创建内网访问策略
+     *  *
+     * @param CreatePrivateAccessPolicyRequest $request CreatePrivateAccessPolicyRequest
      *
-     * @return CreatePrivateAccessPolicyResponse
+     * @return CreatePrivateAccessPolicyResponse CreatePrivateAccessPolicyResponse
      */
     public function createPrivateAccessPolicy($request)
     {
@@ -556,10 +580,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreatePrivateAccessTagRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 创建内网访问标签
+     *  *
+     * @param CreatePrivateAccessTagRequest $request CreatePrivateAccessTagRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePrivateAccessTagResponse
+     * @return CreatePrivateAccessTagResponse CreatePrivateAccessTagResponse
      */
     public function createPrivateAccessTagWithOptions($request, $runtime)
     {
@@ -590,9 +616,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreatePrivateAccessTagRequest $request
+     * @summary 创建内网访问标签
+     *  *
+     * @param CreatePrivateAccessTagRequest $request CreatePrivateAccessTagRequest
      *
-     * @return CreatePrivateAccessTagResponse
+     * @return CreatePrivateAccessTagResponse CreatePrivateAccessTagResponse
      */
     public function createPrivateAccessTag($request)
     {
@@ -602,10 +630,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreateRegistrationPolicyRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 创建设备注册策略
+     *  *
+     * @param CreateRegistrationPolicyRequest $tmpReq  CreateRegistrationPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRegistrationPolicyResponse
+     * @return CreateRegistrationPolicyResponse CreateRegistrationPolicyResponse
      */
     public function createRegistrationPolicyWithOptions($tmpReq, $runtime)
     {
@@ -673,9 +703,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreateRegistrationPolicyRequest $request
+     * @summary 创建设备注册策略
+     *  *
+     * @param CreateRegistrationPolicyRequest $request CreateRegistrationPolicyRequest
      *
-     * @return CreateRegistrationPolicyResponse
+     * @return CreateRegistrationPolicyResponse CreateRegistrationPolicyResponse
      */
     public function createRegistrationPolicy($request)
     {
@@ -685,10 +717,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreateUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 创建用户组
+     *  *
+     * @param CreateUserGroupRequest $request CreateUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserGroupResponse
+     * @return CreateUserGroupResponse CreateUserGroupResponse
      */
     public function createUserGroupWithOptions($request, $runtime)
     {
@@ -724,9 +758,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreateUserGroupRequest $request
+     * @summary 创建用户组
+     *  *
+     * @param CreateUserGroupRequest $request CreateUserGroupRequest
      *
-     * @return CreateUserGroupResponse
+     * @return CreateUserGroupResponse CreateUserGroupResponse
      */
     public function createUserGroup($request)
     {
@@ -736,10 +772,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeleteClientUserRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 删除自定义身份源指定用户
+     *  *
+     * @param DeleteClientUserRequest $request DeleteClientUserRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteClientUserResponse
+     * @return DeleteClientUserResponse DeleteClientUserResponse
      */
     public function deleteClientUserWithOptions($request, $runtime)
     {
@@ -767,9 +805,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeleteClientUserRequest $request
+     * @summary 删除自定义身份源指定用户
+     *  *
+     * @param DeleteClientUserRequest $request DeleteClientUserRequest
      *
-     * @return DeleteClientUserResponse
+     * @return DeleteClientUserResponse DeleteClientUserResponse
      */
     public function deleteClientUser($request)
     {
@@ -779,10 +819,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeleteDynamicRouteRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 删除动态路由
+     *  *
+     * @param DeleteDynamicRouteRequest $request DeleteDynamicRouteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDynamicRouteResponse
+     * @return DeleteDynamicRouteResponse DeleteDynamicRouteResponse
      */
     public function deleteDynamicRouteWithOptions($request, $runtime)
     {
@@ -810,9 +852,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeleteDynamicRouteRequest $request
+     * @summary 删除动态路由
+     *  *
+     * @param DeleteDynamicRouteRequest $request DeleteDynamicRouteRequest
      *
-     * @return DeleteDynamicRouteResponse
+     * @return DeleteDynamicRouteResponse DeleteDynamicRouteResponse
      */
     public function deleteDynamicRoute($request)
     {
@@ -822,10 +866,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeleteIdpDepartmentRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 删除指定自定义身份源部门
+     *  *
+     * @param DeleteIdpDepartmentRequest $request DeleteIdpDepartmentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIdpDepartmentResponse
+     * @return DeleteIdpDepartmentResponse DeleteIdpDepartmentResponse
      */
     public function deleteIdpDepartmentWithOptions($request, $runtime)
     {
@@ -856,9 +902,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeleteIdpDepartmentRequest $request
+     * @summary 删除指定自定义身份源部门
+     *  *
+     * @param DeleteIdpDepartmentRequest $request DeleteIdpDepartmentRequest
      *
-     * @return DeleteIdpDepartmentResponse
+     * @return DeleteIdpDepartmentResponse DeleteIdpDepartmentResponse
      */
     public function deleteIdpDepartment($request)
     {
@@ -868,10 +916,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeletePrivateAccessApplicationRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 删除内网访问应用
+     *  *
+     * @param DeletePrivateAccessApplicationRequest $request DeletePrivateAccessApplicationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePrivateAccessApplicationResponse
+     * @return DeletePrivateAccessApplicationResponse DeletePrivateAccessApplicationResponse
      */
     public function deletePrivateAccessApplicationWithOptions($request, $runtime)
     {
@@ -899,9 +949,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeletePrivateAccessApplicationRequest $request
+     * @summary 删除内网访问应用
+     *  *
+     * @param DeletePrivateAccessApplicationRequest $request DeletePrivateAccessApplicationRequest
      *
-     * @return DeletePrivateAccessApplicationResponse
+     * @return DeletePrivateAccessApplicationResponse DeletePrivateAccessApplicationResponse
      */
     public function deletePrivateAccessApplication($request)
     {
@@ -911,10 +963,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeletePrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 删除内网访问策略
+     *  *
+     * @param DeletePrivateAccessPolicyRequest $request DeletePrivateAccessPolicyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePrivateAccessPolicyResponse
+     * @return DeletePrivateAccessPolicyResponse DeletePrivateAccessPolicyResponse
      */
     public function deletePrivateAccessPolicyWithOptions($request, $runtime)
     {
@@ -942,9 +996,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeletePrivateAccessPolicyRequest $request
+     * @summary 删除内网访问策略
+     *  *
+     * @param DeletePrivateAccessPolicyRequest $request DeletePrivateAccessPolicyRequest
      *
-     * @return DeletePrivateAccessPolicyResponse
+     * @return DeletePrivateAccessPolicyResponse DeletePrivateAccessPolicyResponse
      */
     public function deletePrivateAccessPolicy($request)
     {
@@ -954,10 +1010,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeletePrivateAccessTagRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 删除内网访问标签
+     *  *
+     * @param DeletePrivateAccessTagRequest $request DeletePrivateAccessTagRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePrivateAccessTagResponse
+     * @return DeletePrivateAccessTagResponse DeletePrivateAccessTagResponse
      */
     public function deletePrivateAccessTagWithOptions($request, $runtime)
     {
@@ -985,9 +1043,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeletePrivateAccessTagRequest $request
+     * @summary 删除内网访问标签
+     *  *
+     * @param DeletePrivateAccessTagRequest $request DeletePrivateAccessTagRequest
      *
-     * @return DeletePrivateAccessTagResponse
+     * @return DeletePrivateAccessTagResponse DeletePrivateAccessTagResponse
      */
     public function deletePrivateAccessTag($request)
     {
@@ -997,10 +1057,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeleteRegistrationPoliciesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 删除设备注册策略
+     *  *
+     * @param DeleteRegistrationPoliciesRequest $request DeleteRegistrationPoliciesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRegistrationPoliciesResponse
+     * @return DeleteRegistrationPoliciesResponse DeleteRegistrationPoliciesResponse
      */
     public function deleteRegistrationPoliciesWithOptions($request, $runtime)
     {
@@ -1030,9 +1092,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeleteRegistrationPoliciesRequest $request
+     * @summary 删除设备注册策略
+     *  *
+     * @param DeleteRegistrationPoliciesRequest $request DeleteRegistrationPoliciesRequest
      *
-     * @return DeleteRegistrationPoliciesResponse
+     * @return DeleteRegistrationPoliciesResponse DeleteRegistrationPoliciesResponse
      */
     public function deleteRegistrationPolicies($request)
     {
@@ -1042,10 +1106,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 删除用户组
+     *  *
+     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserGroupResponse
+     * @return DeleteUserGroupResponse DeleteUserGroupResponse
      */
     public function deleteUserGroupWithOptions($request, $runtime)
     {
@@ -1073,9 +1139,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserGroupRequest $request
+     * @summary 删除用户组
+     *  *
+     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
      *
-     * @return DeleteUserGroupResponse
+     * @return DeleteUserGroupResponse DeleteUserGroupResponse
      */
     public function deleteUserGroup($request)
     {
@@ -1085,10 +1153,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DetachApplication2ConnectorRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * @summary 卸载connector的应用
+     *  *
+     * @param DetachApplication2ConnectorRequest $tmpReq  DetachApplication2ConnectorRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachApplication2ConnectorResponse
+     * @return DetachApplication2ConnectorResponse DetachApplication2ConnectorResponse
      */
     public function detachApplication2ConnectorWithOptions($tmpReq, $runtime)
     {
@@ -1124,9 +1194,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param DetachApplication2ConnectorRequest $request
+     * @summary 卸载connector的应用
+     *  *
+     * @param DetachApplication2ConnectorRequest $request DetachApplication2ConnectorRequest
      *
-     * @return DetachApplication2ConnectorResponse
+     * @return DetachApplication2ConnectorResponse DetachApplication2ConnectorResponse
      */
     public function detachApplication2Connector($request)
     {
@@ -1136,9 +1208,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询已启用的身份源配置
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetActiveIdpConfigResponse
+     * @return GetActiveIdpConfigResponse GetActiveIdpConfigResponse
      */
     public function getActiveIdpConfigWithOptions($runtime)
     {
@@ -1159,7 +1233,9 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @return GetActiveIdpConfigResponse
+     * @summary 查询已启用的身份源配置
+     *  *
+     * @return GetActiveIdpConfigResponse GetActiveIdpConfigResponse
      */
     public function getActiveIdpConfig()
     {
@@ -1169,10 +1245,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetClientUserRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 查询自定义身份源指定用户
+     *  *
+     * @param GetClientUserRequest $request GetClientUserRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetClientUserResponse
+     * @return GetClientUserResponse GetClientUserResponse
      */
     public function getClientUserWithOptions($request, $runtime)
     {
@@ -1197,9 +1275,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetClientUserRequest $request
+     * @summary 查询自定义身份源指定用户
+     *  *
+     * @param GetClientUserRequest $request GetClientUserRequest
      *
-     * @return GetClientUserResponse
+     * @return GetClientUserResponse GetClientUserResponse
      */
     public function getClientUser($request)
     {
@@ -1209,10 +1289,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetDynamicRouteRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 查询动态路由详情
+     *  *
+     * @param GetDynamicRouteRequest $request GetDynamicRouteRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDynamicRouteResponse
+     * @return GetDynamicRouteResponse GetDynamicRouteResponse
      */
     public function getDynamicRouteWithOptions($request, $runtime)
     {
@@ -1237,9 +1319,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetDynamicRouteRequest $request
+     * @summary 查询动态路由详情
+     *  *
+     * @param GetDynamicRouteRequest $request GetDynamicRouteRequest
      *
-     * @return GetDynamicRouteResponse
+     * @return GetDynamicRouteResponse GetDynamicRouteResponse
      */
     public function getDynamicRoute($request)
     {
@@ -1249,10 +1333,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetIdpConfigRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 查询身份源配置详情
+     *  *
+     * @param GetIdpConfigRequest $request GetIdpConfigRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetIdpConfigResponse
+     * @return GetIdpConfigResponse GetIdpConfigResponse
      */
     public function getIdpConfigWithOptions($request, $runtime)
     {
@@ -1277,9 +1363,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetIdpConfigRequest $request
+     * @summary 查询身份源配置详情
+     *  *
+     * @param GetIdpConfigRequest $request GetIdpConfigRequest
      *
-     * @return GetIdpConfigResponse
+     * @return GetIdpConfigResponse GetIdpConfigResponse
      */
     public function getIdpConfig($request)
     {
@@ -1289,10 +1377,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetPrivateAccessApplicationRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 查询内网访问应用详情
+     *  *
+     * @param GetPrivateAccessApplicationRequest $request GetPrivateAccessApplicationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPrivateAccessApplicationResponse
+     * @return GetPrivateAccessApplicationResponse GetPrivateAccessApplicationResponse
      */
     public function getPrivateAccessApplicationWithOptions($request, $runtime)
     {
@@ -1317,9 +1407,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetPrivateAccessApplicationRequest $request
+     * @summary 查询内网访问应用详情
+     *  *
+     * @param GetPrivateAccessApplicationRequest $request GetPrivateAccessApplicationRequest
      *
-     * @return GetPrivateAccessApplicationResponse
+     * @return GetPrivateAccessApplicationResponse GetPrivateAccessApplicationResponse
      */
     public function getPrivateAccessApplication($request)
     {
@@ -1329,10 +1421,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetPrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查询内网访问策略详情
+     *  *
+     * @param GetPrivateAccessPolicyRequest $request GetPrivateAccessPolicyRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPrivateAccessPolicyResponse
+     * @return GetPrivateAccessPolicyResponse GetPrivateAccessPolicyResponse
      */
     public function getPrivateAccessPolicyWithOptions($request, $runtime)
     {
@@ -1357,9 +1451,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetPrivateAccessPolicyRequest $request
+     * @summary 查询内网访问策略详情
+     *  *
+     * @param GetPrivateAccessPolicyRequest $request GetPrivateAccessPolicyRequest
      *
-     * @return GetPrivateAccessPolicyResponse
+     * @return GetPrivateAccessPolicyResponse GetPrivateAccessPolicyResponse
      */
     public function getPrivateAccessPolicy($request)
     {
@@ -1369,10 +1465,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetRegistrationPolicyRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询设备注册策略详情
+     *  *
+     * @param GetRegistrationPolicyRequest $request GetRegistrationPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRegistrationPolicyResponse
+     * @return GetRegistrationPolicyResponse GetRegistrationPolicyResponse
      */
     public function getRegistrationPolicyWithOptions($request, $runtime)
     {
@@ -1397,9 +1495,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetRegistrationPolicyRequest $request
+     * @summary 查询设备注册策略详情
+     *  *
+     * @param GetRegistrationPolicyRequest $request GetRegistrationPolicyRequest
      *
-     * @return GetRegistrationPolicyResponse
+     * @return GetRegistrationPolicyResponse GetRegistrationPolicyResponse
      */
     public function getRegistrationPolicy($request)
     {
@@ -1409,10 +1509,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetUserDeviceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 查询用户设备详情
+     *  *
+     * @param GetUserDeviceRequest $request GetUserDeviceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserDeviceResponse
+     * @return GetUserDeviceResponse GetUserDeviceResponse
      */
     public function getUserDeviceWithOptions($request, $runtime)
     {
@@ -1437,9 +1539,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetUserDeviceRequest $request
+     * @summary 查询用户设备详情
+     *  *
+     * @param GetUserDeviceRequest $request GetUserDeviceRequest
      *
-     * @return GetUserDeviceResponse
+     * @return GetUserDeviceResponse GetUserDeviceResponse
      */
     public function getUserDevice($request)
     {
@@ -1449,10 +1553,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetUserGroupRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 查询用户组详情
+     *  *
+     * @param GetUserGroupRequest $request GetUserGroupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserGroupResponse
+     * @return GetUserGroupResponse GetUserGroupResponse
      */
     public function getUserGroupWithOptions($request, $runtime)
     {
@@ -1477,9 +1583,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param GetUserGroupRequest $request
+     * @summary 查询用户组详情
+     *  *
+     * @param GetUserGroupRequest $request GetUserGroupRequest
      *
-     * @return GetUserGroupResponse
+     * @return GetUserGroupResponse GetUserGroupResponse
      */
     public function getUserGroup($request)
     {
@@ -1489,10 +1597,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsForPrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary 批量查询内网访问策略的应用
+     *  *
+     * @param ListApplicationsForPrivateAccessPolicyRequest $request ListApplicationsForPrivateAccessPolicyRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationsForPrivateAccessPolicyResponse
+     * @return ListApplicationsForPrivateAccessPolicyResponse ListApplicationsForPrivateAccessPolicyResponse
      */
     public function listApplicationsForPrivateAccessPolicyWithOptions($request, $runtime)
     {
@@ -1517,9 +1627,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsForPrivateAccessPolicyRequest $request
+     * @summary 批量查询内网访问策略的应用
+     *  *
+     * @param ListApplicationsForPrivateAccessPolicyRequest $request ListApplicationsForPrivateAccessPolicyRequest
      *
-     * @return ListApplicationsForPrivateAccessPolicyResponse
+     * @return ListApplicationsForPrivateAccessPolicyResponse ListApplicationsForPrivateAccessPolicyResponse
      */
     public function listApplicationsForPrivateAccessPolicy($request)
     {
@@ -1529,10 +1641,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsForPrivateAccessTagRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 批量查询内网访问标签的应用
+     *  *
+     * @param ListApplicationsForPrivateAccessTagRequest $request ListApplicationsForPrivateAccessTagRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationsForPrivateAccessTagResponse
+     * @return ListApplicationsForPrivateAccessTagResponse ListApplicationsForPrivateAccessTagResponse
      */
     public function listApplicationsForPrivateAccessTagWithOptions($request, $runtime)
     {
@@ -1557,9 +1671,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsForPrivateAccessTagRequest $request
+     * @summary 批量查询内网访问标签的应用
+     *  *
+     * @param ListApplicationsForPrivateAccessTagRequest $request ListApplicationsForPrivateAccessTagRequest
      *
-     * @return ListApplicationsForPrivateAccessTagResponse
+     * @return ListApplicationsForPrivateAccessTagResponse ListApplicationsForPrivateAccessTagResponse
      */
     public function listApplicationsForPrivateAccessTag($request)
     {
@@ -1569,10 +1685,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListClientUsersRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 查询自定义身份源用户
+     *  *
+     * @param ListClientUsersRequest $request ListClientUsersRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClientUsersResponse
+     * @return ListClientUsersResponse ListClientUsersResponse
      */
     public function listClientUsersWithOptions($request, $runtime)
     {
@@ -1597,9 +1715,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListClientUsersRequest $request
+     * @summary 查询自定义身份源用户
+     *  *
+     * @param ListClientUsersRequest $request ListClientUsersRequest
      *
-     * @return ListClientUsersResponse
+     * @return ListClientUsersResponse ListClientUsersResponse
      */
     public function listClientUsers($request)
     {
@@ -1609,10 +1729,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListConnectorsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 批量查询connector
+     *  *
+     * @param ListConnectorsRequest $request ListConnectorsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListConnectorsResponse
+     * @return ListConnectorsResponse ListConnectorsResponse
      */
     public function listConnectorsWithOptions($request, $runtime)
     {
@@ -1637,9 +1759,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListConnectorsRequest $request
+     * @summary 批量查询connector
+     *  *
+     * @param ListConnectorsRequest $request ListConnectorsRequest
      *
-     * @return ListConnectorsResponse
+     * @return ListConnectorsResponse ListConnectorsResponse
      */
     public function listConnectors($request)
     {
@@ -1649,9 +1773,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 批量查询动态路由的地域
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDynamicRouteRegionsResponse
+     * @return ListDynamicRouteRegionsResponse ListDynamicRouteRegionsResponse
      */
     public function listDynamicRouteRegionsWithOptions($runtime)
     {
@@ -1672,7 +1798,9 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @return ListDynamicRouteRegionsResponse
+     * @summary 批量查询动态路由的地域
+     *  *
+     * @return ListDynamicRouteRegionsResponse ListDynamicRouteRegionsResponse
      */
     public function listDynamicRouteRegions()
     {
@@ -1682,10 +1810,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListDynamicRoutesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 批量查询动态路由
+     *  *
+     * @param ListDynamicRoutesRequest $request ListDynamicRoutesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDynamicRoutesResponse
+     * @return ListDynamicRoutesResponse ListDynamicRoutesResponse
      */
     public function listDynamicRoutesWithOptions($request, $runtime)
     {
@@ -1710,9 +1840,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListDynamicRoutesRequest $request
+     * @summary 批量查询动态路由
+     *  *
+     * @param ListDynamicRoutesRequest $request ListDynamicRoutesRequest
      *
-     * @return ListDynamicRoutesResponse
+     * @return ListDynamicRoutesResponse ListDynamicRoutesResponse
      */
     public function listDynamicRoutes($request)
     {
@@ -1722,10 +1854,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListExcessiveDeviceRegistrationApplicationsRequest $request
-     * @param RuntimeOptions                                     $runtime
+     * @summary 批量查询超额注册申请列表
+     *  *
+     * @param ListExcessiveDeviceRegistrationApplicationsRequest $request ListExcessiveDeviceRegistrationApplicationsRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExcessiveDeviceRegistrationApplicationsResponse
+     * @return ListExcessiveDeviceRegistrationApplicationsResponse ListExcessiveDeviceRegistrationApplicationsResponse
      */
     public function listExcessiveDeviceRegistrationApplicationsWithOptions($request, $runtime)
     {
@@ -1750,9 +1884,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListExcessiveDeviceRegistrationApplicationsRequest $request
+     * @summary 批量查询超额注册申请列表
+     *  *
+     * @param ListExcessiveDeviceRegistrationApplicationsRequest $request ListExcessiveDeviceRegistrationApplicationsRequest
      *
-     * @return ListExcessiveDeviceRegistrationApplicationsResponse
+     * @return ListExcessiveDeviceRegistrationApplicationsResponse ListExcessiveDeviceRegistrationApplicationsResponse
      */
     public function listExcessiveDeviceRegistrationApplications($request)
     {
@@ -1762,10 +1898,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListIdpConfigsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 查询IDP配置
+     *  *
+     * @param ListIdpConfigsRequest $request ListIdpConfigsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIdpConfigsResponse
+     * @return ListIdpConfigsResponse ListIdpConfigsResponse
      */
     public function listIdpConfigsWithOptions($request, $runtime)
     {
@@ -1790,9 +1928,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListIdpConfigsRequest $request
+     * @summary 查询IDP配置
+     *  *
+     * @param ListIdpConfigsRequest $request ListIdpConfigsRequest
      *
-     * @return ListIdpConfigsResponse
+     * @return ListIdpConfigsResponse ListIdpConfigsResponse
      */
     public function listIdpConfigs($request)
     {
@@ -1802,10 +1942,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListIdpDepartmentsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询自定义身份源部门
+     *  *
+     * @param ListIdpDepartmentsRequest $request ListIdpDepartmentsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIdpDepartmentsResponse
+     * @return ListIdpDepartmentsResponse ListIdpDepartmentsResponse
      */
     public function listIdpDepartmentsWithOptions($request, $runtime)
     {
@@ -1830,9 +1972,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListIdpDepartmentsRequest $request
+     * @summary 查询自定义身份源部门
+     *  *
+     * @param ListIdpDepartmentsRequest $request ListIdpDepartmentsRequest
      *
-     * @return ListIdpDepartmentsResponse
+     * @return ListIdpDepartmentsResponse ListIdpDepartmentsResponse
      */
     public function listIdpDepartments($request)
     {
@@ -1842,10 +1986,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPolicesForPrivateAccessApplicationRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary 批量查询内网访问应用的策略
+     *  *
+     * @param ListPolicesForPrivateAccessApplicationRequest $request ListPolicesForPrivateAccessApplicationRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPolicesForPrivateAccessApplicationResponse
+     * @return ListPolicesForPrivateAccessApplicationResponse ListPolicesForPrivateAccessApplicationResponse
      */
     public function listPolicesForPrivateAccessApplicationWithOptions($request, $runtime)
     {
@@ -1870,9 +2016,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPolicesForPrivateAccessApplicationRequest $request
+     * @summary 批量查询内网访问应用的策略
+     *  *
+     * @param ListPolicesForPrivateAccessApplicationRequest $request ListPolicesForPrivateAccessApplicationRequest
      *
-     * @return ListPolicesForPrivateAccessApplicationResponse
+     * @return ListPolicesForPrivateAccessApplicationResponse ListPolicesForPrivateAccessApplicationResponse
      */
     public function listPolicesForPrivateAccessApplication($request)
     {
@@ -1882,10 +2030,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPolicesForPrivateAccessTagRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 批量查询内网访问标签的策略
+     *  *
+     * @param ListPolicesForPrivateAccessTagRequest $request ListPolicesForPrivateAccessTagRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPolicesForPrivateAccessTagResponse
+     * @return ListPolicesForPrivateAccessTagResponse ListPolicesForPrivateAccessTagResponse
      */
     public function listPolicesForPrivateAccessTagWithOptions($request, $runtime)
     {
@@ -1910,9 +2060,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPolicesForPrivateAccessTagRequest $request
+     * @summary 批量查询内网访问标签的策略
+     *  *
+     * @param ListPolicesForPrivateAccessTagRequest $request ListPolicesForPrivateAccessTagRequest
      *
-     * @return ListPolicesForPrivateAccessTagResponse
+     * @return ListPolicesForPrivateAccessTagResponse ListPolicesForPrivateAccessTagResponse
      */
     public function listPolicesForPrivateAccessTag($request)
     {
@@ -1922,10 +2074,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPolicesForUserGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 批量查询用户组的策略
+     *  *
+     * @param ListPolicesForUserGroupRequest $request ListPolicesForUserGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPolicesForUserGroupResponse
+     * @return ListPolicesForUserGroupResponse ListPolicesForUserGroupResponse
      */
     public function listPolicesForUserGroupWithOptions($request, $runtime)
     {
@@ -1950,9 +2104,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPolicesForUserGroupRequest $request
+     * @summary 批量查询用户组的策略
+     *  *
+     * @param ListPolicesForUserGroupRequest $request ListPolicesForUserGroupRequest
      *
-     * @return ListPolicesForUserGroupResponse
+     * @return ListPolicesForUserGroupResponse ListPolicesForUserGroupResponse
      */
     public function listPolicesForUserGroup($request)
     {
@@ -1962,10 +2118,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPopTrafficStatisticsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary pop节点流量统计
+     *  *
+     * @param ListPopTrafficStatisticsRequest $request ListPopTrafficStatisticsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPopTrafficStatisticsResponse
+     * @return ListPopTrafficStatisticsResponse ListPopTrafficStatisticsResponse
      */
     public function listPopTrafficStatisticsWithOptions($request, $runtime)
     {
@@ -1990,9 +2148,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPopTrafficStatisticsRequest $request
+     * @summary pop节点流量统计
+     *  *
+     * @param ListPopTrafficStatisticsRequest $request ListPopTrafficStatisticsRequest
      *
-     * @return ListPopTrafficStatisticsResponse
+     * @return ListPopTrafficStatisticsResponse ListPopTrafficStatisticsResponse
      */
     public function listPopTrafficStatistics($request)
     {
@@ -2002,10 +2162,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessApplicationsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 批量查询内网访问应用
+     *  *
+     * @param ListPrivateAccessApplicationsRequest $request ListPrivateAccessApplicationsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrivateAccessApplicationsResponse
+     * @return ListPrivateAccessApplicationsResponse ListPrivateAccessApplicationsResponse
      */
     public function listPrivateAccessApplicationsWithOptions($request, $runtime)
     {
@@ -2030,9 +2192,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessApplicationsRequest $request
+     * @summary 批量查询内网访问应用
+     *  *
+     * @param ListPrivateAccessApplicationsRequest $request ListPrivateAccessApplicationsRequest
      *
-     * @return ListPrivateAccessApplicationsResponse
+     * @return ListPrivateAccessApplicationsResponse ListPrivateAccessApplicationsResponse
      */
     public function listPrivateAccessApplications($request)
     {
@@ -2042,10 +2206,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * @summary 批量查询动态路由的内网访问应用
+     *  *
+     * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request ListPrivateAccessApplicationsForDynamicRouteRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrivateAccessApplicationsForDynamicRouteResponse
+     * @return ListPrivateAccessApplicationsForDynamicRouteResponse ListPrivateAccessApplicationsForDynamicRouteResponse
      */
     public function listPrivateAccessApplicationsForDynamicRouteWithOptions($request, $runtime)
     {
@@ -2070,9 +2236,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request
+     * @summary 批量查询动态路由的内网访问应用
+     *  *
+     * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request ListPrivateAccessApplicationsForDynamicRouteRequest
      *
-     * @return ListPrivateAccessApplicationsForDynamicRouteResponse
+     * @return ListPrivateAccessApplicationsForDynamicRouteResponse ListPrivateAccessApplicationsForDynamicRouteResponse
      */
     public function listPrivateAccessApplicationsForDynamicRoute($request)
     {
@@ -2082,10 +2250,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessPolicesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 批量查询内网访问策略
+     *  *
+     * @param ListPrivateAccessPolicesRequest $request ListPrivateAccessPolicesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrivateAccessPolicesResponse
+     * @return ListPrivateAccessPolicesResponse ListPrivateAccessPolicesResponse
      */
     public function listPrivateAccessPolicesWithOptions($request, $runtime)
     {
@@ -2110,9 +2280,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessPolicesRequest $request
+     * @summary 批量查询内网访问策略
+     *  *
+     * @param ListPrivateAccessPolicesRequest $request ListPrivateAccessPolicesRequest
      *
-     * @return ListPrivateAccessPolicesResponse
+     * @return ListPrivateAccessPolicesResponse ListPrivateAccessPolicesResponse
      */
     public function listPrivateAccessPolices($request)
     {
@@ -2122,10 +2294,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessTagsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the information about all internal access tags within the current Alibaba Cloud account.
+     *  *
+     * @param ListPrivateAccessTagsRequest $request ListPrivateAccessTagsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrivateAccessTagsResponse
+     * @return ListPrivateAccessTagsResponse ListPrivateAccessTagsResponse
      */
     public function listPrivateAccessTagsWithOptions($request, $runtime)
     {
@@ -2150,9 +2324,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessTagsRequest $request
+     * @summary Queries the information about all internal access tags within the current Alibaba Cloud account.
+     *  *
+     * @param ListPrivateAccessTagsRequest $request ListPrivateAccessTagsRequest
      *
-     * @return ListPrivateAccessTagsResponse
+     * @return ListPrivateAccessTagsResponse ListPrivateAccessTagsResponse
      */
     public function listPrivateAccessTags($request)
     {
@@ -2162,10 +2338,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessTagsForDynamicRouteRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary 批量查询动态路由的内网访问标签
+     *  *
+     * @param ListPrivateAccessTagsForDynamicRouteRequest $request ListPrivateAccessTagsForDynamicRouteRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPrivateAccessTagsForDynamicRouteResponse
+     * @return ListPrivateAccessTagsForDynamicRouteResponse ListPrivateAccessTagsForDynamicRouteResponse
      */
     public function listPrivateAccessTagsForDynamicRouteWithOptions($request, $runtime)
     {
@@ -2190,9 +2368,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessTagsForDynamicRouteRequest $request
+     * @summary 批量查询动态路由的内网访问标签
+     *  *
+     * @param ListPrivateAccessTagsForDynamicRouteRequest $request ListPrivateAccessTagsForDynamicRouteRequest
      *
-     * @return ListPrivateAccessTagsForDynamicRouteResponse
+     * @return ListPrivateAccessTagsForDynamicRouteResponse ListPrivateAccessTagsForDynamicRouteResponse
      */
     public function listPrivateAccessTagsForDynamicRoute($request)
     {
@@ -2202,10 +2382,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListRegistrationPoliciesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询用户设备注册策略列表
+     *  *
+     * @param ListRegistrationPoliciesRequest $request ListRegistrationPoliciesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRegistrationPoliciesResponse
+     * @return ListRegistrationPoliciesResponse ListRegistrationPoliciesResponse
      */
     public function listRegistrationPoliciesWithOptions($request, $runtime)
     {
@@ -2230,9 +2412,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListRegistrationPoliciesRequest $request
+     * @summary 查询用户设备注册策略列表
+     *  *
+     * @param ListRegistrationPoliciesRequest $request ListRegistrationPoliciesRequest
      *
-     * @return ListRegistrationPoliciesResponse
+     * @return ListRegistrationPoliciesResponse ListRegistrationPoliciesResponse
      */
     public function listRegistrationPolicies($request)
     {
@@ -2242,10 +2426,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListRegistrationPoliciesForUserGroupRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary 查询用户组相关的设备注册策略
+     *  *
+     * @param ListRegistrationPoliciesForUserGroupRequest $request ListRegistrationPoliciesForUserGroupRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRegistrationPoliciesForUserGroupResponse
+     * @return ListRegistrationPoliciesForUserGroupResponse ListRegistrationPoliciesForUserGroupResponse
      */
     public function listRegistrationPoliciesForUserGroupWithOptions($request, $runtime)
     {
@@ -2270,9 +2456,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListRegistrationPoliciesForUserGroupRequest $request
+     * @summary 查询用户组相关的设备注册策略
+     *  *
+     * @param ListRegistrationPoliciesForUserGroupRequest $request ListRegistrationPoliciesForUserGroupRequest
      *
-     * @return ListRegistrationPoliciesForUserGroupResponse
+     * @return ListRegistrationPoliciesForUserGroupResponse ListRegistrationPoliciesForUserGroupResponse
      */
     public function listRegistrationPoliciesForUserGroup($request)
     {
@@ -2282,10 +2470,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListSoftwareForUserDeviceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 批量查询终端安装软件列表
+     *  *
+     * @param ListSoftwareForUserDeviceRequest $request ListSoftwareForUserDeviceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSoftwareForUserDeviceResponse
+     * @return ListSoftwareForUserDeviceResponse ListSoftwareForUserDeviceResponse
      */
     public function listSoftwareForUserDeviceWithOptions($request, $runtime)
     {
@@ -2310,9 +2500,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListSoftwareForUserDeviceRequest $request
+     * @summary 批量查询终端安装软件列表
+     *  *
+     * @param ListSoftwareForUserDeviceRequest $request ListSoftwareForUserDeviceRequest
      *
-     * @return ListSoftwareForUserDeviceResponse
+     * @return ListSoftwareForUserDeviceResponse ListSoftwareForUserDeviceResponse
      */
     public function listSoftwareForUserDevice($request)
     {
@@ -2322,10 +2514,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListTagsForPrivateAccessApplicationRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 批量查询内网访问应用的标签
+     *  *
+     * @param ListTagsForPrivateAccessApplicationRequest $request ListTagsForPrivateAccessApplicationRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagsForPrivateAccessApplicationResponse
+     * @return ListTagsForPrivateAccessApplicationResponse ListTagsForPrivateAccessApplicationResponse
      */
     public function listTagsForPrivateAccessApplicationWithOptions($request, $runtime)
     {
@@ -2350,9 +2544,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListTagsForPrivateAccessApplicationRequest $request
+     * @summary 批量查询内网访问应用的标签
+     *  *
+     * @param ListTagsForPrivateAccessApplicationRequest $request ListTagsForPrivateAccessApplicationRequest
      *
-     * @return ListTagsForPrivateAccessApplicationResponse
+     * @return ListTagsForPrivateAccessApplicationResponse ListTagsForPrivateAccessApplicationResponse
      */
     public function listTagsForPrivateAccessApplication($request)
     {
@@ -2362,10 +2558,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListTagsForPrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 批量查询内网访问策略的标签
+     *  *
+     * @param ListTagsForPrivateAccessPolicyRequest $request ListTagsForPrivateAccessPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagsForPrivateAccessPolicyResponse
+     * @return ListTagsForPrivateAccessPolicyResponse ListTagsForPrivateAccessPolicyResponse
      */
     public function listTagsForPrivateAccessPolicyWithOptions($request, $runtime)
     {
@@ -2390,9 +2588,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListTagsForPrivateAccessPolicyRequest $request
+     * @summary 批量查询内网访问策略的标签
+     *  *
+     * @param ListTagsForPrivateAccessPolicyRequest $request ListTagsForPrivateAccessPolicyRequest
      *
-     * @return ListTagsForPrivateAccessPolicyResponse
+     * @return ListTagsForPrivateAccessPolicyResponse ListTagsForPrivateAccessPolicyResponse
      */
     public function listTagsForPrivateAccessPolicy($request)
     {
@@ -2402,10 +2602,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUserDevicesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 批量查询用户设备列表
+     *  *
+     * @param ListUserDevicesRequest $request ListUserDevicesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserDevicesResponse
+     * @return ListUserDevicesResponse ListUserDevicesResponse
      */
     public function listUserDevicesWithOptions($request, $runtime)
     {
@@ -2430,9 +2632,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUserDevicesRequest $request
+     * @summary 批量查询用户设备列表
+     *  *
+     * @param ListUserDevicesRequest $request ListUserDevicesRequest
      *
-     * @return ListUserDevicesResponse
+     * @return ListUserDevicesResponse ListUserDevicesResponse
      */
     public function listUserDevices($request)
     {
@@ -2442,10 +2646,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 批量查询用户组
+     *  *
+     * @param ListUserGroupsRequest $request ListUserGroupsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserGroupsResponse
+     * @return ListUserGroupsResponse ListUserGroupsResponse
      */
     public function listUserGroupsWithOptions($request, $runtime)
     {
@@ -2470,9 +2676,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsRequest $request
+     * @summary 批量查询用户组
+     *  *
+     * @param ListUserGroupsRequest $request ListUserGroupsRequest
      *
-     * @return ListUserGroupsResponse
+     * @return ListUserGroupsResponse ListUserGroupsResponse
      */
     public function listUserGroups($request)
     {
@@ -2482,10 +2690,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsForPrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary 批量查询内网访问策略的用户组
+     *  *
+     * @param ListUserGroupsForPrivateAccessPolicyRequest $request ListUserGroupsForPrivateAccessPolicyRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserGroupsForPrivateAccessPolicyResponse
+     * @return ListUserGroupsForPrivateAccessPolicyResponse ListUserGroupsForPrivateAccessPolicyResponse
      */
     public function listUserGroupsForPrivateAccessPolicyWithOptions($request, $runtime)
     {
@@ -2510,9 +2720,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsForPrivateAccessPolicyRequest $request
+     * @summary 批量查询内网访问策略的用户组
+     *  *
+     * @param ListUserGroupsForPrivateAccessPolicyRequest $request ListUserGroupsForPrivateAccessPolicyRequest
      *
-     * @return ListUserGroupsForPrivateAccessPolicyResponse
+     * @return ListUserGroupsForPrivateAccessPolicyResponse ListUserGroupsForPrivateAccessPolicyResponse
      */
     public function listUserGroupsForPrivateAccessPolicy($request)
     {
@@ -2522,10 +2734,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsForRegistrationPolicyRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 查询设备注册策略相关用户组
+     *  *
+     * @param ListUserGroupsForRegistrationPolicyRequest $request ListUserGroupsForRegistrationPolicyRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserGroupsForRegistrationPolicyResponse
+     * @return ListUserGroupsForRegistrationPolicyResponse ListUserGroupsForRegistrationPolicyResponse
      */
     public function listUserGroupsForRegistrationPolicyWithOptions($request, $runtime)
     {
@@ -2550,9 +2764,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsForRegistrationPolicyRequest $request
+     * @summary 查询设备注册策略相关用户组
+     *  *
+     * @param ListUserGroupsForRegistrationPolicyRequest $request ListUserGroupsForRegistrationPolicyRequest
      *
-     * @return ListUserGroupsForRegistrationPolicyResponse
+     * @return ListUserGroupsForRegistrationPolicyResponse ListUserGroupsForRegistrationPolicyResponse
      */
     public function listUserGroupsForRegistrationPolicy($request)
     {
@@ -2562,10 +2778,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 列表查询登陆用户
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
@@ -2590,9 +2808,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
+     * @summary 列表查询登陆用户
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -2602,10 +2822,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateClientUserRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 修改自定义身份源指定用户
+     *  *
+     * @param UpdateClientUserRequest $request UpdateClientUserRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateClientUserResponse
+     * @return UpdateClientUserResponse UpdateClientUserResponse
      */
     public function updateClientUserWithOptions($request, $runtime)
     {
@@ -2645,9 +2867,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateClientUserRequest $request
+     * @summary 修改自定义身份源指定用户
+     *  *
+     * @param UpdateClientUserRequest $request UpdateClientUserRequest
      *
-     * @return UpdateClientUserResponse
+     * @return UpdateClientUserResponse UpdateClientUserResponse
      */
     public function updateClientUser($request)
     {
@@ -2657,10 +2881,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateClientUserPasswordRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 修改自定义身份源指定用户密码
+     *  *
+     * @param UpdateClientUserPasswordRequest $request UpdateClientUserPasswordRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateClientUserPasswordResponse
+     * @return UpdateClientUserPasswordResponse UpdateClientUserPasswordResponse
      */
     public function updateClientUserPasswordWithOptions($request, $runtime)
     {
@@ -2694,9 +2920,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateClientUserPasswordRequest $request
+     * @summary 修改自定义身份源指定用户密码
+     *  *
+     * @param UpdateClientUserPasswordRequest $request UpdateClientUserPasswordRequest
      *
-     * @return UpdateClientUserPasswordResponse
+     * @return UpdateClientUserPasswordResponse UpdateClientUserPasswordResponse
      */
     public function updateClientUserPassword($request)
     {
@@ -2706,10 +2934,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateClientUserStatusRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 修改自定义身份源指定用户启用状态
+     *  *
+     * @param UpdateClientUserStatusRequest $request UpdateClientUserStatusRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateClientUserStatusResponse
+     * @return UpdateClientUserStatusResponse UpdateClientUserStatusResponse
      */
     public function updateClientUserStatusWithOptions($request, $runtime)
     {
@@ -2740,9 +2970,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateClientUserStatusRequest $request
+     * @summary 修改自定义身份源指定用户启用状态
+     *  *
+     * @param UpdateClientUserStatusRequest $request UpdateClientUserStatusRequest
      *
-     * @return UpdateClientUserStatusResponse
+     * @return UpdateClientUserStatusResponse UpdateClientUserStatusResponse
      */
     public function updateClientUserStatus($request)
     {
@@ -2752,10 +2984,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateDynamicRouteRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 修改动态路由
+     *  *
+     * @param UpdateDynamicRouteRequest $request UpdateDynamicRouteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDynamicRouteResponse
+     * @return UpdateDynamicRouteResponse UpdateDynamicRouteResponse
      */
     public function updateDynamicRouteWithOptions($request, $runtime)
     {
@@ -2818,9 +3052,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateDynamicRouteRequest $request
+     * @summary 修改动态路由
+     *  *
+     * @param UpdateDynamicRouteRequest $request UpdateDynamicRouteRequest
      *
-     * @return UpdateDynamicRouteResponse
+     * @return UpdateDynamicRouteResponse UpdateDynamicRouteResponse
      */
     public function updateDynamicRoute($request)
     {
@@ -2830,10 +3066,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request
-     * @param RuntimeOptions                                             $runtime
+     * @summary 批量更新超额注册申请状态
+     *  *
+     * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
+     * @param RuntimeOptions                                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
+     * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
      */
     public function updateExcessiveDeviceRegistrationApplicationsStatusWithOptions($request, $runtime)
     {
@@ -2866,9 +3104,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request
+     * @summary 批量更新超额注册申请状态
+     *  *
+     * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request UpdateExcessiveDeviceRegistrationApplicationsStatusRequest
      *
-     * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
+     * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
      */
     public function updateExcessiveDeviceRegistrationApplicationsStatus($request)
     {
@@ -2878,10 +3118,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateIdpDepartmentRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 修改指定自定义身份源部门
+     *  *
+     * @param UpdateIdpDepartmentRequest $request UpdateIdpDepartmentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIdpDepartmentResponse
+     * @return UpdateIdpDepartmentResponse UpdateIdpDepartmentResponse
      */
     public function updateIdpDepartmentWithOptions($request, $runtime)
     {
@@ -2915,9 +3157,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateIdpDepartmentRequest $request
+     * @summary 修改指定自定义身份源部门
+     *  *
+     * @param UpdateIdpDepartmentRequest $request UpdateIdpDepartmentRequest
      *
-     * @return UpdateIdpDepartmentResponse
+     * @return UpdateIdpDepartmentResponse UpdateIdpDepartmentResponse
      */
     public function updateIdpDepartment($request)
     {
@@ -2927,10 +3171,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrivateAccessApplicationRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 修改内网访问应用
+     *  *
+     * @param UpdatePrivateAccessApplicationRequest $request UpdatePrivateAccessApplicationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePrivateAccessApplicationResponse
+     * @return UpdatePrivateAccessApplicationResponse UpdatePrivateAccessApplicationResponse
      */
     public function updatePrivateAccessApplicationWithOptions($request, $runtime)
     {
@@ -2981,9 +3227,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrivateAccessApplicationRequest $request
+     * @summary 修改内网访问应用
+     *  *
+     * @param UpdatePrivateAccessApplicationRequest $request UpdatePrivateAccessApplicationRequest
      *
-     * @return UpdatePrivateAccessApplicationResponse
+     * @return UpdatePrivateAccessApplicationResponse UpdatePrivateAccessApplicationResponse
      */
     public function updatePrivateAccessApplication($request)
     {
@@ -2993,10 +3241,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrivateAccessPolicyRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 修改内网访问策略
+     *  *
+     * @param UpdatePrivateAccessPolicyRequest $request UpdatePrivateAccessPolicyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePrivateAccessPolicyResponse
+     * @return UpdatePrivateAccessPolicyResponse UpdatePrivateAccessPolicyResponse
      */
     public function updatePrivateAccessPolicyWithOptions($request, $runtime)
     {
@@ -3062,9 +3312,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrivateAccessPolicyRequest $request
+     * @summary 修改内网访问策略
+     *  *
+     * @param UpdatePrivateAccessPolicyRequest $request UpdatePrivateAccessPolicyRequest
      *
-     * @return UpdatePrivateAccessPolicyResponse
+     * @return UpdatePrivateAccessPolicyResponse UpdatePrivateAccessPolicyResponse
      */
     public function updatePrivateAccessPolicy($request)
     {
@@ -3074,10 +3326,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateRegistrationPolicyRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 修改设备注册策略
+     *  *
+     * @param UpdateRegistrationPolicyRequest $tmpReq  UpdateRegistrationPolicyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRegistrationPolicyResponse
+     * @return UpdateRegistrationPolicyResponse UpdateRegistrationPolicyResponse
      */
     public function updateRegistrationPolicyWithOptions($tmpReq, $runtime)
     {
@@ -3148,9 +3402,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateRegistrationPolicyRequest $request
+     * @summary 修改设备注册策略
+     *  *
+     * @param UpdateRegistrationPolicyRequest $request UpdateRegistrationPolicyRequest
      *
-     * @return UpdateRegistrationPolicyResponse
+     * @return UpdateRegistrationPolicyResponse UpdateRegistrationPolicyResponse
      */
     public function updateRegistrationPolicy($request)
     {
@@ -3160,10 +3416,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserDevicesSharingStatusRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 批量更新用户设备共享状态
+     *  *
+     * @param UpdateUserDevicesSharingStatusRequest $request UpdateUserDevicesSharingStatusRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserDevicesSharingStatusResponse
+     * @return UpdateUserDevicesSharingStatusResponse UpdateUserDevicesSharingStatusResponse
      */
     public function updateUserDevicesSharingStatusWithOptions($request, $runtime)
     {
@@ -3196,9 +3454,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserDevicesSharingStatusRequest $request
+     * @summary 批量更新用户设备共享状态
+     *  *
+     * @param UpdateUserDevicesSharingStatusRequest $request UpdateUserDevicesSharingStatusRequest
      *
-     * @return UpdateUserDevicesSharingStatusResponse
+     * @return UpdateUserDevicesSharingStatusResponse UpdateUserDevicesSharingStatusResponse
      */
     public function updateUserDevicesSharingStatus($request)
     {
@@ -3208,10 +3468,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserDevicesStatusRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 批量更新用户设备状态
+     *  *
+     * @param UpdateUserDevicesStatusRequest $request UpdateUserDevicesStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserDevicesStatusResponse
+     * @return UpdateUserDevicesStatusResponse UpdateUserDevicesStatusResponse
      */
     public function updateUserDevicesStatusWithOptions($request, $runtime)
     {
@@ -3244,9 +3506,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserDevicesStatusRequest $request
+     * @summary 批量更新用户设备状态
+     *  *
+     * @param UpdateUserDevicesStatusRequest $request UpdateUserDevicesStatusRequest
      *
-     * @return UpdateUserDevicesStatusResponse
+     * @return UpdateUserDevicesStatusResponse UpdateUserDevicesStatusResponse
      */
     public function updateUserDevicesStatus($request)
     {
@@ -3256,10 +3520,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 修改用户组
+     *  *
+     * @param UpdateUserGroupRequest $request UpdateUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserGroupResponse
+     * @return UpdateUserGroupResponse UpdateUserGroupResponse
      */
     public function updateUserGroupWithOptions($request, $runtime)
     {
@@ -3298,9 +3564,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserGroupRequest $request
+     * @summary 修改用户组
+     *  *
+     * @param UpdateUserGroupRequest $request UpdateUserGroupRequest
      *
-     * @return UpdateUserGroupResponse
+     * @return UpdateUserGroupResponse UpdateUserGroupResponse
      */
     public function updateUserGroup($request)
     {
@@ -3310,10 +3578,12 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateUsersStatusRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 批量修改登陆用户状态
+     *  *
+     * @param UpdateUsersStatusRequest $request UpdateUsersStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUsersStatusResponse
+     * @return UpdateUsersStatusResponse UpdateUsersStatusResponse
      */
     public function updateUsersStatusWithOptions($request, $runtime)
     {
@@ -3344,9 +3614,11 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateUsersStatusRequest $request
+     * @summary 批量修改登陆用户状态
+     *  *
+     * @param UpdateUsersStatusRequest $request UpdateUsersStatusRequest
      *
-     * @return UpdateUsersStatusResponse
+     * @return UpdateUsersStatusResponse UpdateUsersStatusResponse
      */
     public function updateUsersStatus($request)
     {
