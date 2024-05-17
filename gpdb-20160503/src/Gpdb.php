@@ -12,6 +12,12 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUploadDocumentJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUploadDocumentJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUpsertCollectionDataJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUpsertCollectionDataJobResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckHadoopDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckHadoopDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckHadoopNetConnectionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckHadoopNetConnectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckJDBCSourceNetConnectionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckJDBCSourceNetConnectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAccountRequest;
@@ -24,12 +30,27 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDocumentCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDocumentCollectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateExtensionsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateExtensionsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateExternalDataServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateExternalDataServiceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateHadoopDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateHadoopDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSampleDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSampleDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateServiceLinkedRoleResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingDataServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingDataServiceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingJobRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingJobResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingJobShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataRequest;
@@ -44,8 +65,22 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDocumentCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDocumentCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDocumentRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDocumentResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteExtensionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteExtensionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteExternalDataServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteExternalDataServiceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteHadoopDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteHadoopDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataServiceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingJobRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteVectorIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteVectorIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsRequest;
@@ -115,10 +150,20 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadSQLLogsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadSQLLogsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeExternalDataServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeExternalDataServiceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHadoopClustersInSameNetRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHadoopClustersInSameNetResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHadoopConfigsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHadoopConfigsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHadoopDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHadoopDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeIMVInfosRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeIMVInfosResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeJDBCDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModifyParameterLogRequest;
@@ -141,6 +186,12 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsV2Request;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsV2Response;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingDataServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingDataServiceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingJobRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupportFeaturesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupportFeaturesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTagsRequest;
@@ -171,8 +222,20 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentCollectionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentCollectionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDocumentsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListExternalDataServicesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListExternalDataServicesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListExternalDataSourcesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListExternalDataSourcesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataServicesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataServicesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataSourcesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataSourcesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAccountDescriptionRequest;
@@ -191,6 +254,12 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceResourceGroupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceSSLResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyExternalDataServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyExternalDataServiceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyHadoopDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyHadoopDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyJDBCDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyMasterSpecRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyMasterSpecResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyParametersRequest;
@@ -199,6 +268,13 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySQLCollectorPolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySQLCollectorPolicyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingDataServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingDataServiceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyVectorConfigurationRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyVectorConfigurationResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseInstanceRequest;
@@ -244,6 +320,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBVersionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBVersionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeExtensionsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeExtensionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UploadDocumentAsyncAdvanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UploadDocumentAsyncRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UploadDocumentAsyncResponse;
@@ -524,6 +602,168 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelUpsertCollectionDataJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 检查hadoop数据源配置
+     *  *
+     * @param CheckHadoopDataSourceRequest $request CheckHadoopDataSourceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CheckHadoopDataSourceResponse CheckHadoopDataSourceResponse
+     */
+    public function checkHadoopDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkDir)) {
+            $query['CheckDir'] = $request->checkDir;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckHadoopDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckHadoopDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 检查hadoop数据源配置
+     *  *
+     * @param CheckHadoopDataSourceRequest $request CheckHadoopDataSourceRequest
+     *
+     * @return CheckHadoopDataSourceResponse CheckHadoopDataSourceResponse
+     */
+    public function checkHadoopDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkHadoopDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 检查hadoop集群网络连通性
+     *  *
+     * @param CheckHadoopNetConnectionRequest $request CheckHadoopNetConnectionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CheckHadoopNetConnectionResponse CheckHadoopNetConnectionResponse
+     */
+    public function checkHadoopNetConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->emrInstanceId)) {
+            $query['EmrInstanceId'] = $request->emrInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckHadoopNetConnection',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckHadoopNetConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 检查hadoop集群网络连通性
+     *  *
+     * @param CheckHadoopNetConnectionRequest $request CheckHadoopNetConnectionRequest
+     *
+     * @return CheckHadoopNetConnectionResponse CheckHadoopNetConnectionResponse
+     */
+    public function checkHadoopNetConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkHadoopNetConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 检查jdbc连接串网络连通性
+     *  *
+     * @param CheckJDBCSourceNetConnectionRequest $request CheckJDBCSourceNetConnectionRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CheckJDBCSourceNetConnectionResponse CheckJDBCSourceNetConnectionResponse
+     */
+    public function checkJDBCSourceNetConnectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->jdbcConnectionString)) {
+            $query['JdbcConnectionString'] = $request->jdbcConnectionString;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckJDBCSourceNetConnection',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckJDBCSourceNetConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 检查jdbc连接串网络连通性
+     *  *
+     * @param CheckJDBCSourceNetConnectionRequest $request CheckJDBCSourceNetConnectionRequest
+     *
+     * @return CheckJDBCSourceNetConnectionResponse CheckJDBCSourceNetConnectionResponse
+     */
+    public function checkJDBCSourceNetConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkJDBCSourceNetConnectionWithOptions($request, $runtime);
     }
 
     /**
@@ -1080,6 +1320,272 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 安装插件
+     *  *
+     * @param CreateExtensionsRequest $request CreateExtensionsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateExtensionsResponse CreateExtensionsResponse
+     */
+    public function createExtensionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBNames)) {
+            $query['DBNames'] = $request->DBNames;
+        }
+        if (!Utils::isUnset($request->extensions)) {
+            $query['Extensions'] = $request->extensions;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateExtensions',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 安装插件
+     *  *
+     * @param CreateExtensionsRequest $request CreateExtensionsRequest
+     *
+     * @return CreateExtensionsResponse CreateExtensionsResponse
+     */
+    public function createExtensions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExtensionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建外部数据服务
+     *  *
+     * @param CreateExternalDataServiceRequest $request CreateExternalDataServiceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateExternalDataServiceResponse CreateExternalDataServiceResponse
+     */
+    public function createExternalDataServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceSpec)) {
+            $query['ServiceSpec'] = $request->serviceSpec;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateExternalDataService',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateExternalDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建外部数据服务
+     *  *
+     * @param CreateExternalDataServiceRequest $request CreateExternalDataServiceRequest
+     *
+     * @return CreateExternalDataServiceResponse CreateExternalDataServiceResponse
+     */
+    public function createExternalDataService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExternalDataServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建hadoop数据源配置
+     *  *
+     * @param CreateHadoopDataSourceRequest $request CreateHadoopDataSourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateHadoopDataSourceResponse CreateHadoopDataSourceResponse
+     */
+    public function createHadoopDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
+        }
+        if (!Utils::isUnset($request->dataSourceName)) {
+            $query['DataSourceName'] = $request->dataSourceName;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->emrInstanceId)) {
+            $query['EmrInstanceId'] = $request->emrInstanceId;
+        }
+        if (!Utils::isUnset($request->HDFSConf)) {
+            $query['HDFSConf'] = $request->HDFSConf;
+        }
+        if (!Utils::isUnset($request->hadoopCoreConf)) {
+            $query['HadoopCoreConf'] = $request->hadoopCoreConf;
+        }
+        if (!Utils::isUnset($request->hadoopCreateType)) {
+            $query['HadoopCreateType'] = $request->hadoopCreateType;
+        }
+        if (!Utils::isUnset($request->hadoopHostsAddress)) {
+            $query['HadoopHostsAddress'] = $request->hadoopHostsAddress;
+        }
+        if (!Utils::isUnset($request->hiveConf)) {
+            $query['HiveConf'] = $request->hiveConf;
+        }
+        if (!Utils::isUnset($request->mapReduceConf)) {
+            $query['MapReduceConf'] = $request->mapReduceConf;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->yarnConf)) {
+            $query['YarnConf'] = $request->yarnConf;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateHadoopDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateHadoopDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建hadoop数据源配置
+     *  *
+     * @param CreateHadoopDataSourceRequest $request CreateHadoopDataSourceRequest
+     *
+     * @return CreateHadoopDataSourceResponse CreateHadoopDataSourceResponse
+     */
+    public function createHadoopDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHadoopDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建JDBC数据源配置
+     *  *
+     * @param CreateJDBCDataSourceRequest $request CreateJDBCDataSourceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateJDBCDataSourceResponse CreateJDBCDataSourceResponse
+     */
+    public function createJDBCDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
+        }
+        if (!Utils::isUnset($request->dataSourceName)) {
+            $query['DataSourceName'] = $request->dataSourceName;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->JDBCConnectionString)) {
+            $query['JDBCConnectionString'] = $request->JDBCConnectionString;
+        }
+        if (!Utils::isUnset($request->JDBCPassword)) {
+            $query['JDBCPassword'] = $request->JDBCPassword;
+        }
+        if (!Utils::isUnset($request->JDBCUserName)) {
+            $query['JDBCUserName'] = $request->JDBCUserName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateJDBCDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateJDBCDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建JDBC数据源配置
+     *  *
+     * @param CreateJDBCDataSourceRequest $request CreateJDBCDataSourceRequest
+     *
+     * @return CreateJDBCDataSourceResponse CreateJDBCDataSourceResponse
+     */
+    public function createJDBCDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createJDBCDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a vector namespace.
      *  *
      * @param CreateNamespaceRequest $request CreateNamespaceRequest
@@ -1260,6 +1766,254 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createServiceLinkedRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param CreateStreamingDataServiceRequest $request CreateStreamingDataServiceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateStreamingDataServiceResponse CreateStreamingDataServiceResponse
+     */
+    public function createStreamingDataServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceSpec)) {
+            $query['ServiceSpec'] = $request->serviceSpec;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStreamingDataService',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStreamingDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param CreateStreamingDataServiceRequest $request CreateStreamingDataServiceRequest
+     *
+     * @return CreateStreamingDataServiceResponse CreateStreamingDataServiceResponse
+     */
+    public function createStreamingDataService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStreamingDataServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param CreateStreamingDataSourceRequest $request CreateStreamingDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateStreamingDataSourceResponse CreateStreamingDataSourceResponse
+     */
+    public function createStreamingDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceConfig)) {
+            $query['DataSourceConfig'] = $request->dataSourceConfig;
+        }
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
+        }
+        if (!Utils::isUnset($request->dataSourceName)) {
+            $query['DataSourceName'] = $request->dataSourceName;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStreamingDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStreamingDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param CreateStreamingDataSourceRequest $request CreateStreamingDataSourceRequest
+     *
+     * @return CreateStreamingDataSourceResponse CreateStreamingDataSourceResponse
+     */
+    public function createStreamingDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStreamingDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param CreateStreamingJobRequest $tmpReq  CreateStreamingJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateStreamingJobResponse CreateStreamingJobResponse
+     */
+    public function createStreamingJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateStreamingJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destColumns)) {
+            $request->destColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destColumns, 'DestColumns', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->matchColumns)) {
+            $request->matchColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->matchColumns, 'MatchColumns', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->srcColumns)) {
+            $request->srcColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->srcColumns, 'SrcColumns', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->updateColumns)) {
+            $request->updateColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateColumns, 'UpdateColumns', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
+        }
+        if (!Utils::isUnset($request->consistency)) {
+            $query['Consistency'] = $request->consistency;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->destColumnsShrink)) {
+            $query['DestColumns'] = $request->destColumnsShrink;
+        }
+        if (!Utils::isUnset($request->destDatabase)) {
+            $query['DestDatabase'] = $request->destDatabase;
+        }
+        if (!Utils::isUnset($request->destSchema)) {
+            $query['DestSchema'] = $request->destSchema;
+        }
+        if (!Utils::isUnset($request->destTable)) {
+            $query['DestTable'] = $request->destTable;
+        }
+        if (!Utils::isUnset($request->errorLimitCount)) {
+            $query['ErrorLimitCount'] = $request->errorLimitCount;
+        }
+        if (!Utils::isUnset($request->fallbackOffset)) {
+            $query['FallbackOffset'] = $request->fallbackOffset;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->jobConfig)) {
+            $query['JobConfig'] = $request->jobConfig;
+        }
+        if (!Utils::isUnset($request->jobDescription)) {
+            $query['JobDescription'] = $request->jobDescription;
+        }
+        if (!Utils::isUnset($request->jobName)) {
+            $query['JobName'] = $request->jobName;
+        }
+        if (!Utils::isUnset($request->matchColumnsShrink)) {
+            $query['MatchColumns'] = $request->matchColumnsShrink;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->srcColumnsShrink)) {
+            $query['SrcColumns'] = $request->srcColumnsShrink;
+        }
+        if (!Utils::isUnset($request->tryRun)) {
+            $query['TryRun'] = $request->tryRun;
+        }
+        if (!Utils::isUnset($request->updateColumnsShrink)) {
+            $query['UpdateColumns'] = $request->updateColumnsShrink;
+        }
+        if (!Utils::isUnset($request->writeMode)) {
+            $query['WriteMode'] = $request->writeMode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStreamingJob',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStreamingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param CreateStreamingJobRequest $request CreateStreamingJobRequest
+     *
+     * @return CreateStreamingJobResponse CreateStreamingJobResponse
+     */
+    public function createStreamingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStreamingJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1727,6 +2481,221 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 删除插件
+     *  *
+     * @param DeleteExtensionRequest $request DeleteExtensionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteExtensionResponse DeleteExtensionResponse
+     */
+    public function deleteExtensionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBNames)) {
+            $query['DBNames'] = $request->DBNames;
+        }
+        if (!Utils::isUnset($request->extension)) {
+            $query['Extension'] = $request->extension;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExtension',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除插件
+     *  *
+     * @param DeleteExtensionRequest $request DeleteExtensionRequest
+     *
+     * @return DeleteExtensionResponse DeleteExtensionResponse
+     */
+    public function deleteExtension($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExtensionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除外部数据服务
+     *  *
+     * @param DeleteExternalDataServiceRequest $request DeleteExternalDataServiceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteExternalDataServiceResponse DeleteExternalDataServiceResponse
+     */
+    public function deleteExternalDataServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteExternalDataService',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteExternalDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除外部数据服务
+     *  *
+     * @param DeleteExternalDataServiceRequest $request DeleteExternalDataServiceRequest
+     *
+     * @return DeleteExternalDataServiceResponse DeleteExternalDataServiceResponse
+     */
+    public function deleteExternalDataService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteExternalDataServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除hadoop数据源
+     *  *
+     * @param DeleteHadoopDataSourceRequest $request DeleteHadoopDataSourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteHadoopDataSourceResponse DeleteHadoopDataSourceResponse
+     */
+    public function deleteHadoopDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteHadoopDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteHadoopDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除hadoop数据源
+     *  *
+     * @param DeleteHadoopDataSourceRequest $request DeleteHadoopDataSourceRequest
+     *
+     * @return DeleteHadoopDataSourceResponse DeleteHadoopDataSourceResponse
+     */
+    public function deleteHadoopDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHadoopDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除jdbc数据源
+     *  *
+     * @param DeleteJDBCDataSourceRequest $request DeleteJDBCDataSourceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteJDBCDataSourceResponse DeleteJDBCDataSourceResponse
+     */
+    public function deleteJDBCDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteJDBCDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteJDBCDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除jdbc数据源
+     *  *
+     * @param DeleteJDBCDataSourceRequest $request DeleteJDBCDataSourceRequest
+     *
+     * @return DeleteJDBCDataSourceResponse DeleteJDBCDataSourceResponse
+     */
+    public function deleteJDBCDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteJDBCDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes a namespace.
      *  *
      * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
@@ -1786,6 +2755,165 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param DeleteStreamingDataServiceRequest $request DeleteStreamingDataServiceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteStreamingDataServiceResponse DeleteStreamingDataServiceResponse
+     */
+    public function deleteStreamingDataServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStreamingDataService',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStreamingDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param DeleteStreamingDataServiceRequest $request DeleteStreamingDataServiceRequest
+     *
+     * @return DeleteStreamingDataServiceResponse DeleteStreamingDataServiceResponse
+     */
+    public function deleteStreamingDataService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStreamingDataServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除外部数据源配置
+     *  *
+     * @param DeleteStreamingDataSourceRequest $request DeleteStreamingDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteStreamingDataSourceResponse DeleteStreamingDataSourceResponse
+     */
+    public function deleteStreamingDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStreamingDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStreamingDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除外部数据源配置
+     *  *
+     * @param DeleteStreamingDataSourceRequest $request DeleteStreamingDataSourceRequest
+     *
+     * @return DeleteStreamingDataSourceResponse DeleteStreamingDataSourceResponse
+     */
+    public function deleteStreamingDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStreamingDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除外部数据源配置
+     *  *
+     * @param DeleteStreamingJobRequest $request DeleteStreamingJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteStreamingJobResponse DeleteStreamingJobResponse
+     */
+    public function deleteStreamingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStreamingJob',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStreamingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除外部数据源配置
+     *  *
+     * @param DeleteStreamingJobRequest $request DeleteStreamingJobRequest
+     *
+     * @return DeleteStreamingJobResponse DeleteStreamingJobResponse
+     */
+    public function deleteStreamingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStreamingJobWithOptions($request, $runtime);
     }
 
     /**
@@ -3926,6 +5054,218 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 获取外部数据服务详情
+     *  *
+     * @param DescribeExternalDataServiceRequest $request DescribeExternalDataServiceRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeExternalDataServiceResponse DescribeExternalDataServiceResponse
+     */
+    public function describeExternalDataServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExternalDataService',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeExternalDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取外部数据服务详情
+     *  *
+     * @param DescribeExternalDataServiceRequest $request DescribeExternalDataServiceRequest
+     *
+     * @return DescribeExternalDataServiceResponse DescribeExternalDataServiceResponse
+     */
+    public function describeExternalDataService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeExternalDataServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取同网络下的Hadoop集群列表
+     *  *
+     * @param DescribeHadoopClustersInSameNetRequest $request DescribeHadoopClustersInSameNetRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeHadoopClustersInSameNetResponse DescribeHadoopClustersInSameNetResponse
+     */
+    public function describeHadoopClustersInSameNetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHadoopClustersInSameNet',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHadoopClustersInSameNetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取同网络下的Hadoop集群列表
+     *  *
+     * @param DescribeHadoopClustersInSameNetRequest $request DescribeHadoopClustersInSameNetRequest
+     *
+     * @return DescribeHadoopClustersInSameNetResponse DescribeHadoopClustersInSameNetResponse
+     */
+    public function describeHadoopClustersInSameNet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHadoopClustersInSameNetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取hadoop配置信息
+     *  *
+     * @param DescribeHadoopConfigsRequest $request DescribeHadoopConfigsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeHadoopConfigsResponse DescribeHadoopConfigsResponse
+     */
+    public function describeHadoopConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configName)) {
+            $query['ConfigName'] = $request->configName;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->emrInstanceId)) {
+            $query['EmrInstanceId'] = $request->emrInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHadoopConfigs',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHadoopConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取hadoop配置信息
+     *  *
+     * @param DescribeHadoopConfigsRequest $request DescribeHadoopConfigsRequest
+     *
+     * @return DescribeHadoopConfigsResponse DescribeHadoopConfigsResponse
+     */
+    public function describeHadoopConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHadoopConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取hadoop数据源配置信息
+     *  *
+     * @param DescribeHadoopDataSourceRequest $request DescribeHadoopDataSourceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeHadoopDataSourceResponse DescribeHadoopDataSourceResponse
+     */
+    public function describeHadoopDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHadoopDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHadoopDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取hadoop数据源配置信息
+     *  *
+     * @param DescribeHadoopDataSourceRequest $request DescribeHadoopDataSourceRequest
+     *
+     * @return DescribeHadoopDataSourceResponse DescribeHadoopDataSourceResponse
+     */
+    public function describeHadoopDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHadoopDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the health status of an AnalyticDB for PostgreSQL instance and its nodes.
      *  *
      * @description This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
@@ -4034,6 +5374,56 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeIMVInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取jdbc数据源配置信息
+     *  *
+     * @param DescribeJDBCDataSourceRequest $request DescribeJDBCDataSourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeJDBCDataSourceResponse DescribeJDBCDataSourceResponse
+     */
+    public function describeJDBCDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeJDBCDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeJDBCDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取jdbc数据源配置信息
+     *  *
+     * @param DescribeJDBCDataSourceRequest $request DescribeJDBCDataSourceRequest
+     *
+     * @return DescribeJDBCDataSourceResponse DescribeJDBCDataSourceResponse
+     */
+    public function describeJDBCDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeJDBCDataSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -4810,6 +6200,165 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSampleDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param DescribeStreamingDataServiceRequest $request DescribeStreamingDataServiceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeStreamingDataServiceResponse DescribeStreamingDataServiceResponse
+     */
+    public function describeStreamingDataServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStreamingDataService',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeStreamingDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param DescribeStreamingDataServiceRequest $request DescribeStreamingDataServiceRequest
+     *
+     * @return DescribeStreamingDataServiceResponse DescribeStreamingDataServiceResponse
+     */
+    public function describeStreamingDataService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStreamingDataServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取外部数据源配置信息
+     *  *
+     * @param DescribeStreamingDataSourceRequest $request DescribeStreamingDataSourceRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeStreamingDataSourceResponse DescribeStreamingDataSourceResponse
+     */
+    public function describeStreamingDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStreamingDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeStreamingDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取外部数据源配置信息
+     *  *
+     * @param DescribeStreamingDataSourceRequest $request DescribeStreamingDataSourceRequest
+     *
+     * @return DescribeStreamingDataSourceResponse DescribeStreamingDataSourceResponse
+     */
+    public function describeStreamingDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStreamingDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除外部数据源配置
+     *  *
+     * @param DescribeStreamingJobRequest $request DescribeStreamingJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeStreamingJobResponse DescribeStreamingJobResponse
+     */
+    public function describeStreamingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeStreamingJob',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeStreamingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除外部数据源配置
+     *  *
+     * @param DescribeStreamingJobRequest $request DescribeStreamingJobRequest
+     *
+     * @return DescribeStreamingJobResponse DescribeStreamingJobResponse
+     */
+    public function describeStreamingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStreamingJobWithOptions($request, $runtime);
     }
 
     /**
@@ -5791,6 +7340,180 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 获取外部数据服务列表
+     *  *
+     * @param ListExternalDataServicesRequest $request ListExternalDataServicesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListExternalDataServicesResponse ListExternalDataServicesResponse
+     */
+    public function listExternalDataServicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExternalDataServices',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListExternalDataServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取外部数据服务列表
+     *  *
+     * @param ListExternalDataServicesRequest $request ListExternalDataServicesRequest
+     *
+     * @return ListExternalDataServicesResponse ListExternalDataServicesResponse
+     */
+    public function listExternalDataServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listExternalDataServicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取实例外表配置列表
+     *  *
+     * @param ListExternalDataSourcesRequest $request ListExternalDataSourcesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListExternalDataSourcesResponse ListExternalDataSourcesResponse
+     */
+    public function listExternalDataSourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExternalDataSources',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListExternalDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取实例外表配置列表
+     *  *
+     * @param ListExternalDataSourcesRequest $request ListExternalDataSourcesRequest
+     *
+     * @return ListExternalDataSourcesResponse ListExternalDataSourcesResponse
+     */
+    public function listExternalDataSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listExternalDataSourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取实例插件列表
+     *  *
+     * @param ListInstanceExtensionsRequest $request ListInstanceExtensionsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListInstanceExtensionsResponse ListInstanceExtensionsResponse
+     */
+    public function listInstanceExtensionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->extension)) {
+            $query['Extension'] = $request->extension;
+        }
+        if (!Utils::isUnset($request->installStatus)) {
+            $query['InstallStatus'] = $request->installStatus;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstanceExtensions',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListInstanceExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取实例插件列表
+     *  *
+     * @param ListInstanceExtensionsRequest $request ListInstanceExtensionsRequest
+     *
+     * @return ListInstanceExtensionsResponse ListInstanceExtensionsResponse
+     */
+    public function listInstanceExtensions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceExtensionsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of namespaces.
      *  *
      * @param ListNamespacesRequest $request ListNamespacesRequest
@@ -5847,6 +7570,174 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNamespacesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param ListStreamingDataServicesRequest $request ListStreamingDataServicesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListStreamingDataServicesResponse ListStreamingDataServicesResponse
+     */
+    public function listStreamingDataServicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStreamingDataServices',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListStreamingDataServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param ListStreamingDataServicesRequest $request ListStreamingDataServicesRequest
+     *
+     * @return ListStreamingDataServicesResponse ListStreamingDataServicesResponse
+     */
+    public function listStreamingDataServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStreamingDataServicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取实例外表配置列表
+     *  *
+     * @param ListStreamingDataSourcesRequest $request ListStreamingDataSourcesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListStreamingDataSourcesResponse ListStreamingDataSourcesResponse
+     */
+    public function listStreamingDataSourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStreamingDataSources',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListStreamingDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取实例外表配置列表
+     *  *
+     * @param ListStreamingDataSourcesRequest $request ListStreamingDataSourcesRequest
+     *
+     * @return ListStreamingDataSourcesResponse ListStreamingDataSourcesResponse
+     */
+    public function listStreamingDataSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStreamingDataSourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除外部数据源配置
+     *  *
+     * @param ListStreamingJobsRequest $request ListStreamingJobsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListStreamingJobsResponse ListStreamingJobsResponse
+     */
+    public function listStreamingJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStreamingJobs',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListStreamingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除外部数据源配置
+     *  *
+     * @param ListStreamingJobsRequest $request ListStreamingJobsRequest
+     *
+     * @return ListStreamingJobsResponse ListStreamingJobsResponse
+     */
+    public function listStreamingJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStreamingJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -6398,6 +8289,216 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 修改外部数据服务
+     *  *
+     * @param ModifyExternalDataServiceRequest $request ModifyExternalDataServiceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyExternalDataServiceResponse ModifyExternalDataServiceResponse
+     */
+    public function modifyExternalDataServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceSpec)) {
+            $query['ServiceSpec'] = $request->serviceSpec;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyExternalDataService',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyExternalDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改外部数据服务
+     *  *
+     * @param ModifyExternalDataServiceRequest $request ModifyExternalDataServiceRequest
+     *
+     * @return ModifyExternalDataServiceResponse ModifyExternalDataServiceResponse
+     */
+    public function modifyExternalDataService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyExternalDataServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改hadoop数据源配置
+     *  *
+     * @param ModifyHadoopDataSourceRequest $request ModifyHadoopDataSourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyHadoopDataSourceResponse ModifyHadoopDataSourceResponse
+     */
+    public function modifyHadoopDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->emrInstanceId)) {
+            $query['EmrInstanceId'] = $request->emrInstanceId;
+        }
+        if (!Utils::isUnset($request->HDFSConf)) {
+            $query['HDFSConf'] = $request->HDFSConf;
+        }
+        if (!Utils::isUnset($request->hadoopCoreConf)) {
+            $query['HadoopCoreConf'] = $request->hadoopCoreConf;
+        }
+        if (!Utils::isUnset($request->hadoopCreateType)) {
+            $query['HadoopCreateType'] = $request->hadoopCreateType;
+        }
+        if (!Utils::isUnset($request->hadoopHostsAddress)) {
+            $query['HadoopHostsAddress'] = $request->hadoopHostsAddress;
+        }
+        if (!Utils::isUnset($request->hiveConf)) {
+            $query['HiveConf'] = $request->hiveConf;
+        }
+        if (!Utils::isUnset($request->mapReduceConf)) {
+            $query['MapReduceConf'] = $request->mapReduceConf;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->yarnConf)) {
+            $query['YarnConf'] = $request->yarnConf;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHadoopDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyHadoopDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改hadoop数据源配置
+     *  *
+     * @param ModifyHadoopDataSourceRequest $request ModifyHadoopDataSourceRequest
+     *
+     * @return ModifyHadoopDataSourceResponse ModifyHadoopDataSourceResponse
+     */
+    public function modifyHadoopDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHadoopDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改jdbc数据源配置
+     *  *
+     * @param ModifyJDBCDataSourceRequest $request ModifyJDBCDataSourceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyJDBCDataSourceResponse ModifyJDBCDataSourceResponse
+     */
+    public function modifyJDBCDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->dataSourceType)) {
+            $query['DataSourceType'] = $request->dataSourceType;
+        }
+        if (!Utils::isUnset($request->JDBCConnectionString)) {
+            $query['JDBCConnectionString'] = $request->JDBCConnectionString;
+        }
+        if (!Utils::isUnset($request->JDBCPassword)) {
+            $query['JDBCPassword'] = $request->JDBCPassword;
+        }
+        if (!Utils::isUnset($request->JDBCUserName)) {
+            $query['JDBCUserName'] = $request->JDBCUserName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyJDBCDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyJDBCDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改jdbc数据源配置
+     *  *
+     * @param ModifyJDBCDataSourceRequest $request ModifyJDBCDataSourceRequest
+     *
+     * @return ModifyJDBCDataSourceResponse ModifyJDBCDataSourceResponse
+     */
+    public function modifyJDBCDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyJDBCDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 修改master规格
      *  *
      * @param ModifyMasterSpecRequest $request ModifyMasterSpecRequest
@@ -6632,6 +8733,242 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySecurityIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param ModifyStreamingDataServiceRequest $request ModifyStreamingDataServiceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyStreamingDataServiceResponse ModifyStreamingDataServiceResponse
+     */
+    public function modifyStreamingDataServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceDescription)) {
+            $query['ServiceDescription'] = $request->serviceDescription;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceSpec)) {
+            $query['ServiceSpec'] = $request->serviceSpec;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyStreamingDataService',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyStreamingDataServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param ModifyStreamingDataServiceRequest $request ModifyStreamingDataServiceRequest
+     *
+     * @return ModifyStreamingDataServiceResponse ModifyStreamingDataServiceResponse
+     */
+    public function modifyStreamingDataService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyStreamingDataServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改外部数据源配置
+     *  *
+     * @param ModifyStreamingDataSourceRequest $request ModifyStreamingDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyStreamingDataSourceResponse ModifyStreamingDataSourceResponse
+     */
+    public function modifyStreamingDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceConfig)) {
+            $query['DataSourceConfig'] = $request->dataSourceConfig;
+        }
+        if (!Utils::isUnset($request->dataSourceDescription)) {
+            $query['DataSourceDescription'] = $request->dataSourceDescription;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyStreamingDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyStreamingDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改外部数据源配置
+     *  *
+     * @param ModifyStreamingDataSourceRequest $request ModifyStreamingDataSourceRequest
+     *
+     * @return ModifyStreamingDataSourceResponse ModifyStreamingDataSourceResponse
+     */
+    public function modifyStreamingDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyStreamingDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param ModifyStreamingJobRequest $tmpReq  ModifyStreamingJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyStreamingJobResponse ModifyStreamingJobResponse
+     */
+    public function modifyStreamingJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyStreamingJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destColumns)) {
+            $request->destColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destColumns, 'DestColumns', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->matchColumns)) {
+            $request->matchColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->matchColumns, 'MatchColumns', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->srcColumns)) {
+            $request->srcColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->srcColumns, 'SrcColumns', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->updateColumns)) {
+            $request->updateColumnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateColumns, 'UpdateColumns', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->account)) {
+            $query['Account'] = $request->account;
+        }
+        if (!Utils::isUnset($request->consistency)) {
+            $query['Consistency'] = $request->consistency;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->destColumnsShrink)) {
+            $query['DestColumns'] = $request->destColumnsShrink;
+        }
+        if (!Utils::isUnset($request->destDatabase)) {
+            $query['DestDatabase'] = $request->destDatabase;
+        }
+        if (!Utils::isUnset($request->destSchema)) {
+            $query['DestSchema'] = $request->destSchema;
+        }
+        if (!Utils::isUnset($request->destTable)) {
+            $query['DestTable'] = $request->destTable;
+        }
+        if (!Utils::isUnset($request->errorLimitCount)) {
+            $query['ErrorLimitCount'] = $request->errorLimitCount;
+        }
+        if (!Utils::isUnset($request->fallbackOffset)) {
+            $query['FallbackOffset'] = $request->fallbackOffset;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->jobConfig)) {
+            $query['JobConfig'] = $request->jobConfig;
+        }
+        if (!Utils::isUnset($request->jobDescription)) {
+            $query['JobDescription'] = $request->jobDescription;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->matchColumnsShrink)) {
+            $query['MatchColumns'] = $request->matchColumnsShrink;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->srcColumnsShrink)) {
+            $query['SrcColumns'] = $request->srcColumnsShrink;
+        }
+        if (!Utils::isUnset($request->tryRun)) {
+            $query['TryRun'] = $request->tryRun;
+        }
+        if (!Utils::isUnset($request->updateColumnsShrink)) {
+            $query['UpdateColumns'] = $request->updateColumnsShrink;
+        }
+        if (!Utils::isUnset($request->writeMode)) {
+            $query['WriteMode'] = $request->writeMode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyStreamingJob',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyStreamingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建外部数据源配置
+     *  *
+     * @param ModifyStreamingJobRequest $request ModifyStreamingJobRequest
+     *
+     * @return ModifyStreamingJobResponse ModifyStreamingJobResponse
+     */
+    public function modifyStreamingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyStreamingJobWithOptions($request, $runtime);
     }
 
     /**
@@ -8058,6 +10395,59 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeDBVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 升级插件
+     *  *
+     * @param UpgradeExtensionsRequest $request UpgradeExtensionsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpgradeExtensionsResponse UpgradeExtensionsResponse
+     */
+    public function upgradeExtensionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->extensions)) {
+            $query['Extensions'] = $request->extensions;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpgradeExtensions',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpgradeExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 升级插件
+     *  *
+     * @param UpgradeExtensionsRequest $request UpgradeExtensionsRequest
+     *
+     * @return UpgradeExtensionsResponse UpgradeExtensionsResponse
+     */
+    public function upgradeExtensions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeExtensionsWithOptions($request, $runtime);
     }
 
     /**
