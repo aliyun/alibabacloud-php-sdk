@@ -48,7 +48,7 @@ class DescribeAutoRenewAttributeRequest extends Model
     /**
      * @description The ID of the region.
      *
-     * >  You can call the [DescribeRegions](~~98041~~) operation to query the region ID details.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -23,6 +23,8 @@ class CreateColdStorageInstanceRequest extends Model
     public $coldStorageInstanceDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pc-wz9ye3xrtj60ua6d1
      *
      * @var string

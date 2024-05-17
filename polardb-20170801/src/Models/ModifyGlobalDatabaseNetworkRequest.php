@@ -13,9 +13,10 @@ class ModifyGlobalDatabaseNetworkRequest extends Model
      *
      *   It cannot start with `http://` or `https://`.
      *   It must start with a letter.
-     *   It can contain letters, digits, underscores (\_), and hyphens (-).
+     *   It can contain letters, digits, underscores (_), and hyphens (-).
      *   It must be 2 to 126 characters in length.
      *
+     * This parameter is required.
      * @example GDN-fortest
      *
      * @var string
@@ -25,6 +26,7 @@ class ModifyGlobalDatabaseNetworkRequest extends Model
     /**
      * @description The ID of the GDN.
      *
+     * This parameter is required.
      * @example gdn-bp1fttxsrmv*****
      *
      * @var string

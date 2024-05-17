@@ -11,6 +11,7 @@ class CreateGlobalDatabaseNetworkRequest extends Model
     /**
      * @description The ID of the primary cluster.
      *
+     * This parameter is required.
      * @example pc-bp1q76364ird*****
      *
      * @var string
@@ -22,7 +23,7 @@ class CreateGlobalDatabaseNetworkRequest extends Model
      *
      *   It cannot start with [http:// or https://.](http://https://。)
      *   It must start with a letter.
-     *   It can contain letters, digits, underscores (\_), and hyphens (-).
+     *   It can contain letters, digits, underscores (_), and hyphens (-).
      *   It must be 2 to 126 characters in length.
      *
      * @example GDN-fortest

@@ -18,7 +18,7 @@ class database extends Model
     public $accounts;
 
     /**
-     * @description The character set that the database uses. For more information, see [Character set tables](~~99716~~).
+     * @description The character set that the database uses. For more information, see [Character set tables](https://help.aliyun.com/document_detail/99716.html).
      *
      * @example utf8mb4
      *

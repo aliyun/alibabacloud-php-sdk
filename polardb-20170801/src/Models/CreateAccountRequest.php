@@ -24,10 +24,11 @@ class CreateAccountRequest extends Model
      * @description The name of the account. The name must meet the following requirements:
      *
      *   It must start with a lowercase letter and end with a letter or a digit.
-     *   It can contain lowercase letters, digits, and underscores (\_).
+     *   It can contain lowercase letters, digits, and underscores (_).
      *   It must be 2 to 16 characters in length.
      *   It cannot be root, admin, or another username that is reserved by the system.
      *
+     * This parameter is required.
      * @example testacc
      *
      * @var string
@@ -41,6 +42,7 @@ class CreateAccountRequest extends Model
      *   It must be 8 to 32 characters in length.
      *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
      *
+     * This parameter is required.
      * @example Test1111
      *
      * @var string
@@ -79,8 +81,8 @@ class CreateAccountRequest extends Model
      *
      *   If you leave this parameter empty, the default value **Super** is used.
      *
-     *   You can create multiple privileged accounts for a PolarDB for Oracle or PolarDB for PostgreSQL cluster. A privileged account is granted more permissions than a standard account. For more information about how to create a database account, see [Create a database account](~~68508~~).
-     *   You can create only one privileged account for a PolarDB for MySQL cluster. A privileged account is granted more permissions than a standard account. For more information about how to create a database account, see [Create a database account](~~68508~~).
+     *   You can create multiple privileged accounts for a PolarDB for Oracle or PolarDB for PostgreSQL cluster. A privileged account is granted more permissions than a standard account. For more information about how to create a database account, see [Create a database account](https://help.aliyun.com/document_detail/68508.html).
+     *   You can create only one privileged account for a PolarDB for MySQL cluster. A privileged account is granted more permissions than a standard account. For more information about how to create a database account, see [Create a database account](https://help.aliyun.com/document_detail/68508.html).
      *
      * @example Normal
      *
@@ -100,6 +102,7 @@ class CreateAccountRequest extends Model
     /**
      * @description The ID of cluster.
      *
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string

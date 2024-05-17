@@ -11,7 +11,7 @@ class SwitchOverGlobalDatabaseNetworkRequest extends Model
     /**
      * @description The ID of the cluster that will become the primary cluster in the GDN.
      *
-     * You can call the [DescribeGlobalDatabaseNetwork](~~264580~~) operation to query the ID of the cluster in the GDN.
+     * You can call the [DescribeGlobalDatabaseNetwork](https://help.aliyun.com/document_detail/264580.html) operation to query the ID of the cluster in the GDN.
      * @example pc-wz9fb5nn44u1d****
      *
      * @var string
@@ -33,6 +33,7 @@ class SwitchOverGlobalDatabaseNetworkRequest extends Model
     /**
      * @description The ID of the GDN.
      *
+     * This parameter is required.
      * @example gdn-bp1fttxsrmv*****
      *
      * @var string

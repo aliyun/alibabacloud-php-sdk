@@ -11,7 +11,7 @@ class ResetAccountRequest extends Model
     /**
      * @description The username of the account.
      *
-     * > You can reset only the permissions of a privileged account.
+     * This parameter is required.
      * @example testacc
      *
      * @var string
@@ -34,6 +34,7 @@ class ResetAccountRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string

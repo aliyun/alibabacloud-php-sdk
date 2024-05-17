@@ -380,10 +380,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CancelScheduleTasksRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Cancels scheduled tasks that are not yet started.
+     *  *
+     * @param CancelScheduleTasksRequest $request CancelScheduleTasksRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelScheduleTasksResponse
+     * @return CancelScheduleTasksResponse CancelScheduleTasksResponse
      */
     public function cancelScheduleTasksWithOptions($request, $runtime)
     {
@@ -429,9 +431,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CancelScheduleTasksRequest $request
+     * @summary Cancels scheduled tasks that are not yet started.
+     *  *
+     * @param CancelScheduleTasksRequest $request CancelScheduleTasksRequest
      *
-     * @return CancelScheduleTasksResponse
+     * @return CancelScheduleTasksResponse CancelScheduleTasksResponse
      */
     public function cancelScheduleTasks($request)
     {
@@ -441,10 +445,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CheckAccountNameRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Checks whether an account name is valid or unique in a cluster.
+     *  *
+     * @param CheckAccountNameRequest $request CheckAccountNameRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckAccountNameResponse
+     * @return CheckAccountNameResponse CheckAccountNameResponse
      */
     public function checkAccountNameWithOptions($request, $runtime)
     {
@@ -487,9 +493,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CheckAccountNameRequest $request
+     * @summary Checks whether an account name is valid or unique in a cluster.
+     *  *
+     * @param CheckAccountNameRequest $request CheckAccountNameRequest
      *
-     * @return CheckAccountNameResponse
+     * @return CheckAccountNameResponse CheckAccountNameResponse
      */
     public function checkAccountName($request)
     {
@@ -499,10 +507,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CheckDBNameRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Checks whether a database name is valid or whether the name is already used by another database in the current cluster.
+     *  *
+     * @param CheckDBNameRequest $request CheckDBNameRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckDBNameResponse
+     * @return CheckDBNameResponse CheckDBNameResponse
      */
     public function checkDBNameWithOptions($request, $runtime)
     {
@@ -545,9 +555,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CheckDBNameRequest $request
+     * @summary Checks whether a database name is valid or whether the name is already used by another database in the current cluster.
+     *  *
+     * @param CheckDBNameRequest $request CheckDBNameRequest
      *
-     * @return CheckDBNameResponse
+     * @return CheckDBNameResponse CheckDBNameResponse
      */
     public function checkDBName($request)
     {
@@ -557,10 +569,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CheckKMSAuthorizedRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries whether the cluster is authorized to use Key Management Service (KMS).
+     *  *
+     * @param CheckKMSAuthorizedRequest $request CheckKMSAuthorizedRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckKMSAuthorizedResponse
+     * @return CheckKMSAuthorizedResponse CheckKMSAuthorizedResponse
      */
     public function checkKMSAuthorizedWithOptions($request, $runtime)
     {
@@ -606,9 +620,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CheckKMSAuthorizedRequest $request
+     * @summary Queries whether the cluster is authorized to use Key Management Service (KMS).
+     *  *
+     * @param CheckKMSAuthorizedRequest $request CheckKMSAuthorizedRequest
      *
-     * @return CheckKMSAuthorizedResponse
+     * @return CheckKMSAuthorizedResponse CheckKMSAuthorizedResponse
      */
     public function checkKMSAuthorized($request)
     {
@@ -618,10 +634,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CheckServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Checks whether a service-linked role (SLR) is created.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRoleWithOptions($request, $runtime)
     {
@@ -658,9 +676,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CheckServiceLinkedRoleRequest $request
+     * @summary Checks whether a service-linked role (SLR) is created.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
      *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRole($request)
     {
@@ -670,10 +690,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CloseAITaskRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 关闭DB4AI
+     *  *
+     * @param CloseAITaskRequest $request CloseAITaskRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloseAITaskResponse
+     * @return CloseAITaskResponse CloseAITaskResponse
      */
     public function closeAITaskWithOptions($request, $runtime)
     {
@@ -716,9 +738,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CloseAITaskRequest $request
+     * @summary 关闭DB4AI
+     *  *
+     * @param CloseAITaskRequest $request CloseAITaskRequest
      *
-     * @return CloseAITaskResponse
+     * @return CloseAITaskResponse CloseAITaskResponse
      */
     public function closeAITask($request)
     {
@@ -728,10 +752,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to cancel the migration task before data migration.
-     *   * *   You can call this operation to perform the migration task after data migration.
-     *   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
-     *   *
+     * @summary Cancels or completes the migration task that upgrades an RDS cluster to a PolarDB cluster.
+     *  *
+     * @description *   You can call this operation to cancel the migration task before data migration.
+     * *   You can call this operation to perform the migration task after data migration.
+     * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     *  *
      * @param CloseDBClusterMigrationRequest $request CloseDBClusterMigrationRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -778,10 +804,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to cancel the migration task before data migration.
-     *   * *   You can call this operation to perform the migration task after data migration.
-     *   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
-     *   *
+     * @summary Cancels or completes the migration task that upgrades an RDS cluster to a PolarDB cluster.
+     *  *
+     * @description *   You can call this operation to cancel the migration task before data migration.
+     * *   You can call this operation to perform the migration task after data migration.
+     * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     *  *
      * @param CloseDBClusterMigrationRequest $request CloseDBClusterMigrationRequest
      *
      * @return CloseDBClusterMigrationResponse CloseDBClusterMigrationResponse
@@ -794,10 +822,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Creates a database account for a PolarDB cluster.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
@@ -861,9 +891,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
+     * @summary Creates a database account for a PolarDB cluster.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -873,11 +905,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can manually create up to three backups for each cluster.
-     *   * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](~~98101~~).
-     *   * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
-     *   *
+     * @summary Creates a full snapshot backup for a PolarDB cluster.
+     *  *
+     * @description >
+     * *   You can manually create up to three backups for each cluster.
+     * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](https://help.aliyun.com/document_detail/98101.html).
+     * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+     *  *
      * @param CreateBackupRequest $request CreateBackupRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -924,11 +958,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can manually create up to three backups for each cluster.
-     *   * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](~~98101~~).
-     *   * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
-     *   *
+     * @summary Creates a full snapshot backup for a PolarDB cluster.
+     *  *
+     * @description >
+     * *   You can manually create up to three backups for each cluster.
+     * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](https://help.aliyun.com/document_detail/98101.html).
+     * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+     *  *
      * @param CreateBackupRequest $request CreateBackupRequest
      *
      * @return CreateBackupResponse CreateBackupResponse
@@ -941,10 +977,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateColdStorageInstanceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 创建冷存储实例
+     *  *
+     * @param CreateColdStorageInstanceRequest $request CreateColdStorageInstanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateColdStorageInstanceResponse
+     * @return CreateColdStorageInstanceResponse CreateColdStorageInstanceResponse
      */
     public function createColdStorageInstanceWithOptions($request, $runtime)
     {
@@ -993,9 +1031,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateColdStorageInstanceRequest $request
+     * @summary 创建冷存储实例
+     *  *
+     * @param CreateColdStorageInstanceRequest $request CreateColdStorageInstanceRequest
      *
-     * @return CreateColdStorageInstanceResponse
+     * @return CreateColdStorageInstanceResponse CreateColdStorageInstanceResponse
      */
     public function createColdStorageInstance($request)
     {
@@ -1005,10 +1045,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Creates a PolarDB cluster.
+     *  *
+     * @param CreateDBClusterRequest $request CreateDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBClusterResponse
+     * @return CreateDBClusterResponse CreateDBClusterResponse
      */
     public function createDBClusterWithOptions($request, $runtime)
     {
@@ -1195,9 +1237,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBClusterRequest $request
+     * @summary Creates a PolarDB cluster.
+     *  *
+     * @param CreateDBClusterRequest $request CreateDBClusterRequest
      *
-     * @return CreateDBClusterResponse
+     * @return CreateDBClusterResponse CreateDBClusterResponse
      */
     public function createDBCluster($request)
     {
@@ -1207,10 +1251,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBClusterEndpointRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a custom cluster endpoint for a PolarDB cluster.
+     *  *
+     * @param CreateDBClusterEndpointRequest $request CreateDBClusterEndpointRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBClusterEndpointResponse
+     * @return CreateDBClusterEndpointResponse CreateDBClusterEndpointResponse
      */
     public function createDBClusterEndpointWithOptions($request, $runtime)
     {
@@ -1271,9 +1317,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBClusterEndpointRequest $request
+     * @summary Creates a custom cluster endpoint for a PolarDB cluster.
+     *  *
+     * @param CreateDBClusterEndpointRequest $request CreateDBClusterEndpointRequest
      *
-     * @return CreateDBClusterEndpointResponse
+     * @return CreateDBClusterEndpointResponse CreateDBClusterEndpointResponse
      */
     public function createDBClusterEndpoint($request)
     {
@@ -1283,8 +1331,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-     *   *
+     * @summary Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *  *
+     * @description > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *  *
      * @param CreateDBEndpointAddressRequest $request CreateDBEndpointAddressRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1346,8 +1396,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-     *   *
+     * @summary Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *  *
+     * @description > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *  *
      * @param CreateDBEndpointAddressRequest $request CreateDBEndpointAddressRequest
      *
      * @return CreateDBEndpointAddressResponse CreateDBEndpointAddressResponse
@@ -1360,11 +1412,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
-     *   * > *   You can create up to 10 database links for a cluster.
-     *   * > *   Each database link connects a source cluster and a destination cluster.
-     *   * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
-     *   *
+     * @summary Creates a database link.
+     *  *
+     * @description A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
+     * > *   You can create up to 10 database links for a cluster.
+     * > *   Each database link connects a source cluster and a destination cluster.
+     * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+     *  *
      * @param CreateDBLinkRequest $request CreateDBLinkRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1444,11 +1498,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
-     *   * > *   You can create up to 10 database links for a cluster.
-     *   * > *   Each database link connects a source cluster and a destination cluster.
-     *   * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
-     *   *
+     * @summary Creates a database link.
+     *  *
+     * @description A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
+     * > *   You can create up to 10 database links for a cluster.
+     * > *   Each database link connects a source cluster and a destination cluster.
+     * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+     *  *
      * @param CreateDBLinkRequest $request CreateDBLinkRequest
      *
      * @return CreateDBLinkResponse CreateDBLinkResponse
@@ -1461,10 +1517,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBNodesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Adds a read-only node to a PolarDB cluster.
+     *  *
+     * @param CreateDBNodesRequest $request CreateDBNodesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBNodesResponse
+     * @return CreateDBNodesResponse CreateDBNodesResponse
      */
     public function createDBNodesWithOptions($request, $runtime)
     {
@@ -1528,9 +1586,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBNodesRequest $request
+     * @summary Adds a read-only node to a PolarDB cluster.
+     *  *
+     * @param CreateDBNodesRequest $request CreateDBNodesRequest
      *
-     * @return CreateDBNodesResponse
+     * @return CreateDBNodesResponse CreateDBNodesResponse
      */
     public function createDBNodes($request)
     {
@@ -1540,10 +1600,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The cluster is in the Running state.
-     *   * *   The cluster is unlocked.
-     *   *
+     * @summary Creates a database for a PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the following requirements are met:
+     * *   The cluster is in the Running state.
+     * *   The cluster is unlocked.
+     *  *
      * @param CreateDatabaseRequest $request CreateDatabaseRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1608,10 +1670,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The cluster is in the Running state.
-     *   * *   The cluster is unlocked.
-     *   *
+     * @summary Creates a database for a PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the following requirements are met:
+     * *   The cluster is in the Running state.
+     * *   The cluster is unlocked.
+     *  *
      * @param CreateDatabaseRequest $request CreateDatabaseRequest
      *
      * @return CreateDatabaseResponse CreateDatabaseResponse
@@ -1624,8 +1688,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >  A cluster belongs to only one GDN.
-     *   *
+     * @summary Creates a global database network (GDN).
+     *  *
+     * @description >  A cluster belongs to only one GDN.
+     *  *
      * @param CreateGlobalDatabaseNetworkRequest $request CreateGlobalDatabaseNetworkRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -1678,8 +1744,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >  A cluster belongs to only one GDN.
-     *   *
+     * @summary Creates a global database network (GDN).
+     *  *
+     * @description >  A cluster belongs to only one GDN.
+     *  *
      * @param CreateGlobalDatabaseNetworkRequest $request CreateGlobalDatabaseNetworkRequest
      *
      * @return CreateGlobalDatabaseNetworkResponse CreateGlobalDatabaseNetworkResponse
@@ -1692,10 +1760,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -1747,9 +1817,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalSecurityIPGroupRequest $request
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
      *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroup($request)
     {
@@ -1759,9 +1831,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-     *   * > You can call this operation only on a PolarDB for MySQL cluster.
-     *   *
+     * @summary Creates a parameter template.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * > You can call this operation only on a PolarDB for MySQL cluster.
+     *  *
      * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1823,9 +1897,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-     *   * > You can call this operation only on a PolarDB for MySQL cluster.
-     *   *
+     * @summary Creates a parameter template.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * > You can call this operation only on a PolarDB for MySQL cluster.
+     *  *
      * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
      *
      * @return CreateParameterGroupResponse CreateParameterGroupResponse
@@ -1838,10 +1914,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a service-linked role (SLR).
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
@@ -1878,9 +1956,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleRequest $request
+     * @summary Creates a service-linked role (SLR).
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
      *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRole($request)
     {
@@ -1890,10 +1970,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateStoragePlanRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Purchases a storage plan.
+     *  *
+     * @param CreateStoragePlanRequest $request CreateStoragePlanRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateStoragePlanResponse
+     * @return CreateStoragePlanResponse CreateStoragePlanResponse
      */
     public function createStoragePlanWithOptions($request, $runtime)
     {
@@ -1945,9 +2027,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateStoragePlanRequest $request
+     * @summary Purchases a storage plan.
+     *  *
+     * @param CreateStoragePlanRequest $request CreateStoragePlanRequest
      *
-     * @return CreateStoragePlanResponse
+     * @return CreateStoragePlanResponse CreateStoragePlanResponse
      */
     public function createStoragePlan($request)
     {
@@ -1957,8 +2041,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-     *   *
+     * @summary Deletes a database account for a PolarDB cluster.
+     *  *
+     * @description > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     *  *
      * @param DeleteAccountRequest $request DeleteAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2005,8 +2091,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-     *   *
+     * @summary Deletes a database account for a PolarDB cluster.
+     *  *
+     * @description > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     *  *
      * @param DeleteAccountRequest $request DeleteAccountRequest
      *
      * @return DeleteAccountResponse DeleteAccountResponse
@@ -2019,12 +2107,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the cluster meets the following requirements:
-     *   * *   The cluster is in the Running state.
-     *   * *   The backup sets are in the Success state.
-     *   * > *   You can call the [DescribeBackups](~~98102~~) operation to query the status of backup sets.
-     *   * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks.
-     *   *
+     * @summary Deletes the backup sets of a PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the cluster meets the following requirements:
+     * *   The cluster is in the Running state.
+     * *   The backup sets are in the Success state.
+     * > *   You can call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the status of backup sets.
+     * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks
+     *  *
      * @param DeleteBackupRequest $request DeleteBackupRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -2071,12 +2161,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the cluster meets the following requirements:
-     *   * *   The cluster is in the Running state.
-     *   * *   The backup sets are in the Success state.
-     *   * > *   You can call the [DescribeBackups](~~98102~~) operation to query the status of backup sets.
-     *   * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks.
-     *   *
+     * @summary Deletes the backup sets of a PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the cluster meets the following requirements:
+     * *   The cluster is in the Running state.
+     * *   The backup sets are in the Success state.
+     * > *   You can call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the status of backup sets.
+     * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks
+     *  *
      * @param DeleteBackupRequest $request DeleteBackupRequest
      *
      * @return DeleteBackupResponse DeleteBackupResponse
@@ -2089,10 +2181,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Releases a pay-as-you-go PolarDB cluster.
+     *  *
+     * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBClusterResponse
+     * @return DeleteDBClusterResponse DeleteDBClusterResponse
      */
     public function deleteDBClusterWithOptions($request, $runtime)
     {
@@ -2135,9 +2229,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBClusterRequest $request
+     * @summary Releases a pay-as-you-go PolarDB cluster.
+     *  *
+     * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
      *
-     * @return DeleteDBClusterResponse
+     * @return DeleteDBClusterResponse DeleteDBClusterResponse
      */
     public function deleteDBCluster($request)
     {
@@ -2147,10 +2243,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBClusterEndpointRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Releases a custom cluster endpoint of a PolarDB cluster.
+     *  *
+     * @param DeleteDBClusterEndpointRequest $request DeleteDBClusterEndpointRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBClusterEndpointResponse
+     * @return DeleteDBClusterEndpointResponse DeleteDBClusterEndpointResponse
      */
     public function deleteDBClusterEndpointWithOptions($request, $runtime)
     {
@@ -2193,9 +2291,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBClusterEndpointRequest $request
+     * @summary Releases a custom cluster endpoint of a PolarDB cluster.
+     *  *
+     * @param DeleteDBClusterEndpointRequest $request DeleteDBClusterEndpointRequest
      *
-     * @return DeleteDBClusterEndpointResponse
+     * @return DeleteDBClusterEndpointResponse DeleteDBClusterEndpointResponse
      */
     public function deleteDBClusterEndpoint($request)
     {
@@ -2205,9 +2305,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-     *   * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
-     *   *
+     * @summary Releases the public endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, and custom cluster endpoint.
+     *  *
+     * @description > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+     *  *
      * @param DeleteDBEndpointAddressRequest $request DeleteDBEndpointAddressRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -2257,9 +2359,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-     *   * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
-     *   *
+     * @summary Releases the public endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, and custom cluster endpoint.
+     *  *
+     * @description > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+     *  *
      * @param DeleteDBEndpointAddressRequest $request DeleteDBEndpointAddressRequest
      *
      * @return DeleteDBEndpointAddressResponse DeleteDBEndpointAddressResponse
@@ -2272,10 +2376,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBLinkRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Deletes a database link from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     *  *
+     * @param DeleteDBLinkRequest $request DeleteDBLinkRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBLinkResponse
+     * @return DeleteDBLinkResponse DeleteDBLinkResponse
      */
     public function deleteDBLinkWithOptions($request, $runtime)
     {
@@ -2318,9 +2424,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBLinkRequest $request
+     * @summary Deletes a database link from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     *  *
+     * @param DeleteDBLinkRequest $request DeleteDBLinkRequest
      *
-     * @return DeleteDBLinkResponse
+     * @return DeleteDBLinkResponse DeleteDBLinkResponse
      */
     public function deleteDBLink($request)
     {
@@ -2330,10 +2438,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBNodesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes a read-only node from a PolarDB cluster.
+     *  *
+     * @param DeleteDBNodesRequest $request DeleteDBNodesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBNodesResponse
+     * @return DeleteDBNodesResponse DeleteDBNodesResponse
      */
     public function deleteDBNodesWithOptions($request, $runtime)
     {
@@ -2382,9 +2492,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBNodesRequest $request
+     * @summary Deletes a read-only node from a PolarDB cluster.
+     *  *
+     * @param DeleteDBNodesRequest $request DeleteDBNodesRequest
      *
-     * @return DeleteDBNodesResponse
+     * @return DeleteDBNodesResponse DeleteDBNodesResponse
      */
     public function deleteDBNodes($request)
     {
@@ -2394,9 +2506,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
-     *   * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
-     *   *
+     * @summary Deletes a database from a PolarDB cluster.
+     *  *
+     * @description >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
+     * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
+     *  *
      * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2443,9 +2557,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
-     *   * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
-     *   *
+     * @summary Deletes a database from a PolarDB cluster.
+     *  *
+     * @description >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
+     * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
+     *  *
      * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
      *
      * @return DeleteDatabaseResponse DeleteDatabaseResponse
@@ -2458,8 +2574,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >  You can delete a GDN only when the GDN includes only a primary cluster.
-     *   *
+     * @summary Deletes a global database network (GDN).
+     *  *
+     * @description >  You can delete a GDN only when the GDN includes only a primary cluster.
+     *  *
      * @param DeleteGlobalDatabaseNetworkRequest $request DeleteGlobalDatabaseNetworkRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -2509,8 +2627,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >  You can delete a GDN only when the GDN includes only a primary cluster.
-     *   *
+     * @summary Deletes a global database network (GDN).
+     *  *
+     * @description >  You can delete a GDN only when the GDN includes only a primary cluster.
+     *  *
      * @param DeleteGlobalDatabaseNetworkRequest $request DeleteGlobalDatabaseNetworkRequest
      *
      * @return DeleteGlobalDatabaseNetworkResponse DeleteGlobalDatabaseNetworkResponse
@@ -2523,10 +2643,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -2578,9 +2700,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalSecurityIPGroupRequest $request
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
      *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroup($request)
     {
@@ -2590,10 +2714,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteMaskingRulesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a data masking rule.
+     *  *
+     * @param DeleteMaskingRulesRequest $request DeleteMaskingRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMaskingRulesResponse
+     * @return DeleteMaskingRulesResponse DeleteMaskingRulesResponse
      */
     public function deleteMaskingRulesWithOptions($request, $runtime)
     {
@@ -2624,9 +2750,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteMaskingRulesRequest $request
+     * @summary Deletes a data masking rule.
+     *  *
+     * @param DeleteMaskingRulesRequest $request DeleteMaskingRulesRequest
      *
-     * @return DeleteMaskingRulesResponse
+     * @return DeleteMaskingRulesResponse DeleteMaskingRulesResponse
      */
     public function deleteMaskingRules($request)
     {
@@ -2636,9 +2764,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-     *   * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
-     *   *
+     * @summary Deletes a parameter template of a PolarDB cluster.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+     *  *
      * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -2688,9 +2818,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-     *   * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
-     *   *
+     * @summary Deletes a parameter template of a PolarDB cluster.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+     *  *
      * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
      *
      * @return DeleteParameterGroupResponse DeleteParameterGroupResponse
@@ -2703,10 +2835,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAITaskStatusRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the state of the PolarDB for AI feature for a cluster.
+     *  *
+     * @param DescribeAITaskStatusRequest $request DescribeAITaskStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAITaskStatusResponse
+     * @return DescribeAITaskStatusResponse DescribeAITaskStatusResponse
      */
     public function describeAITaskStatusWithOptions($request, $runtime)
     {
@@ -2731,9 +2865,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAITaskStatusRequest $request
+     * @summary Queries the state of the PolarDB for AI feature for a cluster.
+     *  *
+     * @param DescribeAITaskStatusRequest $request DescribeAITaskStatusRequest
      *
-     * @return DescribeAITaskStatusResponse
+     * @return DescribeAITaskStatusResponse DescribeAITaskStatusResponse
      */
     public function describeAITaskStatus($request)
     {
@@ -2743,10 +2879,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries information about a database account of a PolarDB cluster.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
@@ -2795,9 +2933,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
+     * @summary Queries information about a database account of a PolarDB cluster.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -2807,10 +2947,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutoRenewAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the auto-renewal attributes of a subscription PolarDB cluster.
+     *  *
+     * @param DescribeAutoRenewAttributeRequest $request DescribeAutoRenewAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAutoRenewAttributeResponse
+     * @return DescribeAutoRenewAttributeResponse DescribeAutoRenewAttributeResponse
      */
     public function describeAutoRenewAttributeWithOptions($request, $runtime)
     {
@@ -2862,9 +3004,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutoRenewAttributeRequest $request
+     * @summary Queries the auto-renewal attributes of a subscription PolarDB cluster.
+     *  *
+     * @param DescribeAutoRenewAttributeRequest $request DescribeAutoRenewAttributeRequest
      *
-     * @return DescribeAutoRenewAttributeResponse
+     * @return DescribeAutoRenewAttributeResponse DescribeAutoRenewAttributeResponse
      */
     public function describeAutoRenewAttribute($request)
     {
@@ -2874,10 +3018,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupLogsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries backup logs and the URLs to download the backup logs.
+     *  *
+     * @param DescribeBackupLogsRequest $request DescribeBackupLogsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupLogsResponse
+     * @return DescribeBackupLogsResponse DescribeBackupLogsResponse
      */
     public function describeBackupLogsWithOptions($request, $runtime)
     {
@@ -2932,9 +3078,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupLogsRequest $request
+     * @summary Queries backup logs and the URLs to download the backup logs.
+     *  *
+     * @param DescribeBackupLogsRequest $request DescribeBackupLogsRequest
      *
-     * @return DescribeBackupLogsResponse
+     * @return DescribeBackupLogsResponse DescribeBackupLogsResponse
      */
     public function describeBackupLogs($request)
     {
@@ -2944,10 +3092,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the automatic backup policy of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
@@ -2987,9 +3137,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
+     * @summary Queries the automatic backup policy of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -2999,10 +3151,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupTasksRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the backup tasks of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasksWithOptions($request, $runtime)
     {
@@ -3048,9 +3202,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupTasksRequest $request
+     * @summary Queries the backup tasks of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
      *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasks($request)
     {
@@ -3060,10 +3216,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the backup details of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
@@ -3127,9 +3285,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
+     * @summary Queries the backup details of a PolarDB cluster.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -3139,10 +3299,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeCharacterSetNameRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries character sets that are supported by a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeCharacterSetNameRequest $request DescribeCharacterSetNameRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCharacterSetNameResponse
+     * @return DescribeCharacterSetNameResponse DescribeCharacterSetNameResponse
      */
     public function describeCharacterSetNameWithOptions($request, $runtime)
     {
@@ -3185,9 +3347,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeCharacterSetNameRequest $request
+     * @summary Queries character sets that are supported by a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeCharacterSetNameRequest $request DescribeCharacterSetNameRequest
      *
-     * @return DescribeCharacterSetNameResponse
+     * @return DescribeCharacterSetNameResponse DescribeCharacterSetNameResponse
      */
     public function describeCharacterSetName($request)
     {
@@ -3197,10 +3361,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeClassListRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the specifications of a cluster.
+     *  *
+     * @param DescribeClassListRequest $request DescribeClassListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClassListResponse
+     * @return DescribeClassListResponse DescribeClassListResponse
      */
     public function describeClassListWithOptions($request, $runtime)
     {
@@ -3252,9 +3418,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeClassListRequest $request
+     * @summary Queries the specifications of a cluster.
+     *  *
+     * @param DescribeClassListRequest $request DescribeClassListRequest
      *
-     * @return DescribeClassListResponse
+     * @return DescribeClassListResponse DescribeClassListResponse
      */
     public function describeClassList($request)
     {
@@ -3264,10 +3432,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAccessWhitelistRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the IP address whitelists and security groups of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAccessWhitelistRequest $request DescribeDBClusterAccessWhitelistRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterAccessWhitelistResponse
+     * @return DescribeDBClusterAccessWhitelistResponse DescribeDBClusterAccessWhitelistResponse
      */
     public function describeDBClusterAccessWhitelistWithOptions($request, $runtime)
     {
@@ -3307,9 +3477,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAccessWhitelistRequest $request
+     * @summary Queries the IP address whitelists and security groups of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAccessWhitelistRequest $request DescribeDBClusterAccessWhitelistRequest
      *
-     * @return DescribeDBClusterAccessWhitelistResponse
+     * @return DescribeDBClusterAccessWhitelistResponse DescribeDBClusterAccessWhitelistResponse
      */
     public function describeDBClusterAccessWhitelist($request)
     {
@@ -3319,10 +3491,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries information about a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterAttributeResponse
+     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttributeWithOptions($request, $runtime)
     {
@@ -3365,9 +3539,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAttributeRequest $request
+     * @summary Queries information about a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
      *
-     * @return DescribeDBClusterAttributeResponse
+     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttribute($request)
     {
@@ -3377,10 +3553,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAuditLogCollectorRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Describe SQL collector for a PolarDB cluster. Features related to SQL collector include audit log and SQL Explorer.
+     *  *
+     * @param DescribeDBClusterAuditLogCollectorRequest $request DescribeDBClusterAuditLogCollectorRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterAuditLogCollectorResponse
+     * @return DescribeDBClusterAuditLogCollectorResponse DescribeDBClusterAuditLogCollectorResponse
      */
     public function describeDBClusterAuditLogCollectorWithOptions($request, $runtime)
     {
@@ -3420,9 +3598,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAuditLogCollectorRequest $request
+     * @summary Describe SQL collector for a PolarDB cluster. Features related to SQL collector include audit log and SQL Explorer.
+     *  *
+     * @param DescribeDBClusterAuditLogCollectorRequest $request DescribeDBClusterAuditLogCollectorRequest
      *
-     * @return DescribeDBClusterAuditLogCollectorResponse
+     * @return DescribeDBClusterAuditLogCollectorResponse DescribeDBClusterAuditLogCollectorResponse
      */
     public function describeDBClusterAuditLogCollector($request)
     {
@@ -3432,10 +3612,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAvailableResourcesRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Queries available resources in a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAvailableResourcesRequest $request DescribeDBClusterAvailableResourcesRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterAvailableResourcesResponse
+     * @return DescribeDBClusterAvailableResourcesResponse DescribeDBClusterAvailableResourcesResponse
      */
     public function describeDBClusterAvailableResourcesWithOptions($request, $runtime)
     {
@@ -3490,9 +3672,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAvailableResourcesRequest $request
+     * @summary Queries available resources in a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterAvailableResourcesRequest $request DescribeDBClusterAvailableResourcesRequest
      *
-     * @return DescribeDBClusterAvailableResourcesResponse
+     * @return DescribeDBClusterAvailableResourcesResponse DescribeDBClusterAvailableResourcesResponse
      */
     public function describeDBClusterAvailableResources($request)
     {
@@ -3502,10 +3686,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterConnectivityRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries whether the source IP address can access a cluster.
+     *  *
+     * @param DescribeDBClusterConnectivityRequest $request DescribeDBClusterConnectivityRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterConnectivityResponse
+     * @return DescribeDBClusterConnectivityResponse DescribeDBClusterConnectivityResponse
      */
     public function describeDBClusterConnectivityWithOptions($request, $runtime)
     {
@@ -3554,9 +3740,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterConnectivityRequest $request
+     * @summary Queries whether the source IP address can access a cluster.
+     *  *
+     * @param DescribeDBClusterConnectivityRequest $request DescribeDBClusterConnectivityRequest
      *
-     * @return DescribeDBClusterConnectivityResponse
+     * @return DescribeDBClusterConnectivityResponse DescribeDBClusterConnectivityResponse
      */
     public function describeDBClusterConnectivity($request)
     {
@@ -3566,10 +3754,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterEndpointsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the endpoints of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterEndpointsRequest $request DescribeDBClusterEndpointsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterEndpointsResponse
+     * @return DescribeDBClusterEndpointsResponse DescribeDBClusterEndpointsResponse
      */
     public function describeDBClusterEndpointsWithOptions($request, $runtime)
     {
@@ -3615,9 +3805,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterEndpointsRequest $request
+     * @summary Queries the endpoints of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterEndpointsRequest $request DescribeDBClusterEndpointsRequest
      *
-     * @return DescribeDBClusterEndpointsResponse
+     * @return DescribeDBClusterEndpointsResponse DescribeDBClusterEndpointsResponse
      */
     public function describeDBClusterEndpoints($request)
     {
@@ -3627,9 +3819,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](~~121582~~).
-     *   * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
-     *   *
+     * @summary Queries the migration status of PolarDB clusters.
+     *  *
+     * @description *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](https://help.aliyun.com/document_detail/121582.html).
+     * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
+     *  *
      * @param DescribeDBClusterMigrationRequest $request DescribeDBClusterMigrationRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -3673,9 +3867,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](~~121582~~).
-     *   * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
-     *   *
+     * @summary Queries the migration status of PolarDB clusters.
+     *  *
+     * @description *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](https://help.aliyun.com/document_detail/121582.html).
+     * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
+     *  *
      * @param DescribeDBClusterMigrationRequest $request DescribeDBClusterMigrationRequest
      *
      * @return DescribeDBClusterMigrationResponse DescribeDBClusterMigrationResponse
@@ -3688,10 +3884,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterMonitorRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the interval at which the monitoring data of a PolarDB cluster is collected.
+     *  *
+     * @param DescribeDBClusterMonitorRequest $request DescribeDBClusterMonitorRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterMonitorResponse
+     * @return DescribeDBClusterMonitorResponse DescribeDBClusterMonitorResponse
      */
     public function describeDBClusterMonitorWithOptions($request, $runtime)
     {
@@ -3731,9 +3929,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterMonitorRequest $request
+     * @summary Queries the interval at which the monitoring data of a PolarDB cluster is collected.
+     *  *
+     * @param DescribeDBClusterMonitorRequest $request DescribeDBClusterMonitorRequest
      *
-     * @return DescribeDBClusterMonitorResponse
+     * @return DescribeDBClusterMonitorResponse DescribeDBClusterMonitorResponse
      */
     public function describeDBClusterMonitor($request)
     {
@@ -3743,10 +3943,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterParametersRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the parameters of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterParametersRequest $request DescribeDBClusterParametersRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterParametersResponse
+     * @return DescribeDBClusterParametersResponse DescribeDBClusterParametersResponse
      */
     public function describeDBClusterParametersWithOptions($request, $runtime)
     {
@@ -3789,9 +3991,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterParametersRequest $request
+     * @summary Queries the parameters of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterParametersRequest $request DescribeDBClusterParametersRequest
      *
-     * @return DescribeDBClusterParametersResponse
+     * @return DescribeDBClusterParametersResponse DescribeDBClusterParametersResponse
      */
     public function describeDBClusterParameters($request)
     {
@@ -3801,19 +4005,21 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   When the monitoring data is collected every 5 seconds:
-     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   * *   When the monitoring data is collected every 60 seconds:
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
-     *   *
+     * @summary Queries the performance data of a PolarDB cluster.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
+     *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     * *   When the monitoring data is collected every 60 seconds:
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     *  *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -3857,19 +4063,21 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   When the monitoring data is collected every 5 seconds:
-     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   * *   When the monitoring data is collected every 60 seconds:
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
-     *   *
+     * @summary Queries the performance data of a PolarDB cluster.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
+     *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     * *   When the monitoring data is collected every 60 seconds:
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     *  *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      *
      * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
@@ -3882,10 +4090,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterSSLRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the Secure Sockets Layer (SSL) settings of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterSSLRequest $request DescribeDBClusterSSLRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterSSLResponse
+     * @return DescribeDBClusterSSLResponse DescribeDBClusterSSLResponse
      */
     public function describeDBClusterSSLWithOptions($request, $runtime)
     {
@@ -3925,9 +4135,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterSSLRequest $request
+     * @summary Queries the Secure Sockets Layer (SSL) settings of a PolarDB cluster.
+     *  *
+     * @param DescribeDBClusterSSLRequest $request DescribeDBClusterSSLRequest
      *
-     * @return DescribeDBClusterSSLResponse
+     * @return DescribeDBClusterSSLResponse DescribeDBClusterSSLResponse
      */
     public function describeDBClusterSSL($request)
     {
@@ -3937,10 +4149,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterServerlessConfRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the configurations of a serverless cluster.
+     *  *
+     * @param DescribeDBClusterServerlessConfRequest $request DescribeDBClusterServerlessConfRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterServerlessConfResponse
+     * @return DescribeDBClusterServerlessConfResponse DescribeDBClusterServerlessConfResponse
      */
     public function describeDBClusterServerlessConfWithOptions($request, $runtime)
     {
@@ -3980,9 +4194,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterServerlessConfRequest $request
+     * @summary Queries the configurations of a serverless cluster.
+     *  *
+     * @param DescribeDBClusterServerlessConfRequest $request DescribeDBClusterServerlessConfRequest
      *
-     * @return DescribeDBClusterServerlessConfResponse
+     * @return DescribeDBClusterServerlessConfResponse DescribeDBClusterServerlessConfResponse
      */
     public function describeDBClusterServerlessConf($request)
     {
@@ -3992,10 +4208,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterTDERequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the Transparent Data Encryption (TDE) settings of a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterTDERequest $request DescribeDBClusterTDERequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterTDEResponse
+     * @return DescribeDBClusterTDEResponse DescribeDBClusterTDEResponse
      */
     public function describeDBClusterTDEWithOptions($request, $runtime)
     {
@@ -4035,9 +4253,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterTDERequest $request
+     * @summary Queries the Transparent Data Encryption (TDE) settings of a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterTDERequest $request DescribeDBClusterTDERequest
      *
-     * @return DescribeDBClusterTDEResponse
+     * @return DescribeDBClusterTDEResponse DescribeDBClusterTDEResponse
      */
     public function describeDBClusterTDE($request)
     {
@@ -4047,10 +4267,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterVersionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the information about the database engine version of a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterVersionRequest $request DescribeDBClusterVersionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterVersionResponse
+     * @return DescribeDBClusterVersionResponse DescribeDBClusterVersionResponse
      */
     public function describeDBClusterVersionWithOptions($request, $runtime)
     {
@@ -4093,9 +4315,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterVersionRequest $request
+     * @summary Queries the information about the database engine version of a PolarDB for MySQL cluster.
+     *  *
+     * @param DescribeDBClusterVersionRequest $request DescribeDBClusterVersionRequest
      *
-     * @return DescribeDBClusterVersionResponse
+     * @return DescribeDBClusterVersionResponse DescribeDBClusterVersionResponse
      */
     public function describeDBClusterVersion($request)
     {
@@ -4105,10 +4329,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClustersRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
+     *  *
+     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClustersResponse
+     * @return DescribeDBClustersResponse DescribeDBClustersResponse
      */
     public function describeDBClustersWithOptions($request, $runtime)
     {
@@ -4196,9 +4422,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClustersRequest $request
+     * @summary Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
+     *  *
+     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
      *
-     * @return DescribeDBClustersResponse
+     * @return DescribeDBClustersResponse DescribeDBClustersResponse
      */
     public function describeDBClusters($request)
     {
@@ -4208,10 +4436,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClustersWithBackupsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the information about PolarDB clusters that contain backup sets in a region.
+     *  *
+     * @param DescribeDBClustersWithBackupsRequest $request DescribeDBClustersWithBackupsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClustersWithBackupsResponse
+     * @return DescribeDBClustersWithBackupsResponse DescribeDBClustersWithBackupsResponse
      */
     public function describeDBClustersWithBackupsWithOptions($request, $runtime)
     {
@@ -4275,9 +4505,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClustersWithBackupsRequest $request
+     * @summary Queries the information about PolarDB clusters that contain backup sets in a region.
+     *  *
+     * @param DescribeDBClustersWithBackupsRequest $request DescribeDBClustersWithBackupsRequest
      *
-     * @return DescribeDBClustersWithBackupsResponse
+     * @return DescribeDBClustersWithBackupsResponse DescribeDBClustersWithBackupsResponse
      */
     public function describeDBClustersWithBackups($request)
     {
@@ -4287,10 +4519,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInitializeVariableRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the attributes that are supported by a PolarDB for PostgreSQL (Compatible with Oracle) cluster or a PolarDB for PostgreSQL cluster, such as the character sets and collations.
+     *  *
+     * @param DescribeDBInitializeVariableRequest $request DescribeDBInitializeVariableRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInitializeVariableResponse
+     * @return DescribeDBInitializeVariableResponse DescribeDBInitializeVariableResponse
      */
     public function describeDBInitializeVariableWithOptions($request, $runtime)
     {
@@ -4330,9 +4564,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInitializeVariableRequest $request
+     * @summary Queries the attributes that are supported by a PolarDB for PostgreSQL (Compatible with Oracle) cluster or a PolarDB for PostgreSQL cluster, such as the character sets and collations.
+     *  *
+     * @param DescribeDBInitializeVariableRequest $request DescribeDBInitializeVariableRequest
      *
-     * @return DescribeDBInitializeVariableResponse
+     * @return DescribeDBInitializeVariableResponse DescribeDBInitializeVariableResponse
      */
     public function describeDBInitializeVariable($request)
     {
@@ -4342,8 +4578,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
-     *   *
+     * @summary Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     *  *
+     * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
+     *  *
      * @param DescribeDBLinksRequest $request DescribeDBLinksRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4390,8 +4628,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
-     *   *
+     * @summary Queries the database links of a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     *  *
+     * @description > You can query only the database links that use a PolarDB for Oracle cluster as the source.
+     *  *
      * @param DescribeDBLinksRequest $request DescribeDBLinksRequest
      *
      * @return DescribeDBLinksResponse DescribeDBLinksResponse
@@ -4404,19 +4644,21 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   When the monitoring data is collected every 5 seconds:
-     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   * *   When the monitoring data is collected every 60 seconds:
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
-     *   *
+     * @summary Queries the performance data of a node in a PolarDB cluster.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
+     *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     * *   When the monitoring data is collected every 60 seconds:
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     *  *
      * @param DescribeDBNodePerformanceRequest $request DescribeDBNodePerformanceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -4466,19 +4708,21 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   When the monitoring data is collected every 5 seconds:
-     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   * *   When the monitoring data is collected every 60 seconds:
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
-     *   *
+     * @summary Queries the performance data of a node in a PolarDB cluster.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
+     *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     * *   When the monitoring data is collected every 60 seconds:
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     *  *
      * @param DescribeDBNodePerformanceRequest $request DescribeDBNodePerformanceRequest
      *
      * @return DescribeDBNodePerformanceResponse DescribeDBNodePerformanceResponse
@@ -4491,10 +4735,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBNodesParametersRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the parameters of a specified node in a cluster.
+     *  *
+     * @param DescribeDBNodesParametersRequest $request DescribeDBNodesParametersRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBNodesParametersResponse
+     * @return DescribeDBNodesParametersResponse DescribeDBNodesParametersResponse
      */
     public function describeDBNodesParametersWithOptions($request, $runtime)
     {
@@ -4537,9 +4783,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBNodesParametersRequest $request
+     * @summary Queries the parameters of a specified node in a cluster.
+     *  *
+     * @param DescribeDBNodesParametersRequest $request DescribeDBNodesParametersRequest
      *
-     * @return DescribeDBNodesParametersResponse
+     * @return DescribeDBNodesParametersResponse DescribeDBNodesParametersResponse
      */
     public function describeDBNodesParameters($request)
     {
@@ -4549,8 +4797,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > This operation is applicable only to PolarDB for MySQL clusters.
-     *   *
+     * @summary Queries the performance data of PolarProxy.
+     *  *
+     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
      * @param DescribeDBProxyPerformanceRequest $request DescribeDBProxyPerformanceRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -4600,8 +4850,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > This operation is applicable only to PolarDB for MySQL clusters.
-     *   *
+     * @summary Queries the performance data of PolarProxy.
+     *  *
+     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
      * @param DescribeDBProxyPerformanceRequest $request DescribeDBProxyPerformanceRequest
      *
      * @return DescribeDBProxyPerformanceResponse DescribeDBProxyPerformanceResponse
@@ -4614,10 +4866,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDasConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 查看实例的 DAS 配置
+     *  *
+     * @param DescribeDasConfigRequest $request DescribeDasConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDasConfigResponse
+     * @return DescribeDasConfigResponse DescribeDasConfigResponse
      */
     public function describeDasConfigWithOptions($request, $runtime)
     {
@@ -4657,9 +4911,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDasConfigRequest $request
+     * @summary 查看实例的 DAS 配置
+     *  *
+     * @param DescribeDasConfigRequest $request DescribeDasConfigRequest
      *
-     * @return DescribeDasConfigResponse
+     * @return DescribeDasConfigResponse DescribeDasConfigResponse
      */
     public function describeDasConfig($request)
     {
@@ -4669,10 +4925,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabasesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the information about databases in a PolarDB cluster.
+     *  *
+     * @param DescribeDatabasesRequest $request DescribeDatabasesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDatabasesResponse
+     * @return DescribeDatabasesResponse DescribeDatabasesResponse
      */
     public function describeDatabasesWithOptions($request, $runtime)
     {
@@ -4721,9 +4979,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabasesRequest $request
+     * @summary Queries the information about databases in a PolarDB cluster.
+     *  *
+     * @param DescribeDatabasesRequest $request DescribeDatabasesRequest
      *
-     * @return DescribeDatabasesResponse
+     * @return DescribeDatabasesResponse DescribeDatabasesResponse
      */
     public function describeDatabases($request)
     {
@@ -4733,9 +4993,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
-     *   * > You can call the [DescribeDBClusterAttribute](~~98181~~) operation to query the cluster status.
-     *   *
+     * @summary Queries the information about the backup sets in a released PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
+     * > You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
+     *  *
      * @param DescribeDetachedBackupsRequest $request DescribeDetachedBackupsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -4803,9 +5065,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
-     *   * > You can call the [DescribeDBClusterAttribute](~~98181~~) operation to query the cluster status.
-     *   *
+     * @summary Queries the information about the backup sets in a released PolarDB cluster.
+     *  *
+     * @description Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
+     * > You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
+     *  *
      * @param DescribeDetachedBackupsRequest $request DescribeDetachedBackupsRequest
      *
      * @return DescribeDetachedBackupsResponse DescribeDetachedBackupsResponse
@@ -4818,10 +5082,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the information about a Global Database Network (GDN).
+     *  *
+     * @param DescribeGlobalDatabaseNetworkRequest $request DescribeGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalDatabaseNetworkResponse
+     * @return DescribeGlobalDatabaseNetworkResponse DescribeGlobalDatabaseNetworkResponse
      */
     public function describeGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
@@ -4867,9 +5133,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalDatabaseNetworkRequest $request
+     * @summary Queries the information about a Global Database Network (GDN).
+     *  *
+     * @param DescribeGlobalDatabaseNetworkRequest $request DescribeGlobalDatabaseNetworkRequest
      *
-     * @return DescribeGlobalDatabaseNetworkResponse
+     * @return DescribeGlobalDatabaseNetworkResponse DescribeGlobalDatabaseNetworkResponse
      */
     public function describeGlobalDatabaseNetwork($request)
     {
@@ -4879,10 +5147,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalDatabaseNetworksRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the information about all Global Database Networks (GDNs) that belong to an account.
+     *  *
+     * @param DescribeGlobalDatabaseNetworksRequest $request DescribeGlobalDatabaseNetworksRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalDatabaseNetworksResponse
+     * @return DescribeGlobalDatabaseNetworksResponse DescribeGlobalDatabaseNetworksResponse
      */
     public function describeGlobalDatabaseNetworksWithOptions($request, $runtime)
     {
@@ -4943,9 +5213,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalDatabaseNetworksRequest $request
+     * @summary Queries the information about all Global Database Networks (GDNs) that belong to an account.
+     *  *
+     * @param DescribeGlobalDatabaseNetworksRequest $request DescribeGlobalDatabaseNetworksRequest
      *
-     * @return DescribeGlobalDatabaseNetworksResponse
+     * @return DescribeGlobalDatabaseNetworksResponse DescribeGlobalDatabaseNetworksResponse
      */
     public function describeGlobalDatabaseNetworks($request)
     {
@@ -4955,10 +5227,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries global IP whitelist templates.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -5007,9 +5281,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRequest $request
+     * @summary Queries global IP whitelist templates.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
      *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroup($request)
     {
@@ -5019,10 +5295,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries the relationship between a cluster and a global IP whitelist template.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
@@ -5071,9 +5349,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
+     * @summary Queries the relationship between a cluster and a global IP whitelist template.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
      *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelation($request)
     {
@@ -5083,10 +5363,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogBackupPolicyRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the retention policy of log backups in a PolarDB cluster.
+     *  *
+     * @param DescribeLogBackupPolicyRequest $request DescribeLogBackupPolicyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogBackupPolicyResponse
+     * @return DescribeLogBackupPolicyResponse DescribeLogBackupPolicyResponse
      */
     public function describeLogBackupPolicyWithOptions($request, $runtime)
     {
@@ -5126,9 +5408,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogBackupPolicyRequest $request
+     * @summary Queries the retention policy of log backups in a PolarDB cluster.
+     *  *
+     * @param DescribeLogBackupPolicyRequest $request DescribeLogBackupPolicyRequest
      *
-     * @return DescribeLogBackupPolicyResponse
+     * @return DescribeLogBackupPolicyResponse DescribeLogBackupPolicyResponse
      */
     public function describeLogBackupPolicy($request)
     {
@@ -5138,10 +5422,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeMaskingRulesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the data masking rules of a PolarDB cluster or the information about a specified masking rule.
+     *  *
+     * @param DescribeMaskingRulesRequest $request DescribeMaskingRulesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMaskingRulesResponse
+     * @return DescribeMaskingRulesResponse DescribeMaskingRulesResponse
      */
     public function describeMaskingRulesWithOptions($request, $runtime)
     {
@@ -5172,9 +5458,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeMaskingRulesRequest $request
+     * @summary Queries the data masking rules of a PolarDB cluster or the information about a specified masking rule.
+     *  *
+     * @param DescribeMaskingRulesRequest $request DescribeMaskingRulesRequest
      *
-     * @return DescribeMaskingRulesResponse
+     * @return DescribeMaskingRulesResponse DescribeMaskingRulesResponse
      */
     public function describeMaskingRules($request)
     {
@@ -5184,10 +5472,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetaListRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the details of the databases or tables that can be restored.
+     *  *
+     * @param DescribeMetaListRequest $request DescribeMetaListRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetaListResponse
+     * @return DescribeMetaListResponse DescribeMetaListResponse
      */
     public function describeMetaListWithOptions($request, $runtime)
     {
@@ -5248,9 +5538,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetaListRequest $request
+     * @summary Queries the details of the databases or tables that can be restored.
+     *  *
+     * @param DescribeMetaListRequest $request DescribeMetaListRequest
      *
-     * @return DescribeMetaListResponse
+     * @return DescribeMetaListResponse DescribeMetaListResponse
      */
     public function describeMetaList($request)
     {
@@ -5260,9 +5552,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-     *   * > This parameter is valid only for a PolarDB for MySQL cluster.
-     *   *
+     * @summary Queries the information about a parameter template.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * > This parameter is valid only for a PolarDB for MySQL cluster.
+     *  *
      * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -5312,9 +5606,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-     *   * > This parameter is valid only for a PolarDB for MySQL cluster.
-     *   *
+     * @summary Queries the information about a parameter template.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * > This parameter is valid only for a PolarDB for MySQL cluster.
+     *  *
      * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
      *
      * @return DescribeParameterGroupResponse DescribeParameterGroupResponse
@@ -5327,9 +5623,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-     *   * > This operation is applicable only to PolarDB for MySQL clusters.
-     *   *
+     * @summary Queries parameter templates that are available in a specified region.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
      * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -5382,9 +5680,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-     *   * > This operation is applicable only to PolarDB for MySQL clusters.
-     *   *
+     * @summary Queries parameter templates that are available in a specified region.
+     *  *
+     * @description You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
      * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
      *
      * @return DescribeParameterGroupsResponse DescribeParameterGroupsResponse
@@ -5397,10 +5697,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterTemplatesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the default parameters in a cluster.
+     *  *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
@@ -5449,9 +5751,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterTemplatesRequest $request
+     * @summary Queries the default parameters in a cluster.
+     *  *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplates($request)
     {
@@ -5461,10 +5765,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribePendingMaintenanceActionRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the information about a pending event.
+     *  *
+     * @param DescribePendingMaintenanceActionRequest $request DescribePendingMaintenanceActionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePendingMaintenanceActionResponse
+     * @return DescribePendingMaintenanceActionResponse DescribePendingMaintenanceActionResponse
      */
     public function describePendingMaintenanceActionWithOptions($request, $runtime)
     {
@@ -5522,9 +5828,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribePendingMaintenanceActionRequest $request
+     * @summary Queries the information about a pending event.
+     *  *
+     * @param DescribePendingMaintenanceActionRequest $request DescribePendingMaintenanceActionRequest
      *
-     * @return DescribePendingMaintenanceActionResponse
+     * @return DescribePendingMaintenanceActionResponse DescribePendingMaintenanceActionResponse
      */
     public function describePendingMaintenanceAction($request)
     {
@@ -5534,10 +5842,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribePendingMaintenanceActionsRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries the numbers of pending events of different task types.
+     *  *
+     * @param DescribePendingMaintenanceActionsRequest $request DescribePendingMaintenanceActionsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePendingMaintenanceActionsResponse
+     * @return DescribePendingMaintenanceActionsResponse DescribePendingMaintenanceActionsResponse
      */
     public function describePendingMaintenanceActionsWithOptions($request, $runtime)
     {
@@ -5586,9 +5896,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribePendingMaintenanceActionsRequest $request
+     * @summary Queries the numbers of pending events of different task types.
+     *  *
+     * @param DescribePendingMaintenanceActionsRequest $request DescribePendingMaintenanceActionsRequest
      *
-     * @return DescribePendingMaintenanceActionsResponse
+     * @return DescribePendingMaintenanceActionsResponse DescribePendingMaintenanceActionsResponse
      */
     public function describePendingMaintenanceActions($request)
     {
@@ -5598,10 +5910,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribePolarSQLCollectorPolicyRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries whether the SQL Explorer feature is enabled for the cluster.
+     *  *
+     * @param DescribePolarSQLCollectorPolicyRequest $request DescribePolarSQLCollectorPolicyRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePolarSQLCollectorPolicyResponse
+     * @return DescribePolarSQLCollectorPolicyResponse DescribePolarSQLCollectorPolicyResponse
      */
     public function describePolarSQLCollectorPolicyWithOptions($request, $runtime)
     {
@@ -5626,9 +5940,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribePolarSQLCollectorPolicyRequest $request
+     * @summary Queries whether the SQL Explorer feature is enabled for the cluster.
+     *  *
+     * @param DescribePolarSQLCollectorPolicyRequest $request DescribePolarSQLCollectorPolicyRequest
      *
-     * @return DescribePolarSQLCollectorPolicyResponse
+     * @return DescribePolarSQLCollectorPolicyResponse DescribePolarSQLCollectorPolicyResponse
      */
     public function describePolarSQLCollectorPolicy($request)
     {
@@ -5638,10 +5954,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the regions and zones available for PolarDB.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -5678,9 +5996,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries the regions and zones available for PolarDB.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -5690,10 +6010,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeScheduleTasksRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the details of all scheduled tasks.
+     *  *
+     * @param DescribeScheduleTasksRequest $request DescribeScheduleTasksRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeScheduleTasksResponse
+     * @return DescribeScheduleTasksResponse DescribeScheduleTasksResponse
      */
     public function describeScheduleTasksWithOptions($request, $runtime)
     {
@@ -5763,9 +6085,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeScheduleTasksRequest $request
+     * @summary Queries the details of all scheduled tasks.
+     *  *
+     * @param DescribeScheduleTasksRequest $request DescribeScheduleTasksRequest
      *
-     * @return DescribeScheduleTasksResponse
+     * @return DescribeScheduleTasksResponse DescribeScheduleTasksResponse
      */
     public function describeScheduleTasks($request)
     {
@@ -5775,8 +6099,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > This operation is applicable only to PolarDB for MySQL clusters.
-     *   *
+     * @summary Queries the details of the slow query logs of a PolarDB cluster.
+     *  *
+     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
      * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -5841,8 +6167,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > This operation is applicable only to PolarDB for MySQL clusters.
-     *   *
+     * @summary Queries the details of the slow query logs of a PolarDB cluster.
+     *  *
+     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
      * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
      * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
@@ -5855,8 +6183,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > This operation is applicable only to PolarDB for MySQL clusters.
-     *   *
+     * @summary Queries the statistics about the slow query logs of a PolarDB cluster.
+     *  *
+     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
      * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -5918,8 +6248,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > This operation is applicable only to PolarDB for MySQL clusters.
-     *   *
+     * @summary Queries the statistics about the slow query logs of a PolarDB cluster.
+     *  *
+     * @description > This operation is applicable only to PolarDB for MySQL clusters.
+     *  *
      * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
      *
      * @return DescribeSlowLogsResponse DescribeSlowLogsResponse
@@ -5932,9 +6264,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](~~98169~~) operation or [create a cluster](~~58769~~) in the console.
-     *   * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](~~98169~~) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
-     *   *
+     * @summary Queries the details of the tasks that are generated by calling API operations. For example, you can call this operation to view the details of the task when you create a cluster.
+     *  *
+     * @description *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the console.
+     * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+     *  *
      * @param DescribeTasksRequest $request DescribeTasksRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -5996,9 +6330,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](~~98169~~) operation or [create a cluster](~~58769~~) in the console.
-     *   * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](~~98169~~) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
-     *   *
+     * @summary Queries the details of the tasks that are generated by calling API operations. For example, you can call this operation to view the details of the task when you create a cluster.
+     *  *
+     * @description *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the console.
+     * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+     *  *
      * @param DescribeTasksRequest $request DescribeTasksRequest
      *
      * @return DescribeTasksResponse DescribeTasksResponse
@@ -6011,10 +6347,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserEncryptionKeyListRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
+     *  *
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyListWithOptions($request, $runtime)
     {
@@ -6060,9 +6398,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserEncryptionKeyListRequest $request
+     * @summary Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
+     *  *
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
      *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyList($request)
     {
@@ -6072,10 +6412,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeVSwitchesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries a vSwitch.
+     *  *
+     * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVSwitchesResponse
+     * @return DescribeVSwitchesResponse DescribeVSwitchesResponse
      */
     public function describeVSwitchesWithOptions($request, $runtime)
     {
@@ -6136,9 +6478,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeVSwitchesRequest $request
+     * @summary Queries a vSwitch.
+     *  *
+     * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
      *
-     * @return DescribeVSwitchesResponse
+     * @return DescribeVSwitchesResponse DescribeVSwitchesResponse
      */
     public function describeVSwitches($request)
     {
@@ -6148,10 +6492,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DisableDBClusterServerlessRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Disables a stable serverless cluster.
+     *  *
+     * @param DisableDBClusterServerlessRequest $request DisableDBClusterServerlessRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableDBClusterServerlessResponse
+     * @return DisableDBClusterServerlessResponse DisableDBClusterServerlessResponse
      */
     public function disableDBClusterServerlessWithOptions($request, $runtime)
     {
@@ -6191,9 +6537,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DisableDBClusterServerlessRequest $request
+     * @summary Disables a stable serverless cluster.
+     *  *
+     * @param DisableDBClusterServerlessRequest $request DisableDBClusterServerlessRequest
      *
-     * @return DisableDBClusterServerlessResponse
+     * @return DisableDBClusterServerlessResponse DisableDBClusterServerlessResponse
      */
     public function disableDBClusterServerless($request)
     {
@@ -6203,10 +6551,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param EnableDBClusterServerlessRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Enables a stable serverless cluster.
+     *  *
+     * @param EnableDBClusterServerlessRequest $request EnableDBClusterServerlessRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableDBClusterServerlessResponse
+     * @return EnableDBClusterServerlessResponse EnableDBClusterServerlessResponse
      */
     public function enableDBClusterServerlessWithOptions($request, $runtime)
     {
@@ -6264,9 +6614,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param EnableDBClusterServerlessRequest $request
+     * @summary Enables a stable serverless cluster.
+     *  *
+     * @param EnableDBClusterServerlessRequest $request EnableDBClusterServerlessRequest
      *
-     * @return EnableDBClusterServerlessResponse
+     * @return EnableDBClusterServerlessResponse EnableDBClusterServerlessResponse
      */
     public function enableDBClusterServerless($request)
     {
@@ -6276,10 +6628,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param EnableFirewallRulesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 修改sql防火墙状态
+     *  *
+     * @param EnableFirewallRulesRequest $request EnableFirewallRulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableFirewallRulesResponse
+     * @return EnableFirewallRulesResponse EnableFirewallRulesResponse
      */
     public function enableFirewallRulesWithOptions($request, $runtime)
     {
@@ -6325,9 +6679,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param EnableFirewallRulesRequest $request
+     * @summary 修改sql防火墙状态
+     *  *
+     * @param EnableFirewallRulesRequest $request EnableFirewallRulesRequest
      *
-     * @return EnableFirewallRulesResponse
+     * @return EnableFirewallRulesResponse EnableFirewallRulesResponse
      */
     public function enableFirewallRules($request)
     {
@@ -6337,10 +6693,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param EvaluateRegionResourceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Evaluates available resources.
+     *  *
+     * @param EvaluateRegionResourceRequest $request EvaluateRegionResourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return EvaluateRegionResourceResponse
+     * @return EvaluateRegionResourceResponse EvaluateRegionResourceResponse
      */
     public function evaluateRegionResourceWithOptions($request, $runtime)
     {
@@ -6407,9 +6765,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param EvaluateRegionResourceRequest $request
+     * @summary Evaluates available resources.
+     *  *
+     * @param EvaluateRegionResourceRequest $request EvaluateRegionResourceRequest
      *
-     * @return EvaluateRegionResourceResponse
+     * @return EvaluateRegionResourceResponse EvaluateRegionResourceResponse
      */
     public function evaluateRegionResource($request)
     {
@@ -6419,10 +6779,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param FailoverDBClusterRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Performs a manual failover to promote a read-only node to the primary node in a PolarDB cluster.
+     *  *
+     * @param FailoverDBClusterRequest $request FailoverDBClusterRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return FailoverDBClusterResponse
+     * @return FailoverDBClusterResponse FailoverDBClusterResponse
      */
     public function failoverDBClusterWithOptions($request, $runtime)
     {
@@ -6471,9 +6833,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param FailoverDBClusterRequest $request
+     * @summary Performs a manual failover to promote a read-only node to the primary node in a PolarDB cluster.
+     *  *
+     * @param FailoverDBClusterRequest $request FailoverDBClusterRequest
      *
-     * @return FailoverDBClusterResponse
+     * @return FailoverDBClusterResponse FailoverDBClusterResponse
      */
     public function failoverDBCluster($request)
     {
@@ -6483,12 +6847,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > *   An account can be authorized to access one or more databases.
-     *   * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
-     *   * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-     *   * > *   You can call this operation only on a PolarDB for MySQL cluster.
-     *   * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
-     *   *
+     * @summary Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
+     *  *
+     * @description > *   An account can be authorized to access one or more databases.
+     * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
+     * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     * > *   You can call this operation only on a PolarDB for MySQL cluster.
+     * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+     *  *
      * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -6541,12 +6907,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > *   An account can be authorized to access one or more databases.
-     *   * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
-     *   * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-     *   * > *   You can call this operation only on a PolarDB for MySQL cluster.
-     *   * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
-     *   *
+     * @summary Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
+     *  *
+     * @description > *   An account can be authorized to access one or more databases.
+     * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
+     * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     * > *   You can call this operation only on a PolarDB for MySQL cluster.
+     * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+     *  *
      * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      *
      * @return GrantAccountPrivilegeResponse GrantAccountPrivilegeResponse
@@ -6559,10 +6927,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the tags that are bound to one or more PolarDB clusters, or queries the PolarDB clusters to which one or more tags are bound.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -6614,9 +6984,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the tags that are bound to one or more PolarDB clusters, or queries the PolarDB clusters to which one or more tags are bound.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -6626,10 +6998,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ManuallyStartDBClusterRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Manually starts a cluster.
+     *  *
+     * @param ManuallyStartDBClusterRequest $request ManuallyStartDBClusterRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ManuallyStartDBClusterResponse
+     * @return ManuallyStartDBClusterResponse ManuallyStartDBClusterResponse
      */
     public function manuallyStartDBClusterWithOptions($request, $runtime)
     {
@@ -6672,9 +7046,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ManuallyStartDBClusterRequest $request
+     * @summary Manually starts a cluster.
+     *  *
+     * @param ManuallyStartDBClusterRequest $request ManuallyStartDBClusterRequest
      *
-     * @return ManuallyStartDBClusterResponse
+     * @return ManuallyStartDBClusterResponse ManuallyStartDBClusterResponse
      */
     public function manuallyStartDBCluster($request)
     {
@@ -6684,10 +7060,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the description of a database account of a PolarDB cluster.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
@@ -6733,9 +7111,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
+     * @summary Modifies the description of a database account of a PolarDB cluster.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -6745,10 +7125,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountPasswordRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Changes the password of a database account for a specified PolarDB cluster.
+     *  *
+     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountPasswordResponse
+     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
      */
     public function modifyAccountPasswordWithOptions($request, $runtime)
     {
@@ -6797,9 +7179,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountPasswordRequest $request
+     * @summary Changes the password of a database account for a specified PolarDB cluster.
+     *  *
+     * @param ModifyAccountPasswordRequest $request ModifyAccountPasswordRequest
      *
-     * @return ModifyAccountPasswordResponse
+     * @return ModifyAccountPasswordResponse ModifyAccountPasswordResponse
      */
     public function modifyAccountPassword($request)
     {
@@ -6809,10 +7193,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAutoRenewAttributeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the auto-renewal attributes of a subscription PolarDB cluster.
+     *  *
+     * @param ModifyAutoRenewAttributeRequest $request ModifyAutoRenewAttributeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAutoRenewAttributeResponse
+     * @return ModifyAutoRenewAttributeResponse ModifyAutoRenewAttributeResponse
      */
     public function modifyAutoRenewAttributeWithOptions($request, $runtime)
     {
@@ -6867,9 +7253,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyAutoRenewAttributeRequest $request
+     * @summary Modifies the auto-renewal attributes of a subscription PolarDB cluster.
+     *  *
+     * @param ModifyAutoRenewAttributeRequest $request ModifyAutoRenewAttributeRequest
      *
-     * @return ModifyAutoRenewAttributeResponse
+     * @return ModifyAutoRenewAttributeResponse ModifyAutoRenewAttributeResponse
      */
     public function modifyAutoRenewAttribute($request)
     {
@@ -6879,8 +7267,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](~~280422~~).
-     *   *
+     * @summary Modifies the automatic backup policy of a PolarDB cluster.
+     *  *
+     * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     *  *
      * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -6960,8 +7350,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](~~280422~~).
-     *   *
+     * @summary Modifies the automatic backup policy of a PolarDB cluster.
+     *  *
+     * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     *  *
      * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
      * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
@@ -6974,10 +7366,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Modifies the configurations of a PolarDB for MySQL cluster.
+     *  *
+     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterResponse
+     * @return ModifyDBClusterResponse ModifyDBClusterResponse
      */
     public function modifyDBClusterWithOptions($request, $runtime)
     {
@@ -7035,9 +7429,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterRequest $request
+     * @summary Modifies the configurations of a PolarDB for MySQL cluster.
+     *  *
+     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
      *
-     * @return ModifyDBClusterResponse
+     * @return ModifyDBClusterResponse ModifyDBClusterResponse
      */
     public function modifyDBCluster($request)
     {
@@ -7047,10 +7443,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterAccessWhitelistRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Creates or modifies the whitelists (IP whitelists and security groups) of a specified cluster.
+     *  *
+     * @param ModifyDBClusterAccessWhitelistRequest $request ModifyDBClusterAccessWhitelistRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterAccessWhitelistResponse
+     * @return ModifyDBClusterAccessWhitelistResponse ModifyDBClusterAccessWhitelistResponse
      */
     public function modifyDBClusterAccessWhitelistWithOptions($request, $runtime)
     {
@@ -7108,9 +7506,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterAccessWhitelistRequest $request
+     * @summary Creates or modifies the whitelists (IP whitelists and security groups) of a specified cluster.
+     *  *
+     * @param ModifyDBClusterAccessWhitelistRequest $request ModifyDBClusterAccessWhitelistRequest
      *
-     * @return ModifyDBClusterAccessWhitelistResponse
+     * @return ModifyDBClusterAccessWhitelistResponse ModifyDBClusterAccessWhitelistResponse
      */
     public function modifyDBClusterAccessWhitelist($request)
     {
@@ -7120,10 +7520,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterAndNodesParametersRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Modifies cluster parameters and applies them to specified nodes.
+     *  *
+     * @param ModifyDBClusterAndNodesParametersRequest $request ModifyDBClusterAndNodesParametersRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterAndNodesParametersResponse
+     * @return ModifyDBClusterAndNodesParametersResponse ModifyDBClusterAndNodesParametersResponse
      */
     public function modifyDBClusterAndNodesParametersWithOptions($request, $runtime)
     {
@@ -7181,9 +7583,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterAndNodesParametersRequest $request
+     * @summary Modifies cluster parameters and applies them to specified nodes.
+     *  *
+     * @param ModifyDBClusterAndNodesParametersRequest $request ModifyDBClusterAndNodesParametersRequest
      *
-     * @return ModifyDBClusterAndNodesParametersResponse
+     * @return ModifyDBClusterAndNodesParametersResponse ModifyDBClusterAndNodesParametersResponse
      */
     public function modifyDBClusterAndNodesParameters($request)
     {
@@ -7193,10 +7597,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterAuditLogCollectorRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Enables or disables SQL collector for a PolarDB cluster. The features related to SQL collector include Audit Logs and SQL Explorer.
+     *  *
+     * @param ModifyDBClusterAuditLogCollectorRequest $request ModifyDBClusterAuditLogCollectorRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterAuditLogCollectorResponse
+     * @return ModifyDBClusterAuditLogCollectorResponse ModifyDBClusterAuditLogCollectorResponse
      */
     public function modifyDBClusterAuditLogCollectorWithOptions($request, $runtime)
     {
@@ -7239,9 +7645,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterAuditLogCollectorRequest $request
+     * @summary Enables or disables SQL collector for a PolarDB cluster. The features related to SQL collector include Audit Logs and SQL Explorer.
+     *  *
+     * @param ModifyDBClusterAuditLogCollectorRequest $request ModifyDBClusterAuditLogCollectorRequest
      *
-     * @return ModifyDBClusterAuditLogCollectorResponse
+     * @return ModifyDBClusterAuditLogCollectorResponse ModifyDBClusterAuditLogCollectorResponse
      */
     public function modifyDBClusterAuditLogCollector($request)
     {
@@ -7251,10 +7659,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterDeletionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Enables or disables the cluster lock feature for a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterDeletionRequest $request ModifyDBClusterDeletionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterDeletionResponse
+     * @return ModifyDBClusterDeletionResponse ModifyDBClusterDeletionResponse
      */
     public function modifyDBClusterDeletionWithOptions($request, $runtime)
     {
@@ -7297,9 +7707,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterDeletionRequest $request
+     * @summary Enables or disables the cluster lock feature for a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterDeletionRequest $request ModifyDBClusterDeletionRequest
      *
-     * @return ModifyDBClusterDeletionResponse
+     * @return ModifyDBClusterDeletionResponse ModifyDBClusterDeletionResponse
      */
     public function modifyDBClusterDeletion($request)
     {
@@ -7309,10 +7721,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterDescriptionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies the name of a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterDescriptionResponse
+     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescriptionWithOptions($request, $runtime)
     {
@@ -7355,9 +7769,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterDescriptionRequest $request
+     * @summary Modifies the name of a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
      *
-     * @return ModifyDBClusterDescriptionResponse
+     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescription($request)
     {
@@ -7367,10 +7783,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterEndpointRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
+     *  *
+     * @param ModifyDBClusterEndpointRequest $request ModifyDBClusterEndpointRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterEndpointResponse
+     * @return ModifyDBClusterEndpointResponse ModifyDBClusterEndpointResponse
      */
     public function modifyDBClusterEndpointWithOptions($request, $runtime)
     {
@@ -7428,9 +7846,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterEndpointRequest $request
+     * @summary Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
+     *  *
+     * @param ModifyDBClusterEndpointRequest $request ModifyDBClusterEndpointRequest
      *
-     * @return ModifyDBClusterEndpointResponse
+     * @return ModifyDBClusterEndpointResponse ModifyDBClusterEndpointResponse
      */
     public function modifyDBClusterEndpoint($request)
     {
@@ -7440,8 +7860,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
-     *   *
+     * @summary Modifies the maintenance window of a PolarDB cluster.
+     *  *
+     * @description >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+     *  *
      * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -7488,8 +7910,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
-     *   *
+     * @summary Modifies the maintenance window of a PolarDB cluster.
+     *  *
+     * @description >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+     *  *
      * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
      *
      * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
@@ -7502,10 +7926,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
-     *   * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
-     *   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
-     *   *
+     * @summary Switches or rolls back the task that migrates data from ApsaraDB for RDS to PolarDB.
+     *  *
+     * @description *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
+     * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
+     * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     *  *
      * @param ModifyDBClusterMigrationRequest $request ModifyDBClusterMigrationRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -7564,10 +7990,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
-     *   * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
-     *   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
-     *   *
+     * @summary Switches or rolls back the task that migrates data from ApsaraDB for RDS to PolarDB.
+     *  *
+     * @description *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
+     * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
+     * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     *  *
      * @param ModifyDBClusterMigrationRequest $request ModifyDBClusterMigrationRequest
      *
      * @return ModifyDBClusterMigrationResponse ModifyDBClusterMigrationResponse
@@ -7580,18 +8008,20 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   When the monitoring data is collected every 5 seconds:
-     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   * *   When the monitoring data is collected every 60 seconds:
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   *
+     * @summary Modifies the interval at which the monitoring data of a PolarDB cluster is collected.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
+     *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     * *   When the monitoring data is collected every 60 seconds:
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *  *
      * @param ModifyDBClusterMonitorRequest $request ModifyDBClusterMonitorRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -7638,18 +8068,20 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * *   When the monitoring data is collected every 5 seconds:
-     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   * *   When the monitoring data is collected every 60 seconds:
-     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     *   *
+     * @summary Modifies the interval at which the monitoring data of a PolarDB cluster is collected.
+     *  *
+     * @description *   When the monitoring data is collected every 5 seconds:
+     *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     * *   When the monitoring data is collected every 60 seconds:
+     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *  *
      * @param ModifyDBClusterMonitorRequest $request ModifyDBClusterMonitorRequest
      *
      * @return ModifyDBClusterMonitorResponse ModifyDBClusterMonitorResponse
@@ -7662,10 +8094,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-     *   * **
-     *   * **Only PolarDB for MySQL clusters support parameter templates.
-     *   *
+     * @summary Modifies the parameters of a specified PolarDB cluster or applies existing parameter templates to a specified cluster.
+     *  *
+     * @description PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * **
+     * **Only PolarDB for MySQL clusters support parameter templates.
+     *  *
      * @param ModifyDBClusterParametersRequest $request ModifyDBClusterParametersRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -7724,10 +8158,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
-     *   * **
-     *   * **Only PolarDB for MySQL clusters support parameter templates.
-     *   *
+     * @summary Modifies the parameters of a specified PolarDB cluster or applies existing parameter templates to a specified cluster.
+     *  *
+     * @description PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
+     * **
+     * **Only PolarDB for MySQL clusters support parameter templates.
+     *  *
      * @param ModifyDBClusterParametersRequest $request ModifyDBClusterParametersRequest
      *
      * @return ModifyDBClusterParametersResponse ModifyDBClusterParametersResponse
@@ -7740,10 +8176,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterPrimaryZoneRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies the primary zone of a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterPrimaryZoneRequest $request ModifyDBClusterPrimaryZoneRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterPrimaryZoneResponse
+     * @return ModifyDBClusterPrimaryZoneResponse ModifyDBClusterPrimaryZoneResponse
      */
     public function modifyDBClusterPrimaryZoneWithOptions($request, $runtime)
     {
@@ -7807,9 +8245,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterPrimaryZoneRequest $request
+     * @summary Modifies the primary zone of a PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterPrimaryZoneRequest $request ModifyDBClusterPrimaryZoneRequest
      *
-     * @return ModifyDBClusterPrimaryZoneResponse
+     * @return ModifyDBClusterPrimaryZoneResponse ModifyDBClusterPrimaryZoneResponse
      */
     public function modifyDBClusterPrimaryZone($request)
     {
@@ -7819,10 +8259,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterResourceGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param ModifyDBClusterResourceGroupRequest $request ModifyDBClusterResourceGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterResourceGroupResponse
+     * @return ModifyDBClusterResourceGroupResponse ModifyDBClusterResourceGroupResponse
      */
     public function modifyDBClusterResourceGroupWithOptions($request, $runtime)
     {
@@ -7868,9 +8308,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterResourceGroupRequest $request
+     * @param ModifyDBClusterResourceGroupRequest $request ModifyDBClusterResourceGroupRequest
      *
-     * @return ModifyDBClusterResourceGroupResponse
+     * @return ModifyDBClusterResourceGroupResponse ModifyDBClusterResourceGroupResponse
      */
     public function modifyDBClusterResourceGroup($request)
     {
@@ -7880,10 +8320,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterSSLRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Enables or disables Secure Sockets Layer (SSL) encryption or updates the Certificate Authorities (CA) certificate for a specified PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterSSLRequest $request ModifyDBClusterSSLRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterSSLResponse
+     * @return ModifyDBClusterSSLResponse ModifyDBClusterSSLResponse
      */
     public function modifyDBClusterSSLWithOptions($request, $runtime)
     {
@@ -7935,9 +8377,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterSSLRequest $request
+     * @summary Enables or disables Secure Sockets Layer (SSL) encryption or updates the Certificate Authorities (CA) certificate for a specified PolarDB cluster.
+     *  *
+     * @param ModifyDBClusterSSLRequest $request ModifyDBClusterSSLRequest
      *
-     * @return ModifyDBClusterSSLResponse
+     * @return ModifyDBClusterSSLResponse ModifyDBClusterSSLResponse
      */
     public function modifyDBClusterSSL($request)
     {
@@ -7947,10 +8391,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterServerlessConfRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Modifies the configurations of a serverless cluster.
+     *  *
+     * @param ModifyDBClusterServerlessConfRequest $request ModifyDBClusterServerlessConfRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterServerlessConfResponse
+     * @return ModifyDBClusterServerlessConfResponse ModifyDBClusterServerlessConfResponse
      */
     public function modifyDBClusterServerlessConfWithOptions($request, $runtime)
     {
@@ -8004,6 +8450,15 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->secondsUntilAutoPause)) {
             $query['SecondsUntilAutoPause'] = $request->secondsUntilAutoPause;
         }
+        if (!Utils::isUnset($request->serverlessRuleCpuEnlargeThreshold)) {
+            $query['ServerlessRuleCpuEnlargeThreshold'] = $request->serverlessRuleCpuEnlargeThreshold;
+        }
+        if (!Utils::isUnset($request->serverlessRuleCpuShrinkThreshold)) {
+            $query['ServerlessRuleCpuShrinkThreshold'] = $request->serverlessRuleCpuShrinkThreshold;
+        }
+        if (!Utils::isUnset($request->serverlessRuleMode)) {
+            $query['ServerlessRuleMode'] = $request->serverlessRuleMode;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -8023,9 +8478,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterServerlessConfRequest $request
+     * @summary Modifies the configurations of a serverless cluster.
+     *  *
+     * @param ModifyDBClusterServerlessConfRequest $request ModifyDBClusterServerlessConfRequest
      *
-     * @return ModifyDBClusterServerlessConfResponse
+     * @return ModifyDBClusterServerlessConfResponse ModifyDBClusterServerlessConfResponse
      */
     public function modifyDBClusterServerlessConf($request)
     {
@@ -8035,10 +8492,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterStorageSpaceRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Changes the storage capacity of a pay-as-you-go cluster of Enterprise Edition or a cluster of Standard Edition.
+     *  *
+     * @param ModifyDBClusterStorageSpaceRequest $request ModifyDBClusterStorageSpaceRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterStorageSpaceResponse
+     * @return ModifyDBClusterStorageSpaceResponse ModifyDBClusterStorageSpaceResponse
      */
     public function modifyDBClusterStorageSpaceWithOptions($request, $runtime)
     {
@@ -8093,9 +8552,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterStorageSpaceRequest $request
+     * @summary Changes the storage capacity of a pay-as-you-go cluster of Enterprise Edition or a cluster of Standard Edition.
+     *  *
+     * @param ModifyDBClusterStorageSpaceRequest $request ModifyDBClusterStorageSpaceRequest
      *
-     * @return ModifyDBClusterStorageSpaceResponse
+     * @return ModifyDBClusterStorageSpaceResponse ModifyDBClusterStorageSpaceResponse
      */
     public function modifyDBClusterStorageSpace($request)
     {
@@ -8105,9 +8566,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](~~153781~~).
-     *   * > *   After TDE is enabled, you cannot disable TDE.
-     *   *
+     * @summary Enables the TDE feature or changes the encryption method for a specified PolarDB for MySQL cluster.
+     *  *
+     * @description > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * > *   After TDE is enabled, you cannot disable TDE.
+     *  *
      * @param ModifyDBClusterTDERequest $request ModifyDBClusterTDERequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -8163,9 +8626,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](~~153781~~).
-     *   * > *   After TDE is enabled, you cannot disable TDE.
-     *   *
+     * @summary Enables the TDE feature or changes the encryption method for a specified PolarDB for MySQL cluster.
+     *  *
+     * @description > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * > *   After TDE is enabled, you cannot disable TDE.
+     *  *
      * @param ModifyDBClusterTDERequest $request ModifyDBClusterTDERequest
      *
      * @return ModifyDBClusterTDEResponse ModifyDBClusterTDEResponse
@@ -8178,10 +8643,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBDescriptionRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the description of a database in a PolarDB for MySQL cluster.
+     *  *
+     * @param ModifyDBDescriptionRequest $request ModifyDBDescriptionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBDescriptionResponse
+     * @return ModifyDBDescriptionResponse ModifyDBDescriptionResponse
      */
     public function modifyDBDescriptionWithOptions($request, $runtime)
     {
@@ -8227,9 +8694,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBDescriptionRequest $request
+     * @summary Modifies the description of a database in a PolarDB for MySQL cluster.
+     *  *
+     * @param ModifyDBDescriptionRequest $request ModifyDBDescriptionRequest
      *
-     * @return ModifyDBDescriptionResponse
+     * @return ModifyDBDescriptionResponse ModifyDBDescriptionResponse
      */
     public function modifyDBDescription($request)
     {
@@ -8239,10 +8708,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBEndpointAddressRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
+     *  *
+     * @param ModifyDBEndpointAddressRequest $request ModifyDBEndpointAddressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBEndpointAddressResponse
+     * @return ModifyDBEndpointAddressResponse ModifyDBEndpointAddressResponse
      */
     public function modifyDBEndpointAddressWithOptions($request, $runtime)
     {
@@ -8300,9 +8771,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBEndpointAddressRequest $request
+     * @summary Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
+     *  *
+     * @param ModifyDBEndpointAddressRequest $request ModifyDBEndpointAddressRequest
      *
-     * @return ModifyDBEndpointAddressResponse
+     * @return ModifyDBEndpointAddressResponse ModifyDBEndpointAddressResponse
      */
     public function modifyDBEndpointAddress($request)
     {
@@ -8312,10 +8785,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBNodeClassRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Changes the node specifications of a PolarDB cluster.
+     *  *
+     * @param ModifyDBNodeClassRequest $request ModifyDBNodeClassRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBNodeClassResponse
+     * @return ModifyDBNodeClassResponse ModifyDBNodeClassResponse
      */
     public function modifyDBNodeClassWithOptions($request, $runtime)
     {
@@ -8376,9 +8851,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBNodeClassRequest $request
+     * @summary Changes the node specifications of a PolarDB cluster.
+     *  *
+     * @param ModifyDBNodeClassRequest $request ModifyDBNodeClassRequest
      *
-     * @return ModifyDBNodeClassResponse
+     * @return ModifyDBNodeClassResponse ModifyDBNodeClassResponse
      */
     public function modifyDBNodeClass($request)
     {
@@ -8388,10 +8865,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBNodeHotReplicaModeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Enables or disables a cluster node.
+     *  *
+     * @param ModifyDBNodeHotReplicaModeRequest $request ModifyDBNodeHotReplicaModeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBNodeHotReplicaModeResponse
+     * @return ModifyDBNodeHotReplicaModeResponse ModifyDBNodeHotReplicaModeResponse
      */
     public function modifyDBNodeHotReplicaModeWithOptions($request, $runtime)
     {
@@ -8437,9 +8916,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBNodeHotReplicaModeRequest $request
+     * @summary Enables or disables a cluster node.
+     *  *
+     * @param ModifyDBNodeHotReplicaModeRequest $request ModifyDBNodeHotReplicaModeRequest
      *
-     * @return ModifyDBNodeHotReplicaModeResponse
+     * @return ModifyDBNodeHotReplicaModeResponse ModifyDBNodeHotReplicaModeResponse
      */
     public function modifyDBNodeHotReplicaMode($request)
     {
@@ -8449,10 +8930,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBNodesClassRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Changes the specifications of a node in a PolarDB cluster.
+     *  *
+     * @param ModifyDBNodesClassRequest $request ModifyDBNodesClassRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBNodesClassResponse
+     * @return ModifyDBNodesClassResponse ModifyDBNodesClassResponse
      */
     public function modifyDBNodesClassWithOptions($request, $runtime)
     {
@@ -8510,9 +8993,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBNodesClassRequest $request
+     * @summary Changes the specifications of a node in a PolarDB cluster.
+     *  *
+     * @param ModifyDBNodesClassRequest $request ModifyDBNodesClassRequest
      *
-     * @return ModifyDBNodesClassResponse
+     * @return ModifyDBNodesClassResponse ModifyDBNodesClassResponse
      */
     public function modifyDBNodesClass($request)
     {
@@ -8522,10 +9007,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBNodesParametersRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the parameters of a node and applies them to specified nodes.
+     *  *
+     * @param ModifyDBNodesParametersRequest $request ModifyDBNodesParametersRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBNodesParametersResponse
+     * @return ModifyDBNodesParametersResponse ModifyDBNodesParametersResponse
      */
     public function modifyDBNodesParametersWithOptions($request, $runtime)
     {
@@ -8583,9 +9070,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBNodesParametersRequest $request
+     * @summary Modifies the parameters of a node and applies them to specified nodes.
+     *  *
+     * @param ModifyDBNodesParametersRequest $request ModifyDBNodesParametersRequest
      *
-     * @return ModifyDBNodesParametersResponse
+     * @return ModifyDBNodesParametersResponse ModifyDBNodesParametersResponse
      */
     public function modifyDBNodesParameters($request)
     {
@@ -8595,10 +9084,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies a Global Database Network (GDN).
+     *  *
+     * @param ModifyGlobalDatabaseNetworkRequest $request ModifyGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalDatabaseNetworkResponse
+     * @return ModifyGlobalDatabaseNetworkResponse ModifyGlobalDatabaseNetworkResponse
      */
     public function modifyGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
@@ -8647,9 +9138,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalDatabaseNetworkRequest $request
+     * @summary Modifies a Global Database Network (GDN).
+     *  *
+     * @param ModifyGlobalDatabaseNetworkRequest $request ModifyGlobalDatabaseNetworkRequest
      *
-     * @return ModifyGlobalDatabaseNetworkResponse
+     * @return ModifyGlobalDatabaseNetworkResponse ModifyGlobalDatabaseNetworkResponse
      */
     public function modifyGlobalDatabaseNetwork($request)
     {
@@ -8659,10 +9152,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies an IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
@@ -8717,9 +9212,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRequest $request
+     * @summary Modifies an IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
      *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroup($request)
     {
@@ -8729,10 +9226,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Modifies the name of a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupNameWithOptions($request, $runtime)
     {
@@ -8784,9 +9283,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
+     * @summary Modifies the name of a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
      *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupName($request)
     {
@@ -8796,10 +9297,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Modifies the relationship between a cluster and a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
@@ -8851,9 +9354,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
+     * @summary Modifies the relationship between a cluster and a global IP whitelist template.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
      *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelation($request)
     {
@@ -8863,10 +9368,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLogBackupPolicyRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies the retention policy of the log backups in a PolarDB cluster.
+     *  *
+     * @param ModifyLogBackupPolicyRequest $request ModifyLogBackupPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyLogBackupPolicyResponse
+     * @return ModifyLogBackupPolicyResponse ModifyLogBackupPolicyResponse
      */
     public function modifyLogBackupPolicyWithOptions($request, $runtime)
     {
@@ -8915,9 +9422,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLogBackupPolicyRequest $request
+     * @summary Modifies the retention policy of the log backups in a PolarDB cluster.
+     *  *
+     * @param ModifyLogBackupPolicyRequest $request ModifyLogBackupPolicyRequest
      *
-     * @return ModifyLogBackupPolicyResponse
+     * @return ModifyLogBackupPolicyResponse ModifyLogBackupPolicyResponse
      */
     public function modifyLogBackupPolicy($request)
     {
@@ -8927,10 +9436,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyMaskingRulesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies or adds a data masking rule.
+     *  *
+     * @param ModifyMaskingRulesRequest $request ModifyMaskingRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMaskingRulesResponse
+     * @return ModifyMaskingRulesResponse ModifyMaskingRulesResponse
      */
     public function modifyMaskingRulesWithOptions($request, $runtime)
     {
@@ -8973,9 +9484,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyMaskingRulesRequest $request
+     * @summary Modifies or adds a data masking rule.
+     *  *
+     * @param ModifyMaskingRulesRequest $request ModifyMaskingRulesRequest
      *
-     * @return ModifyMaskingRulesResponse
+     * @return ModifyMaskingRulesResponse ModifyMaskingRulesResponse
      */
     public function modifyMaskingRules($request)
     {
@@ -8985,10 +9498,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyPendingMaintenanceActionRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Modifies the switching time of a pending event.
+     *  *
+     * @param ModifyPendingMaintenanceActionRequest $request ModifyPendingMaintenanceActionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPendingMaintenanceActionResponse
+     * @return ModifyPendingMaintenanceActionResponse ModifyPendingMaintenanceActionResponse
      */
     public function modifyPendingMaintenanceActionWithOptions($request, $runtime)
     {
@@ -9040,9 +9555,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyPendingMaintenanceActionRequest $request
+     * @summary Modifies the switching time of a pending event.
+     *  *
+     * @param ModifyPendingMaintenanceActionRequest $request ModifyPendingMaintenanceActionRequest
      *
-     * @return ModifyPendingMaintenanceActionResponse
+     * @return ModifyPendingMaintenanceActionResponse ModifyPendingMaintenanceActionResponse
      */
     public function modifyPendingMaintenanceAction($request)
     {
@@ -9052,10 +9569,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param OpenAITaskRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Enables the PolarDB for AI feature for a cluster.
+     *  *
+     * @param OpenAITaskRequest $request OpenAITaskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenAITaskResponse
+     * @return OpenAITaskResponse OpenAITaskResponse
      */
     public function openAITaskWithOptions($request, $runtime)
     {
@@ -9110,9 +9629,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param OpenAITaskRequest $request
+     * @summary Enables the PolarDB for AI feature for a cluster.
+     *  *
+     * @param OpenAITaskRequest $request OpenAITaskRequest
      *
-     * @return OpenAITaskResponse
+     * @return OpenAITaskResponse OpenAITaskResponse
      */
     public function openAITask($request)
     {
@@ -9122,10 +9643,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RefreshDBClusterStorageUsageRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Updates the storage usage of a cluster.
+     *  *
+     * @param RefreshDBClusterStorageUsageRequest $request RefreshDBClusterStorageUsageRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshDBClusterStorageUsageResponse
+     * @return RefreshDBClusterStorageUsageResponse RefreshDBClusterStorageUsageResponse
      */
     public function refreshDBClusterStorageUsageWithOptions($request, $runtime)
     {
@@ -9165,9 +9688,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RefreshDBClusterStorageUsageRequest $request
+     * @summary Updates the storage usage of a cluster.
+     *  *
+     * @param RefreshDBClusterStorageUsageRequest $request RefreshDBClusterStorageUsageRequest
      *
-     * @return RefreshDBClusterStorageUsageResponse
+     * @return RefreshDBClusterStorageUsageResponse RefreshDBClusterStorageUsageResponse
      */
     public function refreshDBClusterStorageUsage($request)
     {
@@ -9177,8 +9702,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >  You cannot remove the primary cluster from a GDN.
-     *   *
+     * @summary Removes a secondary cluster from a GDN.
+     *  *
+     * @description >  You cannot remove the primary cluster from a GDN.
+     *  *
      * @param RemoveDBClusterFromGDNRequest $request RemoveDBClusterFromGDNRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -9228,8 +9755,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >  You cannot remove the primary cluster from a GDN.
-     *   *
+     * @summary Removes a secondary cluster from a GDN.
+     *  *
+     * @description >  You cannot remove the primary cluster from a GDN.
+     *  *
      * @param RemoveDBClusterFromGDNRequest $request RemoveDBClusterFromGDNRequest
      *
      * @return RemoveDBClusterFromGDNResponse RemoveDBClusterFromGDNResponse
@@ -9242,9 +9771,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >- Only PolarDB for MySQL clusters support this operation.
-     *   * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
-     *   *
+     * @summary Resets the permissions of a privileged account for a PolarDB cluster.
+     *  *
+     * @description >- Only PolarDB for MySQL clusters support this operation.
+     * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+     *  *
      * @param ResetAccountRequest $request ResetAccountRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -9294,9 +9825,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * >- Only PolarDB for MySQL clusters support this operation.
-     *   * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
-     *   *
+     * @summary Resets the permissions of a privileged account for a PolarDB cluster.
+     *  *
+     * @description >- Only PolarDB for MySQL clusters support this operation.
+     * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+     *  *
      * @param ResetAccountRequest $request ResetAccountRequest
      *
      * @return ResetAccountResponse ResetAccountResponse
@@ -9309,10 +9842,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ResetGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Rebuilds a secondary cluster in a Global Database Network (GDN).
+     *  *
+     * @param ResetGlobalDatabaseNetworkRequest $request ResetGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetGlobalDatabaseNetworkResponse
+     * @return ResetGlobalDatabaseNetworkResponse ResetGlobalDatabaseNetworkResponse
      */
     public function resetGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
@@ -9361,9 +9896,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ResetGlobalDatabaseNetworkRequest $request
+     * @summary Rebuilds a secondary cluster in a Global Database Network (GDN).
+     *  *
+     * @param ResetGlobalDatabaseNetworkRequest $request ResetGlobalDatabaseNetworkRequest
      *
-     * @return ResetGlobalDatabaseNetworkResponse
+     * @return ResetGlobalDatabaseNetworkResponse ResetGlobalDatabaseNetworkResponse
      */
     public function resetGlobalDatabaseNetwork($request)
     {
@@ -9373,10 +9910,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RestartDBLinkRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 重启代理
+     *  *
+     * @param RestartDBLinkRequest $request RestartDBLinkRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartDBLinkResponse
+     * @return RestartDBLinkResponse RestartDBLinkResponse
      */
     public function restartDBLinkWithOptions($request, $runtime)
     {
@@ -9419,9 +9958,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RestartDBLinkRequest $request
+     * @summary 重启代理
+     *  *
+     * @param RestartDBLinkRequest $request RestartDBLinkRequest
      *
-     * @return RestartDBLinkResponse
+     * @return RestartDBLinkResponse RestartDBLinkResponse
      */
     public function restartDBLink($request)
     {
@@ -9431,10 +9972,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RestartDBNodeRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Restarts a node in a PolarDB cluster.
+     *  *
+     * @param RestartDBNodeRequest $request RestartDBNodeRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartDBNodeResponse
+     * @return RestartDBNodeResponse RestartDBNodeResponse
      */
     public function restartDBNodeWithOptions($request, $runtime)
     {
@@ -9474,9 +10017,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RestartDBNodeRequest $request
+     * @summary Restarts a node in a PolarDB cluster.
+     *  *
+     * @param RestartDBNodeRequest $request RestartDBNodeRequest
      *
-     * @return RestartDBNodeResponse
+     * @return RestartDBNodeResponse RestartDBNodeResponse
      */
     public function restartDBNode($request)
     {
@@ -9486,10 +10031,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RestoreTableRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Restores PolarDB databases and tables.
+     *  *
+     * @param RestoreTableRequest $request RestoreTableRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestoreTableResponse
+     * @return RestoreTableResponse RestoreTableResponse
      */
     public function restoreTableWithOptions($request, $runtime)
     {
@@ -9541,9 +10088,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RestoreTableRequest $request
+     * @summary Restores PolarDB databases and tables.
+     *  *
+     * @param RestoreTableRequest $request RestoreTableRequest
      *
-     * @return RestoreTableResponse
+     * @return RestoreTableResponse RestoreTableResponse
      */
     public function restoreTable($request)
     {
@@ -9553,10 +10102,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RevokeAccountPrivilegeRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Revokes the access permissions on one or more databases from a specified PolarDB standard account.
+     *  *
+     * @param RevokeAccountPrivilegeRequest $request RevokeAccountPrivilegeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeAccountPrivilegeResponse
+     * @return RevokeAccountPrivilegeResponse RevokeAccountPrivilegeResponse
      */
     public function revokeAccountPrivilegeWithOptions($request, $runtime)
     {
@@ -9602,9 +10153,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RevokeAccountPrivilegeRequest $request
+     * @summary Revokes the access permissions on one or more databases from a specified PolarDB standard account.
+     *  *
+     * @param RevokeAccountPrivilegeRequest $request RevokeAccountPrivilegeRequest
      *
-     * @return RevokeAccountPrivilegeResponse
+     * @return RevokeAccountPrivilegeResponse RevokeAccountPrivilegeResponse
      */
     public function revokeAccountPrivilege($request)
     {
@@ -9614,10 +10167,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param SwitchOverGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param SwitchOverGlobalDatabaseNetworkRequest $request SwitchOverGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchOverGlobalDatabaseNetworkResponse
+     * @return SwitchOverGlobalDatabaseNetworkResponse SwitchOverGlobalDatabaseNetworkResponse
      */
     public function switchOverGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
@@ -9672,9 +10225,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param SwitchOverGlobalDatabaseNetworkRequest $request
+     * @param SwitchOverGlobalDatabaseNetworkRequest $request SwitchOverGlobalDatabaseNetworkRequest
      *
-     * @return SwitchOverGlobalDatabaseNetworkResponse
+     * @return SwitchOverGlobalDatabaseNetworkResponse SwitchOverGlobalDatabaseNetworkResponse
      */
     public function switchOverGlobalDatabaseNetwork($request)
     {
@@ -9684,10 +10237,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -9736,9 +10289,9 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -9748,10 +10301,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param TempModifyDBNodeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Temporarily upgrades the configuration of a PolarDB cluster or adds one or more nodes to a cluster.
+     *  *
+     * @param TempModifyDBNodeRequest $request TempModifyDBNodeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return TempModifyDBNodeResponse
+     * @return TempModifyDBNodeResponse TempModifyDBNodeResponse
      */
     public function tempModifyDBNodeWithOptions($request, $runtime)
     {
@@ -9806,9 +10361,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param TempModifyDBNodeRequest $request
+     * @summary Temporarily upgrades the configuration of a PolarDB cluster or adds one or more nodes to a cluster.
+     *  *
+     * @param TempModifyDBNodeRequest $request TempModifyDBNodeRequest
      *
-     * @return TempModifyDBNodeResponse
+     * @return TempModifyDBNodeResponse TempModifyDBNodeResponse
      */
     public function tempModifyDBNode($request)
     {
@@ -9818,10 +10375,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](~~172886~~) and [Change the billing method from pay-as-you-go to subscription](~~84076~~).
-     *   * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
-     *   * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
-     *   *
+     * @summary Changes the billing method of a PolarDB cluster.
+     *  *
+     * @description > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+     * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+     * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+     *  *
      * @param TransformDBClusterPayTypeRequest $request TransformDBClusterPayTypeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -9883,10 +10442,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](~~172886~~) and [Change the billing method from pay-as-you-go to subscription](~~84076~~).
-     *   * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
-     *   * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
-     *   *
+     * @summary Changes the billing method of a PolarDB cluster.
+     *  *
+     * @description > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
+     * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+     * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+     *  *
      * @param TransformDBClusterPayTypeRequest $request TransformDBClusterPayTypeRequest
      *
      * @return TransformDBClusterPayTypeResponse TransformDBClusterPayTypeResponse
@@ -9899,10 +10460,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Unbinds tags from PolarDB clusters.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -9954,9 +10517,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Unbinds tags from PolarDB clusters.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -9966,9 +10531,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
-     *   * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
-     *   *
+     * @summary Upgrades the kernel version of a PolarDB for MySQL cluster.
+     *  *
+     * @description > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+     * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+     *  *
      * @param UpgradeDBClusterVersionRequest $request UpgradeDBClusterVersionRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -10033,9 +10600,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
-     *   * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
-     *   *
+     * @summary Upgrades the kernel version of a PolarDB for MySQL cluster.
+     *  *
+     * @description > *  You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+     * >*   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+     *  *
      * @param UpgradeDBClusterVersionRequest $request UpgradeDBClusterVersionRequest
      *
      * @return UpgradeDBClusterVersionResponse UpgradeDBClusterVersionResponse

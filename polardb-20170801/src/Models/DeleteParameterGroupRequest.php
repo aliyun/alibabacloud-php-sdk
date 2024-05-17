@@ -22,7 +22,7 @@ class DeleteParameterGroupRequest extends Model
      * @description The parameter template ID.
      *
      *
-     * >  You can call the [DescribeParameterGroups](~~207178~~) operation to query the parameter template ID.
+     * This parameter is required.
      * @example pcpg-**************
      *
      * @var string
@@ -32,7 +32,7 @@ class DeleteParameterGroupRequest extends Model
     /**
      * @description The region ID.
      *
-     * >  You can call the [DescribeRegions](~~98041~~) operation to query available regions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

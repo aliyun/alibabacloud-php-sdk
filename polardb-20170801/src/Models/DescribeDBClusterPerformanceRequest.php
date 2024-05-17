@@ -11,6 +11,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-09-23T01:00Z
      *
      * @var string
@@ -32,9 +34,9 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $interval;
 
     /**
-     * @description The performance metrics that you want to query. Separate multiple metrics with commas (,). For more information, see [Performance parameters](~~141787~~).
+     * @description The performance metrics that you want to query. Separate multiple metrics with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/141787.html).
      *
-     * >  You can specify a maximum of five performance metrics.
+     * This parameter is required.
      * @example PolarDBDiskUsage
      *
      * @var string
@@ -44,6 +46,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-09-23T01:01Z
      *
      * @var string

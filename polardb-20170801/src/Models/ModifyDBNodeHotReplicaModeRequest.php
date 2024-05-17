@@ -11,7 +11,7 @@ class ModifyDBNodeHotReplicaModeRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > You can call the [DescribeDBClusters](~~98094~~) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
+     * This parameter is required.
      * @example pc-2vc327c2a14a3u858
      *
      * @var string
@@ -21,6 +21,7 @@ class ModifyDBNodeHotReplicaModeRequest extends Model
     /**
      * @description The ID of the node in the cluster.
      *
+     * This parameter is required.
      * @example pi-2ze28275h9x5r4wt1
      *
      * @var string
@@ -33,6 +34,7 @@ class ModifyDBNodeHotReplicaModeRequest extends Model
      *   **ON**
      *   **OFF**
      *
+     * This parameter is required.
      * @example ON
      *
      * @var string

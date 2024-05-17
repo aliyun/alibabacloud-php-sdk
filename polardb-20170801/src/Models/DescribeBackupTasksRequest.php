@@ -32,6 +32,7 @@ class DescribeBackupTasksRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-***************
      *
      * @var string

@@ -20,7 +20,7 @@ class CreateDBLinkRequest extends Model
     /**
      * @description The ID of the source cluster that the database link connects.
      *
-     * >  You can call the [DescribeDBClusters](~~173433~~) operation to query PolarDB clusters.
+     * This parameter is required.
      * @example pc-a************
      *
      * @var string
@@ -30,10 +30,11 @@ class CreateDBLinkRequest extends Model
     /**
      * @description The name of the database link.
      *
-     *   The name must contain lowercase letters and can also contain digits and underscores (\_).
+     *   The name must contain lowercase letters and can also contain digits and underscores (_).
      *   The name must start with a letter and end with a letter or digit.
      *   The name must be 1 to 64 characters in length.
      *
+     * This parameter is required.
      * @example dblink_test
      *
      * @var string
@@ -53,7 +54,7 @@ class CreateDBLinkRequest extends Model
     /**
      * @description The ID of the region.
      *
-     * >  You can call the [DescribeRegions](~~98041~~) operation to query information about regions.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query information about regions.
      * @example cn-hangzhou
      *
      * @var string
@@ -82,7 +83,7 @@ class CreateDBLinkRequest extends Model
     /**
      * @description The name of the source database.
      *
-     * >  You can call the [DescribeDatabases](~~173558~~) operation to query information about databases in a PolarDB cluster.
+     * This parameter is required.
      * @example testdb1
      *
      * @var string
@@ -92,7 +93,7 @@ class CreateDBLinkRequest extends Model
     /**
      * @description The account of the destination database.
      *
-     * >  You can call the [DescribeAccounts](~~173549~~) operation to query the account of a PolarDB cluster.
+     * This parameter is required.
      * @example testacc
      *
      * @var string
@@ -103,7 +104,7 @@ class CreateDBLinkRequest extends Model
      * @description The ID of the destination cluster that the database link connects.
      *
      * > *   If the destination cluster is a user-created Oracle database on an ECS instance, set the value to `null`.
-     * > *   You can call the [DescribeDBClusters](~~173433~~) operation to query PolarDB clusters.
+     * > *   You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to query PolarDB clusters.
      * @example pc-b************
      *
      * @var string
@@ -113,7 +114,7 @@ class CreateDBLinkRequest extends Model
     /**
      * @description The name of the destination database.
      *
-     * >  You can call the [DescribeDatabases](~~173558~~) operation to query information about databases in a PolarDB cluster.
+     * This parameter is required.
      * @example testdb2
      *
      * @var string
@@ -123,6 +124,7 @@ class CreateDBLinkRequest extends Model
     /**
      * @description The account password of the destination database.
      *
+     * This parameter is required.
      * @example Test1111
      *
      * @var string
@@ -150,7 +152,7 @@ class CreateDBLinkRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC).
      *
-     * >  You can call the [DescribeVpcs](~~35739~~) operation to query information about VPCs.
+     * >  You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation to query information about VPCs.
      * @example vpc-bp1qpo0kug3a20qqe****
      *
      * @var string

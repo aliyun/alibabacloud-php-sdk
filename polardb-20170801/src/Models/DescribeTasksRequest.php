@@ -11,7 +11,7 @@ class DescribeTasksRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You must specify `DBNodeId` or `DBClusterId`. You can call the [DescribeDBClusters](~~98094~~) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
+     * >  You must specify `DBNodeId` or `DBClusterId`. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
      * @example pc-***************
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeTasksRequest extends Model
     /**
      * @description The node ID.
      *
-     * >  You must specify `DBNodeId` or `DBClusterId`. You can call the [DescribeDBClusters](~~98094~~) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as node IDs.
+     * >  You must specify `DBNodeId` or `DBClusterId`. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as node IDs.
      * @example pi-***************
      *
      * @var string
@@ -31,6 +31,7 @@ class DescribeTasksRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC. The end time must be later than the start time.
      *
+     * This parameter is required.
      * @example 2020-12-02T03:00Z
      *
      * @var string
@@ -80,6 +81,7 @@ class DescribeTasksRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-11-30T00:00Z
      *
      * @var string

@@ -54,6 +54,7 @@ class DescribeBackupsRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -63,6 +64,7 @@ class DescribeBackupsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC. The end time must be later than the start time.
      *
+     * This parameter is required.
      * @example 2020-11-16T00:00Z
      *
      * @var string
@@ -115,6 +117,7 @@ class DescribeBackupsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-11-14T00:00Z
      *
      * @var string

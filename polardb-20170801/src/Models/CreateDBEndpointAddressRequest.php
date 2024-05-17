@@ -25,6 +25,7 @@ class CreateDBEndpointAddressRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string
@@ -34,7 +35,7 @@ class CreateDBEndpointAddressRequest extends Model
     /**
      * @description The ID of the endpoint.
      *
-     * >  You can call the [DescribeDBClusterEndpoints](~~98205~~) operation to query endpoint details.
+     * This parameter is required.
      * @example pe-**************
      *
      * @var string
@@ -44,6 +45,7 @@ class CreateDBEndpointAddressRequest extends Model
     /**
      * @description The network type of the endpoint. Set the value to **Public**.
      *
+     * This parameter is required.
      * @example Public
      *
      * @var string

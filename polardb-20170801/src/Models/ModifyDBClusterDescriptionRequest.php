@@ -14,6 +14,7 @@ class ModifyDBClusterDescriptionRequest extends Model
      *   The name cannot start with `http://` or `https://`.
      *   The name must be 2 to 256 characters in length.
      *
+     * This parameter is required.
      * @example ClusterDescriptionTest
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyDBClusterDescriptionRequest extends Model
     /**
      * @description The ID of the PolarDB cluster.
      *
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string

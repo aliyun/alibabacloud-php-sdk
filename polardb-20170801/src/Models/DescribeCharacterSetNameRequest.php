@@ -31,7 +31,7 @@ class DescribeCharacterSetNameRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~98041~~) operation to query available regions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

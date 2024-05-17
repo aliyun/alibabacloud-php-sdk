@@ -33,6 +33,7 @@ class CreateStoragePlanRequest extends Model
      *   **Month**
      *   **Year**
      *
+     * This parameter is required.
      * @example Month
      *
      * @var string
@@ -52,6 +53,7 @@ class CreateStoragePlanRequest extends Model
     /**
      * @description The capacity of the storage plan. Unit: GB. Valid values: 50, 100, 200, 300, 500, 1000, 2000, 3000, 5000, 10000, 15000, 20000, 25000, 30000, 50000, 100000, and 200000
      *
+     * This parameter is required.
      * @example 500
      *
      * @var string
@@ -64,6 +66,7 @@ class CreateStoragePlanRequest extends Model
      *   **Mainland**: The storage plan is used inside the Chinese mainland.
      *   **Overseas**: The storage plan is used outside the Chinese mainland.
      *
+     * This parameter is required.
      * @example Mainland
      *
      * @var string
@@ -76,6 +79,7 @@ class CreateStoragePlanRequest extends Model
      *   If **Period** is set to **Month**, the value ranges from 1 to 9.
      *   If **Period** is set to **Year**, the value can be 1, 2, 3, or 5.
      *
+     * This parameter is required.
      * @example 3
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAvailableResourcesRequest extends Model
 {
     /**
-     * @description The specifications of the node. For more information, see [Specifications of compute nodes](~~102542~~).
+     * @description The specifications of the node. For more information, see [Specifications of compute nodes](https://help.aliyun.com/document_detail/102542.html).
      *
      * @example polar.mysql.x4.large
      *
@@ -67,6 +67,7 @@ class DescribeDBClusterAvailableResourcesRequest extends Model
      *   **Postpaid**: pay-as-you-go
      *   **Prepaid**: subscription
      *
+     * This parameter is required.
      * @example Postpaid
      *
      * @var string
@@ -76,7 +77,7 @@ class DescribeDBClusterAvailableResourcesRequest extends Model
     /**
      * @description The region ID of the cluster. Default value: **cn-hangzhou**.
      *
-     * > You can call the [DescribeRegions](~~98041~~) operation to query the available regions.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available regions.
      * @example cn-hangzhou
      *
      * @var string
@@ -96,7 +97,7 @@ class DescribeDBClusterAvailableResourcesRequest extends Model
     /**
      * @description The zone ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~98041~~) operation to query the available zones.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the available zones.
      * @example cn-hangzhou-i
      *
      * @var string

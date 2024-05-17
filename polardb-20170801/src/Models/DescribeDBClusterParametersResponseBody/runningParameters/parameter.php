@@ -96,7 +96,7 @@ class parameter extends Model
     /**
      * @description The description of the parameter.
      *
-     * @example The server\"s default character set.
+     * @example The server\\"s default character set.
      *
      * @var string
      */

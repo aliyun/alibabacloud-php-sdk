@@ -51,9 +51,11 @@ class DescribePendingMaintenanceActionRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the pending event. You can call the [DescribeRegions](~~98041~~) operation to query the regions and zones that are supported by PolarDB.
+     * @description The region ID of the pending event. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the regions and zones that are supported by PolarDB.
      * >- You can set this parameter to **all** to view all pending events within your account.
      * >- If you set `Region` to **all**, you must set `TaskType` to **all**.
+     *
+     * This parameter is required.
      * @example all
      *
      * @var string
@@ -94,6 +96,8 @@ class DescribePendingMaintenanceActionRequest extends Model
      *   **all**: queries the details of the pending events of all preceding types.
      *
      * > If the `Region` parameter is set to **all**, the `TaskType` parameter must be set to **all**.
+     *
+     * This parameter is required.
      * @example all
      *
      * @var string

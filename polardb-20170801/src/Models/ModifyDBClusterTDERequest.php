@@ -11,6 +11,7 @@ class ModifyDBClusterTDERequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example pc-************
      *
      * @var string
@@ -59,7 +60,7 @@ class ModifyDBClusterTDERequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](~~93689~~).
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
      *
      * @example acs:ram::1406926*****:role/aliyunrdsinstanceencryptiondefaultrole
      *
@@ -70,6 +71,7 @@ class ModifyDBClusterTDERequest extends Model
     /**
      * @description Modifies the TDE status. Set the value to **Enable**.
      *
+     * This parameter is required.
      * @example Enable
      *
      * @var string

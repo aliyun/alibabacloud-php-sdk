@@ -21,6 +21,7 @@ class TempModifyDBNodeRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-xxxxxxxxxx
      *
      * @var string
@@ -30,6 +31,7 @@ class TempModifyDBNodeRequest extends Model
     /**
      * @description The information of the added node.
      *
+     * This parameter is required.
      * @var DBNode[]
      */
     public $DBNode;
@@ -37,6 +39,7 @@ class TempModifyDBNodeRequest extends Model
     /**
      * @description The type of configuration change. Set the value to **TempUpgrade**.
      *
+     * This parameter is required.
      * @example TempUpgrade
      *
      * @var string
@@ -48,6 +51,7 @@ class TempModifyDBNodeRequest extends Model
      *
      *   **Modify**: temporarily upgrade the configuration of the cluster.
      *
+     * This parameter is required.
      * @example Modify
      *
      * @var string
@@ -77,7 +81,7 @@ class TempModifyDBNodeRequest extends Model
     /**
      * @description The rollback time of the configuration for the temporary upgrade. Specify the time in the ISO 8601 standard in the YYYY-MM-DD hh:mm:ss format.
      *
-     * >  The rollback time cannot be 1 hour earlier than the current time and cannot be later than one day before the time when the cluster expires.
+     * This parameter is required.
      * @example 2021-09-23 18:16:00
      *
      * @var string

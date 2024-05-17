@@ -11,7 +11,7 @@ class RevokeAccountPrivilegeRequest extends Model
     /**
      * @description The name of the account.
      *
-     * >  You can specify only a standard account.
+     * This parameter is required.
      * @example testacc
      *
      * @var string
@@ -21,6 +21,7 @@ class RevokeAccountPrivilegeRequest extends Model
     /**
      * @description The ID of the PolarDB cluster.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -30,6 +31,7 @@ class RevokeAccountPrivilegeRequest extends Model
     /**
      * @description The names of the databases. If you need to specify multiple database names, separate the names with commas (,).
      *
+     * This parameter is required.
      * @example testdb
      *
      * @var string

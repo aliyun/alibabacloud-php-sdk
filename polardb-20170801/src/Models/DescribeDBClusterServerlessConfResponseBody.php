@@ -96,19 +96,37 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     /**
      * @var string
      */
+    public $serverlessRuleCpuEnlargeThreshold;
+
+    /**
+     * @var string
+     */
+    public $serverlessRuleCpuShrinkThreshold;
+
+    /**
+     * @var string
+     */
+    public $serverlessRuleMode;
+
+    /**
+     * @var string
+     */
     public $switchs;
     protected $_name = [
-        'allowShutDown'         => 'AllowShutDown',
-        'DBClusterId'           => 'DBClusterId',
-        'requestId'             => 'RequestId',
-        'scaleApRoNumMax'       => 'ScaleApRoNumMax',
-        'scaleApRoNumMin'       => 'ScaleApRoNumMin',
-        'scaleMax'              => 'ScaleMax',
-        'scaleMin'              => 'ScaleMin',
-        'scaleRoNumMax'         => 'ScaleRoNumMax',
-        'scaleRoNumMin'         => 'ScaleRoNumMin',
-        'secondsUntilAutoPause' => 'SecondsUntilAutoPause',
-        'switchs'               => 'Switchs',
+        'allowShutDown'                     => 'AllowShutDown',
+        'DBClusterId'                       => 'DBClusterId',
+        'requestId'                         => 'RequestId',
+        'scaleApRoNumMax'                   => 'ScaleApRoNumMax',
+        'scaleApRoNumMin'                   => 'ScaleApRoNumMin',
+        'scaleMax'                          => 'ScaleMax',
+        'scaleMin'                          => 'ScaleMin',
+        'scaleRoNumMax'                     => 'ScaleRoNumMax',
+        'scaleRoNumMin'                     => 'ScaleRoNumMin',
+        'secondsUntilAutoPause'             => 'SecondsUntilAutoPause',
+        'serverlessRuleCpuEnlargeThreshold' => 'ServerlessRuleCpuEnlargeThreshold',
+        'serverlessRuleCpuShrinkThreshold'  => 'ServerlessRuleCpuShrinkThreshold',
+        'serverlessRuleMode'                => 'ServerlessRuleMode',
+        'switchs'                           => 'Switchs',
     ];
 
     public function validate()
@@ -147,6 +165,15 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
         }
         if (null !== $this->secondsUntilAutoPause) {
             $res['SecondsUntilAutoPause'] = $this->secondsUntilAutoPause;
+        }
+        if (null !== $this->serverlessRuleCpuEnlargeThreshold) {
+            $res['ServerlessRuleCpuEnlargeThreshold'] = $this->serverlessRuleCpuEnlargeThreshold;
+        }
+        if (null !== $this->serverlessRuleCpuShrinkThreshold) {
+            $res['ServerlessRuleCpuShrinkThreshold'] = $this->serverlessRuleCpuShrinkThreshold;
+        }
+        if (null !== $this->serverlessRuleMode) {
+            $res['ServerlessRuleMode'] = $this->serverlessRuleMode;
         }
         if (null !== $this->switchs) {
             $res['Switchs'] = $this->switchs;
@@ -192,6 +219,15 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
         }
         if (isset($map['SecondsUntilAutoPause'])) {
             $model->secondsUntilAutoPause = $map['SecondsUntilAutoPause'];
+        }
+        if (isset($map['ServerlessRuleCpuEnlargeThreshold'])) {
+            $model->serverlessRuleCpuEnlargeThreshold = $map['ServerlessRuleCpuEnlargeThreshold'];
+        }
+        if (isset($map['ServerlessRuleCpuShrinkThreshold'])) {
+            $model->serverlessRuleCpuShrinkThreshold = $map['ServerlessRuleCpuShrinkThreshold'];
+        }
+        if (isset($map['ServerlessRuleMode'])) {
+            $model->serverlessRuleMode = $map['ServerlessRuleMode'];
         }
         if (isset($map['Switchs'])) {
             $model->switchs = $map['Switchs'];

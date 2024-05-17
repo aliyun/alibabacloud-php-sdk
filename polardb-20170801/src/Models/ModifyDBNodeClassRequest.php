@@ -20,6 +20,7 @@ class ModifyDBNodeClassRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example pc-*************
      *
      * @var string
@@ -27,8 +28,9 @@ class ModifyDBNodeClassRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The specifications of all nodes. For more information, see [Specifications of computing nodes](~~102542~~).
+     * @description The specifications of all nodes. For more information, see [Specifications of computing nodes](https://help.aliyun.com/document_detail/102542.html).
      *
+     * This parameter is required.
      * @example polar.mysql.x4.large
      *
      * @var string
@@ -54,6 +56,7 @@ class ModifyDBNodeClassRequest extends Model
      *   **Upgrade**
      *   **Downgrade**
      *
+     * This parameter is required.
      * @example Upgrade
      *
      * @var string

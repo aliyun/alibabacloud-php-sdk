@@ -28,7 +28,7 @@ class DBClusters extends Model
     public $DBClusterId;
 
     /**
-     * @description The status of the cluster in the GDN. For more information, see [Cluster status table](~~99286~~).
+     * @description The status of the cluster in the GDN. For more information, see [Cluster status table](https://help.aliyun.com/document_detail/99286.html).
      *
      * @example Running
      *

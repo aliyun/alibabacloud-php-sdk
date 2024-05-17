@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterResourceGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pc-*************
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDBClusterResourceGroupRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rg-**********
      *
      * @var string

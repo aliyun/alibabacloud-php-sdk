@@ -11,6 +11,7 @@ class DescribeSlowLogsRequest extends Model
     /**
      * @description The ID of cluster.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeSlowLogsRequest extends Model
     /**
      * @description The end of the time range to query. The end time must be later than the start time. The time span between the start time and the end time cannot exceed 31 days. Specify the time in the yyyy-MM-ddZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2021-05-30Z
      *
      * @var string
@@ -67,6 +69,7 @@ class DescribeSlowLogsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -86,6 +89,7 @@ class DescribeSlowLogsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2021-05-01Z
      *
      * @var string

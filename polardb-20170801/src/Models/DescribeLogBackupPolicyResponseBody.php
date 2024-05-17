@@ -21,7 +21,7 @@ class DescribeLogBackupPolicyResponseBody extends Model
     public $enableBackupLog;
 
     /**
-     * @description The region in which you want to store cross-region log backups. For more information about regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * @description The region in which you want to store cross-region log backups. For more information about regions that support the cross-region backup feature, see [Overview](https://help.aliyun.com/document_detail/72672.html).
      *
      * @example cn-beijing
      *
@@ -47,7 +47,7 @@ class DescribeLogBackupPolicyResponseBody extends Model
      * @description The retention period of the log backups. Valid values:
      *
      *   3 to 7300: The log backups are retained for 3 to 7,300 days.
-     *   \-1: The log backups are permanently retained.
+     *   \\-1: The log backups are permanently retained.
      *
      * @example 7
      *

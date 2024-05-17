@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDatabaseRequest extends Model
 {
     /**
-     * @description The name of the account that is authorized to access the database. You can call the [DescribeAccounts](~~98107~~) operation to query account information.
+     * @description The name of the account that is authorized to access the database. You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/98107.html) operation to query account information.
      * >- This parameter is required for PolarDB for PostgreSQL (Compatible with Oracle) clusters or PolarDB for PostgreSQL clusters. This parameter is optional for PolarDB for MySQL clusters.
      * @example testacc
      *
@@ -37,8 +37,9 @@ class CreateDatabaseRequest extends Model
     public $accountPrivilege;
 
     /**
-     * @description The character set that is used by the cluster. For more information, see [Character set tables](~~99716~~).
+     * @description The character set that is used by the cluster. For more information, see [Character set tables](https://help.aliyun.com/document_detail/99716.html).
      *
+     * This parameter is required.
      * @example utf8
      *
      * @var string
@@ -75,6 +76,7 @@ class CreateDatabaseRequest extends Model
     /**
      * @description The ID of cluster.
      *
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string
@@ -97,10 +99,10 @@ class CreateDatabaseRequest extends Model
     /**
      * @description The name of the database. The name must meet the following requirements:
      *
-     *   The name can contain lowercase letters, digits, hyphens (-), and underscores (\_).
+     *   The name can contain lowercase letters, digits, hyphens (-), and underscores (_).
      *   The name must start with a lowercase letter and end with a lowercase letter or a digit. The name must be 1 to 64 characters in length.
      *
-     * > Do not use reserved words as database names, such as `test` or `mysql`.
+     * This parameter is required.
      * @example testDB
      *
      * @var string

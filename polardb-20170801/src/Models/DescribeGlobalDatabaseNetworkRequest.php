@@ -11,6 +11,7 @@ class DescribeGlobalDatabaseNetworkRequest extends Model
     /**
      * @description The ID of the GDN.
      *
+     * This parameter is required.
      * @example gdn-bp1fttxsrmv*****
      *
      * @var string

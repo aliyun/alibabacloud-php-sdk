@@ -11,6 +11,7 @@ class ModifyDBClusterMonitorRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -30,6 +31,7 @@ class ModifyDBClusterMonitorRequest extends Model
     /**
      * @description The interval at which monitoring data is collected. Valid values: **5** and **60**. Unit: seconds.
      *
+     * This parameter is required.
      * @example 5
      *
      * @var string

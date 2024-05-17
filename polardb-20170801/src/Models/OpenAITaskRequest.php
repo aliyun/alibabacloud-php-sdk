@@ -11,6 +11,7 @@ class OpenAITaskRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -46,6 +47,7 @@ class OpenAITaskRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

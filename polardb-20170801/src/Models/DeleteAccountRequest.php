@@ -11,6 +11,7 @@ class DeleteAccountRequest extends Model
     /**
      * @description The username of the account.
      *
+     * This parameter is required.
      * @example testacc
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteAccountRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-*************
      *
      * @var string

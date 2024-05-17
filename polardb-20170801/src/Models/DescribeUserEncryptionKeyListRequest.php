@@ -11,7 +11,7 @@ class DescribeUserEncryptionKeyListRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * This parameter is required.
      * @example pc-************
      *
      * @var string
@@ -31,7 +31,7 @@ class DescribeUserEncryptionKeyListRequest extends Model
     /**
      * @description The ID of the region.
      *
-     * > You can call the [DescribeRegions](~~98041~~) operation to query all regions that are available for your account, such as the region ID.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all regions that are available for your account, such as the region ID.
      * @example cn-hangzhou
      *
      * @var string

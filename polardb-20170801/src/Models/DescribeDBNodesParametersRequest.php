@@ -11,6 +11,7 @@ class DescribeDBNodesParametersRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDBNodesParametersRequest extends Model
     /**
      * @description The node ID. You can specify multiple node IDs. Separate multiple node IDs with commas (,).
      *
+     * This parameter is required.
      * @example pi-****************,pi-****************
      *
      * @var string

@@ -11,7 +11,7 @@ class ModifyLogBackupPolicyRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~98094~~) operation to query the information of all clusters that are deployed in a specific region, such as the cluster IDs.
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -19,7 +19,7 @@ class ModifyLogBackupPolicyRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The region in which you want to store cross-region log backups. For information about regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * @description The region in which you want to store cross-region log backups. For information about regions that support the cross-region backup feature, see [Overview](https://help.aliyun.com/document_detail/72672.html).
      *
      * @example cn-hangzhou
      *
@@ -45,7 +45,7 @@ class ModifyLogBackupPolicyRequest extends Model
      * @description The retention period of the log backups. Valid values:
      *
      *   3 to 7300: The log backups are retained for 3 to 7,300 days.
-     *   \-1: The log backups are permanently retained.
+     *   \\-1: The log backups are permanently retained.
      *
      * @example 3
      *

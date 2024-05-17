@@ -29,8 +29,9 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~98041~~) operation to query available region IDs.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available region IDs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +66,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to **cluster**.
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string

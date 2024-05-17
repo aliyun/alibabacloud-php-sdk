@@ -11,7 +11,7 @@ class DescribeGlobalDatabaseNetworksRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
      * @example pc-**************
      *
      * @var string
@@ -32,7 +32,7 @@ class DescribeGlobalDatabaseNetworksRequest extends Model
      *
      *   It cannot start with `http://` or `https://`.
      *   It must start with a letter.
-     *   It can contain letters, digits, underscores (\_), and hyphens (-).
+     *   It can contain letters, digits, underscores (_), and hyphens (-).
      *   It must be 2 to 126 characters in length.
      *
      * @example test

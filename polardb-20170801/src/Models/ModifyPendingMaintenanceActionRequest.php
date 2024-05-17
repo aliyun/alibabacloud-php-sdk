@@ -11,6 +11,7 @@ class ModifyPendingMaintenanceActionRequest extends Model
     /**
      * @description The ID of the task. You can specify multiple task IDs at a time to modify the switching time of the tasks in a unified manner. The task IDs must be separated with commas (,).
      *
+     * This parameter is required.
      * @example 111111
      *
      * @var string
@@ -30,7 +31,7 @@ class ModifyPendingMaintenanceActionRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~98041~~) operation to query the region ID details.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +65,7 @@ class ModifyPendingMaintenanceActionRequest extends Model
     /**
      * @description The time that you specify for the background to perform the action that corresponds to the pending event. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-06-09T22:00:00Z
      *
      * @var string

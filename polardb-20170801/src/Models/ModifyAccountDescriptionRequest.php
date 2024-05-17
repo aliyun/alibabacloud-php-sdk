@@ -14,6 +14,7 @@ class ModifyAccountDescriptionRequest extends Model
      *   The description cannot start with `http://` or `https://`.
      *   The description must be 2 to 256 characters in length.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The name of the account.
      *
+     * This parameter is required.
      * @example testacc
      *
      * @var string
@@ -32,6 +34,7 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example pc-*************
      *
      * @var string

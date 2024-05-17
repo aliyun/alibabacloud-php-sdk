@@ -11,6 +11,7 @@ class DescribeDBProxyPerformanceRequest extends Model
     /**
      * @description The ID of cluster.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeDBProxyPerformanceRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-09-24T02:08Z
      *
      * @var string
@@ -41,8 +43,9 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $interval;
 
     /**
-     * @description The performance metrics that you want to query. Separate multiple indicators with commas (,). For more information, see [Performance parameters](~~141787~~).
+     * @description The performance metrics that you want to query. Separate multiple indicators with commas (,). For more information, see [Performance parameters](https://help.aliyun.com/document_detail/141787.html).
      *
+     * This parameter is required.
      * @example PolarProxy_CpuUsage
      *
      * @var string
@@ -52,6 +55,7 @@ class DescribeDBProxyPerformanceRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-09-23T01:01Z
      *
      * @var string

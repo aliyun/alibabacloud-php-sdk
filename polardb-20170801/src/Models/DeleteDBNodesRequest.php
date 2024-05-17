@@ -20,6 +20,7 @@ class DeleteDBNodesRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string
@@ -29,7 +30,7 @@ class DeleteDBNodesRequest extends Model
     /**
      * @description The IDs of the nodes.
      *
-     * > You can call the [DescribeDBClusters](~~185342~~) operation to query the details of all clusters that belong to your Alibaba Cloud account, such as the cluster ID.
+     * This parameter is required.
      * @example pi-************
      *
      * @var string[]

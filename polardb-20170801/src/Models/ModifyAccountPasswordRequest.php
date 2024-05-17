@@ -11,6 +11,7 @@ class ModifyAccountPasswordRequest extends Model
     /**
      * @description The username of the account.
      *
+     * This parameter is required.
      * @example testacc
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyAccountPasswordRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-************
      *
      * @var string
@@ -33,6 +35,7 @@ class ModifyAccountPasswordRequest extends Model
      *   It must be 8 to 32 characters in length.
      *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
      *
+     * This parameter is required.
      * @example Pw123456
      *
      * @var string

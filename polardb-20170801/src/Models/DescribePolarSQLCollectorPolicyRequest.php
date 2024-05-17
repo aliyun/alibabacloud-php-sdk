@@ -11,7 +11,7 @@ class DescribePolarSQLCollectorPolicyRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > You can call the [DescribeDBClusters](~~98094~~) operation to query the details of all the clusters for your account, such as the cluster ID.
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string

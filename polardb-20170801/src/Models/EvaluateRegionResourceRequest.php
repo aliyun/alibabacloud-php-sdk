@@ -24,10 +24,11 @@ class EvaluateRegionResourceRequest extends Model
     /**
      * @description The specifications of the node. For information about node specifications, see the following topics:
      *
-     *   PolarDB for MySQL: [Specifications of compute nodes](~~102542~~)
-     *   PolarDB for Oracle: [Specifications of compute nodes](~~207921~~)
-     *   PolarDB for PostgreSQL: [Specifications of compute nodes](~~209380~~)
+     *   PolarDB for MySQL: [Specifications of compute nodes](https://help.aliyun.com/document_detail/102542.html)
+     *   PolarDB for Oracle: [Specifications of compute nodes](https://help.aliyun.com/document_detail/207921.html)
+     *   PolarDB for PostgreSQL: [Specifications of compute nodes](https://help.aliyun.com/document_detail/209380.html)
      *
+     * This parameter is required.
      * @example polar.mysql.x4.large
      *
      * @var string
@@ -41,6 +42,7 @@ class EvaluateRegionResourceRequest extends Model
      *   **PostgreSQL**
      *   **Oracle**
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -63,6 +65,7 @@ class EvaluateRegionResourceRequest extends Model
      *
      *   Valid value for the Oracle database engine: **11**
      *
+     * This parameter is required.
      * @example 8.0
      *
      * @var string
@@ -87,6 +90,7 @@ class EvaluateRegionResourceRequest extends Model
      *   **true**
      *   **false**
      *
+     * This parameter is required.
      * @example true
      *
      * @var string
@@ -106,7 +110,7 @@ class EvaluateRegionResourceRequest extends Model
     /**
      * @description The region ID.
      *
-     * > You can call the [DescribeRegions](~~98041~~) operation to query available regions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -144,7 +148,7 @@ class EvaluateRegionResourceRequest extends Model
     /**
      * @description The zone ID.
      *
-     * > You can call the [DescribeRegions](~~98041~~) operation to query available zones.
+     * This parameter is required.
      * @example cn-hangzhou-g
      *
      * @var string

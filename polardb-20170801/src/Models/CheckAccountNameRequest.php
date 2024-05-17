@@ -11,6 +11,7 @@ class CheckAccountNameRequest extends Model
     /**
      * @description The name of the account.
      *
+     * This parameter is required.
      * @example test_acc
      *
      * @var string
@@ -20,7 +21,7 @@ class CheckAccountNameRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string

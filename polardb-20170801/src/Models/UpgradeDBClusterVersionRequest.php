@@ -11,6 +11,7 @@ class UpgradeDBClusterVersionRequest extends Model
     /**
      * @description The ID of cluster.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -73,7 +74,7 @@ class UpgradeDBClusterVersionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The code of the version to which you want to upgrade the cluster. You can call the [DescribeDBClusterVersion](~~2319145~~) operation to query the version code.
+     * @description The code of the version to which you want to upgrade the cluster. You can call the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation to query the version code.
      *
      * @example 20230707
      *

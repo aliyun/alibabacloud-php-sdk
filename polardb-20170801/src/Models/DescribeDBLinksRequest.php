@@ -11,7 +11,7 @@ class DescribeDBLinksRequest extends Model
     /**
      * @description The ID of the cluster for which you want to query the database links.
      *
-     * > You can call the [DescribeDBClusters](~~173433~~) operation to query PolarDB clusters.
+     * This parameter is required.
      * @example pc-a*************
      *
      * @var string

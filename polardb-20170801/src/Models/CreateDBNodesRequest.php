@@ -21,6 +21,7 @@ class CreateDBNodesRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example pc-*************
      *
      * @var string
@@ -30,6 +31,7 @@ class CreateDBNodesRequest extends Model
     /**
      * @description The details of the read-only node.
      *
+     * This parameter is required.
      * @var DBNode[]
      */
     public $DBNode;

@@ -11,7 +11,7 @@ class ResetGlobalDatabaseNetworkRequest extends Model
     /**
      * @description The ID of the cluster in the GDN.
      *
-     * >  You can call the [DescribeGlobalDatabaseNetwork](~~264580~~) operation to view the ID of the cluster in the GDN.
+     * This parameter is required.
      * @example pc-wz9fb5nn44u1d****
      *
      * @var string
@@ -21,6 +21,7 @@ class ResetGlobalDatabaseNetworkRequest extends Model
     /**
      * @description The ID of the GDN.
      *
+     * This parameter is required.
      * @example gdn-bp1fttxsrmv*****
      *
      * @var string

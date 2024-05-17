@@ -18,7 +18,7 @@ class ModifyBackupPolicyRequest extends Model
      *
      * >- If you enable enhanced backup, all backups are retained for 24 hours. For backup files that are created earlier than the previous 24 hours, the system permanently retains only the first backup that is created after 00:00 every day and deletes the rest.
      * >- If you enable enhanced backup, **PreferredBackupPeriod** is automatically set to all days in a week (from Monday to Sunday).
-     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed supports the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed supports the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](https://help.aliyun.com/document_detail/72672.html).
      * @example Normal
      *
      * @var string
@@ -42,7 +42,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * This parameter is required.
      * @example pc-bp13wz9586voc****
      *
      * @var string
@@ -57,7 +57,7 @@ class ModifyBackupPolicyRequest extends Model
      *   **3/24H**: enhanced backup. The system backs up data every 3 hours.
      *   **4/24H**: enhanced backup. The system backs up data every 4 hours.
      *
-     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](https://help.aliyun.com/document_detail/72672.html).
      * @example Normal
      *
      * @var string
@@ -75,7 +75,7 @@ class ModifyBackupPolicyRequest extends Model
      *   **Saturday**
      *   **Sunday**
      *
-     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](https://help.aliyun.com/document_detail/72672.html).
      * @example Monday,Tuesday
      *
      * @var string
@@ -93,7 +93,7 @@ class ModifyBackupPolicyRequest extends Model
 
     /**
      * @description The time period during which automatic backup for level-1 backup is performed. The time period is in the `hh:mmZ-hh:mmZ` format and is displayed in UTC. The start time and end time are on the hour and have an interval of 1 hour. Example: `14:00Z-15:00Z`.
-     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](https://help.aliyun.com/document_detail/72672.html).
      * @example 15:00Z-16:00Z
      *
      * @var string
@@ -101,7 +101,7 @@ class ModifyBackupPolicyRequest extends Model
     public $dataLevel1BackupTime;
 
     /**
-     * @description The region where the cross-region level-2 backup is stored. For information about regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * @description The region where the cross-region level-2 backup is stored. For information about regions that support the cross-region backup feature, see [Overview](https://help.aliyun.com/document_detail/72672.html).
      *
      * @example cn-hangzhou
      *
@@ -134,7 +134,7 @@ class ModifyBackupPolicyRequest extends Model
      *   **Saturday**
      *   **Sunday**
      *
-     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](https://help.aliyun.com/document_detail/72672.html).
      * @example Monday,Tuesday
      *
      * @var string
@@ -176,7 +176,7 @@ class ModifyBackupPolicyRequest extends Model
      *   **Saturday**
      *   **Sunday**
      *
-     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed supports the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed supports the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](https://help.aliyun.com/document_detail/72672.html).
      * @example Monday,Tuesday
      *
      * @var string

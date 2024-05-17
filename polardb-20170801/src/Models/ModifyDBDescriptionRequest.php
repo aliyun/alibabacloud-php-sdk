@@ -11,6 +11,7 @@ class ModifyDBDescriptionRequest extends Model
     /**
      * @description The ID of cluster.
      *
+     * This parameter is required.
      * @example pc-***************
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyDBDescriptionRequest extends Model
      *   It cannot start with `http://` or `https://`.
      *   It must be 2 to 256 characters in length.
      *
+     * This parameter is required.
      * @example DBDesc
      *
      * @var string
@@ -32,6 +34,7 @@ class ModifyDBDescriptionRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example testDB
      *
      * @var string

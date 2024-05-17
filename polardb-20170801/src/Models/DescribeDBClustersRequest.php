@@ -37,7 +37,7 @@ class DescribeDBClustersRequest extends Model
     public $DBClusterIds;
 
     /**
-     * @description The state of the cluster that you want to query. For information about valid values, see [Cluster states](~~99286~~).
+     * @description The state of the cluster that you want to query. For information about valid values, see [Cluster states](https://help.aliyun.com/document_detail/99286.html).
      *
      * @example Running
      *
@@ -160,7 +160,7 @@ class DescribeDBClustersRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~98041~~) operation to query the available regions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

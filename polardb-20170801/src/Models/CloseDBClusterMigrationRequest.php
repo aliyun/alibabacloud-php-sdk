@@ -26,6 +26,7 @@ class CloseDBClusterMigrationRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string

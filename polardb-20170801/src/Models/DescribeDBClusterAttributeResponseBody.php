@@ -51,7 +51,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $blktagUsed;
 
     /**
-     * @description [The edition of PolarDB](~~183258~~). Valid values:
+     * @description [The edition of PolarDB](https://help.aliyun.com/document_detail/183258.html). Valid values:
      *
      *   **Normal**: Cluster Edition.
      *   **Basic**: Single Node Edition.
@@ -113,7 +113,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $DBClusterNetworkType;
 
     /**
-     * @description The status of the cluster. For information about the valid values, see [Cluster states](~~99286~~).
+     * @description The status of the cluster. For information about the valid values, see [Cluster states](https://help.aliyun.com/document_detail/99286.html).
      *
      * @example Running
      *
@@ -153,7 +153,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
      *   **Old**: The minor version is outdated. We recommend that you upgrade the cluster to the latest version.
      *   **HighRisk**: The minor version has critical defects. We recommend that you immediately upgrade the cluster to the latest version.
      *
-     * > For more information about how to upgrade the minor version, see [Upgrade versions](~~158572~~).
+     * > For more information about how to upgrade the minor version, see [Upgrade versions](https://help.aliyun.com/document_detail/158572.html).
      * @example Stable
      *
      * @var string

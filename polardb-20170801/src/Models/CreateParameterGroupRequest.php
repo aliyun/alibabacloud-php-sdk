@@ -11,6 +11,7 @@ class CreateParameterGroupRequest extends Model
     /**
      * @description The type of the database engine. Only **MySQL** is supported.
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -24,6 +25,7 @@ class CreateParameterGroupRequest extends Model
      *   **5.7**
      *   **8.0**
      *
+     * This parameter is required.
      * @example 8.0
      *
      * @var string
@@ -52,9 +54,10 @@ class CreateParameterGroupRequest extends Model
     /**
      * @description The name of the parameter template. The name must meet the following requirements:
      *
-     *   It can contain letters, digits, and underscores (\_). It must start with a letter and cannot end with an underscore.**
+     *   It can contain letters, digits, and underscores (_). It must start with a letter and cannot end with an underscore.**
      *   It must be 8 to 64 characters in length.
      *
+     * This parameter is required.
      * @example test_group
      *
      * @var string
@@ -64,7 +67,7 @@ class CreateParameterGroupRequest extends Model
     /**
      * @description The JSON string that consists of parameters and values. The parameter values are strings. Example: `{"wait_timeout":"86400","innodb_old_blocks_time":"1000"}`.
      *
-     * > You can call the [DescribeParameterTemplates](~~207428~~) operation to query the details of all parameters in the cluster of a specified engine version, such as the parameter name and valid values.
+     * This parameter is required.
      * @example {"wait_timeout":"86400","innodb_old_blocks_time":"1000"}
      *
      * @var string
@@ -74,7 +77,7 @@ class CreateParameterGroupRequest extends Model
     /**
      * @description The region ID.
      *
-     * > You can call the [DescribeRegions](~~98041~~) operation to query available regions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

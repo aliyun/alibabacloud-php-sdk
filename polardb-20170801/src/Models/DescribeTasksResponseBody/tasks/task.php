@@ -93,7 +93,7 @@ class task extends Model
     /**
      * @description The details of the subtasks.
      *
-     * @example [{\"remain\":0,\"name\":\"init_task\",\"progress\":100},{\"remain\":1764,\"name\":\"create_instance\",\"progress\":0},{\"remain\":1,\"name\":\"init_cluster\",\"progress\":0},{\"remain\":2,\"name\":\"create_backup\",\"progress\":0}]
+     * @example [{\\"remain\\":0,\\"name\\":\\"init_task\\",\\"progress\\":100},{\\"remain\\":1764,\\"name\\":\\"create_instance\\",\\"progress\\":0},{\\"remain\\":1,\\"name\\":\\"init_cluster\\",\\"progress\\":0},{\\"remain\\":2,\\"name\\":\\"create_backup\\",\\"progress\\":0}]
      *
      * @var string
      */

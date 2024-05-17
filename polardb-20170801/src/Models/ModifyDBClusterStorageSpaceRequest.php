@@ -20,6 +20,7 @@ class ModifyDBClusterStorageSpaceRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-*************
      *
      * @var string
@@ -67,7 +68,7 @@ class ModifyDBClusterStorageSpaceRequest extends Model
     /**
      * @description The storage capacity that you can select when you change the cluster. Unit: GB.
      *
-     * >  You can set this parameter for PolarDB for MySQL clusters of Standard Edition to a value that ranges from 20 to 32000.
+     * This parameter is required.
      * @example 50
      *
      * @var int

@@ -20,6 +20,7 @@ class TransformDBClusterPayTypeRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-bp10gr51qasnl****
      *
      * @var string
@@ -42,6 +43,7 @@ class TransformDBClusterPayTypeRequest extends Model
      *   **Postpaid**: pay-as-you-go.
      *   **Prepaid**: subscription.
      *
+     * This parameter is required.
      * @example Prepaid
      *
      * @var string
@@ -64,6 +66,7 @@ class TransformDBClusterPayTypeRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

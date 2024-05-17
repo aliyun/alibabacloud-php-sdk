@@ -11,7 +11,7 @@ class DBNode extends Model
     /**
      * @description The instance type of the added node. The instance type of the added node must be the same as the instance type of the original node.
      *
-     * >  You can call the [DescribeDBClusters](~~98094~~) operation to view the instance types of original nodes.
+     * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to view the instance types of original nodes.
      * @example polar.mysql.x4.medium
      *
      * @var string

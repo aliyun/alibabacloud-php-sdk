@@ -12,7 +12,7 @@ class DescribeMetaListRequest extends Model
      * @description The ID of the data backup file.
      *
      * >*   When you run a query, you must specify the `BackId` or `RestoreTime` parameter.
-     * >*   You can call the [DescribeBackups](~~98102~~) operation to query the ID of the backup set.
+     * >*   You can call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the ID of the backup set.
      * @example 111111
      *
      * @var string
@@ -22,7 +22,7 @@ class DescribeMetaListRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * >  You can call the [DescribeDBClusters](~~98094~~) operation to query the details of all clusters under your account.
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string
@@ -76,7 +76,7 @@ class DescribeMetaListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which the instance resides. You can call the [DescribeDBClusterAttribute](~~2319132~~) operation to query the region ID of the instance.
+     * @description The ID of the region in which the instance resides. You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/2319132.html) operation to query the region ID of the instance.
      *
      * @example cn-hangzhou
      *
@@ -97,7 +97,7 @@ class DescribeMetaListRequest extends Model
     /**
      * @description The point in time for the restoration. Specify the time in the YYYY-MM-DDThh:mmZ format. The time must be in UTC.
      *
-     * >  When you run a query, you must specify the `BackId` or `RestoreTime` parameter. You can call the [DescribeBackups](~~98102~~) operation to query the point in time for the restoration.
+     * >  When you run a query, you must specify the `BackId` or `RestoreTime` parameter. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the point in time for the restoration.
      * @example 2020-10-04T01:40:00Z
      *
      * @var string

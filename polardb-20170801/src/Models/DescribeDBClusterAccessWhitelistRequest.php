@@ -11,6 +11,7 @@ class DescribeDBClusterAccessWhitelistRequest extends Model
     /**
      * @description The ID of the PolarDB cluster.
      *
+     * This parameter is required.
      * @example pc-***************
      *
      * @var string

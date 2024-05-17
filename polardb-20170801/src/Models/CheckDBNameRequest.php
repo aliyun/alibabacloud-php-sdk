@@ -11,7 +11,7 @@ class CheckDBNameRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a region, such as the cluster IDs.
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -21,6 +21,7 @@ class CheckDBNameRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example test_db
      *
      * @var string

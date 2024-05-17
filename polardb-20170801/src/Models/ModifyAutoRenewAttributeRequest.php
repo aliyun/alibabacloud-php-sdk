@@ -11,6 +11,7 @@ class ModifyAutoRenewAttributeRequest extends Model
     /**
      * @description The cluster ID. If you need to specify multiple cluster IDs, separate the cluster IDs with commas (,).
      *
+     * This parameter is required.
      * @example pc-***************
      *
      * @var string
@@ -56,7 +57,7 @@ class ModifyAutoRenewAttributeRequest extends Model
 
     /**
      * @description The ID of the region. The region ID can be up to 50 characters in length.
-     * >  You can call the [DescribeRegions](~~98041~~) operation to query the available regions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

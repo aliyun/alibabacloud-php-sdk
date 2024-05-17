@@ -11,7 +11,7 @@ class ModifyDBClusterParametersRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string
@@ -45,7 +45,7 @@ class ModifyDBClusterParametersRequest extends Model
      *
      * >
      *
-     *   You can call the [DescribeParameterGroups](~~207178~~) operation to query the parameter template ID.
+     *   You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the parameter template ID.
      *
      *   You must specify this parameter or the `Parameters` parameter.
      *   This parameter is valid only for a PolarDB for MySQL cluster.
@@ -61,7 +61,7 @@ class ModifyDBClusterParametersRequest extends Model
      *
      * >
      *
-     *   You can call the [DescribeDBClusterParameters](~~98122~~) operation to query the parameters of the PolarDB cluster.
+     *   You can call the [DescribeDBClusterParameters](https://help.aliyun.com/document_detail/98122.html) operation to query the parameters of the PolarDB cluster.
      *
      *   This parameter is required for a PolarDB for Oracle or PolarDB for PostgreSQL cluster.
      *   For PolarDB for MySQL clusters, you must specify this parameter or the `ParameterGroupId` parameter.

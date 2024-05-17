@@ -76,7 +76,7 @@ class items extends Model
      *   **on**
      *   **off**
      *
-     * @example {\"DistributedTransaction\":\"off\",\"ConsistLevel\":\"0\",\"LoadBalanceStrategy\":\"load\",\"MasterAcceptReads\":\"on\"}
+     * @example {\\"DistributedTransaction\\":\\"off\\",\\"ConsistLevel\\":\\"0\\",\\"LoadBalanceStrategy\\":\\"load\\",\\"MasterAcceptReads\\":\\"on\\"}
      *
      * @var string
      */

@@ -11,7 +11,7 @@ class ModifyDBClusterPrimaryZoneRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > You can call the [DescribeDBClusters](~~173433~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string
@@ -116,7 +116,7 @@ class ModifyDBClusterPrimaryZoneRequest extends Model
     /**
      * @description The ID of the destination primary zone.
      *
-     * > You can call the [DescribeRegions](~~98041~~) operation to query available zones.
+     * This parameter is required.
      * @example cn-hangzhou-g
      *
      * @var string

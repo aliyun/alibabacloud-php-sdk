@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class backupLog extends Model
 {
     /**
-     * @description The time when the backup task ended. The time follows the ISO 8601 standard in the `YYYY-MM-DD\"T\"HH:mm:ssZ` format. The time is displayed in UTC.
+     * @description The time when the backup task ended. The time follows the ISO 8601 standard in the `YYYY-MM-DD\\"T\\"HH:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example 2020-02-12T03:55:31Z
      *
@@ -45,7 +45,7 @@ class backupLog extends Model
     public $backupLogSize;
 
     /**
-     * @description The time when the backup task started. The time follows the ISO 8601 standard in the `YYYY-MM-DD\"T\"HH:mm:ssZ` format. The time is displayed in UTC.
+     * @description The time when the backup task started. The time follows the ISO 8601 standard in the `YYYY-MM-DD\\"T\\"HH:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example 2020-02-12T03:54:43Z
      *

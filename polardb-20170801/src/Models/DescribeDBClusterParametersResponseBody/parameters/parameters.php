@@ -40,7 +40,7 @@ class parameters extends Model
     /**
      * @description The description of the parameter of the current cluster.
      *
-     * @example The server\"s default character set.
+     * @example The server\\"s default character set.
      *
      * @var string
      */
@@ -76,7 +76,7 @@ class parameters extends Model
     /**
      * @description The description of the parameter of the source instance.
      *
-     * @example The server\"s default character set.
+     * @example The server\\"s default character set.
      *
      * @var string
      */

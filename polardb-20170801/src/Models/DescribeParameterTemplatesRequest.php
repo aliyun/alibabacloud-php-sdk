@@ -11,6 +11,7 @@ class DescribeParameterTemplatesRequest extends Model
     /**
      * @description The type of the database engine. Only **MySQL** is supported.
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -24,6 +25,7 @@ class DescribeParameterTemplatesRequest extends Model
      *   **5.7**
      *   **8.0**
      *
+     * This parameter is required.
      * @example 5.7
      *
      * @var string
@@ -43,7 +45,7 @@ class DescribeParameterTemplatesRequest extends Model
     /**
      * @description The region ID.
      *
-     * >  You can call the [DescribeRegions](~~98041~~) operation to query all regions that are available within your account, such as the region IDs.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

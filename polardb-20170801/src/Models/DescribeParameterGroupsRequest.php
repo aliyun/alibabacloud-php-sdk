@@ -43,7 +43,7 @@ class DescribeParameterGroupsRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * > You can call the [DescribeRegions](~~98041~~) operation to query all regions that are available for your account, such as the region ID.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

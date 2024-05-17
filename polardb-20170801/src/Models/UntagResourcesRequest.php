@@ -31,7 +31,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The ID of the region.
      *
-     * >  You can call the [DescribeRegions](~~98041~~) operation to query the available regions.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +41,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The IDs of the clusters.
      *
+     * This parameter is required.
      * @example pc-***************
      *
      * @var string[]
@@ -60,6 +61,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to **cluster**.
      *
+     * This parameter is required.
      * @example cluster
      *
      * @var string

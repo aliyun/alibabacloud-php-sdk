@@ -33,6 +33,7 @@ class CreateDBClusterEndpointRequest extends Model
     /**
      * @description The ID of cluster.
      *
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string
@@ -86,6 +87,7 @@ class CreateDBClusterEndpointRequest extends Model
     /**
      * @description The type of the cluster endpoint. Set the value to **Custom**.
      *
+     * This parameter is required.
      * @example Custom
      *
      * @var string

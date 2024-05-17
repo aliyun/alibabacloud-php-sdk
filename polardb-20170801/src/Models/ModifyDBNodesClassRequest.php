@@ -21,6 +21,7 @@ class ModifyDBNodesClassRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-*************
      *
      * @var string
@@ -30,6 +31,7 @@ class ModifyDBNodesClassRequest extends Model
     /**
      * @description The details of the nodes.
      *
+     * This parameter is required.
      * @var DBNode[]
      */
     public $DBNode;
@@ -40,6 +42,7 @@ class ModifyDBNodesClassRequest extends Model
      *   **Upgrade**
      *   **Downgrade**
      *
+     * This parameter is required.
      * @example Upgrade
      *
      * @var string

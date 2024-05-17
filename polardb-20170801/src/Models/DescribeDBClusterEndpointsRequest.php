@@ -11,7 +11,7 @@ class DescribeDBClusterEndpointsRequest extends Model
     /**
      * @description The ID of the cluster.
      *
-     * > You can call the [DescribeDBClusters](~~98094~~) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
+     * This parameter is required.
      * @example pc-*************
      *
      * @var string

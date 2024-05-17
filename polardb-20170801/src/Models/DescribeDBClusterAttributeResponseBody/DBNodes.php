@@ -160,6 +160,7 @@ class DBNodes extends Model
      *   **ON**
      *   **OFF**
      *
+     * This parameter is required.
      * @example ON
      *
      * @var string

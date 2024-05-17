@@ -11,7 +11,7 @@ class RestoreTableRequest extends Model
     /**
      * @description The ID of the backup set.
      *
-     * >  You must specify this parameter if you need to restore a database or a table by using a backup set. You can call the [DescribeBackups](~~98102~~) operation to query the ID of the backup set.
+     * >  You must specify this parameter if you need to restore a database or a table by using a backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/98102.html) operation to query the ID of the backup set.
      * @example 111111
      *
      * @var string
@@ -21,7 +21,7 @@ class RestoreTableRequest extends Model
     /**
      * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~98094~~) operation to query the details of all clusters within your account.
+     * This parameter is required.
      * @example pc-bp***************
      *
      * @var string
@@ -71,7 +71,7 @@ class RestoreTableRequest extends Model
     /**
      * @description The JSON string that contains the information of the database and the table that you want to restore. All values of the database and table information are of the string type. Example: `[ { "tables":[ { "name":"testtb", "type":"table", "newname":"testtb_restore" } ], "name":"testdb", "type":"db", "newname":"testdb_restore" } ]`.
      *
-     * >  You can call the [DescribeMetaList](~~194770~~) operation to query the names and details of databases and tables that can be restored and enter their information into the corresponding locations in the preceding example.
+     * This parameter is required.
      * @example [ { "tables":[ { "name":"testtb", "type":"table", "newname":"testtb_restore" } ], "name":"testdb", "type":"db", "newname":"testdb_restore" } ]
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeDBClusterConnectivityRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-xxxxxxxxxxxxx
      *
      * @var string
@@ -54,6 +55,7 @@ class DescribeDBClusterConnectivityRequest extends Model
     /**
      * @description The source IP address.
      *
+     * This parameter is required.
      * @example 192.***.***.1
      *
      * @var string

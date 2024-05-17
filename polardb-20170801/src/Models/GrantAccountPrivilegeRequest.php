@@ -11,6 +11,7 @@ class GrantAccountPrivilegeRequest extends Model
     /**
      * @description The username of the account.
      *
+     * This parameter is required.
      * @example testacc
      *
      * @var string
@@ -26,7 +27,9 @@ class GrantAccountPrivilegeRequest extends Model
      *   **DDLOnly**: The account is granted the permissions to execute only DDL statements on the database.
      *   **ReadIndex**: The account has the read and index permissions on the database.
      *
-     * > The number of **AccountPrivilege** values must be the consistent with the number of **DBName** values. Each account permission must correspond to a database name in sequence. For example, you can set **DBName** to `testdb_1,testdb_2` and set **AccountPrivilege** to `ReadWrite,ReadOnly`. In this case, the specified standard account is granted the **read and write** permissions on the **testdb\_1** database and the **read** permission on the **testdb\_2** database.
+     * > The number of **AccountPrivilege** values must be the consistent with the number of **DBName** values. Each account permission must correspond to a database name in sequence. For example, you can set **DBName** to `testdb_1,testdb_2` and set **AccountPrivilege** to `ReadWrite,ReadOnly`. In this case, the specified standard account is granted the **read and write** permissions on the **testdb_1** database and the **read** permission on the **testdb_2** database.
+     *
+     * This parameter is required.
      * @example ReadWrite,ReadOnly
      *
      * @var string
@@ -36,6 +39,7 @@ class GrantAccountPrivilegeRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string
@@ -45,6 +49,7 @@ class GrantAccountPrivilegeRequest extends Model
     /**
      * @description The names of the databases that the account can access. You can grant the access permissions on one or more databases to the specified standard account. If you need to specify multiple database names, separate the database names with commas (,).
      *
+     * This parameter is required.
      * @example testdb_1,testdb_2
      *
      * @var string

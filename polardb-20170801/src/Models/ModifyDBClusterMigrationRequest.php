@@ -21,6 +21,7 @@ class ModifyDBClusterMigrationRequest extends Model
     /**
      * @description The ID of cluster.
      *
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string
@@ -33,6 +34,7 @@ class ModifyDBClusterMigrationRequest extends Model
      *   To perform a data migration, enter the ID of the PolarDB cluster.
      *   To perform a migration rollback, enter the ID of the ApsaraDB for RDS instance.
      *
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string
@@ -67,6 +69,7 @@ class ModifyDBClusterMigrationRequest extends Model
     /**
      * @description The ID of the source ApsaraDB RDS instance.
      *
+     * This parameter is required.
      * @example rm-************
      *
      * @var string

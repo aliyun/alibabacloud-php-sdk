@@ -11,7 +11,7 @@ class DeleteDBLinkRequest extends Model
     /**
      * @description The ID of the source cluster where a database link is to be deleted.
      *
-     * >  You can call the [DescribeDBClusters](~~173433~~) operation to query PolarDB clusters.
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string
@@ -21,6 +21,7 @@ class DeleteDBLinkRequest extends Model
     /**
      * @description The name of the database link to be deleted.
      *
+     * This parameter is required.
      * @example dblink_test
      *
      * @var string

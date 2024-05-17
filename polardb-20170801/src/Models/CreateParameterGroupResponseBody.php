@@ -11,7 +11,7 @@ class CreateParameterGroupResponseBody extends Model
     /**
      * @description The ID of the parameter template.
      *
-     * > You can call the [DescribeParameterGroups](~~207178~~) operation to query the details of all parameter templates of a specified region, such as the ID of a parameter template.
+     * > You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/207178.html) operation to query the details of all parameter templates of a specified region, such as the ID of a parameter template.
      * @example pcpg-**************
      *
      * @var string

@@ -11,6 +11,7 @@ class DeleteDatabaseRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example pc-*************
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteDatabaseRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example testdb
      *
      * @var string

@@ -32,7 +32,7 @@ class DBClusters extends Model
      *   **Primary**: the primary cluster
      *   **standby**: the secondary cluster
      *
-     * > A GDN consists of one primary cluster and up to four secondary clusters. For more information, see [GDN](~~160381~~).
+     * > A GDN consists of one primary cluster and up to four secondary clusters. For more information, see [GDN](https://help.aliyun.com/document_detail/160381.html).
      * @example primary
      *
      * @var string

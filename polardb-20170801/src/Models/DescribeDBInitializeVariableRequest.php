@@ -11,7 +11,7 @@ class DescribeDBInitializeVariableRequest extends Model
     /**
      * @description The ID of cluster.
      *
-     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * This parameter is required.
      * @example pc-****************
      *
      * @var string

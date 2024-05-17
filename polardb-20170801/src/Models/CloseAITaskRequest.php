@@ -11,6 +11,7 @@ class CloseAITaskRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example pc-**************
      *
      * @var string
@@ -30,6 +31,7 @@ class CloseAITaskRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

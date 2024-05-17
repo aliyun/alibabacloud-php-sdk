@@ -23,6 +23,7 @@ class ModifyDBClusterServerlessConfRequest extends Model
     /**
      * @description The ID of the serverless cluster.
      *
+     * This parameter is required.
      * @example pc-bp10gr51qasnl****
      *
      * @var string
@@ -144,23 +145,41 @@ class ModifyDBClusterServerlessConfRequest extends Model
      * @var string
      */
     public $secondsUntilAutoPause;
+
+    /**
+     * @var string
+     */
+    public $serverlessRuleCpuEnlargeThreshold;
+
+    /**
+     * @var string
+     */
+    public $serverlessRuleCpuShrinkThreshold;
+
+    /**
+     * @var string
+     */
+    public $serverlessRuleMode;
     protected $_name = [
-        'allowShutDown'         => 'AllowShutDown',
-        'DBClusterId'           => 'DBClusterId',
-        'fromTimeService'       => 'FromTimeService',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'plannedEndTime'        => 'PlannedEndTime',
-        'plannedStartTime'      => 'PlannedStartTime',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'scaleApRoNumMax'       => 'ScaleApRoNumMax',
-        'scaleApRoNumMin'       => 'ScaleApRoNumMin',
-        'scaleMax'              => 'ScaleMax',
-        'scaleMin'              => 'ScaleMin',
-        'scaleRoNumMax'         => 'ScaleRoNumMax',
-        'scaleRoNumMin'         => 'ScaleRoNumMin',
-        'secondsUntilAutoPause' => 'SecondsUntilAutoPause',
+        'allowShutDown'                     => 'AllowShutDown',
+        'DBClusterId'                       => 'DBClusterId',
+        'fromTimeService'                   => 'FromTimeService',
+        'ownerAccount'                      => 'OwnerAccount',
+        'ownerId'                           => 'OwnerId',
+        'plannedEndTime'                    => 'PlannedEndTime',
+        'plannedStartTime'                  => 'PlannedStartTime',
+        'resourceOwnerAccount'              => 'ResourceOwnerAccount',
+        'resourceOwnerId'                   => 'ResourceOwnerId',
+        'scaleApRoNumMax'                   => 'ScaleApRoNumMax',
+        'scaleApRoNumMin'                   => 'ScaleApRoNumMin',
+        'scaleMax'                          => 'ScaleMax',
+        'scaleMin'                          => 'ScaleMin',
+        'scaleRoNumMax'                     => 'ScaleRoNumMax',
+        'scaleRoNumMin'                     => 'ScaleRoNumMin',
+        'secondsUntilAutoPause'             => 'SecondsUntilAutoPause',
+        'serverlessRuleCpuEnlargeThreshold' => 'ServerlessRuleCpuEnlargeThreshold',
+        'serverlessRuleCpuShrinkThreshold'  => 'ServerlessRuleCpuShrinkThreshold',
+        'serverlessRuleMode'                => 'ServerlessRuleMode',
     ];
 
     public function validate()
@@ -217,6 +236,15 @@ class ModifyDBClusterServerlessConfRequest extends Model
         }
         if (null !== $this->secondsUntilAutoPause) {
             $res['SecondsUntilAutoPause'] = $this->secondsUntilAutoPause;
+        }
+        if (null !== $this->serverlessRuleCpuEnlargeThreshold) {
+            $res['ServerlessRuleCpuEnlargeThreshold'] = $this->serverlessRuleCpuEnlargeThreshold;
+        }
+        if (null !== $this->serverlessRuleCpuShrinkThreshold) {
+            $res['ServerlessRuleCpuShrinkThreshold'] = $this->serverlessRuleCpuShrinkThreshold;
+        }
+        if (null !== $this->serverlessRuleMode) {
+            $res['ServerlessRuleMode'] = $this->serverlessRuleMode;
         }
 
         return $res;
@@ -277,6 +305,15 @@ class ModifyDBClusterServerlessConfRequest extends Model
         }
         if (isset($map['SecondsUntilAutoPause'])) {
             $model->secondsUntilAutoPause = $map['SecondsUntilAutoPause'];
+        }
+        if (isset($map['ServerlessRuleCpuEnlargeThreshold'])) {
+            $model->serverlessRuleCpuEnlargeThreshold = $map['ServerlessRuleCpuEnlargeThreshold'];
+        }
+        if (isset($map['ServerlessRuleCpuShrinkThreshold'])) {
+            $model->serverlessRuleCpuShrinkThreshold = $map['ServerlessRuleCpuShrinkThreshold'];
+        }
+        if (isset($map['ServerlessRuleMode'])) {
+            $model->serverlessRuleMode = $map['ServerlessRuleMode'];
         }
 
         return $model;

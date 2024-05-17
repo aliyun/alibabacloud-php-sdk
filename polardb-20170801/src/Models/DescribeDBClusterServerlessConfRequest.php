@@ -11,6 +11,7 @@ class DescribeDBClusterServerlessConfRequest extends Model
     /**
      * @description The ID of the serverless cluster.
      *
+     * This parameter is required.
      * @example pc-bp10gr51qasnl****
      *
      * @var string
