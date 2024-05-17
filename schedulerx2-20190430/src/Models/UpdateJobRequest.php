@@ -56,7 +56,7 @@ class UpdateJobRequest extends Model
     /**
      * @description The script content. This parameter is required when you set the job type to python, shell, go, or k8s.
      *
-     * @example echo \"hello\"
+     * @example echo \\"hello\\"
      *
      * @var string
      */
@@ -128,6 +128,7 @@ class UpdateJobRequest extends Model
     /**
      * @description The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -137,6 +138,7 @@ class UpdateJobRequest extends Model
     /**
      * @description The job ID. You can obtain the job ID on the Task Management page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example 92583
      *
      * @var int
@@ -185,6 +187,7 @@ class UpdateJobRequest extends Model
     /**
      * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -230,6 +233,7 @@ class UpdateJobRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -20,6 +20,7 @@ class GetLogRequest extends Model
     /**
      * @description The application group ID. You can obtain the application group ID on the Application Management page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -65,6 +66,7 @@ class GetLogRequest extends Model
     /**
      * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -92,6 +94,7 @@ class GetLogRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class RevokePermissionRequest extends Model
     /**
      * @description The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example test.defalutGroup
      *
      * @var string
@@ -20,6 +21,7 @@ class RevokePermissionRequest extends Model
     /**
      * @description The unique identifier (UID) of the namespace. You can obtain the namespace UID on the Namespace page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffcdf01
      *
      * @var string
@@ -38,6 +40,7 @@ class RevokePermissionRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-shenzhen
      *
      * @var string
@@ -47,6 +50,7 @@ class RevokePermissionRequest extends Model
     /**
      * @description The UID of the RAM user.
      *
+     * This parameter is required.
      * @example 277641081920123456
      *
      * @var string

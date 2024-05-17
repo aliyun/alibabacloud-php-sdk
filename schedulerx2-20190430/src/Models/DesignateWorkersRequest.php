@@ -11,6 +11,7 @@ class DesignateWorkersRequest extends Model
     /**
      * @description The type of the machines to be designated. Valid values: 1 and 2. The value 1 specifies the worker type. The value 2 specifies the label type.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -20,6 +21,7 @@ class DesignateWorkersRequest extends Model
     /**
      * @description The application group ID.
      *
+     * This parameter is required.
      * @example hxm.test
      *
      * @var string
@@ -29,6 +31,7 @@ class DesignateWorkersRequest extends Model
     /**
      * @description The job ID.
      *
+     * This parameter is required.
      * @example 144153
      *
      * @var int
@@ -47,6 +50,7 @@ class DesignateWorkersRequest extends Model
     /**
      * @description The unique identifier (UID) of the namespace.
      *
+     * This parameter is required.
      * @example 4a06d5ea-f576-4326-842c-fb14ea043d8d
      *
      * @var string
@@ -65,6 +69,7 @@ class DesignateWorkersRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example public
      *
      * @var string
@@ -74,6 +79,7 @@ class DesignateWorkersRequest extends Model
     /**
      * @description Specifies whether to allow a failover.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

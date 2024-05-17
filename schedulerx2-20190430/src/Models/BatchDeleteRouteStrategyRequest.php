@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteRouteStrategyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -21,6 +23,8 @@ class BatchDeleteRouteStrategyRequest extends Model
     public $jobIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -28,6 +32,8 @@ class BatchDeleteRouteStrategyRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class StopInstanceRequest extends Model
     /**
      * @description The ID of the application. You can obtain the application ID on the Application Management page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -20,6 +21,7 @@ class StopInstanceRequest extends Model
     /**
      * @description The ID of the job instance in the running state.
      *
+     * This parameter is required.
      * @example 11111111
      *
      * @var int
@@ -29,6 +31,7 @@ class StopInstanceRequest extends Model
     /**
      * @description The ID of the job. You can obtain the ID of the job on the Task Management page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example 92583
      *
      * @var int
@@ -38,6 +41,7 @@ class StopInstanceRequest extends Model
     /**
      * @description The ID of the namespace. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -56,6 +60,7 @@ class StopInstanceRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

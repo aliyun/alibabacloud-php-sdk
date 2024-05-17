@@ -11,6 +11,7 @@ class GetWorkFlowRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * This parameter is required.
      * @example hxm.test
      *
      * @var string
@@ -20,6 +21,7 @@ class GetWorkFlowRequest extends Model
     /**
      * @description The ID of the namespace.
      *
+     * This parameter is required.
      * @example 4a06d5ea-f576-4326-842c-fb14ea043d8d
      *
      * @var string
@@ -38,6 +40,7 @@ class GetWorkFlowRequest extends Model
     /**
      * @description The region information.
      *
+     * This parameter is required.
      * @example public
      *
      * @var string
@@ -47,6 +50,7 @@ class GetWorkFlowRequest extends Model
     /**
      * @description The ID of the workflow.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

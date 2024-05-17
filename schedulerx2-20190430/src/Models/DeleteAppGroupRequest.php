@@ -16,6 +16,8 @@ class DeleteAppGroupRequest extends Model
     public $deleteJobs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteAppGroupRequest extends Model
     public $groupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -30,6 +34,8 @@ class DeleteAppGroupRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -16,6 +16,8 @@ class UpdateAppGroupRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -30,6 +32,8 @@ class UpdateAppGroupRequest extends Model
     public $maxConcurrency;
 
     /**
+     * @description This parameter is required.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -37,6 +41,8 @@ class UpdateAppGroupRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

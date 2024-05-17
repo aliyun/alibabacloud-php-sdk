@@ -32,7 +32,7 @@ class jobs extends Model
     /**
      * @description The script of the job. This parameter is returned only for a Python, Shell, or Go job.
      *
-     * @example echo \"hello\"
+     * @example echo \\"hello\\"
      *
      * @var string
      */

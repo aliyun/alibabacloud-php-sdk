@@ -11,6 +11,7 @@ class DeleteJobRequest extends Model
     /**
      * @description The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteJobRequest extends Model
     /**
      * @description The ID of the job. You can obtain the ID on the **Task Management** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example 92583
      *
      * @var int
@@ -29,6 +31,7 @@ class DeleteJobRequest extends Model
     /**
      * @description The ID of the namespace. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -47,6 +50,7 @@ class DeleteJobRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class GetWorkerListRequest extends Model
     /**
      * @description The ID of the permission group.
      *
+     * This parameter is required.
      * @example usercenter
      *
      * @var string
@@ -20,6 +21,7 @@ class GetWorkerListRequest extends Model
     /**
      * @description The ID of the namespace. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -38,6 +40,7 @@ class GetWorkerListRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

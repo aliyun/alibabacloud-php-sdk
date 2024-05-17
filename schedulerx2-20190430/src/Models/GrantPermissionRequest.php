@@ -20,6 +20,7 @@ class GrantPermissionRequest extends Model
     /**
      * @description The application group ID.
      *
+     * This parameter is required.
      * @example test.defaultGroup
      *
      * @var string
@@ -29,6 +30,7 @@ class GrantPermissionRequest extends Model
     /**
      * @description The namespace ID.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffcdf01
      *
      * @var string
@@ -56,6 +58,7 @@ class GrantPermissionRequest extends Model
     /**
      * @description The user ID.
      *
+     * This parameter is required.
      * @example 277641081920123456
      *
      * @var string
@@ -65,6 +68,7 @@ class GrantPermissionRequest extends Model
     /**
      * @description The username.
      *
+     * This parameter is required.
      * @example lilei
      *
      * @var string

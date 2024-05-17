@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAppGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -16,6 +18,8 @@ class GetAppGroupRequest extends Model
     public $groupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string

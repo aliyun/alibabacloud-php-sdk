@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetJobInstanceListRequest extends Model
 {
     /**
-     * @description 结束时间（时间戳）。
+     * @description The end of the time range to query. Specify the time as a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1684202400000
      *
@@ -18,8 +18,9 @@ class GetJobInstanceListRequest extends Model
     public $endTimestamp;
 
     /**
-     * @description The ID of the application. You can obtain the application ID on the Application Management page in the SchedulerX console.
+     * @description The application group ID.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -27,7 +28,7 @@ class GetJobInstanceListRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the job. You can obtain the ID of the job on the Task Management page in the SchedulerX console.
+     * @description The job ID.
      *
      * @example 92583
      *
@@ -36,8 +37,9 @@ class GetJobInstanceListRequest extends Model
     public $jobId;
 
     /**
-     * @description The ID of the namespace. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     * @description The namespace ID. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -54,8 +56,23 @@ class GetJobInstanceListRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region.
+     * @example 1
      *
+     * @var int
+     */
+    public $pageNum;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description The region ID.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -63,7 +80,7 @@ class GetJobInstanceListRequest extends Model
     public $regionId;
 
     /**
-     * @description 开始时间（时间戳）。
+     * @description The beginning of the time range to query. Specify the time as a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1684116000000
      *
@@ -72,9 +89,9 @@ class GetJobInstanceListRequest extends Model
     public $startTimestamp;
 
     /**
-     * @description 实例状态。包含以下几种状态：
+     * @description The state of the job instance. Valid values:
      *
-     * 对应枚举类： com.alibaba.schedulerx.common.domain.InstanceStatus
+     * 1: The job instance is waiting for execution. 3: The job instance is running. 4: The job instance is successful. 5: The job instance fails. 9: The job instance is rejected. Enumeration class: com.alibaba.schedulerx.common.domain.InstanceStatus
      * @example 5
      *
      * @var int
@@ -86,6 +103,8 @@ class GetJobInstanceListRequest extends Model
         'jobId'           => 'JobId',
         'namespace'       => 'Namespace',
         'namespaceSource' => 'NamespaceSource',
+        'pageNum'         => 'PageNum',
+        'pageSize'        => 'PageSize',
         'regionId'        => 'RegionId',
         'startTimestamp'  => 'StartTimestamp',
         'status'          => 'Status',
@@ -112,6 +131,12 @@ class GetJobInstanceListRequest extends Model
         }
         if (null !== $this->namespaceSource) {
             $res['NamespaceSource'] = $this->namespaceSource;
+        }
+        if (null !== $this->pageNum) {
+            $res['PageNum'] = $this->pageNum;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -148,6 +173,12 @@ class GetJobInstanceListRequest extends Model
         }
         if (isset($map['NamespaceSource'])) {
             $model->namespaceSource = $map['NamespaceSource'];
+        }
+        if (isset($map['PageNum'])) {
+            $model->pageNum = $map['PageNum'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

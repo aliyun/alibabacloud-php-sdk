@@ -20,6 +20,7 @@ class BatchDisableJobsRequest extends Model
     /**
      * @description The job IDs. Separate multiple job IDs with commas (,).
      *
+     * This parameter is required.
      * @example 99341
      *
      * @var int[]
@@ -29,6 +30,7 @@ class BatchDisableJobsRequest extends Model
     /**
      * @description The ID of the namespace to which the job belongs. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -47,6 +49,7 @@ class BatchDisableJobsRequest extends Model
     /**
      * @description The ID of the region to which the job belongs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

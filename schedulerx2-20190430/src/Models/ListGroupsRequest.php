@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListGroupsRequest extends Model
 {
     /**
-     * @description 应用分组名称。
+     * @description The name of the application group.
      *
      * @example k8s-test
      *
@@ -20,6 +20,7 @@ class ListGroupsRequest extends Model
     /**
      * @description The namespace ID. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example 1a72ecb1-b4cc-400a-a71b-20cdec9b****
      *
      * @var string

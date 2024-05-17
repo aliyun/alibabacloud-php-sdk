@@ -11,6 +11,7 @@ class ExecuteWorkflowRequest extends Model
     /**
      * @description The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -29,6 +30,7 @@ class ExecuteWorkflowRequest extends Model
     /**
      * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -45,6 +47,8 @@ class ExecuteWorkflowRequest extends Model
     public $namespaceSource;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
@@ -52,6 +56,7 @@ class ExecuteWorkflowRequest extends Model
     /**
      * @description The workflow ID.
      *
+     * This parameter is required.
      * @example 111
      *
      * @var int

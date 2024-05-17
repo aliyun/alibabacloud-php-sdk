@@ -20,6 +20,7 @@ class CreateAppGroupRequest extends Model
     /**
      * @description The name of the application.
      *
+     * This parameter is required.
      * @example DocTest
      *
      * @var string
@@ -58,6 +59,7 @@ class CreateAppGroupRequest extends Model
     /**
      * @description The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example TestSchedulerx.defaultGroup
      *
      * @var string
@@ -85,7 +87,7 @@ class CreateAppGroupRequest extends Model
     /**
      * @description The configuration of alert contacts. The value is a JSON string.
      *
-     * @example \[{"userName":"Tom","userPhone":"89756\*\*\*\*\*\*"},{"userName":"Bob","ding":"http://www.example.com"}]
+     * @example [{"userName":"Tom","userPhone":"89756\\*\\*\\*\\*\\*\\*"},{"userName":"Bob","ding":"http://www.example.com"}]
      *
      * @var string
      */
@@ -94,6 +96,7 @@ class CreateAppGroupRequest extends Model
     /**
      * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string

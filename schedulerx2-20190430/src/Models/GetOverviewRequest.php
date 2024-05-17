@@ -23,6 +23,8 @@ class GetOverviewRequest extends Model
     public $groupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +46,8 @@ class GetOverviewRequest extends Model
     public $namespaceSource;
 
     /**
+     * @description This parameter is required.
+     *
      * @example query
      *
      * @var string
@@ -51,6 +55,8 @@ class GetOverviewRequest extends Model
     public $operate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +64,8 @@ class GetOverviewRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1684166400
      *
      * @var int

@@ -20,6 +20,7 @@ class CreateNamespaceRequest extends Model
     /**
      * @description The name of the namespace.
      *
+     * This parameter is required.
      * @example test-env
      *
      * @var string
@@ -29,6 +30,7 @@ class CreateNamespaceRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

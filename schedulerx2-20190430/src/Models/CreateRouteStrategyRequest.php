@@ -11,6 +11,7 @@ class CreateRouteStrategyRequest extends Model
     /**
      * @description The ID of the application group. You can obtain the ID on the **Application Management** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -29,6 +30,7 @@ class CreateRouteStrategyRequest extends Model
     /**
      * @description The name of the routing policy.
      *
+     * This parameter is required.
      * @example test-strategy
      *
      * @var string
@@ -38,6 +40,7 @@ class CreateRouteStrategyRequest extends Model
     /**
      * @description The namespace ID. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -47,6 +50,7 @@ class CreateRouteStrategyRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -68,7 +72,7 @@ class CreateRouteStrategyRequest extends Model
     /**
      * @description The details of the routing policy. The value is a JSON string. For more information about this parameter, see **the additional information about request parameters** below this table.
      *
-     * @example [{"percentage":20,"target":"[\"version1\"]","targetType":"label"}]
+     * @example [{"percentage":20,"target":"[\\"version1\\"]","targetType":"label"}]
      *
      * @var string
      */

@@ -141,15 +141,17 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   * ```xml
-     *   * <dependency>
-     *   *     <groupId>com.aliyun</groupId>
-     *   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *     <version>1.0.4</version>
-     *   * </dependency>
-     *   * ```.
-     *   *
+     * @summary Deletes multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     * ```xml
+     * <dependency>
+     *     <groupId>com.aliyun</groupId>
+     *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *     <version>1.0.4</version>
+     * </dependency>
+     * ```
+     *  *
      * @param BatchDeleteJobsRequest $request BatchDeleteJobsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -195,15 +197,17 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   * ```xml
-     *   * <dependency>
-     *   *     <groupId>com.aliyun</groupId>
-     *   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *     <version>1.0.4</version>
-     *   * </dependency>
-     *   * ```.
-     *   *
+     * @summary Deletes multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     * ```xml
+     * <dependency>
+     *     <groupId>com.aliyun</groupId>
+     *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *     <version>1.0.4</version>
+     * </dependency>
+     * ```
+     *  *
      * @param BatchDeleteJobsRequest $request BatchDeleteJobsRequest
      *
      * @return BatchDeleteJobsResponse BatchDeleteJobsResponse
@@ -216,10 +220,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteRouteStrategyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary The additional information that is returned.
+     *  *
+     * @param BatchDeleteRouteStrategyRequest $request BatchDeleteRouteStrategyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchDeleteRouteStrategyResponse
+     * @return BatchDeleteRouteStrategyResponse BatchDeleteRouteStrategyResponse
      */
     public function batchDeleteRouteStrategyWithOptions($request, $runtime)
     {
@@ -258,9 +264,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param BatchDeleteRouteStrategyRequest $request
+     * @summary The additional information that is returned.
+     *  *
+     * @param BatchDeleteRouteStrategyRequest $request BatchDeleteRouteStrategyRequest
      *
-     * @return BatchDeleteRouteStrategyResponse
+     * @return BatchDeleteRouteStrategyResponse BatchDeleteRouteStrategyResponse
      */
     public function batchDeleteRouteStrategy($request)
     {
@@ -270,15 +278,17 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   * ```xml
-     *   * <dependency>
-     *   *     <groupId>com.aliyun</groupId>
-     *   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *     <version>1.0.4</version>
-     *   * </dependency>
-     *   * ```.
-     *   *
+     * @summary Disables multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     * ```xml
+     * <dependency>
+     *     <groupId>com.aliyun</groupId>
+     *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *     <version>1.0.4</version>
+     * </dependency>
+     * ```
+     *  *
      * @param BatchDisableJobsRequest $request BatchDisableJobsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -324,15 +334,17 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   * ```xml
-     *   * <dependency>
-     *   *     <groupId>com.aliyun</groupId>
-     *   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *     <version>1.0.4</version>
-     *   * </dependency>
-     *   * ```.
-     *   *
+     * @summary Disables multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     * ```xml
+     * <dependency>
+     *     <groupId>com.aliyun</groupId>
+     *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *     <version>1.0.4</version>
+     * </dependency>
+     * ```
+     *  *
      * @param BatchDisableJobsRequest $request BatchDisableJobsRequest
      *
      * @return BatchDisableJobsResponse BatchDisableJobsResponse
@@ -345,15 +357,17 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   * ```xml
-     *   * <dependency>
-     *   *     <groupId>com.aliyun</groupId>
-     *   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *     <version>1.0.4</version>
-     *   * </dependency>
-     *   * ```.
-     *   *
+     * @summary Enables multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     * ```xml
+     * <dependency>
+     *     <groupId>com.aliyun</groupId>
+     *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *     <version>1.0.4</version>
+     * </dependency>
+     * ```
+     *  *
      * @param BatchEnableJobsRequest $request BatchEnableJobsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -399,15 +413,17 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   * ```xml
-     *   * <dependency>
-     *   *     <groupId>com.aliyun</groupId>
-     *   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *     <version>1.0.4</version>
-     *   * </dependency>
-     *   * ```.
-     *   *
+     * @summary Enables multiple jobs at a time.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     * ```xml
+     * <dependency>
+     *     <groupId>com.aliyun</groupId>
+     *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *     <version>1.0.4</version>
+     * </dependency>
+     * ```
+     *  *
      * @param BatchEnableJobsRequest $request BatchEnableJobsRequest
      *
      * @return BatchEnableJobsResponse BatchEnableJobsResponse
@@ -420,10 +436,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param CreateAppGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates an application group. The AppKey is returned.
+     *  *
+     * @param CreateAppGroupRequest $request CreateAppGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppGroupResponse
+     * @return CreateAppGroupResponse CreateAppGroupResponse
      */
     public function createAppGroupWithOptions($request, $runtime)
     {
@@ -448,9 +466,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param CreateAppGroupRequest $request
+     * @summary Creates an application group. The AppKey is returned.
+     *  *
+     * @param CreateAppGroupRequest $request CreateAppGroupRequest
      *
-     * @return CreateAppGroupResponse
+     * @return CreateAppGroupResponse CreateAppGroupResponse
      */
     public function createAppGroup($request)
     {
@@ -460,10 +480,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param CreateJobRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Creates a job and obtains the job ID.
+     *  *
+     * @param CreateJobRequest $request CreateJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateJobResponse
+     * @return CreateJobResponse CreateJobResponse
      */
     public function createJobWithOptions($request, $runtime)
     {
@@ -598,9 +620,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param CreateJobRequest $request
+     * @summary Creates a job and obtains the job ID.
+     *  *
+     * @param CreateJobRequest $request CreateJobRequest
      *
-     * @return CreateJobResponse
+     * @return CreateJobResponse CreateJobResponse
      */
     public function createJob($request)
     {
@@ -610,10 +634,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param CreateNamespaceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Creates a namespace.
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespaceWithOptions($request, $runtime)
     {
@@ -650,9 +676,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param CreateNamespaceRequest $request
+     * @summary Creates a namespace.
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
      *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespace($request)
     {
@@ -662,10 +690,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param CreateRouteStrategyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a routing policy.
+     *  *
+     * @param CreateRouteStrategyRequest $request CreateRouteStrategyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRouteStrategyResponse
+     * @return CreateRouteStrategyResponse CreateRouteStrategyResponse
      */
     public function createRouteStrategyWithOptions($request, $runtime)
     {
@@ -714,9 +744,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param CreateRouteStrategyRequest $request
+     * @summary Creates a routing policy.
+     *  *
+     * @param CreateRouteStrategyRequest $request CreateRouteStrategyRequest
      *
-     * @return CreateRouteStrategyResponse
+     * @return CreateRouteStrategyResponse CreateRouteStrategyResponse
      */
     public function createRouteStrategy($request)
     {
@@ -726,10 +758,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkflowRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param CreateWorkflowRequest $request CreateWorkflowRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkflowResponse
+     * @return CreateWorkflowResponse CreateWorkflowResponse
      */
     public function createWorkflowWithOptions($request, $runtime)
     {
@@ -784,9 +818,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkflowRequest $request
+     * @summary Creates a workflow. By default, the created workflow is disabled. After you update the directed acyclic graph (DAG) of the workflow, you must manually or call the corresponding operation to enable the workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param CreateWorkflowRequest $request CreateWorkflowRequest
      *
-     * @return CreateWorkflowResponse
+     * @return CreateWorkflowResponse CreateWorkflowResponse
      */
     public function createWorkflow($request)
     {
@@ -796,10 +832,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary The additional information that is returned.
+     *  *
+     * @param DeleteAppGroupRequest $request DeleteAppGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppGroupResponse
+     * @return DeleteAppGroupResponse DeleteAppGroupResponse
      */
     public function deleteAppGroupWithOptions($request, $runtime)
     {
@@ -836,9 +874,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppGroupRequest $request
+     * @summary The additional information that is returned.
+     *  *
+     * @param DeleteAppGroupRequest $request DeleteAppGroupRequest
      *
-     * @return DeleteAppGroupResponse
+     * @return DeleteAppGroupResponse DeleteAppGroupResponse
      */
     public function deleteAppGroup($request)
     {
@@ -848,10 +888,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DeleteJobRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Deletes a specified job.
+     *  *
+     * @param DeleteJobRequest $request DeleteJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteJobResponse
+     * @return DeleteJobResponse DeleteJobResponse
      */
     public function deleteJobWithOptions($request, $runtime)
     {
@@ -876,9 +918,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DeleteJobRequest $request
+     * @summary Deletes a specified job.
+     *  *
+     * @param DeleteJobRequest $request DeleteJobRequest
      *
-     * @return DeleteJobResponse
+     * @return DeleteJobResponse DeleteJobResponse
      */
     public function deleteJob($request)
     {
@@ -888,10 +932,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DeleteRouteStrategyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes a routing policy.
+     *  *
+     * @param DeleteRouteStrategyRequest $request DeleteRouteStrategyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRouteStrategyResponse
+     * @return DeleteRouteStrategyResponse DeleteRouteStrategyResponse
      */
     public function deleteRouteStrategyWithOptions($request, $runtime)
     {
@@ -928,9 +974,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DeleteRouteStrategyRequest $request
+     * @summary Deletes a routing policy.
+     *  *
+     * @param DeleteRouteStrategyRequest $request DeleteRouteStrategyRequest
      *
-     * @return DeleteRouteStrategyResponse
+     * @return DeleteRouteStrategyResponse DeleteRouteStrategyResponse
      */
     public function deleteRouteStrategy($request)
     {
@@ -940,10 +988,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DeleteWorkflowRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a workflow.
+     *  *
+     * @param DeleteWorkflowRequest $request DeleteWorkflowRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteWorkflowResponse
+     * @return DeleteWorkflowResponse DeleteWorkflowResponse
      */
     public function deleteWorkflowWithOptions($request, $runtime)
     {
@@ -968,9 +1018,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DeleteWorkflowRequest $request
+     * @summary Deletes a workflow.
+     *  *
+     * @param DeleteWorkflowRequest $request DeleteWorkflowRequest
      *
-     * @return DeleteWorkflowResponse
+     * @return DeleteWorkflowResponse DeleteWorkflowResponse
      */
     public function deleteWorkflow($request)
     {
@@ -980,9 +1032,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Returns available regions.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($runtime)
     {
@@ -1003,7 +1057,9 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * @summary Returns available regions.
+     *  *
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -1013,10 +1069,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DesignateWorkersRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Designates machines.
+     *  *
+     * @param DesignateWorkersRequest $request DesignateWorkersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DesignateWorkersResponse
+     * @return DesignateWorkersResponse DesignateWorkersResponse
      */
     public function designateWorkersWithOptions($request, $runtime)
     {
@@ -1041,9 +1099,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DesignateWorkersRequest $request
+     * @summary Designates machines.
+     *  *
+     * @param DesignateWorkersRequest $request DesignateWorkersRequest
      *
-     * @return DesignateWorkersResponse
+     * @return DesignateWorkersResponse DesignateWorkersResponse
      */
     public function designateWorkers($request)
     {
@@ -1053,10 +1113,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DisableJobRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Disables a job.
+     *  *
+     * @param DisableJobRequest $request DisableJobRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableJobResponse
+     * @return DisableJobResponse DisableJobResponse
      */
     public function disableJobWithOptions($request, $runtime)
     {
@@ -1081,9 +1143,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DisableJobRequest $request
+     * @summary Disables a job.
+     *  *
+     * @param DisableJobRequest $request DisableJobRequest
      *
-     * @return DisableJobResponse
+     * @return DisableJobResponse DisableJobResponse
      */
     public function disableJob($request)
     {
@@ -1093,10 +1157,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DisableWorkflowRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Disables a specified workflow.
+     *  *
+     * @param DisableWorkflowRequest $request DisableWorkflowRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableWorkflowResponse
+     * @return DisableWorkflowResponse DisableWorkflowResponse
      */
     public function disableWorkflowWithOptions($request, $runtime)
     {
@@ -1121,9 +1187,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param DisableWorkflowRequest $request
+     * @summary Disables a specified workflow.
+     *  *
+     * @param DisableWorkflowRequest $request DisableWorkflowRequest
      *
-     * @return DisableWorkflowResponse
+     * @return DisableWorkflowResponse DisableWorkflowResponse
      */
     public function disableWorkflow($request)
     {
@@ -1133,10 +1201,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param EnableJobRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Enables a job.
+     *  *
+     * @param EnableJobRequest $request EnableJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableJobResponse
+     * @return EnableJobResponse EnableJobResponse
      */
     public function enableJobWithOptions($request, $runtime)
     {
@@ -1161,9 +1231,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param EnableJobRequest $request
+     * @summary Enables a job.
+     *  *
+     * @param EnableJobRequest $request EnableJobRequest
      *
-     * @return EnableJobResponse
+     * @return EnableJobResponse EnableJobResponse
      */
     public function enableJob($request)
     {
@@ -1173,10 +1245,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param EnableWorkflowRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Enables a specified workflow.
+     *  *
+     * @param EnableWorkflowRequest $request EnableWorkflowRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableWorkflowResponse
+     * @return EnableWorkflowResponse EnableWorkflowResponse
      */
     public function enableWorkflowWithOptions($request, $runtime)
     {
@@ -1201,9 +1275,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param EnableWorkflowRequest $request
+     * @summary Enables a specified workflow.
+     *  *
+     * @param EnableWorkflowRequest $request EnableWorkflowRequest
      *
-     * @return EnableWorkflowResponse
+     * @return EnableWorkflowResponse EnableWorkflowResponse
      */
     public function enableWorkflow($request)
     {
@@ -1213,8 +1289,10 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
-     *   *
+     * @summary Triggers a job to immediately run once.
+     *  *
+     * @description > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
+     *  *
      * @param ExecuteJobRequest $request ExecuteJobRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1243,8 +1321,10 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
-     *   *
+     * @summary Triggers a job to immediately run once.
+     *  *
+     * @description > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
+     *  *
      * @param ExecuteJobRequest $request ExecuteJobRequest
      *
      * @return ExecuteJobResponse ExecuteJobResponse
@@ -1257,10 +1337,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param ExecuteWorkflowRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Immediately triggers a workflow.
+     *  *
+     * @param ExecuteWorkflowRequest $request ExecuteWorkflowRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecuteWorkflowResponse
+     * @return ExecuteWorkflowResponse ExecuteWorkflowResponse
      */
     public function executeWorkflowWithOptions($request, $runtime)
     {
@@ -1285,9 +1367,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param ExecuteWorkflowRequest $request
+     * @summary Immediately triggers a workflow.
+     *  *
+     * @param ExecuteWorkflowRequest $request ExecuteWorkflowRequest
      *
-     * @return ExecuteWorkflowResponse
+     * @return ExecuteWorkflowResponse ExecuteWorkflowResponse
      */
     public function executeWorkflow($request)
     {
@@ -1297,10 +1381,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetAppGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary The configuration of the alert. The value is a JSON string. For more information, see **the additional information about response parameters below this table**.
+     *  *
+     * @param GetAppGroupRequest $request GetAppGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAppGroupResponse
+     * @return GetAppGroupResponse GetAppGroupResponse
      */
     public function getAppGroupWithOptions($request, $runtime)
     {
@@ -1334,9 +1420,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetAppGroupRequest $request
+     * @summary The configuration of the alert. The value is a JSON string. For more information, see **the additional information about response parameters below this table**.
+     *  *
+     * @param GetAppGroupRequest $request GetAppGroupRequest
      *
-     * @return GetAppGroupResponse
+     * @return GetAppGroupResponse GetAppGroupResponse
      */
     public function getAppGroup($request)
     {
@@ -1346,10 +1434,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetJobInfoRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+     *  *
+     * @param GetJobInfoRequest $request GetJobInfoRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetJobInfoResponse
+     * @return GetJobInfoResponse GetJobInfoResponse
      */
     public function getJobInfoWithOptions($request, $runtime)
     {
@@ -1374,9 +1464,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetJobInfoRequest $request
+     * @summary Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+     *  *
+     * @param GetJobInfoRequest $request GetJobInfoRequest
      *
-     * @return GetJobInfoResponse
+     * @return GetJobInfoResponse GetJobInfoResponse
      */
     public function getJobInfo($request)
     {
@@ -1386,10 +1478,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetJobInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the information about a job instance. You can view the status and progress of the job instance.
+     *  *
+     * @param GetJobInstanceRequest $request GetJobInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetJobInstanceResponse
+     * @return GetJobInstanceResponse GetJobInstanceResponse
      */
     public function getJobInstanceWithOptions($request, $runtime)
     {
@@ -1414,9 +1508,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetJobInstanceRequest $request
+     * @summary Queries the information about a job instance. You can view the status and progress of the job instance.
+     *  *
+     * @param GetJobInstanceRequest $request GetJobInstanceRequest
      *
-     * @return GetJobInstanceResponse
+     * @return GetJobInstanceResponse GetJobInstanceResponse
      */
     public function getJobInstance($request)
     {
@@ -1426,10 +1522,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetJobInstanceListRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the most recent 10 execution instances of a job.
+     *  *
+     * @param GetJobInstanceListRequest $request GetJobInstanceListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetJobInstanceListResponse
+     * @return GetJobInstanceListResponse GetJobInstanceListResponse
      */
     public function getJobInstanceListWithOptions($request, $runtime)
     {
@@ -1454,9 +1552,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetJobInstanceListRequest $request
+     * @summary Queries the most recent 10 execution instances of a job.
+     *  *
+     * @param GetJobInstanceListRequest $request GetJobInstanceListRequest
      *
-     * @return GetJobInstanceListResponse
+     * @return GetJobInstanceListResponse GetJobInstanceListResponse
      */
     public function getJobInstanceList($request)
     {
@@ -1466,10 +1566,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetLogRequest  $request
-     * @param RuntimeOptions $runtime
+     * @summary Queries the operational logs of a job. You can call this operation only in the professional edition.
+     *  *
+     * @param GetLogRequest  $request GetLogRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLogResponse
+     * @return GetLogResponse GetLogResponse
      */
     public function getLogWithOptions($request, $runtime)
     {
@@ -1494,9 +1596,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetLogRequest $request
+     * @summary Queries the operational logs of a job. You can call this operation only in the professional edition.
+     *  *
+     * @param GetLogRequest $request GetLogRequest
      *
-     * @return GetLogResponse
+     * @return GetLogResponse GetLogResponse
      */
     public function getLog($request)
     {
@@ -1506,10 +1610,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetOverviewRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 查询概览数据信息
+     *  *
+     * @param GetOverviewRequest $request GetOverviewRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOverviewResponse
+     * @return GetOverviewResponse GetOverviewResponse
      */
     public function getOverviewWithOptions($request, $runtime)
     {
@@ -1558,9 +1664,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetOverviewRequest $request
+     * @summary 查询概览数据信息
+     *  *
+     * @param GetOverviewRequest $request GetOverviewRequest
      *
-     * @return GetOverviewResponse
+     * @return GetOverviewResponse GetOverviewResponse
      */
     public function getOverview($request)
     {
@@ -1570,10 +1678,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetWorkFlowRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Obtains the information about a workflow.
+     *  *
+     * @param GetWorkFlowRequest $request GetWorkFlowRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWorkFlowResponse
+     * @return GetWorkFlowResponse GetWorkFlowResponse
      */
     public function getWorkFlowWithOptions($request, $runtime)
     {
@@ -1598,9 +1708,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetWorkFlowRequest $request
+     * @summary Obtains the information about a workflow.
+     *  *
+     * @param GetWorkFlowRequest $request GetWorkFlowRequest
      *
-     * @return GetWorkFlowResponse
+     * @return GetWorkFlowResponse GetWorkFlowResponse
      */
     public function getWorkFlow($request)
     {
@@ -1610,10 +1722,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetWorkerListRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Obtains the list of workers that are connected to an application.
+     *  *
+     * @param GetWorkerListRequest $request GetWorkerListRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWorkerListResponse
+     * @return GetWorkerListResponse GetWorkerListResponse
      */
     public function getWorkerListWithOptions($request, $runtime)
     {
@@ -1638,9 +1752,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetWorkerListRequest $request
+     * @summary Obtains the list of workers that are connected to an application.
+     *  *
+     * @param GetWorkerListRequest $request GetWorkerListRequest
      *
-     * @return GetWorkerListResponse
+     * @return GetWorkerListResponse GetWorkerListResponse
      */
     public function getWorkerList($request)
     {
@@ -1650,10 +1766,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetWorkflowInstanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the details of a specified workflow instance, including the state of the workflow instance, the state of each job instance, and the dependencies between job instances. You can call this operation only in the professional edition.
+     *  *
+     * @param GetWorkflowInstanceRequest $request GetWorkflowInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWorkflowInstanceResponse
+     * @return GetWorkflowInstanceResponse GetWorkflowInstanceResponse
      */
     public function getWorkflowInstanceWithOptions($request, $runtime)
     {
@@ -1678,9 +1796,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GetWorkflowInstanceRequest $request
+     * @summary Queries the details of a specified workflow instance, including the state of the workflow instance, the state of each job instance, and the dependencies between job instances. You can call this operation only in the professional edition.
+     *  *
+     * @param GetWorkflowInstanceRequest $request GetWorkflowInstanceRequest
      *
-     * @return GetWorkflowInstanceResponse
+     * @return GetWorkflowInstanceResponse GetWorkflowInstanceResponse
      */
     public function getWorkflowInstance($request)
     {
@@ -1690,10 +1810,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GrantPermissionRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Grants permissions to an application group.
+     *  *
+     * @param GrantPermissionRequest $request GrantPermissionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantPermissionResponse
+     * @return GrantPermissionResponse GrantPermissionResponse
      */
     public function grantPermissionWithOptions($request, $runtime)
     {
@@ -1739,9 +1861,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param GrantPermissionRequest $request
+     * @summary Grants permissions to an application group.
+     *  *
+     * @param GrantPermissionRequest $request GrantPermissionRequest
      *
-     * @return GrantPermissionResponse
+     * @return GrantPermissionResponse GrantPermissionResponse
      */
     public function grantPermission($request)
     {
@@ -1751,15 +1875,17 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   * ```xml
-     *   * <dependency>
-     *   *     <groupId>com.aliyun</groupId>
-     *   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *     <version>1.0.5</version>
-     *   * </dependency>
-     *   * ```.
-     *   *
+     * @summary Queries a list of applications.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     * ```xml
+     * <dependency>
+     *     <groupId>com.aliyun</groupId>
+     *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *     <version>1.0.5</version>
+     * </dependency>
+     * ```
+     *  *
      * @param ListGroupsRequest $request ListGroupsRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -1800,15 +1926,17 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   * ```xml
-     *   * <dependency>
-     *   *     <groupId>com.aliyun</groupId>
-     *   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *     <version>1.0.5</version>
-     *   * </dependency>
-     *   * ```.
-     *   *
+     * @summary Queries a list of applications.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     * ```xml
+     * <dependency>
+     *     <groupId>com.aliyun</groupId>
+     *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *     <version>1.0.5</version>
+     * </dependency>
+     * ```
+     *  *
      * @param ListGroupsRequest $request ListGroupsRequest
      *
      * @return ListGroupsResponse ListGroupsResponse
@@ -1821,13 +1949,15 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   *     <dependency>
-     *   *           <groupId>com.aliyun</groupId>
-     *   *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *           <version>1.0.5</version>
-     *   *     </dependency>.
-     *   *
+     * @summary Queries jobs.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     *     <dependency>
+     *           <groupId>com.aliyun</groupId>
+     *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *           <version>1.0.5</version>
+     *     </dependency>
+     *  *
      * @param ListJobsRequest $request ListJobsRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
@@ -1856,13 +1986,15 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   *     <dependency>
-     *   *           <groupId>com.aliyun</groupId>
-     *   *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *           <version>1.0.5</version>
-     *   *     </dependency>.
-     *   *
+     * @summary Queries jobs.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     *     <dependency>
+     *           <groupId>com.aliyun</groupId>
+     *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *           <version>1.0.5</version>
+     *     </dependency>
+     *  *
      * @param ListJobsRequest $request ListJobsRequest
      *
      * @return ListJobsResponse ListJobsResponse
@@ -1875,13 +2007,15 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   *     <dependency>
-     *   *         <groupId>com.aliyun</groupId>
-     *   *         <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *         <version>1.0.5</version>
-     *   *     </dependency>.
-     *   *
+     * @summary Queries namespaces.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     *     <dependency>
+     *         <groupId>com.aliyun</groupId>
+     *         <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *         <version>1.0.5</version>
+     *     </dependency>
+     *  *
      * @param ListNamespacesRequest $request ListNamespacesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1919,13 +2053,15 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   *     <dependency>
-     *   *         <groupId>com.aliyun</groupId>
-     *   *         <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *         <version>1.0.5</version>
-     *   *     </dependency>.
-     *   *
+     * @summary Queries namespaces.
+     *  *
+     * @description Before you call this operation, you must add the following dependency to the pom.xml file:
+     *     <dependency>
+     *         <groupId>com.aliyun</groupId>
+     *         <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *         <version>1.0.5</version>
+     *     </dependency>
+     *  *
      * @param ListNamespacesRequest $request ListNamespacesRequest
      *
      * @return ListNamespacesResponse ListNamespacesResponse
@@ -1938,10 +2074,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param ListWorkflowInstanceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the execution history of a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param ListWorkflowInstanceRequest $request ListWorkflowInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListWorkflowInstanceResponse
+     * @return ListWorkflowInstanceResponse ListWorkflowInstanceResponse
      */
     public function listWorkflowInstanceWithOptions($request, $runtime)
     {
@@ -1966,9 +2104,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param ListWorkflowInstanceRequest $request
+     * @summary Queries the execution history of a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param ListWorkflowInstanceRequest $request ListWorkflowInstanceRequest
      *
-     * @return ListWorkflowInstanceResponse
+     * @return ListWorkflowInstanceResponse ListWorkflowInstanceResponse
      */
     public function listWorkflowInstance($request)
     {
@@ -1978,10 +2118,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param RerunJobRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary Reruns a job to obtain the historical data of the job. You can call this operation only in the professional edition.
+     *  *
+     * @param RerunJobRequest $request RerunJobRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return RerunJobResponse
+     * @return RerunJobResponse RerunJobResponse
      */
     public function rerunJobWithOptions($request, $runtime)
     {
@@ -2030,9 +2172,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param RerunJobRequest $request
+     * @summary Reruns a job to obtain the historical data of the job. You can call this operation only in the professional edition.
+     *  *
+     * @param RerunJobRequest $request RerunJobRequest
      *
-     * @return RerunJobResponse
+     * @return RerunJobResponse RerunJobResponse
      */
     public function rerunJob($request)
     {
@@ -2042,10 +2186,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param RetryJobInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+     *  *
+     * @param RetryJobInstanceRequest $request RetryJobInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RetryJobInstanceResponse
+     * @return RetryJobInstanceResponse RetryJobInstanceResponse
      */
     public function retryJobInstanceWithOptions($request, $runtime)
     {
@@ -2088,9 +2234,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param RetryJobInstanceRequest $request
+     * @summary Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+     *  *
+     * @param RetryJobInstanceRequest $request RetryJobInstanceRequest
      *
-     * @return RetryJobInstanceResponse
+     * @return RetryJobInstanceResponse RetryJobInstanceResponse
      */
     public function retryJobInstance($request)
     {
@@ -2100,10 +2248,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param RevokePermissionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Revokes the permissions that are granted to an Alibaba Cloud Resource Access Management (RAM) user.
+     *  *
+     * @param RevokePermissionRequest $request RevokePermissionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokePermissionResponse
+     * @return RevokePermissionResponse RevokePermissionResponse
      */
     public function revokePermissionWithOptions($request, $runtime)
     {
@@ -2143,9 +2293,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param RevokePermissionRequest $request
+     * @summary Revokes the permissions that are granted to an Alibaba Cloud Resource Access Management (RAM) user.
+     *  *
+     * @param RevokePermissionRequest $request RevokePermissionRequest
      *
-     * @return RevokePermissionResponse
+     * @return RevokePermissionResponse RevokePermissionResponse
      */
     public function revokePermission($request)
     {
@@ -2155,10 +2307,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param SetJobInstanceSuccessRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+     *  *
+     * @param SetJobInstanceSuccessRequest $request SetJobInstanceSuccessRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetJobInstanceSuccessResponse
+     * @return SetJobInstanceSuccessResponse SetJobInstanceSuccessResponse
      */
     public function setJobInstanceSuccessWithOptions($request, $runtime)
     {
@@ -2201,9 +2355,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param SetJobInstanceSuccessRequest $request
+     * @summary Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+     *  *
+     * @param SetJobInstanceSuccessRequest $request SetJobInstanceSuccessRequest
      *
-     * @return SetJobInstanceSuccessResponse
+     * @return SetJobInstanceSuccessResponse SetJobInstanceSuccessResponse
      */
     public function setJobInstanceSuccess($request)
     {
@@ -2213,10 +2369,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param SetWfInstanceSuccessRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Forcibly sets the state of a workflow instance to successful. You can call this operation only in the professional edition.
+     *  *
+     * @param SetWfInstanceSuccessRequest $request SetWfInstanceSuccessRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetWfInstanceSuccessResponse
+     * @return SetWfInstanceSuccessResponse SetWfInstanceSuccessResponse
      */
     public function setWfInstanceSuccessWithOptions($request, $runtime)
     {
@@ -2259,9 +2417,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param SetWfInstanceSuccessRequest $request
+     * @summary Forcibly sets the state of a workflow instance to successful. You can call this operation only in the professional edition.
+     *  *
+     * @param SetWfInstanceSuccessRequest $request SetWfInstanceSuccessRequest
      *
-     * @return SetWfInstanceSuccessResponse
+     * @return SetWfInstanceSuccessResponse SetWfInstanceSuccessResponse
      */
     public function setWfInstanceSuccess($request)
     {
@@ -2271,10 +2431,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param StopInstanceRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Stops a job instance in the running state.
+     *  *
+     * @param StopInstanceRequest $request StopInstanceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstanceWithOptions($request, $runtime)
     {
@@ -2299,9 +2461,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param StopInstanceRequest $request
+     * @summary Stops a job instance in the running state.
+     *  *
+     * @param StopInstanceRequest $request StopInstanceRequest
      *
-     * @return StopInstanceResponse
+     * @return StopInstanceResponse StopInstanceResponse
      */
     public function stopInstance($request)
     {
@@ -2311,10 +2475,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary The additional information that is returned.
+     *  *
+     * @param UpdateAppGroupRequest $request UpdateAppGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAppGroupResponse
+     * @return UpdateAppGroupResponse UpdateAppGroupResponse
      */
     public function updateAppGroupWithOptions($request, $runtime)
     {
@@ -2354,9 +2520,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppGroupRequest $request
+     * @summary The additional information that is returned.
+     *  *
+     * @param UpdateAppGroupRequest $request UpdateAppGroupRequest
      *
-     * @return UpdateAppGroupResponse
+     * @return UpdateAppGroupResponse UpdateAppGroupResponse
      */
     public function updateAppGroup($request)
     {
@@ -2366,10 +2534,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param UpdateJobRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+     *  *
+     * @param UpdateJobRequest $request UpdateJobRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateJobResponse
+     * @return UpdateJobResponse UpdateJobResponse
      */
     public function updateJobWithOptions($request, $runtime)
     {
@@ -2507,9 +2677,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param UpdateJobRequest $request
+     * @summary Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+     *  *
+     * @param UpdateJobRequest $request UpdateJobRequest
      *
-     * @return UpdateJobResponse
+     * @return UpdateJobResponse UpdateJobResponse
      */
     public function updateJob($request)
     {
@@ -2519,10 +2691,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkflowRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Updates the basic information about a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param UpdateWorkflowRequest $request UpdateWorkflowRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkflowResponse
+     * @return UpdateWorkflowResponse UpdateWorkflowResponse
      */
     public function updateWorkflowWithOptions($request, $runtime)
     {
@@ -2576,9 +2750,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkflowRequest $request
+     * @summary Updates the basic information about a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param UpdateWorkflowRequest $request UpdateWorkflowRequest
      *
-     * @return UpdateWorkflowResponse
+     * @return UpdateWorkflowResponse UpdateWorkflowResponse
      */
     public function updateWorkflow($request)
     {
@@ -2588,10 +2764,12 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkflowDagRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param UpdateWorkflowDagRequest $request UpdateWorkflowDagRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkflowDagResponse
+     * @return UpdateWorkflowDagResponse UpdateWorkflowDagResponse
      */
     public function updateWorkflowDagWithOptions($request, $runtime)
     {
@@ -2636,9 +2814,11 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkflowDagRequest $request
+     * @summary Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+     *  *
+     * @param UpdateWorkflowDagRequest $request UpdateWorkflowDagRequest
      *
-     * @return UpdateWorkflowDagResponse
+     * @return UpdateWorkflowDagResponse UpdateWorkflowDagResponse
      */
     public function updateWorkflowDag($request)
     {

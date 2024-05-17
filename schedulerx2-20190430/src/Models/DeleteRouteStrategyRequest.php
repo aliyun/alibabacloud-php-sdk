@@ -11,6 +11,7 @@ class DeleteRouteStrategyRequest extends Model
     /**
      * @description The application ID. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -29,6 +30,7 @@ class DeleteRouteStrategyRequest extends Model
     /**
      * @description The namespace ID. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -38,6 +40,7 @@ class DeleteRouteStrategyRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class ListJobsRequest extends Model
     /**
      * @description The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example DocTest.Group
      *
      * @var string
@@ -29,6 +30,7 @@ class ListJobsRequest extends Model
     /**
      * @description The ID of the namespace. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example 1a72ecb1-b4cc-400a-a71b-20cdec9b****
      *
      * @var string
@@ -47,6 +49,7 @@ class ListJobsRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

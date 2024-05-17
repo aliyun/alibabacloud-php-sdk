@@ -11,6 +11,7 @@ class RerunJobRequest extends Model
     /**
      * @description The data timestamp of the job. Specify a string in the HH:mm:ss format.
      *
+     * This parameter is required.
      * @example 10:00:00
      *
      * @var string
@@ -20,6 +21,7 @@ class RerunJobRequest extends Model
     /**
      * @description The time when the job stops running. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1645718400000
      *
      * @var int
@@ -29,6 +31,7 @@ class RerunJobRequest extends Model
     /**
      * @description The application group ID. You can obtain the application group ID on the Application Management page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -38,6 +41,7 @@ class RerunJobRequest extends Model
     /**
      * @description The job ID.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int
@@ -47,6 +51,7 @@ class RerunJobRequest extends Model
     /**
      * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -65,6 +70,7 @@ class RerunJobRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -74,6 +80,7 @@ class RerunJobRequest extends Model
     /**
      * @description The time when the job starts to rerun. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
+     * This parameter is required.
      * @example 1645459200000
      *
      * @var int

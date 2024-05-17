@@ -11,6 +11,7 @@ class UpdateWorkflowDagRequest extends Model
     /**
      * @description The directed acyclic graph (DAG) of the workflow, including the information about the nodes and the edges. Specify the value of this parameter in the JSON format.
      *
+     * This parameter is required.
      * @example {"nodes":[{"id":2300691},{"id":10518089},{"id":1758851}],"edges":[{"source":10518089,"target":1758851},{"source":10518089,"target":2300691}]}
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateWorkflowDagRequest extends Model
     /**
      * @description The application group ID. You can obtain the application group ID on the Application Management page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -29,6 +31,7 @@ class UpdateWorkflowDagRequest extends Model
     /**
      * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
+     * This parameter is required.
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -47,6 +50,7 @@ class UpdateWorkflowDagRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -56,6 +60,7 @@ class UpdateWorkflowDagRequest extends Model
     /**
      * @description The workflow ID.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var string
