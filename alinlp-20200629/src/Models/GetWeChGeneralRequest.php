@@ -14,6 +14,8 @@ class GetWeChGeneralRequest extends Model
     public $operation;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;
@@ -24,6 +26,8 @@ class GetWeChGeneralRequest extends Model
     public $size;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $text;

@@ -14,6 +14,8 @@ class GetWeChEntertainmentRequest extends Model
     public $operation;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;
@@ -24,11 +26,15 @@ class GetWeChEntertainmentRequest extends Model
     public $size;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tokenizerId;

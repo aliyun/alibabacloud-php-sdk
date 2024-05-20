@@ -30,20 +30,18 @@ class PostISConvRewriterShrinkRequest extends Model
     /**
      * @var string
      */
-    public $parametersShrink;
+    public $model;
 
     /**
-     * @example "default"
-     *
      * @var string
      */
-    public $version;
+    public $parametersShrink;
     protected $_name = [
         'algorithm'        => 'Algorithm',
         'debug'            => 'Debug',
         'inputShrink'      => 'Input',
+        'model'            => 'Model',
         'parametersShrink' => 'Parameters',
-        'version'          => 'Version',
     ];
 
     public function validate()
@@ -62,11 +60,11 @@ class PostISConvRewriterShrinkRequest extends Model
         if (null !== $this->inputShrink) {
             $res['Input'] = $this->inputShrink;
         }
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
         if (null !== $this->parametersShrink) {
             $res['Parameters'] = $this->parametersShrink;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -89,11 +87,11 @@ class PostISConvRewriterShrinkRequest extends Model
         if (isset($map['Input'])) {
             $model->inputShrink = $map['Input'];
         }
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
         if (isset($map['Parameters'])) {
             $model->parametersShrink = $map['Parameters'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

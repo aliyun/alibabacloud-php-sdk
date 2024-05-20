@@ -91,21 +91,27 @@ class PostMSSearchEnhanceRequest extends Model
      * @var string
      */
     public $uq;
+
+    /**
+     * @var string
+     */
+    public $xDashScopeOpenAPISource;
     protected $_name = [
-        'body'             => 'Body',
-        'customConfigInfo' => 'CustomConfigInfo',
-        'debug'            => 'Debug',
-        'fields'           => 'Fields',
-        'filters'          => 'Filters',
-        'minScore'         => 'MinScore',
-        'page'             => 'Page',
-        'queries'          => 'Queries',
-        'rankModelInfo'    => 'RankModelInfo',
-        'rows'             => 'Rows',
-        'serviceId'        => 'ServiceId',
-        'sort'             => 'Sort',
-        'type'             => 'Type',
-        'uq'               => 'Uq',
+        'body'                    => 'Body',
+        'customConfigInfo'        => 'CustomConfigInfo',
+        'debug'                   => 'Debug',
+        'fields'                  => 'Fields',
+        'filters'                 => 'Filters',
+        'minScore'                => 'MinScore',
+        'page'                    => 'Page',
+        'queries'                 => 'Queries',
+        'rankModelInfo'           => 'RankModelInfo',
+        'rows'                    => 'Rows',
+        'serviceId'               => 'ServiceId',
+        'sort'                    => 'Sort',
+        'type'                    => 'Type',
+        'uq'                      => 'Uq',
+        'xDashScopeOpenAPISource' => 'X-DashScope-OpenAPISource',
     ];
 
     public function validate()
@@ -156,6 +162,9 @@ class PostMSSearchEnhanceRequest extends Model
         }
         if (null !== $this->uq) {
             $res['Uq'] = $this->uq;
+        }
+        if (null !== $this->xDashScopeOpenAPISource) {
+            $res['X-DashScope-OpenAPISource'] = $this->xDashScopeOpenAPISource;
         }
 
         return $res;
@@ -214,6 +223,9 @@ class PostMSSearchEnhanceRequest extends Model
         }
         if (isset($map['Uq'])) {
             $model->uq = $map['Uq'];
+        }
+        if (isset($map['X-DashScope-OpenAPISource'])) {
+            $model->xDashScopeOpenAPISource = $map['X-DashScope-OpenAPISource'];
         }
 
         return $model;

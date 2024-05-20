@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetSimilarityChMedicalRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $originQ;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $originT;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;

@@ -91,21 +91,27 @@ class PostMSSearchEnhanceShrinkRequest extends Model
      * @var string
      */
     public $uq;
+
+    /**
+     * @var string
+     */
+    public $xDashScopeOpenAPISource;
     protected $_name = [
-        'body'                   => 'Body',
-        'customConfigInfoShrink' => 'CustomConfigInfo',
-        'debug'                  => 'Debug',
-        'fieldsShrink'           => 'Fields',
-        'filters'                => 'Filters',
-        'minScore'               => 'MinScore',
-        'page'                   => 'Page',
-        'queries'                => 'Queries',
-        'rankModelInfoShrink'    => 'RankModelInfo',
-        'rows'                   => 'Rows',
-        'serviceId'              => 'ServiceId',
-        'sortShrink'             => 'Sort',
-        'type'                   => 'Type',
-        'uq'                     => 'Uq',
+        'body'                    => 'Body',
+        'customConfigInfoShrink'  => 'CustomConfigInfo',
+        'debug'                   => 'Debug',
+        'fieldsShrink'            => 'Fields',
+        'filters'                 => 'Filters',
+        'minScore'                => 'MinScore',
+        'page'                    => 'Page',
+        'queries'                 => 'Queries',
+        'rankModelInfoShrink'     => 'RankModelInfo',
+        'rows'                    => 'Rows',
+        'serviceId'               => 'ServiceId',
+        'sortShrink'              => 'Sort',
+        'type'                    => 'Type',
+        'uq'                      => 'Uq',
+        'xDashScopeOpenAPISource' => 'X-DashScope-OpenAPISource',
     ];
 
     public function validate()
@@ -156,6 +162,9 @@ class PostMSSearchEnhanceShrinkRequest extends Model
         }
         if (null !== $this->uq) {
             $res['Uq'] = $this->uq;
+        }
+        if (null !== $this->xDashScopeOpenAPISource) {
+            $res['X-DashScope-OpenAPISource'] = $this->xDashScopeOpenAPISource;
         }
 
         return $res;
@@ -210,6 +219,9 @@ class PostMSSearchEnhanceShrinkRequest extends Model
         }
         if (isset($map['Uq'])) {
             $model->uq = $map['Uq'];
+        }
+        if (isset($map['X-DashScope-OpenAPISource'])) {
+            $model->xDashScopeOpenAPISource = $map['X-DashScope-OpenAPISource'];
         }
 
         return $model;

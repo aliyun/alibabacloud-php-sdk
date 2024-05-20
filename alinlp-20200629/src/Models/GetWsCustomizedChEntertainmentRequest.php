@@ -14,11 +14,15 @@ class GetWsCustomizedChEntertainmentRequest extends Model
     public $outType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $text;

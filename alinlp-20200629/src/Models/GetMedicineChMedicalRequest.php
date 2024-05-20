@@ -14,11 +14,15 @@ class GetMedicineChMedicalRequest extends Model
     public $factory;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;

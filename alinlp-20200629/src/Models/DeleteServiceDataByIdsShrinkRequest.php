@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceDataByIdsShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $idsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

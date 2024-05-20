@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceDataShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $conditionsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

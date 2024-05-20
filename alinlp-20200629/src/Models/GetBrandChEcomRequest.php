@@ -14,6 +14,8 @@ class GetBrandChEcomRequest extends Model
     public $imageUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RequestTableQARequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $params;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;

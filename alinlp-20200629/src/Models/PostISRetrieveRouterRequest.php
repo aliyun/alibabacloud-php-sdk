@@ -28,22 +28,20 @@ class PostISRetrieveRouterRequest extends Model
     public $input;
 
     /**
+     * @var string
+     */
+    public $model;
+
+    /**
      * @var mixed[]
      */
     public $parameters;
-
-    /**
-     * @example "default"
-     *
-     * @var string
-     */
-    public $version;
     protected $_name = [
         'algorithm'  => 'Algorithm',
         'debug'      => 'Debug',
         'input'      => 'Input',
+        'model'      => 'Model',
         'parameters' => 'Parameters',
-        'version'    => 'Version',
     ];
 
     public function validate()
@@ -62,11 +60,11 @@ class PostISRetrieveRouterRequest extends Model
         if (null !== $this->input) {
             $res['Input'] = $this->input;
         }
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
-        }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -89,11 +87,11 @@ class PostISRetrieveRouterRequest extends Model
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
         }
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
-        }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
         }
 
         return $model;

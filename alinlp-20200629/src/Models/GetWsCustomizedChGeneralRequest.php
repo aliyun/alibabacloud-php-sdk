@@ -16,6 +16,8 @@ class GetWsCustomizedChGeneralRequest extends Model
     public $outType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example a
      *
      * @var string
@@ -23,6 +25,8 @@ class GetWsCustomizedChGeneralRequest extends Model
     public $serviceCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example a
      *
      * @var string

@@ -14,6 +14,8 @@ class ImportServiceDataShrinkRequest extends Model
     public $partitionShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

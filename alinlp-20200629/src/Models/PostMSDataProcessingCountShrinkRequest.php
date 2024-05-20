@@ -26,10 +26,16 @@ class PostMSDataProcessingCountShrinkRequest extends Model
      * @var int
      */
     public $serviceId;
+
+    /**
+     * @var string
+     */
+    public $xDashScopeOpenAPISource;
     protected $_name = [
-        'dataIdsShrink' => 'DataIds',
-        'dataImportId'  => 'DataImportId',
-        'serviceId'     => 'ServiceId',
+        'dataIdsShrink'           => 'DataIds',
+        'dataImportId'            => 'DataImportId',
+        'serviceId'               => 'ServiceId',
+        'xDashScopeOpenAPISource' => 'X-DashScope-OpenAPISource',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class PostMSDataProcessingCountShrinkRequest extends Model
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->xDashScopeOpenAPISource) {
+            $res['X-DashScope-OpenAPISource'] = $this->xDashScopeOpenAPISource;
         }
 
         return $res;
@@ -68,6 +77,9 @@ class PostMSDataProcessingCountShrinkRequest extends Model
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['X-DashScope-OpenAPISource'])) {
+            $model->xDashScopeOpenAPISource = $map['X-DashScope-OpenAPISource'];
         }
 
         return $model;

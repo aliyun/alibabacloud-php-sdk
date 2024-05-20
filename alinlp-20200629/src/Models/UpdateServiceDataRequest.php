@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceDataRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var mixed[]
      */
     public $conditions;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

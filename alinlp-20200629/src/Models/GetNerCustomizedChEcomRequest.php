@@ -14,11 +14,15 @@ class GetNerCustomizedChEcomRequest extends Model
     public $lexerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $text;

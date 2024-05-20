@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetOperationChMedicalRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;

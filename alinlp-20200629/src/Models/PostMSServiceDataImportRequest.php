@@ -22,6 +22,8 @@ class PostMSServiceDataImportRequest extends Model
     public $documents;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

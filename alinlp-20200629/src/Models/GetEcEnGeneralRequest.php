@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetEcEnGeneralRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $text;

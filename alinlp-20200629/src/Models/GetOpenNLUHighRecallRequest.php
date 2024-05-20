@@ -24,6 +24,8 @@ class GetOpenNLUHighRecallRequest extends Model
     public $sentence;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;

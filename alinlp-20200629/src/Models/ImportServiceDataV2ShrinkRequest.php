@@ -21,6 +21,8 @@ class ImportServiceDataV2ShrinkRequest extends Model
     public $documentsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

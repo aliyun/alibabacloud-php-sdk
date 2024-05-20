@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InsertCustomRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $apiId;
@@ -34,6 +36,8 @@ class InsertCustomRequest extends Model
     public $regUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $serviceCode;

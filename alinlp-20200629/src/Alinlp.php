@@ -191,10 +191,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ADClockRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary ad画钟算法处理算法
+     *  *
+     * @param ADClockRequest $request ADClockRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ADClockResponse
+     * @return ADClockResponse ADClockResponse
      */
     public function aDClockWithOptions($request, $runtime)
     {
@@ -225,9 +227,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ADClockRequest $request
+     * @summary ad画钟算法处理算法
+     *  *
+     * @param ADClockRequest $request ADClockRequest
      *
-     * @return ADClockResponse
+     * @return ADClockResponse ADClockResponse
      */
     public function aDClock($request)
     {
@@ -237,10 +241,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ADMMURequest   $request
-     * @param RuntimeOptions $runtime
+     * @summary ad语音处理算法
+     *  *
+     * @param ADMMURequest   $request ADMMURequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ADMMUResponse
+     * @return ADMMUResponse ADMMUResponse
      */
     public function aDMMUWithOptions($request, $runtime)
     {
@@ -271,9 +277,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ADMMURequest $request
+     * @summary ad语音处理算法
+     *  *
+     * @param ADMMURequest $request ADMMURequest
      *
-     * @return ADMMUResponse
+     * @return ADMMUResponse ADMMUResponse
      */
     public function aDMMU($request)
     {
@@ -283,10 +291,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ADMiniCogRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary AD筛查能力，处理用户传入的答题音频和画钟图片从而计算风险结果
+     *  *
+     * @param ADMiniCogRequest $request ADMiniCogRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ADMiniCogResponse
+     * @return ADMiniCogResponse ADMiniCogResponse
      */
     public function aDMiniCogWithOptions($request, $runtime)
     {
@@ -317,9 +327,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ADMiniCogRequest $request
+     * @summary AD筛查能力，处理用户传入的答题音频和画钟图片从而计算风险结果
+     *  *
+     * @param ADMiniCogRequest $request ADMiniCogRequest
      *
-     * @return ADMiniCogResponse
+     * @return ADMiniCogResponse ADMiniCogResponse
      */
     public function aDMiniCog($request)
     {
@@ -329,10 +341,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ADMiniCogResultRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary AD筛查能力,提供给用户查询筛查结果，筛查结果来源自接口ADMIniCog
+     *  *
+     * @param ADMiniCogResultRequest $request ADMiniCogResultRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ADMiniCogResultResponse
+     * @return ADMiniCogResultResponse ADMiniCogResultResponse
      */
     public function aDMiniCogResultWithOptions($request, $runtime)
     {
@@ -363,9 +377,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ADMiniCogResultRequest $request
+     * @summary AD筛查能力,提供给用户查询筛查结果，筛查结果来源自接口ADMIniCog
+     *  *
+     * @param ADMiniCogResultRequest $request ADMiniCogResultRequest
      *
-     * @return ADMiniCogResultResponse
+     * @return ADMiniCogResultResponse ADMiniCogResultResponse
      */
     public function aDMiniCogResult($request)
     {
@@ -375,10 +391,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceDataByConditionsRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
+     * @summary 根据条件删除服务数据
+     *  *
+     * @param DeleteServiceDataByConditionsRequest $tmpReq  DeleteServiceDataByConditionsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceDataByConditionsResponse
+     * @return DeleteServiceDataByConditionsResponse DeleteServiceDataByConditionsResponse
      */
     public function deleteServiceDataByConditionsWithOptions($tmpReq, $runtime)
     {
@@ -394,6 +412,9 @@ class Alinlp extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceId)) {
             $body['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->xDashScopeOpenAPISource)) {
+            $body['X-DashScope-OpenAPISource'] = $request->xDashScopeOpenAPISource;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -414,9 +435,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceDataByConditionsRequest $request
+     * @summary 根据条件删除服务数据
+     *  *
+     * @param DeleteServiceDataByConditionsRequest $request DeleteServiceDataByConditionsRequest
      *
-     * @return DeleteServiceDataByConditionsResponse
+     * @return DeleteServiceDataByConditionsResponse DeleteServiceDataByConditionsResponse
      */
     public function deleteServiceDataByConditions($request)
     {
@@ -426,10 +449,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceDataByIdsRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary 根据ids删除服务数据
+     *  *
+     * @param DeleteServiceDataByIdsRequest $tmpReq  DeleteServiceDataByIdsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceDataByIdsResponse
+     * @return DeleteServiceDataByIdsResponse DeleteServiceDataByIdsResponse
      */
     public function deleteServiceDataByIdsWithOptions($tmpReq, $runtime)
     {
@@ -465,9 +490,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceDataByIdsRequest $request
+     * @summary 根据ids删除服务数据
+     *  *
+     * @param DeleteServiceDataByIdsRequest $request DeleteServiceDataByIdsRequest
      *
-     * @return DeleteServiceDataByIdsResponse
+     * @return DeleteServiceDataByIdsResponse DeleteServiceDataByIdsResponse
      */
     public function deleteServiceDataByIds($request)
     {
@@ -477,10 +504,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetBrandChEcomRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 品牌预测
+     *  *
+     * @param GetBrandChEcomRequest $request GetBrandChEcomRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBrandChEcomResponse
+     * @return GetBrandChEcomResponse GetBrandChEcomResponse
      */
     public function getBrandChEcomWithOptions($request, $runtime)
     {
@@ -514,9 +543,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetBrandChEcomRequest $request
+     * @summary 品牌预测
+     *  *
+     * @param GetBrandChEcomRequest $request GetBrandChEcomRequest
      *
-     * @return GetBrandChEcomResponse
+     * @return GetBrandChEcomResponse GetBrandChEcomResponse
      */
     public function getBrandChEcom($request)
     {
@@ -526,10 +557,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetCateChEcomRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 类目预测
+     *  *
+     * @param GetCateChEcomRequest $request GetCateChEcomRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCateChEcomResponse
+     * @return GetCateChEcomResponse GetCateChEcomResponse
      */
     public function getCateChEcomWithOptions($request, $runtime)
     {
@@ -563,9 +596,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetCateChEcomRequest $request
+     * @summary 类目预测
+     *  *
+     * @param GetCateChEcomRequest $request GetCateChEcomRequest
      *
-     * @return GetCateChEcomResponse
+     * @return GetCateChEcomResponse GetCateChEcomResponse
      */
     public function getCateChEcom($request)
     {
@@ -575,10 +610,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetCheckDuplicationChMedicalRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param GetCheckDuplicationChMedicalRequest $request GetCheckDuplicationChMedicalRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCheckDuplicationChMedicalResponse
+     * @return GetCheckDuplicationChMedicalResponse GetCheckDuplicationChMedicalResponse
      */
     public function getCheckDuplicationChMedicalWithOptions($request, $runtime)
     {
@@ -612,9 +647,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetCheckDuplicationChMedicalRequest $request
+     * @param GetCheckDuplicationChMedicalRequest $request GetCheckDuplicationChMedicalRequest
      *
-     * @return GetCheckDuplicationChMedicalResponse
+     * @return GetCheckDuplicationChMedicalResponse GetCheckDuplicationChMedicalResponse
      */
     public function getCheckDuplicationChMedical($request)
     {
@@ -624,10 +659,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetDiagnosisChMedicalRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param GetDiagnosisChMedicalRequest $request GetDiagnosisChMedicalRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDiagnosisChMedicalResponse
+     * @return GetDiagnosisChMedicalResponse GetDiagnosisChMedicalResponse
      */
     public function getDiagnosisChMedicalWithOptions($request, $runtime)
     {
@@ -658,9 +693,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetDiagnosisChMedicalRequest $request
+     * @param GetDiagnosisChMedicalRequest $request GetDiagnosisChMedicalRequest
      *
-     * @return GetDiagnosisChMedicalResponse
+     * @return GetDiagnosisChMedicalResponse GetDiagnosisChMedicalResponse
      */
     public function getDiagnosisChMedical($request)
     {
@@ -670,10 +705,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetDpChEcomRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param GetDpChEcomRequest $request GetDpChEcomRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDpChEcomResponse
+     * @return GetDpChEcomResponse GetDpChEcomResponse
      */
     public function getDpChEcomWithOptions($request, $runtime)
     {
@@ -704,9 +739,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetDpChEcomRequest $request
+     * @param GetDpChEcomRequest $request GetDpChEcomRequest
      *
-     * @return GetDpChEcomResponse
+     * @return GetDpChEcomResponse GetDpChEcomResponse
      */
     public function getDpChEcom($request)
     {
@@ -716,10 +751,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetDpChGeneralCTBRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetDpChGeneralCTBRequest $request GetDpChGeneralCTBRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDpChGeneralCTBResponse
+     * @return GetDpChGeneralCTBResponse GetDpChGeneralCTBResponse
      */
     public function getDpChGeneralCTBWithOptions($request, $runtime)
     {
@@ -750,9 +785,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetDpChGeneralCTBRequest $request
+     * @param GetDpChGeneralCTBRequest $request GetDpChGeneralCTBRequest
      *
-     * @return GetDpChGeneralCTBResponse
+     * @return GetDpChGeneralCTBResponse GetDpChGeneralCTBResponse
      */
     public function getDpChGeneralCTB($request)
     {
@@ -762,10 +797,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetDpChGeneralStanfordRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetDpChGeneralStanfordRequest $request GetDpChGeneralStanfordRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDpChGeneralStanfordResponse
+     * @return GetDpChGeneralStanfordResponse GetDpChGeneralStanfordResponse
      */
     public function getDpChGeneralStanfordWithOptions($request, $runtime)
     {
@@ -796,9 +831,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetDpChGeneralStanfordRequest $request
+     * @param GetDpChGeneralStanfordRequest $request GetDpChGeneralStanfordRequest
      *
-     * @return GetDpChGeneralStanfordResponse
+     * @return GetDpChGeneralStanfordResponse GetDpChGeneralStanfordResponse
      */
     public function getDpChGeneralStanford($request)
     {
@@ -808,10 +843,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetEcChGeneralRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetEcChGeneralRequest $request GetEcChGeneralRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEcChGeneralResponse
+     * @return GetEcChGeneralResponse GetEcChGeneralResponse
      */
     public function getEcChGeneralWithOptions($request, $runtime)
     {
@@ -842,9 +877,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetEcChGeneralRequest $request
+     * @param GetEcChGeneralRequest $request GetEcChGeneralRequest
      *
-     * @return GetEcChGeneralResponse
+     * @return GetEcChGeneralResponse GetEcChGeneralResponse
      */
     public function getEcChGeneral($request)
     {
@@ -854,10 +889,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetEcEnGeneralRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetEcEnGeneralRequest $request GetEcEnGeneralRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEcEnGeneralResponse
+     * @return GetEcEnGeneralResponse GetEcEnGeneralResponse
      */
     public function getEcEnGeneralWithOptions($request, $runtime)
     {
@@ -888,9 +923,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetEcEnGeneralRequest $request
+     * @param GetEcEnGeneralRequest $request GetEcEnGeneralRequest
      *
-     * @return GetEcEnGeneralResponse
+     * @return GetEcEnGeneralResponse GetEcEnGeneralResponse
      */
     public function getEcEnGeneral($request)
     {
@@ -900,10 +935,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetEmbeddingRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary embedding
+     *  *
+     * @param GetEmbeddingRequest $request GetEmbeddingRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEmbeddingResponse
+     * @return GetEmbeddingResponse GetEmbeddingResponse
      */
     public function getEmbeddingWithOptions($request, $runtime)
     {
@@ -937,9 +974,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetEmbeddingRequest $request
+     * @summary embedding
+     *  *
+     * @param GetEmbeddingRequest $request GetEmbeddingRequest
      *
-     * @return GetEmbeddingResponse
+     * @return GetEmbeddingResponse GetEmbeddingResponse
      */
     public function getEmbedding($request)
     {
@@ -949,10 +988,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetItemPubChEcomRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 微购整合接口
+     *  *
+     * @param GetItemPubChEcomRequest $request GetItemPubChEcomRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetItemPubChEcomResponse
+     * @return GetItemPubChEcomResponse GetItemPubChEcomResponse
      */
     public function getItemPubChEcomWithOptions($request, $runtime)
     {
@@ -986,9 +1027,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetItemPubChEcomRequest $request
+     * @summary 微购整合接口
+     *  *
+     * @param GetItemPubChEcomRequest $request GetItemPubChEcomRequest
      *
-     * @return GetItemPubChEcomResponse
+     * @return GetItemPubChEcomResponse GetItemPubChEcomResponse
      */
     public function getItemPubChEcom($request)
     {
@@ -998,10 +1041,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetKeywordChEcomRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param GetKeywordChEcomRequest $request GetKeywordChEcomRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetKeywordChEcomResponse
+     * @return GetKeywordChEcomResponse GetKeywordChEcomResponse
      */
     public function getKeywordChEcomWithOptions($request, $runtime)
     {
@@ -1035,9 +1078,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetKeywordChEcomRequest $request
+     * @param GetKeywordChEcomRequest $request GetKeywordChEcomRequest
      *
-     * @return GetKeywordChEcomResponse
+     * @return GetKeywordChEcomResponse GetKeywordChEcomResponse
      */
     public function getKeywordChEcom($request)
     {
@@ -1047,10 +1090,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetKeywordEnEcomRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param GetKeywordEnEcomRequest $request GetKeywordEnEcomRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetKeywordEnEcomResponse
+     * @return GetKeywordEnEcomResponse GetKeywordEnEcomResponse
      */
     public function getKeywordEnEcomWithOptions($request, $runtime)
     {
@@ -1081,9 +1124,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetKeywordEnEcomRequest $request
+     * @param GetKeywordEnEcomRequest $request GetKeywordEnEcomRequest
      *
-     * @return GetKeywordEnEcomResponse
+     * @return GetKeywordEnEcomResponse GetKeywordEnEcomResponse
      */
     public function getKeywordEnEcom($request)
     {
@@ -1093,10 +1136,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetMedicineChMedicalRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param GetMedicineChMedicalRequest $request GetMedicineChMedicalRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMedicineChMedicalResponse
+     * @return GetMedicineChMedicalResponse GetMedicineChMedicalResponse
      */
     public function getMedicineChMedicalWithOptions($request, $runtime)
     {
@@ -1136,9 +1179,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetMedicineChMedicalRequest $request
+     * @param GetMedicineChMedicalRequest $request GetMedicineChMedicalRequest
      *
-     * @return GetMedicineChMedicalResponse
+     * @return GetMedicineChMedicalResponse GetMedicineChMedicalResponse
      */
     public function getMedicineChMedical($request)
     {
@@ -1148,10 +1191,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetNerChEcomRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param GetNerChEcomRequest $request GetNerChEcomRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNerChEcomResponse
+     * @return GetNerChEcomResponse GetNerChEcomResponse
      */
     public function getNerChEcomWithOptions($request, $runtime)
     {
@@ -1185,9 +1228,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetNerChEcomRequest $request
+     * @param GetNerChEcomRequest $request GetNerChEcomRequest
      *
-     * @return GetNerChEcomResponse
+     * @return GetNerChEcomResponse GetNerChEcomResponse
      */
     public function getNerChEcom($request)
     {
@@ -1197,10 +1240,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetNerChMedicalRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param GetNerChMedicalRequest $request GetNerChMedicalRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNerChMedicalResponse
+     * @return GetNerChMedicalResponse GetNerChMedicalResponse
      */
     public function getNerChMedicalWithOptions($request, $runtime)
     {
@@ -1231,9 +1274,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetNerChMedicalRequest $request
+     * @param GetNerChMedicalRequest $request GetNerChMedicalRequest
      *
-     * @return GetNerChMedicalResponse
+     * @return GetNerChMedicalResponse GetNerChMedicalResponse
      */
     public function getNerChMedical($request)
     {
@@ -1243,10 +1286,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetNerCustomizedChEcomRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetNerCustomizedChEcomRequest $request GetNerCustomizedChEcomRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNerCustomizedChEcomResponse
+     * @return GetNerCustomizedChEcomResponse GetNerCustomizedChEcomResponse
      */
     public function getNerCustomizedChEcomWithOptions($request, $runtime)
     {
@@ -1280,9 +1323,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetNerCustomizedChEcomRequest $request
+     * @param GetNerCustomizedChEcomRequest $request GetNerCustomizedChEcomRequest
      *
-     * @return GetNerCustomizedChEcomResponse
+     * @return GetNerCustomizedChEcomResponse GetNerCustomizedChEcomResponse
      */
     public function getNerCustomizedChEcom($request)
     {
@@ -1292,10 +1335,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetNerCustomizedSeaEcomRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param GetNerCustomizedSeaEcomRequest $request GetNerCustomizedSeaEcomRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNerCustomizedSeaEcomResponse
+     * @return GetNerCustomizedSeaEcomResponse GetNerCustomizedSeaEcomResponse
      */
     public function getNerCustomizedSeaEcomWithOptions($request, $runtime)
     {
@@ -1329,9 +1372,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetNerCustomizedSeaEcomRequest $request
+     * @param GetNerCustomizedSeaEcomRequest $request GetNerCustomizedSeaEcomRequest
      *
-     * @return GetNerCustomizedSeaEcomResponse
+     * @return GetNerCustomizedSeaEcomResponse GetNerCustomizedSeaEcomResponse
      */
     public function getNerCustomizedSeaEcom($request)
     {
@@ -1341,10 +1384,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetOpenNLURequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary openNLU
+     *  *
+     * @param GetOpenNLURequest $request GetOpenNLURequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpenNLUResponse
+     * @return GetOpenNLUResponse GetOpenNLUResponse
      */
     public function getOpenNLUWithOptions($request, $runtime)
     {
@@ -1384,9 +1429,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetOpenNLURequest $request
+     * @summary openNLU
+     *  *
+     * @param GetOpenNLURequest $request GetOpenNLURequest
      *
-     * @return GetOpenNLUResponse
+     * @return GetOpenNLUResponse GetOpenNLUResponse
      */
     public function getOpenNLU($request)
     {
@@ -1396,10 +1443,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetOpenNLUHighRecallRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary openNLU高召回版
+     *  *
+     * @param GetOpenNLUHighRecallRequest $request GetOpenNLUHighRecallRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOpenNLUHighRecallResponse
+     * @return GetOpenNLUHighRecallResponse GetOpenNLUHighRecallResponse
      */
     public function getOpenNLUHighRecallWithOptions($request, $runtime)
     {
@@ -1439,9 +1488,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetOpenNLUHighRecallRequest $request
+     * @summary openNLU高召回版
+     *  *
+     * @param GetOpenNLUHighRecallRequest $request GetOpenNLUHighRecallRequest
      *
-     * @return GetOpenNLUHighRecallResponse
+     * @return GetOpenNLUHighRecallResponse GetOpenNLUHighRecallResponse
      */
     public function getOpenNLUHighRecall($request)
     {
@@ -1451,10 +1502,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetOperationChMedicalRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param GetOperationChMedicalRequest $request GetOperationChMedicalRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOperationChMedicalResponse
+     * @return GetOperationChMedicalResponse GetOperationChMedicalResponse
      */
     public function getOperationChMedicalWithOptions($request, $runtime)
     {
@@ -1485,9 +1536,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetOperationChMedicalRequest $request
+     * @param GetOperationChMedicalRequest $request GetOperationChMedicalRequest
      *
-     * @return GetOperationChMedicalResponse
+     * @return GetOperationChMedicalResponse GetOperationChMedicalResponse
      */
     public function getOperationChMedical($request)
     {
@@ -1497,10 +1548,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetPosChEcomRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param GetPosChEcomRequest $request GetPosChEcomRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPosChEcomResponse
+     * @return GetPosChEcomResponse GetPosChEcomResponse
      */
     public function getPosChEcomWithOptions($request, $runtime)
     {
@@ -1537,9 +1588,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetPosChEcomRequest $request
+     * @param GetPosChEcomRequest $request GetPosChEcomRequest
      *
-     * @return GetPosChEcomResponse
+     * @return GetPosChEcomResponse GetPosChEcomResponse
      */
     public function getPosChEcom($request)
     {
@@ -1549,10 +1600,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetPosChGeneralRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param GetPosChGeneralRequest $request GetPosChGeneralRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPosChGeneralResponse
+     * @return GetPosChGeneralResponse GetPosChGeneralResponse
      */
     public function getPosChGeneralWithOptions($request, $runtime)
     {
@@ -1589,9 +1640,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetPosChGeneralRequest $request
+     * @param GetPosChGeneralRequest $request GetPosChGeneralRequest
      *
-     * @return GetPosChGeneralResponse
+     * @return GetPosChGeneralResponse GetPosChGeneralResponse
      */
     public function getPosChGeneral($request)
     {
@@ -1601,10 +1652,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetPriceChEcomRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetPriceChEcomRequest $request GetPriceChEcomRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPriceChEcomResponse
+     * @return GetPriceChEcomResponse GetPriceChEcomResponse
      */
     public function getPriceChEcomWithOptions($request, $runtime)
     {
@@ -1635,9 +1686,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetPriceChEcomRequest $request
+     * @param GetPriceChEcomRequest $request GetPriceChEcomRequest
      *
-     * @return GetPriceChEcomResponse
+     * @return GetPriceChEcomResponse GetPriceChEcomResponse
      */
     public function getPriceChEcom($request)
     {
@@ -1647,10 +1698,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetSSETestRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 测试sse
+     *  *
+     * @param GetSSETestRequest $request GetSSETestRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSSETestResponse
+     * @return GetSSETestResponse GetSSETestResponse
      */
     public function getSSETestWithOptions($request, $runtime)
     {
@@ -1681,9 +1734,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetSSETestRequest $request
+     * @summary 测试sse
+     *  *
+     * @param GetSSETestRequest $request GetSSETestRequest
      *
-     * @return GetSSETestResponse
+     * @return GetSSETestResponse GetSSETestResponse
      */
     public function getSSETest($request)
     {
@@ -1693,10 +1748,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetSaChGeneralRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetSaChGeneralRequest $request GetSaChGeneralRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSaChGeneralResponse
+     * @return GetSaChGeneralResponse GetSaChGeneralResponse
      */
     public function getSaChGeneralWithOptions($request, $runtime)
     {
@@ -1727,9 +1782,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetSaChGeneralRequest $request
+     * @param GetSaChGeneralRequest $request GetSaChGeneralRequest
      *
-     * @return GetSaChGeneralResponse
+     * @return GetSaChGeneralResponse GetSaChGeneralResponse
      */
     public function getSaChGeneral($request)
     {
@@ -1739,10 +1794,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetSaSeaEcomRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param GetSaSeaEcomRequest $request GetSaSeaEcomRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSaSeaEcomResponse
+     * @return GetSaSeaEcomResponse GetSaSeaEcomResponse
      */
     public function getSaSeaEcomWithOptions($request, $runtime)
     {
@@ -1776,9 +1831,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetSaSeaEcomRequest $request
+     * @param GetSaSeaEcomRequest $request GetSaSeaEcomRequest
      *
-     * @return GetSaSeaEcomResponse
+     * @return GetSaSeaEcomResponse GetSaSeaEcomResponse
      */
     public function getSaSeaEcom($request)
     {
@@ -1788,10 +1843,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetServiceDataImportStatusRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
+     * @summary 获取服务数据导入状态
+     *  *
+     * @param GetServiceDataImportStatusRequest $tmpReq  GetServiceDataImportStatusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceDataImportStatusResponse
+     * @return GetServiceDataImportStatusResponse GetServiceDataImportStatusResponse
      */
     public function getServiceDataImportStatusWithOptions($tmpReq, $runtime)
     {
@@ -1824,9 +1881,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetServiceDataImportStatusRequest $request
+     * @summary 获取服务数据导入状态
+     *  *
+     * @param GetServiceDataImportStatusRequest $request GetServiceDataImportStatusRequest
      *
-     * @return GetServiceDataImportStatusResponse
+     * @return GetServiceDataImportStatusResponse GetServiceDataImportStatusResponse
      */
     public function getServiceDataImportStatus($request)
     {
@@ -1836,10 +1895,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetSimilarityChMedicalRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetSimilarityChMedicalRequest $request GetSimilarityChMedicalRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSimilarityChMedicalResponse
+     * @return GetSimilarityChMedicalResponse GetSimilarityChMedicalResponse
      */
     public function getSimilarityChMedicalWithOptions($request, $runtime)
     {
@@ -1873,9 +1932,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetSimilarityChMedicalRequest $request
+     * @param GetSimilarityChMedicalRequest $request GetSimilarityChMedicalRequest
      *
-     * @return GetSimilarityChMedicalResponse
+     * @return GetSimilarityChMedicalResponse GetSimilarityChMedicalResponse
      */
     public function getSimilarityChMedical($request)
     {
@@ -1885,10 +1944,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetSummaryChEcomRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param GetSummaryChEcomRequest $request GetSummaryChEcomRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSummaryChEcomResponse
+     * @return GetSummaryChEcomResponse GetSummaryChEcomResponse
      */
     public function getSummaryChEcomWithOptions($request, $runtime)
     {
@@ -1919,9 +1978,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetSummaryChEcomRequest $request
+     * @param GetSummaryChEcomRequest $request GetSummaryChEcomRequest
      *
-     * @return GetSummaryChEcomResponse
+     * @return GetSummaryChEcomResponse GetSummaryChEcomResponse
      */
     public function getSummaryChEcom($request)
     {
@@ -1931,10 +1990,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetTableQAServiceInfoByIdRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 根据id查询tableqa服务基本信息
+     *  *
+     * @param GetTableQAServiceInfoByIdRequest $request GetTableQAServiceInfoByIdRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTableQAServiceInfoByIdResponse
+     * @return GetTableQAServiceInfoByIdResponse GetTableQAServiceInfoByIdResponse
      */
     public function getTableQAServiceInfoByIdWithOptions($request, $runtime)
     {
@@ -1965,9 +2026,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetTableQAServiceInfoByIdRequest $request
+     * @summary 根据id查询tableqa服务基本信息
+     *  *
+     * @param GetTableQAServiceInfoByIdRequest $request GetTableQAServiceInfoByIdRequest
      *
-     * @return GetTableQAServiceInfoByIdResponse
+     * @return GetTableQAServiceInfoByIdResponse GetTableQAServiceInfoByIdResponse
      */
     public function getTableQAServiceInfoById($request)
     {
@@ -1977,10 +2040,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetTcChEcomRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param GetTcChEcomRequest $request GetTcChEcomRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTcChEcomResponse
+     * @return GetTcChEcomResponse GetTcChEcomResponse
      */
     public function getTcChEcomWithOptions($request, $runtime)
     {
@@ -2011,9 +2074,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetTcChEcomRequest $request
+     * @param GetTcChEcomRequest $request GetTcChEcomRequest
      *
-     * @return GetTcChEcomResponse
+     * @return GetTcChEcomResponse GetTcChEcomResponse
      */
     public function getTcChEcom($request)
     {
@@ -2023,10 +2086,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetTcChGeneralRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetTcChGeneralRequest $request GetTcChGeneralRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTcChGeneralResponse
+     * @return GetTcChGeneralResponse GetTcChGeneralResponse
      */
     public function getTcChGeneralWithOptions($request, $runtime)
     {
@@ -2057,9 +2120,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetTcChGeneralRequest $request
+     * @param GetTcChGeneralRequest $request GetTcChGeneralRequest
      *
-     * @return GetTcChGeneralResponse
+     * @return GetTcChGeneralResponse GetTcChGeneralResponse
      */
     public function getTcChGeneral($request)
     {
@@ -2069,10 +2132,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetTsChEcomRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param GetTsChEcomRequest $request GetTsChEcomRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTsChEcomResponse
+     * @return GetTsChEcomResponse GetTsChEcomResponse
      */
     public function getTsChEcomWithOptions($request, $runtime)
     {
@@ -2109,9 +2172,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetTsChEcomRequest $request
+     * @param GetTsChEcomRequest $request GetTsChEcomRequest
      *
-     * @return GetTsChEcomResponse
+     * @return GetTsChEcomResponse GetTsChEcomResponse
      */
     public function getTsChEcom($request)
     {
@@ -2121,10 +2184,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetUserUploadSignRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetUserUploadSignRequest $request GetUserUploadSignRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserUploadSignResponse
+     * @return GetUserUploadSignResponse GetUserUploadSignResponse
      */
     public function getUserUploadSignWithOptions($request, $runtime)
     {
@@ -2152,9 +2215,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetUserUploadSignRequest $request
+     * @param GetUserUploadSignRequest $request GetUserUploadSignRequest
      *
-     * @return GetUserUploadSignResponse
+     * @return GetUserUploadSignResponse GetUserUploadSignResponse
      */
     public function getUserUploadSign($request)
     {
@@ -2164,10 +2227,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWeChCommentRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetWeChCommentRequest $request GetWeChCommentRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWeChCommentResponse
+     * @return GetWeChCommentResponse GetWeChCommentResponse
      */
     public function getWeChCommentWithOptions($request, $runtime)
     {
@@ -2210,9 +2273,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWeChCommentRequest $request
+     * @param GetWeChCommentRequest $request GetWeChCommentRequest
      *
-     * @return GetWeChCommentResponse
+     * @return GetWeChCommentResponse GetWeChCommentResponse
      */
     public function getWeChComment($request)
     {
@@ -2222,10 +2285,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWeChEcomRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param GetWeChEcomRequest $request GetWeChEcomRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWeChEcomResponse
+     * @return GetWeChEcomResponse GetWeChEcomResponse
      */
     public function getWeChEcomWithOptions($request, $runtime)
     {
@@ -2268,9 +2331,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWeChEcomRequest $request
+     * @param GetWeChEcomRequest $request GetWeChEcomRequest
      *
-     * @return GetWeChEcomResponse
+     * @return GetWeChEcomResponse GetWeChEcomResponse
      */
     public function getWeChEcom($request)
     {
@@ -2280,10 +2343,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWeChEntertainmentRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param GetWeChEntertainmentRequest $request GetWeChEntertainmentRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWeChEntertainmentResponse
+     * @return GetWeChEntertainmentResponse GetWeChEntertainmentResponse
      */
     public function getWeChEntertainmentWithOptions($request, $runtime)
     {
@@ -2326,9 +2389,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWeChEntertainmentRequest $request
+     * @param GetWeChEntertainmentRequest $request GetWeChEntertainmentRequest
      *
-     * @return GetWeChEntertainmentResponse
+     * @return GetWeChEntertainmentResponse GetWeChEntertainmentResponse
      */
     public function getWeChEntertainment($request)
     {
@@ -2338,10 +2401,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWeChGeneralRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetWeChGeneralRequest $request GetWeChGeneralRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWeChGeneralResponse
+     * @return GetWeChGeneralResponse GetWeChGeneralResponse
      */
     public function getWeChGeneralWithOptions($request, $runtime)
     {
@@ -2381,9 +2444,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWeChGeneralRequest $request
+     * @param GetWeChGeneralRequest $request GetWeChGeneralRequest
      *
-     * @return GetWeChGeneralResponse
+     * @return GetWeChGeneralResponse GetWeChGeneralResponse
      */
     public function getWeChGeneral($request)
     {
@@ -2393,10 +2456,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWeChSearchRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param GetWeChSearchRequest $request GetWeChSearchRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWeChSearchResponse
+     * @return GetWeChSearchResponse GetWeChSearchResponse
      */
     public function getWeChSearchWithOptions($request, $runtime)
     {
@@ -2439,9 +2502,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWeChSearchRequest $request
+     * @param GetWeChSearchRequest $request GetWeChSearchRequest
      *
-     * @return GetWeChSearchResponse
+     * @return GetWeChSearchResponse GetWeChSearchResponse
      */
     public function getWeChSearch($request)
     {
@@ -2451,10 +2514,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsChGeneralRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param GetWsChGeneralRequest $request GetWsChGeneralRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWsChGeneralResponse
+     * @return GetWsChGeneralResponse GetWsChGeneralResponse
      */
     public function getWsChGeneralWithOptions($request, $runtime)
     {
@@ -2491,9 +2554,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsChGeneralRequest $request
+     * @param GetWsChGeneralRequest $request GetWsChGeneralRequest
      *
-     * @return GetWsChGeneralResponse
+     * @return GetWsChGeneralResponse GetWsChGeneralResponse
      */
     public function getWsChGeneral($request)
     {
@@ -2503,10 +2566,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChEcomCommentRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param GetWsCustomizedChEcomCommentRequest $request GetWsCustomizedChEcomCommentRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWsCustomizedChEcomCommentResponse
+     * @return GetWsCustomizedChEcomCommentResponse GetWsCustomizedChEcomCommentResponse
      */
     public function getWsCustomizedChEcomCommentWithOptions($request, $runtime)
     {
@@ -2543,9 +2606,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChEcomCommentRequest $request
+     * @param GetWsCustomizedChEcomCommentRequest $request GetWsCustomizedChEcomCommentRequest
      *
-     * @return GetWsCustomizedChEcomCommentResponse
+     * @return GetWsCustomizedChEcomCommentResponse GetWsCustomizedChEcomCommentResponse
      */
     public function getWsCustomizedChEcomComment($request)
     {
@@ -2555,10 +2618,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChEcomContentRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param GetWsCustomizedChEcomContentRequest $request GetWsCustomizedChEcomContentRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWsCustomizedChEcomContentResponse
+     * @return GetWsCustomizedChEcomContentResponse GetWsCustomizedChEcomContentResponse
      */
     public function getWsCustomizedChEcomContentWithOptions($request, $runtime)
     {
@@ -2595,9 +2658,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChEcomContentRequest $request
+     * @param GetWsCustomizedChEcomContentRequest $request GetWsCustomizedChEcomContentRequest
      *
-     * @return GetWsCustomizedChEcomContentResponse
+     * @return GetWsCustomizedChEcomContentResponse GetWsCustomizedChEcomContentResponse
      */
     public function getWsCustomizedChEcomContent($request)
     {
@@ -2607,10 +2670,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChEcomTitleRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param GetWsCustomizedChEcomTitleRequest $request GetWsCustomizedChEcomTitleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWsCustomizedChEcomTitleResponse
+     * @return GetWsCustomizedChEcomTitleResponse GetWsCustomizedChEcomTitleResponse
      */
     public function getWsCustomizedChEcomTitleWithOptions($request, $runtime)
     {
@@ -2647,9 +2710,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChEcomTitleRequest $request
+     * @param GetWsCustomizedChEcomTitleRequest $request GetWsCustomizedChEcomTitleRequest
      *
-     * @return GetWsCustomizedChEcomTitleResponse
+     * @return GetWsCustomizedChEcomTitleResponse GetWsCustomizedChEcomTitleResponse
      */
     public function getWsCustomizedChEcomTitle($request)
     {
@@ -2659,10 +2722,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChEntertainmentRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param GetWsCustomizedChEntertainmentRequest $request GetWsCustomizedChEntertainmentRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWsCustomizedChEntertainmentResponse
+     * @return GetWsCustomizedChEntertainmentResponse GetWsCustomizedChEntertainmentResponse
      */
     public function getWsCustomizedChEntertainmentWithOptions($request, $runtime)
     {
@@ -2699,9 +2762,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChEntertainmentRequest $request
+     * @param GetWsCustomizedChEntertainmentRequest $request GetWsCustomizedChEntertainmentRequest
      *
-     * @return GetWsCustomizedChEntertainmentResponse
+     * @return GetWsCustomizedChEntertainmentResponse GetWsCustomizedChEntertainmentResponse
      */
     public function getWsCustomizedChEntertainment($request)
     {
@@ -2711,10 +2774,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChGeneralRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary a
+     *  *
+     * @param GetWsCustomizedChGeneralRequest $request GetWsCustomizedChGeneralRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWsCustomizedChGeneralResponse
+     * @return GetWsCustomizedChGeneralResponse GetWsCustomizedChGeneralResponse
      */
     public function getWsCustomizedChGeneralWithOptions($request, $runtime)
     {
@@ -2751,9 +2816,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChGeneralRequest $request
+     * @summary a
+     *  *
+     * @param GetWsCustomizedChGeneralRequest $request GetWsCustomizedChGeneralRequest
      *
-     * @return GetWsCustomizedChGeneralResponse
+     * @return GetWsCustomizedChGeneralResponse GetWsCustomizedChGeneralResponse
      */
     public function getWsCustomizedChGeneral($request)
     {
@@ -2763,10 +2830,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChO2ORequest $request
-     * @param RuntimeOptions              $runtime
+     * @param GetWsCustomizedChO2ORequest $request GetWsCustomizedChO2ORequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWsCustomizedChO2OResponse
+     * @return GetWsCustomizedChO2OResponse GetWsCustomizedChO2OResponse
      */
     public function getWsCustomizedChO2OWithOptions($request, $runtime)
     {
@@ -2803,9 +2870,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedChO2ORequest $request
+     * @param GetWsCustomizedChO2ORequest $request GetWsCustomizedChO2ORequest
      *
-     * @return GetWsCustomizedChO2OResponse
+     * @return GetWsCustomizedChO2OResponse GetWsCustomizedChO2OResponse
      */
     public function getWsCustomizedChO2O($request)
     {
@@ -2815,10 +2882,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedSeaEcomRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetWsCustomizedSeaEcomRequest $request GetWsCustomizedSeaEcomRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWsCustomizedSeaEcomResponse
+     * @return GetWsCustomizedSeaEcomResponse GetWsCustomizedSeaEcomResponse
      */
     public function getWsCustomizedSeaEcomWithOptions($request, $runtime)
     {
@@ -2852,9 +2919,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedSeaEcomRequest $request
+     * @param GetWsCustomizedSeaEcomRequest $request GetWsCustomizedSeaEcomRequest
      *
-     * @return GetWsCustomizedSeaEcomResponse
+     * @return GetWsCustomizedSeaEcomResponse GetWsCustomizedSeaEcomResponse
      */
     public function getWsCustomizedSeaEcom($request)
     {
@@ -2864,10 +2931,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedSeaGeneralRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param GetWsCustomizedSeaGeneralRequest $request GetWsCustomizedSeaGeneralRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWsCustomizedSeaGeneralResponse
+     * @return GetWsCustomizedSeaGeneralResponse GetWsCustomizedSeaGeneralResponse
      */
     public function getWsCustomizedSeaGeneralWithOptions($request, $runtime)
     {
@@ -2901,9 +2968,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param GetWsCustomizedSeaGeneralRequest $request
+     * @param GetWsCustomizedSeaGeneralRequest $request GetWsCustomizedSeaGeneralRequest
      *
-     * @return GetWsCustomizedSeaGeneralResponse
+     * @return GetWsCustomizedSeaGeneralResponse GetWsCustomizedSeaGeneralResponse
      */
     public function getWsCustomizedSeaGeneral($request)
     {
@@ -2913,10 +2980,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ImportServiceDataRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 导入服务数据
+     *  *
+     * @param ImportServiceDataRequest $tmpReq  ImportServiceDataRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportServiceDataResponse
+     * @return ImportServiceDataResponse ImportServiceDataResponse
      */
     public function importServiceDataWithOptions($tmpReq, $runtime)
     {
@@ -2958,9 +3027,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ImportServiceDataRequest $request
+     * @summary 导入服务数据
+     *  *
+     * @param ImportServiceDataRequest $request ImportServiceDataRequest
      *
-     * @return ImportServiceDataResponse
+     * @return ImportServiceDataResponse ImportServiceDataResponse
      */
     public function importServiceData($request)
     {
@@ -2970,10 +3041,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ImportServiceDataV2Request $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 导入服务数据V2
+     *  *
+     * @param ImportServiceDataV2Request $tmpReq  ImportServiceDataV2Request
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportServiceDataV2Response
+     * @return ImportServiceDataV2Response ImportServiceDataV2Response
      */
     public function importServiceDataV2WithOptions($tmpReq, $runtime)
     {
@@ -3012,9 +3085,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param ImportServiceDataV2Request $request
+     * @summary 导入服务数据V2
+     *  *
+     * @param ImportServiceDataV2Request $request ImportServiceDataV2Request
      *
-     * @return ImportServiceDataV2Response
+     * @return ImportServiceDataV2Response ImportServiceDataV2Response
      */
     public function importServiceDataV2($request)
     {
@@ -3024,10 +3099,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param InsertCustomRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param InsertCustomRequest $request InsertCustomRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return InsertCustomResponse
+     * @return InsertCustomResponse InsertCustomResponse
      */
     public function insertCustomWithOptions($request, $runtime)
     {
@@ -3070,9 +3145,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param InsertCustomRequest $request
+     * @param InsertCustomRequest $request InsertCustomRequest
      *
-     * @return InsertCustomResponse
+     * @return InsertCustomResponse InsertCustomResponse
      */
     public function insertCustom($request)
     {
@@ -3082,9 +3157,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenAlinlpServiceResponse
+     * @return OpenAlinlpServiceResponse OpenAlinlpServiceResponse
      */
     public function openAlinlpServiceWithOptions($runtime)
     {
@@ -3105,7 +3180,7 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @return OpenAlinlpServiceResponse
+     * @return OpenAlinlpServiceResponse OpenAlinlpServiceResponse
      */
     public function openAlinlpService()
     {
@@ -3115,10 +3190,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param PostISConvRewriterRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary 多轮改写
+     *  *
+     * @param PostISConvRewriterRequest $tmpReq  PostISConvRewriterRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostISConvRewriterResponse
+     * @return PostISConvRewriterResponse PostISConvRewriterResponse
      */
     public function postISConvRewriterWithOptions($tmpReq, $runtime)
     {
@@ -3141,11 +3218,11 @@ class Alinlp extends OpenApiClient
         if (!Utils::isUnset($request->inputShrink)) {
             $body['Input'] = $request->inputShrink;
         }
+        if (!Utils::isUnset($request->model)) {
+            $body['Model'] = $request->model;
+        }
         if (!Utils::isUnset($request->parametersShrink)) {
             $body['Parameters'] = $request->parametersShrink;
-        }
-        if (!Utils::isUnset($request->version)) {
-            $body['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -3166,9 +3243,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param PostISConvRewriterRequest $request
+     * @summary 多轮改写
+     *  *
+     * @param PostISConvRewriterRequest $request PostISConvRewriterRequest
      *
-     * @return PostISConvRewriterResponse
+     * @return PostISConvRewriterResponse PostISConvRewriterResponse
      */
     public function postISConvRewriter($request)
     {
@@ -3178,10 +3257,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param PostISRetrieveRouterRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary 开放域搜索判定
+     *  *
+     * @param PostISRetrieveRouterRequest $tmpReq  PostISRetrieveRouterRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostISRetrieveRouterResponse
+     * @return PostISRetrieveRouterResponse PostISRetrieveRouterResponse
      */
     public function postISRetrieveRouterWithOptions($tmpReq, $runtime)
     {
@@ -3208,8 +3289,8 @@ class Alinlp extends OpenApiClient
         if (!Utils::isUnset($request->algorithm)) {
             $body['Algorithm'] = $request->algorithm;
         }
-        if (!Utils::isUnset($request->version)) {
-            $body['Version'] = $request->version;
+        if (!Utils::isUnset($request->model)) {
+            $body['Model'] = $request->model;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3231,9 +3312,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param PostISRetrieveRouterRequest $request
+     * @summary 开放域搜索判定
+     *  *
+     * @param PostISRetrieveRouterRequest $request PostISRetrieveRouterRequest
      *
-     * @return PostISRetrieveRouterResponse
+     * @return PostISRetrieveRouterResponse PostISRetrieveRouterResponse
      */
     public function postISRetrieveRouter($request)
     {
@@ -3243,9 +3326,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 对话搜索身份凭证生成
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostMSConvSearchTokenGeneratedResponse
+     * @return PostMSConvSearchTokenGeneratedResponse PostMSConvSearchTokenGeneratedResponse
      */
     public function postMSConvSearchTokenGeneratedWithOptions($runtime)
     {
@@ -3266,7 +3351,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @return PostMSConvSearchTokenGeneratedResponse
+     * @summary 对话搜索身份凭证生成
+     *  *
+     * @return PostMSConvSearchTokenGeneratedResponse PostMSConvSearchTokenGeneratedResponse
      */
     public function postMSConvSearchTokenGenerated()
     {
@@ -3276,10 +3363,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param PostMSDataProcessingCountRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary 数据处理进度查询
+     *  *
+     * @param PostMSDataProcessingCountRequest $tmpReq  PostMSDataProcessingCountRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostMSDataProcessingCountResponse
+     * @return PostMSDataProcessingCountResponse PostMSDataProcessingCountResponse
      */
     public function postMSDataProcessingCountWithOptions($tmpReq, $runtime)
     {
@@ -3298,6 +3387,9 @@ class Alinlp extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceId)) {
             $body['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->xDashScopeOpenAPISource)) {
+            $body['X-DashScope-OpenAPISource'] = $request->xDashScopeOpenAPISource;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -3318,9 +3410,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param PostMSDataProcessingCountRequest $request
+     * @summary 数据处理进度查询
+     *  *
+     * @param PostMSDataProcessingCountRequest $request PostMSDataProcessingCountRequest
      *
-     * @return PostMSDataProcessingCountResponse
+     * @return PostMSDataProcessingCountResponse PostMSDataProcessingCountResponse
      */
     public function postMSDataProcessingCount($request)
     {
@@ -3330,10 +3424,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param PostMSSearchEnhanceRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 搜索增强
+     *  *
+     * @param PostMSSearchEnhanceRequest $tmpReq  PostMSSearchEnhanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostMSSearchEnhanceResponse
+     * @return PostMSSearchEnhanceResponse PostMSSearchEnhanceResponse
      */
     public function postMSSearchEnhanceWithOptions($tmpReq, $runtime)
     {
@@ -3395,6 +3491,9 @@ class Alinlp extends OpenApiClient
         if (!Utils::isUnset($request->uq)) {
             $body['Uq'] = $request->uq;
         }
+        if (!Utils::isUnset($request->xDashScopeOpenAPISource)) {
+            $body['X-DashScope-OpenAPISource'] = $request->xDashScopeOpenAPISource;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -3414,9 +3513,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param PostMSSearchEnhanceRequest $request
+     * @summary 搜索增强
+     *  *
+     * @param PostMSSearchEnhanceRequest $request PostMSSearchEnhanceRequest
      *
-     * @return PostMSSearchEnhanceResponse
+     * @return PostMSSearchEnhanceResponse PostMSSearchEnhanceResponse
      */
     public function postMSSearchEnhance($request)
     {
@@ -3426,10 +3527,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param PostMSServiceDataImportRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary 导入服务数据V2
+     *  *
+     * @param PostMSServiceDataImportRequest $tmpReq  PostMSServiceDataImportRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostMSServiceDataImportResponse
+     * @return PostMSServiceDataImportResponse PostMSServiceDataImportResponse
      */
     public function postMSServiceDataImportWithOptions($tmpReq, $runtime)
     {
@@ -3468,9 +3571,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param PostMSServiceDataImportRequest $request
+     * @summary 导入服务数据V2
+     *  *
+     * @param PostMSServiceDataImportRequest $request PostMSServiceDataImportRequest
      *
-     * @return PostMSServiceDataImportResponse
+     * @return PostMSServiceDataImportResponse PostMSServiceDataImportResponse
      */
     public function postMSServiceDataImport($request)
     {
@@ -3480,10 +3585,10 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param RequestTableQARequest $request
-     * @param RuntimeOptions        $runtime
+     * @param RequestTableQARequest $request RequestTableQARequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RequestTableQAResponse
+     * @return RequestTableQAResponse RequestTableQAResponse
      */
     public function requestTableQAWithOptions($request, $runtime)
     {
@@ -3514,9 +3619,9 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param RequestTableQARequest $request
+     * @param RequestTableQARequest $request RequestTableQARequest
      *
-     * @return RequestTableQAResponse
+     * @return RequestTableQAResponse RequestTableQAResponse
      */
     public function requestTableQA($request)
     {
@@ -3526,10 +3631,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param RequestTableQAOnlineRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 表格问答在线接口
+     *  *
+     * @param RequestTableQAOnlineRequest $request RequestTableQAOnlineRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RequestTableQAOnlineResponse
+     * @return RequestTableQAOnlineResponse RequestTableQAOnlineResponse
      */
     public function requestTableQAOnlineWithOptions($request, $runtime)
     {
@@ -3566,9 +3673,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param RequestTableQAOnlineRequest $request
+     * @summary 表格问答在线接口
+     *  *
+     * @param RequestTableQAOnlineRequest $request RequestTableQAOnlineRequest
      *
-     * @return RequestTableQAOnlineResponse
+     * @return RequestTableQAOnlineResponse RequestTableQAOnlineResponse
      */
     public function requestTableQAOnline($request)
     {
@@ -3578,10 +3687,12 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceDataRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 更新服务数据
+     *  *
+     * @param UpdateServiceDataRequest $tmpReq  UpdateServiceDataRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceDataResponse
+     * @return UpdateServiceDataResponse UpdateServiceDataResponse
      */
     public function updateServiceDataWithOptions($tmpReq, $runtime)
     {
@@ -3617,9 +3728,11 @@ class Alinlp extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceDataRequest $request
+     * @summary 更新服务数据
+     *  *
+     * @param UpdateServiceDataRequest $request UpdateServiceDataRequest
      *
-     * @return UpdateServiceDataResponse
+     * @return UpdateServiceDataResponse UpdateServiceDataResponse
      */
     public function updateServiceData($request)
     {
