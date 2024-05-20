@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateDocRequest extends Model
+class UpdateDocShrinkRequest extends Model
 {
     /**
      * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -70,26 +70,26 @@ class UpdateDocRequest extends Model
     public $startDate;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $tagIds;
+    public $tagIdsShrink;
 
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'agentKey'    => 'AgentKey',
-        'categoryId'  => 'CategoryId',
-        'config'      => 'Config',
-        'content'     => 'Content',
-        'docName'     => 'DocName',
-        'endDate'     => 'EndDate',
-        'knowledgeId' => 'KnowledgeId',
-        'meta'        => 'Meta',
-        'startDate'   => 'StartDate',
-        'tagIds'      => 'TagIds',
-        'title'       => 'Title',
+        'agentKey'     => 'AgentKey',
+        'categoryId'   => 'CategoryId',
+        'config'       => 'Config',
+        'content'      => 'Content',
+        'docName'      => 'DocName',
+        'endDate'      => 'EndDate',
+        'knowledgeId'  => 'KnowledgeId',
+        'meta'         => 'Meta',
+        'startDate'    => 'StartDate',
+        'tagIdsShrink' => 'TagIds',
+        'title'        => 'Title',
     ];
 
     public function validate()
@@ -126,8 +126,8 @@ class UpdateDocRequest extends Model
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
-        if (null !== $this->tagIds) {
-            $res['TagIds'] = $this->tagIds;
+        if (null !== $this->tagIdsShrink) {
+            $res['TagIds'] = $this->tagIdsShrink;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -139,7 +139,7 @@ class UpdateDocRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateDocRequest
+     * @return UpdateDocShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -172,9 +172,7 @@ class UpdateDocRequest extends Model
             $model->startDate = $map['StartDate'];
         }
         if (isset($map['TagIds'])) {
-            if (!empty($map['TagIds'])) {
-                $model->tagIds = $map['TagIds'];
-            }
+            $model->tagIdsShrink = $map['TagIds'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

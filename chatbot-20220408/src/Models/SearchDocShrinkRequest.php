@@ -125,6 +125,11 @@ class SearchDocShrinkRequest extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $tagIdsShrink;
     protected $_name = [
         'agentKey'          => 'AgentKey',
         'categoryIdsShrink' => 'CategoryIds',
@@ -144,6 +149,7 @@ class SearchDocShrinkRequest extends Model
         'startTimeBegin'    => 'StartTimeBegin',
         'startTimeEnd'      => 'StartTimeEnd',
         'status'            => 'Status',
+        'tagIdsShrink'      => 'TagIds',
     ];
 
     public function validate()
@@ -206,6 +212,9 @@ class SearchDocShrinkRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tagIdsShrink) {
+            $res['TagIds'] = $this->tagIdsShrink;
         }
 
         return $res;
@@ -272,6 +281,9 @@ class SearchDocShrinkRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TagIds'])) {
+            $model->tagIdsShrink = $map['TagIds'];
         }
 
         return $model;

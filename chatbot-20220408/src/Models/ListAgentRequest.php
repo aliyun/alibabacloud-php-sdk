@@ -31,17 +31,11 @@ class ListAgentRequest extends Model
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $productCode;
     protected $_name = [
-        'agentName'   => 'AgentName',
-        'goodsCodes'  => 'GoodsCodes',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'productCode' => 'ProductCode',
+        'agentName'  => 'AgentName',
+        'goodsCodes' => 'GoodsCodes',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
     ];
 
     public function validate()
@@ -62,9 +56,6 @@ class ListAgentRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->productCode) {
-            $res['ProductCode'] = $this->productCode;
         }
 
         return $res;
@@ -89,9 +80,6 @@ class ListAgentRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['ProductCode'])) {
-            $model->productCode = $map['ProductCode'];
         }
 
         return $model;

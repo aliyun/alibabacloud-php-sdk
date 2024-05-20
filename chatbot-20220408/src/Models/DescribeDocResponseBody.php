@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDocResponseBody\docInfo;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\DescribeDocResponseBody\docTags;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDocResponseBody extends Model
@@ -58,6 +59,11 @@ class DescribeDocResponseBody extends Model
      * @var string
      */
     public $docName;
+
+    /**
+     * @var docTags[]
+     */
+    public $docTags;
 
     /**
      * @example 20
@@ -166,6 +172,7 @@ class DescribeDocResponseBody extends Model
         'createUserName'  => 'CreateUserName',
         'docInfo'         => 'DocInfo',
         'docName'         => 'DocName',
+        'docTags'         => 'DocTags',
         'effectStatus'    => 'EffectStatus',
         'endDate'         => 'EndDate',
         'knowledgeId'     => 'KnowledgeId',
@@ -213,6 +220,15 @@ class DescribeDocResponseBody extends Model
         }
         if (null !== $this->docName) {
             $res['DocName'] = $this->docName;
+        }
+        if (null !== $this->docTags) {
+            $res['DocTags'] = [];
+            if (null !== $this->docTags && \is_array($this->docTags)) {
+                $n = 0;
+                foreach ($this->docTags as $item) {
+                    $res['DocTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->effectStatus) {
             $res['EffectStatus'] = $this->effectStatus;
@@ -294,6 +310,15 @@ class DescribeDocResponseBody extends Model
         }
         if (isset($map['DocName'])) {
             $model->docName = $map['DocName'];
+        }
+        if (isset($map['DocTags'])) {
+            if (!empty($map['DocTags'])) {
+                $model->docTags = [];
+                $n              = 0;
+                foreach ($map['DocTags'] as $item) {
+                    $model->docTags[$n++] = null !== $item ? docTags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['EffectStatus'])) {
             $model->effectStatus = $map['EffectStatus'];

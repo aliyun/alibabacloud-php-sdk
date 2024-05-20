@@ -32,8 +32,6 @@ class CreateDocRequest extends Model
     public $config;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
@@ -60,11 +58,23 @@ class CreateDocRequest extends Model
     public $startDate;
 
     /**
+     * @var int[]
+     */
+    public $tagIds;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
      */
     public $title;
+
+    /**
+     * @example https://example.com/example.pdf
+     *
+     * @var string
+     */
+    public $url;
     protected $_name = [
         'agentKey'   => 'AgentKey',
         'categoryId' => 'CategoryId',
@@ -73,7 +83,9 @@ class CreateDocRequest extends Model
         'endDate'    => 'EndDate',
         'meta'       => 'Meta',
         'startDate'  => 'StartDate',
+        'tagIds'     => 'TagIds',
         'title'      => 'Title',
+        'url'        => 'Url',
     ];
 
     public function validate()
@@ -104,8 +116,14 @@ class CreateDocRequest extends Model
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
+        if (null !== $this->tagIds) {
+            $res['TagIds'] = $this->tagIds;
+        }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -140,8 +158,16 @@ class CreateDocRequest extends Model
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
+        if (isset($map['TagIds'])) {
+            if (!empty($map['TagIds'])) {
+                $model->tagIds = $map['TagIds'];
+            }
+        }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateDocRequest extends Model
+class CreateDocShrinkRequest extends Model
 {
     /**
      * @example ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
@@ -16,7 +16,9 @@ class UpdateDocRequest extends Model
     public $agentKey;
 
     /**
-     * @example 231001028593
+     * @description This parameter is required.
+     *
+     * @example 30000049006
      *
      * @var int
      */
@@ -35,25 +37,11 @@ class UpdateDocRequest extends Model
     public $content;
 
     /**
-     * @var string
-     */
-    public $docName;
-
-    /**
-     * @example 2023-03-11T23:59:59Z
+     * @example 2032-05-25T16:28:36Z
      *
      * @var string
      */
     public $endDate;
-
-    /**
-     * @description This parameter is required.
-     *
-     * @example 30001905617
-     *
-     * @var int
-     */
-    public $knowledgeId;
 
     /**
      * @example {"code":"xxx"}
@@ -70,26 +58,34 @@ class UpdateDocRequest extends Model
     public $startDate;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $tagIds;
+    public $tagIdsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;
+
+    /**
+     * @example https://example.com/example.pdf
+     *
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'agentKey'    => 'AgentKey',
-        'categoryId'  => 'CategoryId',
-        'config'      => 'Config',
-        'content'     => 'Content',
-        'docName'     => 'DocName',
-        'endDate'     => 'EndDate',
-        'knowledgeId' => 'KnowledgeId',
-        'meta'        => 'Meta',
-        'startDate'   => 'StartDate',
-        'tagIds'      => 'TagIds',
-        'title'       => 'Title',
+        'agentKey'     => 'AgentKey',
+        'categoryId'   => 'CategoryId',
+        'config'       => 'Config',
+        'content'      => 'Content',
+        'endDate'      => 'EndDate',
+        'meta'         => 'Meta',
+        'startDate'    => 'StartDate',
+        'tagIdsShrink' => 'TagIds',
+        'title'        => 'Title',
+        'url'          => 'Url',
     ];
 
     public function validate()
@@ -111,14 +107,8 @@ class UpdateDocRequest extends Model
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-        if (null !== $this->docName) {
-            $res['DocName'] = $this->docName;
-        }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
-        }
-        if (null !== $this->knowledgeId) {
-            $res['KnowledgeId'] = $this->knowledgeId;
         }
         if (null !== $this->meta) {
             $res['Meta'] = $this->meta;
@@ -126,11 +116,14 @@ class UpdateDocRequest extends Model
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
-        if (null !== $this->tagIds) {
-            $res['TagIds'] = $this->tagIds;
+        if (null !== $this->tagIdsShrink) {
+            $res['TagIds'] = $this->tagIdsShrink;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
 
         return $res;
@@ -139,7 +132,7 @@ class UpdateDocRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateDocRequest
+     * @return CreateDocShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -156,14 +149,8 @@ class UpdateDocRequest extends Model
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-        if (isset($map['DocName'])) {
-            $model->docName = $map['DocName'];
-        }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
-        }
-        if (isset($map['KnowledgeId'])) {
-            $model->knowledgeId = $map['KnowledgeId'];
         }
         if (isset($map['Meta'])) {
             $model->meta = $map['Meta'];
@@ -172,12 +159,13 @@ class UpdateDocRequest extends Model
             $model->startDate = $map['StartDate'];
         }
         if (isset($map['TagIds'])) {
-            if (!empty($map['TagIds'])) {
-                $model->tagIds = $map['TagIds'];
-            }
+            $model->tagIdsShrink = $map['TagIds'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

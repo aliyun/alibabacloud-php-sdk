@@ -28,11 +28,6 @@ class data extends Model
     public $agentName;
 
     /**
-     * @var bool
-     */
-    public $defaultAgent;
-
-    /**
      * @var mixed[]
      */
     public $instanceInfos;
@@ -40,7 +35,6 @@ class data extends Model
         'agentId'       => 'AgentId',
         'agentKey'      => 'AgentKey',
         'agentName'     => 'AgentName',
-        'defaultAgent'  => 'DefaultAgent',
         'instanceInfos' => 'InstanceInfos',
     ];
 
@@ -59,9 +53,6 @@ class data extends Model
         }
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
-        }
-        if (null !== $this->defaultAgent) {
-            $res['DefaultAgent'] = $this->defaultAgent;
         }
         if (null !== $this->instanceInfos) {
             $res['InstanceInfos'] = $this->instanceInfos;
@@ -86,9 +77,6 @@ class data extends Model
         }
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
-        }
-        if (isset($map['DefaultAgent'])) {
-            $model->defaultAgent = $map['DefaultAgent'];
         }
         if (isset($map['InstanceInfos'])) {
             $model->instanceInfos = $map['InstanceInfos'];

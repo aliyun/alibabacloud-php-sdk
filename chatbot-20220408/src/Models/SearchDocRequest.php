@@ -125,6 +125,11 @@ class SearchDocRequest extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var int[]
+     */
+    public $tagIds;
     protected $_name = [
         'agentKey'        => 'AgentKey',
         'categoryIds'     => 'CategoryIds',
@@ -144,6 +149,7 @@ class SearchDocRequest extends Model
         'startTimeBegin'  => 'StartTimeBegin',
         'startTimeEnd'    => 'StartTimeEnd',
         'status'          => 'Status',
+        'tagIds'          => 'TagIds',
     ];
 
     public function validate()
@@ -206,6 +212,9 @@ class SearchDocRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tagIds) {
+            $res['TagIds'] = $this->tagIds;
         }
 
         return $res;
@@ -274,6 +283,11 @@ class SearchDocRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TagIds'])) {
+            if (!empty($map['TagIds'])) {
+                $model->tagIds = $map['TagIds'];
+            }
         }
 
         return $model;

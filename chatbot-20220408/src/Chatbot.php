@@ -28,6 +28,7 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateConnQuestionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateConnQuestionResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDocRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDocResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDocShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\CreateDSEntityValueRequest;
@@ -159,6 +160,7 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateConnQuestionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateConnQuestionResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDocRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDocResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDocShrinkRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\UpdateDSEntityValueRequest;
@@ -865,14 +867,19 @@ class Chatbot extends OpenApiClient
     /**
      * @summary 创建文档
      *  *
-     * @param CreateDocRequest $request CreateDocRequest
+     * @param CreateDocRequest $tmpReq  CreateDocRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateDocResponse CreateDocResponse
      */
-    public function createDocWithOptions($request, $runtime)
+    public function createDocWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateDocShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tagIds)) {
+            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
             $query['AgentKey'] = $request->agentKey;
@@ -895,8 +902,14 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($request->startDate)) {
             $query['StartDate'] = $request->startDate;
         }
+        if (!Utils::isUnset($request->tagIdsShrink)) {
+            $query['TagIds'] = $request->tagIdsShrink;
+        }
         if (!Utils::isUnset($request->title)) {
             $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3013,9 +3026,6 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3955,6 +3965,9 @@ class Chatbot extends OpenApiClient
         if (!Utils::isUnset($tmpReq->categoryIds)) {
             $request->categoryIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
         }
+        if (!Utils::isUnset($tmpReq->tagIds)) {
+            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
             $query['AgentKey'] = $request->agentKey;
@@ -4009,6 +4022,9 @@ class Chatbot extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tagIdsShrink)) {
+            $query['TagIds'] = $request->tagIdsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4388,14 +4404,19 @@ class Chatbot extends OpenApiClient
     /**
      * @summary 文档变更
      *  *
-     * @param UpdateDocRequest $request UpdateDocRequest
+     * @param UpdateDocRequest $tmpReq  UpdateDocRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
      * @return UpdateDocResponse UpdateDocResponse
      */
-    public function updateDocWithOptions($request, $runtime)
+    public function updateDocWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDocShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tagIds)) {
+            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->agentKey)) {
             $query['AgentKey'] = $request->agentKey;
@@ -4423,6 +4444,9 @@ class Chatbot extends OpenApiClient
         }
         if (!Utils::isUnset($request->startDate)) {
             $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->tagIdsShrink)) {
+            $query['TagIds'] = $request->tagIdsShrink;
         }
         if (!Utils::isUnset($request->title)) {
             $query['Title'] = $request->title;
