@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateAdvancedPolicyRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateAdvancedPolicyResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateDownloadRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\CreateDownloadResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DeleteSandboxInstanceRequest;
@@ -34,6 +36,8 @@ use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeSandboxInstancesRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeSandboxInstancesResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeSandboxRecoveryTimeRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\DescribeSandboxRecoveryTimeResponse;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\ModifyBackupPolicyRequest;
+use AlibabaCloud\SDK\Dbs\V20210101\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\ModifyDBTablesRecoveryStateRequest;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\ModifyDBTablesRecoveryStateResponse;
 use AlibabaCloud\SDK\Dbs\V20210101\Models\SupportDBTableRecoveryRequest;
@@ -159,6 +163,56 @@ class Dbs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 开启高级备份策略
+     *  *
+     * @param CreateAdvancedPolicyRequest $request CreateAdvancedPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAdvancedPolicyResponse CreateAdvancedPolicyResponse
+     */
+    public function createAdvancedPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAdvancedPolicy',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAdvancedPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开启高级备份策略
+     *  *
+     * @param CreateAdvancedPolicyRequest $request CreateAdvancedPolicyRequest
+     *
+     * @return CreateAdvancedPolicyResponse CreateAdvancedPolicyResponse
+     */
+    public function createAdvancedPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAdvancedPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1009,6 +1063,62 @@ class Dbs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSandboxRecoveryTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改备份策略
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
+     */
+    public function modifyBackupPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->advanceDataPolicies)) {
+            $query['AdvanceDataPolicies'] = $request->advanceDataPolicies;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->preferredBackupWindowBegin)) {
+            $query['PreferredBackupWindowBegin'] = $request->preferredBackupWindowBegin;
+        }
+        if (!Utils::isUnset($request->regionCode)) {
+            $query['RegionCode'] = $request->regionCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBackupPolicy',
+            'version'     => '2021-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改备份策略
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     *
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
+     */
+    public function modifyBackupPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBackupPolicyWithOptions($request, $runtime);
     }
 
     /**
