@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyMinorVersionGreadeTypeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cc-bp1qx68m06981****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyMinorVersionGreadeTypeRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example false
      *
      * @var bool

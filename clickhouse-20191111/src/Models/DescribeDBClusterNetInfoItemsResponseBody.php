@@ -24,6 +24,7 @@ class DescribeDBClusterNetInfoItemsResponseBody extends Model
      *   true
      *   false
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

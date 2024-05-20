@@ -16,6 +16,8 @@ class DescribeBackupsRequest extends Model
     public $backupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc-bp1qx68m06981****
      *
      * @var string
@@ -23,6 +25,8 @@ class DescribeBackupsRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-11-25T16:00Z
      *
      * @var string
@@ -64,6 +68,8 @@ class DescribeBackupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-11-21T16:00Z
      *
      * @var string

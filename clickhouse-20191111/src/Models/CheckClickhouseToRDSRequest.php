@@ -11,6 +11,7 @@ class CheckClickhouseToRDSRequest extends Model
     /**
      * @description The password of the account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example 123456Aa
      *
      * @var string
@@ -20,6 +21,7 @@ class CheckClickhouseToRDSRequest extends Model
     /**
      * @description The account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example user1
      *
      * @var string
@@ -38,6 +40,7 @@ class CheckClickhouseToRDSRequest extends Model
     /**
      * @description The ID of the ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example cc-2zeyy362b5sbm****
      *
      * @var string
@@ -57,6 +60,7 @@ class CheckClickhouseToRDSRequest extends Model
     /**
      * @description The ID of the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example rm-bp13v4bnwlu8j****
      *
      * @var string
@@ -66,6 +70,7 @@ class CheckClickhouseToRDSRequest extends Model
     /**
      * @description The password of the account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example 123456Rr
      *
      * @var string
@@ -84,6 +89,7 @@ class CheckClickhouseToRDSRequest extends Model
     /**
      * @description The account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example user2
      *
      * @var string
@@ -93,6 +99,7 @@ class CheckClickhouseToRDSRequest extends Model
     /**
      * @description The ID of the VPC in which the ApsaraDB RDS for MySQL instance is deployed.
      *
+     * This parameter is required.
      * @example vpc-wz9mm0qka0winfl47****
      *
      * @var string
@@ -102,6 +109,7 @@ class CheckClickhouseToRDSRequest extends Model
     /**
      * @description The internal endpoint of the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example rm-bp16t9h3999xb0a7****.mysql.rds.aliyuncs.com
      *
      * @var string

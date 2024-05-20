@@ -16,6 +16,8 @@ class CreateAccountAndAuthorityRequest extends Model
     public $accountDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateAccountAndAuthorityRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456Aa
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateAccountAndAuthorityRequest extends Model
     public $accountPassword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example db1
      *
      * @var string
@@ -37,6 +43,8 @@ class CreateAccountAndAuthorityRequest extends Model
     public $allowDatabases;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dt1
      *
      * @var string
@@ -44,6 +52,8 @@ class CreateAccountAndAuthorityRequest extends Model
     public $allowDictionaries;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc-bp1p816075e21****
      *
      * @var string
@@ -51,6 +61,8 @@ class CreateAccountAndAuthorityRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +70,8 @@ class CreateAccountAndAuthorityRequest extends Model
     public $ddlAuthority;
 
     /**
+     * @description This parameter is required.
+     *
      * @example all
      *
      * @var string

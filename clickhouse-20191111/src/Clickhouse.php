@@ -218,10 +218,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param AllocateClusterPublicConnectionRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Creates a public endpoint for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param AllocateClusterPublicConnectionRequest $request AllocateClusterPublicConnectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocateClusterPublicConnectionResponse
+     * @return AllocateClusterPublicConnectionResponse AllocateClusterPublicConnectionResponse
      */
     public function allocateClusterPublicConnectionWithOptions($request, $runtime)
     {
@@ -264,9 +266,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param AllocateClusterPublicConnectionRequest $request
+     * @summary Creates a public endpoint for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param AllocateClusterPublicConnectionRequest $request AllocateClusterPublicConnectionRequest
      *
-     * @return AllocateClusterPublicConnectionResponse
+     * @return AllocateClusterPublicConnectionResponse AllocateClusterPublicConnectionResponse
      */
     public function allocateClusterPublicConnection($request)
     {
@@ -276,10 +280,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CheckClickhouseToRDSRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @param CheckClickhouseToRDSRequest $request CheckClickhouseToRDSRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckClickhouseToRDSResponse
+     * @return CheckClickhouseToRDSResponse CheckClickhouseToRDSResponse
      */
     public function checkClickhouseToRDSWithOptions($request, $runtime)
     {
@@ -346,9 +352,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CheckClickhouseToRDSRequest $request
+     * @summary Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @param CheckClickhouseToRDSRequest $request CheckClickhouseToRDSRequest
      *
-     * @return CheckClickhouseToRDSResponse
+     * @return CheckClickhouseToRDSResponse CheckClickhouseToRDSResponse
      */
     public function checkClickhouseToRDS($request)
     {
@@ -358,8 +366,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *   *
+     * @summary Queries whether an ApsaraDB for ClickHouse cluster needs to be restarted after you change the values of the configuration parameters in XML mode.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *  *
      * @param CheckModifyConfigNeedRestartRequest $request CheckModifyConfigNeedRestartRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -394,8 +404,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *   *
+     * @summary Queries whether an ApsaraDB for ClickHouse cluster needs to be restarted after you change the values of the configuration parameters in XML mode.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *  *
      * @param CheckModifyConfigNeedRestartRequest $request CheckModifyConfigNeedRestartRequest
      *
      * @return CheckModifyConfigNeedRestartResponse CheckModifyConfigNeedRestartResponse
@@ -408,10 +420,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CheckMonitorAlertRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Checks whether the monitoring and alerting feature that is provided by Application Real-Time Monitoring Service (ARMS) is enabled for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param CheckMonitorAlertRequest $request CheckMonitorAlertRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckMonitorAlertResponse
+     * @return CheckMonitorAlertResponse CheckMonitorAlertResponse
      */
     public function checkMonitorAlertWithOptions($request, $runtime)
     {
@@ -454,9 +468,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CheckMonitorAlertRequest $request
+     * @summary Checks whether the monitoring and alerting feature that is provided by Application Real-Time Monitoring Service (ARMS) is enabled for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param CheckMonitorAlertRequest $request CheckMonitorAlertRequest
      *
-     * @return CheckMonitorAlertResponse
+     * @return CheckMonitorAlertResponse CheckMonitorAlertResponse
      */
     public function checkMonitorAlert($request)
     {
@@ -466,10 +482,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CheckScaleOutBalancedRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Performs migration and scale-out detection on an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param CheckScaleOutBalancedRequest $request CheckScaleOutBalancedRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckScaleOutBalancedResponse
+     * @return CheckScaleOutBalancedResponse CheckScaleOutBalancedResponse
      */
     public function checkScaleOutBalancedWithOptions($request, $runtime)
     {
@@ -518,9 +536,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CheckScaleOutBalancedRequest $request
+     * @summary Performs migration and scale-out detection on an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param CheckScaleOutBalancedRequest $request CheckScaleOutBalancedRequest
      *
-     * @return CheckScaleOutBalancedResponse
+     * @return CheckScaleOutBalancedResponse CheckScaleOutBalancedResponse
      */
     public function checkScaleOutBalanced($request)
     {
@@ -530,10 +550,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CheckServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the service-linked role of ApsaraDB for ClickHouse.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRoleWithOptions($request, $runtime)
     {
@@ -570,9 +592,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CheckServiceLinkedRoleRequest $request
+     * @summary Queries the service-linked role of ApsaraDB for ClickHouse.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
      *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRole($request)
     {
@@ -582,10 +606,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Creates a database account for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
@@ -634,9 +660,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
+     * @summary Creates a database account for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -646,10 +674,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountAndAuthorityRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param CreateAccountAndAuthorityRequest $request CreateAccountAndAuthorityRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccountAndAuthorityResponse
+     * @return CreateAccountAndAuthorityResponse CreateAccountAndAuthorityResponse
      */
     public function createAccountAndAuthorityWithOptions($request, $runtime)
     {
@@ -719,9 +747,9 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountAndAuthorityRequest $request
+     * @param CreateAccountAndAuthorityRequest $request CreateAccountAndAuthorityRequest
      *
-     * @return CreateAccountAndAuthorityResponse
+     * @return CreateAccountAndAuthorityResponse CreateAccountAndAuthorityResponse
      */
     public function createAccountAndAuthority($request)
     {
@@ -731,8 +759,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *   *
+     * @summary Creates a backup policy.
+     *  *
+     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *  *
      * @param CreateBackupPolicyRequest $request CreateBackupPolicyRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -788,8 +818,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *   *
+     * @summary Creates a backup policy.
+     *  *
+     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *  *
      * @param CreateBackupPolicyRequest $request CreateBackupPolicyRequest
      *
      * @return CreateBackupPolicyResponse CreateBackupPolicyResponse
@@ -802,10 +834,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBInstanceResponse
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstanceWithOptions($request, $runtime)
     {
@@ -920,9 +954,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstanceRequest $request
+     * @summary Creates an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      *
-     * @return CreateDBInstanceResponse
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstance($request)
     {
@@ -932,10 +968,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorDataReportRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a monitoring data report for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param CreateMonitorDataReportRequest $request CreateMonitorDataReportRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMonitorDataReportResponse
+     * @return CreateMonitorDataReportResponse CreateMonitorDataReportResponse
      */
     public function createMonitorDataReportWithOptions($request, $runtime)
     {
@@ -978,9 +1016,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorDataReportRequest $request
+     * @summary Creates a monitoring data report for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param CreateMonitorDataReportRequest $request CreateMonitorDataReportRequest
      *
-     * @return CreateMonitorDataReportResponse
+     * @return CreateMonitorDataReportResponse CreateMonitorDataReportResponse
      */
     public function createMonitorDataReport($request)
     {
@@ -990,8 +1030,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](~~276926~~).
-     *   *
+     * @summary Creates a storage task for cold data.
+     *  *
+     * @description Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](https://help.aliyun.com/document_detail/276926.html).
+     *  *
      * @param CreateOSSStorageRequest $request CreateOSSStorageRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1038,8 +1080,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](~~276926~~).
-     *   *
+     * @summary Creates a storage task for cold data.
+     *  *
+     * @description Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](https://help.aliyun.com/document_detail/276926.html).
+     *  *
      * @param CreateOSSStorageRequest $request CreateOSSStorageRequest
      *
      * @return CreateOSSStorageResponse CreateOSSStorageResponse
@@ -1052,8 +1096,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
-     *   *
+     * @summary Enables the MySQL port for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
+     *  *
      * @param CreatePortsForClickHouseRequest $request CreatePortsForClickHouseRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1103,8 +1149,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
-     *   *
+     * @summary Enables the MySQL port for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
+     *  *
      * @param CreatePortsForClickHouseRequest $request CreatePortsForClickHouseRequest
      *
      * @return CreatePortsForClickHouseResponse CreatePortsForClickHouseResponse
@@ -1117,8 +1165,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
-     *   *
+     * @summary Creates a task to synchronize data from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
+     *  *
      * @param CreateRDSToClickhouseDbRequest $request CreateRDSToClickhouseDbRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1198,8 +1248,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
-     *   *
+     * @summary Creates a task to synchronize data from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
+     *  *
      * @param CreateRDSToClickhouseDbRequest $request CreateRDSToClickhouseDbRequest
      *
      * @return CreateRDSToClickhouseDbResponse CreateRDSToClickhouseDbResponse
@@ -1212,8 +1264,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,.
-     *   *
+     * @summary Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
+     *  *
      * @param CreateSQLAccountRequest $request CreateSQLAccountRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1269,8 +1323,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,.
-     *   *
+     * @summary Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
+     *  *
      * @param CreateSQLAccountRequest $request CreateSQLAccountRequest
      *
      * @return CreateSQLAccountResponse CreateSQLAccountResponse
@@ -1283,10 +1339,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates a service-linked role.
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
@@ -1323,9 +1381,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleRequest $request
+     * @summary Creates a service-linked role.
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
      *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRole($request)
     {
@@ -1335,8 +1395,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
-     *   *
+     * @summary Deletes a database account of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
+     *  *
      * @param DeleteAccountRequest $request DeleteAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1383,8 +1445,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
-     *   *
+     * @summary Deletes a database account of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
+     *  *
      * @param DeleteAccountRequest $request DeleteAccountRequest
      *
      * @return DeleteAccountResponse DeleteAccountResponse
@@ -1397,9 +1461,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * **
-     *   * **Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
-     *   *
+     * @summary Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description **Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
+     *  *
      * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1443,9 +1508,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * **
-     *   * **Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
-     *   *
+     * @summary Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description **Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
+     *  *
      * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
      *
      * @return DeleteDBClusterResponse DeleteDBClusterResponse
@@ -1458,10 +1524,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DeleteSyndbRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Deletes a database used for data synchronization.
+     *  *
+     * @param DeleteSyndbRequest $request DeleteSyndbRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSyndbResponse
+     * @return DeleteSyndbResponse DeleteSyndbResponse
      */
     public function deleteSyndbWithOptions($request, $runtime)
     {
@@ -1504,9 +1572,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DeleteSyndbRequest $request
+     * @summary Deletes a database used for data synchronization.
+     *  *
+     * @param DeleteSyndbRequest $request DeleteSyndbRequest
      *
-     * @return DeleteSyndbResponse
+     * @return DeleteSyndbResponse DeleteSyndbResponse
      */
     public function deleteSyndb($request)
     {
@@ -1516,10 +1586,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountAuthorityRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the permissions of an account.
+     *  *
+     * @param DescribeAccountAuthorityRequest $request DescribeAccountAuthorityRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountAuthorityResponse
+     * @return DescribeAccountAuthorityResponse DescribeAccountAuthorityResponse
      */
     public function describeAccountAuthorityWithOptions($request, $runtime)
     {
@@ -1565,9 +1637,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountAuthorityRequest $request
+     * @summary Queries the permissions of an account.
+     *  *
+     * @param DescribeAccountAuthorityRequest $request DescribeAccountAuthorityRequest
      *
-     * @return DescribeAccountAuthorityResponse
+     * @return DescribeAccountAuthorityResponse DescribeAccountAuthorityResponse
      */
     public function describeAccountAuthority($request)
     {
@@ -1577,10 +1651,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary DescribeAccounts
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
@@ -1629,9 +1705,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
+     * @summary DescribeAccounts
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -1641,10 +1719,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllDataSourceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeAllDataSourceRequest $request DescribeAllDataSourceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAllDataSourceResponse
+     * @return DescribeAllDataSourceResponse DescribeAllDataSourceResponse
      */
     public function describeAllDataSourceWithOptions($request, $runtime)
     {
@@ -1690,9 +1770,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllDataSourceRequest $request
+     * @summary Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeAllDataSourceRequest $request DescribeAllDataSourceRequest
      *
-     * @return DescribeAllDataSourceResponse
+     * @return DescribeAllDataSourceResponse DescribeAllDataSourceResponse
      */
     public function describeAllDataSource($request)
     {
@@ -1702,10 +1784,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllDataSourcesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the data sources of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeAllDataSourcesRequest $request DescribeAllDataSourcesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAllDataSourcesResponse
+     * @return DescribeAllDataSourcesResponse DescribeAllDataSourcesResponse
      */
     public function describeAllDataSourcesWithOptions($request, $runtime)
     {
@@ -1751,9 +1835,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeAllDataSourcesRequest $request
+     * @summary Queries the data sources of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeAllDataSourcesRequest $request DescribeAllDataSourcesRequest
      *
-     * @return DescribeAllDataSourcesResponse
+     * @return DescribeAllDataSourcesResponse DescribeAllDataSourcesResponse
      */
     public function describeAllDataSources($request)
     {
@@ -1763,8 +1849,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *   *
+     * @summary Queries the backup settings of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *  *
      * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1808,8 +1896,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *   *
+     * @summary Queries the backup settings of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *  *
      * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
      * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
@@ -1822,10 +1912,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
@@ -1880,9 +1970,9 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -1892,10 +1982,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeColumnsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries information about columns.
+     *  *
+     * @param DescribeColumnsRequest $request DescribeColumnsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeColumnsResponse
+     * @return DescribeColumnsResponse DescribeColumnsResponse
      */
     public function describeColumnsWithOptions($request, $runtime)
     {
@@ -1941,9 +2033,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeColumnsRequest $request
+     * @summary Queries information about columns.
+     *  *
+     * @param DescribeColumnsRequest $request DescribeColumnsRequest
      *
-     * @return DescribeColumnsResponse
+     * @return DescribeColumnsResponse DescribeColumnsResponse
      */
     public function describeColumns($request)
     {
@@ -1953,8 +2047,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *   *
+     * @summary Queries the change records of the configuration parameters of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *  *
      * @param DescribeConfigHistoryRequest $request DescribeConfigHistoryRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1983,8 +2079,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *   *
+     * @summary Queries the change records of the configuration parameters of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *  *
      * @param DescribeConfigHistoryRequest $request DescribeConfigHistoryRequest
      *
      * @return DescribeConfigHistoryResponse DescribeConfigHistoryResponse
@@ -1997,8 +2095,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *   *
+     * @summary Queries the values of the configuration parameters of an ApsaraDB for ClickHouse cluster before and after the values of the configuration parameters are changed.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *  *
      * @param DescribeConfigVersionDifferenceRequest $request DescribeConfigVersionDifferenceRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -2027,8 +2127,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *   *
+     * @summary Queries the values of the configuration parameters of an ApsaraDB for ClickHouse cluster before and after the values of the configuration parameters are changed.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *  *
      * @param DescribeConfigVersionDifferenceRequest $request DescribeConfigVersionDifferenceRequest
      *
      * @return DescribeConfigVersionDifferenceResponse DescribeConfigVersionDifferenceResponse
@@ -2041,10 +2143,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAccessWhiteListRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the IP address whitelist of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeDBClusterAccessWhiteListRequest $request DescribeDBClusterAccessWhiteListRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterAccessWhiteListResponse
+     * @return DescribeDBClusterAccessWhiteListResponse DescribeDBClusterAccessWhiteListResponse
      */
     public function describeDBClusterAccessWhiteListWithOptions($request, $runtime)
     {
@@ -2084,9 +2188,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAccessWhiteListRequest $request
+     * @summary Queries the IP address whitelist of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeDBClusterAccessWhiteListRequest $request DescribeDBClusterAccessWhiteListRequest
      *
-     * @return DescribeDBClusterAccessWhiteListResponse
+     * @return DescribeDBClusterAccessWhiteListResponse DescribeDBClusterAccessWhiteListResponse
      */
     public function describeDBClusterAccessWhiteList($request)
     {
@@ -2096,10 +2202,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the information about an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterAttributeResponse
+     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttributeWithOptions($request, $runtime)
     {
@@ -2139,9 +2247,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterAttributeRequest $request
+     * @summary Queries the information about an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeDBClusterAttributeRequest $request DescribeDBClusterAttributeRequest
      *
-     * @return DescribeDBClusterAttributeResponse
+     * @return DescribeDBClusterAttributeResponse DescribeDBClusterAttributeResponse
      */
     public function describeDBClusterAttribute($request)
     {
@@ -2151,10 +2261,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterConfigRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries information about the parameter settings of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeDBClusterConfigRequest $request DescribeDBClusterConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterConfigResponse
+     * @return DescribeDBClusterConfigResponse DescribeDBClusterConfigResponse
      */
     public function describeDBClusterConfigWithOptions($request, $runtime)
     {
@@ -2197,9 +2309,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterConfigRequest $request
+     * @summary Queries information about the parameter settings of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeDBClusterConfigRequest $request DescribeDBClusterConfigRequest
      *
-     * @return DescribeDBClusterConfigResponse
+     * @return DescribeDBClusterConfigResponse DescribeDBClusterConfigResponse
      */
     public function describeDBClusterConfig($request)
     {
@@ -2209,8 +2323,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *   *
+     * @summary Queries the values of the configuration parameters in the config.xml file of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *  *
      * @param DescribeDBClusterConfigInXMLRequest $request DescribeDBClusterConfigInXMLRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2245,8 +2361,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *   *
+     * @summary Queries the values of the configuration parameters in the config.xml file of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *  *
      * @param DescribeDBClusterConfigInXMLRequest $request DescribeDBClusterConfigInXMLRequest
      *
      * @return DescribeDBClusterConfigInXMLResponse DescribeDBClusterConfigInXMLResponse
@@ -2259,10 +2377,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterNetInfoItemsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the network information about an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeDBClusterNetInfoItemsRequest $request DescribeDBClusterNetInfoItemsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterNetInfoItemsResponse
+     * @return DescribeDBClusterNetInfoItemsResponse DescribeDBClusterNetInfoItemsResponse
      */
     public function describeDBClusterNetInfoItemsWithOptions($request, $runtime)
     {
@@ -2302,9 +2422,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterNetInfoItemsRequest $request
+     * @summary Queries the network information about an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeDBClusterNetInfoItemsRequest $request DescribeDBClusterNetInfoItemsRequest
      *
-     * @return DescribeDBClusterNetInfoItemsResponse
+     * @return DescribeDBClusterNetInfoItemsResponse DescribeDBClusterNetInfoItemsResponse
      */
     public function describeDBClusterNetInfoItems($request)
     {
@@ -2314,9 +2436,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
-     *   * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
-     *   *
+     * @summary Queries performance data about an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
+     *  *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2369,9 +2493,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
-     *   * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
-     *   *
+     * @summary Queries performance data about an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
+     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
+     *  *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      *
      * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
@@ -2384,10 +2510,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClustersRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the information about ApsaraDB for ClickHouse clusters in a region.
+     *  *
+     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClustersResponse
+     * @return DescribeDBClustersResponse DescribeDBClustersResponse
      */
     public function describeDBClustersWithOptions($request, $runtime)
     {
@@ -2448,9 +2576,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClustersRequest $request
+     * @summary Queries the information about ApsaraDB for ClickHouse clusters in a region.
+     *  *
+     * @param DescribeDBClustersRequest $request DescribeDBClustersRequest
      *
-     * @return DescribeDBClustersResponse
+     * @return DescribeDBClustersResponse DescribeDBClustersResponse
      */
     public function describeDBClusters($request)
     {
@@ -2460,10 +2590,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries configuration information about an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeDBConfigRequest $request DescribeDBConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBConfigResponse
+     * @return DescribeDBConfigResponse DescribeDBConfigResponse
      */
     public function describeDBConfigWithOptions($request, $runtime)
     {
@@ -2506,9 +2638,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBConfigRequest $request
+     * @summary Queries configuration information about an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeDBConfigRequest $request DescribeDBConfigRequest
      *
-     * @return DescribeDBConfigResponse
+     * @return DescribeDBConfigResponse DescribeDBConfigResponse
      */
     public function describeDBConfig($request)
     {
@@ -2518,10 +2652,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeOSSStorageRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the storage of cold data.
+     *  *
+     * @param DescribeOSSStorageRequest $request DescribeOSSStorageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOSSStorageResponse
+     * @return DescribeOSSStorageResponse DescribeOSSStorageResponse
      */
     public function describeOSSStorageWithOptions($request, $runtime)
     {
@@ -2564,9 +2700,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeOSSStorageRequest $request
+     * @summary Queries the storage of cold data.
+     *  *
+     * @param DescribeOSSStorageRequest $request DescribeOSSStorageRequest
      *
-     * @return DescribeOSSStorageResponse
+     * @return DescribeOSSStorageResponse DescribeOSSStorageResponse
      */
     public function describeOSSStorage($request)
     {
@@ -2576,10 +2714,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeProcessListRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the details of queries that are being executed in an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeProcessListRequest $request DescribeProcessListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProcessListResponse
+     * @return DescribeProcessListResponse DescribeProcessListResponse
      */
     public function describeProcessListWithOptions($request, $runtime)
     {
@@ -2643,9 +2783,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeProcessListRequest $request
+     * @summary Queries the details of queries that are being executed in an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeProcessListRequest $request DescribeProcessListRequest
      *
-     * @return DescribeProcessListResponse
+     * @return DescribeProcessListResponse DescribeProcessListResponse
      */
     public function describeProcessList($request)
     {
@@ -2655,10 +2797,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries the information about all regions and zones of ApsaraDB for ClickHouse clusters.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -2695,9 +2839,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries the information about all regions and zones of ApsaraDB for ClickHouse clusters.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -2707,10 +2853,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeSchemasRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries a list of all databases in an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeSchemasRequest $request DescribeSchemasRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSchemasResponse
+     * @return DescribeSchemasResponse DescribeSchemasResponse
      */
     public function describeSchemasWithOptions($request, $runtime)
     {
@@ -2750,9 +2898,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeSchemasRequest $request
+     * @summary Queries a list of all databases in an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeSchemasRequest $request DescribeSchemasRequest
      *
-     * @return DescribeSchemasResponse
+     * @return DescribeSchemasResponse DescribeSchemasResponse
      */
     public function describeSchemas($request)
     {
@@ -2762,10 +2912,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowLogRecordsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the details about slow query logs.
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
@@ -2823,9 +2975,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowLogRecordsRequest $request
+     * @summary Queries the details about slow query logs.
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecords($request)
     {
@@ -2835,10 +2989,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeSynDbTablesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeSynDbTablesRequest $request DescribeSynDbTablesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSynDbTablesResponse
+     * @return DescribeSynDbTablesResponse DescribeSynDbTablesResponse
      */
     public function describeSynDbTablesWithOptions($request, $runtime)
     {
@@ -2881,9 +3037,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeSynDbTablesRequest $request
+     * @summary Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeSynDbTablesRequest $request DescribeSynDbTablesRequest
      *
-     * @return DescribeSynDbTablesResponse
+     * @return DescribeSynDbTablesResponse DescribeSynDbTablesResponse
      */
     public function describeSynDbTables($request)
     {
@@ -2893,10 +3051,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeSynDbsRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the information about data synchronization between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @param DescribeSynDbsRequest $request DescribeSynDbsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSynDbsResponse
+     * @return DescribeSynDbsResponse DescribeSynDbsResponse
      */
     public function describeSynDbsWithOptions($request, $runtime)
     {
@@ -2942,9 +3102,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeSynDbsRequest $request
+     * @summary Queries the information about data synchronization between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @param DescribeSynDbsRequest $request DescribeSynDbsRequest
      *
-     * @return DescribeSynDbsResponse
+     * @return DescribeSynDbsResponse DescribeSynDbsResponse
      */
     public function describeSynDbs($request)
     {
@@ -2954,10 +3116,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeTablesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the information about tables in a database of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeTablesRequest $request DescribeTablesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTablesResponse
+     * @return DescribeTablesResponse DescribeTablesResponse
      */
     public function describeTablesWithOptions($request, $runtime)
     {
@@ -3000,9 +3164,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param DescribeTablesRequest $request
+     * @summary Queries the information about tables in a database of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param DescribeTablesRequest $request DescribeTablesRequest
      *
-     * @return DescribeTablesResponse
+     * @return DescribeTablesResponse DescribeTablesResponse
      */
     public function describeTables($request)
     {
@@ -3012,8 +3178,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
-     *   *
+     * @summary Queries information about data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version
+     *  *
+     * @description >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+     *  *
      * @param DescribeTransferHistoryRequest $request DescribeTransferHistoryRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3057,8 +3225,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
-     *   *
+     * @summary Queries information about data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version
+     *  *
+     * @description >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+     *  *
      * @param DescribeTransferHistoryRequest $request DescribeTransferHistoryRequest
      *
      * @return DescribeTransferHistoryResponse DescribeTransferHistoryResponse
@@ -3071,10 +3241,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param KillProcessRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Terminates an ongoing task.
+     *  *
+     * @param KillProcessRequest $request KillProcessRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return KillProcessResponse
+     * @return KillProcessResponse KillProcessResponse
      */
     public function killProcessWithOptions($request, $runtime)
     {
@@ -3120,9 +3292,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param KillProcessRequest $request
+     * @summary Terminates an ongoing task.
+     *  *
+     * @param KillProcessRequest $request KillProcessRequest
      *
-     * @return KillProcessResponse
+     * @return KillProcessResponse KillProcessResponse
      */
     public function killProcess($request)
     {
@@ -3132,10 +3306,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountAuthorityRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Modifies the permissions of an account.
+     *  *
+     * @param ModifyAccountAuthorityRequest $request ModifyAccountAuthorityRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountAuthorityResponse
+     * @return ModifyAccountAuthorityResponse ModifyAccountAuthorityResponse
      */
     public function modifyAccountAuthorityWithOptions($request, $runtime)
     {
@@ -3199,9 +3375,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountAuthorityRequest $request
+     * @summary Modifies the permissions of an account.
+     *  *
+     * @param ModifyAccountAuthorityRequest $request ModifyAccountAuthorityRequest
      *
-     * @return ModifyAccountAuthorityResponse
+     * @return ModifyAccountAuthorityResponse ModifyAccountAuthorityResponse
      */
     public function modifyAccountAuthority($request)
     {
@@ -3211,10 +3389,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
@@ -3260,9 +3438,9 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -3272,8 +3450,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *   *
+     * @summary Modifies the backup settings of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *  *
      * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3326,8 +3506,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
-     *   *
+     * @summary Modifies the backup settings of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     *  *
      * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
      * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
@@ -3340,10 +3522,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Upgrades or downgrades an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterResponse
+     * @return ModifyDBClusterResponse ModifyDBClusterResponse
      */
     public function modifyDBClusterWithOptions($request, $runtime)
     {
@@ -3398,9 +3582,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterRequest $request
+     * @summary Upgrades or downgrades an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
      *
-     * @return ModifyDBClusterResponse
+     * @return ModifyDBClusterResponse ModifyDBClusterResponse
      */
     public function modifyDBCluster($request)
     {
@@ -3410,10 +3596,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterAccessWhiteListRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param ModifyDBClusterAccessWhiteListRequest $request ModifyDBClusterAccessWhiteListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterAccessWhiteListResponse
+     * @return ModifyDBClusterAccessWhiteListResponse ModifyDBClusterAccessWhiteListResponse
      */
     public function modifyDBClusterAccessWhiteListWithOptions($request, $runtime)
     {
@@ -3465,9 +3651,9 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterAccessWhiteListRequest $request
+     * @param ModifyDBClusterAccessWhiteListRequest $request ModifyDBClusterAccessWhiteListRequest
      *
-     * @return ModifyDBClusterAccessWhiteListResponse
+     * @return ModifyDBClusterAccessWhiteListResponse ModifyDBClusterAccessWhiteListResponse
      */
     public function modifyDBClusterAccessWhiteList($request)
     {
@@ -3477,10 +3663,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterConfigRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ModifyDBClusterConfigRequest $request ModifyDBClusterConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterConfigResponse
+     * @return ModifyDBClusterConfigResponse ModifyDBClusterConfigResponse
      */
     public function modifyDBClusterConfigWithOptions($request, $runtime)
     {
@@ -3529,9 +3717,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterConfigRequest $request
+     * @summary Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ModifyDBClusterConfigRequest $request ModifyDBClusterConfigRequest
      *
-     * @return ModifyDBClusterConfigResponse
+     * @return ModifyDBClusterConfigResponse ModifyDBClusterConfigResponse
      */
     public function modifyDBClusterConfig($request)
     {
@@ -3541,8 +3731,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *   *
+     * @summary Modifies the settings of the configuration parameters for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *  *
      * @param ModifyDBClusterConfigInXMLRequest $request ModifyDBClusterConfigInXMLRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -3583,8 +3775,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
-     *   *
+     * @summary Modifies the settings of the configuration parameters for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     *  *
      * @param ModifyDBClusterConfigInXMLRequest $request ModifyDBClusterConfigInXMLRequest
      *
      * @return ModifyDBClusterConfigInXMLResponse ModifyDBClusterConfigInXMLResponse
@@ -3597,10 +3791,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterDescriptionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Changes the name of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterDescriptionResponse
+     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescriptionWithOptions($request, $runtime)
     {
@@ -3643,9 +3839,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterDescriptionRequest $request
+     * @summary Changes the name of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ModifyDBClusterDescriptionRequest $request ModifyDBClusterDescriptionRequest
      *
-     * @return ModifyDBClusterDescriptionResponse
+     * @return ModifyDBClusterDescriptionResponse ModifyDBClusterDescriptionResponse
      */
     public function modifyDBClusterDescription($request)
     {
@@ -3655,10 +3853,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMaintainTimeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies the maintenance window of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterMaintainTimeResponse
+     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTimeWithOptions($request, $runtime)
     {
@@ -3701,9 +3901,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMaintainTimeRequest $request
+     * @summary Modifies the maintenance window of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
      *
-     * @return ModifyDBClusterMaintainTimeResponse
+     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTime($request)
     {
@@ -3713,10 +3915,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBConfigRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Modifies the dictionary configuration of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ModifyDBConfigRequest $request ModifyDBConfigRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBConfigResponse
+     * @return ModifyDBConfigResponse ModifyDBConfigResponse
      */
     public function modifyDBConfigWithOptions($request, $runtime)
     {
@@ -3762,9 +3966,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBConfigRequest $request
+     * @summary Modifies the dictionary configuration of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ModifyDBConfigRequest $request ModifyDBConfigRequest
      *
-     * @return ModifyDBConfigResponse
+     * @return ModifyDBConfigResponse ModifyDBConfigResponse
      */
     public function modifyDBConfig($request)
     {
@@ -3774,10 +3980,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyMinorVersionGreadeTypeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Modifies the type of a minor version update in ApsaraDB for ClickHouse.
+     *  *
+     * @param ModifyMinorVersionGreadeTypeRequest $request ModifyMinorVersionGreadeTypeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMinorVersionGreadeTypeResponse
+     * @return ModifyMinorVersionGreadeTypeResponse ModifyMinorVersionGreadeTypeResponse
      */
     public function modifyMinorVersionGreadeTypeWithOptions($request, $runtime)
     {
@@ -3820,9 +4028,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ModifyMinorVersionGreadeTypeRequest $request
+     * @summary Modifies the type of a minor version update in ApsaraDB for ClickHouse.
+     *  *
+     * @param ModifyMinorVersionGreadeTypeRequest $request ModifyMinorVersionGreadeTypeRequest
      *
-     * @return ModifyMinorVersionGreadeTypeResponse
+     * @return ModifyMinorVersionGreadeTypeResponse ModifyMinorVersionGreadeTypeResponse
      */
     public function modifyMinorVersionGreadeType($request)
     {
@@ -3832,8 +4042,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
-     *   *
+     * @summary Modifies the synchronization task of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
+     *  *
      * @param ModifyRDSToClickhouseDbRequest $request ModifyRDSToClickhouseDbRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3913,8 +4125,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
-     *   *
+     * @summary Modifies the synchronization task of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
+     *  *
      * @param ModifyRDSToClickhouseDbRequest $request ModifyRDSToClickhouseDbRequest
      *
      * @return ModifyRDSToClickhouseDbResponse ModifyRDSToClickhouseDbResponse
@@ -3927,10 +4141,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ReleaseClusterPublicConnectionRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Releases the public endpoint of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ReleaseClusterPublicConnectionRequest $request ReleaseClusterPublicConnectionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseClusterPublicConnectionResponse
+     * @return ReleaseClusterPublicConnectionResponse ReleaseClusterPublicConnectionResponse
      */
     public function releaseClusterPublicConnectionWithOptions($request, $runtime)
     {
@@ -3970,9 +4186,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ReleaseClusterPublicConnectionRequest $request
+     * @summary Releases the public endpoint of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ReleaseClusterPublicConnectionRequest $request ReleaseClusterPublicConnectionRequest
      *
-     * @return ReleaseClusterPublicConnectionResponse
+     * @return ReleaseClusterPublicConnectionResponse ReleaseClusterPublicConnectionResponse
      */
     public function releaseClusterPublicConnection($request)
     {
@@ -3982,10 +4200,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Resets the password of a database account for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
@@ -4031,9 +4251,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
+     * @summary Resets the password of a database account for an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -4043,10 +4265,12 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param RestartInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Restarts an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param RestartInstanceRequest $request RestartInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstanceWithOptions($request, $runtime)
     {
@@ -4098,9 +4322,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @param RestartInstanceRequest $request
+     * @summary Restarts an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @param RestartInstanceRequest $request RestartInstanceRequest
      *
-     * @return RestartInstanceResponse
+     * @return RestartInstanceResponse RestartInstanceResponse
      */
     public function restartInstance($request)
     {
@@ -4110,11 +4336,13 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * ## [](#)Prerequisites
-     *   * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
-     *   * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
-     *   * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
-     *   *
+     * @summary Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description ## [](#)Prerequisites
+     * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
+     * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
+     * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
+     *  *
      * @param TransferVersionRequest $request TransferVersionRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4182,11 +4410,13 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * ## [](#)Prerequisites
-     *   * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
-     *   * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
-     *   * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
-     *   *
+     * @summary Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description ## [](#)Prerequisites
+     * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
+     * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
+     * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
+     *  *
      * @param TransferVersionRequest $request TransferVersionRequest
      *
      * @return TransferVersionResponse TransferVersionResponse
@@ -4199,8 +4429,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
-     *   *
+     * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
+     *  *
      * @param UpgradeMinorVersionRequest $request UpgradeMinorVersionRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -4253,8 +4485,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
-     *   *
+     * @summary Updates the minor engine version of an ApsaraDB for ClickHouse cluster.
+     *  *
+     * @description >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
+     *  *
      * @param UpgradeMinorVersionRequest $request UpgradeMinorVersionRequest
      *
      * @return UpgradeMinorVersionResponse UpgradeMinorVersionResponse

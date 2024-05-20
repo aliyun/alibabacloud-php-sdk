@@ -11,6 +11,7 @@ class CreateRDSToClickhouseDbRequest extends Model
     /**
      * @description The password of the account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example 123456Aa
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateRDSToClickhouseDbRequest extends Model
     /**
      * @description The account that is used to log on to the database in the ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example user1
      *
      * @var string
@@ -38,6 +40,7 @@ class CreateRDSToClickhouseDbRequest extends Model
     /**
      * @description The ID of the ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example cc-2ze5zeyl72188****
      *
      * @var string
@@ -66,6 +69,7 @@ class CreateRDSToClickhouseDbRequest extends Model
     /**
      * @description The ID of the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example rm-8vb989qj9roh0****
      *
      * @var string
@@ -75,6 +79,7 @@ class CreateRDSToClickhouseDbRequest extends Model
     /**
      * @description The password of the account that is used to log on to the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example 123456Rr
      *
      * @var string
@@ -93,6 +98,7 @@ class CreateRDSToClickhouseDbRequest extends Model
     /**
      * @description The account that is used to log on to the database in the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example user2
      *
      * @var string
@@ -133,6 +139,7 @@ class CreateRDSToClickhouseDbRequest extends Model
      *   **true**
      *   **false**
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -142,6 +149,7 @@ class CreateRDSToClickhouseDbRequest extends Model
     /**
      * @description The tables whose data you want to synchronize.
      *
+     * This parameter is required.
      * @example [{"Schema":"recommend","Tables":["mr_platform_cpm","mr_platform_ecpm","p_monitor_record"]}]
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigVersionDifferenceRequest extends Model
 {
     /**
-     * @description The ID of the change record. You can call the [DescribeConfigHistory](~~452209~~) operation to query the ID of the change record.
+     * @description The ID of the change record. You can call the [DescribeConfigHistory](https://help.aliyun.com/document_detail/452209.html) operation to query the ID of the change record.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeConfigVersionDifferenceRequest extends Model
     public $changeId;
 
     /**
-     * @description The cluster ID. You can call the [DescribeDBClusters](~~170879~~) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+     * @description The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
      *
+     * This parameter is required.
      * @example cc-bp1tm8zf130ew****
      *
      * @var string

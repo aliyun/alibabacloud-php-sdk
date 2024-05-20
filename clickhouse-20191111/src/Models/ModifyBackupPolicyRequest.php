@@ -20,6 +20,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp1qx68m06981****
      *
      * @var string
@@ -47,6 +48,7 @@ class ModifyBackupPolicyRequest extends Model
      *   **Saturday**
      *   **Sunday**
      *
+     * This parameter is required.
      * @example Monday
      *
      * @var string
@@ -56,7 +58,7 @@ class ModifyBackupPolicyRequest extends Model
     /**
      * @description The backup window. Specify the time in the ISO 8601 standard in the HH:mmZ-HH:mmZ format. The time must be in Coordinated Universal Time (UTC).
      *
-     * For example, if you set the backup window to 00:00Z-01:00Z, the data of the cluster can be backed up from 08:00 (UTC+8) to 09:00 (UTC+8).
+     * This parameter is required.
      * @example 15:00Z-16:00Z
      *
      * @var string

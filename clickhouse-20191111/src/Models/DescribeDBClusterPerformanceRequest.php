@@ -11,6 +11,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp125e3uu94wo****
      *
      * @var string
@@ -20,7 +21,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time. The interval cannot be more than 32 days.
+     * This parameter is required.
      * @example 2021-11-27T16:38Z
      *
      * @var string
@@ -97,6 +98,7 @@ class DescribeDBClusterPerformanceRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in Coordinated Universal Time (UTC).
      *
+     * This parameter is required.
      * @example 2021-11-27T16:37Z
      *
      * @var string

@@ -38,7 +38,7 @@ class CreateRDSToClickhouseDbResponseBody extends Model
      *
      *   **1**: Created.
      *   **0**: Creation failed. The tables in the synchronization task are duplicate. The duplicate tables are returned for the **RepeatedDbs** parameter.
-     *   **1**: Creation failed. The cause why the creation failed is returned for the **ErrorMsg** parameter.
+     *   **-1**: Creation failed. The cause why the creation failed is returned for the **ErrorMsg** parameter.
      *
      * @example 0
      *

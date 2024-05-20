@@ -11,6 +11,7 @@ class ModifyAccountAuthorityRequest extends Model
     /**
      * @description The name of the database account.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyAccountAuthorityRequest extends Model
     /**
      * @description The databases to which you want to grant permissions. Separate databases with commas (,).
      *
+     * This parameter is required.
      * @example db1
      *
      * @var string
@@ -29,6 +31,7 @@ class ModifyAccountAuthorityRequest extends Model
     /**
      * @description The dictionaries to which you want to grant permissions. Separate dictionaries with commas (,).
      *
+     * This parameter is required.
      * @example dt1
      *
      * @var string
@@ -38,6 +41,7 @@ class ModifyAccountAuthorityRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -50,6 +54,7 @@ class ModifyAccountAuthorityRequest extends Model
      *   **true**: grants DDL permissions to the database account.
      *   **false**: does not grant DDL permissions to the database account.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -62,6 +67,7 @@ class ModifyAccountAuthorityRequest extends Model
      *   **all**
      *   **readonly,modify**
      *
+     * This parameter is required.
      * @example all
      *
      * @var string
@@ -79,7 +85,7 @@ class ModifyAccountAuthorityRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

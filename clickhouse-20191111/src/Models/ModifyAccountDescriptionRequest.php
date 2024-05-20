@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountDescriptionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ceshi
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string

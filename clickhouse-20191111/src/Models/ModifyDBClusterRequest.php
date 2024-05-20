@@ -29,6 +29,7 @@ class ModifyDBClusterRequest extends Model
      *   **C64**
      *   **C104**
      *
+     * This parameter is required.
      * @example S4-NEW
      *
      * @var string
@@ -50,6 +51,7 @@ class ModifyDBClusterRequest extends Model
      *   If the cluster is of Single-replica Edition, the value must be an integer that ranges from 1 to 48.
      *   If the cluster is of Double-replica Edition, the value must be an integer that ranges from 1 to 24.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -59,7 +61,7 @@ class ModifyDBClusterRequest extends Model
     /**
      * @description The storage capacity of a single node of the cluster. Unit: GB.
      *
-     * >  This value is a multiple of 100.
+     * This parameter is required.
      * @example 100
      *
      * @var string
@@ -82,8 +84,9 @@ class ModifyDBClusterRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

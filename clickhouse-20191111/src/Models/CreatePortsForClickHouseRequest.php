@@ -11,6 +11,7 @@ class CreatePortsForClickHouseRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -30,6 +31,7 @@ class CreatePortsForClickHouseRequest extends Model
     /**
      * @description The port type. Set the value to mysql_port.
      *
+     * This parameter is required.
      * @example mysql_port
      *
      * @var string
@@ -37,7 +39,7 @@ class CreatePortsForClickHouseRequest extends Model
     public $portType;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

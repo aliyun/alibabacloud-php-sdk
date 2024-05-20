@@ -11,6 +11,7 @@ class DescribeSynDbTablesRequest extends Model
     /**
      * @description The ID of the ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example cc-bp158i5wvj436****
      *
      * @var string
@@ -40,6 +41,7 @@ class DescribeSynDbTablesRequest extends Model
     /**
      * @description The name of the ApsaraDB RDS for MySQL instance.
      *
+     * This parameter is required.
      * @example database
      *
      * @var string

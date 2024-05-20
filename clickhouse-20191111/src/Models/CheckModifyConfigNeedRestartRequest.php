@@ -11,6 +11,7 @@ class CheckModifyConfigNeedRestartRequest extends Model
     /**
      * @description The configuration parameters whose settings are modified.
      *
+     * This parameter is required.
      * @example <?xml version="1.0"?>
      * </yandex>
      * @var string
@@ -18,8 +19,9 @@ class CheckModifyConfigNeedRestartRequest extends Model
     public $config;
 
     /**
-     * @description The cluster ID. You can call the [DescribeDBClusters](~~170879~~) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+     * @description The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
      *
+     * This parameter is required.
      * @example cc-bp1tm8zf130ew****
      *
      * @var string

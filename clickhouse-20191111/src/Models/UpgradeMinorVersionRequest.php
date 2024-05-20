@@ -11,6 +11,7 @@ class UpgradeMinorVersionRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -44,6 +45,8 @@ class UpgradeMinorVersionRequest extends Model
      *   **false**: updates the minor engine version of the ApsaraDB for ClickHouse cluster at the specified time or within the specified maintenance window.
      *
      * >  If you want to update the minor engine version of the ApsaraDB for ClickHouse cluster at the specified time, **UpgradeTime** is required.
+     *
+     * This parameter is required.
      * @example false
      *
      * @var bool

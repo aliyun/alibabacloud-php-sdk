@@ -20,6 +20,7 @@ class CreateBackupPolicyRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -47,6 +48,7 @@ class CreateBackupPolicyRequest extends Model
      *   **Saturday**
      *   **Sunday**
      *
+     * This parameter is required.
      * @example Monday,Friday
      *
      * @var string
@@ -56,7 +58,7 @@ class CreateBackupPolicyRequest extends Model
     /**
      * @description The backup window. Specify the time in the ISO 8601 standard in the HH:mmZ-HH:mmZ format. The time must be in Coordinated Universal Time (UTC).
      *
-     * For example, if you set the backup window to 00:00Z-01:00Z, the data of the cluster can be backed up from 08:00 (UTC+8) to 09:00 (UTC+8).
+     * This parameter is required.
      * @example 10:00Z-11:00Z
      *
      * @var string
@@ -64,7 +66,7 @@ class CreateBackupPolicyRequest extends Model
     public $preferredBackupTime;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

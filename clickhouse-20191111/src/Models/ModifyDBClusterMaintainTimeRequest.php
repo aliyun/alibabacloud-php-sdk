@@ -11,6 +11,7 @@ class ModifyDBClusterMaintainTimeRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -20,7 +21,7 @@ class ModifyDBClusterMaintainTimeRequest extends Model
     /**
      * @description The maintenance window of the cluster. Specify the time in the HH:mmZ-HH:mmZ format. The time must be in Coordinated Universal Time (UTC).
      *
-     * >  You can set the start time and end time of the maintenance window to the time on the hour, and the maintenance window is 1 hour.
+     * This parameter is required.
      * @example 00:00Z-01:00Z
      *
      * @var string

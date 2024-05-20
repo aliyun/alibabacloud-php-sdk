@@ -11,6 +11,7 @@ class DescribeSynDbsRequest extends Model
     /**
      * @description The ID of the ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example cc-bp1ab22b80814****
      *
      * @var string

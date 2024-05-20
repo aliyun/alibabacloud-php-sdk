@@ -9,12 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal.
+     *
+     * >  This parameter is valid only if the value of PayType is set to Prepaid.
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackups](~~360339~~) operation to query the backup sets.
+     * @description The ID of the backup set. You can call the [DescribeBackups](https://help.aliyun.com/document_detail/360339.html) operation to query the backup sets.
      *
      * >  If you want to restore the data of an ApsaraDB for ClickHouse cluster, this parameter is required.
      * @example b-12af23adsf
@@ -38,6 +43,7 @@ class CreateDBInstanceRequest extends Model
      *   **Basic**: Single-replica Edition
      *   **HighAvailability**: Double-replica Edition
      *
+     * This parameter is required.
      * @example Basic
      *
      * @var string
@@ -47,14 +53,25 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The specifications of the cluster.
      *
-     *   Valid values when the cluster is of Single-replica Edition: -**S4**: 4 CPU cores and 16 GB of memory -**S8**: 8 CPU cores and 32 GB of memory -**S16**: 16 CPU cores and 64 GB of memory
+     *   Valid values when the cluster is of Single-replica Edition:
      *
+     * - **S4**: 4 CPU cores and 16 GB of memory
+     * - **S8**: 8 CPU cores and 32 GB of memory
+     * -  **S16**: 16 CPU cores and 64 GB of memory
      *   **S32**: 32 CPU cores and 128 GB of memory
      *   **S64**: 64 CPU cores and 256 GB of memory
      *   **S104**: 104 CPU cores and 384 GB of memory
      *
-     *   Valid values when the cluster is of Double-replica Edition: -**C4**: 4 CPU cores and 16 GB of memory -**C8**: 8 CPU cores and 32 GB of memory -**C16**: 16 CPU cores and 64 GB of memory -**C32**: 32 CPU cores and 128 GB of memory -**C64**: 64 CPU cores and 256 GB of memory -**C104**: 104 CPU cores and 384 GB of memory
+     *   Valid values when the cluster is of Double-replica Edition:
      *
+     * - **C4**: 4 CPU cores and 16 GB of memory
+     * - **C8**: 8 CPU cores and 32 GB of memory
+     * - **C16**: 16 CPU cores and 64 GB of memory
+     * - **C32**: 32 CPU cores and 128 GB of memory
+     * - **C64**: 64 CPU cores and 256 GB of memory
+     * - **C104**: 104 CPU cores and 384 GB of memory
+     *
+     * This parameter is required.
      * @example S8
      *
      * @var string
@@ -73,6 +90,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The network type of the cluster. Only Virtual Private Cloud (VPC) is supported.
      *
+     * This parameter is required.
      * @example VPC
      *
      * @var string
@@ -85,7 +103,8 @@ class CreateDBInstanceRequest extends Model
      *   **21.8.10.19**
      *   **22.8.5.29**
      *
-     * @example 20.8.7.15
+     * This parameter is required.
+     * @example 21.8.10.19
      *
      * @var string
      */
@@ -97,6 +116,7 @@ class CreateDBInstanceRequest extends Model
      *   Valid values when the cluster is of Single-replica Edition: 1 to 48.
      *   Valid values when the cluster is of Double-replica Edition: 1 to 24.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -106,7 +126,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The storage capacity of a single node. Valid values: 100 to 32000. Unit: GB.
      *
-     * >  This value is a multiple of 100.
+     * This parameter is required.
      * @example 100
      *
      * @var string
@@ -116,11 +136,12 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The storage type of the cluster. Valid values:
      *
-     *   **CloudESSD_PL1**: The cluster uses an enhanced SSD (ESSD) of performance level (PL) 1.
+     *   **CloudESSD**: The cluster uses an enhanced SSD (ESSD) of performance level 1 (PL1).
      *   **CloudESSD_PL2**: The cluster uses an ESSD of PL2.
      *   **CloudESSD_PL3**: The cluster uses an ESSD of PL3.
      *   **CloudEfficiency**: The cluster uses an ultra disk.
      *
+     * This parameter is required.
      * @example CloudESSD_PL2
      *
      * @var string
@@ -163,6 +184,7 @@ class CreateDBInstanceRequest extends Model
      *   **Postpaid**: The cluster uses the pay-as-you-go billing method.
      *   **Prepaid**: The cluster uses the subscription billing method.
      *
+     * This parameter is required.
      * @example Prepaid
      *
      * @var string
@@ -184,8 +206,9 @@ class CreateDBInstanceRequest extends Model
     public $period;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -212,7 +235,7 @@ class CreateDBInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the source cluster. You can call the [DescribeDBClusters](~~170879~~) operation to query backup set IDs.
+     * @description The ID of the source cluster. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query backup set IDs.
      *
      * >  If you want to restore the data of an ApsaraDB for ClickHouse cluster, this parameter is required.
      * @example cc-bp1lxbo89u950****
@@ -238,6 +261,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The VPC ID.
      *
+     * This parameter is required.
      * @example vpc-bp175iuvg8nxqraf2****
      *
      * @var string
@@ -245,7 +269,7 @@ class CreateDBInstanceRequest extends Model
     public $VPCId;
 
     /**
-     * @description 备专有网络交换机
+     * @description The vSwitch in the secondary zone for the VPC.
      *
      * @example vsw-bp1gzt31twhlo0sa5****
      *
@@ -254,7 +278,7 @@ class CreateDBInstanceRequest extends Model
     public $vSwitchBak;
 
     /**
-     * @description 备专有网络交换机2
+     * @description The vSwitch in secondary zone 2 for the VPC.
      *
      * @example vsw-bp1gzt31twhlo0sa5****
      *
@@ -265,6 +289,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The vSwitch ID.
      *
+     * This parameter is required.
      * @example vsw-bp1gzt31twhlo0sa5****
      *
      * @var string
@@ -272,6 +297,8 @@ class CreateDBInstanceRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description Secondary zone 2.
+     *
      * @example cn-hangzhou-j
      *
      * @var string
@@ -279,7 +306,7 @@ class CreateDBInstanceRequest extends Model
     public $zondIdBak2;
 
     /**
-     * @description The zone ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent zone list.
+     * @description The zone ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-h
      *
@@ -288,6 +315,8 @@ class CreateDBInstanceRequest extends Model
     public $zoneId;
 
     /**
+     * @description The secondary zone.
+     *
      * @example cn-hangzhou-k
      *
      * @var string

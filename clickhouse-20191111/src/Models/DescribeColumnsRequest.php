@@ -11,6 +11,7 @@ class DescribeColumnsRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-2zeux3ua25242****
      *
      * @var string
@@ -38,8 +39,9 @@ class DescribeColumnsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The database name. You can call the [DescribeSchemas](~~350931~~) operation to query database names.
+     * @description The database name. You can call the [DescribeSchemas](https://help.aliyun.com/document_detail/350931.html) operation to query database names.
      *
+     * This parameter is required.
      * @example database
      *
      * @var string
@@ -47,8 +49,9 @@ class DescribeColumnsRequest extends Model
     public $schemaName;
 
     /**
-     * @description The table name. You can call the [DescribeTables](~~350932~~) operation to query table names.
+     * @description The table name. You can call the [DescribeTables](https://help.aliyun.com/document_detail/350932.html) operation to query table names.
      *
+     * This parameter is required.
      * @example table
      *
      * @var string

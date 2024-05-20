@@ -11,6 +11,7 @@ class TransferVersionRequest extends Model
     /**
      * @description The ID of the source ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example cc-bp1tm8zf130ew****
      *
      * @var string
@@ -50,8 +51,9 @@ class TransferVersionRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -71,6 +73,7 @@ class TransferVersionRequest extends Model
     /**
      * @description The database account that is used to log on to the database in the source ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -80,6 +83,7 @@ class TransferVersionRequest extends Model
     /**
      * @description The password that corresponds to the database account for logging on to the database in the source ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example 123456Aa
      *
      * @var string
@@ -89,6 +93,7 @@ class TransferVersionRequest extends Model
     /**
      * @description The database account that is used to log on to the database in the destination ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example test01
      *
      * @var string
@@ -98,6 +103,7 @@ class TransferVersionRequest extends Model
     /**
      * @description The ID of the destination ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example cc-bp14b39djx7zg****
      *
      * @var string
@@ -107,6 +113,7 @@ class TransferVersionRequest extends Model
     /**
      * @description The password that corresponds to the database account for logging on to the database in the destination ApsaraDB for ClickHouse cluster.
      *
+     * This parameter is required.
      * @example 123456Ff
      *
      * @var string

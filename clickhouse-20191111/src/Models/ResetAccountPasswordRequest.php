@@ -11,6 +11,7 @@ class ResetAccountPasswordRequest extends Model
     /**
      * @description The name of the database account.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -24,9 +25,10 @@ class ResetAccountPasswordRequest extends Model
      *
      *   The password must contain at least three types of the following characters: uppercase letters, lowercase letters, digits, and special characters.
      *
-     *   The password can contain the following special characters: ! @ # $ % ^ & \* ( ) \_ + - =
+     *   The password can contain the following special characters: ! @ # $ % ^ & \\* ( ) _ + - =
      *   The password must be 8 to 32 characters in length.
      *
+     * This parameter is required.
      * @example 123456Ff
      *
      * @var string
@@ -36,6 +38,7 @@ class ResetAccountPasswordRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp108z124a8o7****
      *
      * @var string

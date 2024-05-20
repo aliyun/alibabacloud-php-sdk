@@ -20,7 +20,7 @@ class resultSet extends Model
     /**
      * @description The query ID.
      *
-     * @example \"b51496f2-6b0b-4546-aff9-e17951cb9410\"
+     * @example \\"b51496f2-6b0b-4546-aff9-e17951cb9410\\"
      *
      * @var string
      */

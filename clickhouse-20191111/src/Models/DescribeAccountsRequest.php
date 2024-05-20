@@ -16,6 +16,8 @@ class DescribeAccountsRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc-bp108z124a8o7****
      *
      * @var string

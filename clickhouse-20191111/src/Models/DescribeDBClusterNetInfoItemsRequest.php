@@ -11,6 +11,7 @@ class DescribeDBClusterNetInfoItemsRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp1qx68m06981****
      *
      * @var string

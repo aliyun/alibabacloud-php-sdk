@@ -23,6 +23,8 @@ class ModifyDBClusterAccessWhiteListRequest extends Model
     public $DBClusterIPArrayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cc-bp1qx68m06981****
      *
      * @var string
@@ -57,6 +59,8 @@ class ModifyDBClusterAccessWhiteListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 192.168.xx.xx
      *
      * @var string

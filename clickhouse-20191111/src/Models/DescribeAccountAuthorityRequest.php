@@ -20,6 +20,7 @@ class DescribeAccountAuthorityRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp1p816075e21****
      *
      * @var string
@@ -37,7 +38,7 @@ class DescribeAccountAuthorityRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

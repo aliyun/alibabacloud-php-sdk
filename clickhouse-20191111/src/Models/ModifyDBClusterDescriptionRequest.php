@@ -14,6 +14,7 @@ class ModifyDBClusterDescriptionRequest extends Model
      *   The cluster name cannot start with http:// or https://.
      *   The cluster name must be 2 to 256 characters in length.
      *
+     * This parameter is required.
      * @example ClusterDescriptionTest
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyDBClusterDescriptionRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp108z124a8o7****
      *
      * @var string

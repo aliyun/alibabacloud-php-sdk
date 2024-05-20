@@ -11,6 +11,7 @@ class DeleteSyndbRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp158i5wvj436****
      *
      * @var string
@@ -40,6 +41,7 @@ class DeleteSyndbRequest extends Model
     /**
      * @description The name of the database in the ApsaraDB RDS for MySQL instance. The database is used for data synchronization.
      *
+     * This parameter is required.
      * @example database
      *
      * @var string

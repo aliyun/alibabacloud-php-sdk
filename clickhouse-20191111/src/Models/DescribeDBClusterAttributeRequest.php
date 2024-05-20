@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAttributeRequest extends Model
 {
     /**
-     * @description The cluster ID. You can call the [DescribeDBClusters](~~170879~~) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+     * @description The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
      *
+     * This parameter is required.
      * @example cc-bp108z124a8o7****
      *
      * @var string

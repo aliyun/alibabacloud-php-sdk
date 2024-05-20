@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsRequest extends Model
 {
     /**
-     * @description The cluster ID. You can call the [DescribeDBClusters](~~170879~~) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+     * @description The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
      *
+     * This parameter is required.
      * @example cc-bp1z58t881wcx****
      *
      * @var string
@@ -20,7 +21,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd hh:mm:ss format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time. The specified time range that can be specified must be less than seven days.
+     * This parameter is required.
      * @example 2022-05-27 16:00:00
      *
      * @var string
@@ -69,7 +70,7 @@ class DescribeSlowLogRecordsRequest extends Model
     public $queryDurationMs;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -90,6 +91,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-dd hh:mm:ss format. The time must be in Coordinated Universal Time (UTC).
      *
+     * This parameter is required.
      * @example 2022-05-20 16:00:00
      *
      * @var string

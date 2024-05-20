@@ -11,6 +11,7 @@ class DescribeTablesRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -40,6 +41,7 @@ class DescribeTablesRequest extends Model
     /**
      * @description The database name.
      *
+     * This parameter is required.
      * @example database
      *
      * @var string

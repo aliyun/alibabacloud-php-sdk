@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterConfigInXMLRequest extends Model
 {
     /**
-     * @description The configuration parameters whose settings you want to modify. You can call the [DescribeDBClusterConfigInXML](~~452210~~) operation to query configuration parameters, and modify the settings of the returned configuration parameters.
+     * @description The configuration parameters whose settings you want to modify. You can call the [DescribeDBClusterConfigInXML](https://help.aliyun.com/document_detail/452210.html) operation to query configuration parameters, and modify the settings of the returned configuration parameters.
      *
-     * > You must specify all configuration parameters even when you want to modify the setting of a single parameter. If a configuration parameter is not specified, the original value of this parameter is retained or the modification fails.
+     * This parameter is required.
      * @example <?xml version="1.0"?>
      * </yandex>
      * @var string
@@ -19,8 +19,9 @@ class ModifyDBClusterConfigInXMLRequest extends Model
     public $config;
 
     /**
-     * @description The cluster ID. You can call the [DescribeDBClusters](~~170879~~) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
+     * @description The cluster ID. You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/170879.html) operation to query information about all the clusters that are deployed in a specific region. The information includes the cluster IDs.
      *
+     * This parameter is required.
      * @example cc-bp108z124a8o7****
      *
      * @var string
@@ -37,7 +38,7 @@ class ModifyDBClusterConfigInXMLRequest extends Model
     public $reason;
 
     /**
-     * @description The region ID of the cluster. You can call the [DescribeRegions](~~170875~~) operation to query the most recent region list.
+     * @description The region ID of the cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/170875.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
