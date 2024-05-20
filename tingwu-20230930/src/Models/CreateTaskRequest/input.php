@@ -28,6 +28,11 @@ class input extends Model
     public $multipleStreamsEnabled;
 
     /**
+     * @var string
+     */
+    public $outputPath;
+
+    /**
      * @var bool
      */
     public $progressiveCallbacksEnabled;
@@ -63,6 +68,7 @@ class input extends Model
         'fileUrl'                     => 'FileUrl',
         'format'                      => 'Format',
         'multipleStreamsEnabled'      => 'MultipleStreamsEnabled',
+        'outputPath'                  => 'OutputPath',
         'progressiveCallbacksEnabled' => 'ProgressiveCallbacksEnabled',
         'sampleRate'                  => 'SampleRate',
         'sourceLanguage'              => 'SourceLanguage',
@@ -85,6 +91,9 @@ class input extends Model
         }
         if (null !== $this->multipleStreamsEnabled) {
             $res['MultipleStreamsEnabled'] = $this->multipleStreamsEnabled;
+        }
+        if (null !== $this->outputPath) {
+            $res['OutputPath'] = $this->outputPath;
         }
         if (null !== $this->progressiveCallbacksEnabled) {
             $res['ProgressiveCallbacksEnabled'] = $this->progressiveCallbacksEnabled;
@@ -121,6 +130,9 @@ class input extends Model
         }
         if (isset($map['MultipleStreamsEnabled'])) {
             $model->multipleStreamsEnabled = $map['MultipleStreamsEnabled'];
+        }
+        if (isset($map['OutputPath'])) {
+            $model->outputPath = $map['OutputPath'];
         }
         if (isset($map['ProgressiveCallbacksEnabled'])) {
             $model->progressiveCallbacksEnabled = $map['ProgressiveCallbacksEnabled'];
