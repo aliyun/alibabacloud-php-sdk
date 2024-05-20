@@ -13,6 +13,12 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsShrinkRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspaceQueuesRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspaceQueuesResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -256,6 +262,182 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->listJobRunsWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取发布版本列表
+     *  *
+     * @param ListReleaseVersionsRequest $request ListReleaseVersionsRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListReleaseVersionsResponse ListReleaseVersionsResponse
+     */
+    public function listReleaseVersionsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->releaseType)) {
+            $query['releaseType'] = $request->releaseType;
+        }
+        if (!Utils::isUnset($request->releaseVersion)) {
+            $query['releaseVersion'] = $request->releaseVersion;
+        }
+        if (!Utils::isUnset($request->releaseVersionStatus)) {
+            $query['releaseVersionStatus'] = $request->releaseVersionStatus;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListReleaseVersions',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/releaseVersions',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListReleaseVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取发布版本列表
+     *  *
+     * @param ListReleaseVersionsRequest $request ListReleaseVersionsRequest
+     *
+     * @return ListReleaseVersionsResponse ListReleaseVersionsResponse
+     */
+    public function listReleaseVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listReleaseVersionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看工作空间队列列表
+     *  *
+     * @param string                     $workspaceId
+     * @param ListWorkspaceQueuesRequest $request     ListWorkspaceQueuesRequest
+     * @param string[]                   $headers     map
+     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListWorkspaceQueuesResponse ListWorkspaceQueuesResponse
+     */
+    public function listWorkspaceQueuesWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->environment)) {
+            $query['environment'] = $request->environment;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkspaceQueues',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/workspaces/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/queues',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWorkspaceQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看工作空间队列列表
+     *  *
+     * @param string                     $workspaceId
+     * @param ListWorkspaceQueuesRequest $request     ListWorkspaceQueuesRequest
+     *
+     * @return ListWorkspaceQueuesResponse ListWorkspaceQueuesResponse
+     */
+    public function listWorkspaceQueues($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkspaceQueuesWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看工作空间列表
+     *  *
+     * @param ListWorkspacesRequest $request ListWorkspacesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListWorkspacesResponse ListWorkspacesResponse
+     */
+    public function listWorkspacesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['state'] = $request->state;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkspaces',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/workspaces',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看工作空间列表
+     *  *
+     * @param ListWorkspacesRequest $request ListWorkspacesRequest
+     *
+     * @return ListWorkspacesResponse ListWorkspacesResponse
+     */
+    public function listWorkspaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkspacesWithOptions($request, $headers, $runtime);
     }
 
     /**
