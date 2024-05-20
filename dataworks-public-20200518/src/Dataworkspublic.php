@@ -157,6 +157,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeployFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DesensitizeDataResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanAddOrUpdateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanAddOrUpdateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanAddOrUpdateShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanDeleteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanDeleteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgDesensPlanDeleteShrinkRequest;
@@ -177,6 +180,11 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgRunSensIdentifyShrinkRe
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneAddOrUpdateSceneRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneAddOrUpdateSceneResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneAddOrUpdateSceneShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgScenedDeleteSceneRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgScenedDeleteSceneResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgScenedDeleteSceneShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneQuerySceneListByNameRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgSceneQuerySceneListByNameResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgStopSensIdentifyRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgStopSensIdentifyResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupAddOrUpdateRequest;
@@ -190,6 +198,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupGetOdpsRoleGro
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupQueryListRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupQueryListResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgUserGroupQueryUserListResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgWhiteListAddOrUpdateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgWhiteListAddOrUpdateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgWhiteListAddOrUpdateShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgWhiteListDeleteListRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgWhiteListDeleteListResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgWhiteListDeleteListShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgWhiteListQueryListRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DsgWhiteListQueryListResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\EditRecognizeRuleRequest;
@@ -5338,6 +5352,58 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 新增或编辑脱敏规则
+     *  *
+     * @param DsgDesensPlanAddOrUpdateRequest $tmpReq  DsgDesensPlanAddOrUpdateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgDesensPlanAddOrUpdateResponse DsgDesensPlanAddOrUpdateResponse
+     */
+    public function dsgDesensPlanAddOrUpdateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DsgDesensPlanAddOrUpdateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->desensRules)) {
+            $request->desensRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->desensRules, 'DesensRules', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->desensRulesShrink)) {
+            $query['DesensRules'] = $request->desensRulesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgDesensPlanAddOrUpdate',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgDesensPlanAddOrUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新增或编辑脱敏规则
+     *  *
+     * @param DsgDesensPlanAddOrUpdateRequest $request DsgDesensPlanAddOrUpdateRequest
+     *
+     * @return DsgDesensPlanAddOrUpdateResponse DsgDesensPlanAddOrUpdateResponse
+     */
+    public function dsgDesensPlanAddOrUpdate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgDesensPlanAddOrUpdateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 删除脱敏规则
      *  *
      * @param DsgDesensPlanDeleteRequest $tmpReq  DsgDesensPlanDeleteRequest
@@ -5775,6 +5841,102 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 查询场景列表
+     *  *
+     * @param DsgSceneQuerySceneListByNameRequest $request DsgSceneQuerySceneListByNameRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgSceneQuerySceneListByNameResponse DsgSceneQuerySceneListByNameResponse
+     */
+    public function dsgSceneQuerySceneListByNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgSceneQuerySceneListByName',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgSceneQuerySceneListByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询场景列表
+     *  *
+     * @param DsgSceneQuerySceneListByNameRequest $request DsgSceneQuerySceneListByNameRequest
+     *
+     * @return DsgSceneQuerySceneListByNameResponse DsgSceneQuerySceneListByNameResponse
+     */
+    public function dsgSceneQuerySceneListByName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgSceneQuerySceneListByNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除二级场景
+     *  *
+     * @param DsgScenedDeleteSceneRequest $tmpReq  DsgScenedDeleteSceneRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgScenedDeleteSceneResponse DsgScenedDeleteSceneResponse
+     */
+    public function dsgScenedDeleteSceneWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DsgScenedDeleteSceneShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->idsShrink)) {
+            $query['Ids'] = $request->idsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgScenedDeleteScene',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgScenedDeleteSceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除二级场景
+     *  *
+     * @param DsgScenedDeleteSceneRequest $request DsgScenedDeleteSceneRequest
+     *
+     * @return DsgScenedDeleteSceneResponse DsgScenedDeleteSceneResponse
+     */
+    public function dsgScenedDeleteScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgScenedDeleteSceneWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 识别任务停止
      *  *
      * @param DsgStopSensIdentifyRequest $request DsgStopSensIdentifyRequest
@@ -6047,6 +6209,110 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dsgUserGroupQueryUserListWithOptions($runtime);
+    }
+
+    /**
+     * @summary 新增或编辑脱敏白名单
+     *  *
+     * @param DsgWhiteListAddOrUpdateRequest $tmpReq  DsgWhiteListAddOrUpdateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgWhiteListAddOrUpdateResponse DsgWhiteListAddOrUpdateResponse
+     */
+    public function dsgWhiteListAddOrUpdateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DsgWhiteListAddOrUpdateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->whiteLists)) {
+            $request->whiteListsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->whiteLists, 'WhiteLists', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->whiteListsShrink)) {
+            $query['WhiteLists'] = $request->whiteListsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgWhiteListAddOrUpdate',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgWhiteListAddOrUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新增或编辑脱敏白名单
+     *  *
+     * @param DsgWhiteListAddOrUpdateRequest $request DsgWhiteListAddOrUpdateRequest
+     *
+     * @return DsgWhiteListAddOrUpdateResponse DsgWhiteListAddOrUpdateResponse
+     */
+    public function dsgWhiteListAddOrUpdate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgWhiteListAddOrUpdateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除脱敏白名单
+     *  *
+     * @param DsgWhiteListDeleteListRequest $tmpReq  DsgWhiteListDeleteListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DsgWhiteListDeleteListResponse DsgWhiteListDeleteListResponse
+     */
+    public function dsgWhiteListDeleteListWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DsgWhiteListDeleteListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->idsShrink)) {
+            $query['Ids'] = $request->idsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DsgWhiteListDeleteList',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DsgWhiteListDeleteListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除脱敏白名单
+     *  *
+     * @param DsgWhiteListDeleteListRequest $request DsgWhiteListDeleteListRequest
+     *
+     * @return DsgWhiteListDeleteListResponse DsgWhiteListDeleteListResponse
+     */
+    public function dsgWhiteListDeleteList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->dsgWhiteListDeleteListWithOptions($request, $runtime);
     }
 
     /**
