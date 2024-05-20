@@ -14,6 +14,10 @@ class CreateAdaptationShrinkRequest extends Model
     public $adaptTargetShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1432****
+     *
      * @var string
      */
     public $appVersionId;

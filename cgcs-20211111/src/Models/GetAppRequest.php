@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetAppRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 4384****
+     *
      * @var string
      */
     public $appId;

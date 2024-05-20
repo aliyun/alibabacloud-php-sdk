@@ -4,40 +4,55 @@
 
 namespace AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppSessionsResponseBody;
 
+use AlibabaCloud\SDK\CGCS\V20211111\Models\ListAppSessionsResponseBody\appSessions\bizInfo;
 use AlibabaCloud\Tea\Model;
 
 class appSessions extends Model
 {
     /**
-     * @description 应用id
+     * @example 13027XXXX
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 应用版本
+     * @example 35067XXXX
      *
      * @var string
      */
     public $appVersion;
 
     /**
-     * @description 自定义会话id
+     * @description 业务特定的信息，如会话启动/停止时间。
+     *
+     * @var bizInfo
+     */
+    public $bizInfo;
+
+    /**
+     * @example 1ADE0XXXX
      *
      * @var string
      */
     public $customSessionId;
 
     /**
-     * @description 平台会话id
+     * @example 100XXXX
      *
      * @var string
      */
     public $platformSessionId;
 
     /**
-     * @description 状态
+     * @example d9a8****
+     *
+     * @var string
+     */
+    public $projectId;
+
+    /**
+     * @example running
      *
      * @var string
      */
@@ -45,8 +60,10 @@ class appSessions extends Model
     protected $_name = [
         'appId'             => 'AppId',
         'appVersion'        => 'AppVersion',
+        'bizInfo'           => 'BizInfo',
         'customSessionId'   => 'CustomSessionId',
         'platformSessionId' => 'PlatformSessionId',
+        'projectId'         => 'ProjectId',
         'status'            => 'Status',
     ];
 
@@ -63,11 +80,17 @@ class appSessions extends Model
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
         }
+        if (null !== $this->bizInfo) {
+            $res['BizInfo'] = null !== $this->bizInfo ? $this->bizInfo->toMap() : null;
+        }
         if (null !== $this->customSessionId) {
             $res['CustomSessionId'] = $this->customSessionId;
         }
         if (null !== $this->platformSessionId) {
             $res['PlatformSessionId'] = $this->platformSessionId;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -90,11 +113,17 @@ class appSessions extends Model
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
         }
+        if (isset($map['BizInfo'])) {
+            $model->bizInfo = bizInfo::fromMap($map['BizInfo']);
+        }
         if (isset($map['CustomSessionId'])) {
             $model->customSessionId = $map['CustomSessionId'];
         }
         if (isset($map['PlatformSessionId'])) {
             $model->platformSessionId = $map['PlatformSessionId'];
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

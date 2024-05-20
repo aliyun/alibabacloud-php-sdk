@@ -1,3 +1,8 @@
+2024-05-20 Version: 2.2.3
+- Update API CreateAppSession: update response param.
+- Update API CreateAppSessionBatch: update response param.
+
+
 2022-06-30 Version: 2.2.2
 - App manage open api.
 

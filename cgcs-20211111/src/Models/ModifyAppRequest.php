@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 4384****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example example
+     *
      * @var string
      */
     public $appName;

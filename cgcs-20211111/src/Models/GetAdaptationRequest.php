@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetAdaptationRequest extends Model
 {
     /**
+     * @example 1432****
+     *
      * @var int
      */
     public $adaptApplyId;
 
     /**
+     * @example 5435****
+     *
      * @var string
      */
     public $appVersionId;

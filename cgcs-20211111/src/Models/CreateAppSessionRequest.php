@@ -4,100 +4,112 @@
 
 namespace AlibabaCloud\SDK\CGCS\V20211111\Models;
 
-use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest\resultStore;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest\startParameters;
-use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest\startParametersV2;
 use AlibabaCloud\SDK\CGCS\V20211111\Models\CreateAppSessionRequest\systemInfo;
 use AlibabaCloud\Tea\Model;
 
 class CreateAppSessionRequest extends Model
 {
     /**
-     * @description 应用ID
+     * @description 适配文件ID。此功能灰度开放，如未约定使用请勿传入。
+     *
+     * @example 501716211209548966XXXX
+     *
+     * @var string
+     */
+    public $adapterFileId;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 13027XXXX
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 应用版本
+     * @example 35067XXXX
      *
      * @var string
      */
     public $appVersion;
 
     /**
-     * @description 客户端ip
+     * @example 192.168.XXX.XXX
      *
      * @var string
      */
     public $clientIp;
 
     /**
-     * @description 自定义会话id
+     * @description This parameter is required.
+     *
+     * @example 1ADE0XXXX
      *
      * @var string
      */
     public $customSessionId;
 
     /**
-     * @description 自定义用户id
+     * @example 2YEF0XXXX
      *
      * @var string
      */
     public $customUserId;
 
     /**
+     * @example huadong
+     *
      * @var string
      */
-    public $datasetId;
+    public $districtId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enablePostpaid;
 
     /**
-     * @var resultStore
+     * @description 项目ID。如果已将应用关联到项目，创建会话时需填写正确的项目ID。
+     *
+     * @example d9a8****
+     *
+     * @var string
      */
-    public $resultStore;
+    public $projectId;
 
     /**
-     * @description 启动参数
-     *
      * @var startParameters[]
      */
     public $startParameters;
 
     /**
-     * @var startParametersV2[]
-     */
-    public $startParametersV2;
-
-    /**
-     * @description 系统信息：如端侧机型等信息
-     *
      * @var systemInfo[]
      */
     public $systemInfo;
 
     /**
+     * @example 1800
+     *
      * @var int
      */
     public $timeout;
     protected $_name = [
-        'appId'             => 'AppId',
-        'appVersion'        => 'AppVersion',
-        'clientIp'          => 'ClientIp',
-        'customSessionId'   => 'CustomSessionId',
-        'customUserId'      => 'CustomUserId',
-        'datasetId'         => 'DatasetId',
-        'enablePostpaid'    => 'EnablePostpaid',
-        'resultStore'       => 'ResultStore',
-        'startParameters'   => 'StartParameters',
-        'startParametersV2' => 'StartParametersV2',
-        'systemInfo'        => 'SystemInfo',
-        'timeout'           => 'Timeout',
+        'adapterFileId'   => 'AdapterFileId',
+        'appId'           => 'AppId',
+        'appVersion'      => 'AppVersion',
+        'clientIp'        => 'ClientIp',
+        'customSessionId' => 'CustomSessionId',
+        'customUserId'    => 'CustomUserId',
+        'districtId'      => 'DistrictId',
+        'enablePostpaid'  => 'EnablePostpaid',
+        'projectId'       => 'ProjectId',
+        'startParameters' => 'StartParameters',
+        'systemInfo'      => 'SystemInfo',
+        'timeout'         => 'Timeout',
     ];
 
     public function validate()
@@ -107,6 +119,9 @@ class CreateAppSessionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adapterFileId) {
+            $res['AdapterFileId'] = $this->adapterFileId;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -122,14 +137,14 @@ class CreateAppSessionRequest extends Model
         if (null !== $this->customUserId) {
             $res['CustomUserId'] = $this->customUserId;
         }
-        if (null !== $this->datasetId) {
-            $res['DatasetId'] = $this->datasetId;
+        if (null !== $this->districtId) {
+            $res['DistrictId'] = $this->districtId;
         }
         if (null !== $this->enablePostpaid) {
             $res['EnablePostpaid'] = $this->enablePostpaid;
         }
-        if (null !== $this->resultStore) {
-            $res['ResultStore'] = null !== $this->resultStore ? $this->resultStore->toMap() : null;
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
         if (null !== $this->startParameters) {
             $res['StartParameters'] = [];
@@ -137,15 +152,6 @@ class CreateAppSessionRequest extends Model
                 $n = 0;
                 foreach ($this->startParameters as $item) {
                     $res['StartParameters'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->startParametersV2) {
-            $res['StartParametersV2'] = [];
-            if (null !== $this->startParametersV2 && \is_array($this->startParametersV2)) {
-                $n = 0;
-                foreach ($this->startParametersV2 as $item) {
-                    $res['StartParametersV2'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -173,6 +179,9 @@ class CreateAppSessionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdapterFileId'])) {
+            $model->adapterFileId = $map['AdapterFileId'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
@@ -188,14 +197,14 @@ class CreateAppSessionRequest extends Model
         if (isset($map['CustomUserId'])) {
             $model->customUserId = $map['CustomUserId'];
         }
-        if (isset($map['DatasetId'])) {
-            $model->datasetId = $map['DatasetId'];
+        if (isset($map['DistrictId'])) {
+            $model->districtId = $map['DistrictId'];
         }
         if (isset($map['EnablePostpaid'])) {
             $model->enablePostpaid = $map['EnablePostpaid'];
         }
-        if (isset($map['ResultStore'])) {
-            $model->resultStore = resultStore::fromMap($map['ResultStore']);
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
         if (isset($map['StartParameters'])) {
             if (!empty($map['StartParameters'])) {
@@ -203,15 +212,6 @@ class CreateAppSessionRequest extends Model
                 $n                      = 0;
                 foreach ($map['StartParameters'] as $item) {
                     $model->startParameters[$n++] = null !== $item ? startParameters::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['StartParametersV2'])) {
-            if (!empty($map['StartParametersV2'])) {
-                $model->startParametersV2 = [];
-                $n                        = 0;
-                foreach ($map['StartParametersV2'] as $item) {
-                    $model->startParametersV2[$n++] = null !== $item ? startParametersV2::fromMap($item) : $item;
                 }
             }
         }

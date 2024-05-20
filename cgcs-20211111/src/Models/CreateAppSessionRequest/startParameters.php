@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class startParameters extends Model
 {
     /**
-     * @description key
+     * @example startArgument
      *
      * @var string
      */
     public $key;
 
     /**
+     * @example exampleValue
+     *
      * @var string
      */
     public $value;

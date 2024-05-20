@@ -4,47 +4,55 @@
 
 namespace AlibabaCloud\SDK\CGCS\V20211111\Models;
 
+use AlibabaCloud\SDK\CGCS\V20211111\Models\GetAppSessionResponseBody\bizInfo;
 use AlibabaCloud\Tea\Model;
 
 class GetAppSessionResponseBody extends Model
 {
     /**
-     * @description 应用id
+     * @example 13027XXXX
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 应用版本
+     * @example 35067XXXX
      *
      * @var string
      */
     public $appVersion;
 
     /**
-     * @description 自定义会话id
+     * @description 业务特定的信息，如会话启动/停止时间。
+     *
+     * @var bizInfo
+     */
+    public $bizInfo;
+
+    /**
+     * @example 1ADE0XXXX
      *
      * @var string
      */
     public $customSessionId;
 
     /**
-     * @description 平台会话id
+     * @example 100XXXX
      *
      * @var string
      */
     public $platformSessionId;
 
     /**
-     * @description 请求id
+     * @example 46329898-489C-4E63-9BA1-C1DA5C5D0986
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 状态
+     * @example running
      *
      * @var string
      */
@@ -52,6 +60,7 @@ class GetAppSessionResponseBody extends Model
     protected $_name = [
         'appId'             => 'AppId',
         'appVersion'        => 'AppVersion',
+        'bizInfo'           => 'BizInfo',
         'customSessionId'   => 'CustomSessionId',
         'platformSessionId' => 'PlatformSessionId',
         'requestId'         => 'RequestId',
@@ -70,6 +79,9 @@ class GetAppSessionResponseBody extends Model
         }
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
+        }
+        if (null !== $this->bizInfo) {
+            $res['BizInfo'] = null !== $this->bizInfo ? $this->bizInfo->toMap() : null;
         }
         if (null !== $this->customSessionId) {
             $res['CustomSessionId'] = $this->customSessionId;
@@ -100,6 +112,9 @@ class GetAppSessionResponseBody extends Model
         }
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
+        }
+        if (isset($map['BizInfo'])) {
+            $model->bizInfo = bizInfo::fromMap($map['BizInfo']);
         }
         if (isset($map['CustomSessionId'])) {
             $model->customSessionId = $map['CustomSessionId'];

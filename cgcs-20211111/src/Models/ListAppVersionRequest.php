@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ListAppVersionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 4384****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

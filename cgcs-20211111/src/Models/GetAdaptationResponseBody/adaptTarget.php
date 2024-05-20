@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class adaptTarget extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $bitRate;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $frameRate;
 
     /**
+     * @example 1080p
+     *
      * @var string
      */
     public $resolution;
 
     /**
+     * @example /example/example.exe
+     *
      * @var string
      */
     public $startProgram;

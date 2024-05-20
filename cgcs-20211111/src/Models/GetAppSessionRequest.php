@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetAppSessionRequest extends Model
 {
     /**
-     * @description 自定义会话id
+     * @example 1ADE0XXXX
      *
      * @var string
      */
     public $customSessionId;
 
     /**
-     * @description 平台会话id
+     * @example 100XXXX
      *
      * @var string
      */

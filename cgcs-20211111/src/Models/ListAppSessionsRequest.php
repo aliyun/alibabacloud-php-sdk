@@ -9,43 +9,49 @@ use AlibabaCloud\Tea\Model;
 class ListAppSessionsRequest extends Model
 {
     /**
+     * @example 13027XXXX
+     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 自定义会话id
-     *
      * @var string[]
      */
     public $customSessionIds;
 
     /**
-     * @description 页码
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 分页大小
+     * @example 20
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 自定义用户id
-     *
      * @var string[]
      */
     public $platformSessionIds;
+
+    /**
+     * @example d9a8****
+     *
+     * @var string
+     */
+    public $projectId;
     protected $_name = [
         'appId'              => 'AppId',
         'customSessionIds'   => 'CustomSessionIds',
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
         'platformSessionIds' => 'PlatformSessionIds',
+        'projectId'          => 'ProjectId',
     ];
 
     public function validate()
@@ -69,6 +75,9 @@ class ListAppSessionsRequest extends Model
         }
         if (null !== $this->platformSessionIds) {
             $res['PlatformSessionIds'] = $this->platformSessionIds;
+        }
+        if (null !== $this->projectId) {
+            $res['ProjectId'] = $this->projectId;
         }
 
         return $res;
@@ -100,6 +109,9 @@ class ListAppSessionsRequest extends Model
             if (!empty($map['PlatformSessionIds'])) {
                 $model->platformSessionIds = $map['PlatformSessionIds'];
             }
+        }
+        if (isset($map['ProjectId'])) {
+            $model->projectId = $map['ProjectId'];
         }
 
         return $model;

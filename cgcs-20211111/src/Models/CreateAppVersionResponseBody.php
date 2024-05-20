@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAppVersionResponseBody extends Model
 {
     /**
+     * @example 1432****
+     *
      * @var string
      */
     public $appVersionId;
 
     /**
+     * @example 46329898-489C-4E63-9BA1-C1DA5C5D0986
+     *
      * @var string
      */
     public $requestId;

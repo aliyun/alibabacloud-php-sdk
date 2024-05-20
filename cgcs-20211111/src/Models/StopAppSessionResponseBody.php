@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class StopAppSessionResponseBody extends Model
 {
     /**
-     * @description 应用id
+     * @example 13027XXXX
      *
      * @var string
      */
     public $appId;
 
     /**
-     * @description 应用版本
+     * @example 35067XXXX
      *
      * @var string
      */
     public $appVersion;
 
     /**
-     * @description 自定义会话id
+     * @example 1ADE0XXXX
      *
      * @var string
      */
     public $customSessionId;
 
     /**
-     * @description 平台会话id
+     * @example 100XXXX
      *
      * @var string
      */
     public $platformSessionId;
 
     /**
-     * @description 请求id
+     * @example 46329898-489C-4E63-9BA1-C1DA5C5D0986
      *
      * @var string
      */

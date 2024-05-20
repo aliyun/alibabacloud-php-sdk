@@ -15,6 +15,10 @@ class CreateAdaptationRequest extends Model
     public $adaptTarget;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1432****
+     *
      * @var string
      */
     public $appVersionId;

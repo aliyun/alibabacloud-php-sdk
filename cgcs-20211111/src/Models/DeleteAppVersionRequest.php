@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppVersionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1432****
+     *
      * @var string
      */
     public $appVersionId;

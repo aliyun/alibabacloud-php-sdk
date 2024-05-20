@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class versions extends Model
 {
     /**
+     * @example 4384****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 1432****
+     *
      * @var string
      */
     public $appVersionId;
 
     /**
+     * @example exampleVersion
+     *
      * @var string
      */
     public $appVersionName;
 
     /**
+     * @example file_uploading
+     *
      * @var string
      */
     public $appVersionStatus;
@@ -34,36 +42,50 @@ class versions extends Model
     public $appVersionStatusMemo;
 
     /**
+     * @example 0.31
+     *
      * @var float
      */
     public $consumeCu;
 
     /**
+     * @example https://www.example.com/exampleFile.tar
+     *
      * @var string
      */
     public $fileAddress;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @example 2022-04-06 02:00:00
+     *
      * @var string
      */
     public $fileUploadFinishTime;
 
     /**
+     * @example cloud_file_download
+     *
      * @var string
      */
     public $fileUploadType;
 
     /**
+     * @example 2022-04-06 02:00:00
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-04-06 02:00:00
+     *
      * @var string
      */
     public $gmtModified;

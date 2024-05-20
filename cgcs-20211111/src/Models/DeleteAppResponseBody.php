@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppResponseBody extends Model
 {
     /**
+     * @example 4384****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 46329898-489C-4E63-9BA1-C1DA5C5D0986
+     *
      * @var string
      */
     public $requestId;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class apps extends Model
 {
     /**
+     * @example 4384****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @example end_game
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @example 2022-04-06 02:00:00
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-04-06 02:00:00
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $versionAdaptNum;
 
     /**
+     * @example 28
+     *
      * @var int
      */
     public $versionTotalNum;

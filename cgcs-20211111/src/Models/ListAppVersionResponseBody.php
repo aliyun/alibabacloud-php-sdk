@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAppVersionResponseBody extends Model
 {
     /**
+     * @example 46329898-489C-4E63-9BA1-C1DA5C5D0986
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $total;

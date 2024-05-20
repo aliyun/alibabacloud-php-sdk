@@ -15,11 +15,15 @@ class ListAppResponseBody extends Model
     public $apps;
 
     /**
+     * @example 46329898-489C-4E63-9BA1-C1DA5C5D0986
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $total;

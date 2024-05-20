@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class systemInfo extends Model
 {
     /**
+     * @example utdid
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example OE0usD+APXXXX
+     *
      * @var string
      */
     public $value;

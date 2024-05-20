@@ -15,23 +15,29 @@ class ListAppSessionsResponseBody extends Model
     public $appSessions;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 请求id
+     * @example 46329898-489C-4E63-9BA1-C1DA5C5D0986
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

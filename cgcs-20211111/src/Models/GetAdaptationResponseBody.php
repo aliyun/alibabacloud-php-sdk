@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetAdaptationResponseBody extends Model
 {
     /**
+     * @example 5435****
+     *
      * @var int
      */
     public $adaptApplyId;
@@ -20,26 +22,36 @@ class GetAdaptationResponseBody extends Model
     public $adaptTarget;
 
     /**
+     * @example 4384****
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example 1432****
+     *
      * @var string
      */
     public $appVersionId;
 
     /**
+     * @example 2022-04-06 02:00:00
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2022-04-06 02:00:00
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 46329898-489C-4E63-9BA1-C1DA5C5D0986
+     *
      * @var string
      */
     public $requestId;
