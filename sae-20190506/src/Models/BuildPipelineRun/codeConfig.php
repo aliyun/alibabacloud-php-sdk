@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class codeConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 10000
      *
      * @var string
@@ -16,6 +18,8 @@ class codeConfig extends Model
     public $accountId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example master
      *
      * @var string
@@ -33,13 +37,13 @@ class codeConfig extends Model
     public $commitUrl;
 
     /**
-     * @example 2001
-     *
      * @var string
      */
-    public $orgId;
+    public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example github/gitee/gitlab等
      *
      * @var string
@@ -47,6 +51,8 @@ class codeConfig extends Model
     public $provider;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sae-samples/java-maven-demo
      *
      * @var string
@@ -54,20 +60,22 @@ class codeConfig extends Model
     public $repoFullName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3001
      *
      * @var string
      */
     public $repoId;
     protected $_name = [
-        'accountId'    => 'AccountId',
-        'branchName'   => 'BranchName',
-        'commitId'     => 'CommitId',
-        'commitUrl'    => 'CommitUrl',
-        'orgId'        => 'OrgId',
-        'provider'     => 'Provider',
-        'repoFullName' => 'RepoFullName',
-        'repoId'       => 'RepoId',
+        'accountId'      => 'AccountId',
+        'branchName'     => 'BranchName',
+        'commitId'       => 'CommitId',
+        'commitUrl'      => 'CommitUrl',
+        'organizationId' => 'OrganizationId',
+        'provider'       => 'Provider',
+        'repoFullName'   => 'RepoFullName',
+        'repoId'         => 'RepoId',
     ];
 
     public function validate()
@@ -89,8 +97,8 @@ class codeConfig extends Model
         if (null !== $this->commitUrl) {
             $res['CommitUrl'] = $this->commitUrl;
         }
-        if (null !== $this->orgId) {
-            $res['OrgId'] = $this->orgId;
+        if (null !== $this->organizationId) {
+            $res['OrganizationId'] = $this->organizationId;
         }
         if (null !== $this->provider) {
             $res['Provider'] = $this->provider;
@@ -125,8 +133,8 @@ class codeConfig extends Model
         if (isset($map['CommitUrl'])) {
             $model->commitUrl = $map['CommitUrl'];
         }
-        if (isset($map['OrgId'])) {
-            $model->orgId = $map['OrgId'];
+        if (isset($map['OrganizationId'])) {
+            $model->organizationId = $map['OrganizationId'];
         }
         if (isset($map['Provider'])) {
             $model->provider = $map['Provider'];

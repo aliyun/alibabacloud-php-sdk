@@ -62,6 +62,21 @@ class data extends Model
     public $serviceName;
 
     /**
+     * @var int[]
+     */
+    public $servicePorts;
+
+    /**
+     * @var string
+     */
+    public $serviceProtocol;
+
+    /**
+     * @var string[]
+     */
+    public $serviceTags;
+
+    /**
      * @description The type of the service. Valid values:
      *
      *   **dubbo**
@@ -97,6 +112,9 @@ class data extends Model
         'metadata'              => 'Metadata',
         'methods'               => 'Methods',
         'serviceName'           => 'ServiceName',
+        'servicePorts'          => 'ServicePorts',
+        'serviceProtocol'       => 'ServiceProtocol',
+        'serviceTags'           => 'ServiceTags',
         'serviceType'           => 'ServiceType',
         'springApplicationName' => 'SpringApplicationName',
         'version'               => 'Version',
@@ -132,6 +150,15 @@ class data extends Model
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->servicePorts) {
+            $res['ServicePorts'] = $this->servicePorts;
+        }
+        if (null !== $this->serviceProtocol) {
+            $res['ServiceProtocol'] = $this->serviceProtocol;
+        }
+        if (null !== $this->serviceTags) {
+            $res['ServiceTags'] = $this->serviceTags;
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
@@ -177,6 +204,19 @@ class data extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['ServicePorts'])) {
+            if (!empty($map['ServicePorts'])) {
+                $model->servicePorts = $map['ServicePorts'];
+            }
+        }
+        if (isset($map['ServiceProtocol'])) {
+            $model->serviceProtocol = $map['ServiceProtocol'];
+        }
+        if (isset($map['ServiceTags'])) {
+            if (!empty($map['ServiceTags'])) {
+                $model->serviceTags = $map['ServiceTags'];
+            }
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];

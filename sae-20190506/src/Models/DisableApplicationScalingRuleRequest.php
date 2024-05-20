@@ -11,6 +11,7 @@ class DisableApplicationScalingRuleRequest extends Model
     /**
      * @description timer-0800-2100
      *
+     * This parameter is required.
      * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
      *
      * @var string
@@ -20,6 +21,7 @@ class DisableApplicationScalingRuleRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example timer-0800-2100
      *
      * @var string

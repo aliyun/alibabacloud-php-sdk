@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigurationPriceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $memory;

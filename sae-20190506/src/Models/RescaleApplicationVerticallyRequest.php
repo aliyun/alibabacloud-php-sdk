@@ -11,6 +11,7 @@ class RescaleApplicationVerticallyRequest extends Model
     /**
      * @description The application ID.
      *
+     * This parameter is required.
      * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
      *
      * @var string
@@ -20,6 +21,7 @@ class RescaleApplicationVerticallyRequest extends Model
     /**
      * @description The destination CPU specification. Unit: millicore.
      *
+     * This parameter is required.
      * @example 1000
      *
      * @var string
@@ -29,6 +31,7 @@ class RescaleApplicationVerticallyRequest extends Model
     /**
      * @description The destination memory size. Unit: MB.
      *
+     * This parameter is required.
      * @example 2048
      *
      * @var string

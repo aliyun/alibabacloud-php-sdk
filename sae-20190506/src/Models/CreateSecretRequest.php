@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSecretRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing:test
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateSecretRequest extends Model
     public $namespaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var secretData
      */
     public $secretData;
 
     /**
+     * @description This parameter is required.
+     *
      * @example registry-auth-acree
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateSecretRequest extends Model
     public $secretName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example kubernetes.io/dockerconfigjson
      *
      * @var string

@@ -20,6 +20,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description cn-beijing
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -27,8 +28,9 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description \["d42921c4-5433-4abd-8075-0e536f8b\*\*\*\*"]
+     * @description ["d42921c4-5433-4abd-8075-0e536f8b\\*\\*\\*\\*"]
      *
+     * This parameter is required.
      * @example ["d42921c4-5433-4abd-8075-0e536f8b****"]
      *
      * @var string
@@ -38,6 +40,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description application
      *
+     * This parameter is required.
      * @example application
      *
      * @var string
@@ -45,7 +48,7 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description \["k1","k2"]
+     * @description ["k1","k2"]
      *
      * @example ["k1","k2"]
      *

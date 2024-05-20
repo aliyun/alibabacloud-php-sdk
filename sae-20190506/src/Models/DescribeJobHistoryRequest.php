@@ -11,6 +11,7 @@ class DescribeJobHistoryRequest extends Model
     /**
      * @description The ID of the job template.
      *
+     * This parameter is required.
      * @example e1a7a07-abcb-4652-a1d3-2d57f415****
      *
      * @var string

@@ -11,6 +11,7 @@ class ListChangeOrdersRequest extends Model
     /**
      * @description 1
      *
+     * This parameter is required.
      * @example 145341c-9708-4967-b3ec-24933767****
      *
      * @var string

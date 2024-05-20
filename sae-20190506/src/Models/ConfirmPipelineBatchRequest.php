@@ -11,6 +11,7 @@ class ConfirmPipelineBatchRequest extends Model
     /**
      * @description true
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -18,8 +19,9 @@ class ConfirmPipelineBatchRequest extends Model
     public $confirm;
 
     /**
-     * @description e2e-vds-feh-\*\*\*
+     * @description e2e-vds-feh-\\*\\*\\*
      *
+     * This parameter is required.
      * @example e2e-vds-feh-***
      *
      * @var string

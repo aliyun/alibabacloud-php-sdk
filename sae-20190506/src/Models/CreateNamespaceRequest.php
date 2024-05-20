@@ -48,6 +48,7 @@ class CreateNamespaceRequest extends Model
     /**
      * @description cn-beijing:test
      *
+     * This parameter is required.
      * @example name
      *
      * @var string

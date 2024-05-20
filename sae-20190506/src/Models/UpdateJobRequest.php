@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateJobRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role that is used to pull images across accounts. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](~~223585~~).
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role that is used to pull images across accounts. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
      *
      * @example acs:ram::123456789012****:role/adminrole
      *
@@ -29,6 +29,7 @@ class UpdateJobRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
      *
      * @var string
@@ -80,7 +81,7 @@ class UpdateJobRequest extends Model
     /**
      * @description The description of the **ConfigMap** instance mounted to the application. Use configurations created on the Configuration Items page to configure containers. The following parameters are involved:
      *
-     *   **congfigMapId**: the ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](~~176917~~) operation to obtain the ID.
+     *   **congfigMapId**: the ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
      *   **key**: the key.
      *
      * > You can use the `sae-sys-configmap-all` key to mount all keys.
@@ -120,7 +121,7 @@ class UpdateJobRequest extends Model
     public $enableImageAccl;
 
     /**
-     * @description The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](~~176914~~). Valid values:
+     * @description The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
      *
      *   Configure custom environment variables
      *
@@ -304,7 +305,7 @@ class UpdateJobRequest extends Model
     public $phpConfigLocation;
 
     /**
-     * @description The script to be run after the container is started. Example: `{"exec":{"command":\["sh","-c","echo hello"\]}}`
+     * @description The script to be run after the container is started. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
      *
      * @example {"exec":{"command":["sh","-c","echo hello"]}}
      *
@@ -313,7 +314,7 @@ class UpdateJobRequest extends Model
     public $postStart;
 
     /**
-     * @description The script that is run before the container is stopped. Example: `{"exec":{"command":\["sh","-c","echo hello"\]}}`
+     * @description The script that is run before the container is stopped. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
      *
      * @example {"exec":{"command":["sh","-c","echo hello"]}}
      *
@@ -457,9 +458,9 @@ class UpdateJobRequest extends Model
     public $triggerConfig;
 
     /**
-     * @description The startup command of the WAR package. For information about how to configure the startup command, see [Configure startup commands](~~96677~~).
+     * @description The startup command of the WAR package. For information about how to configure the startup command, see [Configure startup commands](https://help.aliyun.com/document_detail/96677.html).
      *
-     * @example CATALINA_OPTS=\"$CATALINA_OPTS $Options\" catalina.sh run
+     * @example CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
      *
      * @var string
      */

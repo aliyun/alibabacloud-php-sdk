@@ -19,7 +19,7 @@ class applications extends Model
     public $appDeletingStatus;
 
     /**
-     * @description \[{"key":"key","value":"value"}]
+     * @description [{"key":"key","value":"value"}]
      *
      * @example description
      *

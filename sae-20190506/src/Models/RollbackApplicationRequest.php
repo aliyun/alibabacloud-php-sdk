@@ -11,6 +11,7 @@ class RollbackApplicationRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example 017f39b8-dfa4-4e16-a84b-1dcee4b1****
      *
      * @var string
@@ -55,7 +56,7 @@ class RollbackApplicationRequest extends Model
      * @description The minimum number of available instances. Take note of the following rules:
      *
      *   If you set the value to **0**, business interruptions occur when the application is updated.
-     *   If you set the value to \*\*-1\*\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+     *   If you set the value to \\*\\*-1\\*\\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
      *
      * > Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
      * @example 1
@@ -96,8 +97,9 @@ class RollbackApplicationRequest extends Model
     public $updateStrategy;
 
     /**
-     * @description The ID of the application version. Call the [ListAppVersions](~~162054~~) operation to obtain the version ID.
+     * @description The ID of the application version. Call the [ListAppVersions](https://help.aliyun.com/document_detail/162054.html) operation to obtain the version ID.
      *
+     * This parameter is required.
      * @example 0026ff7f-2b57-4127-bdd0-9bf202bb9****
      *
      * @var string

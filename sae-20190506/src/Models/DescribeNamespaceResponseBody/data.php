@@ -9,17 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the SAE built-in registry is enabled.
+     * Valid values:
+     * true
+     * false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableMicroRegistration;
 
     /**
+     * @description The short ID of the namespace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $nameSpaceShortId;
 
     /**
-     * @description The ID of the request.
+     * @description The description of the namespace.
      *
      * @example desc
      *
@@ -28,7 +39,7 @@ class data extends Model
     public $namespaceDescription;
 
     /**
-     * @description cn-beijing:test
+     * @description The ID of the namespace. The information about the default namespace cannot be queried or modified. The default namespace cannot be deleted.
      *
      * @example cn-beijing:test
      *
@@ -46,7 +57,7 @@ class data extends Model
     public $namespaceName;
 
     /**
-     * @description cn-beijing:test
+     * @description The region ID.
      *
      * @example cn-beijing
      *

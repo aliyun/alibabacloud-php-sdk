@@ -11,6 +11,7 @@ class DeleteSecretRequest extends Model
     /**
      * @description The ID of the namespace in which the Secret resides. By default, the namespace ID is the same as the region ID.
      *
+     * This parameter is required.
      * @example cn-beijing:test
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteSecretRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The ID of the Secret to be deleted. You can call the [ListSecrets](~~466929~~) operation to view the Secret IDs.
+     * @description The ID of the Secret to be deleted. You can call the [ListSecrets](https://help.aliyun.com/document_detail/466929.html) operation to view the Secret IDs.
      *
+     * This parameter is required.
      * @example 16
      *
      * @var int

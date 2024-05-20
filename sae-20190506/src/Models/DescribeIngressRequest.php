@@ -11,6 +11,7 @@ class DescribeIngressRequest extends Model
     /**
      * @description The returned data.
      *
+     * This parameter is required.
      * @example 87
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigMapRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example {"env.shell": "/bin/sh"}
      *
      * @var string
@@ -25,6 +27,7 @@ class CreateConfigMapRequest extends Model
     /**
      * @description cn-hangzhou
      *
+     * This parameter is required.
      * @example name
      *
      * @var string
@@ -34,6 +37,7 @@ class CreateConfigMapRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

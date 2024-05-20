@@ -11,6 +11,7 @@ class ListNamespacedConfigMapsRequest extends Model
     /**
      * @description cn-hangzhou
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

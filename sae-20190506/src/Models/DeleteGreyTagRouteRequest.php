@@ -11,6 +11,7 @@ class DeleteGreyTagRouteRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

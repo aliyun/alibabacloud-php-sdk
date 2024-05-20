@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationImageRequest extends Model
 {
     /**
-     * @description d700e680-aa4d-4ec1-afc2-6566b5ff\*\*\*\*
+     * @description d700e680-aa4d-4ec1-afc2-6566b5ff\\*\\*\\*\\*
      *
+     * This parameter is required.
      * @example d700e680-aa4d-4ec1-afc2-6566b5ff****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeApplicationImageRequest extends Model
     /**
      * @description registry-vpc.cn-hangzhou.aliyuncs.com/demo/demo:latest
      *
+     * This parameter is required.
      * @example registry-vpc.cn-hangzhou.aliyuncs.com/demo/demo:latest
      *
      * @var string

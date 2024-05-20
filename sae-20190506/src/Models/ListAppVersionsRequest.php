@@ -11,6 +11,7 @@ class ListAppVersionsRequest extends Model
     /**
      * @description The returned message.
      *
+     * This parameter is required.
      * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
      *
      * @var string

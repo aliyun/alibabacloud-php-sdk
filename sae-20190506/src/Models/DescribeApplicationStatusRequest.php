@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationStatusRequest extends Model
 {
     /**
-     * @description 0099b7be-5f5b-4512-a7fc-56049ef1\*\*\*\*
+     * @description 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
      *
+     * This parameter is required.
      * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationDescriptionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example newdesc
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateApplicationDescriptionRequest extends Model
     public $appDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
      *
      * @var string

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationVswitchesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $vSwitchId;

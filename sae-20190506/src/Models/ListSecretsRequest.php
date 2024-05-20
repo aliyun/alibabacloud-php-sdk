@@ -11,6 +11,7 @@ class ListSecretsRequest extends Model
     /**
      * @description The ID of the namespace in which the Secrets reside. By default, the namespace ID is the same as the region ID.
      *
+     * This parameter is required.
      * @example cn-beijing:test
      *
      * @var string

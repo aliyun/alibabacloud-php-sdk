@@ -11,6 +11,7 @@ class UnbindSlbRequest extends Model
     /**
      * @description true
      *
+     * This parameter is required.
      * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
      *
      * @var string

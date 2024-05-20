@@ -17,6 +17,8 @@ class buildConfig extends Model
     public $beforeBuildCommand;
 
     /**
+     * @description This parameter is required.
+     *
      * @example buildpacks/dockerfile
      *
      * @var string

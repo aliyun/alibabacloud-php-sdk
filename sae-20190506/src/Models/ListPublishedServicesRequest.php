@@ -11,6 +11,7 @@ class ListPublishedServicesRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example b2a8a925-477a-4ed7-b825-d5e22500****
      *
      * @var string

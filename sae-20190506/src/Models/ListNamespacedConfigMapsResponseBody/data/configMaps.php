@@ -30,7 +30,7 @@ class configMaps extends Model
     /**
      * @description The data of ConfigMap key-value pairs. Format:
      *
-     * k specifies a key and v specifies a value. For more information, see [Manage and use configurations](~~171326~~).
+     * k specifies a key and v specifies a value. For more information, see [Manage and use configurations](https://help.aliyun.com/document_detail/171326.html).
      * @example {"k1":"v1","k2":"v2"}
      *
      * @var mixed[]

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AclConfig extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var AclEntryConfig[]
      */
     public $aclEntries;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPerRequestLogsInput extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $endTime;
@@ -34,11 +36,15 @@ class GetPerRequestLogsInput extends Model
     public $isColdStart;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $requestID;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $startTime;

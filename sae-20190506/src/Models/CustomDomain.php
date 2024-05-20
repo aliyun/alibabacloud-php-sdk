@@ -59,6 +59,11 @@ class CustomDomain extends Model
     public $requestId;
 
     /**
+     * @var RouteConfig
+     */
+    public $routeConfig;
+
+    /**
      * @var string
      */
     public $subdomainCount;
@@ -83,6 +88,7 @@ class CustomDomain extends Model
         'namespaceID'      => 'namespaceID',
         'protocol'         => 'protocol',
         'requestId'        => 'requestId',
+        'routeConfig'      => 'routeConfig',
         'subdomainCount'   => 'subdomainCount',
         'tlsConfig'        => 'tlsConfig',
         'wafConfig'        => 'wafConfig',
@@ -124,6 +130,9 @@ class CustomDomain extends Model
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->routeConfig) {
+            $res['routeConfig'] = null !== $this->routeConfig ? $this->routeConfig->toMap() : null;
         }
         if (null !== $this->subdomainCount) {
             $res['subdomainCount'] = $this->subdomainCount;
@@ -175,6 +184,9 @@ class CustomDomain extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['routeConfig'])) {
+            $model->routeConfig = RouteConfig::fromMap($map['routeConfig']);
         }
         if (isset($map['subdomainCount'])) {
             $model->subdomainCount = $map['subdomainCount'];

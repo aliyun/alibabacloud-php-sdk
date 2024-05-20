@@ -9,29 +9,49 @@ use AlibabaCloud\Tea\Model;
 class GetWarningEventMetricRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appSource;
+
+    /**
+     * @var string
+     */
+    public $cpuStrategy;
+
+    /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'limit'     => 'Limit',
-        'regionId'  => 'RegionId',
-        'startTime' => 'StartTime',
+        'appSource'   => 'AppSource',
+        'cpuStrategy' => 'CpuStrategy',
+        'endTime'     => 'EndTime',
+        'limit'       => 'Limit',
+        'regionId'    => 'RegionId',
+        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -41,6 +61,12 @@ class GetWarningEventMetricRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appSource) {
+            $res['AppSource'] = $this->appSource;
+        }
+        if (null !== $this->cpuStrategy) {
+            $res['CpuStrategy'] = $this->cpuStrategy;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -65,6 +91,12 @@ class GetWarningEventMetricRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppSource'])) {
+            $model->appSource = $map['AppSource'];
+        }
+        if (isset($map['CpuStrategy'])) {
+            $model->cpuStrategy = $map['CpuStrategy'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

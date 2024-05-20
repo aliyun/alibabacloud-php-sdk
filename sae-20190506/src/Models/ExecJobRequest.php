@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExecJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ee1a7a07-abcb-4652-a1d3-2d57f415****
      *
      * @var string
@@ -68,7 +70,7 @@ class ExecJobRequest extends Model
     public $time;
 
     /**
-     * @example CATALINA_OPTS=\"$CATALINA_OPTS $Options\" catalina.sh run
+     * @example CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
      *
      * @var string
      */

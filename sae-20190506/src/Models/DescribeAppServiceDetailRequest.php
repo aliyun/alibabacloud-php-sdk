@@ -9,13 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppServiceDetailRequest extends Model
 {
     /**
-     * @description 6dcc8c9e-d3da-478a-a066-86dcf820\*\*\*\*
+     * @description 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
      *
+     * This parameter is required.
      * @example 6dcc8c9e-d3da-478a-a066-86dcf820****
      *
      * @var string
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $nacosInstanceId;
+
+    /**
+     * @var string
+     */
+    public $nacosNamespaceId;
 
     /**
      * @description springCloud
@@ -53,11 +64,13 @@ class DescribeAppServiceDetailRequest extends Model
      */
     public $serviceVersion;
     protected $_name = [
-        'appId'          => 'AppId',
-        'serviceGroup'   => 'ServiceGroup',
-        'serviceName'    => 'ServiceName',
-        'serviceType'    => 'ServiceType',
-        'serviceVersion' => 'ServiceVersion',
+        'appId'            => 'AppId',
+        'nacosInstanceId'  => 'NacosInstanceId',
+        'nacosNamespaceId' => 'NacosNamespaceId',
+        'serviceGroup'     => 'ServiceGroup',
+        'serviceName'      => 'ServiceName',
+        'serviceType'      => 'ServiceType',
+        'serviceVersion'   => 'ServiceVersion',
     ];
 
     public function validate()
@@ -69,6 +82,12 @@ class DescribeAppServiceDetailRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->nacosInstanceId) {
+            $res['NacosInstanceId'] = $this->nacosInstanceId;
+        }
+        if (null !== $this->nacosNamespaceId) {
+            $res['NacosNamespaceId'] = $this->nacosNamespaceId;
         }
         if (null !== $this->serviceGroup) {
             $res['ServiceGroup'] = $this->serviceGroup;
@@ -96,6 +115,12 @@ class DescribeAppServiceDetailRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['NacosInstanceId'])) {
+            $model->nacosInstanceId = $map['NacosInstanceId'];
+        }
+        if (isset($map['NacosNamespaceId'])) {
+            $model->nacosNamespaceId = $map['NacosNamespaceId'];
         }
         if (isset($map['ServiceGroup'])) {
             $model->serviceGroup = $map['ServiceGroup'];

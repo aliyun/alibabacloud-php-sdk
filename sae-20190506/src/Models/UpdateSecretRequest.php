@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSecretRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing:test
      *
      * @var string
@@ -17,11 +19,15 @@ class UpdateSecretRequest extends Model
     public $namespaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var secretData
      */
     public $secretData;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 16
      *
      * @var int

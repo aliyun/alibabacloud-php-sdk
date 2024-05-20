@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationConfigRequest extends Model
 {
     /**
-     * @description 7171a6ca-d1cd-4928-8642-7d5cfe69\*\*\*\*
+     * @description 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
      *
+     * This parameter is required.
      * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeApplicationConfigRequest extends Model
     public $appId;
 
     /**
-     * @description 0026ff7f-2b57-4127-bdd0-9bf202bb\*\*\*\*
+     * @description 0026ff7f-2b57-4127-bdd0-9bf202bb\\*\\*\\*\\*
      *
      * @example 0026ff7f-2b57-4127-bdd0-9bf202bb****
      *

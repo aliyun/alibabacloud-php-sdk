@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeployApplicationRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) required for a RAM role to obtain images across accounts. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](~~223585~~).
+     * @description The Alibaba Cloud Resource Name (ARN) required for a RAM role to obtain images across accounts. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
      *
      * @example acs:ram::123456789012****:role/adminrole
      *
@@ -29,6 +29,7 @@ class DeployApplicationRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
      *
      * @var string
@@ -100,7 +101,7 @@ class DeployApplicationRequest extends Model
     /**
      * @description The description of the **ConfigMap** instance mounted to the application. Use configurations created on the Configuration Items page to configure containers. The following table describes the parameters that are used in the preceding statements.
      *
-     *   **congfigMapId**: the ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](~~176917~~) operation to obtain the ID.
+     *   **congfigMapId**: the ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
      *   **key**: the key.
      *
      * > You can use `sae-sys-configmap-all` to mount all keys.
@@ -176,7 +177,7 @@ class DeployApplicationRequest extends Model
     public $enableGreyTagRoute;
 
     /**
-     * @description The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](~~176914~~). Take note of the following rules:
+     * @description The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
      *
      *   Customize
      *
@@ -256,7 +257,7 @@ class DeployApplicationRequest extends Model
      *   **kafkaInstanceId**: the ID of the Message Queue for Apache Kafka instance.
      *   **kafkaConfigs**: One or more logging configurations of Message Queue for Apache Kafka. For information about sample values and parameters, see the request parameter **KafkaLogfileConfig** in this topic.
      *
-     * @example {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
+     * @example {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
      *
      * @var string
      */
@@ -265,7 +266,7 @@ class DeployApplicationRequest extends Model
     /**
      * @description The details of the availability check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. You can use one of the following methods to perform the health check:
      *
-     *   Example of **exec**: `{"exec":{"command":\["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`
+     *   Example of **exec**: `{"exec":{"command":["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`
      *   Sample code of the **httpGet** method: `{"httpGet":{"path":"/","port":18091,"scheme":"HTTP","isContainKeyWord":true,"keyWord":"SAE"},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
      *   Sample code of the **tcpSocket** method: `{"tcpSocket":{"port":18091},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
      *
@@ -322,7 +323,7 @@ class DeployApplicationRequest extends Model
      * @description The minimum number of available instances. Special values:
      *
      *   If you set the value to **0**, business interruptions occur when the application is updated.
-     *   If you set the value to \*\*-1\*\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+     *   If you set the value to \\*\\*-1\\*\\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
      *
      * > Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
      * @example 1
@@ -355,7 +356,7 @@ class DeployApplicationRequest extends Model
      *   **mountPath**: the mount path of the container.
      *   **readOnly**: If you set the value to **false**, the application has the read and write permissions.
      *   **nasId**: the ID of the NAS file system.
-     *   **mountDomain**: the domain name of the mount target. For more information, see [DescribeMountTargets](~~62626~~).
+     *   **mountDomain**: the domain name of the mount target. For more information, see [DescribeMountTargets](https://help.aliyun.com/document_detail/62626.html).
      *   **nasPath**: the directory in the NAS file system.
      *
      * @example [{"mountPath":"/test1","readOnly":false,"nasId":"nasId1","mountDomain":"nasId1.cn-shenzhen.nas.aliyuncs.com","nasPath":"/test1"},{"nasId":"nasId2","mountDomain":"nasId2.cn-shenzhen.nas.aliyuncs.com","readOnly":false,"nasPath":"/test2","mountPath":"/test2"}]
@@ -471,7 +472,7 @@ class DeployApplicationRequest extends Model
     public $phpConfigLocation;
 
     /**
-     * @description The script that is run immediately after the container is started. Example: `{"exec":{"command":\["sh","-c","echo hello"\]}}`
+     * @description The script that is run immediately after the container is started. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
      *
      * @example {"exec":{"command":["sh","-c","echo hello"]}}
      *
@@ -480,7 +481,7 @@ class DeployApplicationRequest extends Model
     public $postStart;
 
     /**
-     * @description The script that is run before the container is stopped. Example: `{"exec":{"command":\["sh","-c","echo hello"\]}}`
+     * @description The script that is run before the container is stopped. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
      *
      * @example {"exec":{"command":["sh","-c","echo hello"]}}
      *
@@ -627,9 +628,9 @@ class DeployApplicationRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The startup command of the WAR package. For information about how to configure the startup command, see [Configure startup commands](~~96677~~).
+     * @description The startup command of the WAR package. For information about how to configure the startup command, see [Configure startup commands](https://help.aliyun.com/document_detail/96677.html).
      *
-     * @example CATALINA_OPTS=\"$CATALINA_OPTS $Options\" catalina.sh run
+     * @example CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
      *
      * @var string
      */

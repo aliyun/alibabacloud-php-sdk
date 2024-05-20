@@ -37,6 +37,8 @@ class UpdateIngressRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 87
      *
      * @var int

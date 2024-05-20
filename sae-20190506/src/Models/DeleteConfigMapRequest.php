@@ -11,6 +11,7 @@ class DeleteConfigMapRequest extends Model
     /**
      * @description 1
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

@@ -20,6 +20,7 @@ class DescribeComponentsRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example TOMCAT
      *
      * @var string

@@ -20,6 +20,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example ["d42921c4-5433-4abd-8075-0e536f8b****"]
      *
      * @var string
@@ -27,8 +28,9 @@ class TagResourcesRequest extends Model
     public $resourceIds;
 
     /**
-     * @description \[{"key":"k1","value":"v1"}]
+     * @description [{"key":"k1","value":"v1"}]
      *
+     * This parameter is required.
      * @example application
      *
      * @var string
@@ -36,7 +38,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description \["d42921c4-5433-4abd-8075-0e536f8b\*\*\*\*"]
+     * @description ["d42921c4-5433-4abd-8075-0e536f8b\\*\\*\\*\\*"]
      *
      * @example [{"key":"k1","value":"v1"}]
      *

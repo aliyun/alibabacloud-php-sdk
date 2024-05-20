@@ -11,6 +11,7 @@ class DescribeNamespacesRequest extends Model
     /**
      * @description 1
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -20,6 +21,7 @@ class DescribeNamespacesRequest extends Model
     /**
      * @description 10
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

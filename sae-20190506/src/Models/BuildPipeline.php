@@ -15,21 +15,29 @@ use AlibabaCloud\Tea\Model;
 class BuildPipeline extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $applicationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var buildConfig
      */
     public $buildConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var codeConfig
      */
     public $codeConfig;
@@ -55,6 +63,8 @@ class BuildPipeline extends Model
     public $packageConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var triggerConfig
      */
     public $triggerConfig;

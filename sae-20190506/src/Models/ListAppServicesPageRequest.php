@@ -11,6 +11,7 @@ class ListAppServicesPageRequest extends Model
     /**
      * @description 1
      *
+     * This parameter is required.
      * @example 6dcc8c9e-d3da-478a-a066-86dcf820****
      *
      * @var string
@@ -38,6 +39,7 @@ class ListAppServicesPageRequest extends Model
     /**
      * @description 9999
      *
+     * This parameter is required.
      * @example springCloud
      *
      * @var string

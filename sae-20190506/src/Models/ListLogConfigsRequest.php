@@ -11,6 +11,7 @@ class ListLogConfigsRequest extends Model
     /**
      * @description 10
      *
+     * This parameter is required.
      * @example 56f77b65-788d-442a-9885-7f20d91f****
      *
      * @var string
@@ -20,6 +21,7 @@ class ListLogConfigsRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -29,6 +31,7 @@ class ListLogConfigsRequest extends Model
     /**
      * @description 1
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

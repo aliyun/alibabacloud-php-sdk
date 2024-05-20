@@ -41,6 +41,7 @@ class ListAppEventsRequest extends Model
     /**
      * @description The namespace ID.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string

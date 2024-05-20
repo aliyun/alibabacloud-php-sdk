@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role that is used to pull images across accounts. For more information, see [Pull images across Alibaba Cloud accounts](~~190675~~) and [Grant permissions across Alibaba Cloud accounts by using a RAM role](~~223585~~).
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role that is used to pull images across accounts. For more information, see [Pull images across Alibaba Cloud accounts](https://help.aliyun.com/document_detail/190675.html) and [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
      *
      * @example acs:ram::123456789012****:role/adminrole
      *
@@ -147,7 +147,7 @@ class data extends Model
     public $edasContainerVersion;
 
     /**
-     * @description The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](~~176914~~). Valid values:
+     * @description The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Valid values:
      *
      *   Custom configuration
      *
@@ -316,20 +316,20 @@ class data extends Model
      *   If you deploy the application by using a PHP package, this parameter is set to one of the following values:
      *
      *   **PhpZip**
-     *   **IMAGE_PHP\_5\_4**
-     *   **IMAGE_PHP\_5\_4\_ALPINE**
-     *   **IMAGE_PHP\_5\_5**
-     *   **IMAGE_PHP\_5\_5\_ALPINE**
-     *   **IMAGE_PHP\_5\_6**
-     *   **IMAGE_PHP\_5\_6\_ALPINE**
-     *   **IMAGE_PHP\_7\_0**
-     *   **IMAGE_PHP\_7\_0\_ALPINE**
-     *   **IMAGE_PHP\_7\_1**
-     *   **IMAGE_PHP\_7\_1\_ALPINE**
-     *   **IMAGE_PHP\_7\_2**
-     *   **IMAGE_PHP\_7\_2\_ALPINE**
-     *   **IMAGE_PHP\_7\_3**
-     *   **IMAGE_PHP\_7\_3\_ALPINE**
+     *   **IMAGE_PHP_5_4**
+     *   **IMAGE_PHP_5_4_ALPINE**
+     *   **IMAGE_PHP_5_5**
+     *   **IMAGE_PHP_5_5_ALPINE**
+     *   **IMAGE_PHP_5_6**
+     *   **IMAGE_PHP_5_6_ALPINE**
+     *   **IMAGE_PHP_7_0**
+     *   **IMAGE_PHP_7_0_ALPINE**
+     *   **IMAGE_PHP_7_1**
+     *   **IMAGE_PHP_7_1_ALPINE**
+     *   **IMAGE_PHP_7_2**
+     *   **IMAGE_PHP_7_2_ALPINE**
+     *   **IMAGE_PHP_7_3**
+     *   **IMAGE_PHP_7_3_ALPINE**
      *
      *   If you deploy the application by using a Pythhon package, this parameter is set to **PythonZip** or **Image**.
      *
@@ -376,7 +376,7 @@ class data extends Model
     public $phpConfigLocation;
 
     /**
-     * @description The script that is run immediately after the container is started. Example: `{"exec":{"command":\["cat","/etc/group"\]}}`
+     * @description The script that is run immediately after the container is started. Example: `{"exec":{"command":["cat","/etc/group"\\]}}`
      *
      * @example {"exec":{"command":["cat","/etc/group"]}}
      *
@@ -385,7 +385,7 @@ class data extends Model
     public $postStart;
 
     /**
-     * @description The script that is run before the container is stopped. Example: `{"exec":{"command":\["cat","/etc/group"\]}}`
+     * @description The script that is run before the container is stopped. Example: `{"exec":{"command":["cat","/etc/group"\\]}}`
      *
      * @example {"exec":{"command":["cat","/etc/group"]}}
      *

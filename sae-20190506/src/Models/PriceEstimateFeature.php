@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PriceEstimateFeature extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Web/MicroService
      *
      * @var string
@@ -16,6 +18,8 @@ class PriceEstimateFeature extends Model
     public $appType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var float
@@ -23,6 +27,8 @@ class PriceEstimateFeature extends Model
     public $cpuCore;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Request/Always
      *
      * @var string
@@ -30,6 +36,8 @@ class PriceEstimateFeature extends Model
     public $cpuStrategy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Test/Production
      *
      * @var string
@@ -100,6 +108,8 @@ class PriceEstimateFeature extends Model
     public $maxInstanceCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var float
@@ -128,6 +138,8 @@ class PriceEstimateFeature extends Model
     public $noneLoadSeconds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string

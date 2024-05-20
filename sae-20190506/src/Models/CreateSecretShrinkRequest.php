@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSecretShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing:test
      *
      * @var string
@@ -16,11 +18,15 @@ class CreateSecretShrinkRequest extends Model
     public $namespaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $secretDataShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example registry-auth-acree
      *
      * @var string
@@ -28,6 +34,8 @@ class CreateSecretShrinkRequest extends Model
     public $secretName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example kubernetes.io/dockerconfigjson
      *
      * @var string

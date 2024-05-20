@@ -32,7 +32,7 @@ class taskList extends Model
     /**
      * @description The error message returned when the task could not be executed. If the task is successfully executed, this parameter is not returned.
      *
-     * @example EDAS-10022 \<a target=\"\_blank\" href=\"https://help.aliyun.com/knowledge_detail/106573.html#EDAS-10022\">READINESS check failed during the application startup.\</a>
+     * @example EDAS-10022 \\<a target=\\"_blank\\" href=\\"https://help.aliyun.com/knowledge_detail/106573.html#EDAS-10022\\">READINESS check failed during the application startup.\\</a>
      *
      * @var string
      */

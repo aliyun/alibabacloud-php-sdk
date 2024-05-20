@@ -14,6 +14,8 @@ class GetApplicationLogsInput extends Model
     public $backwardLine;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $endTime;
@@ -59,6 +61,8 @@ class GetApplicationLogsInput extends Model
     public $packMeta;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $startTime;

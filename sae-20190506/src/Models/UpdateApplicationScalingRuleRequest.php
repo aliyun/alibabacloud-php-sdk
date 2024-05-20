@@ -11,6 +11,7 @@ class UpdateApplicationScalingRuleRequest extends Model
     /**
      * @description The application ID.
      *
+     * This parameter is required.
      * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
      *
      * @var string
@@ -23,7 +24,7 @@ class UpdateApplicationScalingRuleRequest extends Model
      *   If you set the value to **-1**, the minimum number of available instances is not determined based on this parameter. This is the default value.
      *   If you set the value to a number **from 0 to 100**, the minimum number of available instances is calculated by using the following formula: Current number of instances × (Value of MinReadyInstanceRatio × 100%). The value is the nearest integer rounded up from the calculated result. For example, if you set this parameter to **50**, and five instances are available, the minimum number of available instances is 3.
      *
-     * > When **MinReadyInstance** and **MinReadyInstanceRatio** are specified and **MinReadyInstanceRatio** is set to a number from 0 to 100, the value of \*\*MinReadyInstanceRatio** takes precedence.**** For example, if **MinReadyInstances** is set to **5\*\*, and **MinReadyInstanceRatio** is set to **50**, the minimum number of available instances is set to the nearest integer rounded up from the calculated result of the following formula: Current number of instances × **50%**.
+     * > When **MinReadyInstance** and **MinReadyInstanceRatio** are specified and **MinReadyInstanceRatio** is set to a number from 0 to 100, the value of \\*\\*MinReadyInstanceRatio** takes precedence.**** For example, if **MinReadyInstances** is set to **5\\*\\*, and **MinReadyInstanceRatio** is set to **50**, the minimum number of available instances is set to the nearest integer rounded up from the calculated result of the following formula: Current number of instances × **50%**.
      * @example -1
      *
      * @var int
@@ -34,7 +35,7 @@ class UpdateApplicationScalingRuleRequest extends Model
      * @description The minimum number of available instances. Take note of the following rules:
      *
      *   If you set the value to **0**, business interruptions occur when the auto-scaling policy is updated.
-     *   If you set the value to \*\*-1\*\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+     *   If you set the value to \\*\\*-1\\*\\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
      *
      * > Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
      * @example 3
@@ -97,7 +98,7 @@ class UpdateApplicationScalingRuleRequest extends Model
     /**
      * @description The name of the auto scaling policy. The name must start with a lowercase letter and can contain only lowercase letters, digits, and hyphens (-). The name cannot exceed 32 characters in length.
      *
-     * > You cannot change the names of created policies.
+     * This parameter is required.
      * @example timer-0800-2100
      *
      * @var string
@@ -116,9 +117,9 @@ class UpdateApplicationScalingRuleRequest extends Model
      *
      *   **period**: specifies the frequency at which the scheduled auto scaling policy is executed. Valid values:
      *
-     *   **\* \* \***: The scheduled auto scaling policy is executed at a specified point in time every day.
+     *   **\\* \\* \\***: The scheduled auto scaling policy is executed at a specified point in time every day.
      *
-     *   **\* \* Fri,Mon**: The scheduled auto scaling policy is executed at a specified point in time on one or more specified days of each week. GMT+8 is used. Valid values:
+     *   **\\* \\* Fri,Mon**: The scheduled auto scaling policy is executed at a specified point in time on one or more specified days of each week. GMT+8 is used. Valid values:
      *
      *   **Sun**
      *   **Mon**
@@ -128,7 +129,7 @@ class UpdateApplicationScalingRuleRequest extends Model
      *   **Fri**
      *   **Sat**
      *
-     *   **1,2,3,28,31 \* \***: The scheduled auto scaling policy is executed at a specified point in time on one or more days of each month. Valid values: 1 to 31. If the month does not have a 31st day, the auto scaling policy is executed on the specified days other than the 31st day.
+     *   **1,2,3,28,31 \\* \\***: The scheduled auto scaling policy is executed at a specified point in time on one or more days of each month. Valid values: 1 to 31. If the month does not have a 31st day, the auto scaling policy is executed on the specified days other than the 31st day.
      *
      *   **schedules**: specifies the points in time at which the auto scaling policy is triggered and the number of application instances that are retained during the corresponding period of time. You can specify up to 20 points in time. Parameter description:
      *

@@ -20,6 +20,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description cn-beijing
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -27,7 +28,7 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description \["d42921c4-5433-4abd-8075-0e536f8b\*\*\*\*"]
+     * @description ["d42921c4-5433-4abd-8075-0e536f8b\\*\\*\\*\\*"]
      *
      * @example ["d42921c4-5433-4abd-8075-0e536f8b****"]
      *
@@ -38,6 +39,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description application
      *
+     * This parameter is required.
      * @example application
      *
      * @var string
@@ -45,7 +47,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description \[{"key":"k1","value":"v1"}]
+     * @description [{"key":"k1","value":"v1"}]
      *
      * @example [{"key":"k1","value":"v1"}]
      *

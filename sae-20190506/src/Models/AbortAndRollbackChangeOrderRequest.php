@@ -11,6 +11,7 @@ class AbortAndRollbackChangeOrderRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example ba386059-69b1-4e65-b1e5-0682d9fa****
      *
      * @var string

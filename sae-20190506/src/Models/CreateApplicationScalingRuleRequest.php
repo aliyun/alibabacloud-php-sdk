@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationScalingRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
      *
      * @var string
@@ -44,6 +46,8 @@ class CreateApplicationScalingRuleRequest extends Model
     public $scalingRuleMetric;
 
     /**
+     * @description This parameter is required.
+     *
      * @example timer-0800-2100
      *
      * @var string
@@ -58,6 +62,8 @@ class CreateApplicationScalingRuleRequest extends Model
     public $scalingRuleTimer;
 
     /**
+     * @description This parameter is required.
+     *
      * @example timing
      *
      * @var string

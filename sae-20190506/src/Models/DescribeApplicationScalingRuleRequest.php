@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationScalingRuleRequest extends Model
 {
     /**
-     * @description a0d2e04c-159d-40a8-b240-d2f2c263\*\*\*\*
+     * @description a0d2e04c-159d-40a8-b240-d2f2c263\\*\\*\\*\\*
      *
+     * This parameter is required.
      * @example a0d2e04c-159d-40a8-b240-d2f2c263****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeApplicationScalingRuleRequest extends Model
     /**
      * @description test
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

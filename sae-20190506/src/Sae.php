@@ -244,11 +244,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param AbortAndRollbackChangeOrderRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @summary ba386059-69b1-4e65-b1e5-0682d9fa\\*\\*\\*\\*
+     *  *
+     * @param AbortAndRollbackChangeOrderRequest $request AbortAndRollbackChangeOrderRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AbortAndRollbackChangeOrderResponse
+     * @return AbortAndRollbackChangeOrderResponse AbortAndRollbackChangeOrderResponse
      */
     public function abortAndRollbackChangeOrderWithOptions($request, $headers, $runtime)
     {
@@ -277,9 +279,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param AbortAndRollbackChangeOrderRequest $request
+     * @summary ba386059-69b1-4e65-b1e5-0682d9fa\\*\\*\\*\\*
+     *  *
+     * @param AbortAndRollbackChangeOrderRequest $request AbortAndRollbackChangeOrderRequest
      *
-     * @return AbortAndRollbackChangeOrderResponse
+     * @return AbortAndRollbackChangeOrderResponse AbortAndRollbackChangeOrderResponse
      */
     public function abortAndRollbackChangeOrder($request)
     {
@@ -290,11 +294,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param AbortChangeOrderRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param AbortChangeOrderRequest $request AbortChangeOrderRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AbortChangeOrderResponse
+     * @return AbortChangeOrderResponse AbortChangeOrderResponse
      */
     public function abortChangeOrderWithOptions($request, $headers, $runtime)
     {
@@ -323,9 +327,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param AbortChangeOrderRequest $request
+     * @param AbortChangeOrderRequest $request AbortChangeOrderRequest
      *
-     * @return AbortChangeOrderResponse
+     * @return AbortChangeOrderResponse AbortChangeOrderResponse
      */
     public function abortChangeOrder($request)
     {
@@ -336,11 +340,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param BatchStartApplicationsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary cn-shanghai
+     *  *
+     * @param BatchStartApplicationsRequest $request BatchStartApplicationsRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchStartApplicationsResponse
+     * @return BatchStartApplicationsResponse BatchStartApplicationsResponse
      */
     public function batchStartApplicationsWithOptions($request, $headers, $runtime)
     {
@@ -351,6 +357,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->version)) {
+            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -372,9 +381,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param BatchStartApplicationsRequest $request
+     * @summary cn-shanghai
+     *  *
+     * @param BatchStartApplicationsRequest $request BatchStartApplicationsRequest
      *
-     * @return BatchStartApplicationsResponse
+     * @return BatchStartApplicationsResponse BatchStartApplicationsResponse
      */
     public function batchStartApplications($request)
     {
@@ -385,11 +396,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param BatchStopApplicationsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param BatchStopApplicationsRequest $request BatchStopApplicationsRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchStopApplicationsResponse
+     * @return BatchStopApplicationsResponse BatchStopApplicationsResponse
      */
     public function batchStopApplicationsWithOptions($request, $headers, $runtime)
     {
@@ -400,6 +411,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->version)) {
+            $query['Version'] = $request->version;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -421,9 +435,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param BatchStopApplicationsRequest $request
+     * @param BatchStopApplicationsRequest $request BatchStopApplicationsRequest
      *
-     * @return BatchStopApplicationsResponse
+     * @return BatchStopApplicationsResponse BatchStopApplicationsResponse
      */
     public function batchStopApplications($request)
     {
@@ -434,11 +448,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param BindSlbRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param BindSlbRequest $request BindSlbRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindSlbResponse
+     * @return BindSlbResponse BindSlbResponse
      */
     public function bindSlbWithOptions($request, $headers, $runtime)
     {
@@ -479,9 +493,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param BindSlbRequest $request
+     * @param BindSlbRequest $request BindSlbRequest
      *
-     * @return BindSlbResponse
+     * @return BindSlbResponse BindSlbResponse
      */
     public function bindSlb($request)
     {
@@ -492,11 +506,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ConfirmPipelineBatchRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ConfirmPipelineBatchRequest $request ConfirmPipelineBatchRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfirmPipelineBatchResponse
+     * @return ConfirmPipelineBatchResponse ConfirmPipelineBatchResponse
      */
     public function confirmPipelineBatchWithOptions($request, $headers, $runtime)
     {
@@ -528,9 +542,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ConfirmPipelineBatchRequest $request
+     * @param ConfirmPipelineBatchRequest $request ConfirmPipelineBatchRequest
      *
-     * @return ConfirmPipelineBatchResponse
+     * @return ConfirmPipelineBatchResponse ConfirmPipelineBatchResponse
      */
     public function confirmPipelineBatch($request)
     {
@@ -541,11 +555,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param CreateApplicationRequest $request CreateApplicationRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplicationWithOptions($request, $headers, $runtime)
     {
@@ -747,9 +761,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
+     * @param CreateApplicationRequest $request CreateApplicationRequest
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplication($request)
     {
@@ -760,12 +774,14 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * The HTTP status code. Take note of the following rules:
-     *   * *   **2xx**: The call was successful.
-     *   * *   **3xx**: The call was redirected.
-     *   * *   **4xx**: The call failed.
-     *   * *   **5xx**: A server error occurred.
-     *   *
+     * @summary Null
+     *  *
+     * @description The HTTP status code. Take note of the following rules:
+     * *   **2xx**: The call was successful.
+     * *   **3xx**: The call was redirected.
+     * *   **4xx**: The call failed.
+     * *   **5xx**: A server error occurred.
+     *  *
      * @param CreateApplicationScalingRuleRequest $request CreateApplicationScalingRuleRequest
      * @param string[]                            $headers map
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -820,12 +836,14 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * The HTTP status code. Take note of the following rules:
-     *   * *   **2xx**: The call was successful.
-     *   * *   **3xx**: The call was redirected.
-     *   * *   **4xx**: The call failed.
-     *   * *   **5xx**: A server error occurred.
-     *   *
+     * @summary Null
+     *  *
+     * @description The HTTP status code. Take note of the following rules:
+     * *   **2xx**: The call was successful.
+     * *   **3xx**: The call was redirected.
+     * *   **4xx**: The call failed.
+     * *   **5xx**: A server error occurred.
+     *  *
      * @param CreateApplicationScalingRuleRequest $request CreateApplicationScalingRuleRequest
      *
      * @return CreateApplicationScalingRuleResponse CreateApplicationScalingRuleResponse
@@ -839,11 +857,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateConfigMapRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary name
+     *  *
+     * @param CreateConfigMapRequest $request CreateConfigMapRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateConfigMapResponse
+     * @return CreateConfigMapResponse CreateConfigMapResponse
      */
     public function createConfigMapWithOptions($request, $headers, $runtime)
     {
@@ -883,9 +903,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateConfigMapRequest $request
+     * @summary name
+     *  *
+     * @param CreateConfigMapRequest $request CreateConfigMapRequest
      *
-     * @return CreateConfigMapResponse
+     * @return CreateConfigMapResponse CreateConfigMapResponse
      */
     public function createConfigMap($request)
     {
@@ -896,8 +918,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * >  You can configure only one canary release rule for each application.
-     *   *
+     * @summary Creates a canary release rule for a Spring Cloud or Dubbo application.
+     *  *
+     * @description >  You can configure only one canary release rule for each application.
+     *  *
      * @param CreateGreyTagRouteRequest $request CreateGreyTagRouteRequest
      * @param string[]                  $headers map
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -946,8 +970,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * >  You can configure only one canary release rule for each application.
-     *   *
+     * @summary Creates a canary release rule for a Spring Cloud or Dubbo application.
+     *  *
+     * @description >  You can configure only one canary release rule for each application.
+     *  *
      * @param CreateGreyTagRouteRequest $request CreateGreyTagRouteRequest
      *
      * @return CreateGreyTagRouteResponse CreateGreyTagRouteResponse
@@ -961,11 +987,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateIngressRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary {"appId":"395b60e4-0550-458d-9c54-a265d036\\*\\*\\*\\*","containerPort":8080}
+     *  *
+     * @param CreateIngressRequest $request CreateIngressRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIngressResponse
+     * @return CreateIngressResponse CreateIngressResponse
      */
     public function createIngressWithOptions($request, $headers, $runtime)
     {
@@ -1023,9 +1051,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateIngressRequest $request
+     * @summary {"appId":"395b60e4-0550-458d-9c54-a265d036\\*\\*\\*\\*","containerPort":8080}
+     *  *
+     * @param CreateIngressRequest $request CreateIngressRequest
      *
-     * @return CreateIngressResponse
+     * @return CreateIngressResponse CreateIngressResponse
      */
     public function createIngress($request)
     {
@@ -1036,11 +1066,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateJobRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary Updates a job template.
+     *  *
+     * @param CreateJobRequest $request CreateJobRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateJobResponse
+     * @return CreateJobResponse CreateJobResponse
      */
     public function createJobWithOptions($request, $headers, $runtime)
     {
@@ -1230,9 +1262,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateJobRequest $request
+     * @summary Updates a job template.
+     *  *
+     * @param CreateJobRequest $request CreateJobRequest
      *
-     * @return CreateJobResponse
+     * @return CreateJobResponse CreateJobResponse
      */
     public function createJob($request)
     {
@@ -1243,11 +1277,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateNamespaceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary desc
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespaceWithOptions($request, $headers, $runtime)
     {
@@ -1288,9 +1324,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateNamespaceRequest $request
+     * @summary desc
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
      *
-     * @return CreateNamespaceResponse
+     * @return CreateNamespaceResponse CreateNamespaceResponse
      */
     public function createNamespace($request)
     {
@@ -1301,11 +1339,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateSecretRequest $tmpReq
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Null
+     *  *
+     * @param CreateSecretRequest $tmpReq  CreateSecretRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSecretResponse
+     * @return CreateSecretResponse CreateSecretResponse
      */
     public function createSecretWithOptions($tmpReq, $headers, $runtime)
     {
@@ -1348,9 +1388,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param CreateSecretRequest $request
+     * @summary Null
+     *  *
+     * @param CreateSecretRequest $request CreateSecretRequest
      *
-     * @return CreateSecretResponse
+     * @return CreateSecretResponse CreateSecretResponse
      */
     public function createSecret($request)
     {
@@ -1361,11 +1403,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplicationWithOptions($request, $headers, $runtime)
     {
@@ -1394,9 +1436,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationRequest $request
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
      *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplication($request)
     {
@@ -1407,11 +1449,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationScalingRuleRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+     *  *
+     * @param DeleteApplicationScalingRuleRequest $request DeleteApplicationScalingRuleRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteApplicationScalingRuleResponse
+     * @return DeleteApplicationScalingRuleResponse DeleteApplicationScalingRuleResponse
      */
     public function deleteApplicationScalingRuleWithOptions($request, $headers, $runtime)
     {
@@ -1443,9 +1487,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationScalingRuleRequest $request
+     * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+     *  *
+     * @param DeleteApplicationScalingRuleRequest $request DeleteApplicationScalingRuleRequest
      *
-     * @return DeleteApplicationScalingRuleResponse
+     * @return DeleteApplicationScalingRuleResponse DeleteApplicationScalingRuleResponse
      */
     public function deleteApplicationScalingRule($request)
     {
@@ -1456,11 +1502,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteConfigMapRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeleteConfigMapRequest $request DeleteConfigMapRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteConfigMapResponse
+     * @return DeleteConfigMapResponse DeleteConfigMapResponse
      */
     public function deleteConfigMapWithOptions($request, $headers, $runtime)
     {
@@ -1489,9 +1535,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteConfigMapRequest $request
+     * @param DeleteConfigMapRequest $request DeleteConfigMapRequest
      *
-     * @return DeleteConfigMapResponse
+     * @return DeleteConfigMapResponse DeleteConfigMapResponse
      */
     public function deleteConfigMap($request)
     {
@@ -1502,11 +1548,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteGreyTagRouteRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 1
+     *  *
+     * @param DeleteGreyTagRouteRequest $request DeleteGreyTagRouteRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGreyTagRouteResponse
+     * @return DeleteGreyTagRouteResponse DeleteGreyTagRouteResponse
      */
     public function deleteGreyTagRouteWithOptions($request, $headers, $runtime)
     {
@@ -1535,9 +1583,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteGreyTagRouteRequest $request
+     * @summary 1
+     *  *
+     * @param DeleteGreyTagRouteRequest $request DeleteGreyTagRouteRequest
      *
-     * @return DeleteGreyTagRouteResponse
+     * @return DeleteGreyTagRouteResponse DeleteGreyTagRouteResponse
      */
     public function deleteGreyTagRoute($request)
     {
@@ -1548,11 +1598,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteHistoryJobRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes a job.
+     *  *
+     * @param DeleteHistoryJobRequest $request DeleteHistoryJobRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHistoryJobResponse
+     * @return DeleteHistoryJobResponse DeleteHistoryJobResponse
      */
     public function deleteHistoryJobWithOptions($request, $headers, $runtime)
     {
@@ -1584,9 +1636,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteHistoryJobRequest $request
+     * @summary Deletes a job.
+     *  *
+     * @param DeleteHistoryJobRequest $request DeleteHistoryJobRequest
      *
-     * @return DeleteHistoryJobResponse
+     * @return DeleteHistoryJobResponse DeleteHistoryJobResponse
      */
     public function deleteHistoryJob($request)
     {
@@ -1597,11 +1651,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteIngressRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param DeleteIngressRequest $request DeleteIngressRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIngressResponse
+     * @return DeleteIngressResponse DeleteIngressResponse
      */
     public function deleteIngressWithOptions($request, $headers, $runtime)
     {
@@ -1630,9 +1684,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteIngressRequest $request
+     * @param DeleteIngressRequest $request DeleteIngressRequest
      *
-     * @return DeleteIngressResponse
+     * @return DeleteIngressResponse DeleteIngressResponse
      */
     public function deleteIngress($request)
     {
@@ -1643,11 +1697,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteJobRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary Deletes a job template.
+     *  *
+     * @param DeleteJobRequest $request DeleteJobRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteJobResponse
+     * @return DeleteJobResponse DeleteJobResponse
      */
     public function deleteJobWithOptions($request, $headers, $runtime)
     {
@@ -1676,9 +1732,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteJobRequest $request
+     * @summary Deletes a job template.
+     *  *
+     * @param DeleteJobRequest $request DeleteJobRequest
      *
-     * @return DeleteJobResponse
+     * @return DeleteJobResponse DeleteJobResponse
      */
     public function deleteJob($request)
     {
@@ -1689,11 +1747,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespaceWithOptions($request, $headers, $runtime)
     {
@@ -1725,9 +1783,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespace($request)
     {
@@ -1738,11 +1796,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecretRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Deletes a Secret.
+     *  *
+     * @param DeleteSecretRequest $request DeleteSecretRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSecretResponse
+     * @return DeleteSecretResponse DeleteSecretResponse
      */
     public function deleteSecretWithOptions($request, $headers, $runtime)
     {
@@ -1774,9 +1834,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecretRequest $request
+     * @summary Deletes a Secret.
+     *  *
+     * @param DeleteSecretRequest $request DeleteSecretRequest
      *
-     * @return DeleteSecretResponse
+     * @return DeleteSecretResponse DeleteSecretResponse
      */
     public function deleteSecret($request)
     {
@@ -1787,11 +1849,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeployApplicationRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Deploys an application.
+     *  *
+     * @param DeployApplicationRequest $request DeployApplicationRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeployApplicationResponse
+     * @return DeployApplicationResponse DeployApplicationResponse
      */
     public function deployApplicationWithOptions($request, $headers, $runtime)
     {
@@ -1993,9 +2057,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DeployApplicationRequest $request
+     * @summary Deploys an application.
+     *  *
+     * @param DeployApplicationRequest $request DeployApplicationRequest
      *
-     * @return DeployApplicationResponse
+     * @return DeployApplicationResponse DeployApplicationResponse
      */
     public function deployApplication($request)
     {
@@ -2006,11 +2072,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppServiceDetailRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the metadata details of the service of an application.
+     *  *
+     * @param DescribeAppServiceDetailRequest $request DescribeAppServiceDetailRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAppServiceDetailResponse
+     * @return DescribeAppServiceDetailResponse DescribeAppServiceDetailResponse
      */
     public function describeAppServiceDetailWithOptions($request, $headers, $runtime)
     {
@@ -2018,6 +2086,12 @@ class Sae extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->nacosInstanceId)) {
+            $query['NacosInstanceId'] = $request->nacosInstanceId;
+        }
+        if (!Utils::isUnset($request->nacosNamespaceId)) {
+            $query['NacosNamespaceId'] = $request->nacosNamespaceId;
         }
         if (!Utils::isUnset($request->serviceGroup)) {
             $query['ServiceGroup'] = $request->serviceGroup;
@@ -2051,9 +2125,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppServiceDetailRequest $request
+     * @summary Queries the metadata details of the service of an application.
+     *  *
+     * @param DescribeAppServiceDetailRequest $request DescribeAppServiceDetailRequest
      *
-     * @return DescribeAppServiceDetailResponse
+     * @return DescribeAppServiceDetailResponse DescribeAppServiceDetailResponse
      */
     public function describeAppServiceDetail($request)
     {
@@ -2064,11 +2140,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationConfigRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeApplicationConfigRequest $request DescribeApplicationConfigRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApplicationConfigResponse
+     * @return DescribeApplicationConfigResponse DescribeApplicationConfigResponse
      */
     public function describeApplicationConfigWithOptions($request, $headers, $runtime)
     {
@@ -2100,9 +2176,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationConfigRequest $request
+     * @param DescribeApplicationConfigRequest $request DescribeApplicationConfigRequest
      *
-     * @return DescribeApplicationConfigResponse
+     * @return DescribeApplicationConfigResponse DescribeApplicationConfigResponse
      */
     public function describeApplicationConfig($request)
     {
@@ -2113,11 +2189,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationGroupsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeApplicationGroupsRequest $request DescribeApplicationGroupsRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApplicationGroupsResponse
+     * @return DescribeApplicationGroupsResponse DescribeApplicationGroupsResponse
      */
     public function describeApplicationGroupsWithOptions($request, $headers, $runtime)
     {
@@ -2152,9 +2228,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationGroupsRequest $request
+     * @param DescribeApplicationGroupsRequest $request DescribeApplicationGroupsRequest
      *
-     * @return DescribeApplicationGroupsResponse
+     * @return DescribeApplicationGroupsResponse DescribeApplicationGroupsResponse
      */
     public function describeApplicationGroups($request)
     {
@@ -2165,11 +2241,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationImageRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeApplicationImageRequest $request DescribeApplicationImageRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApplicationImageResponse
+     * @return DescribeApplicationImageResponse DescribeApplicationImageResponse
      */
     public function describeApplicationImageWithOptions($request, $headers, $runtime)
     {
@@ -2201,9 +2277,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationImageRequest $request
+     * @param DescribeApplicationImageRequest $request DescribeApplicationImageRequest
      *
-     * @return DescribeApplicationImageResponse
+     * @return DescribeApplicationImageResponse DescribeApplicationImageResponse
      */
     public function describeApplicationImage($request)
     {
@@ -2214,11 +2290,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationInstancesRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries application instances.
+     *  *
+     * @param DescribeApplicationInstancesRequest $request DescribeApplicationInstancesRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApplicationInstancesResponse
+     * @return DescribeApplicationInstancesResponse DescribeApplicationInstancesResponse
      */
     public function describeApplicationInstancesWithOptions($request, $headers, $runtime)
     {
@@ -2259,9 +2337,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationInstancesRequest $request
+     * @summary Queries application instances.
+     *  *
+     * @param DescribeApplicationInstancesRequest $request DescribeApplicationInstancesRequest
      *
-     * @return DescribeApplicationInstancesResponse
+     * @return DescribeApplicationInstancesResponse DescribeApplicationInstancesResponse
      */
     public function describeApplicationInstances($request)
     {
@@ -2272,11 +2352,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationScalingRuleRequest $request
-     * @param string[]                              $headers
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries a specified auto scaling policy of an application.
+     *  *
+     * @param DescribeApplicationScalingRuleRequest $request DescribeApplicationScalingRuleRequest
+     * @param string[]                              $headers map
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApplicationScalingRuleResponse
+     * @return DescribeApplicationScalingRuleResponse DescribeApplicationScalingRuleResponse
      */
     public function describeApplicationScalingRuleWithOptions($request, $headers, $runtime)
     {
@@ -2308,9 +2390,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationScalingRuleRequest $request
+     * @summary Queries a specified auto scaling policy of an application.
+     *  *
+     * @param DescribeApplicationScalingRuleRequest $request DescribeApplicationScalingRuleRequest
      *
-     * @return DescribeApplicationScalingRuleResponse
+     * @return DescribeApplicationScalingRuleResponse DescribeApplicationScalingRuleResponse
      */
     public function describeApplicationScalingRule($request)
     {
@@ -2321,11 +2405,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationScalingRulesRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the auto scaling policies of an application.
+     *  *
+     * @param DescribeApplicationScalingRulesRequest $request DescribeApplicationScalingRulesRequest
+     * @param string[]                               $headers map
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApplicationScalingRulesResponse
+     * @return DescribeApplicationScalingRulesResponse DescribeApplicationScalingRulesResponse
      */
     public function describeApplicationScalingRulesWithOptions($request, $headers, $runtime)
     {
@@ -2354,9 +2440,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationScalingRulesRequest $request
+     * @summary Queries the auto scaling policies of an application.
+     *  *
+     * @param DescribeApplicationScalingRulesRequest $request DescribeApplicationScalingRulesRequest
      *
-     * @return DescribeApplicationScalingRulesResponse
+     * @return DescribeApplicationScalingRulesResponse DescribeApplicationScalingRulesResponse
      */
     public function describeApplicationScalingRules($request)
     {
@@ -2367,11 +2455,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationSlbsRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+     *  *
+     * @param DescribeApplicationSlbsRequest $request DescribeApplicationSlbsRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApplicationSlbsResponse
+     * @return DescribeApplicationSlbsResponse DescribeApplicationSlbsResponse
      */
     public function describeApplicationSlbsWithOptions($request, $headers, $runtime)
     {
@@ -2400,9 +2490,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationSlbsRequest $request
+     * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+     *  *
+     * @param DescribeApplicationSlbsRequest $request DescribeApplicationSlbsRequest
      *
-     * @return DescribeApplicationSlbsResponse
+     * @return DescribeApplicationSlbsResponse DescribeApplicationSlbsResponse
      */
     public function describeApplicationSlbs($request)
     {
@@ -2413,11 +2505,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationStatusRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeApplicationStatusRequest $request DescribeApplicationStatusRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApplicationStatusResponse
+     * @return DescribeApplicationStatusResponse DescribeApplicationStatusResponse
      */
     public function describeApplicationStatusWithOptions($request, $headers, $runtime)
     {
@@ -2446,9 +2538,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationStatusRequest $request
+     * @param DescribeApplicationStatusRequest $request DescribeApplicationStatusRequest
      *
-     * @return DescribeApplicationStatusResponse
+     * @return DescribeApplicationStatusResponse DescribeApplicationStatusResponse
      */
     public function describeApplicationStatus($request)
     {
@@ -2459,11 +2551,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeChangeOrderRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param DescribeChangeOrderRequest $request DescribeChangeOrderRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChangeOrderResponse
+     * @return DescribeChangeOrderResponse DescribeChangeOrderResponse
      */
     public function describeChangeOrderWithOptions($request, $headers, $runtime)
     {
@@ -2492,9 +2584,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeChangeOrderRequest $request
+     * @param DescribeChangeOrderRequest $request DescribeChangeOrderRequest
      *
-     * @return DescribeChangeOrderResponse
+     * @return DescribeChangeOrderResponse DescribeChangeOrderResponse
      */
     public function describeChangeOrder($request)
     {
@@ -2505,11 +2597,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param DescribeComponentsRequest $request DescribeComponentsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeComponentsResponse
+     * @return DescribeComponentsResponse DescribeComponentsResponse
      */
     public function describeComponentsWithOptions($request, $headers, $runtime)
     {
@@ -2541,9 +2633,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeComponentsRequest $request
+     * @param DescribeComponentsRequest $request DescribeComponentsRequest
      *
-     * @return DescribeComponentsResponse
+     * @return DescribeComponentsResponse DescribeComponentsResponse
      */
     public function describeComponents($request)
     {
@@ -2554,11 +2646,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeConfigMapRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param DescribeConfigMapRequest $request DescribeConfigMapRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeConfigMapResponse
+     * @return DescribeConfigMapResponse DescribeConfigMapResponse
      */
     public function describeConfigMapWithOptions($request, $headers, $runtime)
     {
@@ -2587,9 +2679,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeConfigMapRequest $request
+     * @param DescribeConfigMapRequest $request DescribeConfigMapRequest
      *
-     * @return DescribeConfigMapResponse
+     * @return DescribeConfigMapResponse DescribeConfigMapResponse
      */
     public function describeConfigMap($request)
     {
@@ -2600,11 +2692,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeConfigurationPriceRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeConfigurationPriceRequest $request DescribeConfigurationPriceRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeConfigurationPriceResponse
+     * @return DescribeConfigurationPriceResponse DescribeConfigurationPriceResponse
      */
     public function describeConfigurationPriceWithOptions($request, $headers, $runtime)
     {
@@ -2639,9 +2731,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeConfigurationPriceRequest $request
+     * @param DescribeConfigurationPriceRequest $request DescribeConfigurationPriceRequest
      *
-     * @return DescribeConfigurationPriceResponse
+     * @return DescribeConfigurationPriceResponse DescribeConfigurationPriceResponse
      */
     public function describeConfigurationPrice($request)
     {
@@ -2652,10 +2744,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEdasContainersResponse
+     * @return DescribeEdasContainersResponse DescribeEdasContainersResponse
      */
     public function describeEdasContainersWithOptions($headers, $runtime)
     {
@@ -2678,7 +2770,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @return DescribeEdasContainersResponse
+     * @return DescribeEdasContainersResponse DescribeEdasContainersResponse
      */
     public function describeEdasContainers()
     {
@@ -2689,11 +2781,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeGreyTagRouteRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the details of a canary release rule based on the specified rule ID.
+     *  *
+     * @param DescribeGreyTagRouteRequest $request DescribeGreyTagRouteRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGreyTagRouteResponse
+     * @return DescribeGreyTagRouteResponse DescribeGreyTagRouteResponse
      */
     public function describeGreyTagRouteWithOptions($request, $headers, $runtime)
     {
@@ -2722,9 +2816,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeGreyTagRouteRequest $request
+     * @summary Queries the details of a canary release rule based on the specified rule ID.
+     *  *
+     * @param DescribeGreyTagRouteRequest $request DescribeGreyTagRouteRequest
      *
-     * @return DescribeGreyTagRouteResponse
+     * @return DescribeGreyTagRouteResponse DescribeGreyTagRouteResponse
      */
     public function describeGreyTagRoute($request)
     {
@@ -2735,11 +2831,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeIngressRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DescribeIngressRequest $request DescribeIngressRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIngressResponse
+     * @return DescribeIngressResponse DescribeIngressResponse
      */
     public function describeIngressWithOptions($request, $headers, $runtime)
     {
@@ -2768,9 +2864,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeIngressRequest $request
+     * @param DescribeIngressRequest $request DescribeIngressRequest
      *
-     * @return DescribeIngressResponse
+     * @return DescribeIngressResponse DescribeIngressResponse
      */
     public function describeIngress($request)
     {
@@ -2781,11 +2877,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceLogRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param DescribeInstanceLogRequest $request DescribeInstanceLogRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceLogResponse
+     * @return DescribeInstanceLogResponse DescribeInstanceLogResponse
      */
     public function describeInstanceLogWithOptions($request, $headers, $runtime)
     {
@@ -2814,9 +2910,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceLogRequest $request
+     * @param DescribeInstanceLogRequest $request DescribeInstanceLogRequest
      *
-     * @return DescribeInstanceLogResponse
+     * @return DescribeInstanceLogResponse DescribeInstanceLogResponse
      */
     public function describeInstanceLog($request)
     {
@@ -2827,10 +2923,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceSpecificationsResponse
+     * @return DescribeInstanceSpecificationsResponse DescribeInstanceSpecificationsResponse
      */
     public function describeInstanceSpecificationsWithOptions($headers, $runtime)
     {
@@ -2853,7 +2949,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @return DescribeInstanceSpecificationsResponse
+     * @return DescribeInstanceSpecificationsResponse DescribeInstanceSpecificationsResponse
      */
     public function describeInstanceSpecifications()
     {
@@ -2864,11 +2960,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the configurations of a job template.
+     *  *
+     * @param DescribeJobRequest $request DescribeJobRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeJobResponse
+     * @return DescribeJobResponse DescribeJobResponse
      */
     public function describeJobWithOptions($request, $headers, $runtime)
     {
@@ -2900,9 +2998,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobRequest $request
+     * @summary Queries the configurations of a job template.
+     *  *
+     * @param DescribeJobRequest $request DescribeJobRequest
      *
-     * @return DescribeJobResponse
+     * @return DescribeJobResponse DescribeJobResponse
      */
     public function describeJob($request)
     {
@@ -2913,11 +3013,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobHistoryRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary Query the information about jobs.
+     *  *
+     * @param DescribeJobHistoryRequest $request DescribeJobHistoryRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeJobHistoryResponse
+     * @return DescribeJobHistoryResponse DescribeJobHistoryResponse
      */
     public function describeJobHistoryWithOptions($request, $headers, $runtime)
     {
@@ -2955,9 +3057,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobHistoryRequest $request
+     * @summary Query the information about jobs.
+     *  *
+     * @param DescribeJobHistoryRequest $request DescribeJobHistoryRequest
      *
-     * @return DescribeJobHistoryResponse
+     * @return DescribeJobHistoryResponse DescribeJobHistoryResponse
      */
     public function describeJobHistory($request)
     {
@@ -2968,11 +3072,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobStatusRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the status of a job.
+     *  *
+     * @param DescribeJobStatusRequest $request DescribeJobStatusRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeJobStatusResponse
+     * @return DescribeJobStatusResponse DescribeJobStatusResponse
      */
     public function describeJobStatusWithOptions($request, $headers, $runtime)
     {
@@ -3004,9 +3110,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeJobStatusRequest $request
+     * @summary Queries the status of a job.
+     *  *
+     * @param DescribeJobStatusRequest $request DescribeJobStatusRequest
      *
-     * @return DescribeJobStatusResponse
+     * @return DescribeJobStatusResponse DescribeJobStatusResponse
      */
     public function describeJobStatus($request)
     {
@@ -3017,11 +3125,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the details of a namespace.
+     *  *
+     * @param DescribeNamespaceRequest $request DescribeNamespaceRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNamespaceResponse
+     * @return DescribeNamespaceResponse DescribeNamespaceResponse
      */
     public function describeNamespaceWithOptions($request, $headers, $runtime)
     {
@@ -3053,9 +3163,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceRequest $request
+     * @summary Queries the details of a namespace.
+     *  *
+     * @param DescribeNamespaceRequest $request DescribeNamespaceRequest
      *
-     * @return DescribeNamespaceResponse
+     * @return DescribeNamespaceResponse DescribeNamespaceResponse
      */
     public function describeNamespace($request)
     {
@@ -3066,11 +3178,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceListRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DescribeNamespaceListRequest $request DescribeNamespaceListRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNamespaceListResponse
+     * @return DescribeNamespaceListResponse DescribeNamespaceListResponse
      */
     public function describeNamespaceListWithOptions($request, $headers, $runtime)
     {
@@ -3102,9 +3214,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceListRequest $request
+     * @param DescribeNamespaceListRequest $request DescribeNamespaceListRequest
      *
-     * @return DescribeNamespaceListResponse
+     * @return DescribeNamespaceListResponse DescribeNamespaceListResponse
      */
     public function describeNamespaceList($request)
     {
@@ -3115,11 +3227,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceResourcesRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeNamespaceResourcesRequest $request DescribeNamespaceResourcesRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNamespaceResourcesResponse
+     * @return DescribeNamespaceResourcesResponse DescribeNamespaceResourcesResponse
      */
     public function describeNamespaceResourcesWithOptions($request, $headers, $runtime)
     {
@@ -3151,9 +3263,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespaceResourcesRequest $request
+     * @param DescribeNamespaceResourcesRequest $request DescribeNamespaceResourcesRequest
      *
-     * @return DescribeNamespaceResourcesResponse
+     * @return DescribeNamespaceResourcesResponse DescribeNamespaceResourcesResponse
      */
     public function describeNamespaceResources($request)
     {
@@ -3164,11 +3276,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespacesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the details of namespaces.
+     *  *
+     * @param DescribeNamespacesRequest $request DescribeNamespacesRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNamespacesResponse
+     * @return DescribeNamespacesResponse DescribeNamespacesResponse
      */
     public function describeNamespacesWithOptions($request, $headers, $runtime)
     {
@@ -3200,9 +3314,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeNamespacesRequest $request
+     * @summary Queries the details of namespaces.
+     *  *
+     * @param DescribeNamespacesRequest $request DescribeNamespacesRequest
      *
-     * @return DescribeNamespacesResponse
+     * @return DescribeNamespacesResponse DescribeNamespacesResponse
      */
     public function describeNamespaces($request)
     {
@@ -3213,11 +3329,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribePipelineRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the information of a batch.
+     *  *
+     * @param DescribePipelineRequest $request DescribePipelineRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePipelineResponse
+     * @return DescribePipelineResponse DescribePipelineResponse
      */
     public function describePipelineWithOptions($request, $headers, $runtime)
     {
@@ -3246,9 +3364,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribePipelineRequest $request
+     * @summary Queries the information of a batch.
+     *  *
+     * @param DescribePipelineRequest $request DescribePipelineRequest
      *
-     * @return DescribePipelineResponse
+     * @return DescribePipelineResponse DescribePipelineResponse
      */
     public function describePipeline($request)
     {
@@ -3259,10 +3379,12 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary Queries available regions.
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($headers, $runtime)
     {
@@ -3285,7 +3407,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * @summary Queries available regions.
+     *  *
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -3296,11 +3420,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecretRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the details of a Secret instance.
+     *  *
+     * @param DescribeSecretRequest $request DescribeSecretRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecretResponse
+     * @return DescribeSecretResponse DescribeSecretResponse
      */
     public function describeSecretWithOptions($request, $headers, $runtime)
     {
@@ -3332,9 +3458,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecretRequest $request
+     * @summary Queries the details of a Secret instance.
+     *  *
+     * @param DescribeSecretRequest $request DescribeSecretRequest
      *
-     * @return DescribeSecretResponse
+     * @return DescribeSecretResponse DescribeSecretResponse
      */
     public function describeSecret($request)
     {
@@ -3345,11 +3473,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationScalingRuleRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @param DisableApplicationScalingRuleRequest $request DisableApplicationScalingRuleRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableApplicationScalingRuleResponse
+     * @return DisableApplicationScalingRuleResponse DisableApplicationScalingRuleResponse
      */
     public function disableApplicationScalingRuleWithOptions($request, $headers, $runtime)
     {
@@ -3381,9 +3509,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationScalingRuleRequest $request
+     * @param DisableApplicationScalingRuleRequest $request DisableApplicationScalingRuleRequest
      *
-     * @return DisableApplicationScalingRuleResponse
+     * @return DisableApplicationScalingRuleResponse DisableApplicationScalingRuleResponse
      */
     public function disableApplicationScalingRule($request)
     {
@@ -3394,11 +3522,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationScalingRuleRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @summary Enables an auto scaling policy for an application.
+     *  *
+     * @param EnableApplicationScalingRuleRequest $request EnableApplicationScalingRuleRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableApplicationScalingRuleResponse
+     * @return EnableApplicationScalingRuleResponse EnableApplicationScalingRuleResponse
      */
     public function enableApplicationScalingRuleWithOptions($request, $headers, $runtime)
     {
@@ -3430,9 +3560,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationScalingRuleRequest $request
+     * @summary Enables an auto scaling policy for an application.
+     *  *
+     * @param EnableApplicationScalingRuleRequest $request EnableApplicationScalingRuleRequest
      *
-     * @return EnableApplicationScalingRuleResponse
+     * @return EnableApplicationScalingRuleResponse EnableApplicationScalingRuleResponse
      */
     public function enableApplicationScalingRule($request)
     {
@@ -3443,11 +3575,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ExecJobRequest $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param ExecJobRequest $request ExecJobRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecJobResponse
+     * @return ExecJobResponse ExecJobResponse
      */
     public function execJobWithOptions($request, $headers, $runtime)
     {
@@ -3503,9 +3635,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ExecJobRequest $request
+     * @param ExecJobRequest $request ExecJobRequest
      *
-     * @return ExecJobResponse
+     * @return ExecJobResponse ExecJobResponse
      */
     public function execJob($request)
     {
@@ -3516,16 +3648,24 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param GetArmsTopNMetricRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the top N applications in Application Monitoring.
+     *  *
+     * @param GetArmsTopNMetricRequest $request GetArmsTopNMetricRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetArmsTopNMetricResponse
+     * @return GetArmsTopNMetricResponse GetArmsTopNMetricResponse
      */
     public function getArmsTopNMetricWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appSource)) {
+            $query['AppSource'] = $request->appSource;
+        }
+        if (!Utils::isUnset($request->cpuStrategy)) {
+            $query['CpuStrategy'] = $request->cpuStrategy;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
@@ -3561,9 +3701,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param GetArmsTopNMetricRequest $request
+     * @summary Queries the top N applications in Application Monitoring.
+     *  *
+     * @param GetArmsTopNMetricRequest $request GetArmsTopNMetricRequest
      *
-     * @return GetArmsTopNMetricResponse
+     * @return GetArmsTopNMetricResponse GetArmsTopNMetricResponse
      */
     public function getArmsTopNMetric($request)
     {
@@ -3574,16 +3716,24 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param GetAvailabilityMetricRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the top N applications in which abnormal instances exist. The applications are sorted by the total number of abnormal instances.
+     *  *
+     * @param GetAvailabilityMetricRequest $request GetAvailabilityMetricRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAvailabilityMetricResponse
+     * @return GetAvailabilityMetricResponse GetAvailabilityMetricResponse
      */
     public function getAvailabilityMetricWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appSource)) {
+            $query['AppSource'] = $request->appSource;
+        }
+        if (!Utils::isUnset($request->cpuStrategy)) {
+            $query['CpuStrategy'] = $request->cpuStrategy;
+        }
         if (!Utils::isUnset($request->limit)) {
             $query['Limit'] = $request->limit;
         }
@@ -3610,9 +3760,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param GetAvailabilityMetricRequest $request
+     * @summary Queries the top N applications in which abnormal instances exist. The applications are sorted by the total number of abnormal instances.
+     *  *
+     * @param GetAvailabilityMetricRequest $request GetAvailabilityMetricRequest
      *
-     * @return GetAvailabilityMetricResponse
+     * @return GetAvailabilityMetricResponse GetAvailabilityMetricResponse
      */
     public function getAvailabilityMetric($request)
     {
@@ -3623,16 +3775,24 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param GetChangeOrderMetricRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary Queries top N applications in abnormal change orders.
+     *  *
+     * @param GetChangeOrderMetricRequest $request GetChangeOrderMetricRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetChangeOrderMetricResponse
+     * @return GetChangeOrderMetricResponse GetChangeOrderMetricResponse
      */
     public function getChangeOrderMetricWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appSource)) {
+            $query['AppSource'] = $request->appSource;
+        }
+        if (!Utils::isUnset($request->cpuStrategy)) {
+            $query['CpuStrategy'] = $request->cpuStrategy;
+        }
         if (!Utils::isUnset($request->createTime)) {
             $query['CreateTime'] = $request->createTime;
         }
@@ -3665,9 +3825,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param GetChangeOrderMetricRequest $request
+     * @summary Queries top N applications in abnormal change orders.
+     *  *
+     * @param GetChangeOrderMetricRequest $request GetChangeOrderMetricRequest
      *
-     * @return GetChangeOrderMetricResponse
+     * @return GetChangeOrderMetricResponse GetChangeOrderMetricResponse
      */
     public function getChangeOrderMetric($request)
     {
@@ -3678,16 +3840,24 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param GetScaleAppMetricRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the top N applications in which auto scaling takes effect.
+     *  *
+     * @param GetScaleAppMetricRequest $request GetScaleAppMetricRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetScaleAppMetricResponse
+     * @return GetScaleAppMetricResponse GetScaleAppMetricResponse
      */
     public function getScaleAppMetricWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appSource)) {
+            $query['AppSource'] = $request->appSource;
+        }
+        if (!Utils::isUnset($request->cpuStrategy)) {
+            $query['CpuStrategy'] = $request->cpuStrategy;
+        }
         if (!Utils::isUnset($request->limit)) {
             $query['Limit'] = $request->limit;
         }
@@ -3714,9 +3884,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param GetScaleAppMetricRequest $request
+     * @summary Queries the top N applications in which auto scaling takes effect.
+     *  *
+     * @param GetScaleAppMetricRequest $request GetScaleAppMetricRequest
      *
-     * @return GetScaleAppMetricResponse
+     * @return GetScaleAppMetricResponse GetScaleAppMetricResponse
      */
     public function getScaleAppMetric($request)
     {
@@ -3727,16 +3899,24 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param GetWarningEventMetricRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the top N applications in which Warning events occur.
+     *  *
+     * @param GetWarningEventMetricRequest $request GetWarningEventMetricRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWarningEventMetricResponse
+     * @return GetWarningEventMetricResponse GetWarningEventMetricResponse
      */
     public function getWarningEventMetricWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appSource)) {
+            $query['AppSource'] = $request->appSource;
+        }
+        if (!Utils::isUnset($request->cpuStrategy)) {
+            $query['CpuStrategy'] = $request->cpuStrategy;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
@@ -3769,9 +3949,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param GetWarningEventMetricRequest $request
+     * @summary Queries the top N applications in which Warning events occur.
+     *  *
+     * @param GetWarningEventMetricRequest $request GetWarningEventMetricRequest
      *
-     * @return GetWarningEventMetricResponse
+     * @return GetWarningEventMetricResponse GetWarningEventMetricResponse
      */
     public function getWarningEventMetric($request)
     {
@@ -3782,11 +3964,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListAppEventsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the events that occurred in an application.
+     *  *
+     * @param ListAppEventsRequest $request ListAppEventsRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppEventsResponse
+     * @return ListAppEventsResponse ListAppEventsResponse
      */
     public function listAppEventsWithOptions($request, $headers, $runtime)
     {
@@ -3836,9 +4020,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListAppEventsRequest $request
+     * @summary Queries the events that occurred in an application.
+     *  *
+     * @param ListAppEventsRequest $request ListAppEventsRequest
      *
-     * @return ListAppEventsResponse
+     * @return ListAppEventsResponse ListAppEventsResponse
      */
     public function listAppEvents($request)
     {
@@ -3849,11 +4035,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListAppServicesPageRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
+     *  *
+     * @param ListAppServicesPageRequest $request ListAppServicesPageRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppServicesPageResponse
+     * @return ListAppServicesPageResponse ListAppServicesPageResponse
      */
     public function listAppServicesPageWithOptions($request, $headers, $runtime)
     {
@@ -3891,9 +4079,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListAppServicesPageRequest $request
+     * @summary 6dcc8c9e-d3da-478a-a066-86dcf820\\*\\*\\*\\*
+     *  *
+     * @param ListAppServicesPageRequest $request ListAppServicesPageRequest
      *
-     * @return ListAppServicesPageResponse
+     * @return ListAppServicesPageResponse ListAppServicesPageResponse
      */
     public function listAppServicesPage($request)
     {
@@ -3904,11 +4094,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListAppVersionsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+     *  *
+     * @param ListAppVersionsRequest $request ListAppVersionsRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppVersionsResponse
+     * @return ListAppVersionsResponse ListAppVersionsResponse
      */
     public function listAppVersionsWithOptions($request, $headers, $runtime)
     {
@@ -3937,9 +4129,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListAppVersionsRequest $request
+     * @summary 7171a6ca-d1cd-4928-8642-7d5cfe69\\*\\*\\*\\*
+     *  *
+     * @param ListAppVersionsRequest $request ListAppVersionsRequest
      *
-     * @return ListAppVersionsResponse
+     * @return ListAppVersionsResponse ListAppVersionsResponse
      */
     public function listAppVersions($request)
     {
@@ -3950,11 +4144,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary The ID of the namespace.
+     *  *
+     * @param ListApplicationsRequest $request ListApplicationsRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplicationsWithOptions($request, $headers, $runtime)
     {
@@ -4010,9 +4206,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $request
+     * @summary The ID of the namespace.
+     *  *
+     * @param ListApplicationsRequest $request ListApplicationsRequest
      *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplications($request)
     {
@@ -4023,11 +4221,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListChangeOrdersRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param ListChangeOrdersRequest $request ListChangeOrdersRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListChangeOrdersResponse
+     * @return ListChangeOrdersResponse ListChangeOrdersResponse
      */
     public function listChangeOrdersWithOptions($request, $headers, $runtime)
     {
@@ -4071,9 +4269,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListChangeOrdersRequest $request
+     * @param ListChangeOrdersRequest $request ListChangeOrdersRequest
      *
-     * @return ListChangeOrdersResponse
+     * @return ListChangeOrdersResponse ListChangeOrdersResponse
      */
     public function listChangeOrders($request)
     {
@@ -4084,11 +4282,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListConsumedServicesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+     *  *
+     * @param ListConsumedServicesRequest $request ListConsumedServicesRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListConsumedServicesResponse
+     * @return ListConsumedServicesResponse ListConsumedServicesResponse
      */
     public function listConsumedServicesWithOptions($request, $headers, $runtime)
     {
@@ -4117,9 +4317,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListConsumedServicesRequest $request
+     * @summary b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+     *  *
+     * @param ListConsumedServicesRequest $request ListConsumedServicesRequest
      *
-     * @return ListConsumedServicesResponse
+     * @return ListConsumedServicesResponse ListConsumedServicesResponse
      */
     public function listConsumedServices($request)
     {
@@ -4130,8 +4332,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * >  You can configure only one canary release rule for each application.
-     *   *
+     * @summary Queries the details of a canary release rule based on an application ID.
+     *  *
+     * @description >  You can configure only one canary release rule for each application.
+     *  *
      * @param ListGreyTagRouteRequest $request ListGreyTagRouteRequest
      * @param string[]                $headers map
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -4165,8 +4369,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * >  You can configure only one canary release rule for each application.
-     *   *
+     * @summary Queries the details of a canary release rule based on an application ID.
+     *  *
+     * @description >  You can configure only one canary release rule for each application.
+     *  *
      * @param ListGreyTagRouteRequest $request ListGreyTagRouteRequest
      *
      * @return ListGreyTagRouteResponse ListGreyTagRouteResponse
@@ -4180,11 +4386,15 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListIngressesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary The returned message.
+     * *   **success** is returned when the request succeeds.
+     * *   An error code is returned when the request fails.
+     *  *
+     * @param ListIngressesRequest $request ListIngressesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIngressesResponse
+     * @return ListIngressesResponse ListIngressesResponse
      */
     public function listIngressesWithOptions($request, $headers, $runtime)
     {
@@ -4216,9 +4426,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListIngressesRequest $request
+     * @summary The returned message.
+     * *   **success** is returned when the request succeeds.
+     * *   An error code is returned when the request fails.
+     *  *
+     * @param ListIngressesRequest $request ListIngressesRequest
      *
-     * @return ListIngressesResponse
+     * @return ListIngressesResponse ListIngressesResponse
      */
     public function listIngresses($request)
     {
@@ -4229,11 +4443,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListJobsRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary Queries the information about job templates.
+     *  *
+     * @param ListJobsRequest $request ListJobsRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobsWithOptions($request, $headers, $runtime)
     {
@@ -4289,9 +4505,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListJobsRequest $request
+     * @summary Queries the information about job templates.
+     *  *
+     * @param ListJobsRequest $request ListJobsRequest
      *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobs($request)
     {
@@ -4302,11 +4520,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListLogConfigsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 56f77b65-788d-442a-9885-7f20d91f\\*\\*\\*\\*
+     *  *
+     * @param ListLogConfigsRequest $request ListLogConfigsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLogConfigsResponse
+     * @return ListLogConfigsResponse ListLogConfigsResponse
      */
     public function listLogConfigsWithOptions($request, $headers, $runtime)
     {
@@ -4341,9 +4561,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListLogConfigsRequest $request
+     * @summary 56f77b65-788d-442a-9885-7f20d91f\\*\\*\\*\\*
+     *  *
+     * @param ListLogConfigsRequest $request ListLogConfigsRequest
      *
-     * @return ListLogConfigsResponse
+     * @return ListLogConfigsResponse ListLogConfigsResponse
      */
     public function listLogConfigs($request)
     {
@@ -4354,11 +4576,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListNamespaceChangeOrdersRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param ListNamespaceChangeOrdersRequest $request ListNamespaceChangeOrdersRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNamespaceChangeOrdersResponse
+     * @return ListNamespaceChangeOrdersResponse ListNamespaceChangeOrdersResponse
      */
     public function listNamespaceChangeOrdersWithOptions($request, $headers, $runtime)
     {
@@ -4402,9 +4624,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListNamespaceChangeOrdersRequest $request
+     * @param ListNamespaceChangeOrdersRequest $request ListNamespaceChangeOrdersRequest
      *
-     * @return ListNamespaceChangeOrdersResponse
+     * @return ListNamespaceChangeOrdersResponse ListNamespaceChangeOrdersResponse
      */
     public function listNamespaceChangeOrders($request)
     {
@@ -4415,11 +4637,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListNamespacedConfigMapsRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the ConfigMap instances in a namespace.
+     *  *
+     * @param ListNamespacedConfigMapsRequest $request ListNamespacedConfigMapsRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNamespacedConfigMapsResponse
+     * @return ListNamespacedConfigMapsResponse ListNamespacedConfigMapsResponse
      */
     public function listNamespacedConfigMapsWithOptions($request, $headers, $runtime)
     {
@@ -4448,9 +4672,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListNamespacedConfigMapsRequest $request
+     * @summary Queries the ConfigMap instances in a namespace.
+     *  *
+     * @param ListNamespacedConfigMapsRequest $request ListNamespacedConfigMapsRequest
      *
-     * @return ListNamespacedConfigMapsResponse
+     * @return ListNamespacedConfigMapsResponse ListNamespacedConfigMapsResponse
      */
     public function listNamespacedConfigMaps($request)
     {
@@ -4461,11 +4687,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListPublishedServicesRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+     *  *
+     * @param ListPublishedServicesRequest $request ListPublishedServicesRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublishedServicesResponse
+     * @return ListPublishedServicesResponse ListPublishedServicesResponse
      */
     public function listPublishedServicesWithOptions($request, $headers, $runtime)
     {
@@ -4494,9 +4722,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListPublishedServicesRequest $request
+     * @summary b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
+     *  *
+     * @param ListPublishedServicesRequest $request ListPublishedServicesRequest
      *
-     * @return ListPublishedServicesResponse
+     * @return ListPublishedServicesResponse ListPublishedServicesResponse
      */
     public function listPublishedServices($request)
     {
@@ -4507,11 +4737,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListSecretsRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the information about Secrets in a namespace.
+     *  *
+     * @param ListSecretsRequest $request ListSecretsRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSecretsResponse
+     * @return ListSecretsResponse ListSecretsResponse
      */
     public function listSecretsWithOptions($request, $headers, $runtime)
     {
@@ -4540,9 +4772,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListSecretsRequest $request
+     * @summary Queries the information about Secrets in a namespace.
+     *  *
+     * @param ListSecretsRequest $request ListSecretsRequest
      *
-     * @return ListSecretsResponse
+     * @return ListSecretsResponse ListSecretsResponse
      */
     public function listSecrets($request)
     {
@@ -4553,11 +4787,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the mapping relationships between applications and tags.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -4598,9 +4834,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries the mapping relationships between applications and tags.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -4611,8 +4849,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
-     *   *
+     * @summary Activates the Serverless App Engine (SAE) service for free.
+     *  *
+     * @description > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
+     *  *
      * @param string[]       $headers map
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -4639,8 +4879,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
-     *   *
+     * @summary Activates the Serverless App Engine (SAE) service for free.
+     *  *
+     * @description > Make sure that your account balance is greater than 0. Otherwise, the SAE service cannot be activated.
+     *  *
      * @return OpenSaeServiceResponse OpenSaeServiceResponse
      */
     public function openSaeService()
@@ -4652,11 +4894,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param QueryResourceStaticsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the resource usage of an application.
+     *  *
+     * @param QueryResourceStaticsRequest $request QueryResourceStaticsRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryResourceStaticsResponse
+     * @return QueryResourceStaticsResponse QueryResourceStaticsResponse
      */
     public function queryResourceStaticsWithOptions($request, $headers, $runtime)
     {
@@ -4685,9 +4929,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param QueryResourceStaticsRequest $request
+     * @summary Queries the resource usage of an application.
+     *  *
+     * @param QueryResourceStaticsRequest $request QueryResourceStaticsRequest
      *
-     * @return QueryResourceStaticsResponse
+     * @return QueryResourceStaticsResponse QueryResourceStaticsResponse
      */
     public function queryResourceStatics($request)
     {
@@ -4698,11 +4944,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ReduceApplicationCapacityByInstanceIdsRequest $request
-     * @param string[]                                      $headers
-     * @param RuntimeOptions                                $runtime
+     * @summary Reduces capacity by instance IDs.
+     *  *
+     * @param ReduceApplicationCapacityByInstanceIdsRequest $request ReduceApplicationCapacityByInstanceIdsRequest
+     * @param string[]                                      $headers map
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReduceApplicationCapacityByInstanceIdsResponse
+     * @return ReduceApplicationCapacityByInstanceIdsResponse ReduceApplicationCapacityByInstanceIdsResponse
      */
     public function reduceApplicationCapacityByInstanceIdsWithOptions($request, $headers, $runtime)
     {
@@ -4734,9 +4982,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param ReduceApplicationCapacityByInstanceIdsRequest $request
+     * @summary Reduces capacity by instance IDs.
+     *  *
+     * @param ReduceApplicationCapacityByInstanceIdsRequest $request ReduceApplicationCapacityByInstanceIdsRequest
      *
-     * @return ReduceApplicationCapacityByInstanceIdsResponse
+     * @return ReduceApplicationCapacityByInstanceIdsResponse ReduceApplicationCapacityByInstanceIdsResponse
      */
     public function reduceApplicationCapacityByInstanceIds($request)
     {
@@ -4747,11 +4997,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RescaleApplicationRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary Scales an application.
+     *  *
+     * @param RescaleApplicationRequest $request RescaleApplicationRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RescaleApplicationResponse
+     * @return RescaleApplicationResponse RescaleApplicationResponse
      */
     public function rescaleApplicationWithOptions($request, $headers, $runtime)
     {
@@ -4792,9 +5044,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RescaleApplicationRequest $request
+     * @summary Scales an application.
+     *  *
+     * @param RescaleApplicationRequest $request RescaleApplicationRequest
      *
-     * @return RescaleApplicationResponse
+     * @return RescaleApplicationResponse RescaleApplicationResponse
      */
     public function rescaleApplication($request)
     {
@@ -4805,11 +5059,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RescaleApplicationVerticallyRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @summary Changes the instance specifications of an application.
+     *  *
+     * @param RescaleApplicationVerticallyRequest $request RescaleApplicationVerticallyRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RescaleApplicationVerticallyResponse
+     * @return RescaleApplicationVerticallyResponse RescaleApplicationVerticallyResponse
      */
     public function rescaleApplicationVerticallyWithOptions($request, $headers, $runtime)
     {
@@ -4844,9 +5100,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RescaleApplicationVerticallyRequest $request
+     * @summary Changes the instance specifications of an application.
+     *  *
+     * @param RescaleApplicationVerticallyRequest $request RescaleApplicationVerticallyRequest
      *
-     * @return RescaleApplicationVerticallyResponse
+     * @return RescaleApplicationVerticallyResponse RescaleApplicationVerticallyResponse
      */
     public function rescaleApplicationVertically($request)
     {
@@ -4857,11 +5115,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RestartApplicationRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary Restarts an application.
+     *  *
+     * @param RestartApplicationRequest $request RestartApplicationRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartApplicationResponse
+     * @return RestartApplicationResponse RestartApplicationResponse
      */
     public function restartApplicationWithOptions($request, $headers, $runtime)
     {
@@ -4899,9 +5159,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RestartApplicationRequest $request
+     * @summary Restarts an application.
+     *  *
+     * @param RestartApplicationRequest $request RestartApplicationRequest
      *
-     * @return RestartApplicationResponse
+     * @return RestartApplicationResponse RestartApplicationResponse
      */
     public function restartApplication($request)
     {
@@ -4912,11 +5174,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RestartInstancesRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Restarts one or more instances in an application.
+     *  *
+     * @param RestartInstancesRequest $request RestartInstancesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartInstancesResponse
+     * @return RestartInstancesResponse RestartInstancesResponse
      */
     public function restartInstancesWithOptions($request, $headers, $runtime)
     {
@@ -4948,9 +5212,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RestartInstancesRequest $request
+     * @summary Restarts one or more instances in an application.
+     *  *
+     * @param RestartInstancesRequest $request RestartInstancesRequest
      *
-     * @return RestartInstancesResponse
+     * @return RestartInstancesResponse RestartInstancesResponse
      */
     public function restartInstances($request)
     {
@@ -4961,11 +5227,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RollbackApplicationRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary Rolls back an application.
+     *  *
+     * @param RollbackApplicationRequest $request RollbackApplicationRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RollbackApplicationResponse
+     * @return RollbackApplicationResponse RollbackApplicationResponse
      */
     public function rollbackApplicationWithOptions($request, $headers, $runtime)
     {
@@ -5012,9 +5280,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param RollbackApplicationRequest $request
+     * @summary Rolls back an application.
+     *  *
+     * @param RollbackApplicationRequest $request RollbackApplicationRequest
      *
-     * @return RollbackApplicationResponse
+     * @return RollbackApplicationResponse RollbackApplicationResponse
      */
     public function rollbackApplication($request)
     {
@@ -5025,11 +5295,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param StartApplicationRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Starts an application.
+     *  *
+     * @param StartApplicationRequest $request StartApplicationRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartApplicationResponse
+     * @return StartApplicationResponse StartApplicationResponse
      */
     public function startApplicationWithOptions($request, $headers, $runtime)
     {
@@ -5058,9 +5330,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param StartApplicationRequest $request
+     * @summary Starts an application.
+     *  *
+     * @param StartApplicationRequest $request StartApplicationRequest
      *
-     * @return StartApplicationResponse
+     * @return StartApplicationResponse StartApplicationResponse
      */
     public function startApplication($request)
     {
@@ -5071,11 +5345,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param StopApplicationRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+     *  *
+     * @param StopApplicationRequest $request StopApplicationRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopApplicationResponse
+     * @return StopApplicationResponse StopApplicationResponse
      */
     public function stopApplicationWithOptions($request, $headers, $runtime)
     {
@@ -5104,9 +5380,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param StopApplicationRequest $request
+     * @summary 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+     *  *
+     * @param StopApplicationRequest $request StopApplicationRequest
      *
-     * @return StopApplicationResponse
+     * @return StopApplicationResponse StopApplicationResponse
      */
     public function stopApplication($request)
     {
@@ -5117,11 +5395,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param SuspendJobRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @summary Suspends a job.
+     *  *
+     * @param SuspendJobRequest $request SuspendJobRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SuspendJobResponse
+     * @return SuspendJobResponse SuspendJobResponse
      */
     public function suspendJobWithOptions($request, $headers, $runtime)
     {
@@ -5153,9 +5433,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param SuspendJobRequest $request
+     * @summary Suspends a job.
+     *  *
+     * @param SuspendJobRequest $request SuspendJobRequest
      *
-     * @return SuspendJobResponse
+     * @return SuspendJobResponse SuspendJobResponse
      */
     public function suspendJob($request)
     {
@@ -5166,11 +5448,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary cn-beijing
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -5208,9 +5492,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary cn-beijing
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -5221,11 +5507,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UnbindSlbRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+     *  *
+     * @param UnbindSlbRequest $request UnbindSlbRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnbindSlbResponse
+     * @return UnbindSlbResponse UnbindSlbResponse
      */
     public function unbindSlbWithOptions($request, $headers, $runtime)
     {
@@ -5260,9 +5548,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UnbindSlbRequest $request
+     * @summary 0099b7be-5f5b-4512-a7fc-56049ef1\\*\\*\\*\\*
+     *  *
+     * @param UnbindSlbRequest $request UnbindSlbRequest
      *
-     * @return UnbindSlbResponse
+     * @return UnbindSlbResponse UnbindSlbResponse
      */
     public function unbindSlb($request)
     {
@@ -5273,11 +5563,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -5318,9 +5608,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -5331,11 +5621,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppSecurityGroupRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+     *  *
+     * @param UpdateAppSecurityGroupRequest $request UpdateAppSecurityGroupRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAppSecurityGroupResponse
+     * @return UpdateAppSecurityGroupResponse UpdateAppSecurityGroupResponse
      */
     public function updateAppSecurityGroupWithOptions($request, $headers, $runtime)
     {
@@ -5367,9 +5659,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppSecurityGroupRequest $request
+     * @summary 017f39b8-dfa4-4e16-a84b-1dcee4b1\\*\\*\\*\\*
+     *  *
+     * @param UpdateAppSecurityGroupRequest $request UpdateAppSecurityGroupRequest
      *
-     * @return UpdateAppSecurityGroupResponse
+     * @return UpdateAppSecurityGroupResponse UpdateAppSecurityGroupResponse
      */
     public function updateAppSecurityGroup($request)
     {
@@ -5380,11 +5674,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationDescriptionRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
+     * @summary 更新应用描述信息
+     *  *
+     * @param UpdateApplicationDescriptionRequest $request UpdateApplicationDescriptionRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationDescriptionResponse
+     * @return UpdateApplicationDescriptionResponse UpdateApplicationDescriptionResponse
      */
     public function updateApplicationDescriptionWithOptions($request, $headers, $runtime)
     {
@@ -5416,9 +5712,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationDescriptionRequest $request
+     * @summary 更新应用描述信息
+     *  *
+     * @param UpdateApplicationDescriptionRequest $request UpdateApplicationDescriptionRequest
      *
-     * @return UpdateApplicationDescriptionResponse
+     * @return UpdateApplicationDescriptionResponse UpdateApplicationDescriptionResponse
      */
     public function updateApplicationDescription($request)
     {
@@ -5429,9 +5727,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * If you want to configure more than 50 instances for an application, you must submit a [ticket](https://workorder.console.aliyun.com/#/ticket/createIndex) to add your account to the whitelist.
-     *   *
+     * @summary Updates the auto scaling policy of an application.
+     *  *
+     * @description ##
+     * If you want to configure more than 50 instances for an application, you must submit a [ticket](https://workorder.console.aliyun.com/#/ticket/createIndex) to add your account to the whitelist.
+     *  *
      * @param UpdateApplicationScalingRuleRequest $request UpdateApplicationScalingRuleRequest
      * @param string[]                            $headers map
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -5480,9 +5780,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * ##
-     *   * If you want to configure more than 50 instances for an application, you must submit a [ticket](https://workorder.console.aliyun.com/#/ticket/createIndex) to add your account to the whitelist.
-     *   *
+     * @summary Updates the auto scaling policy of an application.
+     *  *
+     * @description ##
+     * If you want to configure more than 50 instances for an application, you must submit a [ticket](https://workorder.console.aliyun.com/#/ticket/createIndex) to add your account to the whitelist.
+     *  *
      * @param UpdateApplicationScalingRuleRequest $request UpdateApplicationScalingRuleRequest
      *
      * @return UpdateApplicationScalingRuleResponse UpdateApplicationScalingRuleResponse
@@ -5496,11 +5798,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationVswitchesRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param UpdateApplicationVswitchesRequest $request UpdateApplicationVswitchesRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationVswitchesResponse
+     * @return UpdateApplicationVswitchesResponse UpdateApplicationVswitchesResponse
      */
     public function updateApplicationVswitchesWithOptions($request, $headers, $runtime)
     {
@@ -5532,9 +5834,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationVswitchesRequest $request
+     * @param UpdateApplicationVswitchesRequest $request UpdateApplicationVswitchesRequest
      *
-     * @return UpdateApplicationVswitchesResponse
+     * @return UpdateApplicationVswitchesResponse UpdateApplicationVswitchesResponse
      */
     public function updateApplicationVswitches($request)
     {
@@ -5545,11 +5847,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateConfigMapRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 1
+     *  *
+     * @param UpdateConfigMapRequest $request UpdateConfigMapRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateConfigMapResponse
+     * @return UpdateConfigMapResponse UpdateConfigMapResponse
      */
     public function updateConfigMapWithOptions($request, $headers, $runtime)
     {
@@ -5586,9 +5890,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateConfigMapRequest $request
+     * @summary 1
+     *  *
+     * @param UpdateConfigMapRequest $request UpdateConfigMapRequest
      *
-     * @return UpdateConfigMapResponse
+     * @return UpdateConfigMapResponse UpdateConfigMapResponse
      */
     public function updateConfigMap($request)
     {
@@ -5599,11 +5905,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateGreyTagRouteRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary Updates a canary release rule.
+     *  *
+     * @param UpdateGreyTagRouteRequest $request UpdateGreyTagRouteRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGreyTagRouteResponse
+     * @return UpdateGreyTagRouteResponse UpdateGreyTagRouteResponse
      */
     public function updateGreyTagRouteWithOptions($request, $headers, $runtime)
     {
@@ -5644,9 +5952,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateGreyTagRouteRequest $request
+     * @summary Updates a canary release rule.
+     *  *
+     * @param UpdateGreyTagRouteRequest $request UpdateGreyTagRouteRequest
      *
-     * @return UpdateGreyTagRouteResponse
+     * @return UpdateGreyTagRouteResponse UpdateGreyTagRouteResponse
      */
     public function updateGreyTagRoute($request)
     {
@@ -5657,11 +5967,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateIngressRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdateIngressRequest $request UpdateIngressRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIngressResponse
+     * @return UpdateIngressResponse UpdateIngressResponse
      */
     public function updateIngressWithOptions($request, $headers, $runtime)
     {
@@ -5716,9 +6026,9 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateIngressRequest $request
+     * @param UpdateIngressRequest $request UpdateIngressRequest
      *
-     * @return UpdateIngressResponse
+     * @return UpdateIngressResponse UpdateIngressResponse
      */
     public function updateIngress($request)
     {
@@ -5729,11 +6039,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateJobRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary Updates a job template.
+     *  *
+     * @param UpdateJobRequest $request UpdateJobRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateJobResponse
+     * @return UpdateJobResponse UpdateJobResponse
      */
     public function updateJobWithOptions($request, $headers, $runtime)
     {
@@ -5896,9 +6208,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateJobRequest $request
+     * @summary Updates a job template.
+     *  *
+     * @param UpdateJobRequest $request UpdateJobRequest
      *
-     * @return UpdateJobResponse
+     * @return UpdateJobResponse UpdateJobResponse
      */
     public function updateJob($request)
     {
@@ -5909,11 +6223,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateNamespaceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Updates the information about a namespace.
+     *  *
+     * @param UpdateNamespaceRequest $request UpdateNamespaceRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateNamespaceResponse
+     * @return UpdateNamespaceResponse UpdateNamespaceResponse
      */
     public function updateNamespaceWithOptions($request, $headers, $runtime)
     {
@@ -5954,9 +6270,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateNamespaceRequest $request
+     * @summary Updates the information about a namespace.
+     *  *
+     * @param UpdateNamespaceRequest $request UpdateNamespaceRequest
      *
-     * @return UpdateNamespaceResponse
+     * @return UpdateNamespaceResponse UpdateNamespaceResponse
      */
     public function updateNamespace($request)
     {
@@ -5967,11 +6285,13 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateNamespaceVpcRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary cn-beijing:test
+     *  *
+     * @param UpdateNamespaceVpcRequest $request UpdateNamespaceVpcRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateNamespaceVpcResponse
+     * @return UpdateNamespaceVpcResponse UpdateNamespaceVpcResponse
      */
     public function updateNamespaceVpcWithOptions($request, $headers, $runtime)
     {
@@ -6006,9 +6326,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateNamespaceVpcRequest $request
+     * @summary cn-beijing:test
+     *  *
+     * @param UpdateNamespaceVpcRequest $request UpdateNamespaceVpcRequest
      *
-     * @return UpdateNamespaceVpcResponse
+     * @return UpdateNamespaceVpcResponse UpdateNamespaceVpcResponse
      */
     public function updateNamespaceVpc($request)
     {
@@ -6019,11 +6341,17 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateSecretRequest $tmpReq
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary The HTTP status code. Valid values:
+     * *   **2xx**: The call was successful.
+     * *   **3xx**: The call was redirected.
+     * *   **4xx**: The call failed.
+     * *   **5xx**: A server error occurred.
+     *  *
+     * @param UpdateSecretRequest $tmpReq  UpdateSecretRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSecretResponse
+     * @return UpdateSecretResponse UpdateSecretResponse
      */
     public function updateSecretWithOptions($tmpReq, $headers, $runtime)
     {
@@ -6063,9 +6391,15 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * @param UpdateSecretRequest $request
+     * @summary The HTTP status code. Valid values:
+     * *   **2xx**: The call was successful.
+     * *   **3xx**: The call was redirected.
+     * *   **4xx**: The call failed.
+     * *   **5xx**: A server error occurred.
+     *  *
+     * @param UpdateSecretRequest $request UpdateSecretRequest
      *
-     * @return UpdateSecretResponse
+     * @return UpdateSecretResponse UpdateSecretResponse
      */
     public function updateSecret($request)
     {

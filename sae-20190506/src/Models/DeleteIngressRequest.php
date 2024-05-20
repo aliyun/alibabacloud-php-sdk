@@ -11,6 +11,7 @@ class DeleteIngressRequest extends Model
     /**
      * @description 87
      *
+     * This parameter is required.
      * @example 87
      *
      * @var int

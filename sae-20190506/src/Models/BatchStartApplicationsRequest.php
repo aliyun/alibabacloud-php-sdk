@@ -23,14 +23,21 @@ class BatchStartApplicationsRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
      */
     public $namespaceId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'appIds'      => 'AppIds',
         'namespaceId' => 'NamespaceId',
+        'version'     => 'Version',
     ];
 
     public function validate()
@@ -45,6 +52,9 @@ class BatchStartApplicationsRequest extends Model
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -63,6 +73,9 @@ class BatchStartApplicationsRequest extends Model
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

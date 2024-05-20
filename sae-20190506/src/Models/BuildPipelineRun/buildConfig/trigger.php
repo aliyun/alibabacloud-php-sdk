@@ -16,13 +16,23 @@ class trigger extends Model
     public $branchName;
 
     /**
-     * @example PushEvent
+     * @example v1
+     *
+     * @var string
+     */
+    public $tagName;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example PUSH
      *
      * @var string
      */
     public $type;
     protected $_name = [
         'branchName' => 'BranchName',
+        'tagName'    => 'TagName',
         'type'       => 'Type',
     ];
 
@@ -35,6 +45,9 @@ class trigger extends Model
         $res = [];
         if (null !== $this->branchName) {
             $res['BranchName'] = $this->branchName;
+        }
+        if (null !== $this->tagName) {
+            $res['TagName'] = $this->tagName;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -53,6 +66,9 @@ class trigger extends Model
         $model = new self();
         if (isset($map['BranchName'])) {
             $model->branchName = $map['BranchName'];
+        }
+        if (isset($map['TagName'])) {
+            $model->tagName = $map['TagName'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

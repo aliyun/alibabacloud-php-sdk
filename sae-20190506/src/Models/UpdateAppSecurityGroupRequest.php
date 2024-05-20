@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateAppSecurityGroupRequest extends Model
 {
     /**
-     * @description sg-wz969ngg2e49q5i4\*\*\*\*
+     * @description sg-wz969ngg2e49q5i4\\*\\*\\*\\*
      *
+     * This parameter is required.
      * @example 017f39b8-dfa4-4e16-a84b-1dcee4b1****
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateAppSecurityGroupRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example sg-wz969ngg2e49q5i4****
      *
      * @var string

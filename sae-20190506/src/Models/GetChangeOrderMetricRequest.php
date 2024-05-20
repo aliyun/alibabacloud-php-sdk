@@ -11,14 +11,30 @@ class GetChangeOrderMetricRequest extends Model
     /**
      * @var string
      */
+    public $appSource;
+
+    /**
+     * @var string
+     */
+    public $cpuStrategy;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @var string
+     */
     public $createTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $orderBy;
@@ -28,10 +44,12 @@ class GetChangeOrderMetricRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'createTime' => 'CreateTime',
-        'limit'      => 'Limit',
-        'orderBy'    => 'OrderBy',
-        'regionId'   => 'RegionId',
+        'appSource'   => 'AppSource',
+        'cpuStrategy' => 'CpuStrategy',
+        'createTime'  => 'CreateTime',
+        'limit'       => 'Limit',
+        'orderBy'     => 'OrderBy',
+        'regionId'    => 'RegionId',
     ];
 
     public function validate()
@@ -41,6 +59,12 @@ class GetChangeOrderMetricRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appSource) {
+            $res['AppSource'] = $this->appSource;
+        }
+        if (null !== $this->cpuStrategy) {
+            $res['CpuStrategy'] = $this->cpuStrategy;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -65,6 +89,12 @@ class GetChangeOrderMetricRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppSource'])) {
+            $model->appSource = $map['AppSource'];
+        }
+        if (isset($map['CpuStrategy'])) {
+            $model->cpuStrategy = $map['CpuStrategy'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

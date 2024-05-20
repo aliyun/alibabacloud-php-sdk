@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePipelineRequest extends Model
 {
     /**
-     * @description The ID of the batch. You can call the [DescribeChangeOrder](~~126617~~) operation to obtain the ID.
+     * @description The ID of the batch. You can call the [DescribeChangeOrder](https://help.aliyun.com/document_detail/126617.html) operation to obtain the ID.
      *
+     * This parameter is required.
      * @example 917660ba-5092-44ca-b8e0-80012c96****
      *
      * @var string

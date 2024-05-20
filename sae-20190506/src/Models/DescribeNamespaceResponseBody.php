@@ -10,7 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespaceResponseBody extends Model
 {
     /**
-     * @description The ID of the trace. It can be used to query the details of a request.
+     * @description The HTTP status code. Valid values:
+     *
+     *   **2xx**: The call was successful.
+     *   **3xx**: The call was redirected.
+     *   **4xx**: The call failed.
+     *   **5xx**: A server error occurred.
      *
      * @example 200
      *
@@ -26,19 +31,22 @@ class DescribeNamespaceResponseBody extends Model
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The error code returned. Take note of the following rules:
      *
-     * @example The returned message.
+     *   The **ErrorCode** parameter is not returned if the request succeeds.
+     *   The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
      *
-     *   **success** is returned when the request succeeds.
-     *   An error code is returned when the request fails.
+     * @example Null
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The ID of the region.
+     * @description The additional information that is returned. Valid values:
+     *
+     *   success: If the call is successful, **success** is returned.
+     *   An error code: If the call fails, an error code is returned.
      *
      * @example success
      *
@@ -47,10 +55,7 @@ class DescribeNamespaceResponseBody extends Model
     public $message;
 
     /**
-     * @description The error code.
-     *
-     *   The **ErrorCode** parameter is not returned when the request succeeds.
-     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
+     * @description The ID of the request.
      *
      * @example 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
      *
@@ -59,7 +64,10 @@ class DescribeNamespaceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the namespace.
+     * @description Indicates whether the information about the namespace was queried successfully. Valid values:
+     *
+     *   **true**: The information was queried.
+     *   **false**: The image failed to be found.
      *
      * @example true
      *
@@ -68,12 +76,7 @@ class DescribeNamespaceResponseBody extends Model
     public $success;
 
     /**
-     * @description The HTTP status code. Valid values:
-     *
-     *   **2xx**: indicates that the request was successful.
-     *   **3xx**: indicates that the request was redirected.
-     *   **4xx**: indicates that the request was invalid.
-     *   **5xx**: indicates that a server error occurred.
+     * @description The trace ID that is used to query the details of the request.
      *
      * @example 0a981dd515966966104121683d****
      *

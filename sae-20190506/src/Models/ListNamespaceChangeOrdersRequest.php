@@ -47,6 +47,7 @@ class ListNamespaceChangeOrdersRequest extends Model
     /**
      * @description cn-shanghai:test
      *
+     * This parameter is required.
      * @example cn-shanghai:test
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSecretShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing:test
      *
      * @var string
@@ -16,11 +18,15 @@ class UpdateSecretShrinkRequest extends Model
     public $namespaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $secretDataShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 16
      *
      * @var int

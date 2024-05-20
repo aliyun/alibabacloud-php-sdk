@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationInstancesRequest extends Model
 {
     /**
-     * @description d700e680-aa4d-4ec1-afc2-6566b5ff\*\*\*\*
+     * @description d700e680-aa4d-4ec1-afc2-6566b5ff\\*\\*\\*\\*
      *
+     * This parameter is required.
      * @example d700e680-aa4d-4ec1-afc2-6566b5ff****
      *
      * @var string
@@ -27,8 +28,9 @@ class DescribeApplicationInstancesRequest extends Model
     public $currentPage;
 
     /**
-     * @description b2a8a925-477a-4ed7-b825-d5e22500\*\*\*\*
+     * @description b2a8a925-477a-4ed7-b825-d5e22500\\*\\*\\*\\*
      *
+     * This parameter is required.
      * @example b2a8a925-477a-4ed7-b825-d5e22500****
      *
      * @var string

@@ -23,6 +23,8 @@ class CreateIngressRequest extends Model
     public $certIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080}
      *
      * @var string
@@ -37,6 +39,8 @@ class CreateIngressRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 80
      *
      * @var int
@@ -58,6 +62,8 @@ class CreateIngressRequest extends Model
     public $loadBalanceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-beijing:sae-test
      *
      * @var string
@@ -65,6 +71,8 @@ class CreateIngressRequest extends Model
     public $namespaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [{"appId":"395b60e4-0550-458d-9c54-a265d036****","containerPort":8080,"domain":"www.sae.site","path":"/path1"},{"appId":"666403ce-d25b-47cf-87fe-497565d2****","containerPort":8080,"domain":"sae.site","path":"/path2"}]
      *
      * @var string
@@ -72,6 +80,8 @@ class CreateIngressRequest extends Model
     public $rules;
 
     /**
+     * @description This parameter is required.
+     *
      * @example lb-uf6hucc7inlqrtcq5****
      *
      * @var string

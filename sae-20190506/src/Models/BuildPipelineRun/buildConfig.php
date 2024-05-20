@@ -18,6 +18,8 @@ class buildConfig extends Model
     public $beforeBuildCommand;
 
     /**
+     * @description This parameter is required.
+     *
      * @example buildpacks/dockerfile
      *
      * @var string
@@ -54,6 +56,8 @@ class buildConfig extends Model
     public $tomcatConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var trigger
      */
     public $trigger;

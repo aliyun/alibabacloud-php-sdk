@@ -11,6 +11,7 @@ class AbortChangeOrderRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example be2e1c76-682b-4897-98d3-1d8d6478****
      *
      * @var string

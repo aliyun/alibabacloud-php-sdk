@@ -20,7 +20,7 @@ class data extends Model
     /**
      * @description The ID of the Internet-facing SLB instance.
      *
-     * @example 59.74.**.**
+     * @example 59.74.\*\*.**
      *
      * @var string
      */

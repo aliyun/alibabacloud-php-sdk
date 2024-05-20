@@ -11,6 +11,7 @@ class DescribeInstanceLogRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example ******-d700e680-aa4d-4ec1-afc2-6566b5ff4d7a-85d44d4bfc-*****
      *
      * @var string

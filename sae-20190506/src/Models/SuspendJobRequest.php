@@ -11,6 +11,7 @@ class SuspendJobRequest extends Model
     /**
      * @description The ID of the job template.
      *
+     * This parameter is required.
      * @example ee1a7a07-abcb-4652-a1d3-2d57f415****
      *
      * @var string
@@ -20,6 +21,7 @@ class SuspendJobRequest extends Model
     /**
      * @description Specifies whether to suspend the job template.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

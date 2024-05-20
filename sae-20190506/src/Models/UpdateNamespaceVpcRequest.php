@@ -16,7 +16,7 @@ class UpdateNamespaceVpcRequest extends Model
     public $nameSpaceShortId;
 
     /**
-     * @description vpc-2ze0i263cnn311nvj\*\*\*\*
+     * @description vpc-2ze0i263cnn311nvj\\*\\*\\*\\*
      *
      * @example cn-beijing:test
      *
@@ -27,6 +27,7 @@ class UpdateNamespaceVpcRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example vpc-2ze0i263cnn311nvj****
      *
      * @var string

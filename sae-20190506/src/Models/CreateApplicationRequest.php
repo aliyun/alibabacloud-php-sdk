@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationRequest extends Model
 {
     /**
-     * @description acs:ram::123456789012\*\*\*\*:role/adminrole
+     * @description acs:ram::123456789012\\*\\*\\*\\*:role/adminrole
      *
      * @example acs:ram::123456789012****:role/adminrole
      *
@@ -38,6 +38,7 @@ class CreateApplicationRequest extends Model
     /**
      * @description test
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -86,7 +87,7 @@ class CreateApplicationRequest extends Model
     public $commandArgs;
 
     /**
-     * @description \[{"configMapId":16,"key":"test","mountPath":"/tmp"}]
+     * @description [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
      *
      * @example [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
      *
@@ -104,7 +105,7 @@ class CreateApplicationRequest extends Model
     public $cpu;
 
     /**
-     * @description \[{"hostName":"samplehost","ip":"127.0.0.1"}]
+     * @description [{"hostName":"samplehost","ip":"127.0.0.1"}]
      *
      * @example [{"hostName":"samplehost","ip":"127.0.0.1"}]
      *
@@ -136,7 +137,7 @@ class CreateApplicationRequest extends Model
     public $enableEbpf;
 
     /**
-     * @description \[{"name":"envtmp","value":"0"}]
+     * @description [{"name":"envtmp","value":"0"}]
      *
      * @example [{"name":"envtmp","value":"0"}]
      *
@@ -170,7 +171,7 @@ class CreateApplicationRequest extends Model
     public $jarStartArgs;
 
     /**
-     * @description \-Xms4G -Xmx4G
+     * @description \\-Xms4G -Xmx4G
      *
      * @example -Xms4G -Xmx4G
      *
@@ -188,14 +189,14 @@ class CreateApplicationRequest extends Model
     public $jdk;
 
     /**
-     * @example {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
+     * @example {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
      *
      * @var string
      */
     public $kafkaConfigs;
 
     /**
-     * @description {"exec":{"command":\["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+     * @description {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
      *
      * @example {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
      *
@@ -220,7 +221,7 @@ class CreateApplicationRequest extends Model
     public $microRegistration;
 
     /**
-     * @description \[{mountPath: "/tmp", nasPath: "/"}]
+     * @description [{mountPath: "/tmp", nasPath: "/"}]
      *
      * @example [{mountPath: "/tmp", nasPath: "/"}]
      *
@@ -254,7 +255,7 @@ class CreateApplicationRequest extends Model
     public $nasConfigs;
 
     /**
-     * @description KSAK\*\*\*\*
+     * @description KSAK\\*\\*\\*\\*
      *
      * @example KSAK****
      *
@@ -281,7 +282,7 @@ class CreateApplicationRequest extends Model
     public $ossAkSecret;
 
     /**
-     * @description \[{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
+     * @description [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
      *
      * @example [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
      *
@@ -292,6 +293,7 @@ class CreateApplicationRequest extends Model
     /**
      * @description FatJar
      *
+     * This parameter is required.
      * @example FatJar
      *
      * @var string
@@ -299,7 +301,7 @@ class CreateApplicationRequest extends Model
     public $packageType;
 
     /**
-     * @description http://myoss.oss-cn-\*\*\*\*.aliyuncs.com/my-buc/2019-06-30/\*\*\*\*.jar
+     * @description http://myoss.oss-cn-\\*\\*\\*\\*.aliyuncs.com/my-buc/2019-06-30/\\*\\*\\*\\*.jar
      *
      * @example http://myoss.oss-cn-****.aliyuncs.com/my-buc/2019-06-30/****.jar
      *
@@ -351,7 +353,7 @@ class CreateApplicationRequest extends Model
     public $phpConfigLocation;
 
     /**
-     * @description {"exec":{"command":\["cat","/etc/group"]}}
+     * @description {"exec":{"command":["cat","/etc/group"]}}
      *
      * @example {"exec":{"command":["cat","/etc/group"]}}
      *
@@ -360,7 +362,7 @@ class CreateApplicationRequest extends Model
     public $postStart;
 
     /**
-     * @description {"exec":{"command":\["cat","/etc/group"]}}
+     * @description {"exec":{"command":["cat","/etc/group"]}}
      *
      * @example {"exec":{"command":["cat","/etc/group"]}}
      *
@@ -397,7 +399,7 @@ class CreateApplicationRequest extends Model
     public $pythonModules;
 
     /**
-     * @description {"exec":{"command":\["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+     * @description {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
      *
      * @example {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
      *
@@ -408,6 +410,7 @@ class CreateApplicationRequest extends Model
     /**
      * @description 1
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -420,7 +423,7 @@ class CreateApplicationRequest extends Model
     public $saeVersion;
 
     /**
-     * @description sg-wz969ngg2e49q5i4\*\*\*\*
+     * @description sg-wz969ngg2e49q5i4\\*\\*\\*\\*
      *
      * @example sg-wz969ngg2e49q5i4****
      *
@@ -429,7 +432,7 @@ class CreateApplicationRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description \[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
+     * @description [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
      *
      * @example [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
      *
@@ -465,7 +468,7 @@ class CreateApplicationRequest extends Model
     public $tomcatConfig;
 
     /**
-     * @description vsw-bp12mw1f8k3jgygk9\*\*\*\*
+     * @description vsw-bp12mw1f8k3jgygk9\\*\\*\\*\\*
      *
      * @example vsw-bp12mw1f8k3jgygk9****
      *
@@ -474,7 +477,7 @@ class CreateApplicationRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description vpc-bp1aevy8sofi8mh1q\*\*\*\*
+     * @description vpc-bp1aevy8sofi8mh1q\\*\\*\\*\\*
      *
      * @example vpc-bp1aevy8sofi8mh1q****
      *
@@ -483,9 +486,9 @@ class CreateApplicationRequest extends Model
     public $vpcId;
 
     /**
-     * @description CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
+     * @description CATALINA_OPTS=\\\\"$CATALINA_OPTS $Options\\\\" catalina.sh run
      *
-     * @example CATALINA_OPTS=\"$CATALINA_OPTS $Options\" catalina.sh run
+     * @example CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
      *
      * @var string
      */

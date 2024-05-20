@@ -18,16 +18,23 @@ class BatchStopApplicationsRequest extends Model
     public $appIds;
 
     /**
-     * @description ebf491f0-c1a5-45e2-b2c4-710dbe2a\*\*\*\*,ebf491f0-c1a5-45e2-b2c4-71025e2a\*\*\*\*
+     * @description ebf491f0-c1a5-45e2-b2c4-710dbe2a\\*\\*\\*\\*,ebf491f0-c1a5-45e2-b2c4-71025e2a\\*\\*\\*\\*
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
      */
     public $namespaceId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'appIds'      => 'AppIds',
         'namespaceId' => 'NamespaceId',
+        'version'     => 'Version',
     ];
 
     public function validate()
@@ -42,6 +49,9 @@ class BatchStopApplicationsRequest extends Model
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -60,6 +70,9 @@ class BatchStopApplicationsRequest extends Model
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

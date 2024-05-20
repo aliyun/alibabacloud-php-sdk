@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\deployConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\imageConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\packageConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\steps;
+use AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipelineRun\triggerConfig;
 use AlibabaCloud\Tea\Model;
 
 class BuildPipelineRun extends Model
@@ -85,6 +86,11 @@ class BuildPipelineRun extends Model
     public $steps;
 
     /**
+     * @var triggerConfig
+     */
+    public $triggerConfig;
+
+    /**
      * @var string
      */
     public $versionId;
@@ -108,6 +114,7 @@ class BuildPipelineRun extends Model
         'startTime'      => 'StartTime',
         'status'         => 'Status',
         'steps'          => 'Steps',
+        'triggerConfig'  => 'TriggerConfig',
         'versionId'      => 'VersionId',
         'waitDuration'   => 'WaitDuration',
     ];
@@ -166,6 +173,9 @@ class BuildPipelineRun extends Model
                     $res['Steps'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->triggerConfig) {
+            $res['TriggerConfig'] = null !== $this->triggerConfig ? $this->triggerConfig->toMap() : null;
         }
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
@@ -232,6 +242,9 @@ class BuildPipelineRun extends Model
                     $model->steps[$n++] = null !== $item ? steps::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TriggerConfig'])) {
+            $model->triggerConfig = triggerConfig::fromMap($map['TriggerConfig']);
         }
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
