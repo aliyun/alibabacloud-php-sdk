@@ -69,6 +69,11 @@ class CreateApplicationRequest extends Model
     public $autoConfig;
 
     /**
+     * @var string
+     */
+    public $baseAppId;
+
+    /**
      * @description sleep
      *
      * @example echo
@@ -219,6 +224,11 @@ class CreateApplicationRequest extends Model
      * @var string
      */
     public $microRegistration;
+
+    /**
+     * @var string
+     */
+    public $microRegistrationConfig;
 
     /**
      * @description [{mountPath: "/tmp", nasPath: "/"}]
@@ -432,6 +442,11 @@ class CreateApplicationRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var string
+     */
+    public $serviceTags;
+
+    /**
      * @description [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
      *
      * @example [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
@@ -510,6 +525,7 @@ class CreateApplicationRequest extends Model
         'appSource'                     => 'AppSource',
         'associateEip'                  => 'AssociateEip',
         'autoConfig'                    => 'AutoConfig',
+        'baseAppId'                     => 'BaseAppId',
         'command'                       => 'Command',
         'commandArgs'                   => 'CommandArgs',
         'configMapMountDesc'            => 'ConfigMapMountDesc',
@@ -528,6 +544,7 @@ class CreateApplicationRequest extends Model
         'liveness'                      => 'Liveness',
         'memory'                        => 'Memory',
         'microRegistration'             => 'MicroRegistration',
+        'microRegistrationConfig'       => 'MicroRegistrationConfig',
         'mountDesc'                     => 'MountDesc',
         'mountHost'                     => 'MountHost',
         'namespaceId'                   => 'NamespaceId',
@@ -553,6 +570,7 @@ class CreateApplicationRequest extends Model
         'replicas'                      => 'Replicas',
         'saeVersion'                    => 'SaeVersion',
         'securityGroupId'               => 'SecurityGroupId',
+        'serviceTags'                   => 'ServiceTags',
         'slsConfigs'                    => 'SlsConfigs',
         'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
         'timezone'                      => 'Timezone',
@@ -590,6 +608,9 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->autoConfig) {
             $res['AutoConfig'] = $this->autoConfig;
+        }
+        if (null !== $this->baseAppId) {
+            $res['BaseAppId'] = $this->baseAppId;
         }
         if (null !== $this->command) {
             $res['Command'] = $this->command;
@@ -644,6 +665,9 @@ class CreateApplicationRequest extends Model
         }
         if (null !== $this->microRegistration) {
             $res['MicroRegistration'] = $this->microRegistration;
+        }
+        if (null !== $this->microRegistrationConfig) {
+            $res['MicroRegistrationConfig'] = $this->microRegistrationConfig;
         }
         if (null !== $this->mountDesc) {
             $res['MountDesc'] = $this->mountDesc;
@@ -720,6 +744,9 @@ class CreateApplicationRequest extends Model
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+        if (null !== $this->serviceTags) {
+            $res['ServiceTags'] = $this->serviceTags;
+        }
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
         }
@@ -777,6 +804,9 @@ class CreateApplicationRequest extends Model
         if (isset($map['AutoConfig'])) {
             $model->autoConfig = $map['AutoConfig'];
         }
+        if (isset($map['BaseAppId'])) {
+            $model->baseAppId = $map['BaseAppId'];
+        }
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
@@ -830,6 +860,9 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['MicroRegistration'])) {
             $model->microRegistration = $map['MicroRegistration'];
+        }
+        if (isset($map['MicroRegistrationConfig'])) {
+            $model->microRegistrationConfig = $map['MicroRegistrationConfig'];
         }
         if (isset($map['MountDesc'])) {
             $model->mountDesc = $map['MountDesc'];
@@ -905,6 +938,9 @@ class CreateApplicationRequest extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['ServiceTags'])) {
+            $model->serviceTags = $map['ServiceTags'];
         }
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];

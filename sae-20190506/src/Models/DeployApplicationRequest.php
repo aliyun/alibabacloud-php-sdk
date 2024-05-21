@@ -307,6 +307,11 @@ class DeployApplicationRequest extends Model
     public $microRegistration;
 
     /**
+     * @var string
+     */
+    public $microRegistrationConfig;
+
+    /**
      * @description The percentage of the minimum number of available instances. Take note of the following rules:
      *
      *   If you set the value to **-1**, the minimum number of available instances is not determined based on this parameter. Default value: -1.
@@ -542,6 +547,11 @@ class DeployApplicationRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var string
+     */
+    public $serviceTags;
+
+    /**
      * @description The logging configurations of Log Service.
      *
      *   To use Log Service resources that are automatically created by SAE, set this parameter to `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
@@ -675,6 +685,7 @@ class DeployApplicationRequest extends Model
         'liveness'                         => 'Liveness',
         'memory'                           => 'Memory',
         'microRegistration'                => 'MicroRegistration',
+        'microRegistrationConfig'          => 'MicroRegistrationConfig',
         'minReadyInstanceRatio'            => 'MinReadyInstanceRatio',
         'minReadyInstances'                => 'MinReadyInstances',
         'mountDesc'                        => 'MountDesc',
@@ -699,6 +710,7 @@ class DeployApplicationRequest extends Model
         'readiness'                        => 'Readiness',
         'replicas'                         => 'Replicas',
         'securityGroupId'                  => 'SecurityGroupId',
+        'serviceTags'                      => 'ServiceTags',
         'slsConfigs'                       => 'SlsConfigs',
         'terminationGracePeriodSeconds'    => 'TerminationGracePeriodSeconds',
         'timezone'                         => 'Timezone',
@@ -794,6 +806,9 @@ class DeployApplicationRequest extends Model
         if (null !== $this->microRegistration) {
             $res['MicroRegistration'] = $this->microRegistration;
         }
+        if (null !== $this->microRegistrationConfig) {
+            $res['MicroRegistrationConfig'] = $this->microRegistrationConfig;
+        }
         if (null !== $this->minReadyInstanceRatio) {
             $res['MinReadyInstanceRatio'] = $this->minReadyInstanceRatio;
         }
@@ -865,6 +880,9 @@ class DeployApplicationRequest extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->serviceTags) {
+            $res['ServiceTags'] = $this->serviceTags;
         }
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
@@ -980,6 +998,9 @@ class DeployApplicationRequest extends Model
         if (isset($map['MicroRegistration'])) {
             $model->microRegistration = $map['MicroRegistration'];
         }
+        if (isset($map['MicroRegistrationConfig'])) {
+            $model->microRegistrationConfig = $map['MicroRegistrationConfig'];
+        }
         if (isset($map['MinReadyInstanceRatio'])) {
             $model->minReadyInstanceRatio = $map['MinReadyInstanceRatio'];
         }
@@ -1051,6 +1072,9 @@ class DeployApplicationRequest extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['ServiceTags'])) {
+            $model->serviceTags = $map['ServiceTags'];
         }
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];

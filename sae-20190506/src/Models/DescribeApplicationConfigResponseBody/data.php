@@ -591,6 +591,11 @@ class data extends Model
     public $securityGroupId;
 
     /**
+     * @var string[]
+     */
+    public $serviceTags;
+
+    /**
      * @description The logging configurations of Log Service.
      *
      *   To use Log Service resources that are automatically created by SAE, set this parameter to `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
@@ -771,6 +776,7 @@ class data extends Model
         'regionId'                      => 'RegionId',
         'replicas'                      => 'Replicas',
         'securityGroupId'               => 'SecurityGroupId',
+        'serviceTags'                   => 'ServiceTags',
         'slsConfigs'                    => 'SlsConfigs',
         'tags'                          => 'Tags',
         'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
@@ -972,6 +978,9 @@ class data extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->serviceTags) {
+            $res['ServiceTags'] = $this->serviceTags;
         }
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
@@ -1203,6 +1212,9 @@ class data extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['ServiceTags'])) {
+            $model->serviceTags = $map['ServiceTags'];
         }
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];

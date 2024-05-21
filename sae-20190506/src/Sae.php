@@ -722,8 +722,14 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->associateEip)) {
             $body['AssociateEip'] = $request->associateEip;
         }
+        if (!Utils::isUnset($request->baseAppId)) {
+            $body['BaseAppId'] = $request->baseAppId;
+        }
         if (!Utils::isUnset($request->configMapMountDesc)) {
             $body['ConfigMapMountDesc'] = $request->configMapMountDesc;
+        }
+        if (!Utils::isUnset($request->microRegistrationConfig)) {
+            $body['MicroRegistrationConfig'] = $request->microRegistrationConfig;
         }
         if (!Utils::isUnset($request->ossAkId)) {
             $body['OssAkId'] = $request->ossAkId;
@@ -739,6 +745,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->phpConfig)) {
             $body['PhpConfig'] = $request->phpConfig;
+        }
+        if (!Utils::isUnset($request->serviceTags)) {
+            $body['ServiceTags'] = $request->serviceTags;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2021,6 +2030,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->configMapMountDesc)) {
             $body['ConfigMapMountDesc'] = $request->configMapMountDesc;
         }
+        if (!Utils::isUnset($request->microRegistrationConfig)) {
+            $body['MicroRegistrationConfig'] = $request->microRegistrationConfig;
+        }
         if (!Utils::isUnset($request->ossAkId)) {
             $body['OssAkId'] = $request->ossAkId;
         }
@@ -2035,6 +2047,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->phpConfig)) {
             $body['PhpConfig'] = $request->phpConfig;
+        }
+        if (!Utils::isUnset($request->serviceTags)) {
+            $body['ServiceTags'] = $request->serviceTags;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

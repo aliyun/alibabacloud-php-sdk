@@ -2,46 +2,29 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsResponseBody\data;
+namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsResponseBody\data\applications;
 
-use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsResponseBody\data\applications\children;
-use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsResponseBody\data\applications\tags;
+use AlibabaCloud\SDK\Sae\V20190506\Models\ListApplicationsResponseBody\data\applications\children\tags;
 use AlibabaCloud\Tea\Model;
 
-class applications extends Model
+class children extends Model
 {
     /**
-     * @description demo-app
-     *
-     * @example false
-     *
      * @var bool
      */
     public $appDeletingStatus;
 
     /**
-     * @description [{"key":"key","value":"value"}]
-     *
-     * @example description
-     *
      * @var string
      */
     public $appDescription;
 
     /**
-     * @description The total number of applications.
-     *
-     * @example f7730764-d88f-4b9a-8d8e-cd8efbfe****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The ID of the application.
-     *
-     * @example demo-app
-     *
      * @var string
      */
     public $appName;
@@ -52,20 +35,11 @@ class applications extends Model
     public $baseAppId;
 
     /**
-     * @var children[]
-     */
-    public $children;
-
-    /**
      * @var int
      */
     public $cpu;
 
     /**
-     * @description The total number of applications.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $instances;
@@ -81,10 +55,6 @@ class applications extends Model
     public $mseEnabled;
 
     /**
-     * @description demo-app
-     *
-     * @example cn-beijing:demo
-     *
      * @var string
      */
     public $namespaceId;
@@ -95,26 +65,26 @@ class applications extends Model
     public $programmingLanguage;
 
     /**
-     * @description The number of running instances.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The value of the tag.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $runningInstances;
 
     /**
-     * @description cn-beijing:demo
-     *
+     * @var bool
+     */
+    public $scaleRuleEnabled;
+
+    /**
+     * @var string
+     */
+    public $scaleRuleType;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -124,7 +94,6 @@ class applications extends Model
         'appId'               => 'AppId',
         'appName'             => 'AppName',
         'baseAppId'           => 'BaseAppId',
-        'children'            => 'Children',
         'cpu'                 => 'Cpu',
         'instances'           => 'Instances',
         'mem'                 => 'Mem',
@@ -133,6 +102,8 @@ class applications extends Model
         'programmingLanguage' => 'ProgrammingLanguage',
         'regionId'            => 'RegionId',
         'runningInstances'    => 'RunningInstances',
+        'scaleRuleEnabled'    => 'ScaleRuleEnabled',
+        'scaleRuleType'       => 'ScaleRuleType',
         'tags'                => 'Tags',
     ];
 
@@ -158,15 +129,6 @@ class applications extends Model
         if (null !== $this->baseAppId) {
             $res['BaseAppId'] = $this->baseAppId;
         }
-        if (null !== $this->children) {
-            $res['Children'] = [];
-            if (null !== $this->children && \is_array($this->children)) {
-                $n = 0;
-                foreach ($this->children as $item) {
-                    $res['Children'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
@@ -191,6 +153,12 @@ class applications extends Model
         if (null !== $this->runningInstances) {
             $res['RunningInstances'] = $this->runningInstances;
         }
+        if (null !== $this->scaleRuleEnabled) {
+            $res['ScaleRuleEnabled'] = $this->scaleRuleEnabled;
+        }
+        if (null !== $this->scaleRuleType) {
+            $res['ScaleRuleType'] = $this->scaleRuleType;
+        }
         if (null !== $this->tags) {
             $res['Tags'] = [];
             if (null !== $this->tags && \is_array($this->tags)) {
@@ -207,7 +175,7 @@ class applications extends Model
     /**
      * @param array $map
      *
-     * @return applications
+     * @return children
      */
     public static function fromMap($map = [])
     {
@@ -226,15 +194,6 @@ class applications extends Model
         }
         if (isset($map['BaseAppId'])) {
             $model->baseAppId = $map['BaseAppId'];
-        }
-        if (isset($map['Children'])) {
-            if (!empty($map['Children'])) {
-                $model->children = [];
-                $n               = 0;
-                foreach ($map['Children'] as $item) {
-                    $model->children[$n++] = null !== $item ? children::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
@@ -259,6 +218,12 @@ class applications extends Model
         }
         if (isset($map['RunningInstances'])) {
             $model->runningInstances = $map['RunningInstances'];
+        }
+        if (isset($map['ScaleRuleEnabled'])) {
+            $model->scaleRuleEnabled = $map['ScaleRuleEnabled'];
+        }
+        if (isset($map['ScaleRuleType'])) {
+            $model->scaleRuleType = $map['ScaleRuleType'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
