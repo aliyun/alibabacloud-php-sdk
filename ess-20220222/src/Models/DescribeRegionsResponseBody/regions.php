@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
-     * @description Indicates whether the region supports scaling groups of the classic network type. Valid values:
+     * @description Indicates whether the current region supports scaling groups that reside in the classic network. Valid values:
      *
      *   true
      *   false
@@ -21,7 +21,7 @@ class regions extends Model
     public $classicUnavailable;
 
     /**
-     * @description The name of the region.
+     * @description The region name.
      *
      * @example China (Beijing)
      *
@@ -30,7 +30,7 @@ class regions extends Model
     public $localName;
 
     /**
-     * @description The endpoint of the region.
+     * @description The region endpoint.
      *
      * @example ess.aliyuncs.com
      *
@@ -39,7 +39,7 @@ class regions extends Model
     public $regionEndpoint;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-beijing
      *
@@ -48,10 +48,10 @@ class regions extends Model
     public $regionId;
 
     /**
-     * @description Indicates whether the region supports scaling groups of the virtual private cloud (VPC) type. Valid values:
+     * @description Indicates whether the current region supports scaling groups that reside in virtual private clouds (VPCs). Valid values:
      *
-     *   true: The region does not support scaling groups of the VPC type.
-     *   false: The region supports scaling groups of the VPC type.
+     *   true
+     *   false
      *
      * @example false
      *

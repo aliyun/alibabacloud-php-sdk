@@ -14,8 +14,9 @@ class VerifyUserRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where you want to activate Auto Scaling.
+     * @description The ID of the region where Auto Scaling is required.
      *
+     * Examples: `cn-hangzhou` and `cn-shanghai`. For more information, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string

@@ -41,6 +41,13 @@ class DetachInstancesRequest extends Model
     public $detachOption;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $ignoreInvalidInstance;
+
+    /**
      * @description The IDs of the ECS instances or elastic container instances that you want to remove from the scaling group.
      *
      * This parameter is required.
@@ -94,6 +101,7 @@ class DetachInstancesRequest extends Model
         'clientToken'             => 'ClientToken',
         'decreaseDesiredCapacity' => 'DecreaseDesiredCapacity',
         'detachOption'            => 'DetachOption',
+        'ignoreInvalidInstance'   => 'IgnoreInvalidInstance',
         'instanceIds'             => 'InstanceIds',
         'lifecycleHook'           => 'LifecycleHook',
         'ownerAccount'            => 'OwnerAccount',
@@ -118,6 +126,9 @@ class DetachInstancesRequest extends Model
         }
         if (null !== $this->detachOption) {
             $res['DetachOption'] = $this->detachOption;
+        }
+        if (null !== $this->ignoreInvalidInstance) {
+            $res['IgnoreInvalidInstance'] = $this->ignoreInvalidInstance;
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
@@ -160,6 +171,9 @@ class DetachInstancesRequest extends Model
         }
         if (isset($map['DetachOption'])) {
             $model->detachOption = $map['DetachOption'];
+        }
+        if (isset($map['IgnoreInvalidInstance'])) {
+            $model->ignoreInvalidInstance = $map['IgnoreInvalidInstance'];
         }
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {

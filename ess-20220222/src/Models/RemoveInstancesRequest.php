@@ -31,6 +31,11 @@ class RemoveInstancesRequest extends Model
     public $decreaseDesiredCapacity;
 
     /**
+     * @var bool
+     */
+    public $ignoreInvalidInstance;
+
+    /**
      * @description The IDs of the ECS instances that you want to remove from the scaling group.
      *
      * This parameter is required.
@@ -104,6 +109,7 @@ class RemoveInstancesRequest extends Model
     protected $_name = [
         'clientToken'             => 'ClientToken',
         'decreaseDesiredCapacity' => 'DecreaseDesiredCapacity',
+        'ignoreInvalidInstance'   => 'IgnoreInvalidInstance',
         'instanceIds'             => 'InstanceIds',
         'ownerAccount'            => 'OwnerAccount',
         'ownerId'                 => 'OwnerId',
@@ -126,6 +132,9 @@ class RemoveInstancesRequest extends Model
         }
         if (null !== $this->decreaseDesiredCapacity) {
             $res['DecreaseDesiredCapacity'] = $this->decreaseDesiredCapacity;
+        }
+        if (null !== $this->ignoreInvalidInstance) {
+            $res['IgnoreInvalidInstance'] = $this->ignoreInvalidInstance;
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
@@ -168,6 +177,9 @@ class RemoveInstancesRequest extends Model
         }
         if (isset($map['DecreaseDesiredCapacity'])) {
             $model->decreaseDesiredCapacity = $map['DecreaseDesiredCapacity'];
+        }
+        if (isset($map['IgnoreInvalidInstance'])) {
+            $model->ignoreInvalidInstance = $map['IgnoreInvalidInstance'];
         }
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {

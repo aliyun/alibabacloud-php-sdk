@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags from the Auto Scaling resource. This parameter takes effect only if you do not specify the `TagKeys` parameter. Valid values:
+     * @description Specifies whether to remove all tags from the resource. This parameter takes effect only when you do not specify `TagKeys` in the request parameters. Valid values:
      *
-     *   true: removes all tags from the Auto Scaling resource.
-     *   false: does not remove tags from the Auto Scaling resource.
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false
@@ -27,7 +27,7 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the Auto Scaling resource. You can call the DescribeRegions operation to query the most recent region list.
+     * @description The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -37,7 +37,7 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of the Auto Scaling resources. You can specify 1 to 50 resource IDs.
+     * @description The resource IDs.
      *
      * This parameter is required.
      * @var string[]
@@ -50,7 +50,7 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The type of the resource. Only scaling groups are supported. Set the value to scalinggroup.
+     * @description The resource type. Set the value to scalinggroup.
      *
      * This parameter is required.
      * @example scalinggroup
@@ -60,7 +60,7 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The keys of the tags that you want to remove from the Auto Scaling resource. You can specify 1 to 20 tag keys.
+     * @description The tag keys.
      *
      * @var string[]
      */
