@@ -11,6 +11,7 @@ class SaveFavoritesRequest extends Model
     /**
      * @description The user ID of the collection. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
      *
+     * This parameter is required.
      * @example 121344444790****
      *
      * @var string
@@ -20,6 +21,7 @@ class SaveFavoritesRequest extends Model
     /**
      * @description The ID of the collection.
      *
+     * This parameter is required.
      * @example d23e84a1-82a0-4292-bfdb-521306c3****
      *
      * @var string

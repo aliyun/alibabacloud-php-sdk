@@ -14,6 +14,7 @@ class AddUserGroupMemberRequest extends Model
      *   true: The task is added.
      *   false: The tag failed to be added.
      *
+     * This parameter is required.
      * @example 555c4cd****
      *
      * @var string
@@ -26,6 +27,7 @@ class AddUserGroupMemberRequest extends Model
      *   true: The request was successful.
      *   false: The request failed.
      *
+     * This parameter is required.
      * @example 46e537a5****,3dadsu****
      *
      * @var string

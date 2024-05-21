@@ -11,6 +11,7 @@ class DeleteUserGroupRequest extends Model
     /**
      * @description The ID of the user group.
      *
+     * This parameter is required.
      * @example f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
      *
      * @var string

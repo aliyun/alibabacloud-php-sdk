@@ -11,6 +11,7 @@ class QueryDatasetInfoRequest extends Model
     /**
      * @description Queries information about a specified dataset.
      *
+     * This parameter is required.
      * @example a201c85c-******
      *
      * @var string

@@ -11,6 +11,7 @@ class DeleteTicketRequest extends Model
     /**
      * @description Deletes a specified ticket from an embedded report.
      *
+     * This parameter is required.
      * @example 040e6f79d****7d283c7206c070
      *
      * @var string

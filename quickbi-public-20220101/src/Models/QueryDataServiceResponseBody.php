@@ -29,7 +29,7 @@ class QueryDataServiceResponseBody extends Model
     public $result;
 
     /**
-     * @description { "area": \["East China", "North China"], "shopping_date": "2019Q1", }
+     * @description { "area": ["East China", "North China"], "shopping_date": "2019Q1", }
      *
      * @example true
      *

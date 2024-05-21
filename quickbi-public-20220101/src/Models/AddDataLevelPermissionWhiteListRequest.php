@@ -11,6 +11,7 @@ class AddDataLevelPermissionWhiteListRequest extends Model
     /**
      * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
      *
+     * This parameter is required.
      * @example 7c7223ae-***-3c744528014b
      *
      * @var string

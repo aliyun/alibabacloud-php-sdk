@@ -28,6 +28,8 @@ class ListOrganizationRoleUsersRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 111111111
      *
      * @var int

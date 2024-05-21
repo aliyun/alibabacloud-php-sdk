@@ -11,6 +11,7 @@ class AddUserGroupMembersRequest extends Model
     /**
      * @description The IDs of the user groups. Separate the IDs with commas (,). Example: aGroupId,bGroupId,cGroupIds
      *
+     * This parameter is required.
      * @example 0d5fb19b-****-****-99da-1248fc27ca51
      *
      * @var string
@@ -20,6 +21,7 @@ class AddUserGroupMembersRequest extends Model
     /**
      * @description The user ID of the Quick BI.
      *
+     * This parameter is required.
      * @example 46e5****37a5
      *
      * @var string

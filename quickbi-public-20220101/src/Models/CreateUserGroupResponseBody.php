@@ -18,7 +18,7 @@ class CreateUserGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the added user group is returned. An empty string \"\" is returned if the add fails.
+     * @description The ID of the added user group is returned. An empty string \\"\\" is returned if the add fails.
      *
      * @example f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
      *

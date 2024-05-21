@@ -11,6 +11,7 @@ class ChangeVisibilityModelRequest extends Model
     /**
      * @description The number of menus that are successfully modified.
      *
+     * This parameter is required.
      * @example 0d173abb53e84c8ca7495429163b****
      *
      * @var string
@@ -23,6 +24,7 @@ class ChangeVisibilityModelRequest extends Model
      *   true: The request was successful.
      *   false: The request failed.
      *
+     * This parameter is required.
      * @example 54kqgoa****,pg1n135****
      *
      * @var string
@@ -30,6 +32,8 @@ class ChangeVisibilityModelRequest extends Model
     public $menuIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

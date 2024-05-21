@@ -61,6 +61,8 @@ class CreateTicketRequest extends Model
     public $watermarkParam;
 
     /**
+     * @description This parameter is required.
+     *
      * @example a206f5f3-****-e9b17c835b03
      *
      * @var string

@@ -19,6 +19,7 @@ class QueryShareListRequest extends Model
      *   DATAFORM
      *   SCREEN: Data dashboard
      *
+     * This parameter is required.
      * @example 6b407e50-e774-406b-9956-da2425c2****
      *
      * @var string

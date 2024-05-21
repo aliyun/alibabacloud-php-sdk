@@ -18,7 +18,7 @@ class AddDataLevelPermissionRuleUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The execution result of the interface. Valid values:\n\n*   true: The request was successful.\n*   false: The request failed.\n
+     * @description The execution result of the interface. Valid values:\\n\\n*   true: The request was successful.\\n*   false: The request failed.\\n
      *
      * @example true
      *
@@ -27,7 +27,7 @@ class AddDataLevelPermissionRuleUsersResponseBody extends Model
     public $result;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:\n\n*   true: The request was successful.\n*   false: The request failed.\n
+     * @description Indicates whether the request is successful. Valid values:\\n\\n*   true: The request was successful.\\n*   false: The request failed.\\n
      *
      * @example true
      *

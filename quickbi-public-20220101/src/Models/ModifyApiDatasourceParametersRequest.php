@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyApiDatasourceParametersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example b66a66de51f24d149116c17718138194
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyApiDatasourceParametersRequest extends Model
     public $apiId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [{"name":"token","value":"xxxxxxxxxxxx"},{"name":"pageSize","value":100}]
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyApiDatasourceParametersRequest extends Model
     public $parameters;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 726bee5a-****-43e1-9a8e-b550f0120f35
      *
      * @var string

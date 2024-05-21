@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryOrganizationRoleConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 111111111
      *
      * @var int

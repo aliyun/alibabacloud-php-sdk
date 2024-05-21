@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserTagMetaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example pop_001
      *
      * @var string

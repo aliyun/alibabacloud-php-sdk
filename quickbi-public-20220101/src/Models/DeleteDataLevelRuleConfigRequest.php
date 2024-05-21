@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataLevelRuleConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 7c7223ae-****-3c744528014b
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteDataLevelRuleConfigRequest extends Model
     public $cubeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example a5bb24da-****-a891683e14da
      *
      * @var string

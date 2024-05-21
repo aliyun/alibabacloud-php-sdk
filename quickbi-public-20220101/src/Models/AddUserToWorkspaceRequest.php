@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddUserToWorkspaceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 25
      *
      * @var int
@@ -16,6 +18,8 @@ class AddUserToWorkspaceRequest extends Model
     public $roleId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example de4bc5f9429141cc8091cdd1c15b****
      *
      * @var string
@@ -23,6 +27,8 @@ class AddUserToWorkspaceRequest extends Model
     public $userId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
      *
      * @var string

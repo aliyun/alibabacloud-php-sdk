@@ -11,6 +11,7 @@ class UpdateDataLevelPermissionStatusRequest extends Model
     /**
      * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
      *
+     * This parameter is required.
      * @example 7c7223ae-****-3c744528014b
      *
      * @var string
@@ -18,6 +19,8 @@ class UpdateDataLevelPermissionStatusRequest extends Model
     public $cubeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +28,8 @@ class UpdateDataLevelPermissionStatusRequest extends Model
     public $isOpen;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ROW_LEVEL
      *
      * @var string

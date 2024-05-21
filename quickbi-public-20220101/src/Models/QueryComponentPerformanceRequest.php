@@ -30,6 +30,8 @@ class QueryComponentPerformanceRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sevenDays
      *
      * @var string
@@ -51,6 +53,8 @@ class QueryComponentPerformanceRequest extends Model
     public $resourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 89713491-cb4f-4579-b889-e82c35f1****
      *
      * @var string

@@ -11,6 +11,7 @@ class QueryDataServiceRequest extends Model
     /**
      * @description Call an API that is created in DataService Studio.
      *
+     * This parameter is required.
      * @example f4cc43bc3***
      *
      * @var string
@@ -26,7 +27,7 @@ class QueryDataServiceRequest extends Model
      *   The timeout period for API calls is 60s. The QPS of a single API is 10 times per second.
      *   If row-level permissions are enabled for datasets that are referenced by a Data Service API, the API may be blocked by row-level permission policies.
      *
-     * @example For more information about API IDs in DataService, see [Data Service](~~144980~~).
+     * @example For more information about API IDs in DataService, see [Data Service](https://help.aliyun.com/document_detail/144980.html).
      *
      * @var string
      */

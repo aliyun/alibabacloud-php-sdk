@@ -227,8 +227,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n.
-     *   *
+     * @summary Add selected groups of people incrementally for a single row and column permission rule.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
+     *  *
      * @param AddDataLevelPermissionRuleUsersRequest $request AddDataLevelPermissionRuleUsersRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -260,8 +262,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n.
-     *   *
+     * @summary Add selected groups of people incrementally for a single row and column permission rule.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n
+     *  *
      * @param AddDataLevelPermissionRuleUsersRequest $request AddDataLevelPermissionRuleUsersRequest
      *
      * @return AddDataLevelPermissionRuleUsersResponse AddDataLevelPermissionRuleUsersResponse
@@ -274,8 +278,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * ROW_LEVEL.
-     *   *
+     * @summary 43342***435,1553a****41231
+     *  *
+     * @description ROW_LEVEL
+     *  *
      * @param AddDataLevelPermissionWhiteListRequest $request AddDataLevelPermissionWhiteListRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -319,8 +325,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * ROW_LEVEL.
-     *   *
+     * @summary 43342***435,1553a****41231
+     *  *
+     * @description ROW_LEVEL
+     *  *
      * @param AddDataLevelPermissionWhiteListRequest $request AddDataLevelPermissionWhiteListRequest
      *
      * @return AddDataLevelPermissionWhiteListResponse AddDataLevelPermissionWhiteListResponse
@@ -333,10 +341,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddShareReportRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Add a sharing configuration for data works.
+     *  *
+     * @param AddShareReportRequest $request AddShareReportRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddShareReportResponse
+     * @return AddShareReportResponse AddShareReportResponse
      */
     public function addShareReportWithOptions($request, $runtime)
     {
@@ -376,9 +386,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddShareReportRequest $request
+     * @summary Add a sharing configuration for data works.
+     *  *
+     * @param AddShareReportRequest $request AddShareReportRequest
      *
-     * @return AddShareReportResponse
+     * @return AddShareReportResponse AddShareReportResponse
      */
     public function addShareReport($request)
     {
@@ -388,10 +400,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddUserRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary auditing
+     *  *
+     * @param AddUserRequest $request AddUserRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserResponse
+     * @return AddUserResponse AddUserResponse
      */
     public function addUserWithOptions($request, $runtime)
     {
@@ -436,9 +450,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddUserRequest $request
+     * @summary auditing
+     *  *
+     * @param AddUserRequest $request AddUserRequest
      *
-     * @return AddUserResponse
+     * @return AddUserResponse AddUserResponse
      */
     public function addUser($request)
     {
@@ -448,10 +464,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddUserGroupMemberRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The ID of the request.
+     *  *
+     * @param AddUserGroupMemberRequest $request AddUserGroupMemberRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserGroupMemberResponse
+     * @return AddUserGroupMemberResponse AddUserGroupMemberResponse
      */
     public function addUserGroupMemberWithOptions($request, $runtime)
     {
@@ -482,9 +500,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddUserGroupMemberRequest $request
+     * @summary The ID of the request.
+     *  *
+     * @param AddUserGroupMemberRequest $request AddUserGroupMemberRequest
      *
-     * @return AddUserGroupMemberResponse
+     * @return AddUserGroupMemberResponse AddUserGroupMemberResponse
      */
     public function addUserGroupMember($request)
     {
@@ -494,10 +514,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddUserGroupMembersRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Add users to a specified user group at a time.
+     *  *
+     * @param AddUserGroupMembersRequest $request AddUserGroupMembersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserGroupMembersResponse
+     * @return AddUserGroupMembersResponse AddUserGroupMembersResponse
      */
     public function addUserGroupMembersWithOptions($request, $runtime)
     {
@@ -528,9 +550,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddUserGroupMembersRequest $request
+     * @summary Add users to a specified user group at a time.
+     *  *
+     * @param AddUserGroupMembersRequest $request AddUserGroupMembersRequest
      *
-     * @return AddUserGroupMembersResponse
+     * @return AddUserGroupMembersResponse AddUserGroupMembersResponse
      */
     public function addUserGroupMembers($request)
     {
@@ -540,10 +564,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddUserTagMetaRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Add the metadata of an organization member tag.
+     *  *
+     * @param AddUserTagMetaRequest $request AddUserTagMetaRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserTagMetaResponse
+     * @return AddUserTagMetaResponse AddUserTagMetaResponse
      */
     public function addUserTagMetaWithOptions($request, $runtime)
     {
@@ -574,9 +600,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddUserTagMetaRequest $request
+     * @summary Add the metadata of an organization member tag.
+     *  *
+     * @param AddUserTagMetaRequest $request AddUserTagMetaRequest
      *
-     * @return AddUserTagMetaResponse
+     * @return AddUserTagMetaResponse AddUserTagMetaResponse
      */
     public function addUserTagMeta($request)
     {
@@ -586,10 +614,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddUserToWorkspaceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param AddUserToWorkspaceRequest $request AddUserToWorkspaceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserToWorkspaceResponse
+     * @return AddUserToWorkspaceResponse AddUserToWorkspaceResponse
      */
     public function addUserToWorkspaceWithOptions($request, $runtime)
     {
@@ -623,9 +651,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddUserToWorkspaceRequest $request
+     * @param AddUserToWorkspaceRequest $request AddUserToWorkspaceRequest
      *
-     * @return AddUserToWorkspaceResponse
+     * @return AddUserToWorkspaceResponse AddUserToWorkspaceResponse
      */
     public function addUserToWorkspace($request)
     {
@@ -635,10 +663,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddWorkspaceUsersRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param AddWorkspaceUsersRequest $request AddWorkspaceUsersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddWorkspaceUsersResponse
+     * @return AddWorkspaceUsersResponse AddWorkspaceUsersResponse
      */
     public function addWorkspaceUsersWithOptions($request, $runtime)
     {
@@ -672,9 +700,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddWorkspaceUsersRequest $request
+     * @param AddWorkspaceUsersRequest $request AddWorkspaceUsersRequest
      *
-     * @return AddWorkspaceUsersResponse
+     * @return AddWorkspaceUsersResponse AddWorkspaceUsersResponse
      */
     public function addWorkspaceUsers($request)
     {
@@ -684,10 +712,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AllotDatasetAccelerationTaskRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 触发数据集抽取加速
+     *  *
+     * @param AllotDatasetAccelerationTaskRequest $request AllotDatasetAccelerationTaskRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllotDatasetAccelerationTaskResponse
+     * @return AllotDatasetAccelerationTaskResponse AllotDatasetAccelerationTaskResponse
      */
     public function allotDatasetAccelerationTaskWithOptions($request, $runtime)
     {
@@ -715,9 +745,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AllotDatasetAccelerationTaskRequest $request
+     * @summary 触发数据集抽取加速
+     *  *
+     * @param AllotDatasetAccelerationTaskRequest $request AllotDatasetAccelerationTaskRequest
      *
-     * @return AllotDatasetAccelerationTaskResponse
+     * @return AllotDatasetAccelerationTaskResponse AllotDatasetAccelerationTaskResponse
      */
     public function allotDatasetAccelerationTask($request)
     {
@@ -727,10 +759,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeMenuRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Batch authorization of BI portal menu will be skipped automatically.
+     *  *
+     * @param AuthorizeMenuRequest $request AuthorizeMenuRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AuthorizeMenuResponse
+     * @return AuthorizeMenuResponse AuthorizeMenuResponse
      */
     public function authorizeMenuWithOptions($request, $runtime)
     {
@@ -770,9 +804,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeMenuRequest $request
+     * @summary Batch authorization of BI portal menu will be skipped automatically.
+     *  *
+     * @param AuthorizeMenuRequest $request AuthorizeMenuRequest
      *
-     * @return AuthorizeMenuResponse
+     * @return AuthorizeMenuResponse AuthorizeMenuResponse
      */
     public function authorizeMenu($request)
     {
@@ -782,10 +818,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param BatchAddFeishuUsersRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 批量添加飞书用户
+     *  *
+     * @param BatchAddFeishuUsersRequest $request BatchAddFeishuUsersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchAddFeishuUsersResponse
+     * @return BatchAddFeishuUsersResponse BatchAddFeishuUsersResponse
      */
     public function batchAddFeishuUsersWithOptions($request, $runtime)
     {
@@ -825,9 +863,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param BatchAddFeishuUsersRequest $request
+     * @summary 批量添加飞书用户
+     *  *
+     * @param BatchAddFeishuUsersRequest $request BatchAddFeishuUsersRequest
      *
-     * @return BatchAddFeishuUsersResponse
+     * @return BatchAddFeishuUsersResponse BatchAddFeishuUsersResponse
      */
     public function batchAddFeishuUsers($request)
     {
@@ -837,10 +877,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CancelAuthorizationMenuRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param CancelAuthorizationMenuRequest $request CancelAuthorizationMenuRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelAuthorizationMenuResponse
+     * @return CancelAuthorizationMenuResponse CancelAuthorizationMenuResponse
      */
     public function cancelAuthorizationMenuWithOptions($request, $runtime)
     {
@@ -877,9 +917,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CancelAuthorizationMenuRequest $request
+     * @param CancelAuthorizationMenuRequest $request CancelAuthorizationMenuRequest
      *
-     * @return CancelAuthorizationMenuResponse
+     * @return CancelAuthorizationMenuResponse CancelAuthorizationMenuResponse
      */
     public function cancelAuthorizationMenu($request)
     {
@@ -889,10 +929,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CancelCollectionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Cancel the data works from the user\\"s collection.
+     *  *
+     * @param CancelCollectionRequest $request CancelCollectionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelCollectionResponse
+     * @return CancelCollectionResponse CancelCollectionResponse
      */
     public function cancelCollectionWithOptions($request, $runtime)
     {
@@ -923,9 +965,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CancelCollectionRequest $request
+     * @summary Cancel the data works from the user\\"s collection.
+     *  *
+     * @param CancelCollectionRequest $request CancelCollectionRequest
      *
-     * @return CancelCollectionResponse
+     * @return CancelCollectionResponse CancelCollectionResponse
      */
     public function cancelCollection($request)
     {
@@ -935,10 +979,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CancelReportShareRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Delete a share authorization for a data work.
+     *  *
+     * @param CancelReportShareRequest $request CancelReportShareRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelReportShareResponse
+     * @return CancelReportShareResponse CancelReportShareResponse
      */
     public function cancelReportShareWithOptions($request, $runtime)
     {
@@ -972,9 +1018,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CancelReportShareRequest $request
+     * @summary Delete a share authorization for a data work.
+     *  *
+     * @param CancelReportShareRequest $request CancelReportShareRequest
      *
-     * @return CancelReportShareResponse
+     * @return CancelReportShareResponse CancelReportShareResponse
      */
     public function cancelReportShare($request)
     {
@@ -984,10 +1032,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ChangeVisibilityModelRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary The ID of the request.
+     *  *
+     * @param ChangeVisibilityModelRequest $request ChangeVisibilityModelRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeVisibilityModelResponse
+     * @return ChangeVisibilityModelResponse ChangeVisibilityModelResponse
      */
     public function changeVisibilityModelWithOptions($request, $runtime)
     {
@@ -1021,9 +1071,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ChangeVisibilityModelRequest $request
+     * @summary The ID of the request.
+     *  *
+     * @param ChangeVisibilityModelRequest $request ChangeVisibilityModelRequest
      *
-     * @return ChangeVisibilityModelResponse
+     * @return ChangeVisibilityModelResponse ChangeVisibilityModelResponse
      */
     public function changeVisibilityModel($request)
     {
@@ -1033,10 +1085,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CheckReadableRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries whether a user has permissions to view data works, such as dashboards and workbooks.
+     *  *
+     * @param CheckReadableRequest $request CheckReadableRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckReadableResponse
+     * @return CheckReadableResponse CheckReadableResponse
      */
     public function checkReadableWithOptions($request, $runtime)
     {
@@ -1067,9 +1121,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CheckReadableRequest $request
+     * @summary Queries whether a user has permissions to view data works, such as dashboards and workbooks.
+     *  *
+     * @param CheckReadableRequest $request CheckReadableRequest
      *
-     * @return CheckReadableResponse
+     * @return CheckReadableResponse CheckReadableResponse
      */
     public function checkReadable($request)
     {
@@ -1079,10 +1135,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CreateTicketRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 生成三方嵌入的ticket
+     *  *
+     * @param CreateTicketRequest $request CreateTicketRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTicketResponse
+     * @return CreateTicketResponse CreateTicketResponse
      */
     public function createTicketWithOptions($request, $runtime)
     {
@@ -1134,9 +1192,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CreateTicketRequest $request
+     * @summary 生成三方嵌入的ticket
+     *  *
+     * @param CreateTicketRequest $request CreateTicketRequest
      *
-     * @return CreateTicketResponse
+     * @return CreateTicketResponse CreateTicketResponse
      */
     public function createTicket($request)
     {
@@ -1146,10 +1206,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CreateUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Create a user group. You can specify a parent user group.
+     *  *
+     * @param CreateUserGroupRequest $request CreateUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserGroupResponse
+     * @return CreateUserGroupResponse CreateUserGroupResponse
      */
     public function createUserGroupWithOptions($request, $runtime)
     {
@@ -1186,9 +1248,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param CreateUserGroupRequest $request
+     * @summary Create a user group. You can specify a parent user group.
+     *  *
+     * @param CreateUserGroupRequest $request CreateUserGroupRequest
      *
-     * @return CreateUserGroupResponse
+     * @return CreateUserGroupResponse CreateUserGroupResponse
      */
     public function createUserGroup($request)
     {
@@ -1198,10 +1262,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DelayTicketExpireTimeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Update the expiration time of the ticket embedded in the report.
+     *  *
+     * @param DelayTicketExpireTimeRequest $request DelayTicketExpireTimeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DelayTicketExpireTimeResponse
+     * @return DelayTicketExpireTimeResponse DelayTicketExpireTimeResponse
      */
     public function delayTicketExpireTimeWithOptions($request, $runtime)
     {
@@ -1232,9 +1298,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DelayTicketExpireTimeRequest $request
+     * @summary Update the expiration time of the ticket embedded in the report.
+     *  *
+     * @param DelayTicketExpireTimeRequest $request DelayTicketExpireTimeRequest
      *
-     * @return DelayTicketExpireTimeResponse
+     * @return DelayTicketExpireTimeResponse DelayTicketExpireTimeResponse
      */
     public function delayTicketExpireTime($request)
     {
@@ -1244,8 +1312,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}.
-     *   *
+     * @summary { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+     *  *
+     * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
+     *  *
      * @param DeleteDataLevelPermissionRuleUsersRequest $request DeleteDataLevelPermissionRuleUsersRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -1277,8 +1347,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}.
-     *   *
+     * @summary { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+     *  *
+     * @description {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
+     *  *
      * @param DeleteDataLevelPermissionRuleUsersRequest $request DeleteDataLevelPermissionRuleUsersRequest
      *
      * @return DeleteDataLevelPermissionRuleUsersResponse DeleteDataLevelPermissionRuleUsersResponse
@@ -1291,8 +1363,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the training dataset that you want to remove from the specified custom linguistic model.
-     *   *
+     * @summary The ID of the request.
+     *  *
+     * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+     *  *
      * @param DeleteDataLevelRuleConfigRequest $request DeleteDataLevelRuleConfigRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1327,8 +1401,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The ID of the training dataset that you want to remove from the specified custom linguistic model.
-     *   *
+     * @summary The ID of the request.
+     *  *
+     * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+     *  *
      * @param DeleteDataLevelRuleConfigRequest $request DeleteDataLevelRuleConfigRequest
      *
      * @return DeleteDataLevelRuleConfigResponse DeleteDataLevelRuleConfigResponse
@@ -1341,10 +1417,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteTicketRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary auditing
+     *  *
+     * @param DeleteTicketRequest $request DeleteTicketRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTicketResponse
+     * @return DeleteTicketResponse DeleteTicketResponse
      */
     public function deleteTicketWithOptions($request, $runtime)
     {
@@ -1372,9 +1450,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteTicketRequest $request
+     * @summary auditing
+     *  *
+     * @param DeleteTicketRequest $request DeleteTicketRequest
      *
-     * @return DeleteTicketResponse
+     * @return DeleteTicketResponse DeleteTicketResponse
      */
     public function deleteTicket($request)
     {
@@ -1384,10 +1464,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary auditing
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
@@ -1418,9 +1500,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * @summary auditing
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -1430,10 +1514,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserFromWorkspaceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DeleteUserFromWorkspaceRequest $request DeleteUserFromWorkspaceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserFromWorkspaceResponse
+     * @return DeleteUserFromWorkspaceResponse DeleteUserFromWorkspaceResponse
      */
     public function deleteUserFromWorkspaceWithOptions($request, $runtime)
     {
@@ -1464,9 +1548,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserFromWorkspaceRequest $request
+     * @param DeleteUserFromWorkspaceRequest $request DeleteUserFromWorkspaceRequest
      *
-     * @return DeleteUserFromWorkspaceResponse
+     * @return DeleteUserFromWorkspaceResponse DeleteUserFromWorkspaceResponse
      */
     public function deleteUserFromWorkspace($request)
     {
@@ -1476,10 +1560,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes a user group in an organization.
+     *  *
+     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserGroupResponse
+     * @return DeleteUserGroupResponse DeleteUserGroupResponse
      */
     public function deleteUserGroupWithOptions($request, $runtime)
     {
@@ -1507,9 +1593,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserGroupRequest $request
+     * @summary Deletes a user group in an organization.
+     *  *
+     * @param DeleteUserGroupRequest $request DeleteUserGroupRequest
      *
-     * @return DeleteUserGroupResponse
+     * @return DeleteUserGroupResponse DeleteUserGroupResponse
      */
     public function deleteUserGroup($request)
     {
@@ -1519,10 +1607,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserGroupMemberRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes a specified member from a specified user group.
+     *  *
+     * @param DeleteUserGroupMemberRequest $request DeleteUserGroupMemberRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserGroupMemberResponse
+     * @return DeleteUserGroupMemberResponse DeleteUserGroupMemberResponse
      */
     public function deleteUserGroupMemberWithOptions($request, $runtime)
     {
@@ -1553,9 +1643,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserGroupMemberRequest $request
+     * @summary Deletes a specified member from a specified user group.
+     *  *
+     * @param DeleteUserGroupMemberRequest $request DeleteUserGroupMemberRequest
      *
-     * @return DeleteUserGroupMemberResponse
+     * @return DeleteUserGroupMemberResponse DeleteUserGroupMemberResponse
      */
     public function deleteUserGroupMember($request)
     {
@@ -1565,10 +1657,14 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserGroupMembersRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Indicates whether the request is successful. Valid values:
+     * *   true: The request was successful.
+     * *   false: The request failed.
+     *  *
+     * @param DeleteUserGroupMembersRequest $request DeleteUserGroupMembersRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserGroupMembersResponse
+     * @return DeleteUserGroupMembersResponse DeleteUserGroupMembersResponse
      */
     public function deleteUserGroupMembersWithOptions($request, $runtime)
     {
@@ -1599,9 +1695,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserGroupMembersRequest $request
+     * @summary Indicates whether the request is successful. Valid values:
+     * *   true: The request was successful.
+     * *   false: The request failed.
+     *  *
+     * @param DeleteUserGroupMembersRequest $request DeleteUserGroupMembersRequest
      *
-     * @return DeleteUserGroupMembersResponse
+     * @return DeleteUserGroupMembersResponse DeleteUserGroupMembersResponse
      */
     public function deleteUserGroupMembers($request)
     {
@@ -1611,10 +1711,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserTagMetaRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes the tag metadata of an organization member.
+     *  *
+     * @param DeleteUserTagMetaRequest $request DeleteUserTagMetaRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserTagMetaResponse
+     * @return DeleteUserTagMetaResponse DeleteUserTagMetaResponse
      */
     public function deleteUserTagMetaWithOptions($request, $runtime)
     {
@@ -1642,9 +1744,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserTagMetaRequest $request
+     * @summary Deletes the tag metadata of an organization member.
+     *  *
+     * @param DeleteUserTagMetaRequest $request DeleteUserTagMetaRequest
      *
-     * @return DeleteUserTagMetaResponse
+     * @return DeleteUserTagMetaResponse DeleteUserTagMetaResponse
      */
     public function deleteUserTagMeta($request)
     {
@@ -1654,10 +1758,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param GetUserGroupInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Test description
+     *  *
+     * @param GetUserGroupInfoRequest $request GetUserGroupInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserGroupInfoResponse
+     * @return GetUserGroupInfoResponse GetUserGroupInfoResponse
      */
     public function getUserGroupInfoWithOptions($request, $runtime)
     {
@@ -1685,9 +1791,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param GetUserGroupInfoRequest $request
+     * @summary Test description
+     *  *
+     * @param GetUserGroupInfoRequest $request GetUserGroupInfoRequest
      *
-     * @return GetUserGroupInfoResponse
+     * @return GetUserGroupInfoResponse GetUserGroupInfoResponse
      */
     public function getUserGroupInfo($request)
     {
@@ -1697,10 +1805,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListApiDatasourceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 概述
+     *  *
+     * @param ListApiDatasourceRequest $request ListApiDatasourceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApiDatasourceResponse
+     * @return ListApiDatasourceResponse ListApiDatasourceResponse
      */
     public function listApiDatasourceWithOptions($request, $runtime)
     {
@@ -1737,9 +1847,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListApiDatasourceRequest $request
+     * @summary 概述
+     *  *
+     * @param ListApiDatasourceRequest $request ListApiDatasourceRequest
      *
-     * @return ListApiDatasourceResponse
+     * @return ListApiDatasourceResponse ListApiDatasourceResponse
      */
     public function listApiDatasource($request)
     {
@@ -1749,10 +1861,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListByUserGroupIdRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries user group information at a time by user group ID.
+     *  *
+     * @param ListByUserGroupIdRequest $request ListByUserGroupIdRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListByUserGroupIdResponse
+     * @return ListByUserGroupIdResponse ListByUserGroupIdResponse
      */
     public function listByUserGroupIdWithOptions($request, $runtime)
     {
@@ -1780,9 +1894,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListByUserGroupIdRequest $request
+     * @summary Queries user group information at a time by user group ID.
+     *  *
+     * @param ListByUserGroupIdRequest $request ListByUserGroupIdRequest
      *
-     * @return ListByUserGroupIdResponse
+     * @return ListByUserGroupIdResponse ListByUserGroupIdResponse
      */
     public function listByUserGroupId($request)
     {
@@ -1792,10 +1908,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListCollectionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary The ID of the work.
+     *  *
+     * @param ListCollectionsRequest $request ListCollectionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCollectionsResponse
+     * @return ListCollectionsResponse ListCollectionsResponse
      */
     public function listCollectionsWithOptions($request, $runtime)
     {
@@ -1823,9 +1941,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListCollectionsRequest $request
+     * @summary The ID of the work.
+     *  *
+     * @param ListCollectionsRequest $request ListCollectionsRequest
      *
-     * @return ListCollectionsResponse
+     * @return ListCollectionsResponse ListCollectionsResponse
      */
     public function listCollections($request)
     {
@@ -1835,8 +1955,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-     *   *
+     * @summary You can this operation to obtain a list of row and column permission configurations for a specified dataset.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *  *
      * @param ListCubeDataLevelPermissionConfigRequest $request ListCubeDataLevelPermissionConfigRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -1871,8 +1993,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-     *   *
+     * @summary You can this operation to obtain a list of row and column permission configurations for a specified dataset.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *  *
      * @param ListCubeDataLevelPermissionConfigRequest $request ListCubeDataLevelPermissionConfigRequest
      *
      * @return ListCubeDataLevelPermissionConfigResponse ListCubeDataLevelPermissionConfigResponse
@@ -1885,10 +2009,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataLevelPermissionWhiteListRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param ListDataLevelPermissionWhiteListRequest $request ListDataLevelPermissionWhiteListRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataLevelPermissionWhiteListResponse
+     * @return ListDataLevelPermissionWhiteListResponse ListDataLevelPermissionWhiteListResponse
      */
     public function listDataLevelPermissionWhiteListWithOptions($request, $runtime)
     {
@@ -1919,9 +2043,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListDataLevelPermissionWhiteListRequest $request
+     * @param ListDataLevelPermissionWhiteListRequest $request ListDataLevelPermissionWhiteListRequest
      *
-     * @return ListDataLevelPermissionWhiteListResponse
+     * @return ListDataLevelPermissionWhiteListResponse ListDataLevelPermissionWhiteListResponse
      */
     public function listDataLevelPermissionWhiteList($request)
     {
@@ -1931,10 +2055,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListFavoriteReportsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 概述
+     *  *
+     * @param ListFavoriteReportsRequest $request ListFavoriteReportsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFavoriteReportsResponse
+     * @return ListFavoriteReportsResponse ListFavoriteReportsResponse
      */
     public function listFavoriteReportsWithOptions($request, $runtime)
     {
@@ -1971,9 +2097,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListFavoriteReportsRequest $request
+     * @summary 概述
+     *  *
+     * @param ListFavoriteReportsRequest $request ListFavoriteReportsRequest
      *
-     * @return ListFavoriteReportsResponse
+     * @return ListFavoriteReportsResponse ListFavoriteReportsResponse
      */
     public function listFavoriteReports($request)
     {
@@ -1983,10 +2111,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListOrganizationRoleUsersRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 获取指定组织角色下的用户列表
+     *  *
+     * @param ListOrganizationRoleUsersRequest $request ListOrganizationRoleUsersRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOrganizationRoleUsersResponse
+     * @return ListOrganizationRoleUsersResponse ListOrganizationRoleUsersResponse
      */
     public function listOrganizationRoleUsersWithOptions($request, $runtime)
     {
@@ -2023,9 +2153,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListOrganizationRoleUsersRequest $request
+     * @summary 获取指定组织角色下的用户列表
+     *  *
+     * @param ListOrganizationRoleUsersRequest $request ListOrganizationRoleUsersRequest
      *
-     * @return ListOrganizationRoleUsersResponse
+     * @return ListOrganizationRoleUsersResponse ListOrganizationRoleUsersResponse
      */
     public function listOrganizationRoleUsers($request)
     {
@@ -2035,9 +2167,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 获取组织级别自定义角色列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOrganizationRolesResponse
+     * @return ListOrganizationRolesResponse ListOrganizationRolesResponse
      */
     public function listOrganizationRolesWithOptions($runtime)
     {
@@ -2058,7 +2192,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @return ListOrganizationRolesResponse
+     * @summary 获取组织级别自定义角色列表
+     *  *
+     * @return ListOrganizationRolesResponse ListOrganizationRolesResponse
      */
     public function listOrganizationRoles()
     {
@@ -2068,10 +2204,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListPortalMenuAuthorizationRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Obtains the list of authorization details for a BI portal menu.
+     *  *
+     * @param ListPortalMenuAuthorizationRequest $request ListPortalMenuAuthorizationRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPortalMenuAuthorizationResponse
+     * @return ListPortalMenuAuthorizationResponse ListPortalMenuAuthorizationResponse
      */
     public function listPortalMenuAuthorizationWithOptions($request, $runtime)
     {
@@ -2099,9 +2237,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListPortalMenuAuthorizationRequest $request
+     * @summary Obtains the list of authorization details for a BI portal menu.
+     *  *
+     * @param ListPortalMenuAuthorizationRequest $request ListPortalMenuAuthorizationRequest
      *
-     * @return ListPortalMenuAuthorizationResponse
+     * @return ListPortalMenuAuthorizationResponse ListPortalMenuAuthorizationResponse
      */
     public function listPortalMenuAuthorization($request)
     {
@@ -2111,10 +2251,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListPortalMenusRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Gets a hierarchical list of menus under a specific BI portal.
+     *  *
+     * @param ListPortalMenusRequest $request ListPortalMenusRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPortalMenusResponse
+     * @return ListPortalMenusResponse ListPortalMenusResponse
      */
     public function listPortalMenusWithOptions($request, $runtime)
     {
@@ -2145,9 +2287,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListPortalMenusRequest $request
+     * @summary Gets a hierarchical list of menus under a specific BI portal.
+     *  *
+     * @param ListPortalMenusRequest $request ListPortalMenusRequest
      *
-     * @return ListPortalMenusResponse
+     * @return ListPortalMenusResponse ListPortalMenusResponse
      */
     public function listPortalMenus($request)
     {
@@ -2157,10 +2301,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListRecentViewReportsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 获取首页看板常看和足迹列表
+     *  *
+     * @param ListRecentViewReportsRequest $request ListRecentViewReportsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRecentViewReportsResponse
+     * @return ListRecentViewReportsResponse ListRecentViewReportsResponse
      */
     public function listRecentViewReportsWithOptions($request, $runtime)
     {
@@ -2203,9 +2349,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListRecentViewReportsRequest $request
+     * @summary 获取首页看板常看和足迹列表
+     *  *
+     * @param ListRecentViewReportsRequest $request ListRecentViewReportsRequest
      *
-     * @return ListRecentViewReportsResponse
+     * @return ListRecentViewReportsResponse ListRecentViewReportsResponse
      */
     public function listRecentViewReports($request)
     {
@@ -2215,10 +2363,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListSharedReportsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 概述
+     *  *
+     * @param ListSharedReportsRequest $request ListSharedReportsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSharedReportsResponse
+     * @return ListSharedReportsResponse ListSharedReportsResponse
      */
     public function listSharedReportsWithOptions($request, $runtime)
     {
@@ -2255,9 +2405,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListSharedReportsRequest $request
+     * @summary 概述
+     *  *
+     * @param ListSharedReportsRequest $request ListSharedReportsRequest
      *
-     * @return ListSharedReportsResponse
+     * @return ListSharedReportsResponse ListSharedReportsResponse
      */
     public function listSharedReports($request)
     {
@@ -2267,10 +2419,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsByUserIdRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Description
+     *  *
+     * @param ListUserGroupsByUserIdRequest $request ListUserGroupsByUserIdRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserGroupsByUserIdResponse
+     * @return ListUserGroupsByUserIdResponse ListUserGroupsByUserIdResponse
      */
     public function listUserGroupsByUserIdWithOptions($request, $runtime)
     {
@@ -2298,9 +2452,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsByUserIdRequest $request
+     * @summary Description
+     *  *
+     * @param ListUserGroupsByUserIdRequest $request ListUserGroupsByUserIdRequest
      *
-     * @return ListUserGroupsByUserIdResponse
+     * @return ListUserGroupsByUserIdResponse ListUserGroupsByUserIdResponse
      */
     public function listUserGroupsByUserId($request)
     {
@@ -2310,10 +2466,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspaceRoleUsersRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 获取指定空间角色下的用户列表
+     *  *
+     * @param ListWorkspaceRoleUsersRequest $request ListWorkspaceRoleUsersRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListWorkspaceRoleUsersResponse
+     * @return ListWorkspaceRoleUsersResponse ListWorkspaceRoleUsersResponse
      */
     public function listWorkspaceRoleUsersWithOptions($request, $runtime)
     {
@@ -2353,9 +2511,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspaceRoleUsersRequest $request
+     * @summary 获取指定空间角色下的用户列表
+     *  *
+     * @param ListWorkspaceRoleUsersRequest $request ListWorkspaceRoleUsersRequest
      *
-     * @return ListWorkspaceRoleUsersResponse
+     * @return ListWorkspaceRoleUsersResponse ListWorkspaceRoleUsersResponse
      */
     public function listWorkspaceRoleUsers($request)
     {
@@ -2365,10 +2525,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspaceRolesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 获取空间角色列表
+     *  *
+     * @param ListWorkspaceRolesRequest $request ListWorkspaceRolesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListWorkspaceRolesResponse
+     * @return ListWorkspaceRolesResponse ListWorkspaceRolesResponse
      */
     public function listWorkspaceRolesWithOptions($request, $runtime)
     {
@@ -2396,9 +2558,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspaceRolesRequest $request
+     * @summary 获取空间角色列表
+     *  *
+     * @param ListWorkspaceRolesRequest $request ListWorkspaceRolesRequest
      *
-     * @return ListWorkspaceRolesResponse
+     * @return ListWorkspaceRolesResponse ListWorkspaceRolesResponse
      */
     public function listWorkspaceRoles($request)
     {
@@ -2408,10 +2572,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ModifyApiDatasourceParametersRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 修改指定API数据源参数值
+     *  *
+     * @param ModifyApiDatasourceParametersRequest $request ModifyApiDatasourceParametersRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyApiDatasourceParametersResponse
+     * @return ModifyApiDatasourceParametersResponse ModifyApiDatasourceParametersResponse
      */
     public function modifyApiDatasourceParametersWithOptions($request, $runtime)
     {
@@ -2445,9 +2611,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ModifyApiDatasourceParametersRequest $request
+     * @summary 修改指定API数据源参数值
+     *  *
+     * @param ModifyApiDatasourceParametersRequest $request ModifyApiDatasourceParametersRequest
      *
-     * @return ModifyApiDatasourceParametersResponse
+     * @return ModifyApiDatasourceParametersResponse ModifyApiDatasourceParametersResponse
      */
     public function modifyApiDatasourceParameters($request)
     {
@@ -2457,10 +2625,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryComponentPerformanceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询组件性能列表
+     *  *
+     * @param QueryComponentPerformanceRequest $request QueryComponentPerformanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryComponentPerformanceResponse
+     * @return QueryComponentPerformanceResponse QueryComponentPerformanceResponse
      */
     public function queryComponentPerformanceWithOptions($request, $runtime)
     {
@@ -2506,9 +2676,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryComponentPerformanceRequest $request
+     * @summary 查询组件性能列表
+     *  *
+     * @param QueryComponentPerformanceRequest $request QueryComponentPerformanceRequest
      *
-     * @return QueryComponentPerformanceResponse
+     * @return QueryComponentPerformanceResponse QueryComponentPerformanceResponse
      */
     public function queryComponentPerformance($request)
     {
@@ -2518,10 +2690,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryCubeOptimizationRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询数据集优化建议
+     *  *
+     * @param QueryCubeOptimizationRequest $request QueryCubeOptimizationRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCubeOptimizationResponse
+     * @return QueryCubeOptimizationResponse QueryCubeOptimizationResponse
      */
     public function queryCubeOptimizationWithOptions($request, $runtime)
     {
@@ -2549,9 +2723,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryCubeOptimizationRequest $request
+     * @summary 查询数据集优化建议
+     *  *
+     * @param QueryCubeOptimizationRequest $request QueryCubeOptimizationRequest
      *
-     * @return QueryCubeOptimizationResponse
+     * @return QueryCubeOptimizationResponse QueryCubeOptimizationResponse
      */
     public function queryCubeOptimization($request)
     {
@@ -2561,10 +2737,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryCubePerformanceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询数据集性能
+     *  *
+     * @param QueryCubePerformanceRequest $request QueryCubePerformanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryCubePerformanceResponse
+     * @return QueryCubePerformanceResponse QueryCubePerformanceResponse
      */
     public function queryCubePerformanceWithOptions($request, $runtime)
     {
@@ -2607,9 +2785,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryCubePerformanceRequest $request
+     * @summary 查询数据集性能
+     *  *
+     * @param QueryCubePerformanceRequest $request QueryCubePerformanceRequest
      *
-     * @return QueryCubePerformanceResponse
+     * @return QueryCubePerformanceResponse QueryCubePerformanceResponse
      */
     public function queryCubePerformance($request)
     {
@@ -2619,8 +2799,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * f4cc43bc3***.
-     *   *
+     * @summary The operator for the aggregate operation. Metric fields are available, such as SUM, AVG, and MAX.
+     *  *
+     * @description f4cc43bc3***
+     *  *
      * @param QueryDataServiceRequest $request QueryDataServiceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2658,8 +2840,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * f4cc43bc3***.
-     *   *
+     * @summary The operator for the aggregate operation. Metric fields are available, such as SUM, AVG, and MAX.
+     *  *
+     * @description f4cc43bc3***
+     *  *
      * @param QueryDataServiceRequest $request QueryDataServiceRequest
      *
      * @return QueryDataServiceResponse QueryDataServiceResponse
@@ -2672,8 +2856,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
-     *   *
+     * @summary Queries the details of a specified dataset, including the data source, directory, and dataset model.
+     *  *
+     * @description The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
+     *  *
      * @param QueryDatasetDetailInfoRequest $request QueryDatasetDetailInfoRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -2705,8 +2891,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
-     *   *
+     * @summary Queries the details of a specified dataset, including the data source, directory, and dataset model.
+     *  *
+     * @description The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
+     *  *
      * @param QueryDatasetDetailInfoRequest $request QueryDatasetDetailInfoRequest
      *
      * @return QueryDatasetDetailInfoResponse QueryDatasetDetailInfoResponse
@@ -2719,10 +2907,14 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDatasetInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Indicates whether the table is a custom SQL table. Valid values:
+     * *   true: custom SQL table
+     * *   false: non-custom SQL table
+     *  *
+     * @param QueryDatasetInfoRequest $request QueryDatasetInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDatasetInfoResponse
+     * @return QueryDatasetInfoResponse QueryDatasetInfoResponse
      */
     public function queryDatasetInfoWithOptions($request, $runtime)
     {
@@ -2750,9 +2942,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDatasetInfoRequest $request
+     * @summary Indicates whether the table is a custom SQL table. Valid values:
+     * *   true: custom SQL table
+     * *   false: non-custom SQL table
+     *  *
+     * @param QueryDatasetInfoRequest $request QueryDatasetInfoRequest
      *
-     * @return QueryDatasetInfoResponse
+     * @return QueryDatasetInfoResponse QueryDatasetInfoResponse
      */
     public function queryDatasetInfo($request)
     {
@@ -2762,10 +2958,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDatasetListRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary The name of the training dataset.
+     *  *
+     * @param QueryDatasetListRequest $request QueryDatasetListRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDatasetListResponse
+     * @return QueryDatasetListResponse QueryDatasetListResponse
      */
     public function queryDatasetListWithOptions($request, $runtime)
     {
@@ -2808,9 +3006,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDatasetListRequest $request
+     * @summary The name of the training dataset.
+     *  *
+     * @param QueryDatasetListRequest $request QueryDatasetListRequest
      *
-     * @return QueryDatasetListResponse
+     * @return QueryDatasetListResponse QueryDatasetListResponse
      */
     public function queryDatasetList($request)
     {
@@ -2820,10 +3020,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDatasetSwitchInfoRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param QueryDatasetSwitchInfoRequest $request QueryDatasetSwitchInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDatasetSwitchInfoResponse
+     * @return QueryDatasetSwitchInfoResponse QueryDatasetSwitchInfoResponse
      */
     public function queryDatasetSwitchInfoWithOptions($request, $runtime)
     {
@@ -2851,9 +3051,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDatasetSwitchInfoRequest $request
+     * @param QueryDatasetSwitchInfoRequest $request QueryDatasetSwitchInfoRequest
      *
-     * @return QueryDatasetSwitchInfoResponse
+     * @return QueryDatasetSwitchInfoResponse QueryDatasetSwitchInfoResponse
      */
     public function queryDatasetSwitchInfo($request)
     {
@@ -2863,9 +3063,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary The number of reports that are currently embedded.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEmbeddedInfoResponse
+     * @return QueryEmbeddedInfoResponse QueryEmbeddedInfoResponse
      */
     public function queryEmbeddedInfoWithOptions($runtime)
     {
@@ -2886,7 +3088,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @return QueryEmbeddedInfoResponse
+     * @summary The number of reports that are currently embedded.
+     *  *
+     * @return QueryEmbeddedInfoResponse QueryEmbeddedInfoResponse
      */
     public function queryEmbeddedInfo()
     {
@@ -2896,10 +3100,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryEmbeddedStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries whether embedding is enabled for a report.
+     *  *
+     * @param QueryEmbeddedStatusRequest $request QueryEmbeddedStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryEmbeddedStatusResponse
+     * @return QueryEmbeddedStatusResponse QueryEmbeddedStatusResponse
      */
     public function queryEmbeddedStatusWithOptions($request, $runtime)
     {
@@ -2927,9 +3133,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryEmbeddedStatusRequest $request
+     * @summary Queries whether embedding is enabled for a report.
+     *  *
+     * @param QueryEmbeddedStatusRequest $request QueryEmbeddedStatusRequest
      *
-     * @return QueryEmbeddedStatusResponse
+     * @return QueryEmbeddedStatusResponse QueryEmbeddedStatusResponse
      */
     public function queryEmbeddedStatus($request)
     {
@@ -2939,10 +3147,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryOrganizationRoleConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 获取指定组织角色的配置信息
+     *  *
+     * @param QueryOrganizationRoleConfigRequest $request QueryOrganizationRoleConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryOrganizationRoleConfigResponse
+     * @return QueryOrganizationRoleConfigResponse QueryOrganizationRoleConfigResponse
      */
     public function queryOrganizationRoleConfigWithOptions($request, $runtime)
     {
@@ -2970,9 +3180,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryOrganizationRoleConfigRequest $request
+     * @summary 获取指定组织角色的配置信息
+     *  *
+     * @param QueryOrganizationRoleConfigRequest $request QueryOrganizationRoleConfigRequest
      *
-     * @return QueryOrganizationRoleConfigResponse
+     * @return QueryOrganizationRoleConfigResponse QueryOrganizationRoleConfigResponse
      */
     public function queryOrganizationRoleConfig($request)
     {
@@ -2982,10 +3194,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryOrganizationWorkspaceListRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 获取当前组织下的工作空间列表信息。
+     *  *
+     * @param QueryOrganizationWorkspaceListRequest $request QueryOrganizationWorkspaceListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryOrganizationWorkspaceListResponse
+     * @return QueryOrganizationWorkspaceListResponse QueryOrganizationWorkspaceListResponse
      */
     public function queryOrganizationWorkspaceListWithOptions($request, $runtime)
     {
@@ -3022,9 +3236,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryOrganizationWorkspaceListRequest $request
+     * @summary 获取当前组织下的工作空间列表信息。
+     *  *
+     * @param QueryOrganizationWorkspaceListRequest $request QueryOrganizationWorkspaceListRequest
      *
-     * @return QueryOrganizationWorkspaceListResponse
+     * @return QueryOrganizationWorkspaceListResponse QueryOrganizationWorkspaceListResponse
      */
     public function queryOrganizationWorkspaceList($request)
     {
@@ -3034,10 +3250,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryReadableResourcesListByUserIdRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary The Alibaba Cloud account name of the owner.
+     *  *
+     * @param QueryReadableResourcesListByUserIdRequest $request QueryReadableResourcesListByUserIdRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryReadableResourcesListByUserIdResponse
+     * @return QueryReadableResourcesListByUserIdResponse QueryReadableResourcesListByUserIdResponse
      */
     public function queryReadableResourcesListByUserIdWithOptions($request, $runtime)
     {
@@ -3065,9 +3283,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryReadableResourcesListByUserIdRequest $request
+     * @summary The Alibaba Cloud account name of the owner.
+     *  *
+     * @param QueryReadableResourcesListByUserIdRequest $request QueryReadableResourcesListByUserIdRequest
      *
-     * @return QueryReadableResourcesListByUserIdResponse
+     * @return QueryReadableResourcesListByUserIdResponse QueryReadableResourcesListByUserIdResponse
      */
     public function queryReadableResourcesListByUserId($request)
     {
@@ -3077,10 +3297,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryReportPerformanceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查询报表性能列表
+     *  *
+     * @param QueryReportPerformanceRequest $request QueryReportPerformanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryReportPerformanceResponse
+     * @return QueryReportPerformanceResponse QueryReportPerformanceResponse
      */
     public function queryReportPerformanceWithOptions($request, $runtime)
     {
@@ -3126,9 +3348,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryReportPerformanceRequest $request
+     * @summary 查询报表性能列表
+     *  *
+     * @param QueryReportPerformanceRequest $request QueryReportPerformanceRequest
      *
-     * @return QueryReportPerformanceResponse
+     * @return QueryReportPerformanceResponse QueryReportPerformanceResponse
      */
     public function queryReportPerformance($request)
     {
@@ -3138,10 +3362,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryShareListRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Xiao Zhang
+     *  *
+     * @param QueryShareListRequest $request QueryShareListRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryShareListResponse
+     * @return QueryShareListResponse QueryShareListResponse
      */
     public function queryShareListWithOptions($request, $runtime)
     {
@@ -3169,9 +3395,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryShareListRequest $request
+     * @summary Xiao Zhang
+     *  *
+     * @param QueryShareListRequest $request QueryShareListRequest
      *
-     * @return QueryShareListResponse
+     * @return QueryShareListResponse QueryShareListResponse
      */
     public function queryShareList($request)
     {
@@ -3181,10 +3409,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QuerySharesToUserListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary You can call this operation to query the list of works authorized to a user.
+     *  *
+     * @param QuerySharesToUserListRequest $request QuerySharesToUserListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySharesToUserListResponse
+     * @return QuerySharesToUserListResponse QuerySharesToUserListResponse
      */
     public function querySharesToUserListWithOptions($request, $runtime)
     {
@@ -3212,9 +3442,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QuerySharesToUserListRequest $request
+     * @summary You can call this operation to query the list of works authorized to a user.
+     *  *
+     * @param QuerySharesToUserListRequest $request QuerySharesToUserListRequest
      *
-     * @return QuerySharesToUserListResponse
+     * @return QuerySharesToUserListResponse QuerySharesToUserListResponse
      */
     public function querySharesToUserList($request)
     {
@@ -3224,10 +3456,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryTicketInfoRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary auditing
+     *  *
+     * @param QueryTicketInfoRequest $request QueryTicketInfoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTicketInfoResponse
+     * @return QueryTicketInfoResponse QueryTicketInfoResponse
      */
     public function queryTicketInfoWithOptions($request, $runtime)
     {
@@ -3255,9 +3489,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryTicketInfoRequest $request
+     * @summary auditing
+     *  *
+     * @param QueryTicketInfoRequest $request QueryTicketInfoRequest
      *
-     * @return QueryTicketInfoResponse
+     * @return QueryTicketInfoResponse QueryTicketInfoResponse
      */
     public function queryTicketInfo($request)
     {
@@ -3267,10 +3503,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserGroupListByParentIdRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary You can this operation to obtain information about child user groups under a specified parent user group.
+     *  *
+     * @param QueryUserGroupListByParentIdRequest $request QueryUserGroupListByParentIdRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryUserGroupListByParentIdResponse
+     * @return QueryUserGroupListByParentIdResponse QueryUserGroupListByParentIdResponse
      */
     public function queryUserGroupListByParentIdWithOptions($request, $runtime)
     {
@@ -3298,9 +3536,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserGroupListByParentIdRequest $request
+     * @summary You can this operation to obtain information about child user groups under a specified parent user group.
+     *  *
+     * @param QueryUserGroupListByParentIdRequest $request QueryUserGroupListByParentIdRequest
      *
-     * @return QueryUserGroupListByParentIdResponse
+     * @return QueryUserGroupListByParentIdResponse QueryUserGroupListByParentIdResponse
      */
     public function queryUserGroupListByParentId($request)
     {
@@ -3310,10 +3550,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserGroupMemberRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param QueryUserGroupMemberRequest $request QueryUserGroupMemberRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryUserGroupMemberResponse
+     * @return QueryUserGroupMemberResponse QueryUserGroupMemberResponse
      */
     public function queryUserGroupMemberWithOptions($request, $runtime)
     {
@@ -3344,9 +3584,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserGroupMemberRequest $request
+     * @param QueryUserGroupMemberRequest $request QueryUserGroupMemberRequest
      *
-     * @return QueryUserGroupMemberResponse
+     * @return QueryUserGroupMemberResponse QueryUserGroupMemberResponse
      */
     public function queryUserGroupMember($request)
     {
@@ -3356,10 +3596,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserInfoByAccountRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries user information based on the Alibaba Cloud ID or Alibaba Cloud account name.
+     *  *
+     * @param QueryUserInfoByAccountRequest $request QueryUserInfoByAccountRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryUserInfoByAccountResponse
+     * @return QueryUserInfoByAccountResponse QueryUserInfoByAccountResponse
      */
     public function queryUserInfoByAccountWithOptions($request, $runtime)
     {
@@ -3390,9 +3632,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserInfoByAccountRequest $request
+     * @summary Queries user information based on the Alibaba Cloud ID or Alibaba Cloud account name.
+     *  *
+     * @param QueryUserInfoByAccountRequest $request QueryUserInfoByAccountRequest
      *
-     * @return QueryUserInfoByAccountResponse
+     * @return QueryUserInfoByAccountResponse QueryUserInfoByAccountResponse
      */
     public function queryUserInfoByAccount($request)
     {
@@ -3402,10 +3646,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserInfoByUserIdRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries user information based on the user ID.
+     *  *
+     * @param QueryUserInfoByUserIdRequest $request QueryUserInfoByUserIdRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryUserInfoByUserIdResponse
+     * @return QueryUserInfoByUserIdResponse QueryUserInfoByUserIdResponse
      */
     public function queryUserInfoByUserIdWithOptions($request, $runtime)
     {
@@ -3433,9 +3679,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserInfoByUserIdRequest $request
+     * @summary Queries user information based on the user ID.
+     *  *
+     * @param QueryUserInfoByUserIdRequest $request QueryUserInfoByUserIdRequest
      *
-     * @return QueryUserInfoByUserIdResponse
+     * @return QueryUserInfoByUserIdResponse QueryUserInfoByUserIdResponse
      */
     public function queryUserInfoByUserId($request)
     {
@@ -3445,10 +3693,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserListRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param QueryUserListRequest $request QueryUserListRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryUserListResponse
+     * @return QueryUserListResponse QueryUserListResponse
      */
     public function queryUserListWithOptions($request, $runtime)
     {
@@ -3473,9 +3721,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserListRequest $request
+     * @param QueryUserListRequest $request QueryUserListRequest
      *
-     * @return QueryUserListResponse
+     * @return QueryUserListResponse QueryUserListResponse
      */
     public function queryUserList($request)
     {
@@ -3485,10 +3733,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserRoleInfoInWorkspaceRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param QueryUserRoleInfoInWorkspaceRequest $request QueryUserRoleInfoInWorkspaceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryUserRoleInfoInWorkspaceResponse
+     * @return QueryUserRoleInfoInWorkspaceResponse QueryUserRoleInfoInWorkspaceResponse
      */
     public function queryUserRoleInfoInWorkspaceWithOptions($request, $runtime)
     {
@@ -3519,9 +3767,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserRoleInfoInWorkspaceRequest $request
+     * @param QueryUserRoleInfoInWorkspaceRequest $request QueryUserRoleInfoInWorkspaceRequest
      *
-     * @return QueryUserRoleInfoInWorkspaceResponse
+     * @return QueryUserRoleInfoInWorkspaceResponse QueryUserRoleInfoInWorkspaceResponse
      */
     public function queryUserRoleInfoInWorkspace($request)
     {
@@ -3531,9 +3779,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary auditing
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryUserTagMetaListResponse
+     * @return QueryUserTagMetaListResponse QueryUserTagMetaListResponse
      */
     public function queryUserTagMetaListWithOptions($runtime)
     {
@@ -3554,7 +3804,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @return QueryUserTagMetaListResponse
+     * @summary auditing
+     *  *
+     * @return QueryUserTagMetaListResponse QueryUserTagMetaListResponse
      */
     public function queryUserTagMetaList()
     {
@@ -3564,10 +3816,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserTagValueListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the list of tag values for a specific user.
+     *  *
+     * @param QueryUserTagValueListRequest $request QueryUserTagValueListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryUserTagValueListResponse
+     * @return QueryUserTagValueListResponse QueryUserTagValueListResponse
      */
     public function queryUserTagValueListWithOptions($request, $runtime)
     {
@@ -3592,9 +3846,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryUserTagValueListRequest $request
+     * @summary Queries the list of tag values for a specific user.
+     *  *
+     * @param QueryUserTagValueListRequest $request QueryUserTagValueListRequest
      *
-     * @return QueryUserTagValueListResponse
+     * @return QueryUserTagValueListResponse QueryUserTagValueListResponse
      */
     public function queryUserTagValueList($request)
     {
@@ -3604,10 +3860,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorksRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 获取报表详情
+     *  *
+     * @param QueryWorksRequest $request QueryWorksRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryWorksResponse
+     * @return QueryWorksResponse QueryWorksResponse
      */
     public function queryWorksWithOptions($request, $runtime)
     {
@@ -3635,9 +3893,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorksRequest $request
+     * @summary 获取报表详情
+     *  *
+     * @param QueryWorksRequest $request QueryWorksRequest
      *
-     * @return QueryWorksResponse
+     * @return QueryWorksResponse QueryWorksResponse
      */
     public function queryWorks($request)
     {
@@ -3647,10 +3907,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorksBloodRelationshipRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary abcd****
+     *  *
+     * @param QueryWorksBloodRelationshipRequest $request QueryWorksBloodRelationshipRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryWorksBloodRelationshipResponse
+     * @return QueryWorksBloodRelationshipResponse QueryWorksBloodRelationshipResponse
      */
     public function queryWorksBloodRelationshipWithOptions($request, $runtime)
     {
@@ -3678,9 +3940,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorksBloodRelationshipRequest $request
+     * @summary abcd****
+     *  *
+     * @param QueryWorksBloodRelationshipRequest $request QueryWorksBloodRelationshipRequest
      *
-     * @return QueryWorksBloodRelationshipResponse
+     * @return QueryWorksBloodRelationshipResponse QueryWorksBloodRelationshipResponse
      */
     public function queryWorksBloodRelationship($request)
     {
@@ -3690,10 +3954,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorksByOrganizationRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary The total number of rows in the table.
+     *  *
+     * @param QueryWorksByOrganizationRequest $request QueryWorksByOrganizationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryWorksByOrganizationResponse
+     * @return QueryWorksByOrganizationResponse QueryWorksByOrganizationResponse
      */
     public function queryWorksByOrganizationWithOptions($request, $runtime)
     {
@@ -3733,9 +3999,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorksByOrganizationRequest $request
+     * @summary The total number of rows in the table.
+     *  *
+     * @param QueryWorksByOrganizationRequest $request QueryWorksByOrganizationRequest
      *
-     * @return QueryWorksByOrganizationResponse
+     * @return QueryWorksByOrganizationResponse QueryWorksByOrganizationResponse
      */
     public function queryWorksByOrganization($request)
     {
@@ -3745,10 +4013,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorksByWorkspaceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary The name of the directory.
+     *  *
+     * @param QueryWorksByWorkspaceRequest $request QueryWorksByWorkspaceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryWorksByWorkspaceResponse
+     * @return QueryWorksByWorkspaceResponse QueryWorksByWorkspaceResponse
      */
     public function queryWorksByWorkspaceWithOptions($request, $runtime)
     {
@@ -3791,9 +4061,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorksByWorkspaceRequest $request
+     * @summary The name of the directory.
+     *  *
+     * @param QueryWorksByWorkspaceRequest $request QueryWorksByWorkspaceRequest
      *
-     * @return QueryWorksByWorkspaceResponse
+     * @return QueryWorksByWorkspaceResponse QueryWorksByWorkspaceResponse
      */
     public function queryWorksByWorkspace($request)
     {
@@ -3803,10 +4075,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorkspaceRoleConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取指定空间角色的配置信息
+     *  *
+     * @param QueryWorkspaceRoleConfigRequest $request QueryWorkspaceRoleConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryWorkspaceRoleConfigResponse
+     * @return QueryWorkspaceRoleConfigResponse QueryWorkspaceRoleConfigResponse
      */
     public function queryWorkspaceRoleConfigWithOptions($request, $runtime)
     {
@@ -3834,9 +4108,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorkspaceRoleConfigRequest $request
+     * @summary 获取指定空间角色的配置信息
+     *  *
+     * @param QueryWorkspaceRoleConfigRequest $request QueryWorkspaceRoleConfigRequest
      *
-     * @return QueryWorkspaceRoleConfigResponse
+     * @return QueryWorkspaceRoleConfigResponse QueryWorkspaceRoleConfigResponse
      */
     public function queryWorkspaceRoleConfig($request)
     {
@@ -3846,10 +4122,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorkspaceUserListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param QueryWorkspaceUserListRequest $request QueryWorkspaceUserListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryWorkspaceUserListResponse
+     * @return QueryWorkspaceUserListResponse QueryWorkspaceUserListResponse
      */
     public function queryWorkspaceUserListWithOptions($request, $runtime)
     {
@@ -3886,9 +4162,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryWorkspaceUserListRequest $request
+     * @param QueryWorkspaceUserListRequest $request QueryWorkspaceUserListRequest
      *
-     * @return QueryWorkspaceUserListResponse
+     * @return QueryWorkspaceUserListResponse QueryWorkspaceUserListResponse
      */
     public function queryWorkspaceUserList($request)
     {
@@ -3898,10 +4174,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ResultCallbackRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 第三方资源审批回调接口
+     *  *
+     * @param ResultCallbackRequest $request ResultCallbackRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResultCallbackResponse
+     * @return ResultCallbackResponse ResultCallbackResponse
      */
     public function resultCallbackWithOptions($request, $runtime)
     {
@@ -3935,9 +4213,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ResultCallbackRequest $request
+     * @summary 第三方资源审批回调接口
+     *  *
+     * @param ResultCallbackRequest $request ResultCallbackRequest
      *
-     * @return ResultCallbackResponse
+     * @return ResultCallbackResponse ResultCallbackResponse
      */
     public function resultCallback($request)
     {
@@ -3947,10 +4227,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param SaveFavoritesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Add the user\\"s collection data works.
+     *  *
+     * @param SaveFavoritesRequest $request SaveFavoritesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SaveFavoritesResponse
+     * @return SaveFavoritesResponse SaveFavoritesResponse
      */
     public function saveFavoritesWithOptions($request, $runtime)
     {
@@ -3981,9 +4263,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param SaveFavoritesRequest $request
+     * @summary Add the user\\"s collection data works.
+     *  *
+     * @param SaveFavoritesRequest $request SaveFavoritesRequest
      *
-     * @return SaveFavoritesResponse
+     * @return SaveFavoritesResponse SaveFavoritesResponse
      */
     public function saveFavorites($request)
     {
@@ -3993,10 +4277,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param SetDataLevelPermissionExtraConfigRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param SetDataLevelPermissionExtraConfigRequest $request SetDataLevelPermissionExtraConfigRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDataLevelPermissionExtraConfigResponse
+     * @return SetDataLevelPermissionExtraConfigResponse SetDataLevelPermissionExtraConfigResponse
      */
     public function setDataLevelPermissionExtraConfigWithOptions($request, $runtime)
     {
@@ -4030,9 +4314,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param SetDataLevelPermissionExtraConfigRequest $request
+     * @param SetDataLevelPermissionExtraConfigRequest $request SetDataLevelPermissionExtraConfigRequest
      *
-     * @return SetDataLevelPermissionExtraConfigResponse
+     * @return SetDataLevelPermissionExtraConfigResponse SetDataLevelPermissionExtraConfigResponse
      */
     public function setDataLevelPermissionExtraConfig($request)
     {
@@ -4042,10 +4326,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param SetDataLevelPermissionRuleConfigRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param SetDataLevelPermissionRuleConfigRequest $request SetDataLevelPermissionRuleConfigRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDataLevelPermissionRuleConfigResponse
+     * @return SetDataLevelPermissionRuleConfigResponse SetDataLevelPermissionRuleConfigResponse
      */
     public function setDataLevelPermissionRuleConfigWithOptions($request, $runtime)
     {
@@ -4073,9 +4357,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param SetDataLevelPermissionRuleConfigRequest $request
+     * @param SetDataLevelPermissionRuleConfigRequest $request SetDataLevelPermissionRuleConfigRequest
      *
-     * @return SetDataLevelPermissionRuleConfigResponse
+     * @return SetDataLevelPermissionRuleConfigResponse SetDataLevelPermissionRuleConfigResponse
      */
     public function setDataLevelPermissionRuleConfig($request)
     {
@@ -4085,8 +4369,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-     *   *
+     * @summary Sets the whitelist for the specified row-level permissions.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *  *
      * @param SetDataLevelPermissionWhiteListRequest $request SetDataLevelPermissionWhiteListRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -4118,8 +4404,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
-     *   *
+     * @summary Sets the whitelist for the specified row-level permissions.
+     *  *
+     * @description > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *  *
      * @param SetDataLevelPermissionWhiteListRequest $request SetDataLevelPermissionWhiteListRequest
      *
      * @return SetDataLevelPermissionWhiteListResponse SetDataLevelPermissionWhiteListResponse
@@ -4132,10 +4420,14 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The execution result of the interface. Valid values:
-     *   * *   true: The request was successful.
-     *   * *   false: The request failed.
-     *   *
+     * @summary Indicates whether the request is successful. Valid values:
+     * *   true: The request was successful.
+     * *   false: The request failed.
+     *  *
+     * @description The execution result of the interface. Valid values:
+     * *   true: The request was successful.
+     * *   false: The request failed.
+     *  *
      * @param UpdateDataLevelPermissionStatusRequest $request UpdateDataLevelPermissionStatusRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -4173,10 +4465,14 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The execution result of the interface. Valid values:
-     *   * *   true: The request was successful.
-     *   * *   false: The request failed.
-     *   *
+     * @summary Indicates whether the request is successful. Valid values:
+     * *   true: The request was successful.
+     * *   false: The request failed.
+     *  *
+     * @description The execution result of the interface. Valid values:
+     * *   true: The request was successful.
+     * *   false: The request failed.
+     *  *
      * @param UpdateDataLevelPermissionStatusRequest $request UpdateDataLevelPermissionStatusRequest
      *
      * @return UpdateDataLevelPermissionStatusResponse UpdateDataLevelPermissionStatusResponse
@@ -4189,10 +4485,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateEmbeddedStatusRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary The ID of the request.
+     *  *
+     * @param UpdateEmbeddedStatusRequest $request UpdateEmbeddedStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEmbeddedStatusResponse
+     * @return UpdateEmbeddedStatusResponse UpdateEmbeddedStatusResponse
      */
     public function updateEmbeddedStatusWithOptions($request, $runtime)
     {
@@ -4223,9 +4521,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateEmbeddedStatusRequest $request
+     * @summary The ID of the request.
+     *  *
+     * @param UpdateEmbeddedStatusRequest $request UpdateEmbeddedStatusRequest
      *
-     * @return UpdateEmbeddedStatusResponse
+     * @return UpdateEmbeddedStatusResponse UpdateEmbeddedStatusResponse
      */
     public function updateEmbeddedStatus($request)
     {
@@ -4235,10 +4535,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTicketNumRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 更新三方嵌入ticket的票据数量
+     *  *
+     * @param UpdateTicketNumRequest $request UpdateTicketNumRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTicketNumResponse
+     * @return UpdateTicketNumResponse UpdateTicketNumResponse
      */
     public function updateTicketNumWithOptions($request, $runtime)
     {
@@ -4269,9 +4571,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateTicketNumRequest $request
+     * @summary 更新三方嵌入ticket的票据数量
+     *  *
+     * @param UpdateTicketNumRequest $request UpdateTicketNumRequest
      *
-     * @return UpdateTicketNumResponse
+     * @return UpdateTicketNumResponse UpdateTicketNumResponse
      */
     public function updateTicketNum($request)
     {
@@ -4281,10 +4585,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Updates the information of a specified member in an organization.
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
@@ -4327,9 +4633,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
+     * @summary Updates the information of a specified member in an organization.
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUser($request)
     {
@@ -4339,10 +4647,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Updates information about a specified user group in an organization.
+     *  *
+     * @param UpdateUserGroupRequest $request UpdateUserGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserGroupResponse
+     * @return UpdateUserGroupResponse UpdateUserGroupResponse
      */
     public function updateUserGroupWithOptions($request, $runtime)
     {
@@ -4376,9 +4686,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserGroupRequest $request
+     * @summary Updates information about a specified user group in an organization.
+     *  *
+     * @param UpdateUserGroupRequest $request UpdateUserGroupRequest
      *
-     * @return UpdateUserGroupResponse
+     * @return UpdateUserGroupResponse UpdateUserGroupResponse
      */
     public function updateUserGroup($request)
     {
@@ -4388,10 +4700,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserTagMetaRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param UpdateUserTagMetaRequest $request UpdateUserTagMetaRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserTagMetaResponse
+     * @return UpdateUserTagMetaResponse UpdateUserTagMetaResponse
      */
     public function updateUserTagMetaWithOptions($request, $runtime)
     {
@@ -4425,9 +4737,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserTagMetaRequest $request
+     * @param UpdateUserTagMetaRequest $request UpdateUserTagMetaRequest
      *
-     * @return UpdateUserTagMetaResponse
+     * @return UpdateUserTagMetaResponse UpdateUserTagMetaResponse
      */
     public function updateUserTagMeta($request)
     {
@@ -4437,10 +4749,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserTagValueRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param UpdateUserTagValueRequest $request UpdateUserTagValueRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserTagValueResponse
+     * @return UpdateUserTagValueResponse UpdateUserTagValueResponse
      */
     public function updateUserTagValueWithOptions($request, $runtime)
     {
@@ -4474,9 +4786,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserTagValueRequest $request
+     * @param UpdateUserTagValueRequest $request UpdateUserTagValueRequest
      *
-     * @return UpdateUserTagValueResponse
+     * @return UpdateUserTagValueResponse UpdateUserTagValueResponse
      */
     public function updateUserTagValue($request)
     {
@@ -4486,10 +4798,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkspaceUserRoleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param UpdateWorkspaceUserRoleRequest $request UpdateWorkspaceUserRoleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkspaceUserRoleResponse
+     * @return UpdateWorkspaceUserRoleResponse UpdateWorkspaceUserRoleResponse
      */
     public function updateWorkspaceUserRoleWithOptions($request, $runtime)
     {
@@ -4523,9 +4835,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkspaceUserRoleRequest $request
+     * @param UpdateWorkspaceUserRoleRequest $request UpdateWorkspaceUserRoleRequest
      *
-     * @return UpdateWorkspaceUserRoleResponse
+     * @return UpdateWorkspaceUserRoleResponse UpdateWorkspaceUserRoleResponse
      */
     public function updateWorkspaceUserRole($request)
     {
@@ -4535,10 +4847,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkspaceUsersRoleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param UpdateWorkspaceUsersRoleRequest $request UpdateWorkspaceUsersRoleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkspaceUsersRoleResponse
+     * @return UpdateWorkspaceUsersRoleResponse UpdateWorkspaceUsersRoleResponse
      */
     public function updateWorkspaceUsersRoleWithOptions($request, $runtime)
     {
@@ -4572,9 +4884,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateWorkspaceUsersRoleRequest $request
+     * @param UpdateWorkspaceUsersRoleRequest $request UpdateWorkspaceUsersRoleRequest
      *
-     * @return UpdateWorkspaceUsersRoleResponse
+     * @return UpdateWorkspaceUsersRoleResponse UpdateWorkspaceUsersRoleResponse
      */
     public function updateWorkspaceUsersRole($request)
     {
@@ -4584,10 +4896,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param WithdrawAllUserGroupsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Make the user exit all user groups. This process is irreversible. Exercise caution when performing this operation.
+     *  *
+     * @param WithdrawAllUserGroupsRequest $request WithdrawAllUserGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return WithdrawAllUserGroupsResponse
+     * @return WithdrawAllUserGroupsResponse WithdrawAllUserGroupsResponse
      */
     public function withdrawAllUserGroupsWithOptions($request, $runtime)
     {
@@ -4615,9 +4929,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param WithdrawAllUserGroupsRequest $request
+     * @summary Make the user exit all user groups. This process is irreversible. Exercise caution when performing this operation.
+     *  *
+     * @param WithdrawAllUserGroupsRequest $request WithdrawAllUserGroupsRequest
      *
-     * @return WithdrawAllUserGroupsResponse
+     * @return WithdrawAllUserGroupsResponse WithdrawAllUserGroupsResponse
      */
     public function withdrawAllUserGroups($request)
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelAuthorizationMenuRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0d173abb53e84c8ca7495429163b****
      *
      * @var string
@@ -16,6 +18,8 @@ class CancelAuthorizationMenuRequest extends Model
     public $dataPortalId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 54kqgoa****,pg1n135****
      *
      * @var string

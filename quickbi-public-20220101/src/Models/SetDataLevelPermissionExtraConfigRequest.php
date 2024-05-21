@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDataLevelPermissionExtraConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 7c7223ae-******-3c744528014b
      *
      * @var string
@@ -16,6 +18,8 @@ class SetDataLevelPermissionExtraConfigRequest extends Model
     public $cubeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example NONE
      *
      * @var string
@@ -23,6 +27,8 @@ class SetDataLevelPermissionExtraConfigRequest extends Model
     public $missHitPolicy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ROW_LEVEL
      *
      * @var string

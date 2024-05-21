@@ -42,6 +42,8 @@ class ListRecentViewReportsRequest extends Model
     public $treeType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example b5d8fd9348cc4327****afb604
      *
      * @var string

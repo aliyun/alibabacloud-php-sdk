@@ -11,6 +11,7 @@ class QueryReadableResourcesListByUserIdRequest extends Model
     /**
      * @description Quick BI the user ID.
      *
+     * This parameter is required.
      * @example de4bc5f9429141cc8091cdd1c15b****
      *
      * @var string

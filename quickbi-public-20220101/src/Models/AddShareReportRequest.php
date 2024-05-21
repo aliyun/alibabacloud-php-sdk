@@ -14,6 +14,7 @@ class AddShareReportRequest extends Model
      *   1: view only
      *   3: View and export
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -23,6 +24,7 @@ class AddShareReportRequest extends Model
     /**
      * @description The validity period of the share. The value is a timestamp in milliseconds.
      *
+     * This parameter is required.
      * @example 1608202110838
      *
      * @var int
@@ -49,6 +51,7 @@ class AddShareReportRequest extends Model
      *   1: user group
      *   2: organization
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -58,6 +61,7 @@ class AddShareReportRequest extends Model
     /**
      * @description The ID of the shared work. The works here include BI portal, dashboards, spreadsheets, and self-service access.
      *
+     * This parameter is required.
      * @example 6b407e50-e774-406b-9956-da2425c2****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AllotDatasetAccelerationTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 7c7223ae-****-3c744528014b
      *
      * @var string

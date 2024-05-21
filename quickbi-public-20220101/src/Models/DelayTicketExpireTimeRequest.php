@@ -14,6 +14,7 @@ class DelayTicketExpireTimeRequest extends Model
      *   Unit: minutes. Valid values: 0 to 240. Unit: minutes. Valid values: 4 hours.
      *   Expired bills cannot be extended.
      *
+     * This parameter is required.
      * @example 200
      *
      * @var int
@@ -23,6 +24,7 @@ class DelayTicketExpireTimeRequest extends Model
     /**
      * @description The value of the third-party embedded ticket, that is, the accessTicket value in the URL.
      *
+     * This parameter is required.
      * @example 040e6f79d33444838e*****c7206c070
      *
      * @var string

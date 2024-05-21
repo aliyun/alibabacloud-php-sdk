@@ -36,7 +36,7 @@ class UpdateUserRequest extends Model
      * @description The nickname of the account.
      *
      *   Format check: The value can be up to 50 characters in length.
-     *   Special format verification: Chinese and English digits\_ \ / | () ] \[
+     *   Special format verification: Chinese and English digits_ \\ / | () ] [
      *
      * @example Xiao Zhang
      *
@@ -52,6 +52,7 @@ class UpdateUserRequest extends Model
     /**
      * @description The ID of the user to be updated. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
      *
+     * This parameter is required.
      * @example fe67f61a35a94b7da1a34ba174a7****
      *
      * @var string

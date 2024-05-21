@@ -11,6 +11,7 @@ class QueryUserInfoByUserIdRequest extends Model
     /**
      * @description The ID of the user. The UserID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
      *
+     * This parameter is required.
      * @example fe67f61a35a94b7da1a34ba174a7****
      *
      * @var string

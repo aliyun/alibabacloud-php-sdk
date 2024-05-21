@@ -11,6 +11,7 @@ class GetUserGroupInfoRequest extends Model
     /**
      * @description The ID of the user group.
      *
+     * This parameter is required.
      * @example The user group modifier. The UserID of the Quick BI is used instead of the UID of Alibaba Cloud.
      *
      * @var string

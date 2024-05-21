@@ -16,6 +16,11 @@ class data extends Model
     public $favorite;
 
     /**
+     * @var string
+     */
+    public $favoriteDate;
+
+    /**
      * @example 1640088615000
      *
      * @var string
@@ -94,6 +99,7 @@ class data extends Model
     public $workspaceName;
     protected $_name = [
         'favorite'      => 'Favorite',
+        'favoriteDate'  => 'FavoriteDate',
         'gmtCreate'     => 'GmtCreate',
         'gmtModified'   => 'GmtModified',
         'hasEditAuth'   => 'HasEditAuth',
@@ -117,6 +123,9 @@ class data extends Model
         $res = [];
         if (null !== $this->favorite) {
             $res['Favorite'] = $this->favorite;
+        }
+        if (null !== $this->favoriteDate) {
+            $res['FavoriteDate'] = $this->favoriteDate;
         }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
@@ -168,6 +177,9 @@ class data extends Model
         $model = new self();
         if (isset($map['Favorite'])) {
             $model->favorite = $map['Favorite'];
+        }
+        if (isset($map['FavoriteDate'])) {
+            $model->favoriteDate = $map['FavoriteDate'];
         }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];

@@ -11,6 +11,7 @@ class DeleteUserGroupMemberRequest extends Model
     /**
      * @description The ID of the user group.
      *
+     * This parameter is required.
      * @example 46e537****
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteUserGroupMemberRequest extends Model
     /**
      * @description The user ID of the Quick BI.
      *
+     * This parameter is required.
      * @example 2fe4fbd8****
      *
      * @var string

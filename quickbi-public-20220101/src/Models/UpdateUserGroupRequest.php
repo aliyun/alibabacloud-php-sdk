@@ -12,7 +12,7 @@ class UpdateUserGroupRequest extends Model
      * @description The description of the user group.
      *
      *   Format verification: Maximum length 255
-     *   Special format verification: Chinese and English digits\_ \ / | () ] \[
+     *   Special format verification: Chinese and English digits_ \\ / | () ] [
      *
      * @example Description
      *
@@ -23,6 +23,7 @@ class UpdateUserGroupRequest extends Model
     /**
      * @description The ID of the user group.
      *
+     * This parameter is required.
      * @example f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
      *
      * @var string
@@ -33,7 +34,7 @@ class UpdateUserGroupRequest extends Model
      * @description The name of the user group.
      *
      *   Format verification: Maximum length 255
-     *   Special format verification: Chinese and English digits\_ \ / | () ] \[
+     *   Special format verification: Chinese and English digits_ \\ / | () ] [
      *
      * @example pop0001
      *

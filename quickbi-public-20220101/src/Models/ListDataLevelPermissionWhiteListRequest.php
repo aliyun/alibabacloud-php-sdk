@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataLevelPermissionWhiteListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 3d5db23c-e4f2-49dd-a883-92285b48e14a
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDataLevelPermissionWhiteListRequest extends Model
     public $cubeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ROW_LEVEL
      *
      * @var string

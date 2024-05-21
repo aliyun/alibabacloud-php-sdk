@@ -11,6 +11,7 @@ class CancelCollectionRequest extends Model
     /**
      * @description The ID of the favorite user. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
      *
+     * This parameter is required.
      * @example 121344444790****
      *
      * @var string
@@ -20,6 +21,7 @@ class CancelCollectionRequest extends Model
     /**
      * @description The ID of the work to cancel the collection.
      *
+     * This parameter is required.
      * @example 5d6ae4e7-cede-43cd-b4d3-d2fd442a9202
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateEmbeddedStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class UpdateEmbeddedStatusRequest extends Model
     public $thirdPartAuthFlag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 897ce25e-f993-4abd-af84-d13c5610****
      *
      * @var string

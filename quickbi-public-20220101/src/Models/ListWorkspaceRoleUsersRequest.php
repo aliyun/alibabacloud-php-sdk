@@ -28,6 +28,8 @@ class ListWorkspaceRoleUsersRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 25
      *
      * @var int
@@ -35,6 +37,8 @@ class ListWorkspaceRoleUsersRequest extends Model
     public $roleId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 726bee5a-****-43e1-9a8e-b550f0120f35
      *
      * @var string

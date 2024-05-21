@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTicketNumRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 040e6f79d33444838***83c7206c070
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateTicketNumRequest extends Model
     public $ticket;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

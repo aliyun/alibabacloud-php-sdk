@@ -14,6 +14,8 @@ class AddUserTagMetaRequest extends Model
     public $tagDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tagName;

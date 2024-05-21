@@ -37,6 +37,8 @@ class QueryCubePerformanceRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sevenDays
      *
      * @var string
@@ -44,6 +46,8 @@ class QueryCubePerformanceRequest extends Model
     public $queryType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
      *
      * @var string

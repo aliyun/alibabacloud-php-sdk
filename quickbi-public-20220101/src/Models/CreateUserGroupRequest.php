@@ -14,6 +14,7 @@ class CreateUserGroupRequest extends Model
      *   If you enter the ID of a parent user group, the new user group is added to the user group with the ID.
      *   If you enter -1, the new user group is added to the root directory.
      *
+     * This parameter is required.
      * @example 3d2c23d4-2b41-4af8-a1f5-f6390f32****
      *
      * @var string
@@ -24,7 +25,7 @@ class CreateUserGroupRequest extends Model
      * @description The description of the user group.
      *
      *   Format verification: Maximum length 255
-     *   Special format verification: Chinese and English digits\_ \ / | () ] \[
+     *   Special format verification: Chinese and English digits_ \\ / | () ] [
      *
      * @example User group description
      *
@@ -48,8 +49,9 @@ class CreateUserGroupRequest extends Model
      * @description The name of the RAM user group.
      *
      *   Format verification: Maximum length 255
-     *   Special format verification: Chinese and English digits\_ \ / | () ] \[
+     *   Special format verification: Chinese and English digits_ \\ / | () ] [
      *
+     * This parameter is required.
      * @example Hangzhou Financial Report
      *
      * @var string

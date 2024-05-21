@@ -20,6 +20,7 @@ class QueryUserInfoByAccountRequest extends Model
      *
      *   Enter the UID of the account to query the account information.
      *
+     * This parameter is required.
      * @example 1386587****@163.com
      *
      * @var string
