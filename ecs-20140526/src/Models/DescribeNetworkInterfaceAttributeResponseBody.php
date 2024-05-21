@@ -277,7 +277,7 @@ class DescribeNetworkInterfaceAttributeResponseBody extends Model
     public $status;
 
     /**
-     * @description The tag value of the ENI.
+     * @description The tags of the ENI.
      *
      * @var tags
      */

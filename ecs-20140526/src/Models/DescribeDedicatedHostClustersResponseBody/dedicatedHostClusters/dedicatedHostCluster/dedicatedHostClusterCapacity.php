@@ -18,7 +18,7 @@ class dedicatedHostClusterCapacity extends Model
     public $availableInstanceTypes;
 
     /**
-     * @description The size of available memory. Unit: GiB.
+     * @description The size of available memory. Unit: GiB
      *
      * @example 4
      *
@@ -43,7 +43,7 @@ class dedicatedHostClusterCapacity extends Model
     public $localStorageCapacities;
 
     /**
-     * @description The total memory size. Unit: GiB.
+     * @description The total memory size. Unit: GiB
      *
      * @example 8
      *

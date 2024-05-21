@@ -19,7 +19,7 @@ class instanceFullStatusType extends Model
     public $healthStatus;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp67acfmxazb4p****
      *
@@ -28,7 +28,7 @@ class instanceFullStatusType extends Model
     public $instanceId;
 
     /**
-     * @description Details about the scheduled system events.
+     * @description The system events that are in the Scheduled or Inquiring state.
      *
      * @var scheduledSystemEventSet
      */

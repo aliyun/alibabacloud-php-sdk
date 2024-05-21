@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UnassignIpv6AddressesRequest extends Model
 {
     /**
-     * @description The IPv6 addresses to unassign. Valid values of N: 1 to 10.
+     * @description IPv6 address N to unassign. Valid values of N: 1 to 10.
      *
      * @example 2001:db8:1234:1a00::***
      *
@@ -18,7 +18,7 @@ class UnassignIpv6AddressesRequest extends Model
     public $ipv6Address;
 
     /**
-     * @description The IPv6 prefixes to unassign. Valid values of N: 1 to 10.
+     * @description IPv6 prefix N to unassign. Valid values of N: 1 to 10.
      *
      * @var string[]
      */

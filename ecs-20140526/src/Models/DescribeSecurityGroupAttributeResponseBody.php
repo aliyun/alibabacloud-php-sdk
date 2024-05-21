@@ -31,6 +31,11 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public $innerAccessPolicy;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description Details about the security group rules.
      *
      * @var permissions
@@ -84,6 +89,7 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     protected $_name = [
         'description'       => 'Description',
         'innerAccessPolicy' => 'InnerAccessPolicy',
+        'nextToken'         => 'NextToken',
         'permissions'       => 'Permissions',
         'regionId'          => 'RegionId',
         'requestId'         => 'RequestId',
@@ -104,6 +110,9 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
         }
         if (null !== $this->innerAccessPolicy) {
             $res['InnerAccessPolicy'] = $this->innerAccessPolicy;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->permissions) {
             $res['Permissions'] = null !== $this->permissions ? $this->permissions->toMap() : null;
@@ -140,6 +149,9 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
         }
         if (isset($map['InnerAccessPolicy'])) {
             $model->innerAccessPolicy = $map['InnerAccessPolicy'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['Permissions'])) {
             $model->permissions = permissions::fromMap($map['Permissions']);

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class availableResource extends Model
 {
     /**
-     * @description The resource types that resources can be changed to after the resources meet specified conditions.
+     * @description The resource types that resources can be changed to after the resources meet specified conditions. If the conditions are met, you can change the current resource to a resource in the list.
      *
      * @var conditionSupportedResources
      */
@@ -25,7 +25,7 @@ class availableResource extends Model
     public $supportedResources;
 
     /**
-     * @description The type of resource. Valid values:
+     * @description The type of the resources. Valid values:
      *
      *   Zone
      *   IoOptimized

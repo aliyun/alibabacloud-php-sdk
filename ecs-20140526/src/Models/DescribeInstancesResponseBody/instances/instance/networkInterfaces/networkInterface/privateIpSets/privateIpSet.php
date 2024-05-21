@@ -11,6 +11,9 @@ class privateIpSet extends Model
     /**
      * @description Indicates whether the IP address is the primary private IP address.
      *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -18,7 +21,7 @@ class privateIpSet extends Model
     public $primary;
 
     /**
-     * @description The private IP address of the instance to which the ENI is bound.
+     * @description The private IP address of the ENI.
      *
      * @example 172.17.\*\*.**
      *

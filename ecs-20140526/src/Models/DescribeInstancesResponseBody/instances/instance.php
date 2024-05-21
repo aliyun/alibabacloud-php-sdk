@@ -25,7 +25,7 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @description The time when to automatically release the pay-as-you-go instance.
+     * @description The automatic release time of the pay-as-you-go instance.
      *
      * @example 2017-12-10T04:04Z
      *
@@ -36,7 +36,7 @@ class instance extends Model
     /**
      * @description The ID of the cluster to which the instance belongs.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
      * @example c-bp67acfmxazb4p****
      *
      * @var string
@@ -71,8 +71,8 @@ class instance extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: standard mode. For more information, see the "Standard mode" section in [Overview](https://help.aliyun.com/document_detail/59977.html).
-     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in [Overview](https://help.aliyun.com/document_detail/59977.html).
+     *   Standard: the standard mode. For more information, see the "Standard mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+     *   Unlimited: the unlimited mode. For more information, see the "Unlimited mode" section in [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
      *
      * @example Standard
      *
@@ -81,7 +81,7 @@ class instance extends Model
     public $creditSpecification;
 
     /**
-     * @description Details about the dedicated host. It is an array that consists of the DedicatedHostClusterId, DedicatedHostId, and DedicatedHostName parameters.
+     * @description The information about the dedicated host. The value is an array that consists of DedicatedHostClusterId, DedicatedHostId, and DedicatedHostName.
      *
      * @var dedicatedHostAttribute
      */
@@ -95,12 +95,12 @@ class instance extends Model
     public $dedicatedInstanceAttribute;
 
     /**
-     * @description The release protection attribute of the instance. This parameter indicates whether you can use the ECS console or call the DeleteInstance operation to release the instance.
+     * @description Indicates whether release protection was enabled for the instance. This parameter determines whether you can use the ECS console or call the DeleteInstance operation to release the instance.
      *
-     *   true: Release protection is enabled for the instance.
-     *   false: Release protection is disabled for the instance.
+     *   true: Release protection was enabled for the instance.
+     *   false: Release protection was disabled for the instance.
      *
-     * >  This parameter is applicable only to pay-as-you-go instances. It can protect instances against manual releases, but not against automatic releases.
+     * >  This parameter is applicable only to pay-as-you-go instances. The release protection feature can protect instances against manual releases, but not against automatic releases.
      * @example false
      *
      * @var bool
@@ -117,7 +117,7 @@ class instance extends Model
     public $deploymentSetGroupNo;
 
     /**
-     * @description The ID of the deployment set in which the instance is deployed.
+     * @description The ID of the deployment set.
      *
      * @example ds-bp67acfmxazb4p****
      *
@@ -135,7 +135,10 @@ class instance extends Model
     public $description;
 
     /**
-     * @description Indicates whether data disks can be attached to the instance.
+     * @description Indicates whether data disks can be attached to the instance. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -144,7 +147,7 @@ class instance extends Model
     public $deviceAvailable;
 
     /**
-     * @description Details about the capacity reservation related to the instance.
+     * @description Details about the capacity reservation associated with the instance.
      *
      * @var ecsCapacityReservationAttr
      */
@@ -158,7 +161,7 @@ class instance extends Model
     public $eipAddress;
 
     /**
-     * @description The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+     * @description The expiration time of the instance. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
      *
      * @example 2017-12-10T04:04Z
      *
@@ -185,7 +188,7 @@ class instance extends Model
     public $GPUSpec;
 
     /**
-     * @description >  This parameter is in invitational preview and is unavailable for general users.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @var hibernationOptions
      */
@@ -210,7 +213,7 @@ class instance extends Model
     public $hpcClusterId;
 
     /**
-     * @description >  This parameter is in invitational preview and is unavailable for general users.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example null
      *
@@ -219,7 +222,7 @@ class instance extends Model
     public $ISP;
 
     /**
-     * @description The ID of the image that the instance is running.
+     * @description The image ID of the instance.
      *
      * @example m-bp67acfmxazb4p****
      *
@@ -284,7 +287,7 @@ class instance extends Model
     public $instanceNetworkType;
 
     /**
-     * @description The instance type of the instance.
+     * @description The instance type.
      *
      * @example ecs.g5.large
      *
@@ -293,7 +296,7 @@ class instance extends Model
     public $instanceType;
 
     /**
-     * @description The instance family of the instance.
+     * @description The instance family.
      *
      * @example ecs.g5
      *
@@ -304,8 +307,8 @@ class instance extends Model
     /**
      * @description The billing method for network usage. Valid values:
      *
-     *   PayByBandwidth: pay-by-bandwidth
-     *   PayByTraffic: pay-by-traffic
+     *   PayByBandwidth
+     *   PayByTraffic
      *
      * @example PayByTraffic
      *
@@ -332,7 +335,10 @@ class instance extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description Indicates whether the instance is I/O optimized.
+     * @description Indicates whether the instance is an I/O optimized instance.
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -341,7 +347,7 @@ class instance extends Model
     public $ioOptimized;
 
     /**
-     * @description The name of the key pair bound to the instance.
+     * @description The name of the key pair.
      *
      * @example testKeyPairName
      *
@@ -359,7 +365,7 @@ class instance extends Model
     public $localStorageAmount;
 
     /**
-     * @description The capacity of local disks attached to the instance.
+     * @description The capacity of local disks attached to the instance. Unit: GiB
      *
      * @example 1000
      *
@@ -368,7 +374,7 @@ class instance extends Model
     public $localStorageCapacity;
 
     /**
-     * @description The memory size of the instance. Unit: MiB.
+     * @description The memory size. Unit: MiB.
      *
      * @example 16384
      *
@@ -384,7 +390,7 @@ class instance extends Model
     public $metadataOptions;
 
     /**
-     * @description Details about the ENIs bound to the instance.
+     * @description The ENIs bound to the instance.
      *
      * @var networkInterfaces
      */
@@ -393,7 +399,7 @@ class instance extends Model
     /**
      * @description The name of the operating system of the instance.
      *
-     * @example CentOS  7.4 64 位
+     * @example CentOS 7.4 64-bit
      *
      * @var string
      */
@@ -435,7 +441,7 @@ class instance extends Model
     public $publicIpAddress;
 
     /**
-     * @description The RDMA IP addresses of the HPC instance.
+     * @description The RDMA IP addresses of the instance in the HPC cluster.
      *
      * @var rdmaIpAddress
      */
@@ -469,7 +475,7 @@ class instance extends Model
     public $resourceGroupId;
 
     /**
-     * @description >  The parameter is discontinued.
+     * @description >  The parameter is removed.
      *
      * @example month
      *
@@ -494,12 +500,12 @@ class instance extends Model
     public $serialNumber;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values:
      *
-     *   Protection periods of 2, 3, 4, 5, and 6 hours are in invitational preview. If you want to set this parameter to one of these values, submit a ticket.
-     *   A value of 0 indicates that the preemptible instance has no protection period.
+     *   1: After a preemptible instance is created, Alibaba Cloud ensures that the instance is not automatically released within 1 hour. After the 1-hour protection period ends, the system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
+     *   0: After a preemptible instance is created, Alibaba Cloud does not ensure that the instance runs for 1 hour. The system compares the bid price with the market price and checks the resource inventory to determine whether to retain or release the instance.
      *
-     * >  This parameter is returned when the SpotStrategy parameter is set to SpotWithPriceLimit or SpotAsPriceGo.
+     * >  This parameter is returned when SpotStrategy is set to SpotWithPriceLimit or SpotAsPriceGo.
      * @example 1
      *
      * @var int
@@ -509,7 +515,9 @@ class instance extends Model
     /**
      * @description The interruption mode of the preemptible instance when the system initiates a preemptible instance interruption operation. Valid values:
      *
-     * - Stop: stops the instance in economical mode.
+     *   Terminate: releases the preemptible instance.
+     *   Stop: stops the instance in economical mode.
+     *
      * @example Terminate
      *
      * @var string
@@ -517,7 +525,7 @@ class instance extends Model
     public $spotInterruptionBehavior;
 
     /**
-     * @description The maximum hourly price of the instance. It can be accurate to three decimal places. This parameter is valid only when the SpotStrategy parameter is set to SpotWithPriceLimit.
+     * @description The maximum hourly price of the instance. The value can be accurate to three decimal places. This parameter is valid when SpotStrategy is set to SpotWithPriceLimit.
      *
      * @example 0.98
      *
@@ -529,7 +537,7 @@ class instance extends Model
      * @description The bidding policy for the pay-as-you-go instance. Valid values:
      *
      *   NoSpot: The instance is a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
+     *   SpotWithPriceLimit: The instance is a preemptible instance for which you can specify the maximum hourly price.
      *   SpotAsPriceGo: The instance is a preemptible instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
      *
      * @example NoSpot
@@ -559,8 +567,8 @@ class instance extends Model
     /**
      * @description Indicates whether the instance continues to be billed after it is stopped. Valid values:
      *
-     *   KeepCharging: The instance is stopped in standard mode. The billing of the instance continues after the instance is stopped, and resources are retained for the instance.
-     *   StopCharging: The instance is stopped in economical mode. The billing of some resources of the instance stops after the instance is stopped. When the instance is stopped, its resources such as vCPUs, memory, and public IP address are released. The instance may be unable to start again if some required resources are out of stock in the current region.
+     *   KeepCharging: The instance is stopped in standard mode. Billing for the instance continues after the instance is stopped, and resources are retained for the instance.
+     *   StopCharging: The instance is stopped in economical mode. Billing for some resources of the instance stops after the instance is stopped. When the instance is stopped, its resources such as vCPUs, memory, and public IP addresses are released. The instance may be unable to restart if some required resources are out of stock in the current region.
      *   Not-applicable: The instance does not support economical mode.
      *
      * @example KeepCharging
@@ -579,7 +587,7 @@ class instance extends Model
     /**
      * @description The virtual LAN (VLAN) ID of the instance.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
      * @example 10
      *
      * @var string

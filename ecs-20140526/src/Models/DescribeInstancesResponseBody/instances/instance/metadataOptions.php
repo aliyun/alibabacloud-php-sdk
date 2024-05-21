@@ -11,7 +11,9 @@ class metadataOptions extends Model
     /**
      * @description Indicates whether the access channel is enabled for instance metadata. Valid values:
      *
-     * - disabled
+     *   enabled
+     *   disabled
+     *
      * @example enabled
      *
      * @var string
@@ -19,7 +21,7 @@ class metadataOptions extends Model
     public $httpEndpoint;
 
     /**
-     * @description >  This parameter is unavailable.
+     * @description >  This parameter is not publicly available.
      *
      * @example 0
      *
@@ -30,7 +32,9 @@ class metadataOptions extends Model
     /**
      * @description Indicates whether the security hardening mode (IMDSv2) is forcefully used to access instance metadata. Valid values:
      *
-     * - required: The security hardening mode (IMDSv2) is forcefully used.
+     *   optional: The security hardening mode (IMDSv2) is not forcefully used.
+     *   required: The security hardening mode (IMDSv2) is forcefully used.
+     *
      * @example optional
      *
      * @var string

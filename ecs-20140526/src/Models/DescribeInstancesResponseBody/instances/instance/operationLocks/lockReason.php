@@ -20,7 +20,12 @@ class lockReason extends Model
     /**
      * @description The reason why the instance was locked. Valid values:
      *
-     * - refunded: The instance was locked because a refund was made for the instance.
+     *   financial: The instance was locked due to overdue payments.
+     *   security: The instance was locked due to security reasons.
+     *   recycling: The preemptible instance was locked and pending release.
+     *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
+     *   refunded: The instance was locked because a refund is made for the instance.
+     *
      * @example Recycling
      *
      * @var string

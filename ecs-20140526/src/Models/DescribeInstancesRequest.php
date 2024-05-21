@@ -16,7 +16,12 @@ class DescribeInstancesRequest extends Model
     public $filter;
 
     /**
-     * @description The value of attribute N. Valid values of N: 1 to 20.
+     * @description The additional attributes. Valid values of N: 1 to 20. Valid values:
+     *
+     *   META_OPTIONS: instance metadata
+     *   DDH_CLUSTER: dedicated host cluster
+     *   NETWORK_PRIMARY_ENI_IP: secondary IP address associated with the primary ENI
+     *   CPU_OPTIONS_TOPOLOGY_TYPE: CPU topology type of the instance
      *
      * @example META_OPTIONS
      *
@@ -25,7 +30,7 @@ class DescribeInstancesRequest extends Model
     public $additionalAttributes;
 
     /**
-     * @description >  This parameter is currently in invitational preview and unavailable for general users.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example false
      *
@@ -34,11 +39,12 @@ class DescribeInstancesRequest extends Model
     public $deviceAvailable;
 
     /**
-     * @description Specifies whether to check the validity of the request without actually making the request. Default value: false. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   true: The validity of the request is checked but the request is not made. Check items include whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the DryRunOperation error code is returned.
-     *   false: The validity of the request is checked. If the check succeeds, a 2XX HTTP status code is returned and the request is made.
+     *   true: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+     *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -55,7 +61,7 @@ class DescribeInstancesRequest extends Model
     public $eipAddresses;
 
     /**
-     * @description The ID of the High Performance Computing (HPC) cluster to which the instance belongs.
+     * @description The ID of the high-performance computing (HPC) cluster to which the instance belongs.
      *
      * @example hpc-bp67acfmxazb4p****
      *
@@ -69,7 +75,7 @@ class DescribeInstancesRequest extends Model
      *   enabled
      *   disabled
      *
-     * >  For more information about instance metadata, see [Overview of ECS instance metadata](https://help.aliyun.com/document_detail/49122.html).
+     * >  For information about instance metadata, see [Access instance metadata](https://help.aliyun.com/document_detail/49122.html).
      * @example enabled
      *
      * @var string
@@ -77,7 +83,7 @@ class DescribeInstancesRequest extends Model
     public $httpEndpoint;
 
     /**
-     * @description >  This parameter is currently in invitational preview and unavailable for general users.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example 0
      *
@@ -91,7 +97,7 @@ class DescribeInstancesRequest extends Model
      *   optional: The security hardening mode (IMDSv2) is not forcefully used.
      *   required: The security hardening mode (IMDSv2) is forcefully used. After you set this parameter to required, you cannot access instance metadata in normal mode.
      *
-     * >  For more information about modes of accessing instance metadata, see [Access mode of instance metadata](https://help.aliyun.com/document_detail/150575.html).
+     * >  For information about modes of accessing instance metadata, see [Access instance metadata](https://help.aliyun.com/document_detail/150575.html).
      * @example optional
      *
      * @var string
@@ -129,7 +135,7 @@ class DescribeInstancesRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The IDs of instances. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
+     * @description The ID of the instance. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
      *
      * @example ["i-bp67acfmxazb4p****", "i-bp67acfmxazb4p****", … "i-bp67acfmxazb4p****"]
      *
@@ -138,7 +144,7 @@ class DescribeInstancesRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The name of the instance. Fuzzy search with the asterisk (\\*) wildcard characters is supported.
+     * @description The name of the instance. Fuzzy search with asterisk (\\*) wildcard characters is supported.
      *
      * @example Test
      *
@@ -149,8 +155,8 @@ class DescribeInstancesRequest extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   classic: classic network
-     *   vpc: VPC
+     *   classic
+     *   vpc
      *
      * @example vpc
      *
@@ -179,10 +185,10 @@ class DescribeInstancesRequest extends Model
     /**
      * @description The billing method for network usage. Valid values:
      *
-     *   PayByBandwidth: pay-by-bandwidth
-     *   PayByTraffic: pay-by-traffic
+     *   PayByBandwidth
+     *   PayByTraffic
      *
-     * >  When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidth values are used as upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be reached. If you want guaranteed bandwidths for your instances, use the **pay-by-bandwidth** billing method for network usage.
+     * >  When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
      * @example PayByTraffic
      *
      * @var string
@@ -190,7 +196,10 @@ class DescribeInstancesRequest extends Model
     public $internetChargeType;
 
     /**
-     * @description Specifies whether the instance is I/O optimized.
+     * @description Specifies whether the instance is an I/O optimized instance. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -199,7 +208,7 @@ class DescribeInstancesRequest extends Model
     public $ioOptimized;
 
     /**
-     * @description IPv6 address N of the elastic network interface (ENI). You can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
+     * @description The IPv6 addresses assigned to elastic network interfaces (ENIs).
      *
      * @var string[]
      */
@@ -230,12 +239,12 @@ class DescribeInstancesRequest extends Model
     public $lockReason;
 
     /**
-     * @description The maximum number of entries to return on each page. Maximum value: 100.
+     * @description The maximum number of entries per page. Valid values: 1 to 100.
      *
      * Default value:
      *
-     *   If this parameter is not specified or is set to a value smaller than 10, the default value is 10.
-     *   If this parameter is set to a value greater than 100, the default value is 100.
+     *   If you do not specify this parameter or if you set this parameter to a value that is smaller than 10, the default value is 10.
+     *   If you set this parameter to a value that is greater than 100, the default value is 100.
      *
      * @example 10
      *
@@ -244,7 +253,7 @@ class DescribeInstancesRequest extends Model
     public $maxResults;
 
     /**
-     * @description >  This parameter is currently in invitational preview and unavailable for general users.
+     * @description >  This parameter is in invitational preview and is not publicly available.
      *
      * @example false
      *
@@ -253,7 +262,7 @@ class DescribeInstancesRequest extends Model
     public $needSaleCycle;
 
     /**
-     * @description The query token. Set the value to the `NextToken` value returned in the last call to the DescribeInstances operation.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -272,7 +281,7 @@ class DescribeInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -282,7 +291,7 @@ class DescribeInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10
@@ -292,7 +301,7 @@ class DescribeInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The private IP addresses of instances located in VPCs. This parameter is valid when InstanceNetworkType is set to vpc. The value can be a JSON array that consists of up to 100 IP addresses. Separate the IP addresses with commas (,).
+     * @description The private IP addresses of instances located in a VPC. This parameter is valid when InstanceNetworkType is set to vpc. The value can be a JSON array that consists of up to 100 IP addresses. Separate the IP addresses with commas (,).
      *
      * @example ["172.16.1.1", "172.16.2.1", … "172.16.10.1"]
      *
@@ -310,7 +319,7 @@ class DescribeInstancesRequest extends Model
     public $publicIpAddresses;
 
     /**
-     * @description The Remote Direct Memory Access (RDMA) IP address of the HPC instance.
+     * @description The remote direct memory access (RDMA) IP addresses of the instance in the HPC cluster.
      *
      * @example 10.10.10.102
      *
@@ -358,7 +367,7 @@ class DescribeInstancesRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The state of the instance. Valid values:
+     * @description The status of the instance. Valid values:
      *
      *   Pending: The instance is being created.
      *   Running: The instance is running.
@@ -373,14 +382,14 @@ class DescribeInstancesRequest extends Model
     public $status;
 
     /**
-     * @description The tags.
+     * @description The tags of the instance.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the vSwitch to which the instance is connected.
+     * @description The ID of the vSwitch.
      *
      * @example vsw-bp67acfmxazb4p****
      *
@@ -389,7 +398,7 @@ class DescribeInstancesRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the instance belongs.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example v-bp67acfmxazb4p****
      *

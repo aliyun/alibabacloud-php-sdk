@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesFullStatusResponseBody extends Model
 {
     /**
-     * @description The full status information of the instances.
+     * @description The queried instances.
      *
+     * >  If no instances exist, this parameter is empty.
      * @var instanceFullStatusSet
      */
     public $instanceFullStatusSet;

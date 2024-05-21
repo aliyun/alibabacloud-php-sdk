@@ -29,7 +29,9 @@ class eipAddress extends Model
     /**
      * @description The billing method of the EIP. Valid values:
      *
-     * - PayByTraffic
+     *   PayByBandwidth
+     *   PayByTraffic
+     *
      * @example PayByTraffic
      *
      * @var string

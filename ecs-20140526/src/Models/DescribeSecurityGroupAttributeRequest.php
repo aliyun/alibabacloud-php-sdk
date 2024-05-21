@@ -23,6 +23,16 @@ class DescribeSecurityGroupAttributeRequest extends Model
     public $direction;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The network interface card (NIC) type of the security group rule.
      *
      *   Valid values for rules of security groups in the classic network:
@@ -87,6 +97,8 @@ class DescribeSecurityGroupAttributeRequest extends Model
     public $securityGroupId;
     protected $_name = [
         'direction'            => 'Direction',
+        'maxResults'           => 'MaxResults',
+        'nextToken'            => 'NextToken',
         'nicType'              => 'NicType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -105,6 +117,12 @@ class DescribeSecurityGroupAttributeRequest extends Model
         $res = [];
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->nicType) {
             $res['NicType'] = $this->nicType;
@@ -141,6 +159,12 @@ class DescribeSecurityGroupAttributeRequest extends Model
         $model = new self();
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['NicType'])) {
             $model->nicType = $map['NicType'];

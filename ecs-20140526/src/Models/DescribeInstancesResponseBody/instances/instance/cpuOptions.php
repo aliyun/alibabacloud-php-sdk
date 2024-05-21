@@ -38,7 +38,9 @@ class cpuOptions extends Model
     /**
      * @description The CPU topology type of the instance. Valid values:
      *
-     * - DiscreteCoreToHTMapping: HT discrete mode
+     *   ContinuousCoreToHTMapping: Hyper-Threading (HT) continuous mode
+     *   DiscreteCoreToHTMapping: HT discrete mode
+     *
      * @example ContinuousCoreToHTMapping
      *
      * @var string

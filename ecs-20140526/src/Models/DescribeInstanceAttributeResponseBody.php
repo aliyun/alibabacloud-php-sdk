@@ -46,8 +46,8 @@ class DescribeInstanceAttributeResponseBody extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     *   Standard: standard mode. For more information, see the "Standard mode" section in [Overview](~~59977#section-svb-w9d-dju~~).
-     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in [Overview](~~59977#section-svb-w9d-dju~~).
+     *   Standard: the standard mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
+     *   Unlimited: the unlimited mode. For more information, see the [Performance modes](~~59977#section-svb-w9d-dju~~) section of the "Overview of burstable instances" topic.
      *
      * @example Standard
      *
@@ -72,16 +72,19 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $description;
 
     /**
-     * @description Details about the elastic IP address (EIP) associated with the instance.
+     * @description The elastic IP address (EIP) associated with the instance.
      *
      * @var eipAddress
      */
     public $eipAddress;
 
     /**
-     * @description ECS实例是否开启了Jumbo frame特性。 可能值：
+     * @description Indicates whether the Jumbo Frame feature is enabled for the instance. Valid values:
      *
-     * 更多信息，请参见[ECS实例MTU](https://help.aliyun.com/document_detail/200512.html)。
+     *   true
+     *   false
+     *
+     * For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
      * @example false
      *
      * @var bool
@@ -174,12 +177,12 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $instanceType;
 
     /**
-     * @description The metering method for network usage. Valid values:
+     * @description The billing method for network usage. Valid values:
      *
      *   PayByBandwidth
      *   PayByTraffic
      *
-     * > When the **pay-by-traffic** method is used, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** metering method for network usage.
+     * >  When the **pay-by-traffic** billing method is used for network usage, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios in which demands exceed resource supplies, the maximum bandwidths may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
      * @example PayByTraffic
      *
      * @var string

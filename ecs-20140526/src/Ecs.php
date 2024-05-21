@@ -11541,9 +11541,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more dedicated host clusters.
+     * @summary Queries the information about one or more dedicated host clusters.
      *  *
-     * @description You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if `DedicatedHostClusterIds` is set to an empty JSON array (`[]`), it is regarded as a valid filter condition and an empty result is returned.
+     * @description ## [](#)Usage notes
+     * You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if `DedicatedHostClusterIds` is set to an empty JSON array (`[]`), this parameter is regarded as a valid filter condition and an empty result is returned.
      *  *
      * @param DescribeDedicatedHostClustersRequest $request DescribeDedicatedHostClustersRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -11615,9 +11616,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more dedicated host clusters.
+     * @summary Queries the information about one or more dedicated host clusters.
      *  *
-     * @description You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if `DedicatedHostClusterIds` is set to an empty JSON array (`[]`), it is regarded as a valid filter condition and an empty result is returned.
+     * @description ## [](#)Usage notes
+     * You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if `DedicatedHostClusterIds` is set to an empty JSON array (`[]`), this parameter is regarded as a valid filter condition and an empty result is returned.
      *  *
      * @param DescribeDedicatedHostClustersRequest $request DescribeDedicatedHostClustersRequest
      *
@@ -13536,10 +13538,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more image templates.
+     * @summary Queries the information about one or more image templates.
      *  *
-     * @description ## Description
-     * You can use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the `DescribeImagePipelines` operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
+     * @description You can use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the previous call to the `DescribeImagePipelines` operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
      *  *
      * @param DescribeImagePipelinesRequest $request DescribeImagePipelinesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -13608,10 +13609,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more image templates.
+     * @summary Queries the information about one or more image templates.
      *  *
-     * @description ## Description
-     * You can use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the `DescribeImagePipelines` operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
+     * @description You can use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the previous call to the `DescribeImagePipelines` operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
      *  *
      * @param DescribeImagePipelinesRequest $request DescribeImagePipelinesRequest
      *
@@ -15015,15 +15015,16 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more Elastic Compute Service (ECS) instances.
+     * @summary Queries the information about Elastic Compute Service (ECS) instances.
      *  *
-     * @description * You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
-     * * If you are using a Resource Access Management (RAM) user or RAM role that does not have the permissions to call this operation, an empty list is returned. You can include the `DryRun` parameter in your request to check whether the empty list is caused by lack of permissions.
-     * * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
-     * * You can use one of the following methods to check the responses:
-     *     * Method 1: During a paged query, when you call the DescribeInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     * Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
-     *         You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use method 1. When `MaxResults` or `NextToken` is specified, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * @description ## [](#)Usage notes
+     * *   You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, this parameter is regarded as a valid filter condition and an empty result is returned.
+     * *   If you are using a Resource Access Management (RAM) user or RAM role that does not have the permissions to call this operation, an empty list is returned. You can include `DryRun` in your request to check whether the empty list is caused by lack of permissions.
+     * *   When you call the API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter formats](https://help.aliyun.com/document_detail/110340.html).
+     * *   You can use one of the following methods to check the responses:
+     *     *   Method 1: During a paged query, when you call the DescribeInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
+     *     You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use Method 1. When `MaxResults` or `NextToken` is specified, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -15179,15 +15180,16 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more Elastic Compute Service (ECS) instances.
+     * @summary Queries the information about Elastic Compute Service (ECS) instances.
      *  *
-     * @description * You can specify multiple request parameters to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
-     * * If you are using a Resource Access Management (RAM) user or RAM role that does not have the permissions to call this operation, an empty list is returned. You can include the `DryRun` parameter in your request to check whether the empty list is caused by lack of permissions.
-     * * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
-     * * You can use one of the following methods to check the responses:
-     *     * Method 1: During a paged query, when you call the DescribeInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     * Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
-     *         You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use method 1. When `MaxResults` or `NextToken` is specified, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * @description ## [](#)Usage notes
+     * *   You can specify multiple request parameters to filter query results. Specified request parameters have logical AND relations. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, this parameter is regarded as a valid filter condition and an empty result is returned.
+     * *   If you are using a Resource Access Management (RAM) user or RAM role that does not have the permissions to call this operation, an empty list is returned. You can include `DryRun` in your request to check whether the empty list is caused by lack of permissions.
+     * *   When you call the API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter formats](https://help.aliyun.com/document_detail/110340.html).
+     * *   You can use one of the following methods to check the responses:
+     *     *   Method 1: During a paged query, when you call the DescribeInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
+     *     You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use Method 1. When `MaxResults` or `NextToken` is specified, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
@@ -15201,9 +15203,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the full status information of Elastic Compute Service (ECS) instances. The full status information includes instance states and system event states. The instance states are the lifecycle states of instances. The system event states are the health states of maintenance events that occur on ECS instances.
+     * @summary Queries the full status information of one or more Elastic Compute Service (ECS) instances. The full status information includes the instance status and the status of instance system events. The instance status is the lifecycle status of instances. The status of instance system events is the health status of maintenance events.
      *  *
-     * @description The response includes instance states and instance system events that are in the Scheduled state.
+     * @description ## [](#)Usage notes
+     * The response includes the instance status and the instance system events that are in the Scheduled state.
      * You can specify a period of time to query events that occurred within the period of time.
      *  *
      * @param DescribeInstancesFullStatusRequest $request DescribeInstancesFullStatusRequest
@@ -15282,9 +15285,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the full status information of Elastic Compute Service (ECS) instances. The full status information includes instance states and system event states. The instance states are the lifecycle states of instances. The system event states are the health states of maintenance events that occur on ECS instances.
+     * @summary Queries the full status information of one or more Elastic Compute Service (ECS) instances. The full status information includes the instance status and the status of instance system events. The instance status is the lifecycle status of instances. The status of instance system events is the health status of maintenance events.
      *  *
-     * @description The response includes instance states and instance system events that are in the Scheduled state.
+     * @description ## [](#)Usage notes
+     * The response includes the instance status and the instance system events that are in the Scheduled state.
      * You can specify a period of time to query events that occurred within the period of time.
      *  *
      * @param DescribeInstancesFullStatusRequest $request DescribeInstancesFullStatusRequest
@@ -17317,7 +17321,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries available resources within a specific zone when you upgrade or downgrade instance types or replace system disks.
+     * @summary Queries available resources in a specific zone when you upgrade or downgrade Elastic Compute Service (ECS) instance types or replace system disks.
      *  *
      * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeResourcesModification\\&type=RPC\\&version=2014-05-26)
@@ -17392,7 +17396,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries available resources within a specific zone when you upgrade or downgrade instance types or replace system disks.
+     * @summary Queries available resources in a specific zone when you upgrade or downgrade Elastic Compute Service (ECS) instance types or replace system disks.
      *  *
      * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeResourcesModification\\&type=RPC\\&version=2014-05-26)
@@ -17705,6 +17709,12 @@ class Ecs extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->direction)) {
             $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
         if (!Utils::isUnset($request->nicType)) {
             $query['NicType'] = $request->nicType;
@@ -30435,14 +30445,14 @@ class Ecs extends OpenApiClient
     /**
      * @summary Sends a file to one or more Elastic Compute Service (ECS) instances.
      *  *
-     * @description ## Usage notes
-     * *   The instances to which to send a file must be in the Running (`Running`) state.
-     * *   [Cloud Assistant Agent must be installed on the instances.](https://help.aliyun.com/document_detail/64921.html)
+     * @description ## [](#)Usage notes
+     * *   The instances to which you want to send a file must be in the Running (`Running`) state.
+     * *   [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) must be installed on the instances.
      * *   Only Cloud Assistant Agent versions that are later than the following ones support file sending. If the `ClientNeedUpgrade` error code is returned, update Cloud Assistant Agent to the latest version.
      *     *   For Linux instances, the version of Cloud Assistant Agent must be later than 1.0.2.569.
      *     *   For Windows instances, the version of Cloud Assistant Agent must be later than 1.0.0.149.
-     * *   The file that you want to send must not exceed 32 KB in size after it is encoded in Base64.
-     * *   The file may fail to be sent due to instance exceptions, network exceptions, or exceptions on Cloud Assistant Agent. Call the [DescribeSendFileResults](https://help.aliyun.com/document_detail/184117.html) operation or see [Check execution results and troubleshoot common issues](https://help.aliyun.com/document_detail/87029.html) for troubleshooting.
+     * *   The file to be sent must not exceed 32 KB in size after it is encoded in Base64.
+     * *   The file may fail to be sent due to instance exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If the file fails to be sent, call the [DescribeSendFileResults](https://help.aliyun.com/document_detail/184117.html) operation or see [Check execution results and troubleshoot common issues](https://help.aliyun.com/document_detail/87029.html) for troubleshooting.
      *  *
      * @param SendFileRequest $request SendFileRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -30531,14 +30541,14 @@ class Ecs extends OpenApiClient
     /**
      * @summary Sends a file to one or more Elastic Compute Service (ECS) instances.
      *  *
-     * @description ## Usage notes
-     * *   The instances to which to send a file must be in the Running (`Running`) state.
-     * *   [Cloud Assistant Agent must be installed on the instances.](https://help.aliyun.com/document_detail/64921.html)
+     * @description ## [](#)Usage notes
+     * *   The instances to which you want to send a file must be in the Running (`Running`) state.
+     * *   [Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html) must be installed on the instances.
      * *   Only Cloud Assistant Agent versions that are later than the following ones support file sending. If the `ClientNeedUpgrade` error code is returned, update Cloud Assistant Agent to the latest version.
      *     *   For Linux instances, the version of Cloud Assistant Agent must be later than 1.0.2.569.
      *     *   For Windows instances, the version of Cloud Assistant Agent must be later than 1.0.0.149.
-     * *   The file that you want to send must not exceed 32 KB in size after it is encoded in Base64.
-     * *   The file may fail to be sent due to instance exceptions, network exceptions, or exceptions on Cloud Assistant Agent. Call the [DescribeSendFileResults](https://help.aliyun.com/document_detail/184117.html) operation or see [Check execution results and troubleshoot common issues](https://help.aliyun.com/document_detail/87029.html) for troubleshooting.
+     * *   The file to be sent must not exceed 32 KB in size after it is encoded in Base64.
+     * *   The file may fail to be sent due to instance exceptions, network exceptions, or exceptions on Cloud Assistant Agent. If the file fails to be sent, call the [DescribeSendFileResults](https://help.aliyun.com/document_detail/184117.html) operation or see [Check execution results and troubleshoot common issues](https://help.aliyun.com/document_detail/87029.html) for troubleshooting.
      *  *
      * @param SendFileRequest $request SendFileRequest
      *
@@ -31401,7 +31411,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Unassigns one or more IPv6 addresses from an elastic network interface (ENI).
+     * @summary Unassigns IPv6 addresses from an elastic network interface (ENI).
      *  *
      * @description ## [](#)Usage notes
      * Take note of the following items:
@@ -31463,7 +31473,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Unassigns one or more IPv6 addresses from an elastic network interface (ENI).
+     * @summary Unassigns IPv6 addresses from an elastic network interface (ENI).
      *  *
      * @description ## [](#)Usage notes
      * Take note of the following items:
@@ -31482,11 +31492,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Unassigns one or more secondary private IP addresses from an elastic network interface (ENI).
+     * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
      *  *
-     * @description ## Usage notes
-     * - The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **Bound** (InUse) state.
-     * - If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
+     * @description ## [](#)Usage notes
+     * *   The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **InUse** (InUse) state.
+     * *   If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
      *  *
      * @param UnassignPrivateIpAddressesRequest $request UnassignPrivateIpAddressesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -31543,11 +31553,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Unassigns one or more secondary private IP addresses from an elastic network interface (ENI).
+     * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
      *  *
-     * @description ## Usage notes
-     * - The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **Bound** (InUse) state.
-     * - If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
+     * @description ## [](#)Usage notes
+     * *   The ENI from which to unassign secondary private IP addresses must be in the **Available** (Available) or **InUse** (InUse) state.
+     * *   If the ENI is a primary ENI, the Elastic Compute Service (ECS) instance to which the ENI is attached must be in the **Running** (Running) or **Stopped** (Stopped) state.
      *  *
      * @param UnassignPrivateIpAddressesRequest $request UnassignPrivateIpAddressesRequest
      *

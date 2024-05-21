@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UnassignPrivateIpAddressesRequest extends Model
 {
     /**
-     * @description IPv4 prefix N. Valid values of N: 1 to 10.
+     * @description The IPv4 prefixes to unassign.
      *
      * @var string[]
      */
@@ -36,7 +36,7 @@ class UnassignPrivateIpAddressesRequest extends Model
     public $ownerId;
 
     /**
-     * @description Secondary private IP address N to unassign. Valid values of N: 1 to 32.
+     * @description The secondary private IP addresses to unassign.
      *
      * @example 192.168.\*\*.**
      *

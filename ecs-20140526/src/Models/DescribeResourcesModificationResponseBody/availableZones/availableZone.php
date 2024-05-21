@@ -17,7 +17,7 @@ class availableZone extends Model
     public $availableResources;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -26,7 +26,7 @@ class availableZone extends Model
     public $regionId;
 
     /**
-     * @description The status of the resource. Valid values:
+     * @description The state of the resource. Valid values:
      *
      *   Available
      *   SoldOut
@@ -38,7 +38,7 @@ class availableZone extends Model
     public $status;
 
     /**
-     * @description The category of resource based on stock status. Valid values:
+     * @description The category of the resource based on stock status. Valid values:
      *
      *   WithStock: resources that are in sufficient stock
      *   ClosedWithStock: resources that are in insufficient stock
@@ -51,7 +51,7 @@ class availableZone extends Model
     public $statusCategory;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-e
      *

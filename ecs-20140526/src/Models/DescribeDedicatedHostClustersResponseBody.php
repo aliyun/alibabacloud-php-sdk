@@ -17,7 +17,7 @@ class DescribeDedicatedHostClustersResponseBody extends Model
     public $dedicatedHostClusters;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeDedicatedHostClustersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 5
      *
@@ -35,7 +35,7 @@ class DescribeDedicatedHostClustersResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 214A2187-B06F-4E49-A081-4D053466A8C7
      *

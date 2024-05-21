@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelinesRequest extends Model
 {
     /**
-     * @description The ID of image template N. Valid values of N: 1 to 20.
+     * @description The IDs of image templates. Valid values of N: 1 to 20.
      *
      * @example ip-2ze5tsl5bp6nf2b3****
      *
@@ -19,7 +19,7 @@ class DescribeImagePipelinesRequest extends Model
     public $imagePipelineId;
 
     /**
-     * @description The maximum number of entries to return on each page. Valid values: 1 to 500.
+     * @description The number of entries per page. Valid values: 1 to 500.
      *
      * Default value: 50.
      * @example 50
@@ -38,7 +38,7 @@ class DescribeImagePipelinesRequest extends Model
     public $name;
 
     /**
-     * @description The query token. Set the value to the `NextToken` value returned in the last call to the DescribeImagePipelines operation. Leave this parameter empty the first time you call this operation.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
      *
      * @example AAAAAdDWBF2****
      *
@@ -87,7 +87,7 @@ class DescribeImagePipelinesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The key of tag N of the image template. Valid values of N: 1 to 20.
+     * @description The tags of the image template.
      *
      * @var tag[]
      */

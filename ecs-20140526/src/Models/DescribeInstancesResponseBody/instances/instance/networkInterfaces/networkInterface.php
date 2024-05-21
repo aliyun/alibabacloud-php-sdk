@@ -13,28 +13,28 @@ use AlibabaCloud\Tea\Model;
 class networkInterface extends Model
 {
     /**
-     * @description The sets of IPv4 prefix.
+     * @description The IPv4 prefixes of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
      *
      * @var ipv4PrefixSets
      */
     public $ipv4PrefixSets;
 
     /**
-     * @description The sets of IPv6 prefix.
+     * @description The IPv6 prefixes of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
      *
      * @var ipv6PrefixSets
      */
     public $ipv6PrefixSets;
 
     /**
-     * @description The IPv6 addresses assigned to the ENI. This parameter has a value only when the `AdditionalAttributes.N` request parameter is set to `NETWORK_PRIMARY_ENI_IP`.
+     * @description The IPv6 addresses of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
      *
      * @var ipv6Sets
      */
     public $ipv6Sets;
 
     /**
-     * @description The media access control (MAC) address of the ENI.
+     * @description The MAC address of the ENI.
      *
      * @example 00:16:3e:32:b4:**
      *
@@ -61,7 +61,7 @@ class networkInterface extends Model
     public $primaryIpAddress;
 
     /**
-     * @description Details about the private IP address.
+     * @description Details about the private IP addresses of the ENI.
      *
      * @var privateIpSets
      */

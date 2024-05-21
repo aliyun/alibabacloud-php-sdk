@@ -11,7 +11,9 @@ class dedicatedInstanceAttribute extends Model
     /**
      * @description Indicates whether the instance on the dedicated host is associated with the dedicated host. Valid values:
      *
-     * - host: The instance is associated with the dedicated host. When the instance is started from economical mode, the instance is still deployed on the original dedicated host.
+     *   default: The instance is not associated with the dedicated host. When the instance is restarted from economical mode, the instance may be automatically deployed on another dedicated host in the automatic deployment resource pool.
+     *   host: The instance is associated with the dedicated host. When the instance is restarted from economical mode, the instance is still deployed on the original dedicated host.
+     *
      * @example default
      *
      * @var string
@@ -21,7 +23,9 @@ class dedicatedInstanceAttribute extends Model
     /**
      * @description Indicates whether the instance is hosted on a dedicated host. Valid values:
      *
-     * - host: The instance is hosted on a dedicated host.
+     *   default: The instance is not hosted on a dedicated host.
+     *   host: The instance is hosted on a dedicated host.
+     *
      * @example default
      *
      * @var string

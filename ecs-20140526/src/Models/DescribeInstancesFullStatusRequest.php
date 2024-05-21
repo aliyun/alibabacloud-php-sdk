@@ -47,16 +47,15 @@ class DescribeInstancesFullStatusRequest extends Model
     public $eventType;
 
     /**
-     * @description The health state of the instance. Valid values:
+     * @description The health status of the instance. Valid values:
      *
-     *   Impaired: The instance is impaired.
-     *   Warning: The performance of the instance is degraded.
-     *   Maintaining: The instance is being maintained.
-     *   Initializing: The instance is being initialized.
-     *   InsufficientData: The state cannot be determined due to insufficient data.
-     *   NotApplicable: The state is not applicable.
+     *   OK
+     *   Impaired
+     *   Initializing
+     *   InsufficientData
+     *   NotApplicable
      *
-     * All these values are case-sensitive.
+     * All the values are case-sensitive.
      * @example Maintaining
      *
      * @var string
@@ -132,11 +131,11 @@ class DescribeInstancesFullStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The lifecycle state of the instance. Valid values:
+     * @description The lifecycle status of the instance. Valid values:
      *
-     *   Starting: The instance is being started.
-     *   Running: The instance is running.
-     *   Stopped: The instance is stopped.
+     *   Starting
+     *   Running
+     *   Stopped
      *
      * @example Running
      *

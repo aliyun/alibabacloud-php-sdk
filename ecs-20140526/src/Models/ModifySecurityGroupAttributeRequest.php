@@ -11,7 +11,7 @@ class ModifySecurityGroupAttributeRequest extends Model
     /**
      * @description The new description of the security group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
-     * This parameter is empty by default.
+     * By default, this parameter is left empty.
      * @example TestDescription
      *
      * @var string
@@ -26,6 +26,8 @@ class ModifySecurityGroupAttributeRequest extends Model
     public $ownerAccount;
 
     /**
+     * @description RAM用户的虚拟账号ID。
+     *
      * @example 155780923770
      *
      * @var int
@@ -43,6 +45,8 @@ class ModifySecurityGroupAttributeRequest extends Model
     public $regionId;
 
     /**
+     * @description 资源主账号的账号名称。
+     *
      * @example ECSforCloud
      *
      * @var string
@@ -50,6 +54,8 @@ class ModifySecurityGroupAttributeRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description 资源主账号的ID，亦即UID。
+     *
      * @example 155780923770
      *
      * @var int
@@ -57,7 +63,7 @@ class ModifySecurityGroupAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the security group.
+     * @description The security group ID.
      *
      * This parameter is required.
      * @example sg-bp67acfmxazb4p****
@@ -67,9 +73,9 @@ class ModifySecurityGroupAttributeRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The new name of the security group. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The new name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
-     * This parameter is empty by default.
+     * By default, this parameter is left empty.
      * @example SecurityGroupTestName
      *
      * @var string

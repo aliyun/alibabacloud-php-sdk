@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesResponseBody extends Model
 {
     /**
-     * @description Details about the instances.
+     * @description Details about the queried instances.
      *
      * @var instances
      */
     public $instances;
 
     /**
-     * @description The query token returned in this call.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -26,7 +26,7 @@ class DescribeInstancesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -44,7 +44,7 @@ class DescribeInstancesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -53,9 +53,9 @@ class DescribeInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of instances returned.
+     * @description The total number of instances queried.
      *
-     * >  If you specify the `MaxResults` and `NextToken` parameters to perform a paged query, the value of the `TotalCount` response parameter is invalid.
+     * >  If you specify the `MaxResults` and `NextToken` request parameters to perform a paged query, the value of the `TotalCount` response parameter is invalid.
      * @example 1
      *
      * @var int

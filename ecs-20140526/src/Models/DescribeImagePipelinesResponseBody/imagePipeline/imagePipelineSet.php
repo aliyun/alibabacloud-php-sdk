@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class imagePipelineSet extends Model
 {
     /**
-     * @description The IDs of Alibaba Cloud accounts to which to share the created image.
+     * @description The IDs of Alibaba Cloud accounts to which to share the image that will be created based on the image template.
      *
      * @var addAccounts
      */
@@ -79,7 +79,7 @@ class imagePipelineSet extends Model
     public $description;
 
     /**
-     * @description The name prefix of the created image.
+     * @description The name prefix of the image to be created based on the image template.
      *
      * @example testImageName
      *
@@ -97,7 +97,7 @@ class imagePipelineSet extends Model
     public $imagePipelineId;
 
     /**
-     * @description The instance type of the intermediate instance.
+     * @description The instance type.
      *
      * @example ecs.g6.large
      *
@@ -133,7 +133,7 @@ class imagePipelineSet extends Model
     public $resourceGroupId;
 
     /**
-     * @description The system disk size of the intermediate instance. Unit: GiB.
+     * @description The system disk size of the intermediate instance. Unit: GiB
      *
      * @example 40
      *
@@ -149,14 +149,14 @@ class imagePipelineSet extends Model
     public $tags;
 
     /**
-     * @description The IDs of regions to which to distribute the created image.
+     * @description The IDs of regions to which to distribute the image that will be created based on the image template.
      *
      * @var toRegionIds
      */
     public $toRegionIds;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The ID of the vSwitch in the virtual private cloud (VPC).
      *
      * @example vsw-bp67acfmxazb4p****
      *

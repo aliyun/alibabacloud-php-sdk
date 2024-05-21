@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class supportedResource extends Model
 {
     /**
-     * @description The maximum resource specification value. This parameter is not returned if it has no value.
+     * @description The maximum disk capacity.
      *
+     * This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
      * @example 2
      *
      * @var int
@@ -18,8 +19,9 @@ class supportedResource extends Model
     public $max;
 
     /**
-     * @description The minimum resource specification value. This parameter is not returned if it has no value.
+     * @description The minimum disk capacity.
      *
+     * This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
      * @example 1
      *
      * @var int
@@ -27,7 +29,7 @@ class supportedResource extends Model
     public $min;
 
     /**
-     * @description The status of the resource. Valid values:
+     * @description The state of the resource. Valid values:
      *
      *   Available
      *   SoldOut
@@ -39,7 +41,7 @@ class supportedResource extends Model
     public $status;
 
     /**
-     * @description The category of resource based on stock status. Valid values:
+     * @description The category of the resource based on stock status. Valid values:
      *
      *   WithStock: resources that are in sufficient stock
      *   ClosedWithStock: resources that are in insufficient stock
@@ -52,7 +54,7 @@ class supportedResource extends Model
     public $statusCategory;
 
     /**
-     * @description The resource specification unit. This parameter is not returned if it has no value.
+     * @description The unit of the disk capacity. This parameter takes effect only when the DestinationResource request parameter is set to SystemDisk.
      *
      * @example null
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class localStorageCapacity extends Model
 {
     /**
-     * @description The available capacity of the local disk. Unit: GiB.
+     * @description The available capacity of the local disk. Unit: GiB
      *
      * @example 20
      *
@@ -18,9 +18,14 @@ class localStorageCapacity extends Model
     public $availableDisk;
 
     /**
-     * @description The category of the data disk. Valid values:
+     * @description The category of data disks. Valid values:
      *
-     * - cloud_essd: enhanced SSD (ESSD)
+     *   cloud: basic disk
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: standard SSD
+     *   ephemeral_ssd: local SSD
+     *   cloud_essd: Enterprise SSD (ESSD)
+     *
      * @example cloud
      *
      * @var string
@@ -28,7 +33,7 @@ class localStorageCapacity extends Model
     public $dataDiskCategory;
 
     /**
-     * @description The total capacity of the local disk. Unit: GiB.
+     * @description The total capacity of the local disk. Unit: GiB
      *
      * @example 40
      *

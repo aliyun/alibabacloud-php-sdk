@@ -19,7 +19,7 @@ class scheduledSystemEventType extends Model
     public $eventCycleStatus;
 
     /**
-     * @description The ID of the system event.
+     * @description The system event ID.
      *
      * @example e-bp1hygp5b04o56l0****
      *
@@ -46,6 +46,18 @@ class scheduledSystemEventType extends Model
     /**
      * @description The extended attributes of system events generated for instances that have local disks attached.
      *
+     * If the system event type is not one of the following types, this parameter is empty:
+     *
+     *   SystemMaintenance.StopAndRepair
+     *   SystemMaintenance.CleanInactiveDisks
+     *   SecurityPunish.Locked
+     *   SecurityPunish.WebsiteBanned
+     *   SystemUpgrade.Migrate
+     *   SystemMaintenance.RebootAndIsolateErrorDisk
+     *   SystemMaintenance.RebootAndReInitErrorDisk
+     *   SystemMaintenance.ReInitErrorDisk
+     *   SystemMaintenance.IsolateErrorDisk
+     *
      * @var extendedAttribute
      */
     public $extendedAttribute;
@@ -53,6 +65,7 @@ class scheduledSystemEventType extends Model
     /**
      * @description The impact level of the system event.
      *
+     * >  If the user is not in a whitelist, this parameter is empty.
      * @example 100
      *
      * @var string
@@ -60,7 +73,7 @@ class scheduledSystemEventType extends Model
     public $impactLevel;
 
     /**
-     * @description The scheduled O\\&M time of the system event. The time is displayed in UTC.
+     * @description The scheduled time at which to execute the O\\&M task related to the system event. The time is displayed in UTC.
      *
      * @example 2017-12-07T00:00:00Z
      *
@@ -71,6 +84,7 @@ class scheduledSystemEventType extends Model
     /**
      * @description The reason why the system event was scheduled.
      *
+     * >  If the exception cause is not detected, this parameter is empty.
      * @example A simulated event.
      *
      * @var string

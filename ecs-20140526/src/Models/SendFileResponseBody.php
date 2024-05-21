@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SendFileResponseBody extends Model
 {
     /**
-     * @description The file sending task ID.
+     * @description The ID of the command task.
      *
      * @example f-7d2a745b412b46****
      *
