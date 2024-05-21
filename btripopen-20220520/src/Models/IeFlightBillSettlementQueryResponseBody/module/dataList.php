@@ -414,6 +414,11 @@ class dataList extends Model
     public $projectName;
 
     /**
+     * @var float
+     */
+    public $refundChangeCost;
+
+    /**
      * @example 23.9
      *
      * @var float
@@ -622,6 +627,7 @@ class dataList extends Model
         'primaryId'              => 'primary_id',
         'projectCode'            => 'project_code',
         'projectName'            => 'project_name',
+        'refundChangeCost'       => 'refund_change_cost',
         'refundFee'              => 'refund_fee',
         'refundResult'           => 'refund_result',
         'remark'                 => 'remark',
@@ -847,6 +853,9 @@ class dataList extends Model
         }
         if (null !== $this->projectName) {
             $res['project_name'] = $this->projectName;
+        }
+        if (null !== $this->refundChangeCost) {
+            $res['refund_change_cost'] = $this->refundChangeCost;
         }
         if (null !== $this->refundFee) {
             $res['refund_fee'] = $this->refundFee;
@@ -1120,6 +1129,9 @@ class dataList extends Model
         }
         if (isset($map['project_name'])) {
             $model->projectName = $map['project_name'];
+        }
+        if (isset($map['refund_change_cost'])) {
+            $model->refundChangeCost = $map['refund_change_cost'];
         }
         if (isset($map['refund_fee'])) {
             $model->refundFee = $map['refund_fee'];

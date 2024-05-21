@@ -89,6 +89,16 @@ class itineraryList extends Model
     /**
      * @var string
      */
+    public $thirdpartCostCenterId;
+
+    /**
+     * @var string
+     */
+    public $thirdpartInvoiceId;
+
+    /**
+     * @var string
+     */
     public $thirdpartItineraryId;
 
     /**
@@ -118,6 +128,8 @@ class itineraryList extends Model
         'itineraryTravelStandard' => 'itinerary_travel_standard',
         'projectCode'             => 'project_code',
         'projectTitle'            => 'project_title',
+        'thirdpartCostCenterId'   => 'thirdpart_cost_center_id',
+        'thirdpartInvoiceId'      => 'thirdpart_invoice_id',
         'thirdpartItineraryId'    => 'thirdpart_itinerary_id',
         'trafficType'             => 'traffic_type',
         'tripWay'                 => 'trip_way',
@@ -168,6 +180,12 @@ class itineraryList extends Model
         }
         if (null !== $this->projectTitle) {
             $res['project_title'] = $this->projectTitle;
+        }
+        if (null !== $this->thirdpartCostCenterId) {
+            $res['thirdpart_cost_center_id'] = $this->thirdpartCostCenterId;
+        }
+        if (null !== $this->thirdpartInvoiceId) {
+            $res['thirdpart_invoice_id'] = $this->thirdpartInvoiceId;
         }
         if (null !== $this->thirdpartItineraryId) {
             $res['thirdpart_itinerary_id'] = $this->thirdpartItineraryId;
@@ -228,6 +246,12 @@ class itineraryList extends Model
         }
         if (isset($map['project_title'])) {
             $model->projectTitle = $map['project_title'];
+        }
+        if (isset($map['thirdpart_cost_center_id'])) {
+            $model->thirdpartCostCenterId = $map['thirdpart_cost_center_id'];
+        }
+        if (isset($map['thirdpart_invoice_id'])) {
+            $model->thirdpartInvoiceId = $map['thirdpart_invoice_id'];
         }
         if (isset($map['thirdpart_itinerary_id'])) {
             $model->thirdpartItineraryId = $map['thirdpart_itinerary_id'];

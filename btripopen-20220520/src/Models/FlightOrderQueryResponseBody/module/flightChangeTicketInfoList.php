@@ -21,7 +21,17 @@ class flightChangeTicketInfoList extends Model
     /**
      * @var string
      */
+    public $arrAirportCode;
+
+    /**
+     * @var string
+     */
     public $arrCity;
+
+    /**
+     * @var string
+     */
+    public $arrCityCode;
 
     /**
      * @example 2022-07-20T10:40Z
@@ -85,7 +95,17 @@ class flightChangeTicketInfoList extends Model
     /**
      * @var string
      */
+    public $depAirportCode;
+
+    /**
+     * @var string
+     */
     public $depCity;
+
+    /**
+     * @var string
+     */
+    public $depCityCode;
 
     /**
      * @example 2022-07-20T10:40Z
@@ -156,7 +176,9 @@ class flightChangeTicketInfoList extends Model
     protected $_name = [
         'applyId'          => 'apply_id',
         'arrAirport'       => 'arr_airport',
+        'arrAirportCode'   => 'arr_airport_code',
         'arrCity'          => 'arr_city',
+        'arrCityCode'      => 'arr_city_code',
         'arrTime'          => 'arr_time',
         'changeCabin'      => 'change_cabin',
         'changeCabinLevel' => 'change_cabin_level',
@@ -166,7 +188,9 @@ class flightChangeTicketInfoList extends Model
         'changeReason'     => 'change_reason',
         'changeType'       => 'change_type',
         'depAirport'       => 'dep_airport',
+        'depAirportCode'   => 'dep_airport_code',
         'depCity'          => 'dep_city',
+        'depCityCode'      => 'dep_city_code',
         'depTime'          => 'dep_time',
         'discount'         => 'discount',
         'gmtCreate'        => 'gmt_create',
@@ -193,8 +217,14 @@ class flightChangeTicketInfoList extends Model
         if (null !== $this->arrAirport) {
             $res['arr_airport'] = $this->arrAirport;
         }
+        if (null !== $this->arrAirportCode) {
+            $res['arr_airport_code'] = $this->arrAirportCode;
+        }
         if (null !== $this->arrCity) {
             $res['arr_city'] = $this->arrCity;
+        }
+        if (null !== $this->arrCityCode) {
+            $res['arr_city_code'] = $this->arrCityCode;
         }
         if (null !== $this->arrTime) {
             $res['arr_time'] = $this->arrTime;
@@ -223,8 +253,14 @@ class flightChangeTicketInfoList extends Model
         if (null !== $this->depAirport) {
             $res['dep_airport'] = $this->depAirport;
         }
+        if (null !== $this->depAirportCode) {
+            $res['dep_airport_code'] = $this->depAirportCode;
+        }
         if (null !== $this->depCity) {
             $res['dep_city'] = $this->depCity;
+        }
+        if (null !== $this->depCityCode) {
+            $res['dep_city_code'] = $this->depCityCode;
         }
         if (null !== $this->depTime) {
             $res['dep_time'] = $this->depTime;
@@ -277,8 +313,14 @@ class flightChangeTicketInfoList extends Model
         if (isset($map['arr_airport'])) {
             $model->arrAirport = $map['arr_airport'];
         }
+        if (isset($map['arr_airport_code'])) {
+            $model->arrAirportCode = $map['arr_airport_code'];
+        }
         if (isset($map['arr_city'])) {
             $model->arrCity = $map['arr_city'];
+        }
+        if (isset($map['arr_city_code'])) {
+            $model->arrCityCode = $map['arr_city_code'];
         }
         if (isset($map['arr_time'])) {
             $model->arrTime = $map['arr_time'];
@@ -307,8 +349,14 @@ class flightChangeTicketInfoList extends Model
         if (isset($map['dep_airport'])) {
             $model->depAirport = $map['dep_airport'];
         }
+        if (isset($map['dep_airport_code'])) {
+            $model->depAirportCode = $map['dep_airport_code'];
+        }
         if (isset($map['dep_city'])) {
             $model->depCity = $map['dep_city'];
+        }
+        if (isset($map['dep_city_code'])) {
+            $model->depCityCode = $map['dep_city_code'];
         }
         if (isset($map['dep_time'])) {
             $model->depTime = $map['dep_time'];

@@ -8,6 +8,10 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AccessTokenRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AccessTokenResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddEmployeesToCustomRoleHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddEmployeesToCustomRoleRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddEmployeesToCustomRoleResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddEmployeesToCustomRoleShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddInvoiceEntityHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddInvoiceEntityRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\AddInvoiceEntityResponse;
@@ -103,9 +107,19 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CostCenterSaveResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CreateCustomRoleHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CreateCustomRoleRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CreateCustomRoleResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CreateSubCorpHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CreateSubCorpRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CreateSubCorpResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteCustomRoleHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteCustomRoleRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteCustomRoleResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteEmployeesFromCustomRoleHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteEmployeesFromCustomRoleRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteEmployeesFromCustomRoleResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteEmployeesFromCustomRoleShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteInvoiceEntityHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteInvoiceEntityRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DeleteInvoiceEntityResponse;
@@ -432,6 +446,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectDeleteResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryGroupCorpListHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryGroupCorpListRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryGroupCorpListResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryReimbursementOrderHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryReimbursementOrderRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryReimbursementOrderResponse;
@@ -537,6 +554,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\TravelStandardQueryShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateCustomRoleHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateCustomRoleRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UpdateCustomRoleResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\UserQueryResponse;
@@ -633,6 +653,71 @@ class BtripOpen extends OpenApiClient
         $headers = [];
 
         return $this->accessTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量新增企业自定义角色下人员
+     *  *
+     * @param AddEmployeesToCustomRoleRequest $tmpReq  AddEmployeesToCustomRoleRequest
+     * @param AddEmployeesToCustomRoleHeaders $headers AddEmployeesToCustomRoleHeaders
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddEmployeesToCustomRoleResponse AddEmployeesToCustomRoleResponse
+     */
+    public function addEmployeesToCustomRoleWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddEmployeesToCustomRoleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userIdList)) {
+            $request->userIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'user_id_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->roleId)) {
+            $body['role_id'] = $request->roleId;
+        }
+        if (!Utils::isUnset($request->userIdListShrink)) {
+            $body['user_id_list'] = $request->userIdListShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddEmployeesToCustomRole',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/role/v1/customRoleEmployees/add',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddEmployeesToCustomRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量新增企业自定义角色下人员
+     *  *
+     * @param AddEmployeesToCustomRoleRequest $request AddEmployeesToCustomRoleRequest
+     *
+     * @return AddEmployeesToCustomRoleResponse AddEmployeesToCustomRoleResponse
+     */
+    public function addEmployeesToCustomRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new AddEmployeesToCustomRoleHeaders([]);
+
+        return $this->addEmployeesToCustomRoleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2996,6 +3081,66 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 创建企业自定义角色
+     *  *
+     * @param CreateCustomRoleRequest $request CreateCustomRoleRequest
+     * @param CreateCustomRoleHeaders $headers CreateCustomRoleHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateCustomRoleResponse CreateCustomRoleResponse
+     */
+    public function createCustomRoleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->roleId)) {
+            $body['role_id'] = $request->roleId;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $body['role_name'] = $request->roleName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomRole',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/role/v1/customRoles/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建企业自定义角色
+     *  *
+     * @param CreateCustomRoleRequest $request CreateCustomRoleRequest
+     *
+     * @return CreateCustomRoleResponse CreateCustomRoleResponse
+     */
+    public function createCustomRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateCustomRoleHeaders([]);
+
+        return $this->createCustomRoleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 创建子企业
      *  *
      * @param CreateSubCorpRequest $request CreateSubCorpRequest
@@ -3056,6 +3201,128 @@ class BtripOpen extends OpenApiClient
         $headers = new CreateSubCorpHeaders([]);
 
         return $this->createSubCorpWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除企业自定义角色
+     *  *
+     * @param DeleteCustomRoleRequest $request DeleteCustomRoleRequest
+     * @param DeleteCustomRoleHeaders $headers DeleteCustomRoleHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCustomRoleResponse DeleteCustomRoleResponse
+     */
+    public function deleteCustomRoleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->roleId)) {
+            $body['role_id'] = $request->roleId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomRole',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/role/v1/customRoles/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除企业自定义角色
+     *  *
+     * @param DeleteCustomRoleRequest $request DeleteCustomRoleRequest
+     *
+     * @return DeleteCustomRoleResponse DeleteCustomRoleResponse
+     */
+    public function deleteCustomRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteCustomRoleHeaders([]);
+
+        return $this->deleteCustomRoleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量删除企业自定义角色下人员
+     *  *
+     * @param DeleteEmployeesFromCustomRoleRequest $tmpReq  DeleteEmployeesFromCustomRoleRequest
+     * @param DeleteEmployeesFromCustomRoleHeaders $headers DeleteEmployeesFromCustomRoleHeaders
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteEmployeesFromCustomRoleResponse DeleteEmployeesFromCustomRoleResponse
+     */
+    public function deleteEmployeesFromCustomRoleWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteEmployeesFromCustomRoleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->userIdList)) {
+            $request->userIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userIdList, 'user_id_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->roleId)) {
+            $body['role_id'] = $request->roleId;
+        }
+        if (!Utils::isUnset($request->userIdListShrink)) {
+            $body['user_id_list'] = $request->userIdListShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEmployeesFromCustomRole',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/role/v1/customRoleEmployees/delete',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEmployeesFromCustomRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量删除企业自定义角色下人员
+     *  *
+     * @param DeleteEmployeesFromCustomRoleRequest $request DeleteEmployeesFromCustomRoleRequest
+     *
+     * @return DeleteEmployeesFromCustomRoleResponse DeleteEmployeesFromCustomRoleResponse
+     */
+    public function deleteEmployeesFromCustomRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteEmployeesFromCustomRoleHeaders([]);
+
+        return $this->deleteEmployeesFromCustomRoleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -10219,6 +10486,63 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 查询子企业列表
+     *  *
+     * @param QueryGroupCorpListRequest $request QueryGroupCorpListRequest
+     * @param QueryGroupCorpListHeaders $headers QueryGroupCorpListHeaders
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryGroupCorpListResponse QueryGroupCorpListResponse
+     */
+    public function queryGroupCorpListWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryGroupCorpList',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/sub_corps/v1/corps/action/corpList',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryGroupCorpListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询子企业列表
+     *  *
+     * @param QueryGroupCorpListRequest $request QueryGroupCorpListRequest
+     *
+     * @return QueryGroupCorpListResponse QueryGroupCorpListResponse
+     */
+    public function queryGroupCorpList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryGroupCorpListHeaders([]);
+
+        return $this->queryGroupCorpListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 报销单查询
      *  *
      * @param QueryReimbursementOrderRequest $request QueryReimbursementOrderRequest
@@ -12427,6 +12751,66 @@ class BtripOpen extends OpenApiClient
         $headers = new TravelStandardQueryHeaders([]);
 
         return $this->travelStandardQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新企业自定义角色
+     *  *
+     * @param UpdateCustomRoleRequest $request UpdateCustomRoleRequest
+     * @param UpdateCustomRoleHeaders $headers UpdateCustomRoleHeaders
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCustomRoleResponse UpdateCustomRoleResponse
+     */
+    public function updateCustomRoleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->roleId)) {
+            $body['role_id'] = $request->roleId;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $body['role_name'] = $request->roleName;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomRole',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/role/v1/customRoles/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCustomRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新企业自定义角色
+     *  *
+     * @param UpdateCustomRoleRequest $request UpdateCustomRoleRequest
+     *
+     * @return UpdateCustomRoleResponse UpdateCustomRoleResponse
+     */
+    public function updateCustomRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateCustomRoleHeaders([]);
+
+        return $this->updateCustomRoleWithOptions($request, $headers, $runtime);
     }
 
     /**

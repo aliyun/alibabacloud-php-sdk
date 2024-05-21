@@ -96,6 +96,11 @@ class userList extends Model
     public $realNameEn;
 
     /**
+     * @var string[]
+     */
+    public $roleIdList;
+
+    /**
      * @example 123
      *
      * @var string
@@ -142,6 +147,7 @@ class userList extends Model
         'position'          => 'position',
         'positionLevel'     => 'position_level',
         'realNameEn'        => 'real_name_en',
+        'roleIdList'        => 'role_id_list',
         'thirdDepartId'     => 'third_depart_id',
         'thirdDepartIdList' => 'third_depart_id_list',
         'userId'            => 'user_id',
@@ -203,6 +209,9 @@ class userList extends Model
         }
         if (null !== $this->realNameEn) {
             $res['real_name_en'] = $this->realNameEn;
+        }
+        if (null !== $this->roleIdList) {
+            $res['role_id_list'] = $this->roleIdList;
         }
         if (null !== $this->thirdDepartId) {
             $res['third_depart_id'] = $this->thirdDepartId;
@@ -278,6 +287,11 @@ class userList extends Model
         }
         if (isset($map['real_name_en'])) {
             $model->realNameEn = $map['real_name_en'];
+        }
+        if (isset($map['role_id_list'])) {
+            if (!empty($map['role_id_list'])) {
+                $model->roleIdList = $map['role_id_list'];
+            }
         }
         if (isset($map['third_depart_id'])) {
             $model->thirdDepartId = $map['third_depart_id'];

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class flightTicketInfoList extends Model
 {
     /**
+     * @var string
+     */
+    public $arrAirport;
+
+    /**
+     * @var string
+     */
+    public $arrAirportCode;
+
+    /**
      * @example 100
      *
      * @var float
@@ -21,6 +31,16 @@ class flightTicketInfoList extends Model
      * @var bool
      */
     public $changed;
+
+    /**
+     * @var string
+     */
+    public $depAirport;
+
+    /**
+     * @var string
+     */
+    public $depAirportCode;
 
     /**
      * @example 10
@@ -102,8 +122,12 @@ class flightTicketInfoList extends Model
      */
     public $userId;
     protected $_name = [
+        'arrAirport'       => 'arr_airport',
+        'arrAirportCode'   => 'arr_airport_code',
         'buildPrice'       => 'build_price',
         'changed'          => 'changed',
+        'depAirport'       => 'dep_airport',
+        'depAirportCode'   => 'dep_airport_code',
         'discount'         => 'discount',
         'flightNo'         => 'flight_no',
         'gmtCreate'        => 'gmt_create',
@@ -125,11 +149,23 @@ class flightTicketInfoList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->arrAirport) {
+            $res['arr_airport'] = $this->arrAirport;
+        }
+        if (null !== $this->arrAirportCode) {
+            $res['arr_airport_code'] = $this->arrAirportCode;
+        }
         if (null !== $this->buildPrice) {
             $res['build_price'] = $this->buildPrice;
         }
         if (null !== $this->changed) {
             $res['changed'] = $this->changed;
+        }
+        if (null !== $this->depAirport) {
+            $res['dep_airport'] = $this->depAirport;
+        }
+        if (null !== $this->depAirportCode) {
+            $res['dep_airport_code'] = $this->depAirportCode;
         }
         if (null !== $this->discount) {
             $res['discount'] = $this->discount;
@@ -179,11 +215,23 @@ class flightTicketInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['arr_airport'])) {
+            $model->arrAirport = $map['arr_airport'];
+        }
+        if (isset($map['arr_airport_code'])) {
+            $model->arrAirportCode = $map['arr_airport_code'];
+        }
         if (isset($map['build_price'])) {
             $model->buildPrice = $map['build_price'];
         }
         if (isset($map['changed'])) {
             $model->changed = $map['changed'];
+        }
+        if (isset($map['dep_airport'])) {
+            $model->depAirport = $map['dep_airport'];
+        }
+        if (isset($map['dep_airport_code'])) {
+            $model->depAirportCode = $map['dep_airport_code'];
         }
         if (isset($map['discount'])) {
             $model->discount = $map['discount'];

@@ -66,6 +66,16 @@ class itinerarySetList extends Model
     /**
      * @var string
      */
+    public $thirdpartCostCenterId;
+
+    /**
+     * @var string
+     */
+    public $thirdpartInvoiceId;
+
+    /**
+     * @var string
+     */
     public $thirdpartItineraryId;
 
     /**
@@ -75,17 +85,19 @@ class itinerarySetList extends Model
      */
     public $trafficType;
     protected $_name = [
-        'arrDate'              => 'arr_date',
-        'cityCodeSet'          => 'city_code_set',
-        'citySet'              => 'city_set',
-        'costCenterName'       => 'cost_center_name',
-        'depDate'              => 'dep_date',
-        'invoiceName'          => 'invoice_name',
-        'itineraryId'          => 'itinerary_id',
-        'projectCode'          => 'project_code',
-        'projectTitle'         => 'project_title',
-        'thirdpartItineraryId' => 'thirdpart_itinerary_id',
-        'trafficType'          => 'traffic_type',
+        'arrDate'               => 'arr_date',
+        'cityCodeSet'           => 'city_code_set',
+        'citySet'               => 'city_set',
+        'costCenterName'        => 'cost_center_name',
+        'depDate'               => 'dep_date',
+        'invoiceName'           => 'invoice_name',
+        'itineraryId'           => 'itinerary_id',
+        'projectCode'           => 'project_code',
+        'projectTitle'          => 'project_title',
+        'thirdpartCostCenterId' => 'thirdpart_cost_center_id',
+        'thirdpartInvoiceId'    => 'thirdpart_invoice_id',
+        'thirdpartItineraryId'  => 'thirdpart_itinerary_id',
+        'trafficType'           => 'traffic_type',
     ];
 
     public function validate()
@@ -121,6 +133,12 @@ class itinerarySetList extends Model
         }
         if (null !== $this->projectTitle) {
             $res['project_title'] = $this->projectTitle;
+        }
+        if (null !== $this->thirdpartCostCenterId) {
+            $res['thirdpart_cost_center_id'] = $this->thirdpartCostCenterId;
+        }
+        if (null !== $this->thirdpartInvoiceId) {
+            $res['thirdpart_invoice_id'] = $this->thirdpartInvoiceId;
         }
         if (null !== $this->thirdpartItineraryId) {
             $res['thirdpart_itinerary_id'] = $this->thirdpartItineraryId;
@@ -166,6 +184,12 @@ class itinerarySetList extends Model
         }
         if (isset($map['project_title'])) {
             $model->projectTitle = $map['project_title'];
+        }
+        if (isset($map['thirdpart_cost_center_id'])) {
+            $model->thirdpartCostCenterId = $map['thirdpart_cost_center_id'];
+        }
+        if (isset($map['thirdpart_invoice_id'])) {
+            $model->thirdpartInvoiceId = $map['thirdpart_invoice_id'];
         }
         if (isset($map['thirdpart_itinerary_id'])) {
             $model->thirdpartItineraryId = $map['thirdpart_itinerary_id'];
