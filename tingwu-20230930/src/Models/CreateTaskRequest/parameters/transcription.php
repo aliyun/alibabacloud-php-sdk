@@ -34,6 +34,11 @@ class transcription extends Model
     public $diarizationEnabled;
 
     /**
+     * @var string
+     */
+    public $model;
+
+    /**
      * @var int
      */
     public $outputLevel;
@@ -47,6 +52,7 @@ class transcription extends Model
         'audioEventDetectionEnabled'  => 'AudioEventDetectionEnabled',
         'diarization'                 => 'Diarization',
         'diarizationEnabled'          => 'DiarizationEnabled',
+        'model'                       => 'Model',
         'outputLevel'                 => 'OutputLevel',
         'phraseId'                    => 'PhraseId',
     ];
@@ -69,6 +75,9 @@ class transcription extends Model
         }
         if (null !== $this->diarizationEnabled) {
             $res['DiarizationEnabled'] = $this->diarizationEnabled;
+        }
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
         }
         if (null !== $this->outputLevel) {
             $res['OutputLevel'] = $this->outputLevel;
@@ -99,6 +108,9 @@ class transcription extends Model
         }
         if (isset($map['DiarizationEnabled'])) {
             $model->diarizationEnabled = $map['DiarizationEnabled'];
+        }
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
         }
         if (isset($map['OutputLevel'])) {
             $model->outputLevel = $map['OutputLevel'];
