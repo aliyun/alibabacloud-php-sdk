@@ -16,6 +16,8 @@ class GetLaunchTrendRequest extends Model
     public $appVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5fb6001a73749c24fd9cb356
      *
      * @var string
@@ -23,6 +25,8 @@ class GetLaunchTrendRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-05-03
      *
      * @var string
@@ -30,6 +34,8 @@ class GetLaunchTrendRequest extends Model
     public $endDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-05-01
      *
      * @var string
@@ -37,6 +43,8 @@ class GetLaunchTrendRequest extends Model
     public $startDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example day
      *
      * @var string

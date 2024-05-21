@@ -73,11 +73,13 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetH5PageTrendRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 获取H5页面性能统计数据
+     *  *
+     * @param GetH5PageTrendRequest $request GetH5PageTrendRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetH5PageTrendResponse
+     * @return GetH5PageTrendResponse GetH5PageTrendResponse
      */
     public function getH5PageTrendWithOptions($request, $headers, $runtime)
     {
@@ -118,9 +120,11 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetH5PageTrendRequest $request
+     * @summary 获取H5页面性能统计数据
+     *  *
+     * @param GetH5PageTrendRequest $request GetH5PageTrendRequest
      *
-     * @return GetH5PageTrendResponse
+     * @return GetH5PageTrendResponse GetH5PageTrendResponse
      */
     public function getH5PageTrend($request)
     {
@@ -131,11 +135,13 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetLaunchTrendRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 获取启动性能统计数据
+     *  *
+     * @param GetLaunchTrendRequest $request GetLaunchTrendRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLaunchTrendResponse
+     * @return GetLaunchTrendResponse GetLaunchTrendResponse
      */
     public function getLaunchTrendWithOptions($request, $headers, $runtime)
     {
@@ -176,9 +182,11 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetLaunchTrendRequest $request
+     * @summary 获取启动性能统计数据
+     *  *
+     * @param GetLaunchTrendRequest $request GetLaunchTrendRequest
      *
-     * @return GetLaunchTrendResponse
+     * @return GetLaunchTrendResponse GetLaunchTrendResponse
      */
     public function getLaunchTrend($request)
     {
@@ -189,11 +197,13 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetNativePageTrendRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 获取原生页面性能统计数据
+     *  *
+     * @param GetNativePageTrendRequest $request GetNativePageTrendRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNativePageTrendResponse
+     * @return GetNativePageTrendResponse GetNativePageTrendResponse
      */
     public function getNativePageTrendWithOptions($request, $headers, $runtime)
     {
@@ -234,9 +244,11 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetNativePageTrendRequest $request
+     * @summary 获取原生页面性能统计数据
+     *  *
+     * @param GetNativePageTrendRequest $request GetNativePageTrendRequest
      *
-     * @return GetNativePageTrendResponse
+     * @return GetNativePageTrendResponse GetNativePageTrendResponse
      */
     public function getNativePageTrend($request)
     {
@@ -247,11 +259,13 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetNetworkTrendRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 获取网络性能统计数据
+     *  *
+     * @param GetNetworkTrendRequest $request GetNetworkTrendRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNetworkTrendResponse
+     * @return GetNetworkTrendResponse GetNetworkTrendResponse
      */
     public function getNetworkTrendWithOptions($request, $headers, $runtime)
     {
@@ -292,9 +306,11 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetNetworkTrendRequest $request
+     * @summary 获取网络性能统计数据
+     *  *
+     * @param GetNetworkTrendRequest $request GetNetworkTrendRequest
      *
-     * @return GetNetworkTrendResponse
+     * @return GetNetworkTrendResponse GetNetworkTrendResponse
      */
     public function getNetworkTrend($request)
     {
@@ -305,11 +321,13 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetStatTrendRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 获取离线统计数据
+     *  *
+     * @param GetStatTrendRequest $request GetStatTrendRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetStatTrendResponse
+     * @return GetStatTrendResponse GetStatTrendResponse
      */
     public function getStatTrendWithOptions($request, $headers, $runtime)
     {
@@ -350,9 +368,11 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetStatTrendRequest $request
+     * @summary 获取离线统计数据
+     *  *
+     * @param GetStatTrendRequest $request GetStatTrendRequest
      *
-     * @return GetStatTrendResponse
+     * @return GetStatTrendResponse GetStatTrendResponse
      */
     public function getStatTrend($request)
     {
@@ -363,11 +383,13 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetSymUploadParamRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 获取符号表文件上传参数
+     *  *
+     * @param GetSymUploadParamRequest $request GetSymUploadParamRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSymUploadParamResponse
+     * @return GetSymUploadParamResponse GetSymUploadParamResponse
      */
     public function getSymUploadParamWithOptions($request, $headers, $runtime)
     {
@@ -408,9 +430,11 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetSymUploadParamRequest $request
+     * @summary 获取符号表文件上传参数
+     *  *
+     * @param GetSymUploadParamRequest $request GetSymUploadParamRequest
      *
-     * @return GetSymUploadParamResponse
+     * @return GetSymUploadParamResponse GetSymUploadParamResponse
      */
     public function getSymUploadParam($request)
     {
@@ -421,11 +445,13 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetTodayStatTrendRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 获取今日实时统计数据
+     *  *
+     * @param GetTodayStatTrendRequest $request GetTodayStatTrendRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTodayStatTrendResponse
+     * @return GetTodayStatTrendResponse GetTodayStatTrendResponse
      */
     public function getTodayStatTrendWithOptions($request, $headers, $runtime)
     {
@@ -460,9 +486,11 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetTodayStatTrendRequest $request
+     * @summary 获取今日实时统计数据
+     *  *
+     * @param GetTodayStatTrendRequest $request GetTodayStatTrendRequest
      *
-     * @return GetTodayStatTrendResponse
+     * @return GetTodayStatTrendResponse GetTodayStatTrendResponse
      */
     public function getTodayStatTrend($request)
     {
@@ -473,11 +501,13 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlertPlanRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 更新监控告警计划
+     *  *
+     * @param UpdateAlertPlanRequest $request UpdateAlertPlanRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAlertPlanResponse
+     * @return UpdateAlertPlanResponse UpdateAlertPlanResponse
      */
     public function updateAlertPlanWithOptions($request, $headers, $runtime)
     {
@@ -512,9 +542,11 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlertPlanRequest $request
+     * @summary 更新监控告警计划
+     *  *
+     * @param UpdateAlertPlanRequest $request UpdateAlertPlanRequest
      *
-     * @return UpdateAlertPlanResponse
+     * @return UpdateAlertPlanResponse UpdateAlertPlanResponse
      */
     public function updateAlertPlan($request)
     {
@@ -525,11 +557,13 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param UploadSymbolFileRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 上传符号表文件
+     *  *
+     * @param UploadSymbolFileRequest $request UploadSymbolFileRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadSymbolFileResponse
+     * @return UploadSymbolFileResponse UploadSymbolFileResponse
      */
     public function uploadSymbolFileWithOptions($request, $headers, $runtime)
     {
@@ -573,9 +607,11 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param UploadSymbolFileRequest $request
+     * @summary 上传符号表文件
+     *  *
+     * @param UploadSymbolFileRequest $request UploadSymbolFileRequest
      *
-     * @return UploadSymbolFileResponse
+     * @return UploadSymbolFileResponse UploadSymbolFileResponse
      */
     public function uploadSymbolFile($request)
     {
@@ -600,7 +636,7 @@ class Umengapm extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -622,12 +658,13 @@ class Umengapm extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UploadSymbolFileRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1.0.3
      *
      * @var string
@@ -16,6 +18,8 @@ class UploadSymbolFileRequest extends Model
     public $appVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5fb6001a73749c24fd9cb356
      *
      * @var string
@@ -23,6 +27,8 @@ class UploadSymbolFileRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example symbol.zip
      *
      * @var string
@@ -30,6 +36,8 @@ class UploadSymbolFileRequest extends Model
     public $fileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

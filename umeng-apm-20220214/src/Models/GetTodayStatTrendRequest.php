@@ -16,6 +16,8 @@ class GetTodayStatTrendRequest extends Model
     public $appVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5fb6001a73749c24fd9cb356
      *
      * @var string
@@ -23,6 +25,8 @@ class GetTodayStatTrendRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

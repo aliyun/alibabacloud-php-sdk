@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertPlanRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 5fb6001a73749c24fd9cb356
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateAlertPlanRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 18288
      *
      * @var int
@@ -23,6 +27,8 @@ class UpdateAlertPlanRequest extends Model
     public $planId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example "1.1.0,1.2.0,1.3.0"
      *
      * @var string

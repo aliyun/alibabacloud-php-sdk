@@ -16,6 +16,8 @@ class GetStatTrendRequest extends Model
     public $appVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5fb6001a73749c24fd9cb356
      *
      * @var string
@@ -37,6 +39,8 @@ class GetStatTrendRequest extends Model
     public $startDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
