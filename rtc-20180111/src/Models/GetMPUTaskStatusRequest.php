@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMPUTaskStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example yourAppId
      *
      * @var string
@@ -21,6 +23,8 @@ class GetMPUTaskStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example yourTaskId
      *
      * @var string

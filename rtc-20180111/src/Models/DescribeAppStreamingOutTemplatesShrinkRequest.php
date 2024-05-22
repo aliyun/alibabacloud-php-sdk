@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppStreamingOutTemplatesShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ioeh****
      *
      * @var string

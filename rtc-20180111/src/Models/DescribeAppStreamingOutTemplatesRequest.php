@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppStreamingOutTemplatesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ioeh****
      *
      * @var string

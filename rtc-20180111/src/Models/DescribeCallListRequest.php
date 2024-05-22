@@ -11,6 +11,7 @@ class DescribeCallListRequest extends Model
     /**
      * @description APP ID。
      *
+     * This parameter is required.
      * @example testappid
      *
      * @var string
@@ -32,6 +33,8 @@ class DescribeCallListRequest extends Model
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615892596
      *
      * @var int
@@ -46,6 +49,8 @@ class DescribeCallListRequest extends Model
     public $orderBy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -53,6 +58,8 @@ class DescribeCallListRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -67,6 +74,8 @@ class DescribeCallListRequest extends Model
     public $queryMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615806196
      *
      * @var int

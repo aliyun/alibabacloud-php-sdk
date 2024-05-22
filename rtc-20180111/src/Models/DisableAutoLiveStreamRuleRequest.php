@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableAutoLiveStreamRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example eo85****
      *
      * @var string
@@ -21,6 +23,8 @@ class DisableAutoLiveStreamRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class panes extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var string

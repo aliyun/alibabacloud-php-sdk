@@ -11,6 +11,7 @@ class DescribeFaultDiagnosisUserDetailRequest extends Model
     /**
      * @description APP ID。
      *
+     * This parameter is required.
      * @example 0rbd****
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeFaultDiagnosisUserDetailRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 311
      *
      * @var string
@@ -25,6 +28,8 @@ class DescribeFaultDiagnosisUserDetailRequest extends Model
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615892596
      *
      * @var int
@@ -32,6 +37,8 @@ class DescribeFaultDiagnosisUserDetailRequest extends Model
     public $createdTs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example JOIN_SLOW
      *
      * @var string
@@ -46,6 +53,8 @@ class DescribeFaultDiagnosisUserDetailRequest extends Model
     public $queryCallUserInfo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example c906531af5f9****
      *
      * @var string

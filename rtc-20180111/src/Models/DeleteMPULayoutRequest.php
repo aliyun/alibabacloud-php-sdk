@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMPULayoutRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example yourAppId
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteMPULayoutRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int

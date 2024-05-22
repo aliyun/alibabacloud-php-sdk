@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoLiveStreamRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example eo85****
      *
      * @var string
@@ -45,6 +47,8 @@ class CreateAutoLiveStreamRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rtmp://${domain}/${app}/${stream}
      *
      * @var string

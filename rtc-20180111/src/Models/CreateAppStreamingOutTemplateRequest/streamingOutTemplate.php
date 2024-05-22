@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class streamingOutTemplate extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $layoutIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,8 @@ class streamingOutTemplate extends Model
     public $mediaEncode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 模版
      *
      * @var string

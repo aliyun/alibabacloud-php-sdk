@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoLiveStreamRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example eo85****
      *
      * @var string

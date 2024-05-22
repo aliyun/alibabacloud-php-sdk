@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveUsersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example eo85****
      *
      * @var string
@@ -17,6 +19,8 @@ class RemoveUsersRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testid
      *
      * @var string
@@ -24,6 +28,8 @@ class RemoveUsersRequest extends Model
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var users[]
      */
     public $users;

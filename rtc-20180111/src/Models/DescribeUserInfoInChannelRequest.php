@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserInfoInChannelRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 4eah****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeUserInfoInChannelRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1234
      *
      * @var string
@@ -28,6 +32,8 @@ class DescribeUserInfoInChannelRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testId
      *
      * @var string

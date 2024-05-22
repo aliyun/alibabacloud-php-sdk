@@ -11,6 +11,7 @@ class storageConfig extends Model
     /**
      * @description accessKey
      *
+     * This parameter is required.
      * @example LTAX***
      *
      * @var string
@@ -20,6 +21,7 @@ class storageConfig extends Model
     /**
      * @description bucket
      *
+     * This parameter is required.
      * @example test-bucket-for-recording
      *
      * @var string
@@ -29,6 +31,7 @@ class storageConfig extends Model
     /**
      * @description region
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -38,6 +41,7 @@ class storageConfig extends Model
     /**
      * @description secretKey
      *
+     * This parameter is required.
      * @example APb6qWYEzKtYxE***
      *
      * @var string
@@ -47,6 +51,7 @@ class storageConfig extends Model
     /**
      * @description vendor
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

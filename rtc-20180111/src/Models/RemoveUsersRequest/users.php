@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1811****
      *
      * @var string

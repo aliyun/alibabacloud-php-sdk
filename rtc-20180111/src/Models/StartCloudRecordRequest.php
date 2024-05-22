@@ -13,6 +13,7 @@ class StartCloudRecordRequest extends Model
     /**
      * @description appId
      *
+     * This parameter is required.
      * @example eo85****
      *
      * @var string
@@ -22,6 +23,7 @@ class StartCloudRecordRequest extends Model
     /**
      * @description channelName
      *
+     * This parameter is required.
      * @example testid
      *
      * @var string
@@ -38,6 +40,7 @@ class StartCloudRecordRequest extends Model
     /**
      * @description storageConfig
      *
+     * This parameter is required.
      * @var storageConfig
      */
     public $storageConfig;
@@ -54,6 +57,7 @@ class StartCloudRecordRequest extends Model
     /**
      * @description templateId
      *
+     * This parameter is required.
      * @example 567
      *
      * @var string

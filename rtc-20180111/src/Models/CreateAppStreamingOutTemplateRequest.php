@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAppStreamingOutTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ac7N****
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateAppStreamingOutTemplateRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var streamingOutTemplate
      */
     public $streamingOutTemplate;

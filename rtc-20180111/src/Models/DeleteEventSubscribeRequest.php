@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventSubscribeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 9qb1****
      *
      * @var string
@@ -21,6 +23,8 @@ class DeleteEventSubscribeRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ad53276431c****
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMPULayoutRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example yourAppId
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateMPULayoutRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var int
@@ -36,6 +40,8 @@ class CreateMPULayoutRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var panes[]
      */
     public $panes;

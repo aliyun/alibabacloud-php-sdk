@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class StartMPUTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example yourAppId
      *
      * @var string
@@ -33,6 +35,8 @@ class StartMPUTaskRequest extends Model
     public $backgrounds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example yourChannelId
      *
      * @var string
@@ -149,6 +153,8 @@ class StartMPUTaskRequest extends Model
     public $subSpecUsers;
 
     /**
+     * @description This parameter is required.
+     *
      * @example yourTaskId
      *
      * @var string

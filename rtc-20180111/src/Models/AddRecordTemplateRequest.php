@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class AddRecordTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example yourAppId
      *
      * @var string
@@ -50,6 +52,8 @@ class AddRecordTemplateRequest extends Model
     public $enableM3u8DateTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1800
      *
      * @var int
@@ -57,6 +61,8 @@ class AddRecordTemplateRequest extends Model
     public $fileSplitInterval;
 
     /**
+     * @description This parameter is required.
+     *
      * @example mp4
      *
      * @var string[]
@@ -71,6 +77,8 @@ class AddRecordTemplateRequest extends Model
     public $httpCallbackUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int[]
@@ -78,6 +86,8 @@ class AddRecordTemplateRequest extends Model
     public $layoutIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -92,11 +102,15 @@ class AddRecordTemplateRequest extends Model
     public $mnsQueue;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rtc-record-oss
      *
      * @var string
@@ -109,6 +123,8 @@ class AddRecordTemplateRequest extends Model
     public $ossEndpoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @example record/{AppId}/{ChannelId_TaskId}/{EscapedStartTime}_{EscapedEndTime}
      *
      * @var string
@@ -121,6 +137,8 @@ class AddRecordTemplateRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4IN_1080P
      *
      * @var string

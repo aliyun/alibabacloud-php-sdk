@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class StartStreamingOutRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example eo85****
      *
      * @var string
@@ -17,6 +19,8 @@ class StartStreamingOutRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testid
      *
      * @var string
@@ -36,6 +40,8 @@ class StartStreamingOutRequest extends Model
     public $taskId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 567
      *
      * @var string
@@ -43,6 +49,8 @@ class StartStreamingOutRequest extends Model
     public $templateId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rtmp://example.com/live/stream
      *
      * @var string

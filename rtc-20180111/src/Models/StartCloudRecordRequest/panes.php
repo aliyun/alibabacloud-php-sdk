@@ -11,6 +11,7 @@ class panes extends Model
     /**
      * @description paneId
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

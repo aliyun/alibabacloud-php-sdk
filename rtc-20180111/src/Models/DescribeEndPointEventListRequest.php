@@ -11,6 +11,7 @@ class DescribeEndPointEventListRequest extends Model
     /**
      * @description APP ID。
      *
+     * This parameter is required.
      * @example testappid
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeEndPointEventListRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testid
      *
      * @var string
@@ -25,6 +28,8 @@ class DescribeEndPointEventListRequest extends Model
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1614936817
      *
      * @var int
@@ -39,6 +44,8 @@ class DescribeEndPointEventListRequest extends Model
     public $destroyedTs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testuserid1,testuserid2
      *
      * @var string

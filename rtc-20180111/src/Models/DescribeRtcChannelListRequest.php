@@ -28,6 +28,8 @@ class DescribeRtcChannelListRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +37,8 @@ class DescribeRtcChannelListRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int
@@ -56,6 +60,8 @@ class DescribeRtcChannelListRequest extends Model
     public $sortType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2018-01-29T00:00:00Z
      *
      * @var string

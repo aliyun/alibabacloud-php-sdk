@@ -11,6 +11,7 @@ class DescribeQualityAreaDistributionStatDataRequest extends Model
     /**
      * @description APP ID
      *
+     * This parameter is required.
      * @example 0rbd****
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeQualityAreaDistributionStatDataRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615910399
      *
      * @var int
@@ -32,6 +35,8 @@ class DescribeQualityAreaDistributionStatDataRequest extends Model
     public $parentArea;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615824000
      *
      * @var int

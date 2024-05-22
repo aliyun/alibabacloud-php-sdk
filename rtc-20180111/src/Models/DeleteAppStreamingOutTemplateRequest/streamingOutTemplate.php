@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class streamingOutTemplate extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example xd4c****
      *
      * @var string

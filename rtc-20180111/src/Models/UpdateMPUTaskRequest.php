@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMPUTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example yourAppId
      *
      * @var string
@@ -102,6 +104,8 @@ class UpdateMPUTaskRequest extends Model
     public $subSpecUsers;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testId
      *
      * @var string

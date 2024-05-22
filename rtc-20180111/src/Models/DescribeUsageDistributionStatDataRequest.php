@@ -11,11 +11,14 @@ class DescribeUsageDistributionStatDataRequest extends Model
     /**
      * @description APP ID
      *
+     * This parameter is required.
      * @var string
      */
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615910399
      *
      * @var int
@@ -23,6 +26,8 @@ class DescribeUsageDistributionStatDataRequest extends Model
     public $endDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615824000
      *
      * @var int
@@ -30,6 +35,8 @@ class DescribeUsageDistributionStatDataRequest extends Model
     public $startDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CHANNEL_ONLINE
      *
      * @var string

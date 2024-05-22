@@ -197,10 +197,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param AddRecordTemplateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param AddRecordTemplateRequest $request AddRecordTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddRecordTemplateResponse
+     * @return AddRecordTemplateResponse AddRecordTemplateResponse
      */
     public function addRecordTemplateWithOptions($request, $runtime)
     {
@@ -282,9 +282,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param AddRecordTemplateRequest $request
+     * @param AddRecordTemplateRequest $request AddRecordTemplateRequest
      *
-     * @return AddRecordTemplateResponse
+     * @return AddRecordTemplateResponse AddRecordTemplateResponse
      */
     public function addRecordTemplate($request)
     {
@@ -294,10 +294,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param CreateAppStreamingOutTemplateRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
+     * @summary 创建应用推流模版
+     *  *
+     * @param CreateAppStreamingOutTemplateRequest $tmpReq  CreateAppStreamingOutTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppStreamingOutTemplateResponse
+     * @return CreateAppStreamingOutTemplateResponse CreateAppStreamingOutTemplateResponse
      */
     public function createAppStreamingOutTemplateWithOptions($tmpReq, $runtime)
     {
@@ -333,9 +335,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param CreateAppStreamingOutTemplateRequest $request
+     * @summary 创建应用推流模版
+     *  *
+     * @param CreateAppStreamingOutTemplateRequest $request CreateAppStreamingOutTemplateRequest
      *
-     * @return CreateAppStreamingOutTemplateResponse
+     * @return CreateAppStreamingOutTemplateResponse CreateAppStreamingOutTemplateResponse
      */
     public function createAppStreamingOutTemplate($request)
     {
@@ -345,10 +349,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param CreateAutoLiveStreamRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param CreateAutoLiveStreamRuleRequest $request CreateAutoLiveStreamRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAutoLiveStreamRuleResponse
+     * @return CreateAutoLiveStreamRuleResponse CreateAutoLiveStreamRuleResponse
      */
     public function createAutoLiveStreamRuleWithOptions($request, $runtime)
     {
@@ -397,9 +401,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param CreateAutoLiveStreamRuleRequest $request
+     * @param CreateAutoLiveStreamRuleRequest $request CreateAutoLiveStreamRuleRequest
      *
-     * @return CreateAutoLiveStreamRuleResponse
+     * @return CreateAutoLiveStreamRuleResponse CreateAutoLiveStreamRuleResponse
      */
     public function createAutoLiveStreamRule($request)
     {
@@ -409,10 +413,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param CreateEventSubscribeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param CreateEventSubscribeRequest $request CreateEventSubscribeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEventSubscribeResponse
+     * @return CreateEventSubscribeResponse CreateEventSubscribeResponse
      */
     public function createEventSubscribeWithOptions($request, $runtime)
     {
@@ -464,9 +468,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param CreateEventSubscribeRequest $request
+     * @param CreateEventSubscribeRequest $request CreateEventSubscribeRequest
      *
-     * @return CreateEventSubscribeResponse
+     * @return CreateEventSubscribeResponse CreateEventSubscribeResponse
      */
     public function createEventSubscribe($request)
     {
@@ -476,10 +480,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param CreateMPULayoutRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param CreateMPULayoutRequest $request CreateMPULayoutRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMPULayoutResponse
+     * @return CreateMPULayoutResponse CreateMPULayoutResponse
      */
     public function createMPULayoutWithOptions($request, $runtime)
     {
@@ -519,9 +523,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param CreateMPULayoutRequest $request
+     * @param CreateMPULayoutRequest $request CreateMPULayoutRequest
      *
-     * @return CreateMPULayoutResponse
+     * @return CreateMPULayoutResponse CreateMPULayoutResponse
      */
     public function createMPULayout($request)
     {
@@ -531,10 +535,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppStreamingOutTemplateRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
+     * @summary 删除应用推流模版
+     *  *
+     * @param DeleteAppStreamingOutTemplateRequest $tmpReq  DeleteAppStreamingOutTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppStreamingOutTemplateResponse
+     * @return DeleteAppStreamingOutTemplateResponse DeleteAppStreamingOutTemplateResponse
      */
     public function deleteAppStreamingOutTemplateWithOptions($tmpReq, $runtime)
     {
@@ -570,9 +576,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteAppStreamingOutTemplateRequest $request
+     * @summary 删除应用推流模版
+     *  *
+     * @param DeleteAppStreamingOutTemplateRequest $request DeleteAppStreamingOutTemplateRequest
      *
-     * @return DeleteAppStreamingOutTemplateResponse
+     * @return DeleteAppStreamingOutTemplateResponse DeleteAppStreamingOutTemplateResponse
      */
     public function deleteAppStreamingOutTemplate($request)
     {
@@ -582,10 +590,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteAutoLiveStreamRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DeleteAutoLiveStreamRuleRequest $request DeleteAutoLiveStreamRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAutoLiveStreamRuleResponse
+     * @return DeleteAutoLiveStreamRuleResponse DeleteAutoLiveStreamRuleResponse
      */
     public function deleteAutoLiveStreamRuleWithOptions($request, $runtime)
     {
@@ -619,9 +627,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteAutoLiveStreamRuleRequest $request
+     * @param DeleteAutoLiveStreamRuleRequest $request DeleteAutoLiveStreamRuleRequest
      *
-     * @return DeleteAutoLiveStreamRuleResponse
+     * @return DeleteAutoLiveStreamRuleResponse DeleteAutoLiveStreamRuleResponse
      */
     public function deleteAutoLiveStreamRule($request)
     {
@@ -631,10 +639,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteChannelRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param DeleteChannelRequest $request DeleteChannelRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteChannelResponse
+     * @return DeleteChannelResponse DeleteChannelResponse
      */
     public function deleteChannelWithOptions($request, $runtime)
     {
@@ -668,9 +676,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteChannelRequest $request
+     * @param DeleteChannelRequest $request DeleteChannelRequest
      *
-     * @return DeleteChannelResponse
+     * @return DeleteChannelResponse DeleteChannelResponse
      */
     public function deleteChannel($request)
     {
@@ -680,10 +688,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteEventSubscribeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteEventSubscribeRequest $request DeleteEventSubscribeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEventSubscribeResponse
+     * @return DeleteEventSubscribeResponse DeleteEventSubscribeResponse
      */
     public function deleteEventSubscribeWithOptions($request, $runtime)
     {
@@ -717,9 +725,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteEventSubscribeRequest $request
+     * @param DeleteEventSubscribeRequest $request DeleteEventSubscribeRequest
      *
-     * @return DeleteEventSubscribeResponse
+     * @return DeleteEventSubscribeResponse DeleteEventSubscribeResponse
      */
     public function deleteEventSubscribe($request)
     {
@@ -729,10 +737,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteMPULayoutRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DeleteMPULayoutRequest $request DeleteMPULayoutRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMPULayoutResponse
+     * @return DeleteMPULayoutResponse DeleteMPULayoutResponse
      */
     public function deleteMPULayoutWithOptions($request, $runtime)
     {
@@ -766,9 +774,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteMPULayoutRequest $request
+     * @param DeleteMPULayoutRequest $request DeleteMPULayoutRequest
      *
-     * @return DeleteMPULayoutResponse
+     * @return DeleteMPULayoutResponse DeleteMPULayoutResponse
      */
     public function deleteMPULayout($request)
     {
@@ -778,10 +786,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteRecordTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteRecordTemplateRequest $request DeleteRecordTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRecordTemplateResponse
+     * @return DeleteRecordTemplateResponse DeleteRecordTemplateResponse
      */
     public function deleteRecordTemplateWithOptions($request, $runtime)
     {
@@ -815,9 +823,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DeleteRecordTemplateRequest $request
+     * @param DeleteRecordTemplateRequest $request DeleteRecordTemplateRequest
      *
-     * @return DeleteRecordTemplateResponse
+     * @return DeleteRecordTemplateResponse DeleteRecordTemplateResponse
      */
     public function deleteRecordTemplate($request)
     {
@@ -827,10 +835,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppKeyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 查看AppKey
+     *  *
+     * @param DescribeAppKeyRequest $request DescribeAppKeyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAppKeyResponse
+     * @return DescribeAppKeyResponse DescribeAppKeyResponse
      */
     public function describeAppKeyWithOptions($request, $runtime)
     {
@@ -861,9 +871,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppKeyRequest $request
+     * @summary 查看AppKey
+     *  *
+     * @param DescribeAppKeyRequest $request DescribeAppKeyRequest
      *
-     * @return DescribeAppKeyResponse
+     * @return DescribeAppKeyResponse DescribeAppKeyResponse
      */
     public function describeAppKey($request)
     {
@@ -873,10 +885,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppStreamingOutTemplatesRequest $tmpReq
-     * @param RuntimeOptions                          $runtime
+     * @summary 应用推流模版列表
+     *  *
+     * @param DescribeAppStreamingOutTemplatesRequest $tmpReq  DescribeAppStreamingOutTemplatesRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAppStreamingOutTemplatesResponse
+     * @return DescribeAppStreamingOutTemplatesResponse DescribeAppStreamingOutTemplatesResponse
      */
     public function describeAppStreamingOutTemplatesWithOptions($tmpReq, $runtime)
     {
@@ -918,9 +932,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppStreamingOutTemplatesRequest $request
+     * @summary 应用推流模版列表
+     *  *
+     * @param DescribeAppStreamingOutTemplatesRequest $request DescribeAppStreamingOutTemplatesRequest
      *
-     * @return DescribeAppStreamingOutTemplatesResponse
+     * @return DescribeAppStreamingOutTemplatesResponse DescribeAppStreamingOutTemplatesResponse
      */
     public function describeAppStreamingOutTemplates($request)
     {
@@ -930,10 +946,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary App列表
+     *  *
+     * @param DescribeAppsRequest $request DescribeAppsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAppsResponse
+     * @return DescribeAppsResponse DescribeAppsResponse
      */
     public function describeAppsWithOptions($request, $runtime)
     {
@@ -941,6 +959,9 @@ class Rtc extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appVersion)) {
+            $query['AppVersion'] = $request->appVersion;
         }
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
@@ -976,9 +997,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeAppsRequest $request
+     * @summary App列表
+     *  *
+     * @param DescribeAppsRequest $request DescribeAppsRequest
      *
-     * @return DescribeAppsResponse
+     * @return DescribeAppsResponse DescribeAppsResponse
      */
     public function describeApps($request)
     {
@@ -988,10 +1011,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutoLiveStreamRuleRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeAutoLiveStreamRuleRequest $request DescribeAutoLiveStreamRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAutoLiveStreamRuleResponse
+     * @return DescribeAutoLiveStreamRuleResponse DescribeAutoLiveStreamRuleResponse
      */
     public function describeAutoLiveStreamRuleWithOptions($request, $runtime)
     {
@@ -1022,9 +1045,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeAutoLiveStreamRuleRequest $request
+     * @param DescribeAutoLiveStreamRuleRequest $request DescribeAutoLiveStreamRuleRequest
      *
-     * @return DescribeAutoLiveStreamRuleResponse
+     * @return DescribeAutoLiveStreamRuleResponse DescribeAutoLiveStreamRuleResponse
      */
     public function describeAutoLiveStreamRule($request)
     {
@@ -1034,10 +1057,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeCallRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 调用DescribeCall获取单次通信详情。
+     *  *
+     * @param DescribeCallRequest $request DescribeCallRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCallResponse
+     * @return DescribeCallResponse DescribeCallResponse
      */
     public function describeCallWithOptions($request, $runtime)
     {
@@ -1080,9 +1105,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeCallRequest $request
+     * @summary 调用DescribeCall获取单次通信详情。
+     *  *
+     * @param DescribeCallRequest $request DescribeCallRequest
      *
-     * @return DescribeCallResponse
+     * @return DescribeCallResponse DescribeCallResponse
      */
     public function describeCall($request)
     {
@@ -1092,10 +1119,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeCallListRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 调用DescribeCallList分页查询时间范围内创建的通信信息。
+     *  *
+     * @param DescribeCallListRequest $request DescribeCallListRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCallListResponse
+     * @return DescribeCallListResponse DescribeCallListResponse
      */
     public function describeCallListWithOptions($request, $runtime)
     {
@@ -1150,9 +1179,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeCallListRequest $request
+     * @summary 调用DescribeCallList分页查询时间范围内创建的通信信息。
+     *  *
+     * @param DescribeCallListRequest $request DescribeCallListRequest
      *
-     * @return DescribeCallListResponse
+     * @return DescribeCallListResponse DescribeCallListResponse
      */
     public function describeCallList($request)
     {
@@ -1162,10 +1193,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary DescribeChannel
+     *  *
+     * @param DescribeChannelRequest $request DescribeChannelRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChannelResponse
+     * @return DescribeChannelResponse DescribeChannelResponse
      */
     public function describeChannelWithOptions($request, $runtime)
     {
@@ -1196,9 +1229,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelRequest $request
+     * @summary DescribeChannel
+     *  *
+     * @param DescribeChannelRequest $request DescribeChannelRequest
      *
-     * @return DescribeChannelResponse
+     * @return DescribeChannelResponse DescribeChannelResponse
      */
     public function describeChannel($request)
     {
@@ -1208,10 +1243,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelAllUsersRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询频道的所有参会者
+     *  *
+     * @param DescribeChannelAllUsersRequest $request DescribeChannelAllUsersRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChannelAllUsersResponse
+     * @return DescribeChannelAllUsersResponse DescribeChannelAllUsersResponse
      */
     public function describeChannelAllUsersWithOptions($request, $runtime)
     {
@@ -1242,9 +1279,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelAllUsersRequest $request
+     * @summary 查询频道的所有参会者
+     *  *
+     * @param DescribeChannelAllUsersRequest $request DescribeChannelAllUsersRequest
      *
-     * @return DescribeChannelAllUsersResponse
+     * @return DescribeChannelAllUsersResponse DescribeChannelAllUsersResponse
      */
     public function describeChannelAllUsers($request)
     {
@@ -1254,10 +1293,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelAreaDistributionStatDataRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
+     *  *
+     * @param DescribeChannelAreaDistributionStatDataRequest $request DescribeChannelAreaDistributionStatDataRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChannelAreaDistributionStatDataResponse
+     * @return DescribeChannelAreaDistributionStatDataResponse DescribeChannelAreaDistributionStatDataResponse
      */
     public function describeChannelAreaDistributionStatDataWithOptions($request, $runtime)
     {
@@ -1297,9 +1338,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelAreaDistributionStatDataRequest $request
+     * @summary 调用DescribeChannelAreaDistributionStatData获取频道地区分布统计数据。
+     *  *
+     * @param DescribeChannelAreaDistributionStatDataRequest $request DescribeChannelAreaDistributionStatDataRequest
      *
-     * @return DescribeChannelAreaDistributionStatDataResponse
+     * @return DescribeChannelAreaDistributionStatDataResponse DescribeChannelAreaDistributionStatDataResponse
      */
     public function describeChannelAreaDistributionStatData($request)
     {
@@ -1309,10 +1352,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelDistributionStatDataRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 调用DescribeChannelDistributionStatData获取频道分布统计数据。
+     *  *
+     * @param DescribeChannelDistributionStatDataRequest $request DescribeChannelDistributionStatDataRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChannelDistributionStatDataResponse
+     * @return DescribeChannelDistributionStatDataResponse DescribeChannelDistributionStatDataResponse
      */
     public function describeChannelDistributionStatDataWithOptions($request, $runtime)
     {
@@ -1352,9 +1397,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelDistributionStatDataRequest $request
+     * @summary 调用DescribeChannelDistributionStatData获取频道分布统计数据。
+     *  *
+     * @param DescribeChannelDistributionStatDataRequest $request DescribeChannelDistributionStatDataRequest
      *
-     * @return DescribeChannelDistributionStatDataResponse
+     * @return DescribeChannelDistributionStatDataResponse DescribeChannelDistributionStatDataResponse
      */
     public function describeChannelDistributionStatData($request)
     {
@@ -1364,10 +1411,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelOverallDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 调用DescribeChannelOverallData查询频道概览数据。
+     *  *
+     * @param DescribeChannelOverallDataRequest $request DescribeChannelOverallDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChannelOverallDataResponse
+     * @return DescribeChannelOverallDataResponse DescribeChannelOverallDataResponse
      */
     public function describeChannelOverallDataWithOptions($request, $runtime)
     {
@@ -1404,9 +1453,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelOverallDataRequest $request
+     * @summary 调用DescribeChannelOverallData查询频道概览数据。
+     *  *
+     * @param DescribeChannelOverallDataRequest $request DescribeChannelOverallDataRequest
      *
-     * @return DescribeChannelOverallDataResponse
+     * @return DescribeChannelOverallDataResponse DescribeChannelOverallDataResponse
      */
     public function describeChannelOverallData($request)
     {
@@ -1416,10 +1467,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelParticipantsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeChannelParticipantsRequest $request DescribeChannelParticipantsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChannelParticipantsResponse
+     * @return DescribeChannelParticipantsResponse DescribeChannelParticipantsResponse
      */
     public function describeChannelParticipantsWithOptions($request, $runtime)
     {
@@ -1462,9 +1513,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelParticipantsRequest $request
+     * @param DescribeChannelParticipantsRequest $request DescribeChannelParticipantsRequest
      *
-     * @return DescribeChannelParticipantsResponse
+     * @return DescribeChannelParticipantsResponse DescribeChannelParticipantsResponse
      */
     public function describeChannelParticipants($request)
     {
@@ -1474,10 +1525,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelTopPubUserListRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
+     *  *
+     * @param DescribeChannelTopPubUserListRequest $request DescribeChannelTopPubUserListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChannelTopPubUserListResponse
+     * @return DescribeChannelTopPubUserListResponse DescribeChannelTopPubUserListResponse
      */
     public function describeChannelTopPubUserListWithOptions($request, $runtime)
     {
@@ -1514,9 +1567,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelTopPubUserListRequest $request
+     * @summary 调用DescribeChannelTopPubUserList获取频道内发布端的用户列表（按用户在线时长降序）。
+     *  *
+     * @param DescribeChannelTopPubUserListRequest $request DescribeChannelTopPubUserListRequest
      *
-     * @return DescribeChannelTopPubUserListResponse
+     * @return DescribeChannelTopPubUserListResponse DescribeChannelTopPubUserListResponse
      */
     public function describeChannelTopPubUserList($request)
     {
@@ -1526,10 +1581,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelUserRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary DescribeChannelUser
+     *  *
+     * @param DescribeChannelUserRequest $request DescribeChannelUserRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChannelUserResponse
+     * @return DescribeChannelUserResponse DescribeChannelUserResponse
      */
     public function describeChannelUserWithOptions($request, $runtime)
     {
@@ -1563,9 +1620,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelUserRequest $request
+     * @summary DescribeChannelUser
+     *  *
+     * @param DescribeChannelUserRequest $request DescribeChannelUserRequest
      *
-     * @return DescribeChannelUserResponse
+     * @return DescribeChannelUserResponse DescribeChannelUserResponse
      */
     public function describeChannelUser($request)
     {
@@ -1575,10 +1634,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelUserMetricsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
+     *  *
+     * @param DescribeChannelUserMetricsRequest $request DescribeChannelUserMetricsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChannelUserMetricsResponse
+     * @return DescribeChannelUserMetricsResponse DescribeChannelUserMetricsResponse
      */
     public function describeChannelUserMetricsWithOptions($request, $runtime)
     {
@@ -1615,9 +1676,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelUserMetricsRequest $request
+     * @summary 调用DescribeChannelUserMetrics查询频道总览中的用户数据。
+     *  *
+     * @param DescribeChannelUserMetricsRequest $request DescribeChannelUserMetricsRequest
      *
-     * @return DescribeChannelUserMetricsResponse
+     * @return DescribeChannelUserMetricsResponse DescribeChannelUserMetricsResponse
      */
     public function describeChannelUserMetrics($request)
     {
@@ -1627,10 +1690,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelUsersRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeChannelUsersRequest $request DescribeChannelUsersRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeChannelUsersResponse
+     * @return DescribeChannelUsersResponse DescribeChannelUsersResponse
      */
     public function describeChannelUsersWithOptions($request, $runtime)
     {
@@ -1664,9 +1727,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeChannelUsersRequest $request
+     * @param DescribeChannelUsersRequest $request DescribeChannelUsersRequest
      *
-     * @return DescribeChannelUsersResponse
+     * @return DescribeChannelUsersResponse DescribeChannelUsersResponse
      */
     public function describeChannelUsers($request)
     {
@@ -1676,10 +1739,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeEndPointEventListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 调用DescribeEndPointEventList获取端对端用户事件列表。
+     *  *
+     * @param DescribeEndPointEventListRequest $request DescribeEndPointEventListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEndPointEventListResponse
+     * @return DescribeEndPointEventListResponse DescribeEndPointEventListResponse
      */
     public function describeEndPointEventListWithOptions($request, $runtime)
     {
@@ -1719,9 +1784,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeEndPointEventListRequest $request
+     * @summary 调用DescribeEndPointEventList获取端对端用户事件列表。
+     *  *
+     * @param DescribeEndPointEventListRequest $request DescribeEndPointEventListRequest
      *
-     * @return DescribeEndPointEventListResponse
+     * @return DescribeEndPointEventListResponse DescribeEndPointEventListResponse
      */
     public function describeEndPointEventList($request)
     {
@@ -1731,10 +1798,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeEndPointMetricDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 调用DescribeEndPointMetricData获取端对端指标数据。
+     *  *
+     * @param DescribeEndPointMetricDataRequest $request DescribeEndPointMetricDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEndPointMetricDataResponse
+     * @return DescribeEndPointMetricDataResponse DescribeEndPointMetricDataResponse
      */
     public function describeEndPointMetricDataWithOptions($request, $runtime)
     {
@@ -1783,9 +1852,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeEndPointMetricDataRequest $request
+     * @summary 调用DescribeEndPointMetricData获取端对端指标数据。
+     *  *
+     * @param DescribeEndPointMetricDataRequest $request DescribeEndPointMetricDataRequest
      *
-     * @return DescribeEndPointMetricDataResponse
+     * @return DescribeEndPointMetricDataResponse DescribeEndPointMetricDataResponse
      */
     public function describeEndPointMetricData($request)
     {
@@ -1795,10 +1866,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaultDiagnosisFactorDistributionStatRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * @summary 获取异常诊断影响因素分布
+     *  *
+     * @param DescribeFaultDiagnosisFactorDistributionStatRequest $request DescribeFaultDiagnosisFactorDistributionStatRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFaultDiagnosisFactorDistributionStatResponse
+     * @return DescribeFaultDiagnosisFactorDistributionStatResponse DescribeFaultDiagnosisFactorDistributionStatResponse
      */
     public function describeFaultDiagnosisFactorDistributionStatWithOptions($request, $runtime)
     {
@@ -1832,9 +1905,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaultDiagnosisFactorDistributionStatRequest $request
+     * @summary 获取异常诊断影响因素分布
+     *  *
+     * @param DescribeFaultDiagnosisFactorDistributionStatRequest $request DescribeFaultDiagnosisFactorDistributionStatRequest
      *
-     * @return DescribeFaultDiagnosisFactorDistributionStatResponse
+     * @return DescribeFaultDiagnosisFactorDistributionStatResponse DescribeFaultDiagnosisFactorDistributionStatResponse
      */
     public function describeFaultDiagnosisFactorDistributionStat($request)
     {
@@ -1844,10 +1919,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaultDiagnosisOverallDataRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 获取异常诊断总览数据
+     *  *
+     * @param DescribeFaultDiagnosisOverallDataRequest $request DescribeFaultDiagnosisOverallDataRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFaultDiagnosisOverallDataResponse
+     * @return DescribeFaultDiagnosisOverallDataResponse DescribeFaultDiagnosisOverallDataResponse
      */
     public function describeFaultDiagnosisOverallDataWithOptions($request, $runtime)
     {
@@ -1884,9 +1961,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaultDiagnosisOverallDataRequest $request
+     * @summary 获取异常诊断总览数据
+     *  *
+     * @param DescribeFaultDiagnosisOverallDataRequest $request DescribeFaultDiagnosisOverallDataRequest
      *
-     * @return DescribeFaultDiagnosisOverallDataResponse
+     * @return DescribeFaultDiagnosisOverallDataResponse DescribeFaultDiagnosisOverallDataResponse
      */
     public function describeFaultDiagnosisOverallData($request)
     {
@@ -1896,10 +1975,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaultDiagnosisUserDetailRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 获取异常诊断用户详情
+     *  *
+     * @param DescribeFaultDiagnosisUserDetailRequest $request DescribeFaultDiagnosisUserDetailRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFaultDiagnosisUserDetailResponse
+     * @return DescribeFaultDiagnosisUserDetailResponse DescribeFaultDiagnosisUserDetailResponse
      */
     public function describeFaultDiagnosisUserDetailWithOptions($request, $runtime)
     {
@@ -1942,9 +2023,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaultDiagnosisUserDetailRequest $request
+     * @summary 获取异常诊断用户详情
+     *  *
+     * @param DescribeFaultDiagnosisUserDetailRequest $request DescribeFaultDiagnosisUserDetailRequest
      *
-     * @return DescribeFaultDiagnosisUserDetailResponse
+     * @return DescribeFaultDiagnosisUserDetailResponse DescribeFaultDiagnosisUserDetailResponse
      */
     public function describeFaultDiagnosisUserDetail($request)
     {
@@ -1954,10 +2037,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaultDiagnosisUserListRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 获取异常诊断用户明细列表
+     *  *
+     * @param DescribeFaultDiagnosisUserListRequest $request DescribeFaultDiagnosisUserListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFaultDiagnosisUserListResponse
+     * @return DescribeFaultDiagnosisUserListResponse DescribeFaultDiagnosisUserListResponse
      */
     public function describeFaultDiagnosisUserListWithOptions($request, $runtime)
     {
@@ -2006,9 +2091,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaultDiagnosisUserListRequest $request
+     * @summary 获取异常诊断用户明细列表
+     *  *
+     * @param DescribeFaultDiagnosisUserListRequest $request DescribeFaultDiagnosisUserListRequest
      *
-     * @return DescribeFaultDiagnosisUserListResponse
+     * @return DescribeFaultDiagnosisUserListResponse DescribeFaultDiagnosisUserListResponse
      */
     public function describeFaultDiagnosisUserList($request)
     {
@@ -2018,10 +2105,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeMPULayoutInfoListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeMPULayoutInfoListRequest $request DescribeMPULayoutInfoListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMPULayoutInfoListResponse
+     * @return DescribeMPULayoutInfoListResponse DescribeMPULayoutInfoListResponse
      */
     public function describeMPULayoutInfoListWithOptions($request, $runtime)
     {
@@ -2064,9 +2151,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeMPULayoutInfoListRequest $request
+     * @param DescribeMPULayoutInfoListRequest $request DescribeMPULayoutInfoListRequest
      *
-     * @return DescribeMPULayoutInfoListResponse
+     * @return DescribeMPULayoutInfoListResponse DescribeMPULayoutInfoListResponse
      */
     public function describeMPULayoutInfoList($request)
     {
@@ -2076,10 +2163,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribePubUserListBySubUserRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
+     *  *
+     * @param DescribePubUserListBySubUserRequest $request DescribePubUserListBySubUserRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePubUserListBySubUserResponse
+     * @return DescribePubUserListBySubUserResponse DescribePubUserListBySubUserResponse
      */
     public function describePubUserListBySubUserWithOptions($request, $runtime)
     {
@@ -2119,9 +2208,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribePubUserListBySubUserRequest $request
+     * @summary 调用DescribePubUserListBySubUser根据订阅端获取通信中发布端用户列表。
+     *  *
+     * @param DescribePubUserListBySubUserRequest $request DescribePubUserListBySubUserRequest
      *
-     * @return DescribePubUserListBySubUserResponse
+     * @return DescribePubUserListBySubUserResponse DescribePubUserListBySubUserResponse
      */
     public function describePubUserListBySubUser($request)
     {
@@ -2131,10 +2222,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeQoeMetricDataRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
+     *  *
+     * @param DescribeQoeMetricDataRequest $request DescribeQoeMetricDataRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeQoeMetricDataResponse
+     * @return DescribeQoeMetricDataResponse DescribeQoeMetricDataResponse
      */
     public function describeQoeMetricDataWithOptions($request, $runtime)
     {
@@ -2174,9 +2267,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeQoeMetricDataRequest $request
+     * @summary 调用DescribeQoeMetricData获取单次通信中用户的下行体验质量指标。
+     *  *
+     * @param DescribeQoeMetricDataRequest $request DescribeQoeMetricDataRequest
      *
-     * @return DescribeQoeMetricDataResponse
+     * @return DescribeQoeMetricDataResponse DescribeQoeMetricDataResponse
      */
     public function describeQoeMetricData($request)
     {
@@ -2186,10 +2281,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeQualityAreaDistributionStatDataRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary 获取质量统计区域分布统计数据
+     *  *
+     * @param DescribeQualityAreaDistributionStatDataRequest $request DescribeQualityAreaDistributionStatDataRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeQualityAreaDistributionStatDataResponse
+     * @return DescribeQualityAreaDistributionStatDataResponse DescribeQualityAreaDistributionStatDataResponse
      */
     public function describeQualityAreaDistributionStatDataWithOptions($request, $runtime)
     {
@@ -2226,9 +2323,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeQualityAreaDistributionStatDataRequest $request
+     * @summary 获取质量统计区域分布统计数据
+     *  *
+     * @param DescribeQualityAreaDistributionStatDataRequest $request DescribeQualityAreaDistributionStatDataRequest
      *
-     * @return DescribeQualityAreaDistributionStatDataResponse
+     * @return DescribeQualityAreaDistributionStatDataResponse DescribeQualityAreaDistributionStatDataResponse
      */
     public function describeQualityAreaDistributionStatData($request)
     {
@@ -2238,10 +2337,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeQualityDistributionStatDataRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 获取质量统计分布数据
+     *  *
+     * @param DescribeQualityDistributionStatDataRequest $request DescribeQualityDistributionStatDataRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeQualityDistributionStatDataResponse
+     * @return DescribeQualityDistributionStatDataResponse DescribeQualityDistributionStatDataResponse
      */
     public function describeQualityDistributionStatDataWithOptions($request, $runtime)
     {
@@ -2278,9 +2379,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeQualityDistributionStatDataRequest $request
+     * @summary 获取质量统计分布数据
+     *  *
+     * @param DescribeQualityDistributionStatDataRequest $request DescribeQualityDistributionStatDataRequest
      *
-     * @return DescribeQualityDistributionStatDataResponse
+     * @return DescribeQualityDistributionStatDataResponse DescribeQualityDistributionStatDataResponse
      */
     public function describeQualityDistributionStatData($request)
     {
@@ -2290,10 +2393,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeQualityOsSdkVersionDistributionStatDataRequest $request
-     * @param RuntimeOptions                                         $runtime
+     * @summary 获取质量统计各操作系统下SDK版本分布数据
+     *  *
+     * @param DescribeQualityOsSdkVersionDistributionStatDataRequest $request DescribeQualityOsSdkVersionDistributionStatDataRequest
+     * @param RuntimeOptions                                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeQualityOsSdkVersionDistributionStatDataResponse
+     * @return DescribeQualityOsSdkVersionDistributionStatDataResponse DescribeQualityOsSdkVersionDistributionStatDataResponse
      */
     public function describeQualityOsSdkVersionDistributionStatDataWithOptions($request, $runtime)
     {
@@ -2327,9 +2432,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeQualityOsSdkVersionDistributionStatDataRequest $request
+     * @summary 获取质量统计各操作系统下SDK版本分布数据
+     *  *
+     * @param DescribeQualityOsSdkVersionDistributionStatDataRequest $request DescribeQualityOsSdkVersionDistributionStatDataRequest
      *
-     * @return DescribeQualityOsSdkVersionDistributionStatDataResponse
+     * @return DescribeQualityOsSdkVersionDistributionStatDataResponse DescribeQualityOsSdkVersionDistributionStatDataResponse
      */
     public function describeQualityOsSdkVersionDistributionStatData($request)
     {
@@ -2339,10 +2446,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeQualityOverallDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 获取质量统计概览数据
+     *  *
+     * @param DescribeQualityOverallDataRequest $request DescribeQualityOverallDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeQualityOverallDataResponse
+     * @return DescribeQualityOverallDataResponse DescribeQualityOverallDataResponse
      */
     public function describeQualityOverallDataWithOptions($request, $runtime)
     {
@@ -2379,9 +2488,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeQualityOverallDataRequest $request
+     * @summary 获取质量统计概览数据
+     *  *
+     * @param DescribeQualityOverallDataRequest $request DescribeQualityOverallDataRequest
      *
-     * @return DescribeQualityOverallDataResponse
+     * @return DescribeQualityOverallDataResponse DescribeQualityOverallDataResponse
      */
     public function describeQualityOverallData($request)
     {
@@ -2391,10 +2502,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordFilesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeRecordFilesRequest $request DescribeRecordFilesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecordFilesResponse
+     * @return DescribeRecordFilesResponse DescribeRecordFilesResponse
      */
     public function describeRecordFilesWithOptions($request, $runtime)
     {
@@ -2443,9 +2554,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordFilesRequest $request
+     * @param DescribeRecordFilesRequest $request DescribeRecordFilesRequest
      *
-     * @return DescribeRecordFilesResponse
+     * @return DescribeRecordFilesResponse DescribeRecordFilesResponse
      */
     public function describeRecordFiles($request)
     {
@@ -2455,10 +2566,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordTemplatesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeRecordTemplatesRequest $request DescribeRecordTemplatesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecordTemplatesResponse
+     * @return DescribeRecordTemplatesResponse DescribeRecordTemplatesResponse
      */
     public function describeRecordTemplatesWithOptions($request, $runtime)
     {
@@ -2498,9 +2609,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordTemplatesRequest $request
+     * @param DescribeRecordTemplatesRequest $request DescribeRecordTemplatesRequest
      *
-     * @return DescribeRecordTemplatesResponse
+     * @return DescribeRecordTemplatesResponse DescribeRecordTemplatesResponse
      */
     public function describeRecordTemplates($request)
     {
@@ -2510,10 +2621,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRtcChannelListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeRtcChannelListRequest $request DescribeRtcChannelListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRtcChannelListResponse
+     * @return DescribeRtcChannelListResponse DescribeRtcChannelListResponse
      */
     public function describeRtcChannelListWithOptions($request, $runtime)
     {
@@ -2565,9 +2676,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRtcChannelListRequest $request
+     * @param DescribeRtcChannelListRequest $request DescribeRtcChannelListRequest
      *
-     * @return DescribeRtcChannelListResponse
+     * @return DescribeRtcChannelListResponse DescribeRtcChannelListResponse
      */
     public function describeRtcChannelList($request)
     {
@@ -2577,10 +2688,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRtcChannelMetricRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeRtcChannelMetricRequest $request DescribeRtcChannelMetricRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRtcChannelMetricResponse
+     * @return DescribeRtcChannelMetricResponse DescribeRtcChannelMetricResponse
      */
     public function describeRtcChannelMetricWithOptions($request, $runtime)
     {
@@ -2617,9 +2728,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRtcChannelMetricRequest $request
+     * @param DescribeRtcChannelMetricRequest $request DescribeRtcChannelMetricRequest
      *
-     * @return DescribeRtcChannelMetricResponse
+     * @return DescribeRtcChannelMetricResponse DescribeRtcChannelMetricResponse
      */
     public function describeRtcChannelMetric($request)
     {
@@ -2629,10 +2740,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRtcDurationDataRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeRtcDurationDataRequest $request DescribeRtcDurationDataRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRtcDurationDataResponse
+     * @return DescribeRtcDurationDataResponse DescribeRtcDurationDataResponse
      */
     public function describeRtcDurationDataWithOptions($request, $runtime)
     {
@@ -2675,9 +2786,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRtcDurationDataRequest $request
+     * @param DescribeRtcDurationDataRequest $request DescribeRtcDurationDataRequest
      *
-     * @return DescribeRtcDurationDataResponse
+     * @return DescribeRtcDurationDataResponse DescribeRtcDurationDataResponse
      */
     public function describeRtcDurationData($request)
     {
@@ -2687,10 +2798,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRtcPeakChannelCntDataRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeRtcPeakChannelCntDataRequest $request DescribeRtcPeakChannelCntDataRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRtcPeakChannelCntDataResponse
+     * @return DescribeRtcPeakChannelCntDataResponse DescribeRtcPeakChannelCntDataResponse
      */
     public function describeRtcPeakChannelCntDataWithOptions($request, $runtime)
     {
@@ -2733,9 +2844,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRtcPeakChannelCntDataRequest $request
+     * @param DescribeRtcPeakChannelCntDataRequest $request DescribeRtcPeakChannelCntDataRequest
      *
-     * @return DescribeRtcPeakChannelCntDataResponse
+     * @return DescribeRtcPeakChannelCntDataResponse DescribeRtcPeakChannelCntDataResponse
      */
     public function describeRtcPeakChannelCntData($request)
     {
@@ -2745,10 +2856,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRtcUserCntDataRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DescribeRtcUserCntDataRequest $request DescribeRtcUserCntDataRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRtcUserCntDataResponse
+     * @return DescribeRtcUserCntDataResponse DescribeRtcUserCntDataResponse
      */
     public function describeRtcUserCntDataWithOptions($request, $runtime)
     {
@@ -2791,9 +2902,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeRtcUserCntDataRequest $request
+     * @param DescribeRtcUserCntDataRequest $request DescribeRtcUserCntDataRequest
      *
-     * @return DescribeRtcUserCntDataResponse
+     * @return DescribeRtcUserCntDataResponse DescribeRtcUserCntDataResponse
      */
     public function describeRtcUserCntData($request)
     {
@@ -2803,10 +2914,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsageAreaDistributionStatDataRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary 获取用量统计地域分布数据
+     *  *
+     * @param DescribeUsageAreaDistributionStatDataRequest $request DescribeUsageAreaDistributionStatDataRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUsageAreaDistributionStatDataResponse
+     * @return DescribeUsageAreaDistributionStatDataResponse DescribeUsageAreaDistributionStatDataResponse
      */
     public function describeUsageAreaDistributionStatDataWithOptions($request, $runtime)
     {
@@ -2843,9 +2956,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsageAreaDistributionStatDataRequest $request
+     * @summary 获取用量统计地域分布数据
+     *  *
+     * @param DescribeUsageAreaDistributionStatDataRequest $request DescribeUsageAreaDistributionStatDataRequest
      *
-     * @return DescribeUsageAreaDistributionStatDataResponse
+     * @return DescribeUsageAreaDistributionStatDataResponse DescribeUsageAreaDistributionStatDataResponse
      */
     public function describeUsageAreaDistributionStatData($request)
     {
@@ -2855,10 +2970,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsageDistributionStatDataRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 获取用量统计分布数据
+     *  *
+     * @param DescribeUsageDistributionStatDataRequest $request DescribeUsageDistributionStatDataRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUsageDistributionStatDataResponse
+     * @return DescribeUsageDistributionStatDataResponse DescribeUsageDistributionStatDataResponse
      */
     public function describeUsageDistributionStatDataWithOptions($request, $runtime)
     {
@@ -2895,9 +3012,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsageDistributionStatDataRequest $request
+     * @summary 获取用量统计分布数据
+     *  *
+     * @param DescribeUsageDistributionStatDataRequest $request DescribeUsageDistributionStatDataRequest
      *
-     * @return DescribeUsageDistributionStatDataResponse
+     * @return DescribeUsageDistributionStatDataResponse DescribeUsageDistributionStatDataResponse
      */
     public function describeUsageDistributionStatData($request)
     {
@@ -2907,10 +3026,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsageOsSdkVersionDistributionStatDataRequest $request
-     * @param RuntimeOptions                                       $runtime
+     * @summary 获取用量统计各操作系统下SDK版本分布数据
+     *  *
+     * @param DescribeUsageOsSdkVersionDistributionStatDataRequest $request DescribeUsageOsSdkVersionDistributionStatDataRequest
+     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
+     * @return DescribeUsageOsSdkVersionDistributionStatDataResponse DescribeUsageOsSdkVersionDistributionStatDataResponse
      */
     public function describeUsageOsSdkVersionDistributionStatDataWithOptions($request, $runtime)
     {
@@ -2944,9 +3065,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsageOsSdkVersionDistributionStatDataRequest $request
+     * @summary 获取用量统计各操作系统下SDK版本分布数据
+     *  *
+     * @param DescribeUsageOsSdkVersionDistributionStatDataRequest $request DescribeUsageOsSdkVersionDistributionStatDataRequest
      *
-     * @return DescribeUsageOsSdkVersionDistributionStatDataResponse
+     * @return DescribeUsageOsSdkVersionDistributionStatDataResponse DescribeUsageOsSdkVersionDistributionStatDataResponse
      */
     public function describeUsageOsSdkVersionDistributionStatData($request)
     {
@@ -2956,10 +3079,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsageOverallDataRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取用量统计概览数据
+     *  *
+     * @param DescribeUsageOverallDataRequest $request DescribeUsageOverallDataRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUsageOverallDataResponse
+     * @return DescribeUsageOverallDataResponse DescribeUsageOverallDataResponse
      */
     public function describeUsageOverallDataWithOptions($request, $runtime)
     {
@@ -2996,9 +3121,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeUsageOverallDataRequest $request
+     * @summary 获取用量统计概览数据
+     *  *
+     * @param DescribeUsageOverallDataRequest $request DescribeUsageOverallDataRequest
      *
-     * @return DescribeUsageOverallDataResponse
+     * @return DescribeUsageOverallDataResponse DescribeUsageOverallDataResponse
      */
     public function describeUsageOverallData($request)
     {
@@ -3008,10 +3135,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserInfoInChannelRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeUserInfoInChannelRequest $request DescribeUserInfoInChannelRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserInfoInChannelResponse
+     * @return DescribeUserInfoInChannelResponse DescribeUserInfoInChannelResponse
      */
     public function describeUserInfoInChannelWithOptions($request, $runtime)
     {
@@ -3048,9 +3175,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserInfoInChannelRequest $request
+     * @param DescribeUserInfoInChannelRequest $request DescribeUserInfoInChannelRequest
      *
-     * @return DescribeUserInfoInChannelResponse
+     * @return DescribeUserInfoInChannelResponse DescribeUserInfoInChannelResponse
      */
     public function describeUserInfoInChannel($request)
     {
@@ -3060,10 +3187,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DisableAutoLiveStreamRuleRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DisableAutoLiveStreamRuleRequest $request DisableAutoLiveStreamRuleRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableAutoLiveStreamRuleResponse
+     * @return DisableAutoLiveStreamRuleResponse DisableAutoLiveStreamRuleResponse
      */
     public function disableAutoLiveStreamRuleWithOptions($request, $runtime)
     {
@@ -3097,9 +3224,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param DisableAutoLiveStreamRuleRequest $request
+     * @param DisableAutoLiveStreamRuleRequest $request DisableAutoLiveStreamRuleRequest
      *
-     * @return DisableAutoLiveStreamRuleResponse
+     * @return DisableAutoLiveStreamRuleResponse DisableAutoLiveStreamRuleResponse
      */
     public function disableAutoLiveStreamRule($request)
     {
@@ -3109,10 +3236,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param EnableAutoLiveStreamRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param EnableAutoLiveStreamRuleRequest $request EnableAutoLiveStreamRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableAutoLiveStreamRuleResponse
+     * @return EnableAutoLiveStreamRuleResponse EnableAutoLiveStreamRuleResponse
      */
     public function enableAutoLiveStreamRuleWithOptions($request, $runtime)
     {
@@ -3146,9 +3273,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param EnableAutoLiveStreamRuleRequest $request
+     * @param EnableAutoLiveStreamRuleRequest $request EnableAutoLiveStreamRuleRequest
      *
-     * @return EnableAutoLiveStreamRuleResponse
+     * @return EnableAutoLiveStreamRuleResponse EnableAutoLiveStreamRuleResponse
      */
     public function enableAutoLiveStreamRule($request)
     {
@@ -3158,10 +3285,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param GetMPUTaskStatusRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param GetMPUTaskStatusRequest $request GetMPUTaskStatusRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMPUTaskStatusResponse
+     * @return GetMPUTaskStatusResponse GetMPUTaskStatusResponse
      */
     public function getMPUTaskStatusWithOptions($request, $runtime)
     {
@@ -3195,9 +3322,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param GetMPUTaskStatusRequest $request
+     * @param GetMPUTaskStatusRequest $request GetMPUTaskStatusRequest
      *
-     * @return GetMPUTaskStatusResponse
+     * @return GetMPUTaskStatusResponse GetMPUTaskStatusResponse
      */
     public function getMPUTaskStatus($request)
     {
@@ -3207,10 +3334,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param ModifyAppRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 修改App信息
+     *  *
+     * @param ModifyAppRequest $request ModifyAppRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAppResponse
+     * @return ModifyAppResponse ModifyAppResponse
      */
     public function modifyAppWithOptions($request, $runtime)
     {
@@ -3244,9 +3373,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param ModifyAppRequest $request
+     * @summary 修改App信息
+     *  *
+     * @param ModifyAppRequest $request ModifyAppRequest
      *
-     * @return ModifyAppResponse
+     * @return ModifyAppResponse ModifyAppResponse
      */
     public function modifyApp($request)
     {
@@ -3256,10 +3387,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param ModifyAppStreamingOutTemplateRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
+     * @summary 更新应用推流模版
+     *  *
+     * @param ModifyAppStreamingOutTemplateRequest $tmpReq  ModifyAppStreamingOutTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAppStreamingOutTemplateResponse
+     * @return ModifyAppStreamingOutTemplateResponse ModifyAppStreamingOutTemplateResponse
      */
     public function modifyAppStreamingOutTemplateWithOptions($tmpReq, $runtime)
     {
@@ -3295,9 +3428,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param ModifyAppStreamingOutTemplateRequest $request
+     * @summary 更新应用推流模版
+     *  *
+     * @param ModifyAppStreamingOutTemplateRequest $request ModifyAppStreamingOutTemplateRequest
      *
-     * @return ModifyAppStreamingOutTemplateResponse
+     * @return ModifyAppStreamingOutTemplateResponse ModifyAppStreamingOutTemplateResponse
      */
     public function modifyAppStreamingOutTemplate($request)
     {
@@ -3307,10 +3442,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param ModifyMPULayoutRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ModifyMPULayoutRequest $request ModifyMPULayoutRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMPULayoutResponse
+     * @return ModifyMPULayoutResponse ModifyMPULayoutResponse
      */
     public function modifyMPULayoutWithOptions($request, $runtime)
     {
@@ -3353,9 +3488,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param ModifyMPULayoutRequest $request
+     * @param ModifyMPULayoutRequest $request ModifyMPULayoutRequest
      *
-     * @return ModifyMPULayoutResponse
+     * @return ModifyMPULayoutResponse ModifyMPULayoutResponse
      */
     public function modifyMPULayout($request)
     {
@@ -3365,10 +3500,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param RemoveTerminalsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param RemoveTerminalsRequest $request RemoveTerminalsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveTerminalsResponse
+     * @return RemoveTerminalsResponse RemoveTerminalsResponse
      */
     public function removeTerminalsWithOptions($request, $runtime)
     {
@@ -3405,9 +3540,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param RemoveTerminalsRequest $request
+     * @param RemoveTerminalsRequest $request RemoveTerminalsRequest
      *
-     * @return RemoveTerminalsResponse
+     * @return RemoveTerminalsResponse RemoveTerminalsResponse
      */
     public function removeTerminals($request)
     {
@@ -3417,10 +3552,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param RemoveUsersRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary RemoveUsers
+     *  *
+     * @param RemoveUsersRequest $request RemoveUsersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUsersResponse
+     * @return RemoveUsersResponse RemoveUsersResponse
      */
     public function removeUsersWithOptions($request, $runtime)
     {
@@ -3454,9 +3591,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param RemoveUsersRequest $request
+     * @summary RemoveUsers
+     *  *
+     * @param RemoveUsersRequest $request RemoveUsersRequest
      *
-     * @return RemoveUsersResponse
+     * @return RemoveUsersResponse RemoveUsersResponse
      */
     public function removeUsers($request)
     {
@@ -3466,10 +3605,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StartCloudRecordRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary StartCloudRecord
+     *  *
+     * @param StartCloudRecordRequest $request StartCloudRecordRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartCloudRecordResponse
+     * @return StartCloudRecordResponse StartCloudRecordResponse
      */
     public function startCloudRecordWithOptions($request, $runtime)
     {
@@ -3512,9 +3653,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StartCloudRecordRequest $request
+     * @summary StartCloudRecord
+     *  *
+     * @param StartCloudRecordRequest $request StartCloudRecordRequest
      *
-     * @return StartCloudRecordResponse
+     * @return StartCloudRecordResponse StartCloudRecordResponse
      */
     public function startCloudRecord($request)
     {
@@ -3524,10 +3667,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StartMPUTaskRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param StartMPUTaskRequest $request StartMPUTaskRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartMPUTaskResponse
+     * @return StartMPUTaskResponse StartMPUTaskResponse
      */
     public function startMPUTaskWithOptions($request, $runtime)
     {
@@ -3646,9 +3789,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StartMPUTaskRequest $request
+     * @param StartMPUTaskRequest $request StartMPUTaskRequest
      *
-     * @return StartMPUTaskResponse
+     * @return StartMPUTaskResponse StartMPUTaskResponse
      */
     public function startMPUTask($request)
     {
@@ -3658,10 +3801,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StartRecordTaskRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param StartRecordTaskRequest $request StartRecordTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartRecordTaskResponse
+     * @return StartRecordTaskResponse StartRecordTaskResponse
      */
     public function startRecordTaskWithOptions($request, $runtime)
     {
@@ -3746,9 +3889,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StartRecordTaskRequest $request
+     * @param StartRecordTaskRequest $request StartRecordTaskRequest
      *
-     * @return StartRecordTaskResponse
+     * @return StartRecordTaskResponse StartRecordTaskResponse
      */
     public function startRecordTask($request)
     {
@@ -3758,10 +3901,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StartStreamingOutRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary StartStreamingOut
+     *  *
+     * @param StartStreamingOutRequest $request StartStreamingOutRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartStreamingOutResponse
+     * @return StartStreamingOutResponse StartStreamingOutResponse
      */
     public function startStreamingOutWithOptions($request, $runtime)
     {
@@ -3804,9 +3949,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StartStreamingOutRequest $request
+     * @summary StartStreamingOut
+     *  *
+     * @param StartStreamingOutRequest $request StartStreamingOutRequest
      *
-     * @return StartStreamingOutResponse
+     * @return StartStreamingOutResponse StartStreamingOutResponse
      */
     public function startStreamingOut($request)
     {
@@ -3816,10 +3963,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StopChannelRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 删除频道
+     *  *
+     * @param StopChannelRequest $request StopChannelRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopChannelResponse
+     * @return StopChannelResponse StopChannelResponse
      */
     public function stopChannelWithOptions($request, $runtime)
     {
@@ -3850,9 +3999,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StopChannelRequest $request
+     * @summary 删除频道
+     *  *
+     * @param StopChannelRequest $request StopChannelRequest
      *
-     * @return StopChannelResponse
+     * @return StopChannelResponse StopChannelResponse
      */
     public function stopChannel($request)
     {
@@ -3862,10 +4013,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StopCloudRecordRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary StopCloudRecord
+     *  *
+     * @param StopCloudRecordRequest $request StopCloudRecordRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopCloudRecordResponse
+     * @return StopCloudRecordResponse StopCloudRecordResponse
      */
     public function stopCloudRecordWithOptions($request, $runtime)
     {
@@ -3899,9 +4052,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StopCloudRecordRequest $request
+     * @summary StopCloudRecord
+     *  *
+     * @param StopCloudRecordRequest $request StopCloudRecordRequest
      *
-     * @return StopCloudRecordResponse
+     * @return StopCloudRecordResponse StopCloudRecordResponse
      */
     public function stopCloudRecord($request)
     {
@@ -3911,10 +4066,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StopMPUTaskRequest $request
-     * @param RuntimeOptions     $runtime
+     * @param StopMPUTaskRequest $request StopMPUTaskRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopMPUTaskResponse
+     * @return StopMPUTaskResponse StopMPUTaskResponse
      */
     public function stopMPUTaskWithOptions($request, $runtime)
     {
@@ -3948,9 +4103,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StopMPUTaskRequest $request
+     * @param StopMPUTaskRequest $request StopMPUTaskRequest
      *
-     * @return StopMPUTaskResponse
+     * @return StopMPUTaskResponse StopMPUTaskResponse
      */
     public function stopMPUTask($request)
     {
@@ -3960,10 +4115,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StopRecordTaskRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param StopRecordTaskRequest $request StopRecordTaskRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopRecordTaskResponse
+     * @return StopRecordTaskResponse StopRecordTaskResponse
      */
     public function stopRecordTaskWithOptions($request, $runtime)
     {
@@ -3997,9 +4152,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StopRecordTaskRequest $request
+     * @param StopRecordTaskRequest $request StopRecordTaskRequest
      *
-     * @return StopRecordTaskResponse
+     * @return StopRecordTaskResponse StopRecordTaskResponse
      */
     public function stopRecordTask($request)
     {
@@ -4009,10 +4164,12 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StopStreamingOutRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary StopStreamingOut
+     *  *
+     * @param StopStreamingOutRequest $request StopStreamingOutRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopStreamingOutResponse
+     * @return StopStreamingOutResponse StopStreamingOutResponse
      */
     public function stopStreamingOutWithOptions($request, $runtime)
     {
@@ -4046,9 +4203,11 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param StopStreamingOutRequest $request
+     * @summary StopStreamingOut
+     *  *
+     * @param StopStreamingOutRequest $request StopStreamingOutRequest
      *
-     * @return StopStreamingOutResponse
+     * @return StopStreamingOutResponse StopStreamingOutResponse
      */
     public function stopStreamingOut($request)
     {
@@ -4058,10 +4217,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param UpdateAutoLiveStreamRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param UpdateAutoLiveStreamRuleRequest $request UpdateAutoLiveStreamRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAutoLiveStreamRuleResponse
+     * @return UpdateAutoLiveStreamRuleResponse UpdateAutoLiveStreamRuleResponse
      */
     public function updateAutoLiveStreamRuleWithOptions($request, $runtime)
     {
@@ -4113,9 +4272,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param UpdateAutoLiveStreamRuleRequest $request
+     * @param UpdateAutoLiveStreamRuleRequest $request UpdateAutoLiveStreamRuleRequest
      *
-     * @return UpdateAutoLiveStreamRuleResponse
+     * @return UpdateAutoLiveStreamRuleResponse UpdateAutoLiveStreamRuleResponse
      */
     public function updateAutoLiveStreamRule($request)
     {
@@ -4125,10 +4284,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param UpdateMPUTaskRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param UpdateMPUTaskRequest $request UpdateMPUTaskRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMPUTaskResponse
+     * @return UpdateMPUTaskResponse UpdateMPUTaskResponse
      */
     public function updateMPUTaskWithOptions($request, $runtime)
     {
@@ -4216,9 +4375,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param UpdateMPUTaskRequest $request
+     * @param UpdateMPUTaskRequest $request UpdateMPUTaskRequest
      *
-     * @return UpdateMPUTaskResponse
+     * @return UpdateMPUTaskResponse UpdateMPUTaskResponse
      */
     public function updateMPUTask($request)
     {
@@ -4228,10 +4387,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param UpdateRecordTaskRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param UpdateRecordTaskRequest $request UpdateRecordTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRecordTaskResponse
+     * @return UpdateRecordTaskResponse UpdateRecordTaskResponse
      */
     public function updateRecordTaskWithOptions($request, $runtime)
     {
@@ -4307,9 +4466,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param UpdateRecordTaskRequest $request
+     * @param UpdateRecordTaskRequest $request UpdateRecordTaskRequest
      *
-     * @return UpdateRecordTaskResponse
+     * @return UpdateRecordTaskResponse UpdateRecordTaskResponse
      */
     public function updateRecordTask($request)
     {
@@ -4319,10 +4478,10 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param UpdateRecordTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param UpdateRecordTemplateRequest $request UpdateRecordTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRecordTemplateResponse
+     * @return UpdateRecordTemplateResponse UpdateRecordTemplateResponse
      */
     public function updateRecordTemplateWithOptions($request, $runtime)
     {
@@ -4407,9 +4566,9 @@ class Rtc extends OpenApiClient
     }
 
     /**
-     * @param UpdateRecordTemplateRequest $request
+     * @param UpdateRecordTemplateRequest $request UpdateRecordTemplateRequest
      *
-     * @return UpdateRecordTemplateResponse
+     * @return UpdateRecordTemplateResponse UpdateRecordTemplateResponse
      */
     public function updateRecordTemplate($request)
     {

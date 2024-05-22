@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRtcChannelMetricRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example aoe****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeRtcChannelMetricRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testId
      *
      * @var string
@@ -28,6 +32,8 @@ class DescribeRtcChannelMetricRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2018-01-29T00:00:00Z
      *
      * @var string

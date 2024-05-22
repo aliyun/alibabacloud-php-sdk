@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopStreamingOutRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example eo85****
      *
      * @var string
@@ -16,6 +18,8 @@ class StopStreamingOutRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testid
      *
      * @var string
@@ -23,6 +27,8 @@ class StopStreamingOutRequest extends Model
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var string

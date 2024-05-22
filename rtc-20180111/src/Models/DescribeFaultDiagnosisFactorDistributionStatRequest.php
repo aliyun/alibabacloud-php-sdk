@@ -11,6 +11,7 @@ class DescribeFaultDiagnosisFactorDistributionStatRequest extends Model
     /**
      * @description APP ID。
      *
+     * This parameter is required.
      * @example 0rbd****
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeFaultDiagnosisFactorDistributionStatRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615892596****
      *
      * @var int
@@ -25,6 +28,8 @@ class DescribeFaultDiagnosisFactorDistributionStatRequest extends Model
     public $endTs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615892596
      *
      * @var int

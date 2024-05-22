@@ -11,6 +11,7 @@ class DescribeFaultDiagnosisUserListRequest extends Model
     /**
      * @description APP ID。
      *
+     * This parameter is required.
      * @example 0rbd****
      *
      * @var string
@@ -25,6 +26,8 @@ class DescribeFaultDiagnosisUserListRequest extends Model
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615892596
      *
      * @var int
@@ -39,6 +42,8 @@ class DescribeFaultDiagnosisUserListRequest extends Model
     public $faultTypes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -46,6 +51,8 @@ class DescribeFaultDiagnosisUserListRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -53,6 +60,8 @@ class DescribeFaultDiagnosisUserListRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615806196
      *
      * @var int

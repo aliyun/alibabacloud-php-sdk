@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppStreamingOutTemplateShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example wv7N****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteAppStreamingOutTemplateShrinkRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $streamingOutTemplateShrink;

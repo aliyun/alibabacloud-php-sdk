@@ -16,6 +16,13 @@ class DescribeAppsRequest extends Model
     public $appId;
 
     /**
+     * @example 3.0
+     *
+     * @var string
+     */
+    public $appVersion;
+
+    /**
      * @example asc
      *
      * @var string
@@ -48,12 +55,13 @@ class DescribeAppsRequest extends Model
      */
     public $status;
     protected $_name = [
-        'appId'    => 'AppId',
-        'order'    => 'Order',
-        'ownerId'  => 'OwnerId',
-        'pageNum'  => 'PageNum',
-        'pageSize' => 'PageSize',
-        'status'   => 'Status',
+        'appId'      => 'AppId',
+        'appVersion' => 'AppVersion',
+        'order'      => 'Order',
+        'ownerId'    => 'OwnerId',
+        'pageNum'    => 'PageNum',
+        'pageSize'   => 'PageSize',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -65,6 +73,9 @@ class DescribeAppsRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->appVersion) {
+            $res['AppVersion'] = $this->appVersion;
         }
         if (null !== $this->order) {
             $res['Order'] = $this->order;
@@ -95,6 +106,9 @@ class DescribeAppsRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['AppVersion'])) {
+            $model->appVersion = $map['AppVersion'];
         }
         if (isset($map['Order'])) {
             $model->order = $map['Order'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyMPULayoutRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example yourAppId
      *
      * @var string
@@ -24,6 +26,8 @@ class ModifyMPULayoutRequest extends Model
     public $audioMixCount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10117
      *
      * @var int

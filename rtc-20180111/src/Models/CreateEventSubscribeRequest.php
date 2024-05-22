@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateEventSubscribeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 9qb1****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateEventSubscribeRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://****.com/callback
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateEventSubscribeRequest extends Model
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -37,6 +43,8 @@ class CreateEventSubscribeRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ChannelEvent
      *
      * @var string[]

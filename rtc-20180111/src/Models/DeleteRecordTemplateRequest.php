@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRecordTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example yourAppId
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteRecordTemplateRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 76dasgb****
      *
      * @var string

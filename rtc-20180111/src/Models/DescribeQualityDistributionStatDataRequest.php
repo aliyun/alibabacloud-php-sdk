@@ -11,6 +11,7 @@ class DescribeQualityDistributionStatDataRequest extends Model
     /**
      * @description APP ID
      *
+     * This parameter is required.
      * @example 0rbd****
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeQualityDistributionStatDataRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615910399
      *
      * @var int
@@ -25,6 +28,8 @@ class DescribeQualityDistributionStatDataRequest extends Model
     public $endDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615824000
      *
      * @var int
@@ -32,6 +37,8 @@ class DescribeQualityDistributionStatDataRequest extends Model
     public $startDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CHANNEL_ONLINE
      *
      * @var string

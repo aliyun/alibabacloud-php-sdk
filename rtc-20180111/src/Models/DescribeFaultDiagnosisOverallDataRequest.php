@@ -11,6 +11,7 @@ class DescribeFaultDiagnosisOverallDataRequest extends Model
     /**
      * @description APP ID
      *
+     * This parameter is required.
      * @example 4eah****
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeFaultDiagnosisOverallDataRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615910399
      *
      * @var int
@@ -25,6 +28,8 @@ class DescribeFaultDiagnosisOverallDataRequest extends Model
     public $endTs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1615824000
      *
      * @var int
@@ -32,6 +37,8 @@ class DescribeFaultDiagnosisOverallDataRequest extends Model
     public $startTs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example JOIN_SLOW_USER
      *
      * @var string

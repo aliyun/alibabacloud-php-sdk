@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class StartRecordTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example yourAppId
      *
      * @var string
@@ -17,6 +19,8 @@ class StartRecordTaskRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example yourChannelId
      *
      * @var string
@@ -99,6 +103,8 @@ class StartRecordTaskRequest extends Model
     public $subSpecUsers;
 
     /**
+     * @description This parameter is required.
+     *
      * @example yourTaskId
      *
      * @var string
@@ -113,6 +119,8 @@ class StartRecordTaskRequest extends Model
     public $taskProfile;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 76dasgb****
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeChannelDistributionStatDataRequest extends Model
     /**
      * @description APP ID。
      *
+     * This parameter is required.
      * @example testappid
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeChannelDistributionStatDataRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testid
      *
      * @var string
@@ -25,6 +28,8 @@ class DescribeChannelDistributionStatDataRequest extends Model
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1614936817
      *
      * @var int
@@ -39,6 +44,8 @@ class DescribeChannelDistributionStatDataRequest extends Model
     public $destroyedTs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example OS
      *
      * @var string

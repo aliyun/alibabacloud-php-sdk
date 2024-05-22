@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ioeh****
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyAppRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example defaultName
      *
      * @var string
