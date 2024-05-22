@@ -6,10 +6,14 @@ namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsShrinkRequest;
@@ -60,6 +64,64 @@ class Emrserverlessspark extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 添加用户
+     *  *
+     * @param AddMembersRequest $request AddMembersRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddMembersResponse AddMembersResponse
+     */
+    public function addMembersWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->memberArns)) {
+            $body['memberArns'] = $request->memberArns;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['workspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddMembers',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/auth/members',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加用户
+     *  *
+     * @param AddMembersRequest $request AddMembersRequest
+     *
+     * @return AddMembersResponse AddMembersResponse
+     */
+    public function addMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addMembersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -168,6 +230,64 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->getJobRunWithOptions($workspaceId, $jobRunId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 给用户授权Role列表
+     *  *
+     * @param GrantRoleToUsersRequest $request GrantRoleToUsersRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GrantRoleToUsersResponse GrantRoleToUsersResponse
+     */
+    public function grantRoleToUsersWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->roleArn)) {
+            $body['roleArn'] = $request->roleArn;
+        }
+        if (!Utils::isUnset($request->userArns)) {
+            $body['userArns'] = $request->userArns;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantRoleToUsers',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/auth/roles/grant',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GrantRoleToUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 给用户授权Role列表
+     *  *
+     * @param GrantRoleToUsersRequest $request GrantRoleToUsersRequest
+     *
+     * @return GrantRoleToUsersResponse GrantRoleToUsersResponse
+     */
+    public function grantRoleToUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->grantRoleToUsersWithOptions($request, $headers, $runtime);
     }
 
     /**
