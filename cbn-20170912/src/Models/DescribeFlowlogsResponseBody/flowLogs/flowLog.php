@@ -56,6 +56,11 @@ class flowLog extends Model
     public $flowLogName;
 
     /**
+     * @var string
+     */
+    public $flowLogVersion;
+
+    /**
      * @description The time window for collecting log data. Unit: seconds. Valid values: **60** and **600**. Default value: **600**.
      *
      * @example 60
@@ -63,6 +68,11 @@ class flowLog extends Model
      * @var int
      */
     public $interval;
+
+    /**
+     * @var string
+     */
+    public $logFormatString;
 
     /**
      * @description The name of the Logstore where the flow log is stored.
@@ -118,19 +128,27 @@ class flowLog extends Model
      * @var string
      */
     public $transitRouterAttachmentId;
+
+    /**
+     * @var string
+     */
+    public $transitRouterId;
     protected $_name = [
         'cenId'                     => 'CenId',
         'creationTime'              => 'CreationTime',
         'description'               => 'Description',
         'flowLogId'                 => 'FlowLogId',
         'flowLogName'               => 'FlowLogName',
+        'flowLogVersion'            => 'FlowLogVersion',
         'interval'                  => 'Interval',
+        'logFormatString'           => 'LogFormatString',
         'logStoreName'              => 'LogStoreName',
         'projectName'               => 'ProjectName',
         'regionId'                  => 'RegionId',
         'status'                    => 'Status',
         'tags'                      => 'Tags',
         'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterId'           => 'TransitRouterId',
     ];
 
     public function validate()
@@ -155,8 +173,14 @@ class flowLog extends Model
         if (null !== $this->flowLogName) {
             $res['FlowLogName'] = $this->flowLogName;
         }
+        if (null !== $this->flowLogVersion) {
+            $res['FlowLogVersion'] = $this->flowLogVersion;
+        }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->logFormatString) {
+            $res['LogFormatString'] = $this->logFormatString;
         }
         if (null !== $this->logStoreName) {
             $res['LogStoreName'] = $this->logStoreName;
@@ -175,6 +199,9 @@ class flowLog extends Model
         }
         if (null !== $this->transitRouterAttachmentId) {
             $res['TransitRouterAttachmentId'] = $this->transitRouterAttachmentId;
+        }
+        if (null !== $this->transitRouterId) {
+            $res['TransitRouterId'] = $this->transitRouterId;
         }
 
         return $res;
@@ -203,8 +230,14 @@ class flowLog extends Model
         if (isset($map['FlowLogName'])) {
             $model->flowLogName = $map['FlowLogName'];
         }
+        if (isset($map['FlowLogVersion'])) {
+            $model->flowLogVersion = $map['FlowLogVersion'];
+        }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['LogFormatString'])) {
+            $model->logFormatString = $map['LogFormatString'];
         }
         if (isset($map['LogStoreName'])) {
             $model->logStoreName = $map['LogStoreName'];
@@ -223,6 +256,9 @@ class flowLog extends Model
         }
         if (isset($map['TransitRouterAttachmentId'])) {
             $model->transitRouterAttachmentId = $map['TransitRouterAttachmentId'];
+        }
+        if (isset($map['TransitRouterId'])) {
+            $model->transitRouterId = $map['TransitRouterId'];
         }
 
         return $model;
