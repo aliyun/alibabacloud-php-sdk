@@ -121,6 +121,11 @@ class result extends Model
     public $measureList;
 
     /**
+     * @var bool
+     */
+    public $openOfflineAcceleration;
+
+    /**
      * @description Test Space
      *
      * @example b8494aab26124*****
@@ -168,23 +173,24 @@ class result extends Model
      */
     public $workspaceName;
     protected $_name = [
-        'cubeTableList' => 'CubeTableList',
-        'custimzeSql'   => 'CustimzeSql',
-        'datasetId'     => 'DatasetId',
-        'datasetName'   => 'DatasetName',
-        'dimensionList' => 'DimensionList',
-        'directory'     => 'Directory',
-        'dsId'          => 'DsId',
-        'dsName'        => 'DsName',
-        'dsType'        => 'DsType',
-        'gmtCreate'     => 'GmtCreate',
-        'gmtModify'     => 'GmtModify',
-        'measureList'   => 'MeasureList',
-        'ownerId'       => 'OwnerId',
-        'ownerName'     => 'OwnerName',
-        'rowLevel'      => 'RowLevel',
-        'workspaceId'   => 'WorkspaceId',
-        'workspaceName' => 'WorkspaceName',
+        'cubeTableList'           => 'CubeTableList',
+        'custimzeSql'             => 'CustimzeSql',
+        'datasetId'               => 'DatasetId',
+        'datasetName'             => 'DatasetName',
+        'dimensionList'           => 'DimensionList',
+        'directory'               => 'Directory',
+        'dsId'                    => 'DsId',
+        'dsName'                  => 'DsName',
+        'dsType'                  => 'DsType',
+        'gmtCreate'               => 'GmtCreate',
+        'gmtModify'               => 'GmtModify',
+        'measureList'             => 'MeasureList',
+        'openOfflineAcceleration' => 'OpenOfflineAcceleration',
+        'ownerId'                 => 'OwnerId',
+        'ownerName'               => 'OwnerName',
+        'rowLevel'                => 'RowLevel',
+        'workspaceId'             => 'WorkspaceId',
+        'workspaceName'           => 'WorkspaceName',
     ];
 
     public function validate()
@@ -247,6 +253,9 @@ class result extends Model
                     $res['MeasureList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->openOfflineAcceleration) {
+            $res['OpenOfflineAcceleration'] = $this->openOfflineAcceleration;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -328,6 +337,9 @@ class result extends Model
                     $model->measureList[$n++] = null !== $item ? measureList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['OpenOfflineAcceleration'])) {
+            $model->openOfflineAcceleration = $map['OpenOfflineAcceleration'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

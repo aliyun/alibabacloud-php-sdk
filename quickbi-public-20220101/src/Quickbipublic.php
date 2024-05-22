@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ChangeVisibilityModelRequest
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ChangeVisibilityModelResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CheckReadableRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CheckReadableResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicket4CopilotRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicket4CopilotResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\CreateUserGroupRequest;
@@ -1203,6 +1205,68 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 生成智能小Q嵌入ticket
+     *  *
+     * @param CreateTicket4CopilotRequest $request CreateTicket4CopilotRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateTicket4CopilotResponse CreateTicket4CopilotResponse
+     */
+    public function createTicket4CopilotWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->accountType)) {
+            $query['AccountType'] = $request->accountType;
+        }
+        if (!Utils::isUnset($request->copilotId)) {
+            $query['CopilotId'] = $request->copilotId;
+        }
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->ticketNum)) {
+            $query['TicketNum'] = $request->ticketNum;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTicket4Copilot',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTicket4CopilotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 生成智能小Q嵌入ticket
+     *  *
+     * @param CreateTicket4CopilotRequest $request CreateTicket4CopilotRequest
+     *
+     * @return CreateTicket4CopilotResponse CreateTicket4CopilotResponse
+     */
+    public function createTicket4Copilot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTicket4CopilotWithOptions($request, $runtime);
     }
 
     /**

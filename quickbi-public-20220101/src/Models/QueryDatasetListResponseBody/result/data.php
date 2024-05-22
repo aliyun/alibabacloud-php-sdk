@@ -70,6 +70,11 @@ class data extends Model
     public $modifyTime;
 
     /**
+     * @var bool
+     */
+    public $openOfflineAcceleration;
+
+    /**
      * @description The creation time.
      *
      * @example 136516262323****
@@ -117,18 +122,19 @@ class data extends Model
      */
     public $workspaceName;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'dataSource'    => 'DataSource',
-        'datasetId'     => 'DatasetId',
-        'datasetName'   => 'DatasetName',
-        'description'   => 'Description',
-        'directory'     => 'Directory',
-        'modifyTime'    => 'ModifyTime',
-        'ownerId'       => 'OwnerId',
-        'ownerName'     => 'OwnerName',
-        'rowLevel'      => 'RowLevel',
-        'workspaceId'   => 'WorkspaceId',
-        'workspaceName' => 'WorkspaceName',
+        'createTime'              => 'CreateTime',
+        'dataSource'              => 'DataSource',
+        'datasetId'               => 'DatasetId',
+        'datasetName'             => 'DatasetName',
+        'description'             => 'Description',
+        'directory'               => 'Directory',
+        'modifyTime'              => 'ModifyTime',
+        'openOfflineAcceleration' => 'OpenOfflineAcceleration',
+        'ownerId'                 => 'OwnerId',
+        'ownerName'               => 'OwnerName',
+        'rowLevel'                => 'RowLevel',
+        'workspaceId'             => 'WorkspaceId',
+        'workspaceName'           => 'WorkspaceName',
     ];
 
     public function validate()
@@ -158,6 +164,9 @@ class data extends Model
         }
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
+        }
+        if (null !== $this->openOfflineAcceleration) {
+            $res['OpenOfflineAcceleration'] = $this->openOfflineAcceleration;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -206,6 +215,9 @@ class data extends Model
         }
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
+        }
+        if (isset($map['OpenOfflineAcceleration'])) {
+            $model->openOfflineAcceleration = $map['OpenOfflineAcceleration'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
