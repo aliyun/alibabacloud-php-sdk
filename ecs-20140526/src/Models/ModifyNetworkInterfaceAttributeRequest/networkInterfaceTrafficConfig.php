@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaceTrafficConfig extends Model
 {
     /**
+     * @example HighPerformance
+     *
      * @var string
      */
     public $networkInterfaceTrafficMode;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $queueNumber;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $queuePairNumber;
 
     /**
+     * @example 8192
+     *
      * @var int
      */
     public $rxQueueSize;
 
     /**
+     * @example 8192
+     *
      * @var int
      */
     public $txQueueSize;

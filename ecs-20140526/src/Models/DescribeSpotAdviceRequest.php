@@ -33,9 +33,8 @@ class DescribeSpotAdviceRequest extends Model
      *   NVIDIA T4
      *   NVIDIA P100
      *   NVIDIA V100
-     *   NVIDIA A100
      *
-     * This parameter is left empty by default, which indicates that all GPU types are queried. For more information, see [GPU-accelerated compute optimized instance types](https://help.aliyun.com/document_detail/108496.html).
+     * This parameter is left empty by default, which indicates that all GPU types are queried. For more information, see [GPU-accelerated compute-optimized and vGPU-accelerated instance families](https://help.aliyun.com/document_detail/108496.html).
      * @example NVIDIA T4
      *
      * @var string

@@ -293,6 +293,13 @@ class RunCommandShrinkRequest extends Model
     public $tag;
 
     /**
+     * @description Specifies how to stop the command task when a command execution is manually stopped or times out. Valid values:
+     *
+     *   Process: stops the process of the command.
+     *   ProcessTree: stops the process tree of the command. In this case, the process of the command and all subprocesses of the process are stopped.
+     *
+     * @example ProcessTree
+     *
      * @var string
      */
     public $terminationMode;

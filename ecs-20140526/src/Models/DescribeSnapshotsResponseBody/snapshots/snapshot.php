@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
-     * @description Indicates whether the snapshot can be used to create or roll back disks. Valid values:
+     * @description Indicates whether the snapshot can be used to create or roll back a disk. Valid values:
      *
      *   true
      *   false
@@ -24,7 +24,7 @@ class snapshot extends Model
     /**
      * @description The category of the snapshot.
      *
-     * >  This parameter will be removed in the future. We recommend that you use `InstantAccess` to ensure future compatibility.
+     * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use `InstantAccess`.
      * @example standard
      *
      * @var string
@@ -61,7 +61,7 @@ class snapshot extends Model
     /**
      * @description Indicates whether the instant access feature is enabled. Valid values:
      *
-     *   true: The instant access feature is enabled. The instant access feature can be enabled only for enhanced SSDs (ESSDs).
+     *   true: The instant access feature is enabled. By default, the instant access feature is enabled for Enterprise SSDs (ESSDs).
      *   false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
      *
      * @example false
@@ -73,7 +73,7 @@ class snapshot extends Model
     /**
      * @description Indicates the validity period of the instant access feature. When the specified period expires, the instant access feature is automatically disabled.
      *
-     * By default, the value of this parameter is the same as the value of `RetentionDays`.
+     * >  This parameter is deprecated. The normal snapshots of ESSDs are upgraded to support the instant access feature by default. No additional configurations are required to enable the feature and you are not charged for the feature. For more information, see [Use the instant access feature](https://help.aliyun.com/document_detail/193667.html).
      * @example 30
      *
      * @var int
@@ -81,7 +81,7 @@ class snapshot extends Model
     public $instantAccessRetentionDays;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key used for the data disk.
+     * @description The ID of the KMS key used for the data disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -117,7 +117,7 @@ class snapshot extends Model
     public $progress;
 
     /**
-     * @description The ID of the region to which the snapshot belongs.
+     * @description The region ID of the snapshot.
      *
      * @example cn-hangzhou
      *
@@ -135,7 +135,7 @@ class snapshot extends Model
     public $remainTime;
 
     /**
-     * @description The resource group ID to which the snapshot belongs.
+     * @description The ID of the resource group to which the snapshot belongs.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -162,6 +162,11 @@ class snapshot extends Model
     public $snapshotId;
 
     /**
+     * @var string
+     */
+    public $snapshotLinkId;
+
+    /**
      * @description The name of the snapshot. This parameter is returned only if a snapshot name was specified when the snapshot was created.
      *
      * @example testSnapshotName
@@ -180,7 +185,7 @@ class snapshot extends Model
     public $snapshotSN;
 
     /**
-     * @description The type of snapshot. Valid values:
+     * @description The type of the snapshot. Valid values:
      *
      *   auto or timer: automatic snapshot
      *   user: manual snapshot
@@ -243,7 +248,7 @@ class snapshot extends Model
     /**
      * @description The category of the source disk.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
      * @example disk
      *
      * @var string
@@ -300,6 +305,7 @@ class snapshot extends Model
         'resourceGroupId'            => 'ResourceGroupId',
         'retentionDays'              => 'RetentionDays',
         'snapshotId'                 => 'SnapshotId',
+        'snapshotLinkId'             => 'SnapshotLinkId',
         'snapshotName'               => 'SnapshotName',
         'snapshotSN'                 => 'SnapshotSN',
         'snapshotType'               => 'SnapshotType',
@@ -368,6 +374,9 @@ class snapshot extends Model
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
+        }
+        if (null !== $this->snapshotLinkId) {
+            $res['SnapshotLinkId'] = $this->snapshotLinkId;
         }
         if (null !== $this->snapshotName) {
             $res['SnapshotName'] = $this->snapshotName;
@@ -464,6 +473,9 @@ class snapshot extends Model
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
+        }
+        if (isset($map['SnapshotLinkId'])) {
+            $model->snapshotLinkId = $map['SnapshotLinkId'];
         }
         if (isset($map['SnapshotName'])) {
             $model->snapshotName = $map['SnapshotName'];
