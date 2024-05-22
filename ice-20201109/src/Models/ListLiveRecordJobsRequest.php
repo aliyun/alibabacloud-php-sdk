@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordJobsRequest extends Model
 {
     /**
+     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2022-07-11T08:00:00Z
      *
      * @var string
@@ -44,6 +46,8 @@ class ListLiveRecordJobsRequest extends Model
     public $sortBy;
 
     /**
+     * @description Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     *
      * @example 2022-07-15T08:00:00Z
      *
      * @var string

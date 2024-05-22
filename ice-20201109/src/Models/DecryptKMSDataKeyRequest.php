@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DecryptKMSDataKeyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901qOjop4bTS****
      *
      * @var string

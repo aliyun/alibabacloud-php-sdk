@@ -16,6 +16,8 @@ class SubmitCustomizedVoiceJobRequest extends Model
     public $demoAudioMediaURL;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xiaozhuan
      *
      * @var string

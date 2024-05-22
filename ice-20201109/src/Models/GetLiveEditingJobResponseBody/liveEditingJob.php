@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class liveEditingJob extends Model
 {
     /**
-     * @example [{\"StartTime\": \" 2021-06-21T08:01:00Z\",  \"EndTime\": \" 2021-06-21T08:03:00Z\" }]
+     * @example [{\\"StartTime\\": \\" 2021-06-21T08:01:00Z\\",  \\"EndTime\\": \\" 2021-06-21T08:03:00Z\\" }]
      *
      * @var string
      */
@@ -104,7 +104,7 @@ class liveEditingJob extends Model
     public $status;
 
     /**
-     * @example {"key": "value\"}
+     * @example {"key": "value\\"}
      *
      * @var string
      */

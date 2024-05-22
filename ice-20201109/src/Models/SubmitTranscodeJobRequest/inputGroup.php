@@ -16,6 +16,8 @@ class inputGroup extends Model
     public $inputUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss://bucket/path/to/video.mp4
      *
      * @var string
@@ -23,6 +25,8 @@ class inputGroup extends Model
     public $media;
 
     /**
+     * @description This parameter is required.
+     *
      * @example OSS
      *
      * @var string

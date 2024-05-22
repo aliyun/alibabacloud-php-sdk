@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeMeterImsMediaConvertUHDUsageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1656995036
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeMeterImsMediaConvertUHDUsageRequest extends Model
     public $endTs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3600
      *
      * @var string
@@ -30,6 +34,8 @@ class DescribeMeterImsMediaConvertUHDUsageRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1654403036
      *
      * @var int

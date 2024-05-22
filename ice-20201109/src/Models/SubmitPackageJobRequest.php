@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitPackageJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var inputs[]
      */
     public $inputs;
@@ -24,6 +26,8 @@ class SubmitPackageJobRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var output
      */
     public $output;

@@ -23,6 +23,8 @@ class UpdateLiveSnapshotTemplateRequest extends Model
     public $sequenceFormat;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -30,11 +32,15 @@ class UpdateLiveSnapshotTemplateRequest extends Model
     public $templateId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5
      *
      * @var int

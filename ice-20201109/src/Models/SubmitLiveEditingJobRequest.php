@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveEditingJobRequest extends Model
 {
     /**
-     * @example [{\"StartTime\": \" 2021-06-21T08:01:00Z\",  \"EndTime\": \" 2021-06-21T08:03:00Z\" ,  "AppName": "app", "DomainName": "domain.com", "StreamName": "stream"},  {\"StartTime\": \" 2021-06-21T08:05:00Z\",  \"EndTime\": \" 2021-06-21T08:09:00Z\" }]
+     * @description This parameter is required.
+     *
+     * @example [{\\"StartTime\\": \\" 2021-06-21T08:01:00Z\\",  \\"EndTime\\": \\" 2021-06-21T08:03:00Z\\" ,  "AppName": "app", "DomainName": "domain.com", "StreamName": "stream"},  {\\"StartTime\\": \\" 2021-06-21T08:05:00Z\\",  \\"EndTime\\": \\" 2021-06-21T08:09:00Z\\" }]
      *
      * @var string
      */

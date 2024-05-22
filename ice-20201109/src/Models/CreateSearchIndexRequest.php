@@ -21,6 +21,8 @@ class CreateSearchIndexRequest extends Model
     public $indexStatus;
 
     /**
+     * @description This parameter is required.
+     *
      * @example mm
      *
      * @var string

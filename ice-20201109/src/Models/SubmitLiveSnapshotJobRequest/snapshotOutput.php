@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class snapshotOutput extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example testbucket
      *
      * @var string
@@ -16,6 +18,8 @@ class snapshotOutput extends Model
     public $bucket;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -23,6 +27,8 @@ class snapshotOutput extends Model
     public $endpoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss
      *
      * @var string

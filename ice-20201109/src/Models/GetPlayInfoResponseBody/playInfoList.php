@@ -135,7 +135,7 @@ class playInfoList extends Model
     public $status;
 
     /**
-     * @example "{\"ims.audioServiceType\": \"AudioEnhancement\"}"
+     * @example "{\\"ims.audioServiceType\\": \\"AudioEnhancement\\"}"
      *
      * @var string
      */

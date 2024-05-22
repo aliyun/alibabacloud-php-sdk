@@ -65,7 +65,7 @@ class projectList extends Model
     public $errorCode;
 
     /**
-     * @example "EventTime":"2021-08-12T10:04:15Z","ErrorCode":"InvalidParameter","ErrorMessage":"The specified parameter \"LiveStreamConfig\" is not valid. specified parameter example is not valid.
+     * @example "EventTime":"2021-08-12T10:04:15Z","ErrorCode":"InvalidParameter","ErrorMessage":"The specified parameter \\"LiveStreamConfig\\" is not valid. specified parameter example is not valid.
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-template
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateCustomTemplateRequest extends Model
     public $subtype;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateCustomTemplateRequest extends Model
     public $templateConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

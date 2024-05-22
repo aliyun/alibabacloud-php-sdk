@@ -35,6 +35,8 @@ class SubmitDynamicChartJobRequest extends Model
     public $chartTitle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Line
      *
      * @var string
@@ -52,6 +54,8 @@ class SubmitDynamicChartJobRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"XlsFile":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/obj.xls"}
      *
      * @var string
@@ -59,6 +63,8 @@ class SubmitDynamicChartJobRequest extends Model
     public $input;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"MediaURL":"https://your-bucket.oss-cn-shanghai.aliyuncs.com/obj.mp4","Bitrate":2000,"Width":800,"Height":680}
      *
      * @var string

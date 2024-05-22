@@ -33,6 +33,8 @@ class SubmitMediaProducingJobRequest extends Model
     public $mediaMetadata;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"MediaURL":"https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4"}
      *
      * @var string

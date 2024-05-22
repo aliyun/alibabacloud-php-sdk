@@ -16,6 +16,8 @@ class transcodeOutput extends Model
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LiveCenter
      *
      * @var string

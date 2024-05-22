@@ -12,6 +12,7 @@ class UpdateLiveRecordTemplateRequest extends Model
     /**
      * @description 代表资源名称的资源属性字段
      *
+     * This parameter is required.
      * @example test template
      *
      * @var string
@@ -21,6 +22,7 @@ class UpdateLiveRecordTemplateRequest extends Model
     /**
      * @description 录制格式
      *
+     * This parameter is required.
      * @var recordFormat[]
      */
     public $recordFormat;
@@ -28,6 +30,7 @@ class UpdateLiveRecordTemplateRequest extends Model
     /**
      * @description 代表资源一级ID的资源属性字段
      *
+     * This parameter is required.
      * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
      *
      * @var string

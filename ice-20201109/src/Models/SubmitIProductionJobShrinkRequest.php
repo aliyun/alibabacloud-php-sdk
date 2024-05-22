@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitIProductionJobShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Cover
      *
      * @var string
@@ -16,6 +18,8 @@ class SubmitIProductionJobShrinkRequest extends Model
     public $functionName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $inputShrink;
@@ -33,6 +37,8 @@ class SubmitIProductionJobShrinkRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $outputShrink;

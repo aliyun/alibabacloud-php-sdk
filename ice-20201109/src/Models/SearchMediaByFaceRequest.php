@@ -16,6 +16,8 @@ class SearchMediaByFaceRequest extends Model
     public $entityId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zxtest-huangxuan-2023-3-7-V1
      *
      * @var string
@@ -42,6 +44,8 @@ class SearchMediaByFaceRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://****.oss-cn-shanghai.aliyuncs.com/input/huangxuan****.jpg
      *
      * @var string

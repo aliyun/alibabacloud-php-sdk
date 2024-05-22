@@ -16,7 +16,7 @@ class SearchPublicMediaInfoRequest extends Model
     public $authorized;
 
     /**
-     * @example "ApprovalStatus=\"Available\"&amp;MaterialBags=\"boutiquemusic\"&amp;Mood=\"Nervous\""
+     * @example "ApprovalStatus=\\"Available\\"&amp;MaterialBags=\\"boutiquemusic\\"&amp;Mood=\\"Nervous\\""
      *
      * @var string
      */

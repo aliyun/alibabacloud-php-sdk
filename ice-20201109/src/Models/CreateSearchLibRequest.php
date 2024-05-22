@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSearchLibRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test1
      *
      * @var string

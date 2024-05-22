@@ -16,6 +16,8 @@ class SubmitDNAJobShrinkRequest extends Model
     public $config;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2288c6ca184c0e47098a5b665e2a12****
      *
      * @var string
@@ -23,6 +25,8 @@ class SubmitDNAJobShrinkRequest extends Model
     public $DBId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $inputShrink;
@@ -45,6 +49,8 @@ class SubmitDNAJobShrinkRequest extends Model
     public $pipelineId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3ca84a39a9024f19853b21be9cf9****
      *
      * @var string

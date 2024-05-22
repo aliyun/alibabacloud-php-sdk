@@ -11,6 +11,7 @@ class CreateLiveRecordTemplateShrinkRequest extends Model
     /**
      * @description 代表资源名称的资源属性字段
      *
+     * This parameter is required.
      * @var string
      */
     public $name;
@@ -18,6 +19,7 @@ class CreateLiveRecordTemplateShrinkRequest extends Model
     /**
      * @description 录制格式
      *
+     * This parameter is required.
      * @var string
      */
     public $recordFormatShrink;

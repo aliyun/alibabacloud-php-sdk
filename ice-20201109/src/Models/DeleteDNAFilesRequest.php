@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDNAFilesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example fb712a6890464059b1b2ea7c8647****
      *
      * @var string
@@ -26,6 +28,8 @@ class DeleteDNAFilesRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 41e6536e4f2250e2e9bf26cdea19****
      *
      * @var string

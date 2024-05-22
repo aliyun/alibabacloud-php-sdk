@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InsertMediaToSearchLibRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example http://example-test-****.mp4
      *
      * @var string

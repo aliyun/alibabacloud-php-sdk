@@ -14,6 +14,8 @@ class CreateAvatarTrainingJobRequest extends Model
     public $avatarDescription;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $avatarName;

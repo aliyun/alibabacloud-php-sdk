@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMediaIndexJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example c2e77390f75271ec802f0674a2ce6***
      *
      * @var string

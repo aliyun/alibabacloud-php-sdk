@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaToSearchLibRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ****019b82e24b37a1c2958dec38****
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateMediaToSearchLibRequest extends Model
     public $mediaId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {}
      *
      * @var string

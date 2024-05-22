@@ -51,6 +51,8 @@ class ListSystemTemplatesRequest extends Model
     public $templateId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1,2
      *
      * @var string

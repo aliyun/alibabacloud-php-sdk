@@ -16,21 +16,29 @@ class SubmitLiveSnapshotJobShrinkRequest extends Model
     public $callbackUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $snapshotOutputShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $streamInputShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string

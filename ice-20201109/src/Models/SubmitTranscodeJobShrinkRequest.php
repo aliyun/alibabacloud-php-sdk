@@ -14,6 +14,8 @@ class SubmitTranscodeJobShrinkRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $inputGroupShrink;
@@ -26,6 +28,8 @@ class SubmitTranscodeJobShrinkRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $outputGroupShrink;

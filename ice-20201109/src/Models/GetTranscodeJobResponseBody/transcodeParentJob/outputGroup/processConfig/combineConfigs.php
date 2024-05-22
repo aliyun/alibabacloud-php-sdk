@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class combineConfigs extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 0 或 exclude
      *
      * @var string
@@ -30,6 +32,8 @@ class combineConfigs extends Model
     public $start;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0 或 exclude
      *
      * @var string

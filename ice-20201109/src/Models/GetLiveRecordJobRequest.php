@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLiveRecordJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
      *
      * @var string

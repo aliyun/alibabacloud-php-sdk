@@ -64,7 +64,7 @@ class jobList extends Model
     public $input;
 
     /**
-     * @example "The resource operated \"a887d0b***d805ef6f7f6786302\" cannot be found"
+     * @example "The resource operated \\"a887d0b***d805ef6f7f6786302\\" cannot be found"
      *
      * @var string
      */

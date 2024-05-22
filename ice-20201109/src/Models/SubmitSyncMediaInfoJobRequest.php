@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitSyncMediaInfoJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var input
      */
     public $input;

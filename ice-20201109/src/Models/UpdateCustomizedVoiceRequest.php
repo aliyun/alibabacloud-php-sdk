@@ -16,6 +16,8 @@ class UpdateCustomizedVoiceRequest extends Model
     public $demoAudioMediaId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xiaozhuan
      *
      * @var string

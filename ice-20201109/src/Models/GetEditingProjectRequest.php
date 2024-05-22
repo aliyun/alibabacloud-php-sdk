@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetEditingProjectRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ****fb2101bf24b2754cb318787dc****
      *
      * @var string

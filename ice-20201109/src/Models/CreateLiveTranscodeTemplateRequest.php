@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveTranscodeTemplateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example my template
      *
      * @var string
@@ -22,6 +24,8 @@ class CreateLiveTranscodeTemplateRequest extends Model
     public $templateConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example normal
      *
      * @var string

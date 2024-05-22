@@ -16,6 +16,8 @@ class SubmitAudioProduceJobRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"voice":"Siqi","format":"MP3","volume":50}
      *
      * @var string
@@ -23,6 +25,8 @@ class SubmitAudioProduceJobRequest extends Model
     public $editingConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 测试文本
      *
      * @var string
@@ -30,6 +34,8 @@ class SubmitAudioProduceJobRequest extends Model
     public $inputConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"bucket":"bucket","object":"objeck"}
      *
      * @var string

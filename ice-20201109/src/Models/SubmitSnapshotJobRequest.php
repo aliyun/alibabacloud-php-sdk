@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitSnapshotJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var input
      */
     public $input;
@@ -25,6 +27,8 @@ class SubmitSnapshotJobRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var output
      */
     public $output;
@@ -35,6 +39,8 @@ class SubmitSnapshotJobRequest extends Model
     public $scheduleConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var templateConfig
      */
     public $templateConfig;

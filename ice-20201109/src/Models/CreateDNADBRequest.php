@@ -21,6 +21,8 @@ class CreateDNADBRequest extends Model
     public $model;
 
     /**
+     * @description This parameter is required.
+     *
      * @example example name
      *
      * @var string

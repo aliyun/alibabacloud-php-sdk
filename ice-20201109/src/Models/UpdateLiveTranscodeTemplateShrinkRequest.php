@@ -19,6 +19,8 @@ class UpdateLiveTranscodeTemplateShrinkRequest extends Model
     public $templateConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ****96e8864746a0b6f3****
      *
      * @var string

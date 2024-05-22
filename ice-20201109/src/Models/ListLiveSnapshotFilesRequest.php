@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLiveSnapshotFilesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-02-02T23:59:59Z
      *
      * @var string
@@ -16,6 +18,8 @@ class ListLiveSnapshotFilesRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -37,6 +41,8 @@ class ListLiveSnapshotFilesRequest extends Model
     public $sortBy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-02-02T00:00:00Z
      *
      * @var string

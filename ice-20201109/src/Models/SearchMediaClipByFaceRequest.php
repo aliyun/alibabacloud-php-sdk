@@ -16,6 +16,8 @@ class SearchMediaClipByFaceRequest extends Model
     public $entityId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zxtest-huangxuan-2023-3-7-V1
      *
      * @var string
@@ -23,6 +25,8 @@ class SearchMediaClipByFaceRequest extends Model
     public $faceSearchToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3b187b3620c8490886cfc2a9578c****
      *
      * @var string

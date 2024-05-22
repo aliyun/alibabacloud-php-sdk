@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAuditRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example [
      * {
      * "MediaId": "93ab850b4f*****b54b6e91d24d81d4",

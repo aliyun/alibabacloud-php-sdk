@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitIProductionJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Cover
      *
      * @var string
@@ -19,6 +21,8 @@ class SubmitIProductionJobRequest extends Model
     public $functionName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var input
      */
     public $input;
@@ -36,6 +40,8 @@ class SubmitIProductionJobRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var output
      */
     public $output;

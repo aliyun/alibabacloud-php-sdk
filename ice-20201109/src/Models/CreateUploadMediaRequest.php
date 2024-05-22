@@ -23,28 +23,28 @@ class CreateUploadMediaRequest extends Model
     public $entityId;
 
     /**
-     * @example {\"Type\":\"video\",\"Name\":\"test.mp4\",\"Size\":108078336,\"Ext\":\"mp4\"}
+     * @example {\\"Type\\":\\"video\\",\\"Name\\":\\"test.mp4\\",\\"Size\\":108078336,\\"Ext\\":\\"mp4\\"}
      *
      * @var string
      */
     public $fileInfo;
 
     /**
-     * @example {\"Title\": \"UploadTest\", \"Description\": \"UploadImageTest\", \"Tags\": \"tag1,tag2\",\"BusinessType\":\"cover\"}
+     * @example {\\"Title\\": \\"UploadTest\\", \\"Description\\": \\"UploadImageTest\\", \\"Tags\\": \\"tag1,tag2\\",\\"BusinessType\\":\\"cover\\"}
      *
      * @var string
      */
     public $mediaMetaData;
 
     /**
-     * @example {\"ProcessType\":\"Workflow\",\"ProcessID\":\"74ba870f1a4873a3ba238e0bf6fa9***\"}
+     * @example {\\"ProcessType\\":\\"Workflow\\",\\"ProcessID\\":\\"74ba870f1a4873a3ba238e0bf6fa9***\\"}
      *
      * @var string
      */
     public $postProcessConfig;
 
     /**
-     * @example {\"StorageType\":\"oss\",\"StorageLocation\":\"outin-***.oss-cn-shanghai.aliyuncs.com\"}
+     * @example {\\"StorageType\\":\\"oss\\",\\"StorageLocation\\":\\"outin-***.oss-cn-shanghai.aliyuncs.com\\"}
      *
      * @var string
      */

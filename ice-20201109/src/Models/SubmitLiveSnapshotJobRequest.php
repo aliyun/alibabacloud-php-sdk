@@ -18,21 +18,29 @@ class SubmitLiveSnapshotJobRequest extends Model
     public $callbackUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var snapshotOutput
      */
     public $snapshotOutput;
 
     /**
+     * @description This parameter is required.
+     *
      * @var streamInput
      */
     public $streamInput;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string

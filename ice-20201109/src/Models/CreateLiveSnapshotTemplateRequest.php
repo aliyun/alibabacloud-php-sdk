@@ -23,11 +23,15 @@ class CreateLiveSnapshotTemplateRequest extends Model
     public $sequenceFormat;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5
      *
      * @var int

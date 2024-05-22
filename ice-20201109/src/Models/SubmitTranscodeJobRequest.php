@@ -17,6 +17,8 @@ class SubmitTranscodeJobRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var inputGroup[]
      */
     public $inputGroup;
@@ -29,6 +31,8 @@ class SubmitTranscodeJobRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var outputGroup[]
      */
     public $outputGroup;

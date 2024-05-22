@@ -35,6 +35,8 @@ class UpdateEditingProjectRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ****4ee4b97e27b525142a6b2****
      *
      * @var string

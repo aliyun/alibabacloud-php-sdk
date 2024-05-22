@@ -23,6 +23,8 @@ class recordOutput extends Model
     public $endpoint;
 
     /**
+     * @description This parameter is required.
+     *
      * @example oss
      *
      * @var string

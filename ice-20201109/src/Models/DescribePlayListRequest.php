@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1676170500011
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribePlayListRequest extends Model
     public $beginTs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1682474405173
      *
      * @var string
@@ -37,6 +41,8 @@ class DescribePlayListRequest extends Model
     public $orderType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +50,8 @@ class DescribePlayListRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

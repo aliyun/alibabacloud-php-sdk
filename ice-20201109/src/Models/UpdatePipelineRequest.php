@@ -16,6 +16,8 @@ class UpdatePipelineRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ****d80e4e4044975745c14b****
      *
      * @var string

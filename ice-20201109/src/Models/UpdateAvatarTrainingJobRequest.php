@@ -19,6 +19,8 @@ class UpdateAvatarTrainingJobRequest extends Model
     public $avatarName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ****cdb3e74639973036bc84****
      *
      * @var string

@@ -18,6 +18,7 @@ class recordFormat extends Model
     /**
      * @description 格式
      *
+     * This parameter is required.
      * @example m3u8
      *
      * @var string

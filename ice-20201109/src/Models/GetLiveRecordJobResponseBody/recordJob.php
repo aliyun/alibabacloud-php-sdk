@@ -13,6 +13,7 @@ class recordJob extends Model
     /**
      * @description 代表创建时间的资源属性字段
      *
+     * Use the UTC time format: yyyy-MM-ddTHH:mmZ
      * @example 2022-07-20T02:48:58Z
      *
      * @var string

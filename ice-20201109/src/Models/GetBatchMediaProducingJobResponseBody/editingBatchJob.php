@@ -29,7 +29,7 @@ class editingBatchJob extends Model
     /**
      * @example {
      * "ErrorCode": "InvalidMaterial.NotFound",
-     * "ErrorMessage": "The specified clips id not found:[\"****30d0b5e871eebb2ff7f6c75a****\"]"
+     * "ErrorMessage": "The specified clips id not found:[\\"****30d0b5e871eebb2ff7f6c75a****\\"]"
      * }
      * @var string
      */

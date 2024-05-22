@@ -15,6 +15,8 @@ class imageWatermarks extends Model
     public $overwriteParams;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9547c6ad97cb4f2aaa29683ebd18d410
      *
      * @var string

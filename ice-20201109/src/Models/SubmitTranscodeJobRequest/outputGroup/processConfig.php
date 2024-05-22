@@ -40,6 +40,8 @@ class processConfig extends Model
     public $textWatermarks;
 
     /**
+     * @description This parameter is required.
+     *
      * @var transcode
      */
     public $transcode;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveSnapshotFilesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $createTimestampList;
@@ -21,6 +23,8 @@ class DeleteLiveSnapshotFilesRequest extends Model
     public $deleteOriginalFile;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string

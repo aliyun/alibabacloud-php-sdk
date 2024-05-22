@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class output extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example oss://bucket/path/to/video.mp4
      *
      * @var string
@@ -16,6 +18,8 @@ class output extends Model
     public $media;
 
     /**
+     * @description This parameter is required.
+     *
      * @example OSS
      *
      * @var string

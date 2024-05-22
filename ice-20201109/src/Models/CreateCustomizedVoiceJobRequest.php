@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomizedVoiceJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example female
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCustomizedVoiceJobRequest extends Model
     public $gender;
 
     /**
+     * @description This parameter is required.
+     *
      * @example story
      *
      * @var string
@@ -28,6 +32,8 @@ class CreateCustomizedVoiceJobRequest extends Model
     public $voiceDesc;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xiaozhuan
      *
      * @var string

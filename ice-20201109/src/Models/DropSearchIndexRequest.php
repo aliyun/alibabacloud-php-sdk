@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DropSearchIndexRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example mm
      *
      * @var string

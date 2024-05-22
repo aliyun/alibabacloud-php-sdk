@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class transcodeOutput extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example mydomain
      *
      * @var string
@@ -16,6 +18,8 @@ class transcodeOutput extends Model
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example LiveCenter
      *
      * @var string

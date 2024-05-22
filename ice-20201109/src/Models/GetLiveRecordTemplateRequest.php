@@ -16,6 +16,8 @@ class GetLiveRecordTemplateRequest extends Model
     public $jobId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
      *
      * @var string

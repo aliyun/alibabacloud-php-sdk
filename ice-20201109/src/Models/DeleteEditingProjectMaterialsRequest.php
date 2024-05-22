@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEditingProjectMaterialsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example *****cbd721b418a89a7dafb1dc*****,*****86f5d534c95997c55c96f*****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteEditingProjectMaterialsRequest extends Model
     public $materialIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example video
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteEditingProjectMaterialsRequest extends Model
     public $materialType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example *****fb2101cb318*****
      *
      * @var string

@@ -507,10 +507,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AddCategoryRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 创建媒资分类
+     *  *
+     * @param AddCategoryRequest $request AddCategoryRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddCategoryResponse
+     * @return AddCategoryResponse AddCategoryResponse
      */
     public function addCategoryWithOptions($request, $runtime)
     {
@@ -544,9 +546,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AddCategoryRequest $request
+     * @summary 创建媒资分类
+     *  *
+     * @param AddCategoryRequest $request AddCategoryRequest
      *
-     * @return AddCategoryResponse
+     * @return AddCategoryResponse AddCategoryResponse
      */
     public function addCategory($request)
     {
@@ -556,10 +560,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AddEditingProjectMaterialsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 剪辑工程增加素材
+     *  *
+     * @param AddEditingProjectMaterialsRequest $request AddEditingProjectMaterialsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddEditingProjectMaterialsResponse
+     * @return AddEditingProjectMaterialsResponse AddEditingProjectMaterialsResponse
      */
     public function addEditingProjectMaterialsWithOptions($request, $runtime)
     {
@@ -590,9 +596,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AddEditingProjectMaterialsRequest $request
+     * @summary 剪辑工程增加素材
+     *  *
+     * @param AddEditingProjectMaterialsRequest $request AddEditingProjectMaterialsRequest
      *
-     * @return AddEditingProjectMaterialsResponse
+     * @return AddEditingProjectMaterialsResponse AddEditingProjectMaterialsResponse
      */
     public function addEditingProjectMaterials($request)
     {
@@ -602,10 +610,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AddFavoritePublicMediaRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 收藏公共媒资
+     *  *
+     * @param AddFavoritePublicMediaRequest $request AddFavoritePublicMediaRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddFavoritePublicMediaResponse
+     * @return AddFavoritePublicMediaResponse AddFavoritePublicMediaResponse
      */
     public function addFavoritePublicMediaWithOptions($request, $runtime)
     {
@@ -633,9 +643,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AddFavoritePublicMediaRequest $request
+     * @summary 收藏公共媒资
+     *  *
+     * @param AddFavoritePublicMediaRequest $request AddFavoritePublicMediaRequest
      *
-     * @return AddFavoritePublicMediaResponse
+     * @return AddFavoritePublicMediaResponse AddFavoritePublicMediaResponse
      */
     public function addFavoritePublicMedia($request)
     {
@@ -645,10 +657,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AddMediaMarksRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 为媒资增加标注信息
+     *  *
+     * @param AddMediaMarksRequest $request AddMediaMarksRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddMediaMarksResponse
+     * @return AddMediaMarksResponse AddMediaMarksResponse
      */
     public function addMediaMarksWithOptions($request, $runtime)
     {
@@ -679,9 +693,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AddMediaMarksRequest $request
+     * @summary 为媒资增加标注信息
+     *  *
+     * @param AddMediaMarksRequest $request AddMediaMarksRequest
      *
-     * @return AddMediaMarksResponse
+     * @return AddMediaMarksResponse AddMediaMarksResponse
      */
     public function addMediaMarks($request)
     {
@@ -691,10 +707,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AddTemplateRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary AddTemplate
+     *  *
+     * @param AddTemplateRequest $request AddTemplateRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTemplateResponse
+     * @return AddTemplateResponse AddTemplateResponse
      */
     public function addTemplateWithOptions($request, $runtime)
     {
@@ -745,9 +763,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AddTemplateRequest $request
+     * @summary AddTemplate
+     *  *
+     * @param AddTemplateRequest $request AddTemplateRequest
      *
-     * @return AddTemplateResponse
+     * @return AddTemplateResponse AddTemplateResponse
      */
     public function addTemplate($request)
     {
@@ -757,10 +777,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AlterSearchIndexRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 更新搜索索引
+     *  *
+     * @param AlterSearchIndexRequest $request AlterSearchIndexRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AlterSearchIndexResponse
+     * @return AlterSearchIndexResponse AlterSearchIndexResponse
      */
     public function alterSearchIndexWithOptions($request, $runtime)
     {
@@ -797,9 +819,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param AlterSearchIndexRequest $request
+     * @summary 更新搜索索引
+     *  *
+     * @param AlterSearchIndexRequest $request AlterSearchIndexRequest
      *
-     * @return AlterSearchIndexResponse
+     * @return AlterSearchIndexResponse AlterSearchIndexResponse
      */
     public function alterSearchIndex($request)
     {
@@ -809,10 +833,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param BatchGetMediaInfosRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 批量获取媒资信息
+     *  *
+     * @param BatchGetMediaInfosRequest $request BatchGetMediaInfosRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchGetMediaInfosResponse
+     * @return BatchGetMediaInfosResponse BatchGetMediaInfosResponse
      */
     public function batchGetMediaInfosWithOptions($request, $runtime)
     {
@@ -843,9 +869,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param BatchGetMediaInfosRequest $request
+     * @summary 批量获取媒资信息
+     *  *
+     * @param BatchGetMediaInfosRequest $request BatchGetMediaInfosRequest
      *
-     * @return BatchGetMediaInfosResponse
+     * @return BatchGetMediaInfosResponse BatchGetMediaInfosResponse
      */
     public function batchGetMediaInfos($request)
     {
@@ -855,10 +883,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CancelDNAJobRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 取消DNA作业
+     *  *
+     * @param CancelDNAJobRequest $request CancelDNAJobRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelDNAJobResponse
+     * @return CancelDNAJobResponse CancelDNAJobResponse
      */
     public function cancelDNAJobWithOptions($request, $runtime)
     {
@@ -898,9 +928,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CancelDNAJobRequest $request
+     * @summary 取消DNA作业
+     *  *
+     * @param CancelDNAJobRequest $request CancelDNAJobRequest
      *
-     * @return CancelDNAJobResponse
+     * @return CancelDNAJobResponse CancelDNAJobResponse
      */
     public function cancelDNAJob($request)
     {
@@ -910,10 +942,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CancelFavoritePublicMediaRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 取消收藏公共媒资
+     *  *
+     * @param CancelFavoritePublicMediaRequest $request CancelFavoritePublicMediaRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelFavoritePublicMediaResponse
+     * @return CancelFavoritePublicMediaResponse CancelFavoritePublicMediaResponse
      */
     public function cancelFavoritePublicMediaWithOptions($request, $runtime)
     {
@@ -941,9 +975,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CancelFavoritePublicMediaRequest $request
+     * @summary 取消收藏公共媒资
+     *  *
+     * @param CancelFavoritePublicMediaRequest $request CancelFavoritePublicMediaRequest
      *
-     * @return CancelFavoritePublicMediaResponse
+     * @return CancelFavoritePublicMediaResponse CancelFavoritePublicMediaResponse
      */
     public function cancelFavoritePublicMedia($request)
     {
@@ -953,10 +989,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateAuditRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 提交人工审核
+     *  *
+     * @param CreateAuditRequest $request CreateAuditRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAuditResponse
+     * @return CreateAuditResponse CreateAuditResponse
      */
     public function createAuditWithOptions($request, $runtime)
     {
@@ -984,9 +1022,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateAuditRequest $request
+     * @summary 提交人工审核
+     *  *
+     * @param CreateAuditRequest $request CreateAuditRequest
      *
-     * @return CreateAuditResponse
+     * @return CreateAuditResponse CreateAuditResponse
      */
     public function createAudit($request)
     {
@@ -996,10 +1036,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateAvatarTrainingJobRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 创建数字人训练任务
+     *  *
+     * @param CreateAvatarTrainingJobRequest $request CreateAvatarTrainingJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAvatarTrainingJobResponse
+     * @return CreateAvatarTrainingJobResponse CreateAvatarTrainingJobResponse
      */
     public function createAvatarTrainingJobWithOptions($request, $runtime)
     {
@@ -1045,9 +1087,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateAvatarTrainingJobRequest $request
+     * @summary 创建数字人训练任务
+     *  *
+     * @param CreateAvatarTrainingJobRequest $request CreateAvatarTrainingJobRequest
      *
-     * @return CreateAvatarTrainingJobResponse
+     * @return CreateAvatarTrainingJobResponse CreateAvatarTrainingJobResponse
      */
     public function createAvatarTrainingJob($request)
     {
@@ -1057,10 +1101,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 创建媒体处理自定义模板
+     *  *
+     * @param CreateCustomTemplateRequest $request CreateCustomTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomTemplateResponse
+     * @return CreateCustomTemplateResponse CreateCustomTemplateResponse
      */
     public function createCustomTemplateWithOptions($request, $runtime)
     {
@@ -1097,9 +1143,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomTemplateRequest $request
+     * @summary 创建媒体处理自定义模板
+     *  *
+     * @param CreateCustomTemplateRequest $request CreateCustomTemplateRequest
      *
-     * @return CreateCustomTemplateResponse
+     * @return CreateCustomTemplateResponse CreateCustomTemplateResponse
      */
     public function createCustomTemplate($request)
     {
@@ -1109,10 +1157,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomizedVoiceJobRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 创建人声克隆任务
+     *  *
+     * @param CreateCustomizedVoiceJobRequest $request CreateCustomizedVoiceJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCustomizedVoiceJobResponse
+     * @return CreateCustomizedVoiceJobResponse CreateCustomizedVoiceJobResponse
      */
     public function createCustomizedVoiceJobWithOptions($request, $runtime)
     {
@@ -1152,9 +1202,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateCustomizedVoiceJobRequest $request
+     * @summary 创建人声克隆任务
+     *  *
+     * @param CreateCustomizedVoiceJobRequest $request CreateCustomizedVoiceJobRequest
      *
-     * @return CreateCustomizedVoiceJobResponse
+     * @return CreateCustomizedVoiceJobResponse CreateCustomizedVoiceJobResponse
      */
     public function createCustomizedVoiceJob($request)
     {
@@ -1164,10 +1216,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateDNADBRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 创建指纹库
+     *  *
+     * @param CreateDNADBRequest $request CreateDNADBRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDNADBResponse
+     * @return CreateDNADBResponse CreateDNADBResponse
      */
     public function createDNADBWithOptions($request, $runtime)
     {
@@ -1213,9 +1267,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateDNADBRequest $request
+     * @summary 创建指纹库
+     *  *
+     * @param CreateDNADBRequest $request CreateDNADBRequest
      *
-     * @return CreateDNADBResponse
+     * @return CreateDNADBResponse CreateDNADBResponse
      */
     public function createDNADB($request)
     {
@@ -1225,10 +1281,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateEditingProjectRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 创建云剪辑工程
+     *  *
+     * @param CreateEditingProjectRequest $request CreateEditingProjectRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEditingProjectResponse
+     * @return CreateEditingProjectResponse CreateEditingProjectResponse
      */
     public function createEditingProjectWithOptions($request, $runtime)
     {
@@ -1285,9 +1343,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateEditingProjectRequest $request
+     * @summary 创建云剪辑工程
+     *  *
+     * @param CreateEditingProjectRequest $request CreateEditingProjectRequest
      *
-     * @return CreateEditingProjectResponse
+     * @return CreateEditingProjectResponse CreateEditingProjectResponse
      */
     public function createEditingProject($request)
     {
@@ -1297,10 +1357,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateLiveRecordTemplateRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 创建直播录制模板
+     *  *
+     * @param CreateLiveRecordTemplateRequest $tmpReq  CreateLiveRecordTemplateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLiveRecordTemplateResponse
+     * @return CreateLiveRecordTemplateResponse CreateLiveRecordTemplateResponse
      */
     public function createLiveRecordTemplateWithOptions($tmpReq, $runtime)
     {
@@ -1336,9 +1398,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateLiveRecordTemplateRequest $request
+     * @summary 创建直播录制模板
+     *  *
+     * @param CreateLiveRecordTemplateRequest $request CreateLiveRecordTemplateRequest
      *
-     * @return CreateLiveRecordTemplateResponse
+     * @return CreateLiveRecordTemplateResponse CreateLiveRecordTemplateResponse
      */
     public function createLiveRecordTemplate($request)
     {
@@ -1348,10 +1412,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateLiveSnapshotTemplateRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 创建直播截图模板
+     *  *
+     * @param CreateLiveSnapshotTemplateRequest $request CreateLiveSnapshotTemplateRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLiveSnapshotTemplateResponse
+     * @return CreateLiveSnapshotTemplateResponse CreateLiveSnapshotTemplateResponse
      */
     public function createLiveSnapshotTemplateWithOptions($request, $runtime)
     {
@@ -1388,9 +1454,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateLiveSnapshotTemplateRequest $request
+     * @summary 创建直播截图模板
+     *  *
+     * @param CreateLiveSnapshotTemplateRequest $request CreateLiveSnapshotTemplateRequest
      *
-     * @return CreateLiveSnapshotTemplateResponse
+     * @return CreateLiveSnapshotTemplateResponse CreateLiveSnapshotTemplateResponse
      */
     public function createLiveSnapshotTemplate($request)
     {
@@ -1400,10 +1468,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateLiveTranscodeTemplateRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * @summary 创建转码模版
+     *  *
+     * @param CreateLiveTranscodeTemplateRequest $tmpReq  CreateLiveTranscodeTemplateRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLiveTranscodeTemplateResponse
+     * @return CreateLiveTranscodeTemplateResponse CreateLiveTranscodeTemplateResponse
      */
     public function createLiveTranscodeTemplateWithOptions($tmpReq, $runtime)
     {
@@ -1442,9 +1512,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateLiveTranscodeTemplateRequest $request
+     * @summary 创建转码模版
+     *  *
+     * @param CreateLiveTranscodeTemplateRequest $request CreateLiveTranscodeTemplateRequest
      *
-     * @return CreateLiveTranscodeTemplateResponse
+     * @return CreateLiveTranscodeTemplateResponse CreateLiveTranscodeTemplateResponse
      */
     public function createLiveTranscodeTemplate($request)
     {
@@ -1454,10 +1526,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreatePipelineRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 添加用户管道配置
+     *  *
+     * @param CreatePipelineRequest $request CreatePipelineRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePipelineResponse
+     * @return CreatePipelineResponse CreatePipelineResponse
      */
     public function createPipelineWithOptions($request, $runtime)
     {
@@ -1491,9 +1565,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreatePipelineRequest $request
+     * @summary 添加用户管道配置
+     *  *
+     * @param CreatePipelineRequest $request CreatePipelineRequest
      *
-     * @return CreatePipelineResponse
+     * @return CreatePipelineResponse CreatePipelineResponse
      */
     public function createPipeline($request)
     {
@@ -1503,10 +1579,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateSearchIndexRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 创建搜索索引
+     *  *
+     * @param CreateSearchIndexRequest $request CreateSearchIndexRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSearchIndexResponse
+     * @return CreateSearchIndexResponse CreateSearchIndexResponse
      */
     public function createSearchIndexWithOptions($request, $runtime)
     {
@@ -1543,9 +1621,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateSearchIndexRequest $request
+     * @summary 创建搜索索引
+     *  *
+     * @param CreateSearchIndexRequest $request CreateSearchIndexRequest
      *
-     * @return CreateSearchIndexResponse
+     * @return CreateSearchIndexResponse CreateSearchIndexResponse
      */
     public function createSearchIndex($request)
     {
@@ -1555,10 +1635,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateSearchLibRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 创建库
+     *  *
+     * @param CreateSearchLibRequest $request CreateSearchLibRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSearchLibResponse
+     * @return CreateSearchLibResponse CreateSearchLibResponse
      */
     public function createSearchLibWithOptions($request, $runtime)
     {
@@ -1586,9 +1668,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateSearchLibRequest $request
+     * @summary 创建库
+     *  *
+     * @param CreateSearchLibRequest $request CreateSearchLibRequest
      *
-     * @return CreateSearchLibResponse
+     * @return CreateSearchLibResponse CreateSearchLibResponse
      */
     public function createSearchLib($request)
     {
@@ -1598,10 +1682,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateUploadMediaRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 本地媒资上传
+     *  *
+     * @param CreateUploadMediaRequest $request CreateUploadMediaRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUploadMediaResponse
+     * @return CreateUploadMediaResponse CreateUploadMediaResponse
      */
     public function createUploadMediaWithOptions($request, $runtime)
     {
@@ -1647,9 +1733,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateUploadMediaRequest $request
+     * @summary 本地媒资上传
+     *  *
+     * @param CreateUploadMediaRequest $request CreateUploadMediaRequest
      *
-     * @return CreateUploadMediaResponse
+     * @return CreateUploadMediaResponse CreateUploadMediaResponse
      */
     public function createUploadMedia($request)
     {
@@ -1659,10 +1747,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateUploadStreamRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 本地上传媒体流
+     *  *
+     * @param CreateUploadStreamRequest $request CreateUploadStreamRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUploadStreamResponse
+     * @return CreateUploadStreamResponse CreateUploadStreamResponse
      */
     public function createUploadStreamWithOptions($request, $runtime)
     {
@@ -1702,9 +1792,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param CreateUploadStreamRequest $request
+     * @summary 本地上传媒体流
+     *  *
+     * @param CreateUploadStreamRequest $request CreateUploadStreamRequest
      *
-     * @return CreateUploadStreamResponse
+     * @return CreateUploadStreamResponse CreateUploadStreamResponse
      */
     public function createUploadStream($request)
     {
@@ -1714,10 +1806,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DecryptKMSDataKeyRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 解密KMS密钥DataKey
+     *  *
+     * @param DecryptKMSDataKeyRequest $request DecryptKMSDataKeyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DecryptKMSDataKeyResponse
+     * @return DecryptKMSDataKeyResponse DecryptKMSDataKeyResponse
      */
     public function decryptKMSDataKeyWithOptions($request, $runtime)
     {
@@ -1745,9 +1839,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DecryptKMSDataKeyRequest $request
+     * @summary 解密KMS密钥DataKey
+     *  *
+     * @param DecryptKMSDataKeyRequest $request DecryptKMSDataKeyRequest
      *
-     * @return DecryptKMSDataKeyResponse
+     * @return DecryptKMSDataKeyResponse DecryptKMSDataKeyResponse
      */
     public function decryptKMSDataKey($request)
     {
@@ -1757,10 +1853,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteAvatarTrainingJobRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 更新数字人训练任务信息
+     *  *
+     * @param DeleteAvatarTrainingJobRequest $request DeleteAvatarTrainingJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAvatarTrainingJobResponse
+     * @return DeleteAvatarTrainingJobResponse DeleteAvatarTrainingJobResponse
      */
     public function deleteAvatarTrainingJobWithOptions($request, $runtime)
     {
@@ -1788,9 +1886,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteAvatarTrainingJobRequest $request
+     * @summary 更新数字人训练任务信息
+     *  *
+     * @param DeleteAvatarTrainingJobRequest $request DeleteAvatarTrainingJobRequest
      *
-     * @return DeleteAvatarTrainingJobResponse
+     * @return DeleteAvatarTrainingJobResponse DeleteAvatarTrainingJobResponse
      */
     public function deleteAvatarTrainingJob($request)
     {
@@ -1800,10 +1900,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteCategoryRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除媒资分类
+     *  *
+     * @param DeleteCategoryRequest $request DeleteCategoryRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCategoryResponse
+     * @return DeleteCategoryResponse DeleteCategoryResponse
      */
     public function deleteCategoryWithOptions($request, $runtime)
     {
@@ -1831,9 +1933,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteCategoryRequest $request
+     * @summary 删除媒资分类
+     *  *
+     * @param DeleteCategoryRequest $request DeleteCategoryRequest
      *
-     * @return DeleteCategoryResponse
+     * @return DeleteCategoryResponse DeleteCategoryResponse
      */
     public function deleteCategory($request)
     {
@@ -1843,10 +1947,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 删除媒体处理自定义模板
+     *  *
+     * @param DeleteCustomTemplateRequest $request DeleteCustomTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomTemplateResponse
+     * @return DeleteCustomTemplateResponse DeleteCustomTemplateResponse
      */
     public function deleteCustomTemplateWithOptions($request, $runtime)
     {
@@ -1874,9 +1980,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomTemplateRequest $request
+     * @summary 删除媒体处理自定义模板
+     *  *
+     * @param DeleteCustomTemplateRequest $request DeleteCustomTemplateRequest
      *
-     * @return DeleteCustomTemplateResponse
+     * @return DeleteCustomTemplateResponse DeleteCustomTemplateResponse
      */
     public function deleteCustomTemplate($request)
     {
@@ -1886,10 +1994,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomizedVoiceJobRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 删除用户的专属人声任务
+     *  *
+     * @param DeleteCustomizedVoiceJobRequest $request DeleteCustomizedVoiceJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomizedVoiceJobResponse
+     * @return DeleteCustomizedVoiceJobResponse DeleteCustomizedVoiceJobResponse
      */
     public function deleteCustomizedVoiceJobWithOptions($request, $runtime)
     {
@@ -1917,9 +2027,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomizedVoiceJobRequest $request
+     * @summary 删除用户的专属人声任务
+     *  *
+     * @param DeleteCustomizedVoiceJobRequest $request DeleteCustomizedVoiceJobRequest
      *
-     * @return DeleteCustomizedVoiceJobResponse
+     * @return DeleteCustomizedVoiceJobResponse DeleteCustomizedVoiceJobResponse
      */
     public function deleteCustomizedVoiceJob($request)
     {
@@ -1929,10 +2041,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteDNADBRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 删除DNA库
+     *  *
+     * @param DeleteDNADBRequest $request DeleteDNADBRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDNADBResponse
+     * @return DeleteDNADBResponse DeleteDNADBResponse
      */
     public function deleteDNADBWithOptions($request, $runtime)
     {
@@ -1972,9 +2086,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteDNADBRequest $request
+     * @summary 删除DNA库
+     *  *
+     * @param DeleteDNADBRequest $request DeleteDNADBRequest
      *
-     * @return DeleteDNADBResponse
+     * @return DeleteDNADBResponse DeleteDNADBResponse
      */
     public function deleteDNADB($request)
     {
@@ -1984,10 +2100,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteDNAFilesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除DNA文件
+     *  *
+     * @param DeleteDNAFilesRequest $request DeleteDNAFilesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDNAFilesResponse
+     * @return DeleteDNAFilesResponse DeleteDNAFilesResponse
      */
     public function deleteDNAFilesWithOptions($request, $runtime)
     {
@@ -2030,9 +2148,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteDNAFilesRequest $request
+     * @summary 删除DNA文件
+     *  *
+     * @param DeleteDNAFilesRequest $request DeleteDNAFilesRequest
      *
-     * @return DeleteDNAFilesResponse
+     * @return DeleteDNAFilesResponse DeleteDNAFilesResponse
      */
     public function deleteDNAFiles($request)
     {
@@ -2042,10 +2162,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteEditingProjectMaterialsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 删除剪辑工程关联素材
+     *  *
+     * @param DeleteEditingProjectMaterialsRequest $request DeleteEditingProjectMaterialsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEditingProjectMaterialsResponse
+     * @return DeleteEditingProjectMaterialsResponse DeleteEditingProjectMaterialsResponse
      */
     public function deleteEditingProjectMaterialsWithOptions($request, $runtime)
     {
@@ -2079,9 +2201,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteEditingProjectMaterialsRequest $request
+     * @summary 删除剪辑工程关联素材
+     *  *
+     * @param DeleteEditingProjectMaterialsRequest $request DeleteEditingProjectMaterialsRequest
      *
-     * @return DeleteEditingProjectMaterialsResponse
+     * @return DeleteEditingProjectMaterialsResponse DeleteEditingProjectMaterialsResponse
      */
     public function deleteEditingProjectMaterials($request)
     {
@@ -2091,10 +2215,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteEditingProjectsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 删除云剪辑工程
+     *  *
+     * @param DeleteEditingProjectsRequest $request DeleteEditingProjectsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEditingProjectsResponse
+     * @return DeleteEditingProjectsResponse DeleteEditingProjectsResponse
      */
     public function deleteEditingProjectsWithOptions($request, $runtime)
     {
@@ -2122,9 +2248,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteEditingProjectsRequest $request
+     * @summary 删除云剪辑工程
+     *  *
+     * @param DeleteEditingProjectsRequest $request DeleteEditingProjectsRequest
      *
-     * @return DeleteEditingProjectsResponse
+     * @return DeleteEditingProjectsResponse DeleteEditingProjectsResponse
      */
     public function deleteEditingProjects($request)
     {
@@ -2134,10 +2262,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveRecordFilesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 实时媒体服务-删除录制文件
+     *  *
+     * @param DeleteLiveRecordFilesRequest $request DeleteLiveRecordFilesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLiveRecordFilesResponse
+     * @return DeleteLiveRecordFilesResponse DeleteLiveRecordFilesResponse
      */
     public function deleteLiveRecordFilesWithOptions($request, $runtime)
     {
@@ -2168,9 +2298,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveRecordFilesRequest $request
+     * @summary 实时媒体服务-删除录制文件
+     *  *
+     * @param DeleteLiveRecordFilesRequest $request DeleteLiveRecordFilesRequest
      *
-     * @return DeleteLiveRecordFilesResponse
+     * @return DeleteLiveRecordFilesResponse DeleteLiveRecordFilesResponse
      */
     public function deleteLiveRecordFiles($request)
     {
@@ -2180,10 +2312,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveRecordTemplateRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 删除直播录制模板
+     *  *
+     * @param DeleteLiveRecordTemplateRequest $request DeleteLiveRecordTemplateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLiveRecordTemplateResponse
+     * @return DeleteLiveRecordTemplateResponse DeleteLiveRecordTemplateResponse
      */
     public function deleteLiveRecordTemplateWithOptions($request, $runtime)
     {
@@ -2211,9 +2345,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveRecordTemplateRequest $request
+     * @summary 删除直播录制模板
+     *  *
+     * @param DeleteLiveRecordTemplateRequest $request DeleteLiveRecordTemplateRequest
      *
-     * @return DeleteLiveRecordTemplateResponse
+     * @return DeleteLiveRecordTemplateResponse DeleteLiveRecordTemplateResponse
      */
     public function deleteLiveRecordTemplate($request)
     {
@@ -2223,10 +2359,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveSnapshotFilesRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary 批量删除直播截图文件
+     *  *
+     * @param DeleteLiveSnapshotFilesRequest $tmpReq  DeleteLiveSnapshotFilesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLiveSnapshotFilesResponse
+     * @return DeleteLiveSnapshotFilesResponse DeleteLiveSnapshotFilesResponse
      */
     public function deleteLiveSnapshotFilesWithOptions($tmpReq, $runtime)
     {
@@ -2265,9 +2403,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveSnapshotFilesRequest $request
+     * @summary 批量删除直播截图文件
+     *  *
+     * @param DeleteLiveSnapshotFilesRequest $request DeleteLiveSnapshotFilesRequest
      *
-     * @return DeleteLiveSnapshotFilesResponse
+     * @return DeleteLiveSnapshotFilesResponse DeleteLiveSnapshotFilesResponse
      */
     public function deleteLiveSnapshotFiles($request)
     {
@@ -2277,10 +2417,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveSnapshotTemplateRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 删除直播截图模板
+     *  *
+     * @param DeleteLiveSnapshotTemplateRequest $request DeleteLiveSnapshotTemplateRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLiveSnapshotTemplateResponse
+     * @return DeleteLiveSnapshotTemplateResponse DeleteLiveSnapshotTemplateResponse
      */
     public function deleteLiveSnapshotTemplateWithOptions($request, $runtime)
     {
@@ -2308,9 +2450,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveSnapshotTemplateRequest $request
+     * @summary 删除直播截图模板
+     *  *
+     * @param DeleteLiveSnapshotTemplateRequest $request DeleteLiveSnapshotTemplateRequest
      *
-     * @return DeleteLiveSnapshotTemplateResponse
+     * @return DeleteLiveSnapshotTemplateResponse DeleteLiveSnapshotTemplateResponse
      */
     public function deleteLiveSnapshotTemplate($request)
     {
@@ -2320,10 +2464,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveTranscodeJobRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 删除指定转码任务
+     *  *
+     * @param DeleteLiveTranscodeJobRequest $request DeleteLiveTranscodeJobRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLiveTranscodeJobResponse
+     * @return DeleteLiveTranscodeJobResponse DeleteLiveTranscodeJobResponse
      */
     public function deleteLiveTranscodeJobWithOptions($request, $runtime)
     {
@@ -2351,9 +2497,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveTranscodeJobRequest $request
+     * @summary 删除指定转码任务
+     *  *
+     * @param DeleteLiveTranscodeJobRequest $request DeleteLiveTranscodeJobRequest
      *
-     * @return DeleteLiveTranscodeJobResponse
+     * @return DeleteLiveTranscodeJobResponse DeleteLiveTranscodeJobResponse
      */
     public function deleteLiveTranscodeJob($request)
     {
@@ -2363,10 +2511,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveTranscodeTemplateRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 删除指定转码模版
+     *  *
+     * @param DeleteLiveTranscodeTemplateRequest $request DeleteLiveTranscodeTemplateRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLiveTranscodeTemplateResponse
+     * @return DeleteLiveTranscodeTemplateResponse DeleteLiveTranscodeTemplateResponse
      */
     public function deleteLiveTranscodeTemplateWithOptions($request, $runtime)
     {
@@ -2394,9 +2544,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteLiveTranscodeTemplateRequest $request
+     * @summary 删除指定转码模版
+     *  *
+     * @param DeleteLiveTranscodeTemplateRequest $request DeleteLiveTranscodeTemplateRequest
      *
-     * @return DeleteLiveTranscodeTemplateResponse
+     * @return DeleteLiveTranscodeTemplateResponse DeleteLiveTranscodeTemplateResponse
      */
     public function deleteLiveTranscodeTemplate($request)
     {
@@ -2406,10 +2558,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaFromSearchLibRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 删除媒资从搜索
+     *  *
+     * @param DeleteMediaFromSearchLibRequest $request DeleteMediaFromSearchLibRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMediaFromSearchLibResponse
+     * @return DeleteMediaFromSearchLibResponse DeleteMediaFromSearchLibResponse
      */
     public function deleteMediaFromSearchLibWithOptions($request, $runtime)
     {
@@ -2443,9 +2597,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaFromSearchLibRequest $request
+     * @summary 删除媒资从搜索
+     *  *
+     * @param DeleteMediaFromSearchLibRequest $request DeleteMediaFromSearchLibRequest
      *
-     * @return DeleteMediaFromSearchLibResponse
+     * @return DeleteMediaFromSearchLibResponse DeleteMediaFromSearchLibResponse
      */
     public function deleteMediaFromSearchLib($request)
     {
@@ -2455,10 +2611,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaInfosRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 删除媒资信息
+     *  *
+     * @param DeleteMediaInfosRequest $request DeleteMediaInfosRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMediaInfosResponse
+     * @return DeleteMediaInfosResponse DeleteMediaInfosResponse
      */
     public function deleteMediaInfosWithOptions($request, $runtime)
     {
@@ -2492,9 +2650,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaInfosRequest $request
+     * @summary 删除媒资信息
+     *  *
+     * @param DeleteMediaInfosRequest $request DeleteMediaInfosRequest
      *
-     * @return DeleteMediaInfosResponse
+     * @return DeleteMediaInfosResponse DeleteMediaInfosResponse
      */
     public function deleteMediaInfos($request)
     {
@@ -2504,10 +2664,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaMarksRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 删除媒资标注信息
+     *  *
+     * @param DeleteMediaMarksRequest $request DeleteMediaMarksRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMediaMarksResponse
+     * @return DeleteMediaMarksResponse DeleteMediaMarksResponse
      */
     public function deleteMediaMarksWithOptions($request, $runtime)
     {
@@ -2538,9 +2700,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteMediaMarksRequest $request
+     * @summary 删除媒资标注信息
+     *  *
+     * @param DeleteMediaMarksRequest $request DeleteMediaMarksRequest
      *
-     * @return DeleteMediaMarksResponse
+     * @return DeleteMediaMarksResponse DeleteMediaMarksResponse
      */
     public function deleteMediaMarks($request)
     {
@@ -2550,10 +2714,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeletePipelineRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除管道配置
+     *  *
+     * @param DeletePipelineRequest $request DeletePipelineRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePipelineResponse
+     * @return DeletePipelineResponse DeletePipelineResponse
      */
     public function deletePipelineWithOptions($request, $runtime)
     {
@@ -2581,9 +2747,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeletePipelineRequest $request
+     * @summary 删除管道配置
+     *  *
+     * @param DeletePipelineRequest $request DeletePipelineRequest
      *
-     * @return DeletePipelineResponse
+     * @return DeletePipelineResponse DeletePipelineResponse
      */
     public function deletePipeline($request)
     {
@@ -2593,10 +2761,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeletePlayInfoRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 删除播放信息
+     *  *
+     * @param DeletePlayInfoRequest $request DeletePlayInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePlayInfoResponse
+     * @return DeletePlayInfoResponse DeletePlayInfoResponse
      */
     public function deletePlayInfoWithOptions($request, $runtime)
     {
@@ -2630,9 +2800,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeletePlayInfoRequest $request
+     * @summary 删除播放信息
+     *  *
+     * @param DeletePlayInfoRequest $request DeletePlayInfoRequest
      *
-     * @return DeletePlayInfoResponse
+     * @return DeletePlayInfoResponse DeletePlayInfoResponse
      */
     public function deletePlayInfo($request)
     {
@@ -2642,10 +2814,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteSmartJobRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary DeleteSmartJob
+     *  *
+     * @param DeleteSmartJobRequest $request DeleteSmartJobRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSmartJobResponse
+     * @return DeleteSmartJobResponse DeleteSmartJobResponse
      */
     public function deleteSmartJobWithOptions($request, $runtime)
     {
@@ -2673,9 +2847,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteSmartJobRequest $request
+     * @summary DeleteSmartJob
+     *  *
+     * @param DeleteSmartJobRequest $request DeleteSmartJobRequest
      *
-     * @return DeleteSmartJobResponse
+     * @return DeleteSmartJobResponse DeleteSmartJobResponse
      */
     public function deleteSmartJob($request)
     {
@@ -2685,10 +2861,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary DeleteTemplate
+     *  *
+     * @param DeleteTemplateRequest $request DeleteTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($request, $runtime)
     {
@@ -2713,9 +2891,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DeleteTemplateRequest $request
+     * @summary DeleteTemplate
+     *  *
+     * @param DeleteTemplateRequest $request DeleteTemplateRequest
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplate($request)
     {
@@ -2725,10 +2905,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeterImsEditUsageRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeMeterImsEditUsageRequest $request DescribeMeterImsEditUsageRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMeterImsEditUsageResponse
+     * @return DescribeMeterImsEditUsageResponse DescribeMeterImsEditUsageResponse
      */
     public function describeMeterImsEditUsageWithOptions($request, $runtime)
     {
@@ -2765,9 +2945,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeterImsEditUsageRequest $request
+     * @param DescribeMeterImsEditUsageRequest $request DescribeMeterImsEditUsageRequest
      *
-     * @return DescribeMeterImsEditUsageResponse
+     * @return DescribeMeterImsEditUsageResponse DescribeMeterImsEditUsageResponse
      */
     public function describeMeterImsEditUsage($request)
     {
@@ -2777,10 +2957,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeterImsMediaConvertUHDUsageRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @param DescribeMeterImsMediaConvertUHDUsageRequest $request DescribeMeterImsMediaConvertUHDUsageRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMeterImsMediaConvertUHDUsageResponse
+     * @return DescribeMeterImsMediaConvertUHDUsageResponse DescribeMeterImsMediaConvertUHDUsageResponse
      */
     public function describeMeterImsMediaConvertUHDUsageWithOptions($request, $runtime)
     {
@@ -2817,9 +2997,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeterImsMediaConvertUHDUsageRequest $request
+     * @param DescribeMeterImsMediaConvertUHDUsageRequest $request DescribeMeterImsMediaConvertUHDUsageRequest
      *
-     * @return DescribeMeterImsMediaConvertUHDUsageResponse
+     * @return DescribeMeterImsMediaConvertUHDUsageResponse DescribeMeterImsMediaConvertUHDUsageResponse
      */
     public function describeMeterImsMediaConvertUHDUsage($request)
     {
@@ -2829,10 +3009,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeterImsMediaConvertUsageRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 智能媒体服务点播转码用量
+     *  *
+     * @param DescribeMeterImsMediaConvertUsageRequest $request DescribeMeterImsMediaConvertUsageRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMeterImsMediaConvertUsageResponse
+     * @return DescribeMeterImsMediaConvertUsageResponse DescribeMeterImsMediaConvertUsageResponse
      */
     public function describeMeterImsMediaConvertUsageWithOptions($request, $runtime)
     {
@@ -2869,9 +3051,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeterImsMediaConvertUsageRequest $request
+     * @summary 智能媒体服务点播转码用量
+     *  *
+     * @param DescribeMeterImsMediaConvertUsageRequest $request DescribeMeterImsMediaConvertUsageRequest
      *
-     * @return DescribeMeterImsMediaConvertUsageResponse
+     * @return DescribeMeterImsMediaConvertUsageResponse DescribeMeterImsMediaConvertUsageResponse
      */
     public function describeMeterImsMediaConvertUsage($request)
     {
@@ -2881,10 +3065,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeterImsMpsAiUsageRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeMeterImsMpsAiUsageRequest $request DescribeMeterImsMpsAiUsageRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMeterImsMpsAiUsageResponse
+     * @return DescribeMeterImsMpsAiUsageResponse DescribeMeterImsMpsAiUsageResponse
      */
     public function describeMeterImsMpsAiUsageWithOptions($request, $runtime)
     {
@@ -2921,9 +3105,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeterImsMpsAiUsageRequest $request
+     * @param DescribeMeterImsMpsAiUsageRequest $request DescribeMeterImsMpsAiUsageRequest
      *
-     * @return DescribeMeterImsMpsAiUsageResponse
+     * @return DescribeMeterImsMpsAiUsageResponse DescribeMeterImsMpsAiUsageResponse
      */
     public function describeMeterImsMpsAiUsage($request)
     {
@@ -2933,10 +3117,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeterImsSummaryRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeMeterImsSummaryRequest $request DescribeMeterImsSummaryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMeterImsSummaryResponse
+     * @return DescribeMeterImsSummaryResponse DescribeMeterImsSummaryResponse
      */
     public function describeMeterImsSummaryWithOptions($request, $runtime)
     {
@@ -2970,9 +3154,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeterImsSummaryRequest $request
+     * @param DescribeMeterImsSummaryRequest $request DescribeMeterImsSummaryRequest
      *
-     * @return DescribeMeterImsSummaryResponse
+     * @return DescribeMeterImsSummaryResponse DescribeMeterImsSummaryResponse
      */
     public function describeMeterImsSummary($request)
     {
@@ -2982,10 +3166,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayListRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DescribePlayListRequest $request DescribePlayListRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePlayListResponse
+     * @return DescribePlayListResponse DescribePlayListResponse
      */
     public function describePlayListWithOptions($request, $runtime)
     {
@@ -3037,9 +3221,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DescribePlayListRequest $request
+     * @param DescribePlayListRequest $request DescribePlayListRequest
      *
-     * @return DescribePlayListResponse
+     * @return DescribePlayListResponse DescribePlayListResponse
      */
     public function describePlayList($request)
     {
@@ -3049,10 +3233,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DetectAudioForCustomizedVoiceJobRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 本接口用来检测用户的朗读是否有明显的发音错误、嘈杂的环境等
+     *  *
+     * @param DetectAudioForCustomizedVoiceJobRequest $request DetectAudioForCustomizedVoiceJobRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectAudioForCustomizedVoiceJobResponse
+     * @return DetectAudioForCustomizedVoiceJobResponse DetectAudioForCustomizedVoiceJobResponse
      */
     public function detectAudioForCustomizedVoiceJobWithOptions($request, $runtime)
     {
@@ -3086,9 +3272,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DetectAudioForCustomizedVoiceJobRequest $request
+     * @summary 本接口用来检测用户的朗读是否有明显的发音错误、嘈杂的环境等
+     *  *
+     * @param DetectAudioForCustomizedVoiceJobRequest $request DetectAudioForCustomizedVoiceJobRequest
      *
-     * @return DetectAudioForCustomizedVoiceJobResponse
+     * @return DetectAudioForCustomizedVoiceJobResponse DetectAudioForCustomizedVoiceJobResponse
      */
     public function detectAudioForCustomizedVoiceJob($request)
     {
@@ -3098,10 +3286,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DropSearchIndexRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 删除搜索索引
+     *  *
+     * @param DropSearchIndexRequest $request DropSearchIndexRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DropSearchIndexResponse
+     * @return DropSearchIndexResponse DropSearchIndexResponse
      */
     public function dropSearchIndexWithOptions($request, $runtime)
     {
@@ -3132,9 +3322,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DropSearchIndexRequest $request
+     * @summary 删除搜索索引
+     *  *
+     * @param DropSearchIndexRequest $request DropSearchIndexRequest
      *
-     * @return DropSearchIndexResponse
+     * @return DropSearchIndexResponse DropSearchIndexResponse
      */
     public function dropSearchIndex($request)
     {
@@ -3144,10 +3336,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DropSearchLibRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 删除库
+     *  *
+     * @param DropSearchLibRequest $request DropSearchLibRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DropSearchLibResponse
+     * @return DropSearchLibResponse DropSearchLibResponse
      */
     public function dropSearchLibWithOptions($request, $runtime)
     {
@@ -3175,9 +3369,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param DropSearchLibRequest $request
+     * @summary 删除库
+     *  *
+     * @param DropSearchLibRequest $request DropSearchLibRequest
      *
-     * @return DropSearchLibResponse
+     * @return DropSearchLibResponse DropSearchLibResponse
      */
     public function dropSearchLib($request)
     {
@@ -3187,9 +3383,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 生成KMS密钥DataKey
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateKMSDataKeyResponse
+     * @return GenerateKMSDataKeyResponse GenerateKMSDataKeyResponse
      */
     public function generateKMSDataKeyWithOptions($runtime)
     {
@@ -3210,7 +3408,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @return GenerateKMSDataKeyResponse
+     * @summary 生成KMS密钥DataKey
+     *  *
+     * @return GenerateKMSDataKeyResponse GenerateKMSDataKeyResponse
      */
     public function generateKMSDataKey()
     {
@@ -3220,10 +3420,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetAvatarRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 查询单个数字人
+     *  *
+     * @param GetAvatarRequest $request GetAvatarRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAvatarResponse
+     * @return GetAvatarResponse GetAvatarResponse
      */
     public function getAvatarWithOptions($request, $runtime)
     {
@@ -3251,9 +3453,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetAvatarRequest $request
+     * @summary 查询单个数字人
+     *  *
+     * @param GetAvatarRequest $request GetAvatarRequest
      *
-     * @return GetAvatarResponse
+     * @return GetAvatarResponse GetAvatarResponse
      */
     public function getAvatar($request)
     {
@@ -3263,10 +3467,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetAvatarTrainingJobRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询单个数字人训练任务
+     *  *
+     * @param GetAvatarTrainingJobRequest $request GetAvatarTrainingJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAvatarTrainingJobResponse
+     * @return GetAvatarTrainingJobResponse GetAvatarTrainingJobResponse
      */
     public function getAvatarTrainingJobWithOptions($request, $runtime)
     {
@@ -3294,9 +3500,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetAvatarTrainingJobRequest $request
+     * @summary 查询单个数字人训练任务
+     *  *
+     * @param GetAvatarTrainingJobRequest $request GetAvatarTrainingJobRequest
      *
-     * @return GetAvatarTrainingJobResponse
+     * @return GetAvatarTrainingJobResponse GetAvatarTrainingJobResponse
      */
     public function getAvatarTrainingJob($request)
     {
@@ -3306,10 +3514,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetBatchMediaProducingJobRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 一键成片-批量获取剪辑任务
+     *  *
+     * @param GetBatchMediaProducingJobRequest $request GetBatchMediaProducingJobRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBatchMediaProducingJobResponse
+     * @return GetBatchMediaProducingJobResponse GetBatchMediaProducingJobResponse
      */
     public function getBatchMediaProducingJobWithOptions($request, $runtime)
     {
@@ -3352,9 +3562,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetBatchMediaProducingJobRequest $request
+     * @summary 一键成片-批量获取剪辑任务
+     *  *
+     * @param GetBatchMediaProducingJobRequest $request GetBatchMediaProducingJobRequest
      *
-     * @return GetBatchMediaProducingJobResponse
+     * @return GetBatchMediaProducingJobResponse GetBatchMediaProducingJobResponse
      */
     public function getBatchMediaProducingJob($request)
     {
@@ -3364,10 +3576,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetCategoriesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 查询媒资分类
+     *  *
+     * @param GetCategoriesRequest $request GetCategoriesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCategoriesResponse
+     * @return GetCategoriesResponse GetCategoriesResponse
      */
     public function getCategoriesWithOptions($request, $runtime)
     {
@@ -3407,9 +3621,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetCategoriesRequest $request
+     * @summary 查询媒资分类
+     *  *
+     * @param GetCategoriesRequest $request GetCategoriesRequest
      *
-     * @return GetCategoriesResponse
+     * @return GetCategoriesResponse GetCategoriesResponse
      */
     public function getCategories($request)
     {
@@ -3419,9 +3635,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 获取内容分析搜索配置
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetContentAnalyzeConfigResponse
+     * @return GetContentAnalyzeConfigResponse GetContentAnalyzeConfigResponse
      */
     public function getContentAnalyzeConfigWithOptions($runtime)
     {
@@ -3442,7 +3660,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @return GetContentAnalyzeConfigResponse
+     * @summary 获取内容分析搜索配置
+     *  *
+     * @return GetContentAnalyzeConfigResponse GetContentAnalyzeConfigResponse
      */
     public function getContentAnalyzeConfig()
     {
@@ -3452,10 +3672,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetCustomTemplateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 获取单个媒体处理自定义模板
+     *  *
+     * @param GetCustomTemplateRequest $request GetCustomTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCustomTemplateResponse
+     * @return GetCustomTemplateResponse GetCustomTemplateResponse
      */
     public function getCustomTemplateWithOptions($request, $runtime)
     {
@@ -3489,9 +3711,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetCustomTemplateRequest $request
+     * @summary 获取单个媒体处理自定义模板
+     *  *
+     * @param GetCustomTemplateRequest $request GetCustomTemplateRequest
      *
-     * @return GetCustomTemplateResponse
+     * @return GetCustomTemplateResponse GetCustomTemplateResponse
      */
     public function getCustomTemplate($request)
     {
@@ -3501,10 +3725,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetCustomizedVoiceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 获取用户的专属人声
+     *  *
+     * @param GetCustomizedVoiceRequest $request GetCustomizedVoiceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCustomizedVoiceResponse
+     * @return GetCustomizedVoiceResponse GetCustomizedVoiceResponse
      */
     public function getCustomizedVoiceWithOptions($request, $runtime)
     {
@@ -3532,9 +3758,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetCustomizedVoiceRequest $request
+     * @summary 获取用户的专属人声
+     *  *
+     * @param GetCustomizedVoiceRequest $request GetCustomizedVoiceRequest
      *
-     * @return GetCustomizedVoiceResponse
+     * @return GetCustomizedVoiceResponse GetCustomizedVoiceResponse
      */
     public function getCustomizedVoice($request)
     {
@@ -3544,10 +3772,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetCustomizedVoiceJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询单个人声克隆训练任务
+     *  *
+     * @param GetCustomizedVoiceJobRequest $request GetCustomizedVoiceJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCustomizedVoiceJobResponse
+     * @return GetCustomizedVoiceJobResponse GetCustomizedVoiceJobResponse
      */
     public function getCustomizedVoiceJobWithOptions($request, $runtime)
     {
@@ -3575,9 +3805,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetCustomizedVoiceJobRequest $request
+     * @summary 查询单个人声克隆训练任务
+     *  *
+     * @param GetCustomizedVoiceJobRequest $request GetCustomizedVoiceJobRequest
      *
-     * @return GetCustomizedVoiceJobResponse
+     * @return GetCustomizedVoiceJobResponse GetCustomizedVoiceJobResponse
      */
     public function getCustomizedVoiceJob($request)
     {
@@ -3587,9 +3819,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 获取用户默认存储地址
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDefaultStorageLocationResponse
+     * @return GetDefaultStorageLocationResponse GetDefaultStorageLocationResponse
      */
     public function getDefaultStorageLocationWithOptions($runtime)
     {
@@ -3610,7 +3844,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @return GetDefaultStorageLocationResponse
+     * @summary 获取用户默认存储地址
+     *  *
+     * @return GetDefaultStorageLocationResponse GetDefaultStorageLocationResponse
      */
     public function getDefaultStorageLocation()
     {
@@ -3620,10 +3856,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetDemonstrationForCustomizedVoiceJobRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary 通过本接口来获取需要给用户朗读的文本及示例音频
+     *  *
+     * @param GetDemonstrationForCustomizedVoiceJobRequest $request GetDemonstrationForCustomizedVoiceJobRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDemonstrationForCustomizedVoiceJobResponse
+     * @return GetDemonstrationForCustomizedVoiceJobResponse GetDemonstrationForCustomizedVoiceJobResponse
      */
     public function getDemonstrationForCustomizedVoiceJobWithOptions($request, $runtime)
     {
@@ -3651,9 +3889,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetDemonstrationForCustomizedVoiceJobRequest $request
+     * @summary 通过本接口来获取需要给用户朗读的文本及示例音频
+     *  *
+     * @param GetDemonstrationForCustomizedVoiceJobRequest $request GetDemonstrationForCustomizedVoiceJobRequest
      *
-     * @return GetDemonstrationForCustomizedVoiceJobResponse
+     * @return GetDemonstrationForCustomizedVoiceJobResponse GetDemonstrationForCustomizedVoiceJobResponse
      */
     public function getDemonstrationForCustomizedVoiceJob($request)
     {
@@ -3663,10 +3903,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetDynamicImageJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询动图任务详情接口
+     *  *
+     * @param GetDynamicImageJobRequest $request GetDynamicImageJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDynamicImageJobResponse
+     * @return GetDynamicImageJobResponse GetDynamicImageJobResponse
      */
     public function getDynamicImageJobWithOptions($request, $runtime)
     {
@@ -3694,9 +3936,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetDynamicImageJobRequest $request
+     * @summary 查询动图任务详情接口
+     *  *
+     * @param GetDynamicImageJobRequest $request GetDynamicImageJobRequest
      *
-     * @return GetDynamicImageJobResponse
+     * @return GetDynamicImageJobResponse GetDynamicImageJobResponse
      */
     public function getDynamicImageJob($request)
     {
@@ -3706,10 +3950,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetEditingProjectRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 获取单个云剪辑工程
+     *  *
+     * @param GetEditingProjectRequest $request GetEditingProjectRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEditingProjectResponse
+     * @return GetEditingProjectResponse GetEditingProjectResponse
      */
     public function getEditingProjectWithOptions($request, $runtime)
     {
@@ -3740,9 +3986,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetEditingProjectRequest $request
+     * @summary 获取单个云剪辑工程
+     *  *
+     * @param GetEditingProjectRequest $request GetEditingProjectRequest
      *
-     * @return GetEditingProjectResponse
+     * @return GetEditingProjectResponse GetEditingProjectResponse
      */
     public function getEditingProject($request)
     {
@@ -3752,10 +4000,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetEditingProjectMaterialsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 获取剪辑工程关联素材
+     *  *
+     * @param GetEditingProjectMaterialsRequest $request GetEditingProjectMaterialsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEditingProjectMaterialsResponse
+     * @return GetEditingProjectMaterialsResponse GetEditingProjectMaterialsResponse
      */
     public function getEditingProjectMaterialsWithOptions($request, $runtime)
     {
@@ -3783,9 +4033,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetEditingProjectMaterialsRequest $request
+     * @summary 获取剪辑工程关联素材
+     *  *
+     * @param GetEditingProjectMaterialsRequest $request GetEditingProjectMaterialsRequest
      *
-     * @return GetEditingProjectMaterialsResponse
+     * @return GetEditingProjectMaterialsResponse GetEditingProjectMaterialsResponse
      */
     public function getEditingProjectMaterials($request)
     {
@@ -3795,9 +4047,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 获取事件回调地址
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEventCallbackResponse
+     * @return GetEventCallbackResponse GetEventCallbackResponse
      */
     public function getEventCallbackWithOptions($runtime)
     {
@@ -3818,7 +4072,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @return GetEventCallbackResponse
+     * @summary 获取事件回调地址
+     *  *
+     * @return GetEventCallbackResponse GetEventCallbackResponse
      */
     public function getEventCallback()
     {
@@ -3828,10 +4084,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveEditingIndexFileRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 获取直播剪辑m3u8索引文件
+     *  *
+     * @param GetLiveEditingIndexFileRequest $request GetLiveEditingIndexFileRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLiveEditingIndexFileResponse
+     * @return GetLiveEditingIndexFileResponse GetLiveEditingIndexFileResponse
      */
     public function getLiveEditingIndexFileWithOptions($request, $runtime)
     {
@@ -3868,9 +4126,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveEditingIndexFileRequest $request
+     * @summary 获取直播剪辑m3u8索引文件
+     *  *
+     * @param GetLiveEditingIndexFileRequest $request GetLiveEditingIndexFileRequest
      *
-     * @return GetLiveEditingIndexFileResponse
+     * @return GetLiveEditingIndexFileResponse GetLiveEditingIndexFileResponse
      */
     public function getLiveEditingIndexFile($request)
     {
@@ -3880,10 +4140,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveEditingJobRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 获取直播剪辑任务
+     *  *
+     * @param GetLiveEditingJobRequest $request GetLiveEditingJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLiveEditingJobResponse
+     * @return GetLiveEditingJobResponse GetLiveEditingJobResponse
      */
     public function getLiveEditingJobWithOptions($request, $runtime)
     {
@@ -3911,9 +4173,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveEditingJobRequest $request
+     * @summary 获取直播剪辑任务
+     *  *
+     * @param GetLiveEditingJobRequest $request GetLiveEditingJobRequest
      *
-     * @return GetLiveEditingJobResponse
+     * @return GetLiveEditingJobResponse GetLiveEditingJobResponse
      */
     public function getLiveEditingJob($request)
     {
@@ -3923,10 +4187,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveRecordJobRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询录制任务明细
+     *  *
+     * @param GetLiveRecordJobRequest $request GetLiveRecordJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLiveRecordJobResponse
+     * @return GetLiveRecordJobResponse GetLiveRecordJobResponse
      */
     public function getLiveRecordJobWithOptions($request, $runtime)
     {
@@ -3951,9 +4217,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveRecordJobRequest $request
+     * @summary 查询录制任务明细
+     *  *
+     * @param GetLiveRecordJobRequest $request GetLiveRecordJobRequest
      *
-     * @return GetLiveRecordJobResponse
+     * @return GetLiveRecordJobResponse GetLiveRecordJobResponse
      */
     public function getLiveRecordJob($request)
     {
@@ -3963,10 +4231,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveRecordTemplateRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询直播录制模板详情
+     *  *
+     * @param GetLiveRecordTemplateRequest $request GetLiveRecordTemplateRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLiveRecordTemplateResponse
+     * @return GetLiveRecordTemplateResponse GetLiveRecordTemplateResponse
      */
     public function getLiveRecordTemplateWithOptions($request, $runtime)
     {
@@ -3991,9 +4261,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveRecordTemplateRequest $request
+     * @summary 查询直播录制模板详情
+     *  *
+     * @param GetLiveRecordTemplateRequest $request GetLiveRecordTemplateRequest
      *
-     * @return GetLiveRecordTemplateResponse
+     * @return GetLiveRecordTemplateResponse GetLiveRecordTemplateResponse
      */
     public function getLiveRecordTemplate($request)
     {
@@ -4003,10 +4275,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveSnapshotJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询直播截图任务
+     *  *
+     * @param GetLiveSnapshotJobRequest $request GetLiveSnapshotJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLiveSnapshotJobResponse
+     * @return GetLiveSnapshotJobResponse GetLiveSnapshotJobResponse
      */
     public function getLiveSnapshotJobWithOptions($request, $runtime)
     {
@@ -4031,9 +4305,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveSnapshotJobRequest $request
+     * @summary 查询直播截图任务
+     *  *
+     * @param GetLiveSnapshotJobRequest $request GetLiveSnapshotJobRequest
      *
-     * @return GetLiveSnapshotJobResponse
+     * @return GetLiveSnapshotJobResponse GetLiveSnapshotJobResponse
      */
     public function getLiveSnapshotJob($request)
     {
@@ -4043,10 +4319,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveSnapshotTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询直播截图模板
+     *  *
+     * @param GetLiveSnapshotTemplateRequest $request GetLiveSnapshotTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLiveSnapshotTemplateResponse
+     * @return GetLiveSnapshotTemplateResponse GetLiveSnapshotTemplateResponse
      */
     public function getLiveSnapshotTemplateWithOptions($request, $runtime)
     {
@@ -4071,9 +4349,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveSnapshotTemplateRequest $request
+     * @summary 查询直播截图模板
+     *  *
+     * @param GetLiveSnapshotTemplateRequest $request GetLiveSnapshotTemplateRequest
      *
-     * @return GetLiveSnapshotTemplateResponse
+     * @return GetLiveSnapshotTemplateResponse GetLiveSnapshotTemplateResponse
      */
     public function getLiveSnapshotTemplate($request)
     {
@@ -4083,10 +4363,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveTranscodeJobRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 查询转码任务详情
+     *  *
+     * @param GetLiveTranscodeJobRequest $request GetLiveTranscodeJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLiveTranscodeJobResponse
+     * @return GetLiveTranscodeJobResponse GetLiveTranscodeJobResponse
      */
     public function getLiveTranscodeJobWithOptions($request, $runtime)
     {
@@ -4114,9 +4396,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveTranscodeJobRequest $request
+     * @summary 查询转码任务详情
+     *  *
+     * @param GetLiveTranscodeJobRequest $request GetLiveTranscodeJobRequest
      *
-     * @return GetLiveTranscodeJobResponse
+     * @return GetLiveTranscodeJobResponse GetLiveTranscodeJobResponse
      */
     public function getLiveTranscodeJob($request)
     {
@@ -4126,10 +4410,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveTranscodeTemplateRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询转码模版详情
+     *  *
+     * @param GetLiveTranscodeTemplateRequest $request GetLiveTranscodeTemplateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLiveTranscodeTemplateResponse
+     * @return GetLiveTranscodeTemplateResponse GetLiveTranscodeTemplateResponse
      */
     public function getLiveTranscodeTemplateWithOptions($request, $runtime)
     {
@@ -4157,9 +4443,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetLiveTranscodeTemplateRequest $request
+     * @summary 查询转码模版详情
+     *  *
+     * @param GetLiveTranscodeTemplateRequest $request GetLiveTranscodeTemplateRequest
      *
-     * @return GetLiveTranscodeTemplateResponse
+     * @return GetLiveTranscodeTemplateResponse GetLiveTranscodeTemplateResponse
      */
     public function getLiveTranscodeTemplate($request)
     {
@@ -4169,10 +4457,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetMediaInfoRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取媒资内容信息
+     *  *
+     * @param GetMediaInfoRequest $request GetMediaInfoRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMediaInfoResponse
+     * @return GetMediaInfoResponse GetMediaInfoResponse
      */
     public function getMediaInfoWithOptions($request, $runtime)
     {
@@ -4209,9 +4499,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetMediaInfoRequest $request
+     * @summary 获取媒资内容信息
+     *  *
+     * @param GetMediaInfoRequest $request GetMediaInfoRequest
      *
-     * @return GetMediaInfoResponse
+     * @return GetMediaInfoResponse GetMediaInfoResponse
      */
     public function getMediaInfo($request)
     {
@@ -4221,10 +4513,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetMediaInfoJobRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param GetMediaInfoJobRequest $request GetMediaInfoJobRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMediaInfoJobResponse
+     * @return GetMediaInfoJobResponse GetMediaInfoJobResponse
      */
     public function getMediaInfoJobWithOptions($request, $runtime)
     {
@@ -4252,9 +4544,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetMediaInfoJobRequest $request
+     * @param GetMediaInfoJobRequest $request GetMediaInfoJobRequest
      *
-     * @return GetMediaInfoJobResponse
+     * @return GetMediaInfoJobResponse GetMediaInfoJobResponse
      */
     public function getMediaInfoJob($request)
     {
@@ -4264,10 +4556,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetMediaMarksRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 获取媒资标注信息
+     *  *
+     * @param GetMediaMarksRequest $request GetMediaMarksRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMediaMarksResponse
+     * @return GetMediaMarksResponse GetMediaMarksResponse
      */
     public function getMediaMarksWithOptions($request, $runtime)
     {
@@ -4298,9 +4592,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetMediaMarksRequest $request
+     * @summary 获取媒资标注信息
+     *  *
+     * @param GetMediaMarksRequest $request GetMediaMarksRequest
      *
-     * @return GetMediaMarksResponse
+     * @return GetMediaMarksResponse GetMediaMarksResponse
      */
     public function getMediaMarks($request)
     {
@@ -4310,10 +4606,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetMediaProducingJobRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary GetMediaProducingJob
+     *  *
+     * @param GetMediaProducingJobRequest $request GetMediaProducingJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMediaProducingJobResponse
+     * @return GetMediaProducingJobResponse GetMediaProducingJobResponse
      */
     public function getMediaProducingJobWithOptions($request, $runtime)
     {
@@ -4338,9 +4636,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetMediaProducingJobRequest $request
+     * @summary GetMediaProducingJob
+     *  *
+     * @param GetMediaProducingJobRequest $request GetMediaProducingJobRequest
      *
-     * @return GetMediaProducingJobResponse
+     * @return GetMediaProducingJobResponse GetMediaProducingJobResponse
      */
     public function getMediaProducingJob($request)
     {
@@ -4350,10 +4650,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetPackageJobRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 获取单个打包任务信息
+     *  *
+     * @param GetPackageJobRequest $request GetPackageJobRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPackageJobResponse
+     * @return GetPackageJobResponse GetPackageJobResponse
      */
     public function getPackageJobWithOptions($request, $runtime)
     {
@@ -4381,9 +4683,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetPackageJobRequest $request
+     * @summary 获取单个打包任务信息
+     *  *
+     * @param GetPackageJobRequest $request GetPackageJobRequest
      *
-     * @return GetPackageJobResponse
+     * @return GetPackageJobResponse GetPackageJobResponse
      */
     public function getPackageJob($request)
     {
@@ -4393,10 +4697,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetPipelineRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 获取单个管道配置
+     *  *
+     * @param GetPipelineRequest $request GetPipelineRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPipelineResponse
+     * @return GetPipelineResponse GetPipelineResponse
      */
     public function getPipelineWithOptions($request, $runtime)
     {
@@ -4424,9 +4730,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetPipelineRequest $request
+     * @summary 获取单个管道配置
+     *  *
+     * @param GetPipelineRequest $request GetPipelineRequest
      *
-     * @return GetPipelineResponse
+     * @return GetPipelineResponse GetPipelineResponse
      */
     public function getPipeline($request)
     {
@@ -4436,10 +4744,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetPlayInfoRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 获取播放信息
+     *  *
+     * @param GetPlayInfoRequest $request GetPlayInfoRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPlayInfoResponse
+     * @return GetPlayInfoResponse GetPlayInfoResponse
      */
     public function getPlayInfoWithOptions($request, $runtime)
     {
@@ -4470,9 +4780,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetPlayInfoRequest $request
+     * @summary 获取播放信息
+     *  *
+     * @param GetPlayInfoRequest $request GetPlayInfoRequest
      *
-     * @return GetPlayInfoResponse
+     * @return GetPlayInfoResponse GetPlayInfoResponse
      */
     public function getPlayInfo($request)
     {
@@ -4482,10 +4794,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetPublicMediaInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 获取公共媒资内容信息
+     *  *
+     * @param GetPublicMediaInfoRequest $request GetPublicMediaInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPublicMediaInfoResponse
+     * @return GetPublicMediaInfoResponse GetPublicMediaInfoResponse
      */
     public function getPublicMediaInfoWithOptions($request, $runtime)
     {
@@ -4513,9 +4827,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetPublicMediaInfoRequest $request
+     * @summary 获取公共媒资内容信息
+     *  *
+     * @param GetPublicMediaInfoRequest $request GetPublicMediaInfoRequest
      *
-     * @return GetPublicMediaInfoResponse
+     * @return GetPublicMediaInfoResponse GetPublicMediaInfoResponse
      */
     public function getPublicMediaInfo($request)
     {
@@ -4525,10 +4841,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetSmartHandleJobRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary GetSmartHandleJob
+     *  *
+     * @param GetSmartHandleJobRequest $request GetSmartHandleJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSmartHandleJobResponse
+     * @return GetSmartHandleJobResponse GetSmartHandleJobResponse
      */
     public function getSmartHandleJobWithOptions($request, $runtime)
     {
@@ -4556,9 +4874,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetSmartHandleJobRequest $request
+     * @summary GetSmartHandleJob
+     *  *
+     * @param GetSmartHandleJobRequest $request GetSmartHandleJobRequest
      *
-     * @return GetSmartHandleJobResponse
+     * @return GetSmartHandleJobResponse GetSmartHandleJobResponse
      */
     public function getSmartHandleJob($request)
     {
@@ -4568,10 +4888,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetSnapshotJobRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 查询单个截图任务
+     *  *
+     * @param GetSnapshotJobRequest $request GetSnapshotJobRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSnapshotJobResponse
+     * @return GetSnapshotJobResponse GetSnapshotJobResponse
      */
     public function getSnapshotJobWithOptions($request, $runtime)
     {
@@ -4599,9 +4921,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetSnapshotJobRequest $request
+     * @summary 查询单个截图任务
+     *  *
+     * @param GetSnapshotJobRequest $request GetSnapshotJobRequest
      *
-     * @return GetSnapshotJobResponse
+     * @return GetSnapshotJobResponse GetSnapshotJobResponse
      */
     public function getSnapshotJob($request)
     {
@@ -4611,10 +4935,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetSnapshotUrlsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 获取截图文件URL
+     *  *
+     * @param GetSnapshotUrlsRequest $request GetSnapshotUrlsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSnapshotUrlsResponse
+     * @return GetSnapshotUrlsResponse GetSnapshotUrlsResponse
      */
     public function getSnapshotUrlsWithOptions($request, $runtime)
     {
@@ -4654,9 +4980,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetSnapshotUrlsRequest $request
+     * @summary 获取截图文件URL
+     *  *
+     * @param GetSnapshotUrlsRequest $request GetSnapshotUrlsRequest
      *
-     * @return GetSnapshotUrlsResponse
+     * @return GetSnapshotUrlsResponse GetSnapshotUrlsResponse
      */
     public function getSnapshotUrls($request)
     {
@@ -4666,10 +4994,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetSystemTemplateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 获取单个媒体处理系统模板
+     *  *
+     * @param GetSystemTemplateRequest $request GetSystemTemplateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSystemTemplateResponse
+     * @return GetSystemTemplateResponse GetSystemTemplateResponse
      */
     public function getSystemTemplateWithOptions($request, $runtime)
     {
@@ -4697,9 +5027,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetSystemTemplateRequest $request
+     * @summary 获取单个媒体处理系统模板
+     *  *
+     * @param GetSystemTemplateRequest $request GetSystemTemplateRequest
      *
-     * @return GetSystemTemplateResponse
+     * @return GetSystemTemplateResponse GetSystemTemplateResponse
      */
     public function getSystemTemplate($request)
     {
@@ -4709,10 +5041,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary GetTemplate
+     *  *
+     * @param GetTemplateRequest $request GetTemplateRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplateWithOptions($request, $runtime)
     {
@@ -4743,9 +5077,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateRequest $request
+     * @summary GetTemplate
+     *  *
+     * @param GetTemplateRequest $request GetTemplateRequest
      *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplate($request)
     {
@@ -4755,10 +5091,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateMaterialsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 获取模板关联素材信息
+     *  *
+     * @param GetTemplateMaterialsRequest $request GetTemplateMaterialsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateMaterialsResponse
+     * @return GetTemplateMaterialsResponse GetTemplateMaterialsResponse
      */
     public function getTemplateMaterialsWithOptions($request, $runtime)
     {
@@ -4789,9 +5127,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateMaterialsRequest $request
+     * @summary 获取模板关联素材信息
+     *  *
+     * @param GetTemplateMaterialsRequest $request GetTemplateMaterialsRequest
      *
-     * @return GetTemplateMaterialsResponse
+     * @return GetTemplateMaterialsResponse GetTemplateMaterialsResponse
      */
     public function getTemplateMaterials($request)
     {
@@ -4801,10 +5141,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateParamsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 获取模板参数信息
+     *  *
+     * @param GetTemplateParamsRequest $request GetTemplateParamsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateParamsResponse
+     * @return GetTemplateParamsResponse GetTemplateParamsResponse
      */
     public function getTemplateParamsWithOptions($request, $runtime)
     {
@@ -4829,9 +5171,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetTemplateParamsRequest $request
+     * @summary 获取模板参数信息
+     *  *
+     * @param GetTemplateParamsRequest $request GetTemplateParamsRequest
      *
-     * @return GetTemplateParamsResponse
+     * @return GetTemplateParamsResponse GetTemplateParamsResponse
      */
     public function getTemplateParams($request)
     {
@@ -4841,10 +5185,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetTranscodeJobRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param GetTranscodeJobRequest $request GetTranscodeJobRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTranscodeJobResponse
+     * @return GetTranscodeJobResponse GetTranscodeJobResponse
      */
     public function getTranscodeJobWithOptions($request, $runtime)
     {
@@ -4872,9 +5216,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetTranscodeJobRequest $request
+     * @param GetTranscodeJobRequest $request GetTranscodeJobRequest
      *
-     * @return GetTranscodeJobResponse
+     * @return GetTranscodeJobResponse GetTranscodeJobResponse
      */
     public function getTranscodeJob($request)
     {
@@ -4884,10 +5228,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetUrlUploadInfosRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 获取URL上传信息
+     *  *
+     * @param GetUrlUploadInfosRequest $request GetUrlUploadInfosRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUrlUploadInfosResponse
+     * @return GetUrlUploadInfosResponse GetUrlUploadInfosResponse
      */
     public function getUrlUploadInfosWithOptions($request, $runtime)
     {
@@ -4918,9 +5264,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetUrlUploadInfosRequest $request
+     * @summary 获取URL上传信息
+     *  *
+     * @param GetUrlUploadInfosRequest $request GetUrlUploadInfosRequest
      *
-     * @return GetUrlUploadInfosResponse
+     * @return GetUrlUploadInfosResponse GetUrlUploadInfosResponse
      */
     public function getUrlUploadInfos($request)
     {
@@ -4930,10 +5278,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetVideoListRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取媒资新增列表
+     *  *
+     * @param GetVideoListRequest $request GetVideoListRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetVideoListResponse
+     * @return GetVideoListResponse GetVideoListResponse
      */
     public function getVideoListWithOptions($request, $runtime)
     {
@@ -4979,9 +5329,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetVideoListRequest $request
+     * @summary 获取媒资新增列表
+     *  *
+     * @param GetVideoListRequest $request GetVideoListRequest
      *
-     * @return GetVideoListResponse
+     * @return GetVideoListResponse GetVideoListResponse
      */
     public function getVideoList($request)
     {
@@ -4991,10 +5343,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetWorkflowTaskRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 获取工作流任务
+     *  *
+     * @param GetWorkflowTaskRequest $request GetWorkflowTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetWorkflowTaskResponse
+     * @return GetWorkflowTaskResponse GetWorkflowTaskResponse
      */
     public function getWorkflowTaskWithOptions($request, $runtime)
     {
@@ -5022,9 +5376,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param GetWorkflowTaskRequest $request
+     * @summary 获取工作流任务
+     *  *
+     * @param GetWorkflowTaskRequest $request GetWorkflowTaskRequest
      *
-     * @return GetWorkflowTaskResponse
+     * @return GetWorkflowTaskResponse GetWorkflowTaskResponse
      */
     public function getWorkflowTask($request)
     {
@@ -5034,10 +5390,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param InsertMediaToSearchLibRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 插入媒资到搜索
+     *  *
+     * @param InsertMediaToSearchLibRequest $request InsertMediaToSearchLibRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return InsertMediaToSearchLibResponse
+     * @return InsertMediaToSearchLibResponse InsertMediaToSearchLibResponse
      */
     public function insertMediaToSearchLibWithOptions($request, $runtime)
     {
@@ -5077,9 +5435,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param InsertMediaToSearchLibRequest $request
+     * @summary 插入媒资到搜索
+     *  *
+     * @param InsertMediaToSearchLibRequest $request InsertMediaToSearchLibRequest
      *
-     * @return InsertMediaToSearchLibResponse
+     * @return InsertMediaToSearchLibResponse InsertMediaToSearchLibResponse
      */
     public function insertMediaToSearchLib($request)
     {
@@ -5089,10 +5449,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListAllPublicMediaTagsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 列出公共素材库所有标签
+     *  *
+     * @param ListAllPublicMediaTagsRequest $request ListAllPublicMediaTagsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAllPublicMediaTagsResponse
+     * @return ListAllPublicMediaTagsResponse ListAllPublicMediaTagsResponse
      */
     public function listAllPublicMediaTagsWithOptions($request, $runtime)
     {
@@ -5123,9 +5485,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListAllPublicMediaTagsRequest $request
+     * @summary 列出公共素材库所有标签
+     *  *
+     * @param ListAllPublicMediaTagsRequest $request ListAllPublicMediaTagsRequest
      *
-     * @return ListAllPublicMediaTagsResponse
+     * @return ListAllPublicMediaTagsResponse ListAllPublicMediaTagsResponse
      */
     public function listAllPublicMediaTags($request)
     {
@@ -5135,10 +5499,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListAvatarTrainingJobsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查询数字人训练任务列表，列出当前用户的所有数字人训练任务
+     *  *
+     * @param ListAvatarTrainingJobsRequest $request ListAvatarTrainingJobsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAvatarTrainingJobsResponse
+     * @return ListAvatarTrainingJobsResponse ListAvatarTrainingJobsResponse
      */
     public function listAvatarTrainingJobsWithOptions($request, $runtime)
     {
@@ -5172,9 +5538,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListAvatarTrainingJobsRequest $request
+     * @summary 查询数字人训练任务列表，列出当前用户的所有数字人训练任务
+     *  *
+     * @param ListAvatarTrainingJobsRequest $request ListAvatarTrainingJobsRequest
      *
-     * @return ListAvatarTrainingJobsResponse
+     * @return ListAvatarTrainingJobsResponse ListAvatarTrainingJobsResponse
      */
     public function listAvatarTrainingJobs($request)
     {
@@ -5184,10 +5552,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListAvatarsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 查询数字人列表，列出当前用户的所有数字人
+     *  *
+     * @param ListAvatarsRequest $request ListAvatarsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAvatarsResponse
+     * @return ListAvatarsResponse ListAvatarsResponse
      */
     public function listAvatarsWithOptions($request, $runtime)
     {
@@ -5221,9 +5591,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListAvatarsRequest $request
+     * @summary 查询数字人列表，列出当前用户的所有数字人
+     *  *
+     * @param ListAvatarsRequest $request ListAvatarsRequest
      *
-     * @return ListAvatarsResponse
+     * @return ListAvatarsResponse ListAvatarsResponse
      */
     public function listAvatars($request)
     {
@@ -5233,10 +5605,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListBatchMediaProducingJobsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 获取一键成片任务列表
+     *  *
+     * @param ListBatchMediaProducingJobsRequest $request ListBatchMediaProducingJobsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBatchMediaProducingJobsResponse
+     * @return ListBatchMediaProducingJobsResponse ListBatchMediaProducingJobsResponse
      */
     public function listBatchMediaProducingJobsWithOptions($request, $runtime)
     {
@@ -5285,9 +5659,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListBatchMediaProducingJobsRequest $request
+     * @summary 获取一键成片任务列表
+     *  *
+     * @param ListBatchMediaProducingJobsRequest $request ListBatchMediaProducingJobsRequest
      *
-     * @return ListBatchMediaProducingJobsResponse
+     * @return ListBatchMediaProducingJobsResponse ListBatchMediaProducingJobsResponse
      */
     public function listBatchMediaProducingJobs($request)
     {
@@ -5297,10 +5673,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListCustomTemplatesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 获取媒体处理自定义模板列表
+     *  *
+     * @param ListCustomTemplatesRequest $request ListCustomTemplatesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCustomTemplatesResponse
+     * @return ListCustomTemplatesResponse ListCustomTemplatesResponse
      */
     public function listCustomTemplatesWithOptions($request, $runtime)
     {
@@ -5346,9 +5724,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListCustomTemplatesRequest $request
+     * @summary 获取媒体处理自定义模板列表
+     *  *
+     * @param ListCustomTemplatesRequest $request ListCustomTemplatesRequest
      *
-     * @return ListCustomTemplatesResponse
+     * @return ListCustomTemplatesResponse ListCustomTemplatesResponse
      */
     public function listCustomTemplates($request)
     {
@@ -5358,10 +5738,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListCustomizedVoiceJobsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询人声克隆训练任务列表，列出当前用户的所有人声克隆训练任务
+     *  *
+     * @param ListCustomizedVoiceJobsRequest $request ListCustomizedVoiceJobsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCustomizedVoiceJobsResponse
+     * @return ListCustomizedVoiceJobsResponse ListCustomizedVoiceJobsResponse
      */
     public function listCustomizedVoiceJobsWithOptions($request, $runtime)
     {
@@ -5395,9 +5777,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListCustomizedVoiceJobsRequest $request
+     * @summary 查询人声克隆训练任务列表，列出当前用户的所有人声克隆训练任务
+     *  *
+     * @param ListCustomizedVoiceJobsRequest $request ListCustomizedVoiceJobsRequest
      *
-     * @return ListCustomizedVoiceJobsResponse
+     * @return ListCustomizedVoiceJobsResponse ListCustomizedVoiceJobsResponse
      */
     public function listCustomizedVoiceJobs($request)
     {
@@ -5407,10 +5791,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListCustomizedVoicesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 获取用户的专属人声列表
+     *  *
+     * @param ListCustomizedVoicesRequest $request ListCustomizedVoicesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCustomizedVoicesResponse
+     * @return ListCustomizedVoicesResponse ListCustomizedVoicesResponse
      */
     public function listCustomizedVoicesWithOptions($request, $runtime)
     {
@@ -5444,9 +5830,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListCustomizedVoicesRequest $request
+     * @summary 获取用户的专属人声列表
+     *  *
+     * @param ListCustomizedVoicesRequest $request ListCustomizedVoicesRequest
      *
-     * @return ListCustomizedVoicesResponse
+     * @return ListCustomizedVoicesResponse ListCustomizedVoicesResponse
      */
     public function listCustomizedVoices($request)
     {
@@ -5456,10 +5844,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListDNADBRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 查询DNA库
+     *  *
+     * @param ListDNADBRequest $request ListDNADBRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDNADBResponse
+     * @return ListDNADBResponse ListDNADBResponse
      */
     public function listDNADBWithOptions($request, $runtime)
     {
@@ -5499,9 +5889,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListDNADBRequest $request
+     * @summary 查询DNA库
+     *  *
+     * @param ListDNADBRequest $request ListDNADBRequest
      *
-     * @return ListDNADBResponse
+     * @return ListDNADBResponse ListDNADBResponse
      */
     public function listDNADB($request)
     {
@@ -5511,10 +5903,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListDNAFilesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 查询DNA文件
+     *  *
+     * @param ListDNAFilesRequest $request ListDNAFilesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDNAFilesResponse
+     * @return ListDNAFilesResponse ListDNAFilesResponse
      */
     public function listDNAFilesWithOptions($request, $runtime)
     {
@@ -5560,9 +5954,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListDNAFilesRequest $request
+     * @summary 查询DNA文件
+     *  *
+     * @param ListDNAFilesRequest $request ListDNAFilesRequest
      *
-     * @return ListDNAFilesResponse
+     * @return ListDNAFilesResponse ListDNAFilesResponse
      */
     public function listDNAFiles($request)
     {
@@ -5572,10 +5968,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListDynamicImageJobsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询截图任务列表接口
+     *  *
+     * @param ListDynamicImageJobsRequest $request ListDynamicImageJobsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDynamicImageJobsResponse
+     * @return ListDynamicImageJobsResponse ListDynamicImageJobsResponse
      */
     public function listDynamicImageJobsWithOptions($request, $runtime)
     {
@@ -5621,9 +6019,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListDynamicImageJobsRequest $request
+     * @summary 查询截图任务列表接口
+     *  *
+     * @param ListDynamicImageJobsRequest $request ListDynamicImageJobsRequest
      *
-     * @return ListDynamicImageJobsResponse
+     * @return ListDynamicImageJobsResponse ListDynamicImageJobsResponse
      */
     public function listDynamicImageJobs($request)
     {
@@ -5633,10 +6033,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveRecordFilesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 查询录制文件
+     *  *
+     * @param ListLiveRecordFilesRequest $request ListLiveRecordFilesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLiveRecordFilesResponse
+     * @return ListLiveRecordFilesResponse ListLiveRecordFilesResponse
      */
     public function listLiveRecordFilesWithOptions($request, $runtime)
     {
@@ -5661,9 +6063,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveRecordFilesRequest $request
+     * @summary 查询录制文件
+     *  *
+     * @param ListLiveRecordFilesRequest $request ListLiveRecordFilesRequest
      *
-     * @return ListLiveRecordFilesResponse
+     * @return ListLiveRecordFilesResponse ListLiveRecordFilesResponse
      */
     public function listLiveRecordFiles($request)
     {
@@ -5673,10 +6077,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveRecordJobsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询录制任务
+     *  *
+     * @param ListLiveRecordJobsRequest $request ListLiveRecordJobsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLiveRecordJobsResponse
+     * @return ListLiveRecordJobsResponse ListLiveRecordJobsResponse
      */
     public function listLiveRecordJobsWithOptions($request, $runtime)
     {
@@ -5701,9 +6107,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveRecordJobsRequest $request
+     * @summary 查询录制任务
+     *  *
+     * @param ListLiveRecordJobsRequest $request ListLiveRecordJobsRequest
      *
-     * @return ListLiveRecordJobsResponse
+     * @return ListLiveRecordJobsResponse ListLiveRecordJobsResponse
      */
     public function listLiveRecordJobs($request)
     {
@@ -5713,10 +6121,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveRecordTemplatesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询直播录制模板
+     *  *
+     * @param ListLiveRecordTemplatesRequest $request ListLiveRecordTemplatesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLiveRecordTemplatesResponse
+     * @return ListLiveRecordTemplatesResponse ListLiveRecordTemplatesResponse
      */
     public function listLiveRecordTemplatesWithOptions($request, $runtime)
     {
@@ -5741,9 +6151,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveRecordTemplatesRequest $request
+     * @summary 查询直播录制模板
+     *  *
+     * @param ListLiveRecordTemplatesRequest $request ListLiveRecordTemplatesRequest
      *
-     * @return ListLiveRecordTemplatesResponse
+     * @return ListLiveRecordTemplatesResponse ListLiveRecordTemplatesResponse
      */
     public function listLiveRecordTemplates($request)
     {
@@ -5753,10 +6165,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveSnapshotFilesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询直播截图文件列表
+     *  *
+     * @param ListLiveSnapshotFilesRequest $request ListLiveSnapshotFilesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLiveSnapshotFilesResponse
+     * @return ListLiveSnapshotFilesResponse ListLiveSnapshotFilesResponse
      */
     public function listLiveSnapshotFilesWithOptions($request, $runtime)
     {
@@ -5781,9 +6195,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveSnapshotFilesRequest $request
+     * @summary 查询直播截图文件列表
+     *  *
+     * @param ListLiveSnapshotFilesRequest $request ListLiveSnapshotFilesRequest
      *
-     * @return ListLiveSnapshotFilesResponse
+     * @return ListLiveSnapshotFilesResponse ListLiveSnapshotFilesResponse
      */
     public function listLiveSnapshotFiles($request)
     {
@@ -5793,10 +6209,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveSnapshotJobsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询直播截图任务列表
+     *  *
+     * @param ListLiveSnapshotJobsRequest $request ListLiveSnapshotJobsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLiveSnapshotJobsResponse
+     * @return ListLiveSnapshotJobsResponse ListLiveSnapshotJobsResponse
      */
     public function listLiveSnapshotJobsWithOptions($request, $runtime)
     {
@@ -5821,9 +6239,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveSnapshotJobsRequest $request
+     * @summary 查询直播截图任务列表
+     *  *
+     * @param ListLiveSnapshotJobsRequest $request ListLiveSnapshotJobsRequest
      *
-     * @return ListLiveSnapshotJobsResponse
+     * @return ListLiveSnapshotJobsResponse ListLiveSnapshotJobsResponse
      */
     public function listLiveSnapshotJobs($request)
     {
@@ -5833,10 +6253,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveSnapshotTemplatesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询直播截图模板列表
+     *  *
+     * @param ListLiveSnapshotTemplatesRequest $request ListLiveSnapshotTemplatesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLiveSnapshotTemplatesResponse
+     * @return ListLiveSnapshotTemplatesResponse ListLiveSnapshotTemplatesResponse
      */
     public function listLiveSnapshotTemplatesWithOptions($request, $runtime)
     {
@@ -5861,9 +6283,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveSnapshotTemplatesRequest $request
+     * @summary 查询直播截图模板列表
+     *  *
+     * @param ListLiveSnapshotTemplatesRequest $request ListLiveSnapshotTemplatesRequest
      *
-     * @return ListLiveSnapshotTemplatesResponse
+     * @return ListLiveSnapshotTemplatesResponse ListLiveSnapshotTemplatesResponse
      */
     public function listLiveSnapshotTemplates($request)
     {
@@ -5873,10 +6297,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveTranscodeJobsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询转码任务列表
+     *  *
+     * @param ListLiveTranscodeJobsRequest $request ListLiveTranscodeJobsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLiveTranscodeJobsResponse
+     * @return ListLiveTranscodeJobsResponse ListLiveTranscodeJobsResponse
      */
     public function listLiveTranscodeJobsWithOptions($request, $runtime)
     {
@@ -5922,9 +6348,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveTranscodeJobsRequest $request
+     * @summary 查询转码任务列表
+     *  *
+     * @param ListLiveTranscodeJobsRequest $request ListLiveTranscodeJobsRequest
      *
-     * @return ListLiveTranscodeJobsResponse
+     * @return ListLiveTranscodeJobsResponse ListLiveTranscodeJobsResponse
      */
     public function listLiveTranscodeJobs($request)
     {
@@ -5934,10 +6362,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveTranscodeTemplatesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 查询转码模版列表
+     *  *
+     * @param ListLiveTranscodeTemplatesRequest $request ListLiveTranscodeTemplatesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLiveTranscodeTemplatesResponse
+     * @return ListLiveTranscodeTemplatesResponse ListLiveTranscodeTemplatesResponse
      */
     public function listLiveTranscodeTemplatesWithOptions($request, $runtime)
     {
@@ -5983,9 +6413,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListLiveTranscodeTemplatesRequest $request
+     * @summary 查询转码模版列表
+     *  *
+     * @param ListLiveTranscodeTemplatesRequest $request ListLiveTranscodeTemplatesRequest
      *
-     * @return ListLiveTranscodeTemplatesResponse
+     * @return ListLiveTranscodeTemplatesResponse ListLiveTranscodeTemplatesResponse
      */
     public function listLiveTranscodeTemplates($request)
     {
@@ -5995,10 +6427,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListMediaBasicInfosRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 列出符合条件的媒资基础信息
+     *  *
+     * @param ListMediaBasicInfosRequest $request ListMediaBasicInfosRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMediaBasicInfosResponse
+     * @return ListMediaBasicInfosResponse ListMediaBasicInfosResponse
      */
     public function listMediaBasicInfosWithOptions($request, $runtime)
     {
@@ -6056,9 +6490,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListMediaBasicInfosRequest $request
+     * @summary 列出符合条件的媒资基础信息
+     *  *
+     * @param ListMediaBasicInfosRequest $request ListMediaBasicInfosRequest
      *
-     * @return ListMediaBasicInfosResponse
+     * @return ListMediaBasicInfosResponse ListMediaBasicInfosResponse
      */
     public function listMediaBasicInfos($request)
     {
@@ -6068,10 +6504,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListMediaInfoJobsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListMediaInfoJobsRequest $request ListMediaInfoJobsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMediaInfoJobsResponse
+     * @return ListMediaInfoJobsResponse ListMediaInfoJobsResponse
      */
     public function listMediaInfoJobsWithOptions($request, $runtime)
     {
@@ -6117,9 +6553,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListMediaInfoJobsRequest $request
+     * @param ListMediaInfoJobsRequest $request ListMediaInfoJobsRequest
      *
-     * @return ListMediaInfoJobsResponse
+     * @return ListMediaInfoJobsResponse ListMediaInfoJobsResponse
      */
     public function listMediaInfoJobs($request)
     {
@@ -6129,10 +6565,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListMediaMarksRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 获取媒资的标注信息
+     *  *
+     * @param ListMediaMarksRequest $request ListMediaMarksRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMediaMarksResponse
+     * @return ListMediaMarksResponse ListMediaMarksResponse
      */
     public function listMediaMarksWithOptions($request, $runtime)
     {
@@ -6163,9 +6601,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListMediaMarksRequest $request
+     * @summary 获取媒资的标注信息
+     *  *
+     * @param ListMediaMarksRequest $request ListMediaMarksRequest
      *
-     * @return ListMediaMarksResponse
+     * @return ListMediaMarksResponse ListMediaMarksResponse
      */
     public function listMediaMarks($request)
     {
@@ -6175,10 +6615,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListMediaProducingJobsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 列出合成任务列表
+     *  *
+     * @param ListMediaProducingJobsRequest $request ListMediaProducingJobsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMediaProducingJobsResponse
+     * @return ListMediaProducingJobsResponse ListMediaProducingJobsResponse
      */
     public function listMediaProducingJobsWithOptions($request, $runtime)
     {
@@ -6230,9 +6672,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListMediaProducingJobsRequest $request
+     * @summary 列出合成任务列表
+     *  *
+     * @param ListMediaProducingJobsRequest $request ListMediaProducingJobsRequest
      *
-     * @return ListMediaProducingJobsResponse
+     * @return ListMediaProducingJobsResponse ListMediaProducingJobsResponse
      */
     public function listMediaProducingJobs($request)
     {
@@ -6242,10 +6686,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListPackageJobsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 获取打包任务列表
+     *  *
+     * @param ListPackageJobsRequest $request ListPackageJobsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPackageJobsResponse
+     * @return ListPackageJobsResponse ListPackageJobsResponse
      */
     public function listPackageJobsWithOptions($request, $runtime)
     {
@@ -6291,9 +6737,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListPackageJobsRequest $request
+     * @summary 获取打包任务列表
+     *  *
+     * @param ListPackageJobsRequest $request ListPackageJobsRequest
      *
-     * @return ListPackageJobsResponse
+     * @return ListPackageJobsResponse ListPackageJobsResponse
      */
     public function listPackageJobs($request)
     {
@@ -6303,10 +6751,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListPipelinesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 获取管道配置列表
+     *  *
+     * @param ListPipelinesRequest $request ListPipelinesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPipelinesResponse
+     * @return ListPipelinesResponse ListPipelinesResponse
      */
     public function listPipelinesWithOptions($request, $runtime)
     {
@@ -6334,9 +6784,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListPipelinesRequest $request
+     * @summary 获取管道配置列表
+     *  *
+     * @param ListPipelinesRequest $request ListPipelinesRequest
      *
-     * @return ListPipelinesResponse
+     * @return ListPipelinesResponse ListPipelinesResponse
      */
     public function listPipelines($request)
     {
@@ -6346,10 +6798,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListPublicMediaBasicInfosRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 列出公共素材库素材的基础信息
+     *  *
+     * @param ListPublicMediaBasicInfosRequest $request ListPublicMediaBasicInfosRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPublicMediaBasicInfosResponse
+     * @return ListPublicMediaBasicInfosResponse ListPublicMediaBasicInfosResponse
      */
     public function listPublicMediaBasicInfosWithOptions($request, $runtime)
     {
@@ -6395,9 +6849,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListPublicMediaBasicInfosRequest $request
+     * @summary 列出公共素材库素材的基础信息
+     *  *
+     * @param ListPublicMediaBasicInfosRequest $request ListPublicMediaBasicInfosRequest
      *
-     * @return ListPublicMediaBasicInfosResponse
+     * @return ListPublicMediaBasicInfosResponse ListPublicMediaBasicInfosResponse
      */
     public function listPublicMediaBasicInfos($request)
     {
@@ -6407,10 +6863,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListSmartJobsRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary ListSmartJobs
+     *  *
+     * @param ListSmartJobsRequest $request ListSmartJobsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSmartJobsResponse
+     * @return ListSmartJobsResponse ListSmartJobsResponse
      */
     public function listSmartJobsWithOptions($request, $runtime)
     {
@@ -6435,9 +6893,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListSmartJobsRequest $request
+     * @summary ListSmartJobs
+     *  *
+     * @param ListSmartJobsRequest $request ListSmartJobsRequest
      *
-     * @return ListSmartJobsResponse
+     * @return ListSmartJobsResponse ListSmartJobsResponse
      */
     public function listSmartJobs($request)
     {
@@ -6447,10 +6907,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListSmartSysAvatarModelsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 列出虚拟人官方模特配置
+     *  *
+     * @param ListSmartSysAvatarModelsRequest $request ListSmartSysAvatarModelsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSmartSysAvatarModelsResponse
+     * @return ListSmartSysAvatarModelsResponse ListSmartSysAvatarModelsResponse
      */
     public function listSmartSysAvatarModelsWithOptions($request, $runtime)
     {
@@ -6484,9 +6946,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListSmartSysAvatarModelsRequest $request
+     * @summary 列出虚拟人官方模特配置
+     *  *
+     * @param ListSmartSysAvatarModelsRequest $request ListSmartSysAvatarModelsRequest
      *
-     * @return ListSmartSysAvatarModelsResponse
+     * @return ListSmartSysAvatarModelsResponse ListSmartSysAvatarModelsResponse
      */
     public function listSmartSysAvatarModels($request)
     {
@@ -6496,9 +6960,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 列出智能语音发音人信息
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSmartVoiceGroupsResponse
+     * @return ListSmartVoiceGroupsResponse ListSmartVoiceGroupsResponse
      */
     public function listSmartVoiceGroupsWithOptions($runtime)
     {
@@ -6519,7 +6985,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @return ListSmartVoiceGroupsResponse
+     * @summary 列出智能语音发音人信息
+     *  *
+     * @return ListSmartVoiceGroupsResponse ListSmartVoiceGroupsResponse
      */
     public function listSmartVoiceGroups()
     {
@@ -6529,10 +6997,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListSnapshotJobsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询截图任务列表接口
+     *  *
+     * @param ListSnapshotJobsRequest $request ListSnapshotJobsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSnapshotJobsResponse
+     * @return ListSnapshotJobsResponse ListSnapshotJobsResponse
      */
     public function listSnapshotJobsWithOptions($request, $runtime)
     {
@@ -6578,9 +7048,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListSnapshotJobsRequest $request
+     * @summary 查询截图任务列表接口
+     *  *
+     * @param ListSnapshotJobsRequest $request ListSnapshotJobsRequest
      *
-     * @return ListSnapshotJobsResponse
+     * @return ListSnapshotJobsResponse ListSnapshotJobsResponse
      */
     public function listSnapshotJobs($request)
     {
@@ -6590,10 +7062,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListSystemTemplatesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 获取媒体处理系统模板列表
+     *  *
+     * @param ListSystemTemplatesRequest $request ListSystemTemplatesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSystemTemplatesResponse
+     * @return ListSystemTemplatesResponse ListSystemTemplatesResponse
      */
     public function listSystemTemplatesWithOptions($request, $runtime)
     {
@@ -6639,9 +7113,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListSystemTemplatesRequest $request
+     * @summary 获取媒体处理系统模板列表
+     *  *
+     * @param ListSystemTemplatesRequest $request ListSystemTemplatesRequest
      *
-     * @return ListSystemTemplatesResponse
+     * @return ListSystemTemplatesResponse ListSystemTemplatesResponse
      */
     public function listSystemTemplates($request)
     {
@@ -6651,10 +7127,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListTemplatesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary ListTemplates
+     *  *
+     * @param ListTemplatesRequest $request ListTemplatesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTemplatesResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
     public function listTemplatesWithOptions($request, $runtime)
     {
@@ -6700,9 +7178,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListTemplatesRequest $request
+     * @summary ListTemplates
+     *  *
+     * @param ListTemplatesRequest $request ListTemplatesRequest
      *
-     * @return ListTemplatesResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
     public function listTemplates($request)
     {
@@ -6712,10 +7192,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListTranscodeJobsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ListTranscodeJobsRequest $request ListTranscodeJobsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTranscodeJobsResponse
+     * @return ListTranscodeJobsResponse ListTranscodeJobsResponse
      */
     public function listTranscodeJobsWithOptions($request, $runtime)
     {
@@ -6761,9 +7241,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param ListTranscodeJobsRequest $request
+     * @param ListTranscodeJobsRequest $request ListTranscodeJobsRequest
      *
-     * @return ListTranscodeJobsResponse
+     * @return ListTranscodeJobsResponse ListTranscodeJobsResponse
      */
     public function listTranscodeJobs($request)
     {
@@ -6773,10 +7253,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QueryDNAJobListRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 查询DNA作业
+     *  *
+     * @param QueryDNAJobListRequest $request QueryDNAJobListRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDNAJobListResponse
+     * @return QueryDNAJobListResponse QueryDNAJobListResponse
      */
     public function queryDNAJobListWithOptions($request, $runtime)
     {
@@ -6816,9 +7298,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QueryDNAJobListRequest $request
+     * @summary 查询DNA作业
+     *  *
+     * @param QueryDNAJobListRequest $request QueryDNAJobListRequest
      *
-     * @return QueryDNAJobListResponse
+     * @return QueryDNAJobListResponse QueryDNAJobListResponse
      */
     public function queryDNAJobList($request)
     {
@@ -6828,10 +7312,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QueryIProductionJobRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 查询智能生产作业
+     *  *
+     * @param QueryIProductionJobRequest $request QueryIProductionJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryIProductionJobResponse
+     * @return QueryIProductionJobResponse QueryIProductionJobResponse
      */
     public function queryIProductionJobWithOptions($request, $runtime)
     {
@@ -6862,9 +7348,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QueryIProductionJobRequest $request
+     * @summary 查询智能生产作业
+     *  *
+     * @param QueryIProductionJobRequest $request QueryIProductionJobRequest
      *
-     * @return QueryIProductionJobResponse
+     * @return QueryIProductionJobResponse QueryIProductionJobResponse
      */
     public function queryIProductionJob($request)
     {
@@ -6874,10 +7362,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaCensorJobDetailRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param QueryMediaCensorJobDetailRequest $request QueryMediaCensorJobDetailRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMediaCensorJobDetailResponse
+     * @return QueryMediaCensorJobDetailResponse QueryMediaCensorJobDetailResponse
      */
     public function queryMediaCensorJobDetailWithOptions($request, $runtime)
     {
@@ -6923,9 +7411,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaCensorJobDetailRequest $request
+     * @param QueryMediaCensorJobDetailRequest $request QueryMediaCensorJobDetailRequest
      *
-     * @return QueryMediaCensorJobDetailResponse
+     * @return QueryMediaCensorJobDetailResponse QueryMediaCensorJobDetailResponse
      */
     public function queryMediaCensorJobDetail($request)
     {
@@ -6935,10 +7423,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaCensorJobListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param QueryMediaCensorJobListRequest $request QueryMediaCensorJobListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMediaCensorJobListResponse
+     * @return QueryMediaCensorJobListResponse QueryMediaCensorJobListResponse
      */
     public function queryMediaCensorJobListWithOptions($request, $runtime)
     {
@@ -6996,9 +7484,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaCensorJobListRequest $request
+     * @param QueryMediaCensorJobListRequest $request QueryMediaCensorJobListRequest
      *
-     * @return QueryMediaCensorJobListResponse
+     * @return QueryMediaCensorJobListResponse QueryMediaCensorJobListResponse
      */
     public function queryMediaCensorJobList($request)
     {
@@ -7008,10 +7496,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaIndexJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询索引任务
+     *  *
+     * @param QueryMediaIndexJobRequest $request QueryMediaIndexJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMediaIndexJobResponse
+     * @return QueryMediaIndexJobResponse QueryMediaIndexJobResponse
      */
     public function queryMediaIndexJobWithOptions($request, $runtime)
     {
@@ -7042,9 +7532,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QueryMediaIndexJobRequest $request
+     * @summary 查询索引任务
+     *  *
+     * @param QueryMediaIndexJobRequest $request QueryMediaIndexJobRequest
      *
-     * @return QueryMediaIndexJobResponse
+     * @return QueryMediaIndexJobResponse QueryMediaIndexJobResponse
      */
     public function queryMediaIndexJob($request)
     {
@@ -7054,10 +7546,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QuerySearchIndexRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询搜索索引
+     *  *
+     * @param QuerySearchIndexRequest $request QuerySearchIndexRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySearchIndexResponse
+     * @return QuerySearchIndexResponse QuerySearchIndexResponse
      */
     public function querySearchIndexWithOptions($request, $runtime)
     {
@@ -7088,9 +7582,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QuerySearchIndexRequest $request
+     * @summary 查询搜索索引
+     *  *
+     * @param QuerySearchIndexRequest $request QuerySearchIndexRequest
      *
-     * @return QuerySearchIndexResponse
+     * @return QuerySearchIndexResponse QuerySearchIndexResponse
      */
     public function querySearchIndex($request)
     {
@@ -7100,10 +7596,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QuerySearchLibRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 查询库
+     *  *
+     * @param QuerySearchLibRequest $request QuerySearchLibRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySearchLibResponse
+     * @return QuerySearchLibResponse QuerySearchLibResponse
      */
     public function querySearchLibWithOptions($request, $runtime)
     {
@@ -7131,9 +7629,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QuerySearchLibRequest $request
+     * @summary 查询库
+     *  *
+     * @param QuerySearchLibRequest $request QuerySearchLibRequest
      *
-     * @return QuerySearchLibResponse
+     * @return QuerySearchLibResponse QuerySearchLibResponse
      */
     public function querySearchLib($request)
     {
@@ -7143,10 +7643,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QuerySmarttagJobRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param QuerySmarttagJobRequest $request QuerySmarttagJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySmarttagJobResponse
+     * @return QuerySmarttagJobResponse QuerySmarttagJobResponse
      */
     public function querySmarttagJobWithOptions($request, $runtime)
     {
@@ -7177,9 +7677,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param QuerySmarttagJobRequest $request
+     * @param QuerySmarttagJobRequest $request QuerySmarttagJobRequest
      *
-     * @return QuerySmarttagJobResponse
+     * @return QuerySmarttagJobResponse QuerySmarttagJobResponse
      */
     public function querySmarttagJob($request)
     {
@@ -7189,10 +7689,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RefreshUploadMediaRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 刷新媒资上传凭证
+     *  *
+     * @param RefreshUploadMediaRequest $request RefreshUploadMediaRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshUploadMediaResponse
+     * @return RefreshUploadMediaResponse RefreshUploadMediaResponse
      */
     public function refreshUploadMediaWithOptions($request, $runtime)
     {
@@ -7220,9 +7722,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RefreshUploadMediaRequest $request
+     * @summary 刷新媒资上传凭证
+     *  *
+     * @param RefreshUploadMediaRequest $request RefreshUploadMediaRequest
      *
-     * @return RefreshUploadMediaResponse
+     * @return RefreshUploadMediaResponse RefreshUploadMediaResponse
      */
     public function refreshUploadMedia($request)
     {
@@ -7232,10 +7736,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RegisterMediaInfoRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 注册内容库资源
+     *  *
+     * @param RegisterMediaInfoRequest $request RegisterMediaInfoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterMediaInfoResponse
+     * @return RegisterMediaInfoResponse RegisterMediaInfoResponse
      */
     public function registerMediaInfoWithOptions($request, $runtime)
     {
@@ -7305,9 +7811,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RegisterMediaInfoRequest $request
+     * @summary 注册内容库资源
+     *  *
+     * @param RegisterMediaInfoRequest $request RegisterMediaInfoRequest
      *
-     * @return RegisterMediaInfoResponse
+     * @return RegisterMediaInfoResponse RegisterMediaInfoResponse
      */
     public function registerMediaInfo($request)
     {
@@ -7317,10 +7825,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RegisterMediaStreamRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 注册媒体流
+     *  *
+     * @param RegisterMediaStreamRequest $request RegisterMediaStreamRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterMediaStreamResponse
+     * @return RegisterMediaStreamResponse RegisterMediaStreamResponse
      */
     public function registerMediaStreamWithOptions($request, $runtime)
     {
@@ -7354,9 +7864,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param RegisterMediaStreamRequest $request
+     * @summary 注册媒体流
+     *  *
+     * @param RegisterMediaStreamRequest $request RegisterMediaStreamRequest
      *
-     * @return RegisterMediaStreamResponse
+     * @return RegisterMediaStreamResponse RegisterMediaStreamResponse
      */
     public function registerMediaStream($request)
     {
@@ -7366,10 +7878,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchEditingProjectRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary SearchEditingProject
+     *  *
+     * @param SearchEditingProjectRequest $request SearchEditingProjectRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchEditingProjectResponse
+     * @return SearchEditingProjectResponse SearchEditingProjectResponse
      */
     public function searchEditingProjectWithOptions($request, $runtime)
     {
@@ -7421,9 +7935,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchEditingProjectRequest $request
+     * @summary SearchEditingProject
+     *  *
+     * @param SearchEditingProjectRequest $request SearchEditingProjectRequest
      *
-     * @return SearchEditingProjectResponse
+     * @return SearchEditingProjectResponse SearchEditingProjectResponse
      */
     public function searchEditingProject($request)
     {
@@ -7433,10 +7949,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 媒资搜索
+     *  *
+     * @param SearchMediaRequest $request SearchMediaRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchMediaResponse
+     * @return SearchMediaResponse SearchMediaResponse
      */
     public function searchMediaWithOptions($request, $runtime)
     {
@@ -7482,9 +8000,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaRequest $request
+     * @summary 媒资搜索
+     *  *
+     * @param SearchMediaRequest $request SearchMediaRequest
      *
-     * @return SearchMediaResponse
+     * @return SearchMediaResponse SearchMediaResponse
      */
     public function searchMedia($request)
     {
@@ -7494,10 +8014,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaByAILabelRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 智能标签搜索
+     *  *
+     * @param SearchMediaByAILabelRequest $request SearchMediaByAILabelRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchMediaByAILabelResponse
+     * @return SearchMediaByAILabelResponse SearchMediaByAILabelResponse
      */
     public function searchMediaByAILabelWithOptions($request, $runtime)
     {
@@ -7549,9 +8071,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaByAILabelRequest $request
+     * @summary 智能标签搜索
+     *  *
+     * @param SearchMediaByAILabelRequest $request SearchMediaByAILabelRequest
      *
-     * @return SearchMediaByAILabelResponse
+     * @return SearchMediaByAILabelResponse SearchMediaByAILabelResponse
      */
     public function searchMediaByAILabel($request)
     {
@@ -7561,10 +8085,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaByFaceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 人脸搜粗搜接口，输入一张人脸图片，搜索该人物所在媒资的相关信息
+     *  *
+     * @param SearchMediaByFaceRequest $request SearchMediaByFaceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchMediaByFaceResponse
+     * @return SearchMediaByFaceResponse SearchMediaByFaceResponse
      */
     public function searchMediaByFaceWithOptions($request, $runtime)
     {
@@ -7610,9 +8136,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaByFaceRequest $request
+     * @summary 人脸搜粗搜接口，输入一张人脸图片，搜索该人物所在媒资的相关信息
+     *  *
+     * @param SearchMediaByFaceRequest $request SearchMediaByFaceRequest
      *
-     * @return SearchMediaByFaceResponse
+     * @return SearchMediaByFaceResponse SearchMediaByFaceResponse
      */
     public function searchMediaByFace($request)
     {
@@ -7622,10 +8150,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaByMultimodalRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 多模态搜索
+     *  *
+     * @param SearchMediaByMultimodalRequest $request SearchMediaByMultimodalRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchMediaByMultimodalResponse
+     * @return SearchMediaByMultimodalResponse SearchMediaByMultimodalResponse
      */
     public function searchMediaByMultimodalWithOptions($request, $runtime)
     {
@@ -7665,9 +8195,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaByMultimodalRequest $request
+     * @summary 多模态搜索
+     *  *
+     * @param SearchMediaByMultimodalRequest $request SearchMediaByMultimodalRequest
      *
-     * @return SearchMediaByMultimodalResponse
+     * @return SearchMediaByMultimodalResponse SearchMediaByMultimodalResponse
      */
     public function searchMediaByMultimodal($request)
     {
@@ -7677,10 +8209,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaClipByFaceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 人脸搜精搜接口，基于粗搜结果返回该人物所在媒资的相关人物片段信息
+     *  *
+     * @param SearchMediaClipByFaceRequest $request SearchMediaClipByFaceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchMediaClipByFaceResponse
+     * @return SearchMediaClipByFaceResponse SearchMediaClipByFaceResponse
      */
     public function searchMediaClipByFaceWithOptions($request, $runtime)
     {
@@ -7723,9 +8257,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchMediaClipByFaceRequest $request
+     * @summary 人脸搜精搜接口，基于粗搜结果返回该人物所在媒资的相关人物片段信息
+     *  *
+     * @param SearchMediaClipByFaceRequest $request SearchMediaClipByFaceRequest
      *
-     * @return SearchMediaClipByFaceResponse
+     * @return SearchMediaClipByFaceResponse SearchMediaClipByFaceResponse
      */
     public function searchMediaClipByFace($request)
     {
@@ -7735,10 +8271,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchPublicMediaInfoRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 搜索公共媒资信息
+     *  *
+     * @param SearchPublicMediaInfoRequest $request SearchPublicMediaInfoRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchPublicMediaInfoResponse
+     * @return SearchPublicMediaInfoResponse SearchPublicMediaInfoResponse
      */
     public function searchPublicMediaInfoWithOptions($request, $runtime)
     {
@@ -7787,9 +8325,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SearchPublicMediaInfoRequest $request
+     * @summary 搜索公共媒资信息
+     *  *
+     * @param SearchPublicMediaInfoRequest $request SearchPublicMediaInfoRequest
      *
-     * @return SearchPublicMediaInfoResponse
+     * @return SearchPublicMediaInfoResponse SearchPublicMediaInfoResponse
      */
     public function searchPublicMediaInfo($request)
     {
@@ -7799,10 +8339,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SendLiveSnapshotJobCommandRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 发送实时截图任务指令
+     *  *
+     * @param SendLiveSnapshotJobCommandRequest $request SendLiveSnapshotJobCommandRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendLiveSnapshotJobCommandResponse
+     * @return SendLiveSnapshotJobCommandResponse SendLiveSnapshotJobCommandResponse
      */
     public function sendLiveSnapshotJobCommandWithOptions($request, $runtime)
     {
@@ -7833,9 +8375,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SendLiveSnapshotJobCommandRequest $request
+     * @summary 发送实时截图任务指令
+     *  *
+     * @param SendLiveSnapshotJobCommandRequest $request SendLiveSnapshotJobCommandRequest
      *
-     * @return SendLiveSnapshotJobCommandResponse
+     * @return SendLiveSnapshotJobCommandResponse SendLiveSnapshotJobCommandResponse
      */
     public function sendLiveSnapshotJobCommand($request)
     {
@@ -7845,10 +8389,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SendLiveTranscodeJobCommandRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 给指定转码任务发实时命令
+     *  *
+     * @param SendLiveTranscodeJobCommandRequest $request SendLiveTranscodeJobCommandRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendLiveTranscodeJobCommandResponse
+     * @return SendLiveTranscodeJobCommandResponse SendLiveTranscodeJobCommandResponse
      */
     public function sendLiveTranscodeJobCommandWithOptions($request, $runtime)
     {
@@ -7879,9 +8425,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SendLiveTranscodeJobCommandRequest $request
+     * @summary 给指定转码任务发实时命令
+     *  *
+     * @param SendLiveTranscodeJobCommandRequest $request SendLiveTranscodeJobCommandRequest
      *
-     * @return SendLiveTranscodeJobCommandResponse
+     * @return SendLiveTranscodeJobCommandResponse SendLiveTranscodeJobCommandResponse
      */
     public function sendLiveTranscodeJobCommand($request)
     {
@@ -7891,10 +8439,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SetContentAnalyzeConfigRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 设置内容分析搜索配置
+     *  *
+     * @param SetContentAnalyzeConfigRequest $request SetContentAnalyzeConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetContentAnalyzeConfigResponse
+     * @return SetContentAnalyzeConfigResponse SetContentAnalyzeConfigResponse
      */
     public function setContentAnalyzeConfigWithOptions($request, $runtime)
     {
@@ -7928,9 +8478,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SetContentAnalyzeConfigRequest $request
+     * @summary 设置内容分析搜索配置
+     *  *
+     * @param SetContentAnalyzeConfigRequest $request SetContentAnalyzeConfigRequest
      *
-     * @return SetContentAnalyzeConfigResponse
+     * @return SetContentAnalyzeConfigResponse SetContentAnalyzeConfigResponse
      */
     public function setContentAnalyzeConfig($request)
     {
@@ -7940,10 +8492,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultCustomTemplateRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 设置默认媒体处理模板
+     *  *
+     * @param SetDefaultCustomTemplateRequest $request SetDefaultCustomTemplateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDefaultCustomTemplateResponse
+     * @return SetDefaultCustomTemplateResponse SetDefaultCustomTemplateResponse
      */
     public function setDefaultCustomTemplateWithOptions($request, $runtime)
     {
@@ -7971,9 +8525,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultCustomTemplateRequest $request
+     * @summary 设置默认媒体处理模板
+     *  *
+     * @param SetDefaultCustomTemplateRequest $request SetDefaultCustomTemplateRequest
      *
-     * @return SetDefaultCustomTemplateResponse
+     * @return SetDefaultCustomTemplateResponse SetDefaultCustomTemplateResponse
      */
     public function setDefaultCustomTemplate($request)
     {
@@ -7983,10 +8539,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultStorageLocationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 设置默认存储路径
+     *  *
+     * @param SetDefaultStorageLocationRequest $request SetDefaultStorageLocationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDefaultStorageLocationResponse
+     * @return SetDefaultStorageLocationResponse SetDefaultStorageLocationResponse
      */
     public function setDefaultStorageLocationWithOptions($request, $runtime)
     {
@@ -8020,9 +8578,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultStorageLocationRequest $request
+     * @summary 设置默认存储路径
+     *  *
+     * @param SetDefaultStorageLocationRequest $request SetDefaultStorageLocationRequest
      *
-     * @return SetDefaultStorageLocationResponse
+     * @return SetDefaultStorageLocationResponse SetDefaultStorageLocationResponse
      */
     public function setDefaultStorageLocation($request)
     {
@@ -8032,10 +8592,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SetEventCallbackRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 配置事件回调地址
+     *  *
+     * @param SetEventCallbackRequest $request SetEventCallbackRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetEventCallbackResponse
+     * @return SetEventCallbackResponse SetEventCallbackResponse
      */
     public function setEventCallbackWithOptions($request, $runtime)
     {
@@ -8078,9 +8640,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SetEventCallbackRequest $request
+     * @summary 配置事件回调地址
+     *  *
+     * @param SetEventCallbackRequest $request SetEventCallbackRequest
      *
-     * @return SetEventCallbackResponse
+     * @return SetEventCallbackResponse SetEventCallbackResponse
      */
     public function setEventCallback($request)
     {
@@ -8090,10 +8654,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param StartWorkflowRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 启动工作流
+     *  *
+     * @param StartWorkflowRequest $request StartWorkflowRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartWorkflowResponse
+     * @return StartWorkflowResponse StartWorkflowResponse
      */
     public function startWorkflowWithOptions($request, $runtime)
     {
@@ -8127,9 +8693,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param StartWorkflowRequest $request
+     * @summary 启动工作流
+     *  *
+     * @param StartWorkflowRequest $request StartWorkflowRequest
      *
-     * @return StartWorkflowResponse
+     * @return StartWorkflowResponse StartWorkflowResponse
      */
     public function startWorkflow($request)
     {
@@ -8139,10 +8707,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitASRJobRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary SubmitASRJob
+     *  *
+     * @param SubmitASRJobRequest $request SubmitASRJobRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitASRJobResponse
+     * @return SubmitASRJobResponse SubmitASRJobResponse
      */
     public function submitASRJobWithOptions($request, $runtime)
     {
@@ -8185,9 +8755,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitASRJobRequest $request
+     * @summary SubmitASRJob
+     *  *
+     * @param SubmitASRJobRequest $request SubmitASRJobRequest
      *
-     * @return SubmitASRJobResponse
+     * @return SubmitASRJobResponse SubmitASRJobResponse
      */
     public function submitASRJob($request)
     {
@@ -8197,10 +8769,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitAudioProduceJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary SubmitAudioProduceJob
+     *  *
+     * @param SubmitAudioProduceJobRequest $request SubmitAudioProduceJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitAudioProduceJobResponse
+     * @return SubmitAudioProduceJobResponse SubmitAudioProduceJobResponse
      */
     public function submitAudioProduceJobWithOptions($request, $runtime)
     {
@@ -8246,9 +8820,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitAudioProduceJobRequest $request
+     * @summary SubmitAudioProduceJob
+     *  *
+     * @param SubmitAudioProduceJobRequest $request SubmitAudioProduceJobRequest
      *
-     * @return SubmitAudioProduceJobResponse
+     * @return SubmitAudioProduceJobResponse SubmitAudioProduceJobResponse
      */
     public function submitAudioProduceJob($request)
     {
@@ -8258,10 +8834,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitAvatarTrainingJobRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 提交数字人训练任务
+     *  *
+     * @param SubmitAvatarTrainingJobRequest $request SubmitAvatarTrainingJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitAvatarTrainingJobResponse
+     * @return SubmitAvatarTrainingJobResponse SubmitAvatarTrainingJobResponse
      */
     public function submitAvatarTrainingJobWithOptions($request, $runtime)
     {
@@ -8289,9 +8867,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitAvatarTrainingJobRequest $request
+     * @summary 提交数字人训练任务
+     *  *
+     * @param SubmitAvatarTrainingJobRequest $request SubmitAvatarTrainingJobRequest
      *
-     * @return SubmitAvatarTrainingJobResponse
+     * @return SubmitAvatarTrainingJobResponse SubmitAvatarTrainingJobResponse
      */
     public function submitAvatarTrainingJob($request)
     {
@@ -8301,10 +8881,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitAvatarVideoJobRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 提交虚拟人视频合成任务
+     *  *
+     * @param SubmitAvatarVideoJobRequest $request SubmitAvatarVideoJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitAvatarVideoJobResponse
+     * @return SubmitAvatarVideoJobResponse SubmitAvatarVideoJobResponse
      */
     public function submitAvatarVideoJobWithOptions($request, $runtime)
     {
@@ -8347,9 +8929,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitAvatarVideoJobRequest $request
+     * @summary 提交虚拟人视频合成任务
+     *  *
+     * @param SubmitAvatarVideoJobRequest $request SubmitAvatarVideoJobRequest
      *
-     * @return SubmitAvatarVideoJobResponse
+     * @return SubmitAvatarVideoJobResponse SubmitAvatarVideoJobResponse
      */
     public function submitAvatarVideoJob($request)
     {
@@ -8359,10 +8943,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitBatchMediaProducingJobRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary SubmitBatchMediaProducingJob
+     *  *
+     * @param SubmitBatchMediaProducingJobRequest $request SubmitBatchMediaProducingJobRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitBatchMediaProducingJobResponse
+     * @return SubmitBatchMediaProducingJobResponse SubmitBatchMediaProducingJobResponse
      */
     public function submitBatchMediaProducingJobWithOptions($request, $runtime)
     {
@@ -8404,9 +8990,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitBatchMediaProducingJobRequest $request
+     * @summary SubmitBatchMediaProducingJob
+     *  *
+     * @param SubmitBatchMediaProducingJobRequest $request SubmitBatchMediaProducingJobRequest
      *
-     * @return SubmitBatchMediaProducingJobResponse
+     * @return SubmitBatchMediaProducingJobResponse SubmitBatchMediaProducingJobResponse
      */
     public function submitBatchMediaProducingJob($request)
     {
@@ -8416,10 +9004,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitCustomizedVoiceJobRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 提交人声克隆训练任务
+     *  *
+     * @param SubmitCustomizedVoiceJobRequest $request SubmitCustomizedVoiceJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitCustomizedVoiceJobResponse
+     * @return SubmitCustomizedVoiceJobResponse SubmitCustomizedVoiceJobResponse
      */
     public function submitCustomizedVoiceJobWithOptions($request, $runtime)
     {
@@ -8450,9 +9040,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitCustomizedVoiceJobRequest $request
+     * @summary 提交人声克隆训练任务
+     *  *
+     * @param SubmitCustomizedVoiceJobRequest $request SubmitCustomizedVoiceJobRequest
      *
-     * @return SubmitCustomizedVoiceJobResponse
+     * @return SubmitCustomizedVoiceJobResponse SubmitCustomizedVoiceJobResponse
      */
     public function submitCustomizedVoiceJob($request)
     {
@@ -8462,10 +9054,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitDNAJobRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 提交DNA作业
+     *  *
+     * @param SubmitDNAJobRequest $tmpReq  SubmitDNAJobRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDNAJobResponse
+     * @return SubmitDNAJobResponse SubmitDNAJobResponse
      */
     public function submitDNAJobWithOptions($tmpReq, $runtime)
     {
@@ -8528,9 +9122,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitDNAJobRequest $request
+     * @summary 提交DNA作业
+     *  *
+     * @param SubmitDNAJobRequest $request SubmitDNAJobRequest
      *
-     * @return SubmitDNAJobResponse
+     * @return SubmitDNAJobResponse SubmitDNAJobResponse
      */
     public function submitDNAJob($request)
     {
@@ -8540,10 +9136,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitDynamicChartJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 提交动态图表任务
+     *  *
+     * @param SubmitDynamicChartJobRequest $request SubmitDynamicChartJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDynamicChartJobResponse
+     * @return SubmitDynamicChartJobResponse SubmitDynamicChartJobResponse
      */
     public function submitDynamicChartJobWithOptions($request, $runtime)
     {
@@ -8607,9 +9205,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitDynamicChartJobRequest $request
+     * @summary 提交动态图表任务
+     *  *
+     * @param SubmitDynamicChartJobRequest $request SubmitDynamicChartJobRequest
      *
-     * @return SubmitDynamicChartJobResponse
+     * @return SubmitDynamicChartJobResponse SubmitDynamicChartJobResponse
      */
     public function submitDynamicChartJob($request)
     {
@@ -8619,10 +9219,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitDynamicImageJobRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary 提交异步动图任务接口
+     *  *
+     * @param SubmitDynamicImageJobRequest $tmpReq  SubmitDynamicImageJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitDynamicImageJobResponse
+     * @return SubmitDynamicImageJobResponse SubmitDynamicImageJobResponse
      */
     public function submitDynamicImageJobWithOptions($tmpReq, $runtime)
     {
@@ -8679,9 +9281,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitDynamicImageJobRequest $request
+     * @summary 提交异步动图任务接口
+     *  *
+     * @param SubmitDynamicImageJobRequest $request SubmitDynamicImageJobRequest
      *
-     * @return SubmitDynamicImageJobResponse
+     * @return SubmitDynamicImageJobResponse SubmitDynamicImageJobResponse
      */
     public function submitDynamicImageJob($request)
     {
@@ -8691,10 +9295,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitIProductionJobRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary 提交智能生产作业
+     *  *
+     * @param SubmitIProductionJobRequest $tmpReq  SubmitIProductionJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitIProductionJobResponse
+     * @return SubmitIProductionJobResponse SubmitIProductionJobResponse
      */
     public function submitIProductionJobWithOptions($tmpReq, $runtime)
     {
@@ -8754,9 +9360,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitIProductionJobRequest $request
+     * @summary 提交智能生产作业
+     *  *
+     * @param SubmitIProductionJobRequest $request SubmitIProductionJobRequest
      *
-     * @return SubmitIProductionJobResponse
+     * @return SubmitIProductionJobResponse SubmitIProductionJobResponse
      */
     public function submitIProductionJob($request)
     {
@@ -8766,10 +9374,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitLiveEditingJobRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 提交直播剪辑任务
+     *  *
+     * @param SubmitLiveEditingJobRequest $request SubmitLiveEditingJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitLiveEditingJobResponse
+     * @return SubmitLiveEditingJobResponse SubmitLiveEditingJobResponse
      */
     public function submitLiveEditingJobWithOptions($request, $runtime)
     {
@@ -8815,9 +9425,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitLiveEditingJobRequest $request
+     * @summary 提交直播剪辑任务
+     *  *
+     * @param SubmitLiveEditingJobRequest $request SubmitLiveEditingJobRequest
      *
-     * @return SubmitLiveEditingJobResponse
+     * @return SubmitLiveEditingJobResponse SubmitLiveEditingJobResponse
      */
     public function submitLiveEditingJob($request)
     {
@@ -8827,10 +9439,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitLiveRecordJobRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 提交录制任务
+     *  *
+     * @param SubmitLiveRecordJobRequest $tmpReq  SubmitLiveRecordJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitLiveRecordJobResponse
+     * @return SubmitLiveRecordJobResponse SubmitLiveRecordJobResponse
      */
     public function submitLiveRecordJobWithOptions($tmpReq, $runtime)
     {
@@ -8878,9 +9492,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitLiveRecordJobRequest $request
+     * @summary 提交录制任务
+     *  *
+     * @param SubmitLiveRecordJobRequest $request SubmitLiveRecordJobRequest
      *
-     * @return SubmitLiveRecordJobResponse
+     * @return SubmitLiveRecordJobResponse SubmitLiveRecordJobResponse
      */
     public function submitLiveRecordJob($request)
     {
@@ -8890,10 +9506,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitLiveSnapshotJobRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * @summary 创建直播截图任务
+     *  *
+     * @param SubmitLiveSnapshotJobRequest $tmpReq  SubmitLiveSnapshotJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitLiveSnapshotJobResponse
+     * @return SubmitLiveSnapshotJobResponse SubmitLiveSnapshotJobResponse
      */
     public function submitLiveSnapshotJobWithOptions($tmpReq, $runtime)
     {
@@ -8941,9 +9559,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitLiveSnapshotJobRequest $request
+     * @summary 创建直播截图任务
+     *  *
+     * @param SubmitLiveSnapshotJobRequest $request SubmitLiveSnapshotJobRequest
      *
-     * @return SubmitLiveSnapshotJobResponse
+     * @return SubmitLiveSnapshotJobResponse SubmitLiveSnapshotJobResponse
      */
     public function submitLiveSnapshotJob($request)
     {
@@ -8953,10 +9573,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitLiveTranscodeJobRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary 提交转码任务
+     *  *
+     * @param SubmitLiveTranscodeJobRequest $tmpReq  SubmitLiveTranscodeJobRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitLiveTranscodeJobResponse
+     * @return SubmitLiveTranscodeJobResponse SubmitLiveTranscodeJobResponse
      */
     public function submitLiveTranscodeJobWithOptions($tmpReq, $runtime)
     {
@@ -9010,9 +9632,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitLiveTranscodeJobRequest $request
+     * @summary 提交转码任务
+     *  *
+     * @param SubmitLiveTranscodeJobRequest $request SubmitLiveTranscodeJobRequest
      *
-     * @return SubmitLiveTranscodeJobResponse
+     * @return SubmitLiveTranscodeJobResponse SubmitLiveTranscodeJobResponse
      */
     public function submitLiveTranscodeJob($request)
     {
@@ -9022,10 +9646,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaCensorJobRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @param SubmitMediaCensorJobRequest $tmpReq  SubmitMediaCensorJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitMediaCensorJobResponse
+     * @return SubmitMediaCensorJobResponse SubmitMediaCensorJobResponse
      */
     public function submitMediaCensorJobWithOptions($tmpReq, $runtime)
     {
@@ -9088,9 +9712,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaCensorJobRequest $request
+     * @param SubmitMediaCensorJobRequest $request SubmitMediaCensorJobRequest
      *
-     * @return SubmitMediaCensorJobResponse
+     * @return SubmitMediaCensorJobResponse SubmitMediaCensorJobResponse
      */
     public function submitMediaCensorJob($request)
     {
@@ -9100,10 +9724,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaInfoJobRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @param SubmitMediaInfoJobRequest $tmpReq  SubmitMediaInfoJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitMediaInfoJobResponse
+     * @return SubmitMediaInfoJobResponse SubmitMediaInfoJobResponse
      */
     public function submitMediaInfoJobWithOptions($tmpReq, $runtime)
     {
@@ -9148,9 +9772,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaInfoJobRequest $request
+     * @param SubmitMediaInfoJobRequest $request SubmitMediaInfoJobRequest
      *
-     * @return SubmitMediaInfoJobResponse
+     * @return SubmitMediaInfoJobResponse SubmitMediaInfoJobResponse
      */
     public function submitMediaInfoJob($request)
     {
@@ -9160,10 +9784,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaProducingJobRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary SubmitMediaProducingJob
+     *  *
+     * @param SubmitMediaProducingJobRequest $request SubmitMediaProducingJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitMediaProducingJobResponse
+     * @return SubmitMediaProducingJobResponse SubmitMediaProducingJobResponse
      */
     public function submitMediaProducingJobWithOptions($request, $runtime)
     {
@@ -9226,9 +9852,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitMediaProducingJobRequest $request
+     * @summary SubmitMediaProducingJob
+     *  *
+     * @param SubmitMediaProducingJobRequest $request SubmitMediaProducingJobRequest
      *
-     * @return SubmitMediaProducingJobResponse
+     * @return SubmitMediaProducingJobResponse SubmitMediaProducingJobResponse
      */
     public function submitMediaProducingJob($request)
     {
@@ -9238,10 +9866,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitPackageJobRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary 提交打包任务
+     *  *
+     * @param SubmitPackageJobRequest $tmpReq  SubmitPackageJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitPackageJobResponse
+     * @return SubmitPackageJobResponse SubmitPackageJobResponse
      */
     public function submitPackageJobWithOptions($tmpReq, $runtime)
     {
@@ -9292,9 +9922,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitPackageJobRequest $request
+     * @summary 提交打包任务
+     *  *
+     * @param SubmitPackageJobRequest $request SubmitPackageJobRequest
      *
-     * @return SubmitPackageJobResponse
+     * @return SubmitPackageJobResponse SubmitPackageJobResponse
      */
     public function submitPackageJob($request)
     {
@@ -9304,10 +9936,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitSmarttagJobRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @param SubmitSmarttagJobRequest $tmpReq  SubmitSmarttagJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitSmarttagJobResponse
+     * @return SubmitSmarttagJobResponse SubmitSmarttagJobResponse
      */
     public function submitSmarttagJobWithOptions($tmpReq, $runtime)
     {
@@ -9370,9 +10002,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitSmarttagJobRequest $request
+     * @param SubmitSmarttagJobRequest $request SubmitSmarttagJobRequest
      *
-     * @return SubmitSmarttagJobResponse
+     * @return SubmitSmarttagJobResponse SubmitSmarttagJobResponse
      */
     public function submitSmarttagJob($request)
     {
@@ -9382,10 +10014,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitSnapshotJobRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary 提交异步截图任务
+     *  *
+     * @param SubmitSnapshotJobRequest $tmpReq  SubmitSnapshotJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitSnapshotJobResponse
+     * @return SubmitSnapshotJobResponse SubmitSnapshotJobResponse
      */
     public function submitSnapshotJobWithOptions($tmpReq, $runtime)
     {
@@ -9442,9 +10076,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitSnapshotJobRequest $request
+     * @summary 提交异步截图任务
+     *  *
+     * @param SubmitSnapshotJobRequest $request SubmitSnapshotJobRequest
      *
-     * @return SubmitSnapshotJobResponse
+     * @return SubmitSnapshotJobResponse SubmitSnapshotJobResponse
      */
     public function submitSnapshotJob($request)
     {
@@ -9454,10 +10090,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitStandardCustomizedVoiceJobRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 提交标准版人声克隆训练任务
+     *  *
+     * @param SubmitStandardCustomizedVoiceJobRequest $request SubmitStandardCustomizedVoiceJobRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitStandardCustomizedVoiceJobResponse
+     * @return SubmitStandardCustomizedVoiceJobResponse SubmitStandardCustomizedVoiceJobResponse
      */
     public function submitStandardCustomizedVoiceJobWithOptions($request, $runtime)
     {
@@ -9497,9 +10135,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitStandardCustomizedVoiceJobRequest $request
+     * @summary 提交标准版人声克隆训练任务
+     *  *
+     * @param SubmitStandardCustomizedVoiceJobRequest $request SubmitStandardCustomizedVoiceJobRequest
      *
-     * @return SubmitStandardCustomizedVoiceJobResponse
+     * @return SubmitStandardCustomizedVoiceJobResponse SubmitStandardCustomizedVoiceJobResponse
      */
     public function submitStandardCustomizedVoiceJob($request)
     {
@@ -9509,10 +10149,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitSyncMediaInfoJobRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @param SubmitSyncMediaInfoJobRequest $tmpReq  SubmitSyncMediaInfoJobRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitSyncMediaInfoJobResponse
+     * @return SubmitSyncMediaInfoJobResponse SubmitSyncMediaInfoJobResponse
      */
     public function submitSyncMediaInfoJobWithOptions($tmpReq, $runtime)
     {
@@ -9557,9 +10197,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitSyncMediaInfoJobRequest $request
+     * @param SubmitSyncMediaInfoJobRequest $request SubmitSyncMediaInfoJobRequest
      *
-     * @return SubmitSyncMediaInfoJobResponse
+     * @return SubmitSyncMediaInfoJobResponse SubmitSyncMediaInfoJobResponse
      */
     public function submitSyncMediaInfoJob($request)
     {
@@ -9569,10 +10209,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitTextGenerateJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 提交文本生成任务
+     *  *
+     * @param SubmitTextGenerateJobRequest $request SubmitTextGenerateJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitTextGenerateJobResponse
+     * @return SubmitTextGenerateJobResponse SubmitTextGenerateJobResponse
      */
     public function submitTextGenerateJobWithOptions($request, $runtime)
     {
@@ -9612,9 +10254,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitTextGenerateJobRequest $request
+     * @summary 提交文本生成任务
+     *  *
+     * @param SubmitTextGenerateJobRequest $request SubmitTextGenerateJobRequest
      *
-     * @return SubmitTextGenerateJobResponse
+     * @return SubmitTextGenerateJobResponse SubmitTextGenerateJobResponse
      */
     public function submitTextGenerateJob($request)
     {
@@ -9624,10 +10268,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitTranscodeJobRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @param SubmitTranscodeJobRequest $tmpReq  SubmitTranscodeJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitTranscodeJobResponse
+     * @return SubmitTranscodeJobResponse SubmitTranscodeJobResponse
      */
     public function submitTranscodeJobWithOptions($tmpReq, $runtime)
     {
@@ -9681,9 +10325,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param SubmitTranscodeJobRequest $request
+     * @param SubmitTranscodeJobRequest $request SubmitTranscodeJobRequest
      *
-     * @return SubmitTranscodeJobResponse
+     * @return SubmitTranscodeJobResponse SubmitTranscodeJobResponse
      */
     public function submitTranscodeJob($request)
     {
@@ -9693,10 +10337,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateAvatarTrainingJobRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 更新数字人训练任务信息
+     *  *
+     * @param UpdateAvatarTrainingJobRequest $request UpdateAvatarTrainingJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAvatarTrainingJobResponse
+     * @return UpdateAvatarTrainingJobResponse UpdateAvatarTrainingJobResponse
      */
     public function updateAvatarTrainingJobWithOptions($request, $runtime)
     {
@@ -9742,9 +10388,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateAvatarTrainingJobRequest $request
+     * @summary 更新数字人训练任务信息
+     *  *
+     * @param UpdateAvatarTrainingJobRequest $request UpdateAvatarTrainingJobRequest
      *
-     * @return UpdateAvatarTrainingJobResponse
+     * @return UpdateAvatarTrainingJobResponse UpdateAvatarTrainingJobResponse
      */
     public function updateAvatarTrainingJob($request)
     {
@@ -9754,10 +10402,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateCategoryRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 更新媒资分类
+     *  *
+     * @param UpdateCategoryRequest $request UpdateCategoryRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCategoryResponse
+     * @return UpdateCategoryResponse UpdateCategoryResponse
      */
     public function updateCategoryWithOptions($request, $runtime)
     {
@@ -9788,9 +10438,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateCategoryRequest $request
+     * @summary 更新媒资分类
+     *  *
+     * @param UpdateCategoryRequest $request UpdateCategoryRequest
      *
-     * @return UpdateCategoryResponse
+     * @return UpdateCategoryResponse UpdateCategoryResponse
      */
     public function updateCategory($request)
     {
@@ -9800,10 +10452,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 更新媒体处理自定义模板
+     *  *
+     * @param UpdateCustomTemplateRequest $request UpdateCustomTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCustomTemplateResponse
+     * @return UpdateCustomTemplateResponse UpdateCustomTemplateResponse
      */
     public function updateCustomTemplateWithOptions($request, $runtime)
     {
@@ -9837,9 +10491,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomTemplateRequest $request
+     * @summary 更新媒体处理自定义模板
+     *  *
+     * @param UpdateCustomTemplateRequest $request UpdateCustomTemplateRequest
      *
-     * @return UpdateCustomTemplateResponse
+     * @return UpdateCustomTemplateResponse UpdateCustomTemplateResponse
      */
     public function updateCustomTemplate($request)
     {
@@ -9849,10 +10505,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomizedVoiceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 更新用户的专属人声
+     *  *
+     * @param UpdateCustomizedVoiceRequest $request UpdateCustomizedVoiceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCustomizedVoiceResponse
+     * @return UpdateCustomizedVoiceResponse UpdateCustomizedVoiceResponse
      */
     public function updateCustomizedVoiceWithOptions($request, $runtime)
     {
@@ -9883,9 +10541,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateCustomizedVoiceRequest $request
+     * @summary 更新用户的专属人声
+     *  *
+     * @param UpdateCustomizedVoiceRequest $request UpdateCustomizedVoiceRequest
      *
-     * @return UpdateCustomizedVoiceResponse
+     * @return UpdateCustomizedVoiceResponse UpdateCustomizedVoiceResponse
      */
     public function updateCustomizedVoice($request)
     {
@@ -9895,10 +10555,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateEditingProjectRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 修改云剪辑工程
+     *  *
+     * @param UpdateEditingProjectRequest $request UpdateEditingProjectRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEditingProjectResponse
+     * @return UpdateEditingProjectResponse UpdateEditingProjectResponse
      */
     public function updateEditingProjectWithOptions($request, $runtime)
     {
@@ -9949,9 +10611,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateEditingProjectRequest $request
+     * @summary 修改云剪辑工程
+     *  *
+     * @param UpdateEditingProjectRequest $request UpdateEditingProjectRequest
      *
-     * @return UpdateEditingProjectResponse
+     * @return UpdateEditingProjectResponse UpdateEditingProjectResponse
      */
     public function updateEditingProject($request)
     {
@@ -9961,10 +10625,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateLiveRecordTemplateRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary 修改直播录制模板
+     *  *
+     * @param UpdateLiveRecordTemplateRequest $tmpReq  UpdateLiveRecordTemplateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLiveRecordTemplateResponse
+     * @return UpdateLiveRecordTemplateResponse UpdateLiveRecordTemplateResponse
      */
     public function updateLiveRecordTemplateWithOptions($tmpReq, $runtime)
     {
@@ -10003,9 +10669,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateLiveRecordTemplateRequest $request
+     * @summary 修改直播录制模板
+     *  *
+     * @param UpdateLiveRecordTemplateRequest $request UpdateLiveRecordTemplateRequest
      *
-     * @return UpdateLiveRecordTemplateResponse
+     * @return UpdateLiveRecordTemplateResponse UpdateLiveRecordTemplateResponse
      */
     public function updateLiveRecordTemplate($request)
     {
@@ -10015,10 +10683,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateLiveSnapshotTemplateRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 更新直播截图模板
+     *  *
+     * @param UpdateLiveSnapshotTemplateRequest $request UpdateLiveSnapshotTemplateRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLiveSnapshotTemplateResponse
+     * @return UpdateLiveSnapshotTemplateResponse UpdateLiveSnapshotTemplateResponse
      */
     public function updateLiveSnapshotTemplateWithOptions($request, $runtime)
     {
@@ -10058,9 +10728,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateLiveSnapshotTemplateRequest $request
+     * @summary 更新直播截图模板
+     *  *
+     * @param UpdateLiveSnapshotTemplateRequest $request UpdateLiveSnapshotTemplateRequest
      *
-     * @return UpdateLiveSnapshotTemplateResponse
+     * @return UpdateLiveSnapshotTemplateResponse UpdateLiveSnapshotTemplateResponse
      */
     public function updateLiveSnapshotTemplate($request)
     {
@@ -10070,10 +10742,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateLiveTranscodeJobRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary 更新转码任务配置
+     *  *
+     * @param UpdateLiveTranscodeJobRequest $tmpReq  UpdateLiveTranscodeJobRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLiveTranscodeJobResponse
+     * @return UpdateLiveTranscodeJobResponse UpdateLiveTranscodeJobResponse
      */
     public function updateLiveTranscodeJobWithOptions($tmpReq, $runtime)
     {
@@ -10124,9 +10798,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateLiveTranscodeJobRequest $request
+     * @summary 更新转码任务配置
+     *  *
+     * @param UpdateLiveTranscodeJobRequest $request UpdateLiveTranscodeJobRequest
      *
-     * @return UpdateLiveTranscodeJobResponse
+     * @return UpdateLiveTranscodeJobResponse UpdateLiveTranscodeJobResponse
      */
     public function updateLiveTranscodeJob($request)
     {
@@ -10136,10 +10812,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateLiveTranscodeTemplateRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * @summary 更新转码模版
+     *  *
+     * @param UpdateLiveTranscodeTemplateRequest $tmpReq  UpdateLiveTranscodeTemplateRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLiveTranscodeTemplateResponse
+     * @return UpdateLiveTranscodeTemplateResponse UpdateLiveTranscodeTemplateResponse
      */
     public function updateLiveTranscodeTemplateWithOptions($tmpReq, $runtime)
     {
@@ -10178,9 +10856,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateLiveTranscodeTemplateRequest $request
+     * @summary 更新转码模版
+     *  *
+     * @param UpdateLiveTranscodeTemplateRequest $request UpdateLiveTranscodeTemplateRequest
      *
-     * @return UpdateLiveTranscodeTemplateResponse
+     * @return UpdateLiveTranscodeTemplateResponse UpdateLiveTranscodeTemplateResponse
      */
     public function updateLiveTranscodeTemplate($request)
     {
@@ -10190,10 +10870,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaInfoRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary UpdateMediaInfo
+     *  *
+     * @param UpdateMediaInfoRequest $request UpdateMediaInfoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMediaInfoResponse
+     * @return UpdateMediaInfoResponse UpdateMediaInfoResponse
      */
     public function updateMediaInfoWithOptions($request, $runtime)
     {
@@ -10254,9 +10936,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaInfoRequest $request
+     * @summary UpdateMediaInfo
+     *  *
+     * @param UpdateMediaInfoRequest $request UpdateMediaInfoRequest
      *
-     * @return UpdateMediaInfoResponse
+     * @return UpdateMediaInfoResponse UpdateMediaInfoResponse
      */
     public function updateMediaInfo($request)
     {
@@ -10266,10 +10950,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaMarksRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 为媒资修改标注信息
+     *  *
+     * @param UpdateMediaMarksRequest $request UpdateMediaMarksRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMediaMarksResponse
+     * @return UpdateMediaMarksResponse UpdateMediaMarksResponse
      */
     public function updateMediaMarksWithOptions($request, $runtime)
     {
@@ -10300,9 +10986,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaMarksRequest $request
+     * @summary 为媒资修改标注信息
+     *  *
+     * @param UpdateMediaMarksRequest $request UpdateMediaMarksRequest
      *
-     * @return UpdateMediaMarksResponse
+     * @return UpdateMediaMarksResponse UpdateMediaMarksResponse
      */
     public function updateMediaMarks($request)
     {
@@ -10312,10 +11000,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaToSearchLibRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 更新媒资到搜索
+     *  *
+     * @param UpdateMediaToSearchLibRequest $request UpdateMediaToSearchLibRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMediaToSearchLibResponse
+     * @return UpdateMediaToSearchLibResponse UpdateMediaToSearchLibResponse
      */
     public function updateMediaToSearchLibWithOptions($request, $runtime)
     {
@@ -10349,9 +11039,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateMediaToSearchLibRequest $request
+     * @summary 更新媒资到搜索
+     *  *
+     * @param UpdateMediaToSearchLibRequest $request UpdateMediaToSearchLibRequest
      *
-     * @return UpdateMediaToSearchLibResponse
+     * @return UpdateMediaToSearchLibResponse UpdateMediaToSearchLibResponse
      */
     public function updateMediaToSearchLib($request)
     {
@@ -10361,10 +11053,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdatePipelineRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 更新管道配置
+     *  *
+     * @param UpdatePipelineRequest $request UpdatePipelineRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePipelineResponse
+     * @return UpdatePipelineResponse UpdatePipelineResponse
      */
     public function updatePipelineWithOptions($request, $runtime)
     {
@@ -10401,9 +11095,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdatePipelineRequest $request
+     * @summary 更新管道配置
+     *  *
+     * @param UpdatePipelineRequest $request UpdatePipelineRequest
      *
-     * @return UpdatePipelineResponse
+     * @return UpdatePipelineResponse UpdatePipelineResponse
      */
     public function updatePipeline($request)
     {
@@ -10413,10 +11109,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateTemplateRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary UpdateTemplate
+     *  *
+     * @param UpdateTemplateRequest $request UpdateTemplateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplateWithOptions($request, $runtime)
     {
@@ -10467,9 +11165,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UpdateTemplateRequest $request
+     * @summary UpdateTemplate
+     *  *
+     * @param UpdateTemplateRequest $request UpdateTemplateRequest
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateTemplateResponse UpdateTemplateResponse
      */
     public function updateTemplate($request)
     {
@@ -10479,10 +11179,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UploadMediaByURLRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary URL拉取上传
+     *  *
+     * @param UploadMediaByURLRequest $request UploadMediaByURLRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadMediaByURLResponse
+     * @return UploadMediaByURLResponse UploadMediaByURLResponse
      */
     public function uploadMediaByURLWithOptions($request, $runtime)
     {
@@ -10528,9 +11230,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UploadMediaByURLRequest $request
+     * @summary URL拉取上传
+     *  *
+     * @param UploadMediaByURLRequest $request UploadMediaByURLRequest
      *
-     * @return UploadMediaByURLResponse
+     * @return UploadMediaByURLResponse UploadMediaByURLResponse
      */
     public function uploadMediaByURL($request)
     {
@@ -10540,10 +11244,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UploadStreamByURLRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary URL拉取上传媒体流
+     *  *
+     * @param UploadStreamByURLRequest $request UploadStreamByURLRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UploadStreamByURLResponse
+     * @return UploadStreamByURLResponse UploadStreamByURLResponse
      */
     public function uploadStreamByURLWithOptions($request, $runtime)
     {
@@ -10586,9 +11292,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @param UploadStreamByURLRequest $request
+     * @summary URL拉取上传媒体流
+     *  *
+     * @param UploadStreamByURLRequest $request UploadStreamByURLRequest
      *
-     * @return UploadStreamByURLResponse
+     * @return UploadStreamByURLResponse UploadStreamByURLResponse
      */
     public function uploadStreamByURL($request)
     {
