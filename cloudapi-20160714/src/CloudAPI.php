@@ -172,6 +172,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppsByApiProductRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppsByApiProductResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppSecuritiesRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppSecuritiesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppSecurityRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppSecurityResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAppsRequest;
@@ -5559,6 +5561,56 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAppAttributesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询APP的密钥信息
+     *  *
+     * @param DescribeAppSecuritiesRequest $request DescribeAppSecuritiesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAppSecuritiesResponse DescribeAppSecuritiesResponse
+     */
+    public function describeAppSecuritiesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAppSecurities',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAppSecuritiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询APP的密钥信息
+     *  *
+     * @param DescribeAppSecuritiesRequest $request DescribeAppSecuritiesRequest
+     *
+     * @return DescribeAppSecuritiesResponse DescribeAppSecuritiesResponse
+     */
+    public function describeAppSecurities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAppSecuritiesWithOptions($request, $runtime);
     }
 
     /**
