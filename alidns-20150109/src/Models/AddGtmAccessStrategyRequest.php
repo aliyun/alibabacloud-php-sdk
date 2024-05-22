@@ -11,6 +11,7 @@ class AddGtmAccessStrategyRequest extends Model
     /**
      * @description The line codes of access regions.
      *
+     * This parameter is required.
      * @example ["default", "drpeng"]
      *
      * @var string
@@ -20,6 +21,7 @@ class AddGtmAccessStrategyRequest extends Model
     /**
      * @description The ID of the default address pool.
      *
+     * This parameter is required.
      * @example hrsix
      *
      * @var string
@@ -30,6 +32,8 @@ class AddGtmAccessStrategyRequest extends Model
      * @description The ID of the failover address pool.
      *
      * If the failover address pool is not set, pass the **Empty** value.
+     *
+     * This parameter is required.
      * @example hrsyw
      *
      * @var string
@@ -39,6 +43,7 @@ class AddGtmAccessStrategyRequest extends Model
     /**
      * @description The ID of the GTM instance for which you want to create an access policy.
      *
+     * This parameter is required.
      * @example instance1
      *
      * @var string
@@ -57,6 +62,7 @@ class AddGtmAccessStrategyRequest extends Model
     /**
      * @description The name of the access policy.
      *
+     * This parameter is required.
      * @var string
      */
     public $strategyName;

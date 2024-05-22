@@ -11,6 +11,7 @@ class DescribeCustomLinesRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

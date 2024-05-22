@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SubmitIspFlushCacheTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $isp;

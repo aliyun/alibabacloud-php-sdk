@@ -11,6 +11,7 @@ class UpdateDomainRemarkRequest extends Model
     /**
      * @description The domain name that already exists in Alibaba Cloud DNS.
      *
+     * This parameter is required.
      * @example mydomain.com
      *
      * @var string

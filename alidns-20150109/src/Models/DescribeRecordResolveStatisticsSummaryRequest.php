@@ -23,6 +23,7 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -101,6 +102,7 @@ class DescribeRecordResolveStatisticsSummaryRequest extends Model
     /**
      * @description The start date of the time range to be queried. Specify the time in the yyyy-MM-dd format, such as 2023-03-01.
      *
+     * This parameter is required.
      * @example 2023-03-29
      *
      * @var string

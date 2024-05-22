@@ -32,6 +32,7 @@ class GetTxtRecordForVerifyRequest extends Model
      *   ADD_SUB_DOMAIN
      *   RETRIEVAL
      *
+     * This parameter is required.
      * @example ADD_SUB_DOMAIN
      *
      * @var string

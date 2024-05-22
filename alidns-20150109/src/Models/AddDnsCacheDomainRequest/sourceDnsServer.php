@@ -11,6 +11,7 @@ class sourceDnsServer extends Model
     /**
      * @description The domain name or IP address of the origin DNS server.
      *
+     * This parameter is required.
      * @example 192.0.0.0
      *
      * @var string
@@ -20,6 +21,7 @@ class sourceDnsServer extends Model
     /**
      * @description The port of the origin DNS server.
      *
+     * This parameter is required.
      * @example 53
      *
      * @var string

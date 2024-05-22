@@ -12,6 +12,7 @@ class AddDnsGtmMonitorRequest extends Model
     /**
      * @description The ID of the address pool.
      *
+     * This parameter is required.
      * @example pool1
      *
      * @var string
@@ -21,6 +22,7 @@ class AddDnsGtmMonitorRequest extends Model
     /**
      * @description The maximum number of consecutive exceptions detected. If the number of consecutive exceptions detected reaches the maximum number, the application service is deemed abnormal.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -30,6 +32,7 @@ class AddDnsGtmMonitorRequest extends Model
     /**
      * @description The health check interval. Unit: seconds.
      *
+     * This parameter is required.
      * @example 60
      *
      * @var int
@@ -39,6 +42,7 @@ class AddDnsGtmMonitorRequest extends Model
     /**
      * @description The monitored nodes.
      *
+     * This parameter is required.
      * @var ispCityNode[]
      */
     public $ispCityNode;
@@ -101,7 +105,8 @@ class AddDnsGtmMonitorRequest extends Model
      *   IPV4
      *   IPV6
      *
-     * @example {\"code\":200,\"path\":\"\\index.htm\",\"host\":\"aliyun.com\"}
+     * This parameter is required.
+     * @example {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
      *
      * @var string
      */
@@ -115,6 +120,7 @@ class AddDnsGtmMonitorRequest extends Model
      *   PING
      *   TCP
      *
+     * This parameter is required.
      * @example http
      *
      * @var string
@@ -124,6 +130,7 @@ class AddDnsGtmMonitorRequest extends Model
     /**
      * @description The health check timeout period. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 30000
      *
      * @var int

@@ -11,6 +11,7 @@ class DeleteDnsGtmAddressPoolRequest extends Model
     /**
      * @description The ID of the address pool.
      *
+     * This parameter is required.
      * @example testpool1
      *
      * @var string

@@ -56,7 +56,7 @@ class DescribeSubDomainRecordsRequest extends Model
     /**
      * @description If you set SubDomain to `a.www.example.com` and leave
      *
-     * DomainName empty, the system returns the DNS records that contain the hostname `a.www` for the domain name example.com. If you set SubDomain to a.www.example.com and set DomainName to www.example.com, the system returns the DNS records that contain the hostname `a` for the domain name www.example.com. If you set SubDomain to a.www.example.com and set DomainName to a.www.example.com, the system returns the DNS records that contain the hostname `@` for the domain name a.www.example.com.
+     * This parameter is required.
      * @example a.www.example.com
      *
      * @var string

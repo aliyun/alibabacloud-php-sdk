@@ -20,6 +20,7 @@ class RollbackGtmRecoveryPlanRequest extends Model
     /**
      * @description The ID of the disaster recovery plan that you want to roll back.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int

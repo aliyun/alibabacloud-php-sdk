@@ -20,6 +20,7 @@ class SetDomainRecordStatusRequest extends Model
     /**
      * @description The ID of the DNS record.
      *
+     * This parameter is required.
      * @example 9999985
      *
      * @var string
@@ -32,6 +33,7 @@ class SetDomainRecordStatusRequest extends Model
      *   **Enable**: enables the DNS record.
      *   **Disable**: disables the DNS record.
      *
+     * This parameter is required.
      * @example Disable
      *
      * @var string

@@ -11,6 +11,7 @@ class SwitchDnsGtmInstanceStrategyModeRequest extends Model
     /**
      * @description The ID of the GTM instance.
      *
+     * This parameter is required.
      * @example instance1
      *
      * @var string
@@ -32,6 +33,7 @@ class SwitchDnsGtmInstanceStrategyModeRequest extends Model
      *   GEO: geographical location-based
      *   LATENCY: latency-based
      *
+     * This parameter is required.
      * @example GEO
      *
      * @var string

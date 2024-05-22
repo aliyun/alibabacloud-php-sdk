@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateIspFlushCacheInstanceConfigRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceName;

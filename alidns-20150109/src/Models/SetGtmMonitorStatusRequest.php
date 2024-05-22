@@ -20,6 +20,7 @@ class SetGtmMonitorStatusRequest extends Model
     /**
      * @description The health check ID.
      *
+     * This parameter is required.
      * @example abc1234
      *
      * @var string
@@ -32,6 +33,7 @@ class SetGtmMonitorStatusRequest extends Model
      *   **OPEN**: Enabled
      *   **CLOSE**: Disabled
      *
+     * This parameter is required.
      * @example OPEN
      *
      * @var string

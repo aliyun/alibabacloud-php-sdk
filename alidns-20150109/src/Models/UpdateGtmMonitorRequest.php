@@ -30,6 +30,7 @@ class UpdateGtmMonitorRequest extends Model
     /**
      * @description The monitored nodes.
      *
+     * This parameter is required.
      * @var ispCityNode[]
      */
     public $ispCityNode;
@@ -46,6 +47,7 @@ class UpdateGtmMonitorRequest extends Model
     /**
      * @description The ID of the health check configuration.
      *
+     * This parameter is required.
      * @example 1234abc
      *
      * @var string
@@ -74,7 +76,8 @@ class UpdateGtmMonitorRequest extends Model
      *   port: the port to check.
      *   failureRate: the failure rate.
      *
-     * @example {\"code\":200,\"path\":\"\\index.htm\",\"host\":\"aliyun.com\"}
+     * This parameter is required.
+     * @example {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
      *
      * @var string
      */
@@ -83,6 +86,7 @@ class UpdateGtmMonitorRequest extends Model
     /**
      * @description The protocol used for the health check.
      *
+     * This parameter is required.
      * @example HTTP
      *
      * @var string

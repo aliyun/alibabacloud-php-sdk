@@ -19,13 +19,19 @@ class appKeys extends Model
     public $createDate;
 
     /**
+     * @var int
+     */
+    public $createTimestamp;
+
+    /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'appKeyId'   => 'AppKeyId',
-        'createDate' => 'CreateDate',
-        'state'      => 'State',
+        'appKeyId'        => 'AppKeyId',
+        'createDate'      => 'CreateDate',
+        'createTimestamp' => 'CreateTimestamp',
+        'state'           => 'State',
     ];
 
     public function validate()
@@ -40,6 +46,9 @@ class appKeys extends Model
         }
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
+        }
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -61,6 +70,9 @@ class appKeys extends Model
         }
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
+        }
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

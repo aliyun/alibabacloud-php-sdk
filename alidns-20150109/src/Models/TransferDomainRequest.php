@@ -11,6 +11,7 @@ class TransferDomainRequest extends Model
     /**
      * @description The domain names. Separate multiple domain names with commas (,). Only domain names registered with Alibaba Cloud are supported.
      *
+     * This parameter is required.
      * @example test1.com,test2.com
      *
      * @var string
@@ -41,6 +42,7 @@ class TransferDomainRequest extends Model
     /**
      * @description The destination user ID. The domain names and their Domain Name System (DNS) records are transferred to the destination user ID.
      *
+     * This parameter is required.
      * @example 12345678
      *
      * @var int

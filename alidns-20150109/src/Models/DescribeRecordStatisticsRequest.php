@@ -11,6 +11,7 @@ class DescribeRecordStatisticsRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example dns-example.com
      *
      * @var string
@@ -51,6 +52,7 @@ class DescribeRecordStatisticsRequest extends Model
     /**
      * @description The hostname. If you want to resolve the subdomain name www.dns-exmaple.top, set this parameter to www.
      *
+     * This parameter is required.
      * @example www
      *
      * @var string
@@ -60,7 +62,7 @@ class DescribeRecordStatisticsRequest extends Model
     /**
      * @description The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
      *
-     * If the time range is greater than seven days, data is returned on a daily basis.````
+     * This parameter is required.
      * @example 2019-07-04
      *
      * @var string

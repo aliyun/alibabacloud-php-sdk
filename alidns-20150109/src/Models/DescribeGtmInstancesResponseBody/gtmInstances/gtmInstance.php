@@ -29,7 +29,7 @@ class gtmInstance extends Model
     /**
      * @description The name of the alert group.
      *
-     * @example \[\\"R\&D group\\"]
+     * @example [\\\\"R\\&D group\\\\"]
      *
      * @var string
      */

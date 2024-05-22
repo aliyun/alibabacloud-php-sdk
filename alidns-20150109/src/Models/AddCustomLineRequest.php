@@ -12,6 +12,7 @@ class AddCustomLineRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -21,6 +22,7 @@ class AddCustomLineRequest extends Model
     /**
      * @description The CIDR blocks.
      *
+     * This parameter is required.
      * @var ipSegment[]
      */
     public $ipSegment;
@@ -37,6 +39,7 @@ class AddCustomLineRequest extends Model
     /**
      * @description The name of the custom line.
      *
+     * This parameter is required.
      * @var string
      */
     public $lineName;

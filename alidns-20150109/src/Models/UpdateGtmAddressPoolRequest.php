@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateGtmAddressPoolRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var addr[]
      */
     public $addr;
@@ -17,6 +19,7 @@ class UpdateGtmAddressPoolRequest extends Model
     /**
      * @description The ID of the address pool that you want to modify.
      *
+     * This parameter is required.
      * @example 1234abc
      *
      * @var string
@@ -51,6 +54,7 @@ class UpdateGtmAddressPoolRequest extends Model
     /**
      * @description The type of the address pool that you want to modify.
      *
+     * This parameter is required.
      * @example IP
      *
      * @var string

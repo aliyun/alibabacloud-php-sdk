@@ -68,6 +68,7 @@ class DescribeTransferDomainsRequest extends Model
      *   IN: The domain name was transferred to the current account.
      *   OUT: The domain name was transferred from the current account.
      *
+     * This parameter is required.
      * @example IN
      *
      * @var string

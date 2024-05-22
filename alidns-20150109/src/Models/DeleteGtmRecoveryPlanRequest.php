@@ -20,6 +20,7 @@ class DeleteGtmRecoveryPlanRequest extends Model
     /**
      * @description The ID of the disaster recovery plan that you want to delete.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int

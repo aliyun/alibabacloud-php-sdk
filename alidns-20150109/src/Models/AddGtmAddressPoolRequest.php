@@ -13,6 +13,7 @@ class AddGtmAddressPoolRequest extends Model
     /**
      * @description The address pools.
      *
+     * This parameter is required.
      * @var addr[]
      */
     public $addr;
@@ -29,6 +30,7 @@ class AddGtmAddressPoolRequest extends Model
     /**
      * @description The ID of the GTM instance for which you want to create an address pool.
      *
+     * This parameter is required.
      * @example gtm-cn-xxxxxxx
      *
      * @var string
@@ -63,6 +65,7 @@ class AddGtmAddressPoolRequest extends Model
     /**
      * @description The minimum number of available addresses in the address pool.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -112,6 +115,7 @@ class AddGtmAddressPoolRequest extends Model
     /**
      * @description The name of the address pool.
      *
+     * This parameter is required.
      * @example Alibaba Cloud cluster
      *
      * @var string
@@ -147,6 +151,7 @@ class AddGtmAddressPoolRequest extends Model
      *   **IP**: IPv4 address
      *   **DOMAIN**: domain name
      *
+     * This parameter is required.
      * @example IP
      *
      * @var string

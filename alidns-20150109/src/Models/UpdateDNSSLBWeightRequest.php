@@ -20,6 +20,7 @@ class UpdateDNSSLBWeightRequest extends Model
     /**
      * @description The ID of the DNS record.
      *
+     * This parameter is required.
      * @example 9999985
      *
      * @var string
@@ -38,6 +39,7 @@ class UpdateDNSSLBWeightRequest extends Model
     /**
      * @description The weight of the DNS record that you want to specify. Valid values: `1 to 100`.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int

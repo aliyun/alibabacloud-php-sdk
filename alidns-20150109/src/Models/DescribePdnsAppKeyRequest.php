@@ -16,9 +16,15 @@ class DescribePdnsAppKeyRequest extends Model
     /**
      * @var string
      */
+    public $authCode;
+
+    /**
+     * @var string
+     */
     public $lang;
     protected $_name = [
         'appKeyId' => 'AppKeyId',
+        'authCode' => 'AuthCode',
         'lang'     => 'Lang',
     ];
 
@@ -31,6 +37,9 @@ class DescribePdnsAppKeyRequest extends Model
         $res = [];
         if (null !== $this->appKeyId) {
             $res['AppKeyId'] = $this->appKeyId;
+        }
+        if (null !== $this->authCode) {
+            $res['AuthCode'] = $this->authCode;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -49,6 +58,9 @@ class DescribePdnsAppKeyRequest extends Model
         $model = new self();
         if (isset($map['AppKeyId'])) {
             $model->appKeyId = $map['AppKeyId'];
+        }
+        if (isset($map['AuthCode'])) {
+            $model->authCode = $map['AuthCode'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

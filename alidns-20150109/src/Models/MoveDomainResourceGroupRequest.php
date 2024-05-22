@@ -20,6 +20,7 @@ class MoveDomainResourceGroupRequest extends Model
     /**
      * @description The ID of the new resource group.
      *
+     * This parameter is required.
      * @example rg-aekzzk7hx3glaoq
      *
      * @var string
@@ -29,6 +30,7 @@ class MoveDomainResourceGroupRequest extends Model
     /**
      * @description The resource ID. If Tag is left empty, ResourceId is required.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string

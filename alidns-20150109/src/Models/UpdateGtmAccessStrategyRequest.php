@@ -47,6 +47,7 @@ class UpdateGtmAccessStrategyRequest extends Model
     /**
      * @description The ID of the access policy that you want to query for the GTM instance.
      *
+     * This parameter is required.
      * @example hrmxc
      *
      * @var string

@@ -29,6 +29,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource ID.
      *
+     * This parameter is required.
      * @example The type of the resource.
      *
      * @var string[]
@@ -38,6 +39,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource type.
      *
+     * This parameter is required.
      * @example DOMAIN
      *
      * @var string

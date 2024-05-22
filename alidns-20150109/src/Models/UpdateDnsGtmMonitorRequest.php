@@ -30,6 +30,7 @@ class UpdateDnsGtmMonitorRequest extends Model
     /**
      * @description The monitored nodes.
      *
+     * This parameter is required.
      * @var ispCityNode[]
      */
     public $ispCityNode;
@@ -46,6 +47,7 @@ class UpdateDnsGtmMonitorRequest extends Model
     /**
      * @description The ID of the health check configuration.
      *
+     * This parameter is required.
      * @example MonitorConfigId1
      *
      * @var string
@@ -101,7 +103,8 @@ class UpdateDnsGtmMonitorRequest extends Model
      *   IPV4
      *   IPV6
      *
-     * @example {\"code\":200,\"path\":\"\\index.htm\",\"host\":\"aliyun.com\"}
+     * This parameter is required.
+     * @example {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
      *
      * @var string
      */
@@ -115,6 +118,7 @@ class UpdateDnsGtmMonitorRequest extends Model
      *   PING
      *   TCP
      *
+     * This parameter is required.
      * @example http
      *
      * @var string

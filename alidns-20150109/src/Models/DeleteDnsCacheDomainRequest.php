@@ -11,6 +11,7 @@ class DeleteDnsCacheDomainRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example dns-example.top
      *
      * @var string

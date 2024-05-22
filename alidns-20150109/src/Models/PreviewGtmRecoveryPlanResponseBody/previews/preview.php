@@ -35,7 +35,7 @@ class preview extends Model
     public $switchInfos;
 
     /**
-     * @description The user\"s domain name or domain name list.
+     * @description The user\\"s domain name or domain name list.
      *
      * @example 30.yyy.com
      *

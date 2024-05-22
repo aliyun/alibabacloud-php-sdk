@@ -11,6 +11,7 @@ class DescribeGtmInstanceSystemCnameRequest extends Model
     /**
      * @description The ID of the Global Traffic Manager (GTM) instance.
      *
+     * This parameter is required.
      * @example instance1
      *
      * @var string

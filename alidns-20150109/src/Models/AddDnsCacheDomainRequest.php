@@ -12,6 +12,7 @@ class AddDnsCacheDomainRequest extends Model
     /**
      * @description The maximum TTL period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
      *
+     * This parameter is required.
      * @example 86400
      *
      * @var int
@@ -21,6 +22,7 @@ class AddDnsCacheDomainRequest extends Model
     /**
      * @description The minimum time-to-live (TTL) period of the cached data retrieved from the origin Domain Name System (DNS) server. Unit: seconds. Valid values: 30 to 86400.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int
@@ -30,6 +32,7 @@ class AddDnsCacheDomainRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example dns.example.com
      *
      * @var string
@@ -39,6 +42,7 @@ class AddDnsCacheDomainRequest extends Model
     /**
      * @description The instance ID of the cache-accelerated domain name.
      *
+     * This parameter is required.
      * @example dns-cn-j6666
      *
      * @var string
@@ -66,6 +70,7 @@ class AddDnsCacheDomainRequest extends Model
     /**
      * @description The origin DNS servers. A maximum of 10 origin DNS servers are supported.
      *
+     * This parameter is required.
      * @var sourceDnsServer[]
      */
     public $sourceDnsServer;
@@ -73,6 +78,7 @@ class AddDnsCacheDomainRequest extends Model
     /**
      * @description Specifies whether the origin DNS server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
      *
+     * This parameter is required.
      * @example SUPPORT
      *
      * @var string
@@ -82,6 +88,7 @@ class AddDnsCacheDomainRequest extends Model
     /**
      * @description The origin protocol policy. Valid values: TCP and UDP. Default value: UDP.
      *
+     * This parameter is required.
      * @example UDP
      *
      * @var string

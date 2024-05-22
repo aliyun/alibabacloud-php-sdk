@@ -20,7 +20,7 @@ class DescribeDomainRecordInfoRequest extends Model
     /**
      * @description The ID of the DNS record.
      *
-     * This parameter is returned when you add a DNS record or when you query a list of DNS records.
+     * This parameter is required.
      * @example 9999985
      *
      * @var string

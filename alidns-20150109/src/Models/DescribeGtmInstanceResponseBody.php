@@ -29,7 +29,7 @@ class DescribeGtmInstanceResponseBody extends Model
     /**
      * @description The alert group of the GTM instance.
      *
-     * @example \[\\"Daily test - R\&D group\\"]
+     * @example [\\\\"Daily test - R\\&D group\\\\"]
      *
      * @var string
      */

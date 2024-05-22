@@ -11,6 +11,7 @@ class DescribeGtmInstanceAddressPoolRequest extends Model
     /**
      * @description The ID of the address pool that you want to query.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var string

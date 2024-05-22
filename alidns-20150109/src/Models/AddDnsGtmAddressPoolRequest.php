@@ -13,6 +13,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     /**
      * @description The address pools.
      *
+     * This parameter is required.
      * @var addr[]
      */
     public $addr;
@@ -29,6 +30,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example instance1
      *
      * @var string
@@ -66,6 +68,7 @@ class AddDnsGtmAddressPoolRequest extends Model
      *   ALL_RR: returns all addresses.
      *   RATIO: returns addresses by weight.
      *
+     * This parameter is required.
      * @example all_rr
      *
      * @var string
@@ -121,7 +124,7 @@ class AddDnsGtmAddressPoolRequest extends Model
      *   IPV4
      *   IPV6
      *
-     * @example {\"code\":200,\"path\":\"\\index.htm\",\"host\":\"aliyun.com\"}
+     * @example {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
      *
      * @var string
      */
@@ -142,6 +145,7 @@ class AddDnsGtmAddressPoolRequest extends Model
     /**
      * @description The name of the address pool.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -178,6 +182,7 @@ class AddDnsGtmAddressPoolRequest extends Model
      *   IPV6: IPv6 address
      *   DOMAIN: domain name
      *
+     * This parameter is required.
      * @example ipv4
      *
      * @var string

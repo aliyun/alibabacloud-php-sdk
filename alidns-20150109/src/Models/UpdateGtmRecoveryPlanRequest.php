@@ -38,6 +38,7 @@ class UpdateGtmRecoveryPlanRequest extends Model
     /**
      * @description The ID of the disaster recovery plan.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int

@@ -11,6 +11,7 @@ class AddDomainGroupRequest extends Model
     /**
      * @description The name of the domain name group.
      *
+     * This parameter is required.
      * @example MyGroup
      *
      * @var string

@@ -11,6 +11,7 @@ class AddDomainBackupRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example test.aliyun.com
      *
      * @var string
@@ -32,6 +33,7 @@ class AddDomainBackupRequest extends Model
      *   **DAY**: Backs up data once every day.
      *   **HOUR**: Backs up data once every hour.
      *
+     * This parameter is required.
      * @example HOUR
      *
      * @var string

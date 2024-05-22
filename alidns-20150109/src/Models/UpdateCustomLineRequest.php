@@ -28,6 +28,7 @@ class UpdateCustomLineRequest extends Model
     /**
      * @description The unique ID of the custom line.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -35,7 +36,7 @@ class UpdateCustomLineRequest extends Model
     public $lineId;
 
     /**
-     * @description The name of the custom line. The name must be 1 to 20 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
+     * @description The name of the custom line. The name must be 1 to 20 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
      *
      * @var string
      */

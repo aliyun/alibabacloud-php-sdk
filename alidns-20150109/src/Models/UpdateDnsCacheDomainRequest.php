@@ -30,6 +30,7 @@ class UpdateDnsCacheDomainRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example dns.example.com
      *
      * @var string

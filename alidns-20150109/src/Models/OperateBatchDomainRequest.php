@@ -12,6 +12,7 @@ class OperateBatchDomainRequest extends Model
     /**
      * @description The DNS records. You can submit up to 1000 DNS records.
      *
+     * This parameter is required.
      * @var domainRecordInfo[]
      */
     public $domainRecordInfo;
@@ -33,6 +34,7 @@ class OperateBatchDomainRequest extends Model
      *   **RR_ADD**: adds DNS records in batches.
      *   **RR_DEL**: deletes DNS records in batches. This operation deletes the DNS records with the specified hostname or record value. If you do not specify the Rr and Value parameters, this operation deletes the DNS records that are added for the specified domain names.
      *
+     * This parameter is required.
      * @example RR_ADD
      *
      * @var string

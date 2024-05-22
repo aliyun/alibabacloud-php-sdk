@@ -11,6 +11,7 @@ class addr extends Model
     /**
      * @description The address in the address pool.
      *
+     * This parameter is required.
      * @example 1.1.1.1
      *
      * @var string
@@ -52,6 +53,7 @@ class addr extends Model
      *   ONLINE: always online.
      *   OFFLINE: always offline.
      *
+     * This parameter is required.
      * @example online
      *
      * @var string

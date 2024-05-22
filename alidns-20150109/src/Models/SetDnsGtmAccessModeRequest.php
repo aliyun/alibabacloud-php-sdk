@@ -15,6 +15,7 @@ class SetDnsGtmAccessModeRequest extends Model
      *   DEFAULT: uses the primary address pool group.
      *   FAILOVER: uses the secondary address pool group.
      *
+     * This parameter is required.
      * @example auto
      *
      * @var string
@@ -33,6 +34,7 @@ class SetDnsGtmAccessModeRequest extends Model
     /**
      * @description The ID of the policy.
      *
+     * This parameter is required.
      * @example strategyId
      *
      * @var string

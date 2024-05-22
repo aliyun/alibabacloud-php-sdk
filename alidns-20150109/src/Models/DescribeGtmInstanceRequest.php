@@ -11,6 +11,7 @@ class DescribeGtmInstanceRequest extends Model
     /**
      * @description The ID of the GTM instance.
      *
+     * This parameter is required.
      * @example instance1
      *
      * @var string

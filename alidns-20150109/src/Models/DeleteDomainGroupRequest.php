@@ -11,6 +11,7 @@ class DeleteDomainGroupRequest extends Model
     /**
      * @description The ID of the domain name group.
      *
+     * This parameter is required.
      * @example 2223
      *
      * @var string

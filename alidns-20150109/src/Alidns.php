@@ -366,9 +366,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-     *   *
+     * @summary Adds a custom line.
+     *  *
+     * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     *  *
      * @param AddCustomLineRequest $request AddCustomLineRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -409,9 +411,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-     *   *
+     * @summary Adds a custom line.
+     *  *
+     * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     *  *
      * @param AddCustomLineRequest $request AddCustomLineRequest
      *
      * @return AddCustomLineResponse AddCustomLineResponse
@@ -424,10 +428,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDnsCacheDomainRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param AddDnsCacheDomainRequest $request AddDnsCacheDomainRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDnsCacheDomainResponse
+     * @return AddDnsCacheDomainResponse AddDnsCacheDomainResponse
      */
     public function addDnsCacheDomainWithOptions($request, $runtime)
     {
@@ -479,9 +483,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDnsCacheDomainRequest $request
+     * @param AddDnsCacheDomainRequest $request AddDnsCacheDomainRequest
      *
-     * @return AddDnsCacheDomainResponse
+     * @return AddDnsCacheDomainResponse AddDnsCacheDomainResponse
      */
     public function addDnsCacheDomain($request)
     {
@@ -491,10 +495,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDnsGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Creates an access policy.
+     *  *
+     * @param AddDnsGtmAccessStrategyRequest $request AddDnsGtmAccessStrategyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDnsGtmAccessStrategyResponse
+     * @return AddDnsGtmAccessStrategyResponse AddDnsGtmAccessStrategyResponse
      */
     public function addDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
@@ -570,9 +576,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDnsGtmAccessStrategyRequest $request
+     * @summary Creates an access policy.
+     *  *
+     * @param AddDnsGtmAccessStrategyRequest $request AddDnsGtmAccessStrategyRequest
      *
-     * @return AddDnsGtmAccessStrategyResponse
+     * @return AddDnsGtmAccessStrategyResponse AddDnsGtmAccessStrategyResponse
      */
     public function addDnsGtmAccessStrategy($request)
     {
@@ -582,10 +590,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDnsGtmAddressPoolRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Creates an address pool.
+     *  *
+     * @param AddDnsGtmAddressPoolRequest $request AddDnsGtmAddressPoolRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDnsGtmAddressPoolResponse
+     * @return AddDnsGtmAddressPoolResponse AddDnsGtmAddressPoolResponse
      */
     public function addDnsGtmAddressPoolWithOptions($request, $runtime)
     {
@@ -649,9 +659,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDnsGtmAddressPoolRequest $request
+     * @summary Creates an address pool.
+     *  *
+     * @param AddDnsGtmAddressPoolRequest $request AddDnsGtmAddressPoolRequest
      *
-     * @return AddDnsGtmAddressPoolResponse
+     * @return AddDnsGtmAddressPoolResponse AddDnsGtmAddressPoolResponse
      */
     public function addDnsGtmAddressPool($request)
     {
@@ -661,8 +673,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * ***
-     *   *
+     * @summary Creates a health check task.
+     *  *
+     * @description ***
+     *  *
      * @param AddDnsGtmMonitorRequest $request AddDnsGtmMonitorRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -715,8 +729,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * ***
-     *   *
+     * @summary Creates a health check task.
+     *  *
+     * @description ***
+     *  *
      * @param AddDnsGtmMonitorRequest $request AddDnsGtmMonitorRequest
      *
      * @return AddDnsGtmMonitorResponse AddDnsGtmMonitorResponse
@@ -729,9 +745,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * For more information about how to check whether a domain name is valid, see
-     *   * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
-     *   *
+     * @summary Adds a domain name based on the specified parameters.
+     *  *
+     * @description For more information about how to check whether a domain name is valid, see
+     * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+     *  *
      * @param AddDomainRequest $request AddDomainRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -772,9 +790,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * For more information about how to check whether a domain name is valid, see
-     *   * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
-     *   *
+     * @summary Adds a domain name based on the specified parameters.
+     *  *
+     * @description For more information about how to check whether a domain name is valid, see
+     * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+     *  *
      * @param AddDomainRequest $request AddDomainRequest
      *
      * @return AddDomainResponse AddDomainResponse
@@ -787,10 +807,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDomainBackupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Creates a backup task for a domain name.
+     *  *
+     * @param AddDomainBackupRequest $request AddDomainBackupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDomainBackupResponse
+     * @return AddDomainBackupResponse AddDomainBackupResponse
      */
     public function addDomainBackupWithOptions($request, $runtime)
     {
@@ -824,9 +846,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDomainBackupRequest $request
+     * @summary Creates a backup task for a domain name.
+     *  *
+     * @param AddDomainBackupRequest $request AddDomainBackupRequest
      *
-     * @return AddDomainBackupResponse
+     * @return AddDomainBackupResponse AddDomainBackupResponse
      */
     public function addDomainBackup($request)
     {
@@ -836,10 +860,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDomainGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a domain name group based on the specified parameters.
+     *  *
+     * @param AddDomainGroupRequest $request AddDomainGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDomainGroupResponse
+     * @return AddDomainGroupResponse AddDomainGroupResponse
      */
     public function addDomainGroupWithOptions($request, $runtime)
     {
@@ -870,9 +896,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDomainGroupRequest $request
+     * @summary Creates a domain name group based on the specified parameters.
+     *  *
+     * @param AddDomainGroupRequest $request AddDomainGroupRequest
      *
-     * @return AddDomainGroupResponse
+     * @return AddDomainGroupResponse AddDomainGroupResponse
      */
     public function addDomainGroup($request)
     {
@@ -882,10 +910,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDomainRecordRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Adds a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param AddDomainRecordRequest $request AddDomainRecordRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDomainRecordResponse
+     * @return AddDomainRecordResponse AddDomainRecordResponse
      */
     public function addDomainRecordWithOptions($request, $runtime)
     {
@@ -937,9 +967,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddDomainRecordRequest $request
+     * @summary Adds a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param AddDomainRecordRequest $request AddDomainRecordRequest
      *
-     * @return AddDomainRecordResponse
+     * @return AddDomainRecordResponse AddDomainRecordResponse
      */
     public function addDomainRecord($request)
     {
@@ -949,10 +981,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddGtmAccessStrategyRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param AddGtmAccessStrategyRequest $request AddGtmAccessStrategyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGtmAccessStrategyResponse
+     * @return AddGtmAccessStrategyResponse AddGtmAccessStrategyResponse
      */
     public function addGtmAccessStrategyWithOptions($request, $runtime)
     {
@@ -995,9 +1027,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddGtmAccessStrategyRequest $request
+     * @param AddGtmAccessStrategyRequest $request AddGtmAccessStrategyRequest
      *
-     * @return AddGtmAccessStrategyResponse
+     * @return AddGtmAccessStrategyResponse AddGtmAccessStrategyResponse
      */
     public function addGtmAccessStrategy($request)
     {
@@ -1007,10 +1039,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddGtmAddressPoolRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates an address pool.
+     *  *
+     * @param AddGtmAddressPoolRequest $request AddGtmAddressPoolRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGtmAddressPoolResponse
+     * @return AddGtmAddressPoolResponse AddGtmAddressPoolResponse
      */
     public function addGtmAddressPoolWithOptions($request, $runtime)
     {
@@ -1074,9 +1108,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddGtmAddressPoolRequest $request
+     * @summary Creates an address pool.
+     *  *
+     * @param AddGtmAddressPoolRequest $request AddGtmAddressPoolRequest
      *
-     * @return AddGtmAddressPoolResponse
+     * @return AddGtmAddressPoolResponse AddGtmAddressPoolResponse
      */
     public function addGtmAddressPool($request)
     {
@@ -1086,10 +1122,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddGtmMonitorRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Creates a health check task.
+     *  *
+     * @param AddGtmMonitorRequest $request AddGtmMonitorRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGtmMonitorResponse
+     * @return AddGtmMonitorResponse AddGtmMonitorResponse
      */
     public function addGtmMonitorWithOptions($request, $runtime)
     {
@@ -1138,9 +1176,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddGtmMonitorRequest $request
+     * @summary Creates a health check task.
+     *  *
+     * @param AddGtmMonitorRequest $request AddGtmMonitorRequest
      *
-     * @return AddGtmMonitorResponse
+     * @return AddGtmMonitorResponse AddGtmMonitorResponse
      */
     public function addGtmMonitor($request)
     {
@@ -1150,10 +1190,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param AddGtmRecoveryPlanRequest $request AddGtmRecoveryPlanRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGtmRecoveryPlanResponse
+     * @return AddGtmRecoveryPlanResponse AddGtmRecoveryPlanResponse
      */
     public function addGtmRecoveryPlanWithOptions($request, $runtime)
     {
@@ -1190,9 +1230,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param AddGtmRecoveryPlanRequest $request
+     * @param AddGtmRecoveryPlanRequest $request AddGtmRecoveryPlanRequest
      *
-     * @return AddGtmRecoveryPlanResponse
+     * @return AddGtmRecoveryPlanResponse AddGtmRecoveryPlanResponse
      */
     public function addGtmRecoveryPlan($request)
     {
@@ -1202,9 +1242,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-     *   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
-     *   *
+     * @summary Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+     *  *
+     * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+     *  *
      * @param BindInstanceDomainsRequest $request BindInstanceDomainsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1242,9 +1284,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-     *   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
-     *   *
+     * @summary Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+     *  *
+     * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+     *  *
      * @param BindInstanceDomainsRequest $request BindInstanceDomainsRequest
      *
      * @return BindInstanceDomainsResponse BindInstanceDomainsResponse
@@ -1257,8 +1301,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
-     *   *
+     * @summary Moves a domain name from the original group to the new group based on the specified parameters.
+     *  *
+     * @description You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+     *  *
      * @param ChangeDomainGroupRequest $request ChangeDomainGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1296,8 +1342,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
-     *   *
+     * @summary Moves a domain name from the original group to the new group based on the specified parameters.
+     *  *
+     * @description You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+     *  *
      * @param ChangeDomainGroupRequest $request ChangeDomainGroupRequest
      *
      * @return ChangeDomainGroupResponse ChangeDomainGroupResponse
@@ -1310,8 +1358,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
-     *   *
+     * @summary Changes the domain name bound to an Alibaba Cloud DNS instance.
+     *  *
+     * @description >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
+     *  *
      * @param ChangeDomainOfDnsProductRequest $request ChangeDomainOfDnsProductRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1355,8 +1405,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
-     *   *
+     * @summary Changes the domain name bound to an Alibaba Cloud DNS instance.
+     *  *
+     * @description >  You can call this operation to change the domain name for an Alibaba Cloud DNS instance to which a domain name is bound. You can also call this operation to bind a domain name to an Alibaba Cloud DNS instance to which no domain name is bound. If you need to unbind a domain name from an Alibaba Cloud DNS instance, you can call this operation. In this case, the NewDomain parameter must not be specified.
+     *  *
      * @param ChangeDomainOfDnsProductRequest $request ChangeDomainOfDnsProductRequest
      *
      * @return ChangeDomainOfDnsProductResponse ChangeDomainOfDnsProductResponse
@@ -1369,10 +1421,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param CopyGtmConfigRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param CopyGtmConfigRequest $request CopyGtmConfigRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopyGtmConfigResponse
+     * @return CopyGtmConfigResponse CopyGtmConfigResponse
      */
     public function copyGtmConfigWithOptions($request, $runtime)
     {
@@ -1409,9 +1461,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param CopyGtmConfigRequest $request
+     * @param CopyGtmConfigRequest $request CopyGtmConfigRequest
      *
-     * @return CopyGtmConfigResponse
+     * @return CopyGtmConfigResponse CopyGtmConfigResponse
      */
     public function copyGtmConfig($request)
     {
@@ -1421,10 +1473,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param CreatePdnsAppKeyRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 创建公共DNS AppKey
+     *  *
+     * @param CreatePdnsAppKeyRequest $request CreatePdnsAppKeyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePdnsAppKeyResponse
+     * @return CreatePdnsAppKeyResponse CreatePdnsAppKeyResponse
      */
     public function createPdnsAppKeyWithOptions($request, $runtime)
     {
@@ -1452,9 +1506,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param CreatePdnsAppKeyRequest $request
+     * @summary 创建公共DNS AppKey
+     *  *
+     * @param CreatePdnsAppKeyRequest $request CreatePdnsAppKeyRequest
      *
-     * @return CreatePdnsAppKeyResponse
+     * @return CreatePdnsAppKeyResponse CreatePdnsAppKeyResponse
      */
     public function createPdnsAppKey($request)
     {
@@ -1464,10 +1520,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param CreatePdnsUdpIpSegmentRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 创建公共DNS Udp Ip地址段
+     *  *
+     * @param CreatePdnsUdpIpSegmentRequest $request CreatePdnsUdpIpSegmentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreatePdnsUdpIpSegmentResponse
+     * @return CreatePdnsUdpIpSegmentResponse CreatePdnsUdpIpSegmentResponse
      */
     public function createPdnsUdpIpSegmentWithOptions($request, $runtime)
     {
@@ -1501,9 +1559,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param CreatePdnsUdpIpSegmentRequest $request
+     * @summary 创建公共DNS Udp Ip地址段
+     *  *
+     * @param CreatePdnsUdpIpSegmentRequest $request CreatePdnsUdpIpSegmentRequest
      *
-     * @return CreatePdnsUdpIpSegmentResponse
+     * @return CreatePdnsUdpIpSegmentResponse CreatePdnsUdpIpSegmentResponse
      */
     public function createPdnsUdpIpSegment($request)
     {
@@ -1513,10 +1573,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomLinesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Deletes multiple custom lines at a time.
+     *  *
+     * @param DeleteCustomLinesRequest $request DeleteCustomLinesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomLinesResponse
+     * @return DeleteCustomLinesResponse DeleteCustomLinesResponse
      */
     public function deleteCustomLinesWithOptions($request, $runtime)
     {
@@ -1547,9 +1609,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomLinesRequest $request
+     * @summary Deletes multiple custom lines at a time.
+     *  *
+     * @param DeleteCustomLinesRequest $request DeleteCustomLinesRequest
      *
-     * @return DeleteCustomLinesResponse
+     * @return DeleteCustomLinesResponse DeleteCustomLinesResponse
      */
     public function deleteCustomLines($request)
     {
@@ -1559,10 +1623,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDnsCacheDomainRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteDnsCacheDomainRequest $request DeleteDnsCacheDomainRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDnsCacheDomainResponse
+     * @return DeleteDnsCacheDomainResponse DeleteDnsCacheDomainResponse
      */
     public function deleteDnsCacheDomainWithOptions($request, $runtime)
     {
@@ -1593,9 +1657,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDnsCacheDomainRequest $request
+     * @param DeleteDnsCacheDomainRequest $request DeleteDnsCacheDomainRequest
      *
-     * @return DeleteDnsCacheDomainResponse
+     * @return DeleteDnsCacheDomainResponse DeleteDnsCacheDomainResponse
      */
     public function deleteDnsCacheDomain($request)
     {
@@ -1605,10 +1669,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDnsGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DeleteDnsGtmAccessStrategyRequest $request DeleteDnsGtmAccessStrategyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDnsGtmAccessStrategyResponse
+     * @return DeleteDnsGtmAccessStrategyResponse DeleteDnsGtmAccessStrategyResponse
      */
     public function deleteDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
@@ -1639,9 +1703,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDnsGtmAccessStrategyRequest $request
+     * @param DeleteDnsGtmAccessStrategyRequest $request DeleteDnsGtmAccessStrategyRequest
      *
-     * @return DeleteDnsGtmAccessStrategyResponse
+     * @return DeleteDnsGtmAccessStrategyResponse DeleteDnsGtmAccessStrategyResponse
      */
     public function deleteDnsGtmAccessStrategy($request)
     {
@@ -1651,10 +1715,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDnsGtmAddressPoolRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DeleteDnsGtmAddressPoolRequest $request DeleteDnsGtmAddressPoolRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDnsGtmAddressPoolResponse
+     * @return DeleteDnsGtmAddressPoolResponse DeleteDnsGtmAddressPoolResponse
      */
     public function deleteDnsGtmAddressPoolWithOptions($request, $runtime)
     {
@@ -1685,9 +1749,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDnsGtmAddressPoolRequest $request
+     * @param DeleteDnsGtmAddressPoolRequest $request DeleteDnsGtmAddressPoolRequest
      *
-     * @return DeleteDnsGtmAddressPoolResponse
+     * @return DeleteDnsGtmAddressPoolResponse DeleteDnsGtmAddressPoolResponse
      */
     public function deleteDnsGtmAddressPool($request)
     {
@@ -1697,10 +1761,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Deletes a domain name based on the specified parameters.
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
@@ -1731,9 +1797,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
+     * @summary Deletes a domain name based on the specified parameters.
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -1743,8 +1811,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * >  The default group cannot be deleted.
-     *   *
+     * @summary Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+     *  *
+     * @description >  The default group cannot be deleted.
+     *  *
      * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1779,8 +1849,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * >  The default group cannot be deleted.
-     *   *
+     * @summary Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+     *  *
+     * @description >  The default group cannot be deleted.
+     *  *
      * @param DeleteDomainGroupRequest $request DeleteDomainGroupRequest
      *
      * @return DeleteDomainGroupResponse DeleteDomainGroupResponse
@@ -1793,10 +1865,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRecordRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param DeleteDomainRecordRequest $request DeleteDomainRecordRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainRecordResponse
+     * @return DeleteDomainRecordResponse DeleteDomainRecordResponse
      */
     public function deleteDomainRecordWithOptions($request, $runtime)
     {
@@ -1830,9 +1904,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRecordRequest $request
+     * @summary Deletes a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param DeleteDomainRecordRequest $request DeleteDomainRecordRequest
      *
-     * @return DeleteDomainRecordResponse
+     * @return DeleteDomainRecordResponse DeleteDomainRecordResponse
      */
     public function deleteDomainRecord($request)
     {
@@ -1842,10 +1918,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DeleteGtmAccessStrategyRequest $request DeleteGtmAccessStrategyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGtmAccessStrategyResponse
+     * @return DeleteGtmAccessStrategyResponse DeleteGtmAccessStrategyResponse
      */
     public function deleteGtmAccessStrategyWithOptions($request, $runtime)
     {
@@ -1876,9 +1952,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteGtmAccessStrategyRequest $request
+     * @param DeleteGtmAccessStrategyRequest $request DeleteGtmAccessStrategyRequest
      *
-     * @return DeleteGtmAccessStrategyResponse
+     * @return DeleteGtmAccessStrategyResponse DeleteGtmAccessStrategyResponse
      */
     public function deleteGtmAccessStrategy($request)
     {
@@ -1888,10 +1964,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteGtmAddressPoolRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DeleteGtmAddressPoolRequest $request DeleteGtmAddressPoolRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGtmAddressPoolResponse
+     * @return DeleteGtmAddressPoolResponse DeleteGtmAddressPoolResponse
      */
     public function deleteGtmAddressPoolWithOptions($request, $runtime)
     {
@@ -1922,9 +1998,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteGtmAddressPoolRequest $request
+     * @param DeleteGtmAddressPoolRequest $request DeleteGtmAddressPoolRequest
      *
-     * @return DeleteGtmAddressPoolResponse
+     * @return DeleteGtmAddressPoolResponse DeleteGtmAddressPoolResponse
      */
     public function deleteGtmAddressPool($request)
     {
@@ -1934,10 +2010,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DeleteGtmRecoveryPlanRequest $request DeleteGtmRecoveryPlanRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGtmRecoveryPlanResponse
+     * @return DeleteGtmRecoveryPlanResponse DeleteGtmRecoveryPlanResponse
      */
     public function deleteGtmRecoveryPlanWithOptions($request, $runtime)
     {
@@ -1968,9 +2044,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DeleteGtmRecoveryPlanRequest $request
+     * @param DeleteGtmRecoveryPlanRequest $request DeleteGtmRecoveryPlanRequest
      *
-     * @return DeleteGtmRecoveryPlanResponse
+     * @return DeleteGtmRecoveryPlanResponse DeleteGtmRecoveryPlanResponse
      */
     public function deleteGtmRecoveryPlan($request)
     {
@@ -1980,8 +2056,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
-     *   *
+     * @description If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
+     *  *
      * @param DeleteSubDomainRecordsRequest $request DeleteSubDomainRecordsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -2025,8 +2101,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
-     *   *
+     * @description If the DNS records to be deleted contain locked DNS records, locked DNS records will not be deleted.
+     *  *
      * @param DeleteSubDomainRecordsRequest $request DeleteSubDomainRecordsRequest
      *
      * @return DeleteSubDomainRecordsResponse DeleteSubDomainRecordsResponse
@@ -2039,10 +2115,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeBatchResultCountRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DescribeBatchResultCountRequest $request DescribeBatchResultCountRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBatchResultCountResponse
+     * @return DescribeBatchResultCountResponse DescribeBatchResultCountResponse
      */
     public function describeBatchResultCountWithOptions($request, $runtime)
     {
@@ -2076,9 +2152,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeBatchResultCountRequest $request
+     * @param DescribeBatchResultCountRequest $request DescribeBatchResultCountRequest
      *
-     * @return DescribeBatchResultCountResponse
+     * @return DescribeBatchResultCountResponse DescribeBatchResultCountResponse
      */
     public function describeBatchResultCount($request)
     {
@@ -2088,8 +2164,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the batch operation task is complete.
-     *   *
+     * @summary Queries the detailed results of a batch operation task.
+     *  *
+     * @description Before you call this operation, make sure that the batch operation task is complete.
+     *  *
      * @param DescribeBatchResultDetailRequest $request DescribeBatchResultDetailRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -2136,8 +2214,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, make sure that the batch operation task is complete.
-     *   *
+     * @summary Queries the detailed results of a batch operation task.
+     *  *
+     * @description Before you call this operation, make sure that the batch operation task is complete.
+     *  *
      * @param DescribeBatchResultDetailRequest $request DescribeBatchResultDetailRequest
      *
      * @return DescribeBatchResultDetailResponse DescribeBatchResultDetailResponse
@@ -2150,10 +2230,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomLineRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries a custom line.
+     *  *
+     * @param DescribeCustomLineRequest $request DescribeCustomLineRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomLineResponse
+     * @return DescribeCustomLineResponse DescribeCustomLineResponse
      */
     public function describeCustomLineWithOptions($request, $runtime)
     {
@@ -2184,9 +2266,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomLineRequest $request
+     * @summary Queries a custom line.
+     *  *
+     * @param DescribeCustomLineRequest $request DescribeCustomLineRequest
      *
-     * @return DescribeCustomLineResponse
+     * @return DescribeCustomLineResponse DescribeCustomLineResponse
      */
     public function describeCustomLine($request)
     {
@@ -2196,10 +2280,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomLinesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries custom lines.
+     *  *
+     * @param DescribeCustomLinesRequest $request DescribeCustomLinesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomLinesResponse
+     * @return DescribeCustomLinesResponse DescribeCustomLinesResponse
      */
     public function describeCustomLinesWithOptions($request, $runtime)
     {
@@ -2236,9 +2322,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomLinesRequest $request
+     * @summary Queries custom lines.
+     *  *
+     * @param DescribeCustomLinesRequest $request DescribeCustomLinesRequest
      *
-     * @return DescribeCustomLinesResponse
+     * @return DescribeCustomLinesResponse DescribeCustomLinesResponse
      */
     public function describeCustomLines($request)
     {
@@ -2248,10 +2336,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDNSSLBSubDomainsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+     *  *
+     * @param DescribeDNSSLBSubDomainsRequest $request DescribeDNSSLBSubDomainsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDNSSLBSubDomainsResponse
+     * @return DescribeDNSSLBSubDomainsResponse DescribeDNSSLBSubDomainsResponse
      */
     public function describeDNSSLBSubDomainsWithOptions($request, $runtime)
     {
@@ -2294,9 +2384,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDNSSLBSubDomainsRequest $request
+     * @summary Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+     *  *
+     * @param DescribeDNSSLBSubDomainsRequest $request DescribeDNSSLBSubDomainsRequest
      *
-     * @return DescribeDNSSLBSubDomainsResponse
+     * @return DescribeDNSSLBSubDomainsResponse DescribeDNSSLBSubDomainsResponse
      */
     public function describeDNSSLBSubDomains($request)
     {
@@ -2306,10 +2398,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsCacheDomainsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeDnsCacheDomainsRequest $request DescribeDnsCacheDomainsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsCacheDomainsResponse
+     * @return DescribeDnsCacheDomainsResponse DescribeDnsCacheDomainsResponse
      */
     public function describeDnsCacheDomainsWithOptions($request, $runtime)
     {
@@ -2346,9 +2438,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsCacheDomainsRequest $request
+     * @param DescribeDnsCacheDomainsRequest $request DescribeDnsCacheDomainsRequest
      *
-     * @return DescribeDnsCacheDomainsResponse
+     * @return DescribeDnsCacheDomainsResponse DescribeDnsCacheDomainsResponse
      */
     public function describeDnsCacheDomains($request)
     {
@@ -2358,10 +2450,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAccessStrategiesRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategiesRequest $request DescribeDnsGtmAccessStrategiesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmAccessStrategiesResponse
+     * @return DescribeDnsGtmAccessStrategiesResponse DescribeDnsGtmAccessStrategiesResponse
      */
     public function describeDnsGtmAccessStrategiesWithOptions($request, $runtime)
     {
@@ -2401,9 +2495,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAccessStrategiesRequest $request
+     * @summary Queries access policies of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategiesRequest $request DescribeDnsGtmAccessStrategiesRequest
      *
-     * @return DescribeDnsGtmAccessStrategiesResponse
+     * @return DescribeDnsGtmAccessStrategiesResponse DescribeDnsGtmAccessStrategiesResponse
      */
     public function describeDnsGtmAccessStrategies($request)
     {
@@ -2413,10 +2509,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategyRequest $request DescribeDnsGtmAccessStrategyRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmAccessStrategyResponse
+     * @return DescribeDnsGtmAccessStrategyResponse DescribeDnsGtmAccessStrategyResponse
      */
     public function describeDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
@@ -2447,9 +2545,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAccessStrategyRequest $request
+     * @summary Queries detailed information about an access policy of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategyRequest $request DescribeDnsGtmAccessStrategyRequest
      *
-     * @return DescribeDnsGtmAccessStrategyResponse
+     * @return DescribeDnsGtmAccessStrategyResponse DescribeDnsGtmAccessStrategyResponse
      */
     public function describeDnsGtmAccessStrategy($request)
     {
@@ -2459,10 +2559,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAccessStrategyAvailableConfigRequest $request
-     * @param RuntimeOptions                                     $runtime
+     * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategyAvailableConfigRequest $request DescribeDnsGtmAccessStrategyAvailableConfigRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse
+     * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse DescribeDnsGtmAccessStrategyAvailableConfigResponse
      */
     public function describeDnsGtmAccessStrategyAvailableConfigWithOptions($request, $runtime)
     {
@@ -2496,9 +2598,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAccessStrategyAvailableConfigRequest $request
+     * @summary Queries the available configurations of an access policy of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAccessStrategyAvailableConfigRequest $request DescribeDnsGtmAccessStrategyAvailableConfigRequest
      *
-     * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse
+     * @return DescribeDnsGtmAccessStrategyAvailableConfigResponse DescribeDnsGtmAccessStrategyAvailableConfigResponse
      */
     public function describeDnsGtmAccessStrategyAvailableConfig($request)
     {
@@ -2508,10 +2612,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAddrAttributeInfoRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param DescribeDnsGtmAddrAttributeInfoRequest $request DescribeDnsGtmAddrAttributeInfoRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmAddrAttributeInfoResponse
+     * @return DescribeDnsGtmAddrAttributeInfoResponse DescribeDnsGtmAddrAttributeInfoResponse
      */
     public function describeDnsGtmAddrAttributeInfoWithOptions($request, $runtime)
     {
@@ -2545,9 +2649,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAddrAttributeInfoRequest $request
+     * @param DescribeDnsGtmAddrAttributeInfoRequest $request DescribeDnsGtmAddrAttributeInfoRequest
      *
-     * @return DescribeDnsGtmAddrAttributeInfoResponse
+     * @return DescribeDnsGtmAddrAttributeInfoResponse DescribeDnsGtmAddrAttributeInfoResponse
      */
     public function describeDnsGtmAddrAttributeInfo($request)
     {
@@ -2557,10 +2661,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAddressPoolAvailableConfigRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAddressPoolAvailableConfigRequest $request DescribeDnsGtmAddressPoolAvailableConfigRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmAddressPoolAvailableConfigResponse
+     * @return DescribeDnsGtmAddressPoolAvailableConfigResponse DescribeDnsGtmAddressPoolAvailableConfigResponse
      */
     public function describeDnsGtmAddressPoolAvailableConfigWithOptions($request, $runtime)
     {
@@ -2591,9 +2697,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAddressPoolAvailableConfigRequest $request
+     * @summary Queries the available configurations of an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmAddressPoolAvailableConfigRequest $request DescribeDnsGtmAddressPoolAvailableConfigRequest
      *
-     * @return DescribeDnsGtmAddressPoolAvailableConfigResponse
+     * @return DescribeDnsGtmAddressPoolAvailableConfigResponse DescribeDnsGtmAddressPoolAvailableConfigResponse
      */
     public function describeDnsGtmAddressPoolAvailableConfig($request)
     {
@@ -2603,10 +2711,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAvailableAlertGroupRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @param DescribeDnsGtmAvailableAlertGroupRequest $request DescribeDnsGtmAvailableAlertGroupRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmAvailableAlertGroupResponse
+     * @return DescribeDnsGtmAvailableAlertGroupResponse DescribeDnsGtmAvailableAlertGroupResponse
      */
     public function describeDnsGtmAvailableAlertGroupWithOptions($request, $runtime)
     {
@@ -2634,9 +2742,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmAvailableAlertGroupRequest $request
+     * @param DescribeDnsGtmAvailableAlertGroupRequest $request DescribeDnsGtmAvailableAlertGroupRequest
      *
-     * @return DescribeDnsGtmAvailableAlertGroupResponse
+     * @return DescribeDnsGtmAvailableAlertGroupResponse DescribeDnsGtmAvailableAlertGroupResponse
      */
     public function describeDnsGtmAvailableAlertGroup($request)
     {
@@ -2646,10 +2754,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstanceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceRequest $request DescribeDnsGtmInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmInstanceResponse
+     * @return DescribeDnsGtmInstanceResponse DescribeDnsGtmInstanceResponse
      */
     public function describeDnsGtmInstanceWithOptions($request, $runtime)
     {
@@ -2680,9 +2790,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstanceRequest $request
+     * @summary Queries detailed information about a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceRequest $request DescribeDnsGtmInstanceRequest
      *
-     * @return DescribeDnsGtmInstanceResponse
+     * @return DescribeDnsGtmInstanceResponse DescribeDnsGtmInstanceResponse
      */
     public function describeDnsGtmInstance($request)
     {
@@ -2692,10 +2804,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstanceAddressPoolRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceAddressPoolRequest $request DescribeDnsGtmInstanceAddressPoolRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmInstanceAddressPoolResponse
+     * @return DescribeDnsGtmInstanceAddressPoolResponse DescribeDnsGtmInstanceAddressPoolResponse
      */
     public function describeDnsGtmInstanceAddressPoolWithOptions($request, $runtime)
     {
@@ -2726,9 +2840,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstanceAddressPoolRequest $request
+     * @summary Queries detailed information about an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceAddressPoolRequest $request DescribeDnsGtmInstanceAddressPoolRequest
      *
-     * @return DescribeDnsGtmInstanceAddressPoolResponse
+     * @return DescribeDnsGtmInstanceAddressPoolResponse DescribeDnsGtmInstanceAddressPoolResponse
      */
     public function describeDnsGtmInstanceAddressPool($request)
     {
@@ -2738,10 +2854,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstanceAddressPoolsRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceAddressPoolsRequest $request DescribeDnsGtmInstanceAddressPoolsRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmInstanceAddressPoolsResponse
+     * @return DescribeDnsGtmInstanceAddressPoolsResponse DescribeDnsGtmInstanceAddressPoolsResponse
      */
     public function describeDnsGtmInstanceAddressPoolsWithOptions($request, $runtime)
     {
@@ -2778,9 +2896,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstanceAddressPoolsRequest $request
+     * @summary Queries the address pools of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceAddressPoolsRequest $request DescribeDnsGtmInstanceAddressPoolsRequest
      *
-     * @return DescribeDnsGtmInstanceAddressPoolsResponse
+     * @return DescribeDnsGtmInstanceAddressPoolsResponse DescribeDnsGtmInstanceAddressPoolsResponse
      */
     public function describeDnsGtmInstanceAddressPools($request)
     {
@@ -2790,10 +2910,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstanceStatusRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceStatusRequest $request DescribeDnsGtmInstanceStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmInstanceStatusResponse
+     * @return DescribeDnsGtmInstanceStatusResponse DescribeDnsGtmInstanceStatusResponse
      */
     public function describeDnsGtmInstanceStatusWithOptions($request, $runtime)
     {
@@ -2824,9 +2946,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstanceStatusRequest $request
+     * @summary Queries the status of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceStatusRequest $request DescribeDnsGtmInstanceStatusRequest
      *
-     * @return DescribeDnsGtmInstanceStatusResponse
+     * @return DescribeDnsGtmInstanceStatusResponse DescribeDnsGtmInstanceStatusResponse
      */
     public function describeDnsGtmInstanceStatus($request)
     {
@@ -2836,10 +2960,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstanceSystemCnameRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceSystemCnameRequest $request DescribeDnsGtmInstanceSystemCnameRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmInstanceSystemCnameResponse
+     * @return DescribeDnsGtmInstanceSystemCnameResponse DescribeDnsGtmInstanceSystemCnameResponse
      */
     public function describeDnsGtmInstanceSystemCnameWithOptions($request, $runtime)
     {
@@ -2870,9 +2996,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstanceSystemCnameRequest $request
+     * @summary Queries the CNAME domain name assigned by the system for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmInstanceSystemCnameRequest $request DescribeDnsGtmInstanceSystemCnameRequest
      *
-     * @return DescribeDnsGtmInstanceSystemCnameResponse
+     * @return DescribeDnsGtmInstanceSystemCnameResponse DescribeDnsGtmInstanceSystemCnameResponse
      */
     public function describeDnsGtmInstanceSystemCname($request)
     {
@@ -2882,10 +3010,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstancesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeDnsGtmInstancesRequest $request DescribeDnsGtmInstancesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmInstancesResponse
+     * @return DescribeDnsGtmInstancesResponse DescribeDnsGtmInstancesResponse
      */
     public function describeDnsGtmInstancesWithOptions($request, $runtime)
     {
@@ -2925,9 +3053,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmInstancesRequest $request
+     * @param DescribeDnsGtmInstancesRequest $request DescribeDnsGtmInstancesRequest
      *
-     * @return DescribeDnsGtmInstancesResponse
+     * @return DescribeDnsGtmInstancesResponse DescribeDnsGtmInstancesResponse
      */
     public function describeDnsGtmInstances($request)
     {
@@ -2937,10 +3065,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmLogsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmLogsRequest $request DescribeDnsGtmLogsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmLogsResponse
+     * @return DescribeDnsGtmLogsResponse DescribeDnsGtmLogsResponse
      */
     public function describeDnsGtmLogsWithOptions($request, $runtime)
     {
@@ -2986,9 +3116,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmLogsRequest $request
+     * @summary Queries operation logs of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmLogsRequest $request DescribeDnsGtmLogsRequest
      *
-     * @return DescribeDnsGtmLogsResponse
+     * @return DescribeDnsGtmLogsResponse DescribeDnsGtmLogsResponse
      */
     public function describeDnsGtmLogs($request)
     {
@@ -2998,10 +3130,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmMonitorAvailableConfigRequest $request
-     * @param RuntimeOptions                              $runtime
+     * @summary Queries available monitored nodes.
+     *  *
+     * @param DescribeDnsGtmMonitorAvailableConfigRequest $request DescribeDnsGtmMonitorAvailableConfigRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmMonitorAvailableConfigResponse
+     * @return DescribeDnsGtmMonitorAvailableConfigResponse DescribeDnsGtmMonitorAvailableConfigResponse
      */
     public function describeDnsGtmMonitorAvailableConfigWithOptions($request, $runtime)
     {
@@ -3029,9 +3163,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmMonitorAvailableConfigRequest $request
+     * @summary Queries available monitored nodes.
+     *  *
+     * @param DescribeDnsGtmMonitorAvailableConfigRequest $request DescribeDnsGtmMonitorAvailableConfigRequest
      *
-     * @return DescribeDnsGtmMonitorAvailableConfigResponse
+     * @return DescribeDnsGtmMonitorAvailableConfigResponse DescribeDnsGtmMonitorAvailableConfigResponse
      */
     public function describeDnsGtmMonitorAvailableConfig($request)
     {
@@ -3041,10 +3177,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmMonitorConfigRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the health check configurations of an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmMonitorConfigRequest $request DescribeDnsGtmMonitorConfigRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsGtmMonitorConfigResponse
+     * @return DescribeDnsGtmMonitorConfigResponse DescribeDnsGtmMonitorConfigResponse
      */
     public function describeDnsGtmMonitorConfigWithOptions($request, $runtime)
     {
@@ -3075,9 +3213,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsGtmMonitorConfigRequest $request
+     * @summary Queries the health check configurations of an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeDnsGtmMonitorConfigRequest $request DescribeDnsGtmMonitorConfigRequest
      *
-     * @return DescribeDnsGtmMonitorConfigResponse
+     * @return DescribeDnsGtmMonitorConfigResponse DescribeDnsGtmMonitorConfigResponse
      */
     public function describeDnsGtmMonitorConfig($request)
     {
@@ -3087,10 +3227,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsProductInstanceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+     *  *
+     * @param DescribeDnsProductInstanceRequest $request DescribeDnsProductInstanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDnsProductInstanceResponse
+     * @return DescribeDnsProductInstanceResponse DescribeDnsProductInstanceResponse
      */
     public function describeDnsProductInstanceWithOptions($request, $runtime)
     {
@@ -3124,9 +3266,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDnsProductInstanceRequest $request
+     * @summary Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+     *  *
+     * @param DescribeDnsProductInstanceRequest $request DescribeDnsProductInstanceRequest
      *
-     * @return DescribeDnsProductInstanceResponse
+     * @return DescribeDnsProductInstanceResponse DescribeDnsProductInstanceResponse
      */
     public function describeDnsProductInstance($request)
     {
@@ -3136,8 +3280,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
-     *   *
+     * @summary Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+     *  *
+     * @description >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+     *  *
      * @param DescribeDnsProductInstancesRequest $request DescribeDnsProductInstancesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -3190,8 +3336,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
-     *   *
+     * @summary Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+     *  *
+     * @description >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+     *  *
      * @param DescribeDnsProductInstancesRequest $request DescribeDnsProductInstancesRequest
      *
      * @return DescribeDnsProductInstancesResponse DescribeDnsProductInstancesResponse
@@ -3204,10 +3352,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohAccountStatisticsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeDohAccountStatisticsRequest $request DescribeDohAccountStatisticsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDohAccountStatisticsResponse
+     * @return DescribeDohAccountStatisticsResponse DescribeDohAccountStatisticsResponse
      */
     public function describeDohAccountStatisticsWithOptions($request, $runtime)
     {
@@ -3241,9 +3389,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohAccountStatisticsRequest $request
+     * @param DescribeDohAccountStatisticsRequest $request DescribeDohAccountStatisticsRequest
      *
-     * @return DescribeDohAccountStatisticsResponse
+     * @return DescribeDohAccountStatisticsResponse DescribeDohAccountStatisticsResponse
      */
     public function describeDohAccountStatistics($request)
     {
@@ -3253,10 +3401,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohDomainStatisticsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeDohDomainStatisticsRequest $request DescribeDohDomainStatisticsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDohDomainStatisticsResponse
+     * @return DescribeDohDomainStatisticsResponse DescribeDohDomainStatisticsResponse
      */
     public function describeDohDomainStatisticsWithOptions($request, $runtime)
     {
@@ -3293,9 +3441,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohDomainStatisticsRequest $request
+     * @param DescribeDohDomainStatisticsRequest $request DescribeDohDomainStatisticsRequest
      *
-     * @return DescribeDohDomainStatisticsResponse
+     * @return DescribeDohDomainStatisticsResponse DescribeDohDomainStatisticsResponse
      */
     public function describeDohDomainStatistics($request)
     {
@@ -3305,10 +3453,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohDomainStatisticsSummaryRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @param DescribeDohDomainStatisticsSummaryRequest $request DescribeDohDomainStatisticsSummaryRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDohDomainStatisticsSummaryResponse
+     * @return DescribeDohDomainStatisticsSummaryResponse DescribeDohDomainStatisticsSummaryResponse
      */
     public function describeDohDomainStatisticsSummaryWithOptions($request, $runtime)
     {
@@ -3351,9 +3499,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohDomainStatisticsSummaryRequest $request
+     * @param DescribeDohDomainStatisticsSummaryRequest $request DescribeDohDomainStatisticsSummaryRequest
      *
-     * @return DescribeDohDomainStatisticsSummaryResponse
+     * @return DescribeDohDomainStatisticsSummaryResponse DescribeDohDomainStatisticsSummaryResponse
      */
     public function describeDohDomainStatisticsSummary($request)
     {
@@ -3363,10 +3511,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohSubDomainStatisticsRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param DescribeDohSubDomainStatisticsRequest $request DescribeDohSubDomainStatisticsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDohSubDomainStatisticsResponse
+     * @return DescribeDohSubDomainStatisticsResponse DescribeDohSubDomainStatisticsResponse
      */
     public function describeDohSubDomainStatisticsWithOptions($request, $runtime)
     {
@@ -3403,9 +3551,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohSubDomainStatisticsRequest $request
+     * @param DescribeDohSubDomainStatisticsRequest $request DescribeDohSubDomainStatisticsRequest
      *
-     * @return DescribeDohSubDomainStatisticsResponse
+     * @return DescribeDohSubDomainStatisticsResponse DescribeDohSubDomainStatisticsResponse
      */
     public function describeDohSubDomainStatistics($request)
     {
@@ -3415,10 +3563,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohSubDomainStatisticsSummaryRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @param DescribeDohSubDomainStatisticsSummaryRequest $request DescribeDohSubDomainStatisticsSummaryRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDohSubDomainStatisticsSummaryResponse
+     * @return DescribeDohSubDomainStatisticsSummaryResponse DescribeDohSubDomainStatisticsSummaryResponse
      */
     public function describeDohSubDomainStatisticsSummaryWithOptions($request, $runtime)
     {
@@ -3464,9 +3612,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohSubDomainStatisticsSummaryRequest $request
+     * @param DescribeDohSubDomainStatisticsSummaryRequest $request DescribeDohSubDomainStatisticsSummaryRequest
      *
-     * @return DescribeDohSubDomainStatisticsSummaryResponse
+     * @return DescribeDohSubDomainStatisticsSummaryResponse DescribeDohSubDomainStatisticsSummaryResponse
      */
     public function describeDohSubDomainStatisticsSummary($request)
     {
@@ -3476,10 +3624,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohUserInfoRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+     *  *
+     * @param DescribeDohUserInfoRequest $request DescribeDohUserInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDohUserInfoResponse
+     * @return DescribeDohUserInfoResponse DescribeDohUserInfoResponse
      */
     public function describeDohUserInfoWithOptions($request, $runtime)
     {
@@ -3513,9 +3663,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDohUserInfoRequest $request
+     * @summary Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+     *  *
+     * @param DescribeDohUserInfoRequest $request DescribeDohUserInfoRequest
      *
-     * @return DescribeDohUserInfoResponse
+     * @return DescribeDohUserInfoResponse DescribeDohUserInfoResponse
      */
     public function describeDohUserInfo($request)
     {
@@ -3525,10 +3677,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainDnssecInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+     *  *
+     * @param DescribeDomainDnssecInfoRequest $request DescribeDomainDnssecInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainDnssecInfoResponse
+     * @return DescribeDomainDnssecInfoResponse DescribeDomainDnssecInfoResponse
      */
     public function describeDomainDnssecInfoWithOptions($request, $runtime)
     {
@@ -3559,9 +3713,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainDnssecInfoRequest $request
+     * @summary Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+     *  *
+     * @param DescribeDomainDnssecInfoRequest $request DescribeDomainDnssecInfoRequest
      *
-     * @return DescribeDomainDnssecInfoResponse
+     * @return DescribeDomainDnssecInfoResponse DescribeDomainDnssecInfoResponse
      */
     public function describeDomainDnssecInfo($request)
     {
@@ -3571,10 +3727,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainGroupsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries all domain name groups based on the specified parameters.
+     *  *
+     * @param DescribeDomainGroupsRequest $request DescribeDomainGroupsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainGroupsResponse
+     * @return DescribeDomainGroupsResponse DescribeDomainGroupsResponse
      */
     public function describeDomainGroupsWithOptions($request, $runtime)
     {
@@ -3611,9 +3769,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainGroupsRequest $request
+     * @summary Queries all domain name groups based on the specified parameters.
+     *  *
+     * @param DescribeDomainGroupsRequest $request DescribeDomainGroupsRequest
      *
-     * @return DescribeDomainGroupsResponse
+     * @return DescribeDomainGroupsResponse DescribeDomainGroupsResponse
      */
     public function describeDomainGroups($request)
     {
@@ -3623,8 +3783,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
-     *   *
+     * @summary Queries the information about a domain name based on specified parameters.
+     *  *
+     * @description In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+     *  *
      * @param DescribeDomainInfoRequest $request DescribeDomainInfoRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3662,8 +3824,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
-     *   *
+     * @summary Queries the information about a domain name based on specified parameters.
+     *  *
+     * @description In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+     *  *
      * @param DescribeDomainInfoRequest $request DescribeDomainInfoRequest
      *
      * @return DescribeDomainInfoResponse DescribeDomainInfoResponse
@@ -3676,10 +3840,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainLogsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the operation logs of domain names based on the specified parameters.
+     *  *
+     * @param DescribeDomainLogsRequest $request DescribeDomainLogsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainLogsResponse
+     * @return DescribeDomainLogsResponse DescribeDomainLogsResponse
      */
     public function describeDomainLogsWithOptions($request, $runtime)
     {
@@ -3728,9 +3894,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainLogsRequest $request
+     * @summary Queries the operation logs of domain names based on the specified parameters.
+     *  *
+     * @param DescribeDomainLogsRequest $request DescribeDomainLogsRequest
      *
-     * @return DescribeDomainLogsResponse
+     * @return DescribeDomainLogsResponse DescribeDomainLogsResponse
      */
     public function describeDomainLogs($request)
     {
@@ -3740,8 +3908,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
-     *   *
+     * @summary Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+     *  *
+     * @description >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+     *  *
      * @param DescribeDomainNsRequest $request DescribeDomainNsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -3776,8 +3946,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
-     *   *
+     * @summary Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+     *  *
+     * @description >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+     *  *
      * @param DescribeDomainNsRequest $request DescribeDomainNsRequest
      *
      * @return DescribeDomainNsResponse DescribeDomainNsResponse
@@ -3790,9 +3962,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09).
-     *   *
+     * @summary Queries the information about a Domain Name System (DNS) record.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+     *  *
      * @param DescribeDomainRecordInfoRequest $request DescribeDomainRecordInfoRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -3830,9 +4004,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09).
-     *   *
+     * @summary Queries the information about a Domain Name System (DNS) record.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+     *  *
      * @param DescribeDomainRecordInfoRequest $request DescribeDomainRecordInfoRequest
      *
      * @return DescribeDomainRecordInfoResponse DescribeDomainRecordInfoResponse
@@ -3845,11 +4021,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
-     *   * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
-     *   * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
-     *   * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
-     *   *
+     * @summary Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+     *  *
+     * @description *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
+     * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
+     * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
+     * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
+     *  *
      * @param DescribeDomainRecordsRequest $request DescribeDomainRecordsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -3923,11 +4101,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
-     *   * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
-     *   * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
-     *   * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
-     *   *
+     * @summary Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+     *  *
+     * @description *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
+     * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
+     * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
+     * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
+     *  *
      * @param DescribeDomainRecordsRequest $request DescribeDomainRecordsRequest
      *
      * @return DescribeDomainRecordsResponse DescribeDomainRecordsResponse
@@ -3940,10 +4120,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainResolveStatisticsSummaryRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary Queries the resolution requests of all paid domain names within your account.
+     *  *
+     * @param DescribeDomainResolveStatisticsSummaryRequest $request DescribeDomainResolveStatisticsSummaryRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainResolveStatisticsSummaryResponse
+     * @return DescribeDomainResolveStatisticsSummaryResponse DescribeDomainResolveStatisticsSummaryResponse
      */
     public function describeDomainResolveStatisticsSummaryWithOptions($request, $runtime)
     {
@@ -3995,9 +4177,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainResolveStatisticsSummaryRequest $request
+     * @summary Queries the resolution requests of all paid domain names within your account.
+     *  *
+     * @param DescribeDomainResolveStatisticsSummaryRequest $request DescribeDomainResolveStatisticsSummaryRequest
      *
-     * @return DescribeDomainResolveStatisticsSummaryResponse
+     * @return DescribeDomainResolveStatisticsSummaryResponse DescribeDomainResolveStatisticsSummaryResponse
      */
     public function describeDomainResolveStatisticsSummary($request)
     {
@@ -4007,8 +4191,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Real-time data is collected per hour.
-     *   *
+     * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+     *  *
+     * @description Real-time data is collected per hour.
+     *  *
      * @param DescribeDomainStatisticsRequest $request DescribeDomainStatisticsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -4052,8 +4238,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Real-time data is collected per hour.
-     *   *
+     * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+     *  *
+     * @description Real-time data is collected per hour.
+     *  *
      * @param DescribeDomainStatisticsRequest $request DescribeDomainStatisticsRequest
      *
      * @return DescribeDomainStatisticsResponse DescribeDomainStatisticsResponse
@@ -4066,10 +4254,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainStatisticsSummaryRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+     *  *
+     * @param DescribeDomainStatisticsSummaryRequest $request DescribeDomainStatisticsSummaryRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainStatisticsSummaryResponse
+     * @return DescribeDomainStatisticsSummaryResponse DescribeDomainStatisticsSummaryResponse
      */
     public function describeDomainStatisticsSummaryWithOptions($request, $runtime)
     {
@@ -4118,9 +4308,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainStatisticsSummaryRequest $request
+     * @summary Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+     *  *
+     * @param DescribeDomainStatisticsSummaryRequest $request DescribeDomainStatisticsSummaryRequest
      *
-     * @return DescribeDomainStatisticsSummaryResponse
+     * @return DescribeDomainStatisticsSummaryResponse DescribeDomainStatisticsSummaryResponse
      */
     public function describeDomainStatisticsSummary($request)
     {
@@ -4130,11 +4322,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * *   You can specify the PageNumber and PageSize parameters to query domain names.
-     *   * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
-     *   * *   By default, the domain names in a list are sorted in descending order of the time they were added.
-     *   * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
-     *   *
+     * @summary Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+     *  *
+     * @description *   You can specify the PageNumber and PageSize parameters to query domain names.
+     * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
+     * *   By default, the domain names in a list are sorted in descending order of the time they were added.
+     * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+     *  *
      * @param DescribeDomainsRequest $request DescribeDomainsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4187,11 +4381,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * *   You can specify the PageNumber and PageSize parameters to query domain names.
-     *   * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
-     *   * *   By default, the domain names in a list are sorted in descending order of the time they were added.
-     *   * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
-     *   *
+     * @summary Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+     *  *
+     * @description *   You can specify the PageNumber and PageSize parameters to query domain names.
+     * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
+     * *   By default, the domain names in a list are sorted in descending order of the time they were added.
+     * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+     *  *
      * @param DescribeDomainsRequest $request DescribeDomainsRequest
      *
      * @return DescribeDomainsResponse DescribeDomainsResponse
@@ -4204,10 +4400,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmAccessStrategiesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmAccessStrategiesRequest $request DescribeGtmAccessStrategiesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmAccessStrategiesResponse
+     * @return DescribeGtmAccessStrategiesResponse DescribeGtmAccessStrategiesResponse
      */
     public function describeGtmAccessStrategiesWithOptions($request, $runtime)
     {
@@ -4244,9 +4442,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmAccessStrategiesRequest $request
+     * @summary You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmAccessStrategiesRequest $request DescribeGtmAccessStrategiesRequest
      *
-     * @return DescribeGtmAccessStrategiesResponse
+     * @return DescribeGtmAccessStrategiesResponse DescribeGtmAccessStrategiesResponse
      */
     public function describeGtmAccessStrategies($request)
     {
@@ -4256,10 +4456,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+     *  *
+     * @param DescribeGtmAccessStrategyRequest $request DescribeGtmAccessStrategyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmAccessStrategyResponse
+     * @return DescribeGtmAccessStrategyResponse DescribeGtmAccessStrategyResponse
      */
     public function describeGtmAccessStrategyWithOptions($request, $runtime)
     {
@@ -4290,9 +4492,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmAccessStrategyRequest $request
+     * @summary You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+     *  *
+     * @param DescribeGtmAccessStrategyRequest $request DescribeGtmAccessStrategyRequest
      *
-     * @return DescribeGtmAccessStrategyResponse
+     * @return DescribeGtmAccessStrategyResponse DescribeGtmAccessStrategyResponse
      */
     public function describeGtmAccessStrategy($request)
     {
@@ -4302,10 +4506,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmAccessStrategyAvailableConfigRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @summary Queries the configuration items that can be set for an access policy.
+     *  *
+     * @param DescribeGtmAccessStrategyAvailableConfigRequest $request DescribeGtmAccessStrategyAvailableConfigRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmAccessStrategyAvailableConfigResponse
+     * @return DescribeGtmAccessStrategyAvailableConfigResponse DescribeGtmAccessStrategyAvailableConfigResponse
      */
     public function describeGtmAccessStrategyAvailableConfigWithOptions($request, $runtime)
     {
@@ -4336,9 +4542,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmAccessStrategyAvailableConfigRequest $request
+     * @summary Queries the configuration items that can be set for an access policy.
+     *  *
+     * @param DescribeGtmAccessStrategyAvailableConfigRequest $request DescribeGtmAccessStrategyAvailableConfigRequest
      *
-     * @return DescribeGtmAccessStrategyAvailableConfigResponse
+     * @return DescribeGtmAccessStrategyAvailableConfigResponse DescribeGtmAccessStrategyAvailableConfigResponse
      */
     public function describeGtmAccessStrategyAvailableConfig($request)
     {
@@ -4348,10 +4556,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmAvailableAlertGroupRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param DescribeGtmAvailableAlertGroupRequest $request DescribeGtmAvailableAlertGroupRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmAvailableAlertGroupResponse
+     * @return DescribeGtmAvailableAlertGroupResponse DescribeGtmAvailableAlertGroupResponse
      */
     public function describeGtmAvailableAlertGroupWithOptions($request, $runtime)
     {
@@ -4379,9 +4587,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmAvailableAlertGroupRequest $request
+     * @param DescribeGtmAvailableAlertGroupRequest $request DescribeGtmAvailableAlertGroupRequest
      *
-     * @return DescribeGtmAvailableAlertGroupResponse
+     * @return DescribeGtmAvailableAlertGroupResponse DescribeGtmAvailableAlertGroupResponse
      */
     public function describeGtmAvailableAlertGroup($request)
     {
@@ -4391,10 +4599,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the details about a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceRequest $request DescribeGtmInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmInstanceResponse
+     * @return DescribeGtmInstanceResponse DescribeGtmInstanceResponse
      */
     public function describeGtmInstanceWithOptions($request, $runtime)
     {
@@ -4428,9 +4638,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstanceRequest $request
+     * @summary Queries the details about a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceRequest $request DescribeGtmInstanceRequest
      *
-     * @return DescribeGtmInstanceResponse
+     * @return DescribeGtmInstanceResponse DescribeGtmInstanceResponse
      */
     public function describeGtmInstance($request)
     {
@@ -4440,10 +4652,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstanceAddressPoolRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceAddressPoolRequest $request DescribeGtmInstanceAddressPoolRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmInstanceAddressPoolResponse
+     * @return DescribeGtmInstanceAddressPoolResponse DescribeGtmInstanceAddressPoolResponse
      */
     public function describeGtmInstanceAddressPoolWithOptions($request, $runtime)
     {
@@ -4474,9 +4688,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstanceAddressPoolRequest $request
+     * @summary You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceAddressPoolRequest $request DescribeGtmInstanceAddressPoolRequest
      *
-     * @return DescribeGtmInstanceAddressPoolResponse
+     * @return DescribeGtmInstanceAddressPoolResponse DescribeGtmInstanceAddressPoolResponse
      */
     public function describeGtmInstanceAddressPool($request)
     {
@@ -4486,10 +4702,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstanceAddressPoolsRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceAddressPoolsRequest $request DescribeGtmInstanceAddressPoolsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmInstanceAddressPoolsResponse
+     * @return DescribeGtmInstanceAddressPoolsResponse DescribeGtmInstanceAddressPoolsResponse
      */
     public function describeGtmInstanceAddressPoolsWithOptions($request, $runtime)
     {
@@ -4526,9 +4744,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstanceAddressPoolsRequest $request
+     * @summary You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceAddressPoolsRequest $request DescribeGtmInstanceAddressPoolsRequest
      *
-     * @return DescribeGtmInstanceAddressPoolsResponse
+     * @return DescribeGtmInstanceAddressPoolsResponse DescribeGtmInstanceAddressPoolsResponse
      */
     public function describeGtmInstanceAddressPools($request)
     {
@@ -4538,10 +4758,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstanceStatusRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the current status of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceStatusRequest $request DescribeGtmInstanceStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmInstanceStatusResponse
+     * @return DescribeGtmInstanceStatusResponse DescribeGtmInstanceStatusResponse
      */
     public function describeGtmInstanceStatusWithOptions($request, $runtime)
     {
@@ -4572,9 +4794,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstanceStatusRequest $request
+     * @summary Queries the current status of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmInstanceStatusRequest $request DescribeGtmInstanceStatusRequest
      *
-     * @return DescribeGtmInstanceStatusResponse
+     * @return DescribeGtmInstanceStatusResponse DescribeGtmInstanceStatusResponse
      */
     public function describeGtmInstanceStatus($request)
     {
@@ -4584,10 +4808,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstanceSystemCnameRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param DescribeGtmInstanceSystemCnameRequest $request DescribeGtmInstanceSystemCnameRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmInstanceSystemCnameResponse
+     * @return DescribeGtmInstanceSystemCnameResponse DescribeGtmInstanceSystemCnameResponse
      */
     public function describeGtmInstanceSystemCnameWithOptions($request, $runtime)
     {
@@ -4618,9 +4842,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstanceSystemCnameRequest $request
+     * @param DescribeGtmInstanceSystemCnameRequest $request DescribeGtmInstanceSystemCnameRequest
      *
-     * @return DescribeGtmInstanceSystemCnameResponse
+     * @return DescribeGtmInstanceSystemCnameResponse DescribeGtmInstanceSystemCnameResponse
      */
     public function describeGtmInstanceSystemCname($request)
     {
@@ -4630,10 +4854,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstancesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the Global Traffic Manager (GTM) instances under your account.
+     *  *
+     * @param DescribeGtmInstancesRequest $request DescribeGtmInstancesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmInstancesResponse
+     * @return DescribeGtmInstancesResponse DescribeGtmInstancesResponse
      */
     public function describeGtmInstancesWithOptions($request, $runtime)
     {
@@ -4676,9 +4902,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmInstancesRequest $request
+     * @summary Queries the Global Traffic Manager (GTM) instances under your account.
+     *  *
+     * @param DescribeGtmInstancesRequest $request DescribeGtmInstancesRequest
      *
-     * @return DescribeGtmInstancesResponse
+     * @return DescribeGtmInstancesResponse DescribeGtmInstancesResponse
      */
     public function describeGtmInstances($request)
     {
@@ -4688,10 +4916,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmLogsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmLogsRequest $request DescribeGtmLogsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmLogsResponse
+     * @return DescribeGtmLogsResponse DescribeGtmLogsResponse
      */
     public function describeGtmLogsWithOptions($request, $runtime)
     {
@@ -4737,9 +4967,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmLogsRequest $request
+     * @summary You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmLogsRequest $request DescribeGtmLogsRequest
      *
-     * @return DescribeGtmLogsResponse
+     * @return DescribeGtmLogsResponse DescribeGtmLogsResponse
      */
     public function describeGtmLogs($request)
     {
@@ -4749,10 +4981,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmMonitorAvailableConfigRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Queries available monitored nodes.
+     *  *
+     * @param DescribeGtmMonitorAvailableConfigRequest $request DescribeGtmMonitorAvailableConfigRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmMonitorAvailableConfigResponse
+     * @return DescribeGtmMonitorAvailableConfigResponse DescribeGtmMonitorAvailableConfigResponse
      */
     public function describeGtmMonitorAvailableConfigWithOptions($request, $runtime)
     {
@@ -4780,9 +5014,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmMonitorAvailableConfigRequest $request
+     * @summary Queries available monitored nodes.
+     *  *
+     * @param DescribeGtmMonitorAvailableConfigRequest $request DescribeGtmMonitorAvailableConfigRequest
      *
-     * @return DescribeGtmMonitorAvailableConfigResponse
+     * @return DescribeGtmMonitorAvailableConfigResponse DescribeGtmMonitorAvailableConfigResponse
      */
     public function describeGtmMonitorAvailableConfig($request)
     {
@@ -4792,10 +5028,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmMonitorConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmMonitorConfigRequest $request DescribeGtmMonitorConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmMonitorConfigResponse
+     * @return DescribeGtmMonitorConfigResponse DescribeGtmMonitorConfigResponse
      */
     public function describeGtmMonitorConfigWithOptions($request, $runtime)
     {
@@ -4826,9 +5064,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmMonitorConfigRequest $request
+     * @summary Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmMonitorConfigRequest $request DescribeGtmMonitorConfigRequest
      *
-     * @return DescribeGtmMonitorConfigResponse
+     * @return DescribeGtmMonitorConfigResponse DescribeGtmMonitorConfigResponse
      */
     public function describeGtmMonitorConfig($request)
     {
@@ -4838,10 +5078,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary You can call this operation to query the detailed information of a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmRecoveryPlanRequest $request DescribeGtmRecoveryPlanRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmRecoveryPlanResponse
+     * @return DescribeGtmRecoveryPlanResponse DescribeGtmRecoveryPlanResponse
      */
     public function describeGtmRecoveryPlanWithOptions($request, $runtime)
     {
@@ -4872,9 +5114,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmRecoveryPlanRequest $request
+     * @summary You can call this operation to query the detailed information of a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmRecoveryPlanRequest $request DescribeGtmRecoveryPlanRequest
      *
-     * @return DescribeGtmRecoveryPlanResponse
+     * @return DescribeGtmRecoveryPlanResponse DescribeGtmRecoveryPlanResponse
      */
     public function describeGtmRecoveryPlan($request)
     {
@@ -4884,10 +5128,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmRecoveryPlanAvailableConfigRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary You can call this operation to query the available configurations of a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmRecoveryPlanAvailableConfigRequest $request DescribeGtmRecoveryPlanAvailableConfigRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmRecoveryPlanAvailableConfigResponse
+     * @return DescribeGtmRecoveryPlanAvailableConfigResponse DescribeGtmRecoveryPlanAvailableConfigResponse
      */
     public function describeGtmRecoveryPlanAvailableConfigWithOptions($request, $runtime)
     {
@@ -4915,9 +5161,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmRecoveryPlanAvailableConfigRequest $request
+     * @summary You can call this operation to query the available configurations of a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmRecoveryPlanAvailableConfigRequest $request DescribeGtmRecoveryPlanAvailableConfigRequest
      *
-     * @return DescribeGtmRecoveryPlanAvailableConfigResponse
+     * @return DescribeGtmRecoveryPlanAvailableConfigResponse DescribeGtmRecoveryPlanAvailableConfigResponse
      */
     public function describeGtmRecoveryPlanAvailableConfig($request)
     {
@@ -4927,10 +5175,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmRecoveryPlansRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmRecoveryPlansRequest $request DescribeGtmRecoveryPlansRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGtmRecoveryPlansResponse
+     * @return DescribeGtmRecoveryPlansResponse DescribeGtmRecoveryPlansResponse
      */
     public function describeGtmRecoveryPlansWithOptions($request, $runtime)
     {
@@ -4967,9 +5217,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeGtmRecoveryPlansRequest $request
+     * @summary Queries the disaster recovery plans for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param DescribeGtmRecoveryPlansRequest $request DescribeGtmRecoveryPlansRequest
      *
-     * @return DescribeGtmRecoveryPlansResponse
+     * @return DescribeGtmRecoveryPlansResponse DescribeGtmRecoveryPlansResponse
      */
     public function describeGtmRecoveryPlans($request)
     {
@@ -4979,10 +5231,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceDomainsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+     *  *
+     * @param DescribeInstanceDomainsRequest $request DescribeInstanceDomainsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceDomainsResponse
+     * @return DescribeInstanceDomainsResponse DescribeInstanceDomainsResponse
      */
     public function describeInstanceDomainsWithOptions($request, $runtime)
     {
@@ -5019,9 +5273,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceDomainsRequest $request
+     * @summary Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+     *  *
+     * @param DescribeInstanceDomainsRequest $request DescribeInstanceDomainsRequest
      *
-     * @return DescribeInstanceDomainsResponse
+     * @return DescribeInstanceDomainsResponse DescribeInstanceDomainsResponse
      */
     public function describeInstanceDomains($request)
     {
@@ -5031,15 +5287,18 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeInternetDnsLogsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeInternetDnsLogsRequest $request DescribeInternetDnsLogsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInternetDnsLogsResponse
+     * @return DescribeInternetDnsLogsResponse DescribeInternetDnsLogsResponse
      */
     public function describeInternetDnsLogsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
         }
@@ -5083,9 +5342,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeInternetDnsLogsRequest $request
+     * @param DescribeInternetDnsLogsRequest $request DescribeInternetDnsLogsRequest
      *
-     * @return DescribeInternetDnsLogsResponse
+     * @return DescribeInternetDnsLogsResponse DescribeInternetDnsLogsResponse
      */
     public function describeInternetDnsLogs($request)
     {
@@ -5095,10 +5354,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeIspFlushCacheInstancesRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 获取缓存刷新套餐包列表
+     *  *
+     * @param DescribeIspFlushCacheInstancesRequest $request DescribeIspFlushCacheInstancesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIspFlushCacheInstancesResponse
+     * @return DescribeIspFlushCacheInstancesResponse DescribeIspFlushCacheInstancesResponse
      */
     public function describeIspFlushCacheInstancesWithOptions($request, $runtime)
     {
@@ -5147,9 +5408,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeIspFlushCacheInstancesRequest $request
+     * @summary 获取缓存刷新套餐包列表
+     *  *
+     * @param DescribeIspFlushCacheInstancesRequest $request DescribeIspFlushCacheInstancesRequest
      *
-     * @return DescribeIspFlushCacheInstancesResponse
+     * @return DescribeIspFlushCacheInstancesResponse DescribeIspFlushCacheInstancesResponse
      */
     public function describeIspFlushCacheInstances($request)
     {
@@ -5159,10 +5422,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeIspFlushCacheRemainQuotaRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary 获取剩余可缓存刷新次数
+     *  *
+     * @param DescribeIspFlushCacheRemainQuotaRequest $request DescribeIspFlushCacheRemainQuotaRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIspFlushCacheRemainQuotaResponse
+     * @return DescribeIspFlushCacheRemainQuotaResponse DescribeIspFlushCacheRemainQuotaResponse
      */
     public function describeIspFlushCacheRemainQuotaWithOptions($request, $runtime)
     {
@@ -5190,9 +5455,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeIspFlushCacheRemainQuotaRequest $request
+     * @summary 获取剩余可缓存刷新次数
+     *  *
+     * @param DescribeIspFlushCacheRemainQuotaRequest $request DescribeIspFlushCacheRemainQuotaRequest
      *
-     * @return DescribeIspFlushCacheRemainQuotaResponse
+     * @return DescribeIspFlushCacheRemainQuotaResponse DescribeIspFlushCacheRemainQuotaResponse
      */
     public function describeIspFlushCacheRemainQuota($request)
     {
@@ -5202,10 +5469,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeIspFlushCacheTaskRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 获取缓存刷新任务详情
+     *  *
+     * @param DescribeIspFlushCacheTaskRequest $request DescribeIspFlushCacheTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIspFlushCacheTaskResponse
+     * @return DescribeIspFlushCacheTaskResponse DescribeIspFlushCacheTaskResponse
      */
     public function describeIspFlushCacheTaskWithOptions($request, $runtime)
     {
@@ -5236,9 +5505,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeIspFlushCacheTaskRequest $request
+     * @summary 获取缓存刷新任务详情
+     *  *
+     * @param DescribeIspFlushCacheTaskRequest $request DescribeIspFlushCacheTaskRequest
      *
-     * @return DescribeIspFlushCacheTaskResponse
+     * @return DescribeIspFlushCacheTaskResponse DescribeIspFlushCacheTaskResponse
      */
     public function describeIspFlushCacheTask($request)
     {
@@ -5248,10 +5519,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeIspFlushCacheTasksRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 获取缓存刷新任务列表
+     *  *
+     * @param DescribeIspFlushCacheTasksRequest $request DescribeIspFlushCacheTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIspFlushCacheTasksResponse
+     * @return DescribeIspFlushCacheTasksResponse DescribeIspFlushCacheTasksResponse
      */
     public function describeIspFlushCacheTasksWithOptions($request, $runtime)
     {
@@ -5300,9 +5573,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeIspFlushCacheTasksRequest $request
+     * @summary 获取缓存刷新任务列表
+     *  *
+     * @param DescribeIspFlushCacheTasksRequest $request DescribeIspFlushCacheTasksRequest
      *
-     * @return DescribeIspFlushCacheTasksResponse
+     * @return DescribeIspFlushCacheTasksResponse DescribeIspFlushCacheTasksResponse
      */
     public function describeIspFlushCacheTasks($request)
     {
@@ -5312,10 +5587,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsAccountSummaryRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 获取公共DNS用户数据概览
+     *  *
+     * @param DescribePdnsAccountSummaryRequest $request DescribePdnsAccountSummaryRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePdnsAccountSummaryResponse
+     * @return DescribePdnsAccountSummaryResponse DescribePdnsAccountSummaryResponse
      */
     public function describePdnsAccountSummaryWithOptions($request, $runtime)
     {
@@ -5349,9 +5626,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsAccountSummaryRequest $request
+     * @summary 获取公共DNS用户数据概览
+     *  *
+     * @param DescribePdnsAccountSummaryRequest $request DescribePdnsAccountSummaryRequest
      *
-     * @return DescribePdnsAccountSummaryResponse
+     * @return DescribePdnsAccountSummaryResponse DescribePdnsAccountSummaryResponse
      */
     public function describePdnsAccountSummary($request)
     {
@@ -5361,10 +5640,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsAppKeyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 获取公共DNS AppKey 详情
+     *  *
+     * @param DescribePdnsAppKeyRequest $request DescribePdnsAppKeyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePdnsAppKeyResponse
+     * @return DescribePdnsAppKeyResponse DescribePdnsAppKeyResponse
      */
     public function describePdnsAppKeyWithOptions($request, $runtime)
     {
@@ -5372,6 +5653,9 @@ class Alidns extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appKeyId)) {
             $query['AppKeyId'] = $request->appKeyId;
+        }
+        if (!Utils::isUnset($request->authCode)) {
+            $query['AuthCode'] = $request->authCode;
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
@@ -5395,9 +5679,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsAppKeyRequest $request
+     * @summary 获取公共DNS AppKey 详情
+     *  *
+     * @param DescribePdnsAppKeyRequest $request DescribePdnsAppKeyRequest
      *
-     * @return DescribePdnsAppKeyResponse
+     * @return DescribePdnsAppKeyResponse DescribePdnsAppKeyResponse
      */
     public function describePdnsAppKey($request)
     {
@@ -5407,10 +5693,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsAppKeysRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 获取公共DNS AppKey 列表
+     *  *
+     * @param DescribePdnsAppKeysRequest $request DescribePdnsAppKeysRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePdnsAppKeysResponse
+     * @return DescribePdnsAppKeysResponse DescribePdnsAppKeysResponse
      */
     public function describePdnsAppKeysWithOptions($request, $runtime)
     {
@@ -5438,9 +5726,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsAppKeysRequest $request
+     * @summary 获取公共DNS AppKey 列表
+     *  *
+     * @param DescribePdnsAppKeysRequest $request DescribePdnsAppKeysRequest
      *
-     * @return DescribePdnsAppKeysResponse
+     * @return DescribePdnsAppKeysResponse DescribePdnsAppKeysResponse
      */
     public function describePdnsAppKeys($request)
     {
@@ -5450,10 +5740,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsOperateLogsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 获取公共DNS 操作日志列表
+     *  *
+     * @param DescribePdnsOperateLogsRequest $request DescribePdnsOperateLogsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePdnsOperateLogsResponse
+     * @return DescribePdnsOperateLogsResponse DescribePdnsOperateLogsResponse
      */
     public function describePdnsOperateLogsWithOptions($request, $runtime)
     {
@@ -5499,9 +5791,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsOperateLogsRequest $request
+     * @summary 获取公共DNS 操作日志列表
+     *  *
+     * @param DescribePdnsOperateLogsRequest $request DescribePdnsOperateLogsRequest
      *
-     * @return DescribePdnsOperateLogsResponse
+     * @return DescribePdnsOperateLogsResponse DescribePdnsOperateLogsResponse
      */
     public function describePdnsOperateLogs($request)
     {
@@ -5511,10 +5805,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsRequestStatisticRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 获取公共DNS 请求统计
+     *  *
+     * @param DescribePdnsRequestStatisticRequest $request DescribePdnsRequestStatisticRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePdnsRequestStatisticResponse
+     * @return DescribePdnsRequestStatisticResponse DescribePdnsRequestStatisticResponse
      */
     public function describePdnsRequestStatisticWithOptions($request, $runtime)
     {
@@ -5554,9 +5850,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsRequestStatisticRequest $request
+     * @summary 获取公共DNS 请求统计
+     *  *
+     * @param DescribePdnsRequestStatisticRequest $request DescribePdnsRequestStatisticRequest
      *
-     * @return DescribePdnsRequestStatisticResponse
+     * @return DescribePdnsRequestStatisticResponse DescribePdnsRequestStatisticResponse
      */
     public function describePdnsRequestStatistic($request)
     {
@@ -5566,10 +5864,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsRequestStatisticsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 获取公共DNS 请求统计列表
+     *  *
+     * @param DescribePdnsRequestStatisticsRequest $request DescribePdnsRequestStatisticsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePdnsRequestStatisticsResponse
+     * @return DescribePdnsRequestStatisticsResponse DescribePdnsRequestStatisticsResponse
      */
     public function describePdnsRequestStatisticsWithOptions($request, $runtime)
     {
@@ -5618,9 +5918,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsRequestStatisticsRequest $request
+     * @summary 获取公共DNS 请求统计列表
+     *  *
+     * @param DescribePdnsRequestStatisticsRequest $request DescribePdnsRequestStatisticsRequest
      *
-     * @return DescribePdnsRequestStatisticsResponse
+     * @return DescribePdnsRequestStatisticsResponse DescribePdnsRequestStatisticsResponse
      */
     public function describePdnsRequestStatistics($request)
     {
@@ -5630,10 +5932,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsThreatLogsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 获取公共DNS 威胁日志列表
+     *  *
+     * @param DescribePdnsThreatLogsRequest $request DescribePdnsThreatLogsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePdnsThreatLogsResponse
+     * @return DescribePdnsThreatLogsResponse DescribePdnsThreatLogsResponse
      */
     public function describePdnsThreatLogsWithOptions($request, $runtime)
     {
@@ -5685,9 +5989,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsThreatLogsRequest $request
+     * @summary 获取公共DNS 威胁日志列表
+     *  *
+     * @param DescribePdnsThreatLogsRequest $request DescribePdnsThreatLogsRequest
      *
-     * @return DescribePdnsThreatLogsResponse
+     * @return DescribePdnsThreatLogsResponse DescribePdnsThreatLogsResponse
      */
     public function describePdnsThreatLogs($request)
     {
@@ -5697,10 +6003,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsThreatStatisticRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 获取公共DNS 威胁统计
+     *  *
+     * @param DescribePdnsThreatStatisticRequest $request DescribePdnsThreatStatisticRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePdnsThreatStatisticResponse
+     * @return DescribePdnsThreatStatisticResponse DescribePdnsThreatStatisticResponse
      */
     public function describePdnsThreatStatisticWithOptions($request, $runtime)
     {
@@ -5737,9 +6045,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsThreatStatisticRequest $request
+     * @summary 获取公共DNS 威胁统计
+     *  *
+     * @param DescribePdnsThreatStatisticRequest $request DescribePdnsThreatStatisticRequest
      *
-     * @return DescribePdnsThreatStatisticResponse
+     * @return DescribePdnsThreatStatisticResponse DescribePdnsThreatStatisticResponse
      */
     public function describePdnsThreatStatistic($request)
     {
@@ -5749,10 +6059,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsThreatStatisticsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 获取公共DNS 威胁统计列表
+     *  *
+     * @param DescribePdnsThreatStatisticsRequest $request DescribePdnsThreatStatisticsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePdnsThreatStatisticsResponse
+     * @return DescribePdnsThreatStatisticsResponse DescribePdnsThreatStatisticsResponse
      */
     public function describePdnsThreatStatisticsWithOptions($request, $runtime)
     {
@@ -5816,9 +6128,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsThreatStatisticsRequest $request
+     * @summary 获取公共DNS 威胁统计列表
+     *  *
+     * @param DescribePdnsThreatStatisticsRequest $request DescribePdnsThreatStatisticsRequest
      *
-     * @return DescribePdnsThreatStatisticsResponse
+     * @return DescribePdnsThreatStatisticsResponse DescribePdnsThreatStatisticsResponse
      */
     public function describePdnsThreatStatistics($request)
     {
@@ -5828,10 +6142,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsUdpIpSegmentsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 获取公共DNS Udp IP段列表
+     *  *
+     * @param DescribePdnsUdpIpSegmentsRequest $request DescribePdnsUdpIpSegmentsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePdnsUdpIpSegmentsResponse
+     * @return DescribePdnsUdpIpSegmentsResponse DescribePdnsUdpIpSegmentsResponse
      */
     public function describePdnsUdpIpSegmentsWithOptions($request, $runtime)
     {
@@ -5865,9 +6181,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsUdpIpSegmentsRequest $request
+     * @summary 获取公共DNS Udp IP段列表
+     *  *
+     * @param DescribePdnsUdpIpSegmentsRequest $request DescribePdnsUdpIpSegmentsRequest
      *
-     * @return DescribePdnsUdpIpSegmentsResponse
+     * @return DescribePdnsUdpIpSegmentsResponse DescribePdnsUdpIpSegmentsResponse
      */
     public function describePdnsUdpIpSegments($request)
     {
@@ -5877,10 +6195,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsUserInfoRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 获取公共DNS用户信息
+     *  *
+     * @param DescribePdnsUserInfoRequest $request DescribePdnsUserInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePdnsUserInfoResponse
+     * @return DescribePdnsUserInfoResponse DescribePdnsUserInfoResponse
      */
     public function describePdnsUserInfoWithOptions($request, $runtime)
     {
@@ -5908,9 +6228,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribePdnsUserInfoRequest $request
+     * @summary 获取公共DNS用户信息
+     *  *
+     * @param DescribePdnsUserInfoRequest $request DescribePdnsUserInfoRequest
      *
-     * @return DescribePdnsUserInfoResponse
+     * @return DescribePdnsUserInfoResponse DescribePdnsUserInfoResponse
      */
     public function describePdnsUserInfo($request)
     {
@@ -5920,10 +6242,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordLogsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the operation logs of a domain name based on the specified parameters.
+     *  *
+     * @param DescribeRecordLogsRequest $request DescribeRecordLogsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecordLogsResponse
+     * @return DescribeRecordLogsResponse DescribeRecordLogsResponse
      */
     public function describeRecordLogsWithOptions($request, $runtime)
     {
@@ -5972,9 +6296,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordLogsRequest $request
+     * @summary Queries the operation logs of a domain name based on the specified parameters.
+     *  *
+     * @param DescribeRecordLogsRequest $request DescribeRecordLogsRequest
      *
-     * @return DescribeRecordLogsResponse
+     * @return DescribeRecordLogsResponse DescribeRecordLogsResponse
      */
     public function describeRecordLogs($request)
     {
@@ -5984,10 +6310,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordResolveStatisticsSummaryRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary Queries the number of resolution requests for all subdomain names of a specified domain name.
+     *  *
+     * @param DescribeRecordResolveStatisticsSummaryRequest $request DescribeRecordResolveStatisticsSummaryRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecordResolveStatisticsSummaryResponse
+     * @return DescribeRecordResolveStatisticsSummaryResponse DescribeRecordResolveStatisticsSummaryResponse
      */
     public function describeRecordResolveStatisticsSummaryWithOptions($request, $runtime)
     {
@@ -6045,9 +6373,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordResolveStatisticsSummaryRequest $request
+     * @summary Queries the number of resolution requests for all subdomain names of a specified domain name.
+     *  *
+     * @param DescribeRecordResolveStatisticsSummaryRequest $request DescribeRecordResolveStatisticsSummaryRequest
      *
-     * @return DescribeRecordResolveStatisticsSummaryResponse
+     * @return DescribeRecordResolveStatisticsSummaryResponse DescribeRecordResolveStatisticsSummaryResponse
      */
     public function describeRecordResolveStatisticsSummary($request)
     {
@@ -6057,8 +6387,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Real-time data is collected per hour.
-     *   *
+     * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+     *  *
+     * @description Real-time data is collected per hour.
+     *  *
      * @param DescribeRecordStatisticsRequest $request DescribeRecordStatisticsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -6105,8 +6437,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Real-time data is collected per hour.
-     *   *
+     * @summary Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+     *  *
+     * @description Real-time data is collected per hour.
+     *  *
      * @param DescribeRecordStatisticsRequest $request DescribeRecordStatisticsRequest
      *
      * @return DescribeRecordStatisticsResponse DescribeRecordStatisticsResponse
@@ -6119,10 +6453,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordStatisticsSummaryRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+     *  *
+     * @param DescribeRecordStatisticsSummaryRequest $request DescribeRecordStatisticsSummaryRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecordStatisticsSummaryResponse
+     * @return DescribeRecordStatisticsSummaryResponse DescribeRecordStatisticsSummaryResponse
      */
     public function describeRecordStatisticsSummaryWithOptions($request, $runtime)
     {
@@ -6177,9 +6513,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordStatisticsSummaryRequest $request
+     * @summary Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+     *  *
+     * @param DescribeRecordStatisticsSummaryRequest $request DescribeRecordStatisticsSummaryRequest
      *
-     * @return DescribeRecordStatisticsSummaryResponse
+     * @return DescribeRecordStatisticsSummaryResponse DescribeRecordStatisticsSummaryResponse
      */
     public function describeRecordStatisticsSummary($request)
     {
@@ -6189,10 +6527,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeSubDomainRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+     *  *
+     * @param DescribeSubDomainRecordsRequest $request DescribeSubDomainRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSubDomainRecordsResponse
+     * @return DescribeSubDomainRecordsResponse DescribeSubDomainRecordsResponse
      */
     public function describeSubDomainRecordsWithOptions($request, $runtime)
     {
@@ -6241,9 +6581,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeSubDomainRecordsRequest $request
+     * @summary Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+     *  *
+     * @param DescribeSubDomainRecordsRequest $request DescribeSubDomainRecordsRequest
      *
-     * @return DescribeSubDomainRecordsResponse
+     * @return DescribeSubDomainRecordsResponse DescribeSubDomainRecordsResponse
      */
     public function describeSubDomainRecords($request)
     {
@@ -6253,10 +6595,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeSupportLinesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询云解析支持的所有线路列表。
+     *  *
+     * @param DescribeSupportLinesRequest $request DescribeSupportLinesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSupportLinesResponse
+     * @return DescribeSupportLinesResponse DescribeSupportLinesResponse
      */
     public function describeSupportLinesWithOptions($request, $runtime)
     {
@@ -6290,9 +6634,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeSupportLinesRequest $request
+     * @summary 查询云解析支持的所有线路列表。
+     *  *
+     * @param DescribeSupportLinesRequest $request DescribeSupportLinesRequest
      *
-     * @return DescribeSupportLinesResponse
+     * @return DescribeSupportLinesResponse DescribeSupportLinesResponse
      */
     public function describeSupportLines($request)
     {
@@ -6302,10 +6648,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries existing tags.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
@@ -6342,9 +6690,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagsRequest $request
+     * @summary Queries existing tags.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
      *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -6354,10 +6704,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeTransferDomainsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+     *  *
+     * @param DescribeTransferDomainsRequest $request DescribeTransferDomainsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTransferDomainsResponse
+     * @return DescribeTransferDomainsResponse DescribeTransferDomainsResponse
      */
     public function describeTransferDomainsWithOptions($request, $runtime)
     {
@@ -6403,9 +6755,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param DescribeTransferDomainsRequest $request
+     * @summary Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+     *  *
+     * @param DescribeTransferDomainsRequest $request DescribeTransferDomainsRequest
      *
-     * @return DescribeTransferDomainsResponse
+     * @return DescribeTransferDomainsResponse DescribeTransferDomainsResponse
      */
     public function describeTransferDomains($request)
     {
@@ -6415,10 +6769,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ExecuteGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ExecuteGtmRecoveryPlanRequest $request ExecuteGtmRecoveryPlanRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecuteGtmRecoveryPlanResponse
+     * @return ExecuteGtmRecoveryPlanResponse ExecuteGtmRecoveryPlanResponse
      */
     public function executeGtmRecoveryPlanWithOptions($request, $runtime)
     {
@@ -6449,9 +6803,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ExecuteGtmRecoveryPlanRequest $request
+     * @param ExecuteGtmRecoveryPlanRequest $request ExecuteGtmRecoveryPlanRequest
      *
-     * @return ExecuteGtmRecoveryPlanResponse
+     * @return ExecuteGtmRecoveryPlanResponse ExecuteGtmRecoveryPlanResponse
      */
     public function executeGtmRecoveryPlan($request)
     {
@@ -6461,9 +6815,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * For more information about the difference between primary domain names and subdomain names, see
-     *   * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
-     *   *
+     * @summary Queries a primary domain name based on the specified parameters.
+     *  *
+     * @description For more information about the difference between primary domain names and subdomain names, see
+     * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+     *  *
      * @param GetMainDomainNameRequest $request GetMainDomainNameRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -6498,9 +6854,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * For more information about the difference between primary domain names and subdomain names, see
-     *   * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
-     *   *
+     * @summary Queries a primary domain name based on the specified parameters.
+     *  *
+     * @description For more information about the difference between primary domain names and subdomain names, see
+     * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+     *  *
      * @param GetMainDomainNameRequest $request GetMainDomainNameRequest
      *
      * @return GetMainDomainNameResponse GetMainDomainNameResponse
@@ -6513,10 +6871,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param GetTxtRecordForVerifyRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+     *  *
+     * @param GetTxtRecordForVerifyRequest $request GetTxtRecordForVerifyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTxtRecordForVerifyResponse
+     * @return GetTxtRecordForVerifyResponse GetTxtRecordForVerifyResponse
      */
     public function getTxtRecordForVerifyWithOptions($request, $runtime)
     {
@@ -6550,9 +6910,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param GetTxtRecordForVerifyRequest $request
+     * @summary Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+     *  *
+     * @param GetTxtRecordForVerifyRequest $request GetTxtRecordForVerifyRequest
      *
-     * @return GetTxtRecordForVerifyResponse
+     * @return GetTxtRecordForVerifyResponse GetTxtRecordForVerifyResponse
      */
     public function getTxtRecordForVerify($request)
     {
@@ -6562,11 +6924,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
-     *   * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
-     *   * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
-     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *   *
+     * @summary Queries the tags that are added to a specified resource.
+     *  *
+     * @description *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+     * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
+     * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -6610,11 +6974,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
-     *   * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
-     *   * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
-     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *   *
+     * @summary Queries the tags that are added to a specified resource.
+     *  *
+     * @description *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
+     * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
+     * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
      * @return ListTagResourcesResponse ListTagResourcesResponse
@@ -6627,9 +6993,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
-     *   * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
-     *   *
+     * @summary Calls the ModifyHichinaDomainDNS operation to change the name of a DNS server based on input parameters.
+     *  *
+     * @description If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
+     * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
+     *  *
      * @param ModifyHichinaDomainDNSRequest $request ModifyHichinaDomainDNSRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -6667,9 +7035,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
-     *   * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
-     *   *
+     * @summary Calls the ModifyHichinaDomainDNS operation to change the name of a DNS server based on input parameters.
+     *  *
+     * @description If the operation succeeds, the name of the DNS server changes to that of an Alibaba Cloud DNS server (ending with hichina.com).
+     * >  Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS server in use is not an Alibaba Cloud DNS server.
+     *  *
      * @param ModifyHichinaDomainDNSRequest $request ModifyHichinaDomainDNSRequest
      *
      * @return ModifyHichinaDomainDNSResponse ModifyHichinaDomainDNSResponse
@@ -6682,10 +7052,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param MoveDomainResourceGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Moves a domain name to another resource group.
+     *  *
+     * @param MoveDomainResourceGroupRequest $request MoveDomainResourceGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveDomainResourceGroupResponse
+     * @return MoveDomainResourceGroupResponse MoveDomainResourceGroupResponse
      */
     public function moveDomainResourceGroupWithOptions($request, $runtime)
     {
@@ -6719,9 +7091,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param MoveDomainResourceGroupRequest $request
+     * @summary Moves a domain name to another resource group.
+     *  *
+     * @param MoveDomainResourceGroupRequest $request MoveDomainResourceGroupRequest
      *
-     * @return MoveDomainResourceGroupResponse
+     * @return MoveDomainResourceGroupResponse MoveDomainResourceGroupResponse
      */
     public function moveDomainResourceGroup($request)
     {
@@ -6731,10 +7105,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param MoveGtmResourceGroupRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param MoveGtmResourceGroupRequest $request MoveGtmResourceGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveGtmResourceGroupResponse
+     * @return MoveGtmResourceGroupResponse MoveGtmResourceGroupResponse
      */
     public function moveGtmResourceGroupWithOptions($request, $runtime)
     {
@@ -6768,9 +7142,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param MoveGtmResourceGroupRequest $request
+     * @param MoveGtmResourceGroupRequest $request MoveGtmResourceGroupRequest
      *
-     * @return MoveGtmResourceGroupResponse
+     * @return MoveGtmResourceGroupResponse MoveGtmResourceGroupResponse
      */
     public function moveGtmResourceGroup($request)
     {
@@ -6780,8 +7154,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
-     *   *
+     * @summary Submits a batch operation task to add or delete multiple domain names or multiple Domain Name System (DNS) records at a time.
+     *  *
+     * @description Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+     *  *
      * @param OperateBatchDomainRequest $request OperateBatchDomainRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -6819,8 +7195,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
-     *   *
+     * @summary Submits a batch operation task to add or delete multiple domain names or multiple Domain Name System (DNS) records at a time.
+     *  *
+     * @description Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+     *  *
      * @param OperateBatchDomainRequest $request OperateBatchDomainRequest
      *
      * @return OperateBatchDomainResponse OperateBatchDomainResponse
@@ -6833,10 +7211,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param PausePdnsServiceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 暂停公共DNS服务
+     *  *
+     * @param PausePdnsServiceRequest $request PausePdnsServiceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return PausePdnsServiceResponse
+     * @return PausePdnsServiceResponse PausePdnsServiceResponse
      */
     public function pausePdnsServiceWithOptions($request, $runtime)
     {
@@ -6867,9 +7247,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param PausePdnsServiceRequest $request
+     * @summary 暂停公共DNS服务
+     *  *
+     * @param PausePdnsServiceRequest $request PausePdnsServiceRequest
      *
-     * @return PausePdnsServiceResponse
+     * @return PausePdnsServiceResponse PausePdnsServiceResponse
      */
     public function pausePdnsService($request)
     {
@@ -6879,10 +7261,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param PreviewGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param PreviewGtmRecoveryPlanRequest $request PreviewGtmRecoveryPlanRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return PreviewGtmRecoveryPlanResponse
+     * @return PreviewGtmRecoveryPlanResponse PreviewGtmRecoveryPlanResponse
      */
     public function previewGtmRecoveryPlanWithOptions($request, $runtime)
     {
@@ -6919,9 +7303,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param PreviewGtmRecoveryPlanRequest $request
+     * @summary You can call this operation to preview a disaster recovery plan of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param PreviewGtmRecoveryPlanRequest $request PreviewGtmRecoveryPlanRequest
      *
-     * @return PreviewGtmRecoveryPlanResponse
+     * @return PreviewGtmRecoveryPlanResponse PreviewGtmRecoveryPlanResponse
      */
     public function previewGtmRecoveryPlan($request)
     {
@@ -6931,10 +7317,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param RemovePdnsAppKeyRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 删除公共DNS AppKey
+     *  *
+     * @param RemovePdnsAppKeyRequest $request RemovePdnsAppKeyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemovePdnsAppKeyResponse
+     * @return RemovePdnsAppKeyResponse RemovePdnsAppKeyResponse
      */
     public function removePdnsAppKeyWithOptions($request, $runtime)
     {
@@ -6965,9 +7353,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param RemovePdnsAppKeyRequest $request
+     * @summary 删除公共DNS AppKey
+     *  *
+     * @param RemovePdnsAppKeyRequest $request RemovePdnsAppKeyRequest
      *
-     * @return RemovePdnsAppKeyResponse
+     * @return RemovePdnsAppKeyResponse RemovePdnsAppKeyResponse
      */
     public function removePdnsAppKey($request)
     {
@@ -6977,10 +7367,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param RemovePdnsUdpIpSegmentRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 删除公共DNS Udp Ip地址段
+     *  *
+     * @param RemovePdnsUdpIpSegmentRequest $request RemovePdnsUdpIpSegmentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemovePdnsUdpIpSegmentResponse
+     * @return RemovePdnsUdpIpSegmentResponse RemovePdnsUdpIpSegmentResponse
      */
     public function removePdnsUdpIpSegmentWithOptions($request, $runtime)
     {
@@ -7011,9 +7403,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param RemovePdnsUdpIpSegmentRequest $request
+     * @summary 删除公共DNS Udp Ip地址段
+     *  *
+     * @param RemovePdnsUdpIpSegmentRequest $request RemovePdnsUdpIpSegmentRequest
      *
-     * @return RemovePdnsUdpIpSegmentResponse
+     * @return RemovePdnsUdpIpSegmentResponse RemovePdnsUdpIpSegmentResponse
      */
     public function removePdnsUdpIpSegment($request)
     {
@@ -7023,10 +7417,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ResumePdnsServiceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 恢复公共DNS服务
+     *  *
+     * @param ResumePdnsServiceRequest $request ResumePdnsServiceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumePdnsServiceResponse
+     * @return ResumePdnsServiceResponse ResumePdnsServiceResponse
      */
     public function resumePdnsServiceWithOptions($request, $runtime)
     {
@@ -7057,9 +7453,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ResumePdnsServiceRequest $request
+     * @summary 恢复公共DNS服务
+     *  *
+     * @param ResumePdnsServiceRequest $request ResumePdnsServiceRequest
      *
-     * @return ResumePdnsServiceResponse
+     * @return ResumePdnsServiceResponse ResumePdnsServiceResponse
      */
     public function resumePdnsService($request)
     {
@@ -7069,8 +7467,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
-     *   *
+     * @summary Retrieves a domain name.
+     *  *
+     * @description To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+     *  *
      * @param RetrieveDomainRequest $request RetrieveDomainRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -7105,8 +7505,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
-     *   *
+     * @summary Retrieves a domain name.
+     *  *
+     * @description To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+     *  *
      * @param RetrieveDomainRequest $request RetrieveDomainRequest
      *
      * @return RetrieveDomainResponse RetrieveDomainResponse
@@ -7119,10 +7521,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param RollbackGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param RollbackGtmRecoveryPlanRequest $request RollbackGtmRecoveryPlanRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RollbackGtmRecoveryPlanResponse
+     * @return RollbackGtmRecoveryPlanResponse RollbackGtmRecoveryPlanResponse
      */
     public function rollbackGtmRecoveryPlanWithOptions($request, $runtime)
     {
@@ -7153,9 +7555,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param RollbackGtmRecoveryPlanRequest $request
+     * @param RollbackGtmRecoveryPlanRequest $request RollbackGtmRecoveryPlanRequest
      *
-     * @return RollbackGtmRecoveryPlanResponse
+     * @return RollbackGtmRecoveryPlanResponse RollbackGtmRecoveryPlanResponse
      */
     public function rollbackGtmRecoveryPlan($request)
     {
@@ -7165,10 +7567,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetDNSSLBStatusRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Enables or disables weighted round-robin based on the specified parameters.
+     *  *
+     * @param SetDNSSLBStatusRequest $request SetDNSSLBStatusRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDNSSLBStatusResponse
+     * @return SetDNSSLBStatusResponse SetDNSSLBStatusResponse
      */
     public function setDNSSLBStatusWithOptions($request, $runtime)
     {
@@ -7214,9 +7618,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetDNSSLBStatusRequest $request
+     * @summary Enables or disables weighted round-robin based on the specified parameters.
+     *  *
+     * @param SetDNSSLBStatusRequest $request SetDNSSLBStatusRequest
      *
-     * @return SetDNSSLBStatusResponse
+     * @return SetDNSSLBStatusResponse SetDNSSLBStatusResponse
      */
     public function setDNSSLBStatus($request)
     {
@@ -7226,8 +7632,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @description ****
+     *  *
      * @param SetDnsGtmAccessModeRequest $request SetDnsGtmAccessModeRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -7265,8 +7671,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @description ****
+     *  *
      * @param SetDnsGtmAccessModeRequest $request SetDnsGtmAccessModeRequest
      *
      * @return SetDnsGtmAccessModeResponse SetDnsGtmAccessModeResponse
@@ -7279,10 +7685,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetDnsGtmMonitorStatusRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Specifies the health check status of an address pool.
+     *  *
+     * @param SetDnsGtmMonitorStatusRequest $request SetDnsGtmMonitorStatusRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDnsGtmMonitorStatusResponse
+     * @return SetDnsGtmMonitorStatusResponse SetDnsGtmMonitorStatusResponse
      */
     public function setDnsGtmMonitorStatusWithOptions($request, $runtime)
     {
@@ -7316,9 +7724,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetDnsGtmMonitorStatusRequest $request
+     * @summary Specifies the health check status of an address pool.
+     *  *
+     * @param SetDnsGtmMonitorStatusRequest $request SetDnsGtmMonitorStatusRequest
      *
-     * @return SetDnsGtmMonitorStatusResponse
+     * @return SetDnsGtmMonitorStatusResponse SetDnsGtmMonitorStatusResponse
      */
     public function setDnsGtmMonitorStatus($request)
     {
@@ -7328,10 +7738,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetDomainDnssecStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Sets the Domain Name System Security Extensions (DNSSEC) status of a domain name.
+     *  *
+     * @param SetDomainDnssecStatusRequest $request SetDomainDnssecStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDomainDnssecStatusResponse
+     * @return SetDomainDnssecStatusResponse SetDomainDnssecStatusResponse
      */
     public function setDomainDnssecStatusWithOptions($request, $runtime)
     {
@@ -7365,9 +7777,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetDomainDnssecStatusRequest $request
+     * @summary Sets the Domain Name System Security Extensions (DNSSEC) status of a domain name.
+     *  *
+     * @param SetDomainDnssecStatusRequest $request SetDomainDnssecStatusRequest
      *
-     * @return SetDomainDnssecStatusResponse
+     * @return SetDomainDnssecStatusResponse SetDomainDnssecStatusResponse
      */
     public function setDomainDnssecStatus($request)
     {
@@ -7377,10 +7791,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetDomainRecordStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Specifies the status of a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param SetDomainRecordStatusRequest $request SetDomainRecordStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDomainRecordStatusResponse
+     * @return SetDomainRecordStatusResponse SetDomainRecordStatusResponse
      */
     public function setDomainRecordStatusWithOptions($request, $runtime)
     {
@@ -7417,9 +7833,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetDomainRecordStatusRequest $request
+     * @summary Specifies the status of a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param SetDomainRecordStatusRequest $request SetDomainRecordStatusRequest
      *
-     * @return SetDomainRecordStatusResponse
+     * @return SetDomainRecordStatusResponse SetDomainRecordStatusResponse
      */
     public function setDomainRecordStatus($request)
     {
@@ -7429,10 +7847,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetGtmAccessModeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param SetGtmAccessModeRequest $request SetGtmAccessModeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetGtmAccessModeResponse
+     * @return SetGtmAccessModeResponse SetGtmAccessModeResponse
      */
     public function setGtmAccessModeWithOptions($request, $runtime)
     {
@@ -7466,9 +7884,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetGtmAccessModeRequest $request
+     * @param SetGtmAccessModeRequest $request SetGtmAccessModeRequest
      *
-     * @return SetGtmAccessModeResponse
+     * @return SetGtmAccessModeResponse SetGtmAccessModeResponse
      */
     public function setGtmAccessMode($request)
     {
@@ -7478,10 +7896,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetGtmMonitorStatusRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param SetGtmMonitorStatusRequest $request SetGtmMonitorStatusRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetGtmMonitorStatusResponse
+     * @return SetGtmMonitorStatusResponse SetGtmMonitorStatusResponse
      */
     public function setGtmMonitorStatusWithOptions($request, $runtime)
     {
@@ -7515,9 +7933,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SetGtmMonitorStatusRequest $request
+     * @param SetGtmMonitorStatusRequest $request SetGtmMonitorStatusRequest
      *
-     * @return SetGtmMonitorStatusResponse
+     * @return SetGtmMonitorStatusResponse SetGtmMonitorStatusResponse
      */
     public function setGtmMonitorStatus($request)
     {
@@ -7527,10 +7945,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SubmitIspFlushCacheTaskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 提交缓存刷新任务
+     *  *
+     * @param SubmitIspFlushCacheTaskRequest $request SubmitIspFlushCacheTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubmitIspFlushCacheTaskResponse
+     * @return SubmitIspFlushCacheTaskResponse SubmitIspFlushCacheTaskResponse
      */
     public function submitIspFlushCacheTaskWithOptions($request, $runtime)
     {
@@ -7567,9 +7987,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SubmitIspFlushCacheTaskRequest $request
+     * @summary 提交缓存刷新任务
+     *  *
+     * @param SubmitIspFlushCacheTaskRequest $request SubmitIspFlushCacheTaskRequest
      *
-     * @return SubmitIspFlushCacheTaskResponse
+     * @return SubmitIspFlushCacheTaskResponse SubmitIspFlushCacheTaskResponse
      */
     public function submitIspFlushCacheTask($request)
     {
@@ -7579,10 +8001,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SwitchDnsGtmInstanceStrategyModeRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param SwitchDnsGtmInstanceStrategyModeRequest $request SwitchDnsGtmInstanceStrategyModeRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchDnsGtmInstanceStrategyModeResponse
+     * @return SwitchDnsGtmInstanceStrategyModeResponse SwitchDnsGtmInstanceStrategyModeResponse
      */
     public function switchDnsGtmInstanceStrategyModeWithOptions($request, $runtime)
     {
@@ -7616,9 +8040,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param SwitchDnsGtmInstanceStrategyModeRequest $request
+     * @summary Changes the access policy type for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param SwitchDnsGtmInstanceStrategyModeRequest $request SwitchDnsGtmInstanceStrategyModeRequest
      *
-     * @return SwitchDnsGtmInstanceStrategyModeResponse
+     * @return SwitchDnsGtmInstanceStrategyModeResponse SwitchDnsGtmInstanceStrategyModeResponse
      */
     public function switchDnsGtmInstanceStrategyMode($request)
     {
@@ -7628,10 +8054,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Adds and modifies a tag for a resource.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -7668,9 +8096,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds and modifies a tag for a resource.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -7680,10 +8110,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param TransferDomainRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Transfers multiple domain names from the current account to another account at a time.
+     *  *
+     * @param TransferDomainRequest $request TransferDomainRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransferDomainResponse
+     * @return TransferDomainResponse TransferDomainResponse
      */
     public function transferDomainWithOptions($request, $runtime)
     {
@@ -7720,9 +8152,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param TransferDomainRequest $request
+     * @summary Transfers multiple domain names from the current account to another account at a time.
+     *  *
+     * @param TransferDomainRequest $request TransferDomainRequest
      *
-     * @return TransferDomainResponse
+     * @return TransferDomainResponse TransferDomainResponse
      */
     public function transferDomain($request)
     {
@@ -7732,9 +8166,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-     *   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
-     *   *
+     * @summary Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+     *  *
+     * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+     *  *
      * @param UnbindInstanceDomainsRequest $request UnbindInstanceDomainsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -7772,9 +8208,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-     *   * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
-     *   *
+     * @summary Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+     *  *
+     * @description A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
+     * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+     *  *
      * @param UnbindInstanceDomainsRequest $request UnbindInstanceDomainsRequest
      *
      * @return UnbindInstanceDomainsResponse UnbindInstanceDomainsResponse
@@ -7787,10 +8225,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -7830,9 +8270,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -7842,10 +8284,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppKeyStateRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 修改 AppKey 状态
+     *  *
+     * @param UpdateAppKeyStateRequest $request UpdateAppKeyStateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAppKeyStateResponse
+     * @return UpdateAppKeyStateResponse UpdateAppKeyStateResponse
      */
     public function updateAppKeyStateWithOptions($request, $runtime)
     {
@@ -7879,9 +8323,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateAppKeyStateRequest $request
+     * @summary 修改 AppKey 状态
+     *  *
+     * @param UpdateAppKeyStateRequest $request UpdateAppKeyStateRequest
      *
-     * @return UpdateAppKeyStateResponse
+     * @return UpdateAppKeyStateResponse UpdateAppKeyStateResponse
      */
     public function updateAppKeyState($request)
     {
@@ -7891,9 +8337,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-     *   *
+     * @summary Modifies a custom line.
+     *  *
+     * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     *  *
      * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -7934,9 +8382,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-     *   * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
-     *   *
+     * @summary Modifies a custom line.
+     *  *
+     * @description In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
+     * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     *  *
      * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
      *
      * @return UpdateCustomLineResponse UpdateCustomLineResponse
@@ -7949,10 +8399,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDNSSLBWeightRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDNSSLBWeightRequest $request UpdateDNSSLBWeightRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDNSSLBWeightResponse
+     * @return UpdateDNSSLBWeightResponse UpdateDNSSLBWeightResponse
      */
     public function updateDNSSLBWeightWithOptions($request, $runtime)
     {
@@ -7989,9 +8441,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDNSSLBWeightRequest $request
+     * @summary Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDNSSLBWeightRequest $request UpdateDNSSLBWeightRequest
      *
-     * @return UpdateDNSSLBWeightResponse
+     * @return UpdateDNSSLBWeightResponse UpdateDNSSLBWeightResponse
      */
     public function updateDNSSLBWeight($request)
     {
@@ -8001,10 +8455,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsCacheDomainRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param UpdateDnsCacheDomainRequest $request UpdateDnsCacheDomainRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDnsCacheDomainResponse
+     * @return UpdateDnsCacheDomainResponse UpdateDnsCacheDomainResponse
      */
     public function updateDnsCacheDomainWithOptions($request, $runtime)
     {
@@ -8053,9 +8507,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsCacheDomainRequest $request
+     * @param UpdateDnsCacheDomainRequest $request UpdateDnsCacheDomainRequest
      *
-     * @return UpdateDnsCacheDomainResponse
+     * @return UpdateDnsCacheDomainResponse UpdateDnsCacheDomainResponse
      */
     public function updateDnsCacheDomain($request)
     {
@@ -8065,10 +8519,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsCacheDomainRemarkRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param UpdateDnsCacheDomainRemarkRequest $request UpdateDnsCacheDomainRemarkRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDnsCacheDomainRemarkResponse
+     * @return UpdateDnsCacheDomainRemarkResponse UpdateDnsCacheDomainRemarkResponse
      */
     public function updateDnsCacheDomainRemarkWithOptions($request, $runtime)
     {
@@ -8102,9 +8556,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsCacheDomainRemarkRequest $request
+     * @param UpdateDnsCacheDomainRemarkRequest $request UpdateDnsCacheDomainRemarkRequest
      *
-     * @return UpdateDnsCacheDomainRemarkResponse
+     * @return UpdateDnsCacheDomainRemarkResponse UpdateDnsCacheDomainRemarkResponse
      */
     public function updateDnsCacheDomainRemark($request)
     {
@@ -8114,10 +8568,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies an access policy.
+     *  *
+     * @param UpdateDnsGtmAccessStrategyRequest $request UpdateDnsGtmAccessStrategyRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDnsGtmAccessStrategyResponse
+     * @return UpdateDnsGtmAccessStrategyResponse UpdateDnsGtmAccessStrategyResponse
      */
     public function updateDnsGtmAccessStrategyWithOptions($request, $runtime)
     {
@@ -8193,9 +8649,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsGtmAccessStrategyRequest $request
+     * @summary Modifies an access policy.
+     *  *
+     * @param UpdateDnsGtmAccessStrategyRequest $request UpdateDnsGtmAccessStrategyRequest
      *
-     * @return UpdateDnsGtmAccessStrategyResponse
+     * @return UpdateDnsGtmAccessStrategyResponse UpdateDnsGtmAccessStrategyResponse
      */
     public function updateDnsGtmAccessStrategy($request)
     {
@@ -8205,10 +8663,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsGtmAddressPoolRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the configurations of address pools for a GTM instance.
+     *  *
+     * @param UpdateDnsGtmAddressPoolRequest $request UpdateDnsGtmAddressPoolRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDnsGtmAddressPoolResponse
+     * @return UpdateDnsGtmAddressPoolResponse UpdateDnsGtmAddressPoolResponse
      */
     public function updateDnsGtmAddressPoolWithOptions($request, $runtime)
     {
@@ -8248,9 +8708,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsGtmAddressPoolRequest $request
+     * @summary Modifies the configurations of address pools for a GTM instance.
+     *  *
+     * @param UpdateDnsGtmAddressPoolRequest $request UpdateDnsGtmAddressPoolRequest
      *
-     * @return UpdateDnsGtmAddressPoolResponse
+     * @return UpdateDnsGtmAddressPoolResponse UpdateDnsGtmAddressPoolResponse
      */
     public function updateDnsGtmAddressPool($request)
     {
@@ -8260,10 +8722,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsGtmInstanceGlobalConfigRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param UpdateDnsGtmInstanceGlobalConfigRequest $request UpdateDnsGtmInstanceGlobalConfigRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDnsGtmInstanceGlobalConfigResponse
+     * @return UpdateDnsGtmInstanceGlobalConfigResponse UpdateDnsGtmInstanceGlobalConfigResponse
      */
     public function updateDnsGtmInstanceGlobalConfigWithOptions($request, $runtime)
     {
@@ -8324,9 +8788,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsGtmInstanceGlobalConfigRequest $request
+     * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param UpdateDnsGtmInstanceGlobalConfigRequest $request UpdateDnsGtmInstanceGlobalConfigRequest
      *
-     * @return UpdateDnsGtmInstanceGlobalConfigResponse
+     * @return UpdateDnsGtmInstanceGlobalConfigResponse UpdateDnsGtmInstanceGlobalConfigResponse
      */
     public function updateDnsGtmInstanceGlobalConfig($request)
     {
@@ -8336,10 +8802,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsGtmMonitorRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies a health check task.
+     *  *
+     * @param UpdateDnsGtmMonitorRequest $request UpdateDnsGtmMonitorRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDnsGtmMonitorResponse
+     * @return UpdateDnsGtmMonitorResponse UpdateDnsGtmMonitorResponse
      */
     public function updateDnsGtmMonitorWithOptions($request, $runtime)
     {
@@ -8388,9 +8856,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDnsGtmMonitorRequest $request
+     * @summary Modifies a health check task.
+     *  *
+     * @param UpdateDnsGtmMonitorRequest $request UpdateDnsGtmMonitorRequest
      *
-     * @return UpdateDnsGtmMonitorResponse
+     * @return UpdateDnsGtmMonitorResponse UpdateDnsGtmMonitorResponse
      */
     public function updateDnsGtmMonitor($request)
     {
@@ -8400,10 +8870,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies the name of a domain name group based on the specified parameters.
+     *  *
+     * @param UpdateDomainGroupRequest $request UpdateDomainGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDomainGroupResponse
+     * @return UpdateDomainGroupResponse UpdateDomainGroupResponse
      */
     public function updateDomainGroupWithOptions($request, $runtime)
     {
@@ -8437,9 +8909,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainGroupRequest $request
+     * @summary Modifies the name of a domain name group based on the specified parameters.
+     *  *
+     * @param UpdateDomainGroupRequest $request UpdateDomainGroupRequest
      *
-     * @return UpdateDomainGroupResponse
+     * @return UpdateDomainGroupResponse UpdateDomainGroupResponse
      */
     public function updateDomainGroup($request)
     {
@@ -8449,10 +8923,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainRecordRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDomainRecordRequest $request UpdateDomainRecordRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDomainRecordResponse
+     * @return UpdateDomainRecordResponse UpdateDomainRecordResponse
      */
     public function updateDomainRecordWithOptions($request, $runtime)
     {
@@ -8504,9 +8980,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainRecordRequest $request
+     * @summary Modifies a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDomainRecordRequest $request UpdateDomainRecordRequest
      *
-     * @return UpdateDomainRecordResponse
+     * @return UpdateDomainRecordResponse UpdateDomainRecordResponse
      */
     public function updateDomainRecord($request)
     {
@@ -8516,10 +8994,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainRecordRemarkRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDomainRecordRemarkRequest $request UpdateDomainRecordRemarkRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDomainRecordRemarkResponse
+     * @return UpdateDomainRecordRemarkResponse UpdateDomainRecordRemarkResponse
      */
     public function updateDomainRecordRemarkWithOptions($request, $runtime)
     {
@@ -8556,9 +9036,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainRecordRemarkRequest $request
+     * @summary Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+     *  *
+     * @param UpdateDomainRecordRemarkRequest $request UpdateDomainRecordRemarkRequest
      *
-     * @return UpdateDomainRecordRemarkResponse
+     * @return UpdateDomainRecordRemarkResponse UpdateDomainRecordRemarkResponse
      */
     public function updateDomainRecordRemark($request)
     {
@@ -8568,10 +9050,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainRemarkRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies the description of a domain name based on the specified parameters.
+     *  *
+     * @param UpdateDomainRemarkRequest $request UpdateDomainRemarkRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDomainRemarkResponse
+     * @return UpdateDomainRemarkResponse UpdateDomainRemarkResponse
      */
     public function updateDomainRemarkWithOptions($request, $runtime)
     {
@@ -8605,9 +9089,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateDomainRemarkRequest $request
+     * @summary Modifies the description of a domain name based on the specified parameters.
+     *  *
+     * @param UpdateDomainRemarkRequest $request UpdateDomainRemarkRequest
      *
-     * @return UpdateDomainRemarkResponse
+     * @return UpdateDomainRemarkResponse UpdateDomainRemarkResponse
      */
     public function updateDomainRemark($request)
     {
@@ -8617,10 +9103,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateGtmAccessStrategyRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param UpdateGtmAccessStrategyRequest $request UpdateGtmAccessStrategyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGtmAccessStrategyResponse
+     * @return UpdateGtmAccessStrategyResponse UpdateGtmAccessStrategyResponse
      */
     public function updateGtmAccessStrategyWithOptions($request, $runtime)
     {
@@ -8663,9 +9149,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateGtmAccessStrategyRequest $request
+     * @param UpdateGtmAccessStrategyRequest $request UpdateGtmAccessStrategyRequest
      *
-     * @return UpdateGtmAccessStrategyResponse
+     * @return UpdateGtmAccessStrategyResponse UpdateGtmAccessStrategyResponse
      */
     public function updateGtmAccessStrategy($request)
     {
@@ -8675,10 +9161,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateGtmAddressPoolRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param UpdateGtmAddressPoolRequest $request UpdateGtmAddressPoolRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGtmAddressPoolResponse
+     * @return UpdateGtmAddressPoolResponse UpdateGtmAddressPoolResponse
      */
     public function updateGtmAddressPoolWithOptions($request, $runtime)
     {
@@ -8721,9 +9207,9 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateGtmAddressPoolRequest $request
+     * @param UpdateGtmAddressPoolRequest $request UpdateGtmAddressPoolRequest
      *
-     * @return UpdateGtmAddressPoolResponse
+     * @return UpdateGtmAddressPoolResponse UpdateGtmAddressPoolResponse
      */
     public function updateGtmAddressPool($request)
     {
@@ -8733,10 +9219,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateGtmInstanceGlobalConfigRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+     *  *
+     * @param UpdateGtmInstanceGlobalConfigRequest $request UpdateGtmInstanceGlobalConfigRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGtmInstanceGlobalConfigResponse
+     * @return UpdateGtmInstanceGlobalConfigResponse UpdateGtmInstanceGlobalConfigResponse
      */
     public function updateGtmInstanceGlobalConfigWithOptions($request, $runtime)
     {
@@ -8788,9 +9276,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateGtmInstanceGlobalConfigRequest $request
+     * @summary Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+     *  *
+     * @param UpdateGtmInstanceGlobalConfigRequest $request UpdateGtmInstanceGlobalConfigRequest
      *
-     * @return UpdateGtmInstanceGlobalConfigResponse
+     * @return UpdateGtmInstanceGlobalConfigResponse UpdateGtmInstanceGlobalConfigResponse
      */
     public function updateGtmInstanceGlobalConfig($request)
     {
@@ -8800,10 +9290,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateGtmMonitorRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param UpdateGtmMonitorRequest $request UpdateGtmMonitorRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGtmMonitorResponse
+     * @return UpdateGtmMonitorResponse UpdateGtmMonitorResponse
      */
     public function updateGtmMonitorWithOptions($request, $runtime)
     {
@@ -8852,9 +9344,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateGtmMonitorRequest $request
+     * @summary Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param UpdateGtmMonitorRequest $request UpdateGtmMonitorRequest
      *
-     * @return UpdateGtmMonitorResponse
+     * @return UpdateGtmMonitorResponse UpdateGtmMonitorResponse
      */
     public function updateGtmMonitor($request)
     {
@@ -8864,10 +9358,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateGtmRecoveryPlanRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param UpdateGtmRecoveryPlanRequest $request UpdateGtmRecoveryPlanRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGtmRecoveryPlanResponse
+     * @return UpdateGtmRecoveryPlanResponse UpdateGtmRecoveryPlanResponse
      */
     public function updateGtmRecoveryPlanWithOptions($request, $runtime)
     {
@@ -8907,9 +9403,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateGtmRecoveryPlanRequest $request
+     * @summary Modifies a disaster recovery plan for a Global Traffic Manager (GTM) instance.
+     *  *
+     * @param UpdateGtmRecoveryPlanRequest $request UpdateGtmRecoveryPlanRequest
      *
-     * @return UpdateGtmRecoveryPlanResponse
+     * @return UpdateGtmRecoveryPlanResponse UpdateGtmRecoveryPlanResponse
      */
     public function updateGtmRecoveryPlan($request)
     {
@@ -8919,10 +9417,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateIspFlushCacheInstanceConfigRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary 修改缓存刷新套餐包配置
+     *  *
+     * @param UpdateIspFlushCacheInstanceConfigRequest $request UpdateIspFlushCacheInstanceConfigRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIspFlushCacheInstanceConfigResponse
+     * @return UpdateIspFlushCacheInstanceConfigResponse UpdateIspFlushCacheInstanceConfigResponse
      */
     public function updateIspFlushCacheInstanceConfigWithOptions($request, $runtime)
     {
@@ -8956,9 +9456,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param UpdateIspFlushCacheInstanceConfigRequest $request
+     * @summary 修改缓存刷新套餐包配置
+     *  *
+     * @param UpdateIspFlushCacheInstanceConfigRequest $request UpdateIspFlushCacheInstanceConfigRequest
      *
-     * @return UpdateIspFlushCacheInstanceConfigResponse
+     * @return UpdateIspFlushCacheInstanceConfigResponse UpdateIspFlushCacheInstanceConfigResponse
      */
     public function updateIspFlushCacheInstanceConfig($request)
     {
@@ -8968,10 +9470,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ValidateDnsGtmCnameRrCanUseRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 检查实例主机名是否可添加
+     *  *
+     * @param ValidateDnsGtmCnameRrCanUseRequest $request ValidateDnsGtmCnameRrCanUseRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ValidateDnsGtmCnameRrCanUseResponse
+     * @return ValidateDnsGtmCnameRrCanUseResponse ValidateDnsGtmCnameRrCanUseResponse
      */
     public function validateDnsGtmCnameRrCanUseWithOptions($request, $runtime)
     {
@@ -9014,9 +9518,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ValidateDnsGtmCnameRrCanUseRequest $request
+     * @summary 检查实例主机名是否可添加
+     *  *
+     * @param ValidateDnsGtmCnameRrCanUseRequest $request ValidateDnsGtmCnameRrCanUseRequest
      *
-     * @return ValidateDnsGtmCnameRrCanUseResponse
+     * @return ValidateDnsGtmCnameRrCanUseResponse ValidateDnsGtmCnameRrCanUseResponse
      */
     public function validateDnsGtmCnameRrCanUse($request)
     {
@@ -9026,10 +9532,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ValidatePdnsUdpIpSegmentRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 验证公共DNS Udp Ip地址段
+     *  *
+     * @param ValidatePdnsUdpIpSegmentRequest $request ValidatePdnsUdpIpSegmentRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ValidatePdnsUdpIpSegmentResponse
+     * @return ValidatePdnsUdpIpSegmentResponse ValidatePdnsUdpIpSegmentResponse
      */
     public function validatePdnsUdpIpSegmentWithOptions($request, $runtime)
     {
@@ -9060,9 +9568,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * @param ValidatePdnsUdpIpSegmentRequest $request
+     * @summary 验证公共DNS Udp Ip地址段
+     *  *
+     * @param ValidatePdnsUdpIpSegmentRequest $request ValidatePdnsUdpIpSegmentRequest
      *
-     * @return ValidatePdnsUdpIpSegmentResponse
+     * @return ValidatePdnsUdpIpSegmentResponse ValidatePdnsUdpIpSegmentResponse
      */
     public function validatePdnsUdpIpSegment($request)
     {

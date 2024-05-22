@@ -11,6 +11,7 @@ class DeleteSubDomainRecordsRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -29,7 +30,7 @@ class DeleteSubDomainRecordsRequest extends Model
     /**
      * @description The host record.
      *
-     * For example, to resolve @.example.com, you must set RR to an at sign (@) instead of leaving it blank.
+     * This parameter is required.
      * @example www
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeDnsProductInstanceRequest extends Model
     /**
      * @description The instance ID. You can call the **DescribeDomainInfo** operation to obtain the instance ID.
      *
+     * This parameter is required.
      * @example i-8fxxxx
      *
      * @var string

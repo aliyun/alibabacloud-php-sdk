@@ -20,6 +20,7 @@ class DeleteDnsGtmAccessStrategyRequest extends Model
     /**
      * @description The ID of the access policy.
      *
+     * This parameter is required.
      * @example testStrategyId1
      *
      * @var string

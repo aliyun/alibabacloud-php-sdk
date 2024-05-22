@@ -20,6 +20,7 @@ class UpdateDomainRecordRemarkRequest extends Model
     /**
      * @description The ID of the DNS record.
      *
+     * This parameter is required.
      * @example 12345678
      *
      * @var string

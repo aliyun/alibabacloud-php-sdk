@@ -15,6 +15,7 @@ class SetGtmAccessModeRequest extends Model
      *   **DEFAULT**: Default address pool
      *   **FAILOVER**: Failover address pool
      *
+     * This parameter is required.
      * @example AUTO
      *
      * @var string
@@ -33,6 +34,7 @@ class SetGtmAccessModeRequest extends Model
     /**
      * @description The ID of the access policy.
      *
+     * This parameter is required.
      * @example hra0hx
      *
      * @var string

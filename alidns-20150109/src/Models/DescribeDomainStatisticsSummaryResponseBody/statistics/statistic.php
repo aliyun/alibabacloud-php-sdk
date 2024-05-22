@@ -37,6 +37,13 @@ class statistic extends Model
     public $domainType;
 
     /**
+     * @description Indicates whether the DNS traffic analysis feature is enabled for the domain name. Valid values:
+     *
+     *   OPEN
+     *   CLOSE
+     *
+     * @example OPEN
+     *
      * @var string
      */
     public $resolveAnalysisStatus;

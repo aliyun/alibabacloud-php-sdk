@@ -11,6 +11,7 @@ class DescribeDnsGtmAccessStrategyAvailableConfigRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example instance1
      *
      * @var string
@@ -32,6 +33,7 @@ class DescribeDnsGtmAccessStrategyAvailableConfigRequest extends Model
      *   GEO: geographical location-based
      *   LATENCY: latency-based
      *
+     * This parameter is required.
      * @example geo
      *
      * @var string

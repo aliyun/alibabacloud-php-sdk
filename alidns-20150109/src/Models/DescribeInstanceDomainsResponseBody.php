@@ -35,6 +35,8 @@ class DescribeInstanceDomainsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 68386699-8B9E-4D5B-BC4C-75A28F6C2A00
      *
      * @var string
@@ -42,6 +44,8 @@ class DescribeInstanceDomainsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned on all pages.
+     *
      * @example 2
      *
      * @var int
@@ -49,6 +53,8 @@ class DescribeInstanceDomainsResponseBody extends Model
     public $totalItems;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 2
      *
      * @var int

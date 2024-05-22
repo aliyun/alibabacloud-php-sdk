@@ -26,6 +26,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     /**
      * @description The address pools in the primary address pool set.
      *
+     * This parameter is required.
      * @var defaultAddrPool[]
      */
     public $defaultAddrPool;
@@ -37,6 +38,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
      *   IPV6
      *   DOMAIN
      *
+     * This parameter is required.
      * @example ipv4
      *
      * @var string
@@ -79,6 +81,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     /**
      * @description The minimum number of available addresses in the primary address pool set.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -168,6 +171,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     /**
      * @description The ID of the access policy.
      *
+     * This parameter is required.
      * @example StrategyId1
      *
      * @var string
@@ -177,6 +181,7 @@ class UpdateDnsGtmAccessStrategyRequest extends Model
     /**
      * @description The name of the access policy.
      *
+     * This parameter is required.
      * @example StrategyName1
      *
      * @var string

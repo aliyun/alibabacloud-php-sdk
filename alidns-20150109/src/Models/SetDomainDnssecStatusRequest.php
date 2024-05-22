@@ -11,6 +11,7 @@ class SetDomainDnssecStatusRequest extends Model
     /**
      * @description The domain name for which you want to set the DNSSEC status.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -32,6 +33,7 @@ class SetDomainDnssecStatusRequest extends Model
      *   ON: enables DNSSEC for the domain name.
      *   OFF: disables DNSSEC for the domain name.
      *
+     * This parameter is required.
      * @example ON
      *
      * @var string

@@ -11,6 +11,7 @@ class GetMainDomainNameRequest extends Model
     /**
      * @description The string. The string can be up to 128 characters in length.
      *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string

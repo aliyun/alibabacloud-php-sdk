@@ -76,6 +76,11 @@ class log extends Model
      * @var value
      */
     public $value;
+
+    /**
+     * @var string
+     */
+    public $zoneName;
     protected $_name = [
         'dnsMsgId'  => 'DnsMsgId',
         'logTime'   => 'LogTime',
@@ -87,6 +92,7 @@ class log extends Model
         'status'    => 'Status',
         'subnetIp'  => 'SubnetIp',
         'value'     => 'Value',
+        'zoneName'  => 'ZoneName',
     ];
 
     public function validate()
@@ -125,6 +131,9 @@ class log extends Model
         }
         if (null !== $this->value) {
             $res['Value'] = null !== $this->value ? $this->value->toMap() : null;
+        }
+        if (null !== $this->zoneName) {
+            $res['ZoneName'] = $this->zoneName;
         }
 
         return $res;
@@ -167,6 +176,9 @@ class log extends Model
         }
         if (isset($map['Value'])) {
             $model->value = value::fromMap($map['Value']);
+        }
+        if (isset($map['ZoneName'])) {
+            $model->zoneName = $map['ZoneName'];
         }
 
         return $model;

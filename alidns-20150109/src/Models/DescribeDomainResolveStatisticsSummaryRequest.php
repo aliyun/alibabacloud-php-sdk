@@ -80,6 +80,7 @@ class DescribeDomainResolveStatisticsSummaryRequest extends Model
     /**
      * @description The start time in the yyyy-MM-dd format, for example, 2023-03-01.
      *
+     * This parameter is required.
      * @example 2023-03-01
      *
      * @var string

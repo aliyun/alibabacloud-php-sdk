@@ -16,6 +16,8 @@ class MoveGtmResourceGroupRequest extends Model
     public $lang;
 
     /**
+     * @description This parameter is required.
+     *
      * @example AgIDE1MA_XXX
      *
      * @var string
@@ -23,6 +25,8 @@ class MoveGtmResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rg-aekzzk7hx3*****
      *
      * @var string

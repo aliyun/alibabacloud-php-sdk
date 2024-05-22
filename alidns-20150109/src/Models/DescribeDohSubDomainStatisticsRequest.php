@@ -40,6 +40,7 @@ class DescribeDohSubDomainStatisticsRequest extends Model
     /**
      * @description The subdomain whose statistics you want to query.
      *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string

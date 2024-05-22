@@ -12,6 +12,7 @@ class UpdateDnsGtmAddressPoolRequest extends Model
     /**
      * @description The address pools.
      *
+     * This parameter is required.
      * @var addr[]
      */
     public $addr;
@@ -19,6 +20,7 @@ class UpdateDnsGtmAddressPoolRequest extends Model
     /**
      * @description The ID of the address pool.
      *
+     * This parameter is required.
      * @example testpool1
      *
      * @var string
@@ -40,6 +42,7 @@ class UpdateDnsGtmAddressPoolRequest extends Model
      *   ALL_RR: returns all addresses.
      *   RATIO: returns addresses by weight.
      *
+     * This parameter is required.
      * @example all_rr
      *
      * @var string

@@ -20,6 +20,7 @@ class SetDnsGtmMonitorStatusRequest extends Model
     /**
      * @description The ID of the health check task.
      *
+     * This parameter is required.
      * @example MonitorConfigId1
      *
      * @var string
@@ -32,6 +33,7 @@ class SetDnsGtmMonitorStatusRequest extends Model
      *   OPEN: enables the health check feature.
      *   CLOSE: disables the health check feature.
      *
+     * This parameter is required.
      * @example open
      *
      * @var string

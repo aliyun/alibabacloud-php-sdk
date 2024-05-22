@@ -51,7 +51,7 @@ class DescribeDomainStatisticsRequest extends Model
     /**
      * @description The start date of the query. Specify the start date in the **YYYY-MM-DD** format.
      *
-     * You can only query the DNS records within the last 90 days.``
+     * This parameter is required.
      * @example 2019-07-04
      *
      * @var string

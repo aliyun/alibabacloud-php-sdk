@@ -110,7 +110,7 @@ class DescribeDnsGtmMonitorConfigResponseBody extends Model
      *   IPV4
      *   IPV6
      *
-     * @example {\"code\":200,\"path\":\"\\index.htm\",\"host\":\"aliyun.com\"}
+     * @example {\\"code\\":200,\\"path\\":\\"\\\\index.htm\\",\\"host\\":\\"aliyun.com\\"}
      *
      * @var string
      */

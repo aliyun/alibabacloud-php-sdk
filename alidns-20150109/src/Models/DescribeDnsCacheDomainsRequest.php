@@ -11,7 +11,7 @@ class DescribeDnsCacheDomainsRequest extends Model
     /**
      * @description The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
      *
-     * @example a\"\"
+     * @example a\\"\\"
      *
      * @var string
      */

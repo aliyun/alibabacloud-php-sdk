@@ -11,7 +11,7 @@ class domainRecordInfo extends Model
     /**
      * @description The domain name.
      *
-     * >  You can submit 1 to 1,000 domain names. Due to the limit on the length of HTTP request headers, excessive domain names are ignored. Do not enter more than 1,000 domain names.
+     * This parameter is required.
      * @example example.com
      *
      * @var string

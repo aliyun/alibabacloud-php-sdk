@@ -11,6 +11,7 @@ class DescribeGtmInstanceStatusRequest extends Model
     /**
      * @description The ID of the instance to query.
      *
+     * This parameter is required.
      * @example instance1
      *
      * @var string

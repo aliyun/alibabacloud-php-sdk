@@ -20,6 +20,7 @@ class DeleteCustomLinesRequest extends Model
     /**
      * @description The unique IDs of the custom lines that you want to delete. Separate the unique IDs with commas (,).
      *
+     * This parameter is required.
      * @example 1234,1235
      *
      * @var string

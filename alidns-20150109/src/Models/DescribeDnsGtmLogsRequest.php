@@ -20,6 +20,7 @@ class DescribeDnsGtmLogsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example instance1
      *
      * @var string

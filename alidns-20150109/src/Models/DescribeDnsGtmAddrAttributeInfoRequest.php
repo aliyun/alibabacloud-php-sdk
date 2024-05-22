@@ -11,6 +11,7 @@ class DescribeDnsGtmAddrAttributeInfoRequest extends Model
     /**
      * @description The addresses whose source regions you want to query.
      *
+     * This parameter is required.
      * @example ["1.1.1.1"]
      *
      * @var string
@@ -33,6 +34,7 @@ class DescribeDnsGtmAddrAttributeInfoRequest extends Model
      *   IPV6: IPv6 address
      *   DOMAIN: domain name
      *
+     * This parameter is required.
      * @example ipv4
      *
      * @var string

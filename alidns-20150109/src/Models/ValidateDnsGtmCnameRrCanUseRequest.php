@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ValidateDnsGtmCnameRrCanUseRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cnameMode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cnameRr;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cnameType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $cnameZone;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

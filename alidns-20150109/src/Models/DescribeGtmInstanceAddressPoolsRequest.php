@@ -11,6 +11,7 @@ class DescribeGtmInstanceAddressPoolsRequest extends Model
     /**
      * @description The ID of the GTM instance that you want to query.
      *
+     * This parameter is required.
      * @example gtmtest
      *
      * @var string

@@ -11,6 +11,7 @@ class UpdateDomainGroupRequest extends Model
     /**
      * @description The ID of the domain name group.
      *
+     * This parameter is required.
      * @example 2223
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateDomainGroupRequest extends Model
     /**
      * @description The new name of the domain name group.
      *
+     * This parameter is required.
      * @example NewName
      *
      * @var string

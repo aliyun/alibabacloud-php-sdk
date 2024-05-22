@@ -11,6 +11,7 @@ class CopyGtmConfigRequest extends Model
     /**
      * @description The type of the object that you want to copy. Only the INSTANCE type is supported.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string
@@ -29,6 +30,7 @@ class CopyGtmConfigRequest extends Model
     /**
      * @description The ID of the source object. Only instance IDs are supported.
      *
+     * This parameter is required.
      * @example gtm-cn-0pp1j84v60d
      *
      * @var string
@@ -38,6 +40,7 @@ class CopyGtmConfigRequest extends Model
     /**
      * @description The ID of the target object. Only instance IDs are supported.
      *
+     * This parameter is required.
      * @example gtm-cn-v0h1gaujg06
      *
      * @var string

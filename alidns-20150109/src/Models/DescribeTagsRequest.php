@@ -38,6 +38,7 @@ class DescribeTagsRequest extends Model
     /**
      * @description The type of the resources from which you want to query tags. Set the value to DOMAIN.
      *
+     * This parameter is required.
      * @example DOMAIN
      *
      * @var string

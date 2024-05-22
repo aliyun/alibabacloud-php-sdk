@@ -11,6 +11,7 @@ class DescribeDnsGtmInstanceRequest extends Model
     /**
      * @description The ID of the instance about which you want to query the information.
      *
+     * This parameter is required.
      * @example instance1
      *
      * @var string

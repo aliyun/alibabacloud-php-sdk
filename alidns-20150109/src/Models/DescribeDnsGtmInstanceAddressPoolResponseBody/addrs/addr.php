@@ -36,7 +36,7 @@ class addr extends Model
      *   lineName: the line name of the source region of the address. This parameter is deprecated.
      *   lineCodes: the line codes of the source regions of the address.
      *
-     * @example "lineCode":"aliyun_r_cn-zhangjiakou", "lineName": "Alibaba Cloud_China (Zhangjiakou)", "lineCodes": \["aliyun_r_cn-zhangjiakou"]
+     * @example "lineCode":"aliyun_r_cn-zhangjiakou", "lineName": "Alibaba Cloud_China (Zhangjiakou)", "lineCodes": ["aliyun_r_cn-zhangjiakou"]
      *
      * @var string
      */

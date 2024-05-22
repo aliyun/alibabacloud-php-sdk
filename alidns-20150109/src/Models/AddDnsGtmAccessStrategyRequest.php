@@ -13,6 +13,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     /**
      * @description The address pools in the primary address pool set.
      *
+     * This parameter is required.
      * @var defaultAddrPool[]
      */
     public $defaultAddrPool;
@@ -24,6 +25,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
      *   IPV6
      *   DOMAIN
      *
+     * This parameter is required.
      * @example ipv4
      *
      * @var string
@@ -66,6 +68,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     /**
      * @description The minimum number of available addresses in the primary address pool set.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -137,6 +140,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example instance1
      *
      * @var string
@@ -167,6 +171,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
      *   GEO: geographical location-based access policy
      *   LATENCY: latency-based access policy
      *
+     * This parameter is required.
      * @example geo
      *
      * @var string
@@ -176,6 +181,7 @@ class AddDnsGtmAccessStrategyRequest extends Model
     /**
      * @description The name of the access policy.
      *
+     * This parameter is required.
      * @example testStrategyName
      *
      * @var string

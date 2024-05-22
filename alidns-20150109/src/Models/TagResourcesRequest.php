@@ -21,6 +21,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource ID.
      *
+     * This parameter is required.
      * @example dns-example.com
      *
      * @var string[]
@@ -30,6 +31,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource type.
      *
+     * This parameter is required.
      * @example DOMAIN
      *
      * @var string
@@ -39,6 +41,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tag to add to the resource.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

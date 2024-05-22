@@ -12,6 +12,7 @@ class AddGtmMonitorRequest extends Model
     /**
      * @description The ID of the address pool.
      *
+     * This parameter is required.
      * @example xxxx
      *
      * @var string
@@ -21,6 +22,7 @@ class AddGtmMonitorRequest extends Model
     /**
      * @description The number of consecutive failures.
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -30,6 +32,7 @@ class AddGtmMonitorRequest extends Model
     /**
      * @description The health check interval. Unit: seconds. Set the value to 60.
      *
+     * This parameter is required.
      * @example 60
      *
      * @var int
@@ -39,6 +42,7 @@ class AddGtmMonitorRequest extends Model
     /**
      * @description The nodes for monitoring.
      *
+     * This parameter is required.
      * @var ispCityNode[]
      */
     public $ispCityNode;
@@ -74,7 +78,8 @@ class AddGtmMonitorRequest extends Model
      *   port: the port that you want to check
      *   failureRate: the failure rate
      *
-     * @example {\"code\":200,\"path\":\"/index.htm\",\"host\":\"aliyun.com\"}
+     * This parameter is required.
+     * @example {\\"code\\":200,\\"path\\":\\"/index.htm\\",\\"host\\":\\"aliyun.com\\"}
      *
      * @var string
      */
@@ -88,6 +93,7 @@ class AddGtmMonitorRequest extends Model
      *   PING
      *   TCP
      *
+     * This parameter is required.
      * @example HTTP
      *
      * @var string
@@ -97,6 +103,7 @@ class AddGtmMonitorRequest extends Model
     /**
      * @description The health check timeout period. Unit: milliseconds. Valid values: 2000, 3000, 5000, and 10000.
      *
+     * This parameter is required.
      * @example 3000
      *
      * @var int

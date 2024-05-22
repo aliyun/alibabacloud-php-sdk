@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeInternetDnsLogsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $accountId;
+
+    /**
      * @example example.com
      *
      * @var string
@@ -64,6 +69,7 @@ class DescribeInternetDnsLogsRequest extends Model
      */
     public $startTimestamp;
     protected $_name = [
+        'accountId'      => 'AccountId',
         'domainName'     => 'DomainName',
         'endTimestamp'   => 'EndTimestamp',
         'lang'           => 'Lang',
@@ -81,6 +87,9 @@ class DescribeInternetDnsLogsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -117,6 +126,9 @@ class DescribeInternetDnsLogsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

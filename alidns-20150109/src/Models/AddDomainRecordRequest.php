@@ -11,6 +11,7 @@ class AddDomainRecordRequest extends Model
     /**
      * @description The domain name.
      *
+     * This parameter is required.
      * @example example.com
      *
      * @var string
@@ -49,7 +50,7 @@ class AddDomainRecordRequest extends Model
     /**
      * @description The hostname.
      *
-     * For example, if you want to resolve @.example.com, you must set RR to an at sign (@) instead of leaving it empty.
+     * This parameter is required.
      * @example www
      *
      * @var string
@@ -69,7 +70,7 @@ class AddDomainRecordRequest extends Model
     /**
      * @description The type of the DNS record. For more information, see
      *
-     * [DNS record types](https://www.alibabacloud.com/help/zh/doc-detail/29805.htm).
+     * This parameter is required.
      * @example A
      *
      * @var string
@@ -88,6 +89,7 @@ class AddDomainRecordRequest extends Model
     /**
      * @description The record value.
      *
+     * This parameter is required.
      * @example 192.0.2.254
      *
      * @var string

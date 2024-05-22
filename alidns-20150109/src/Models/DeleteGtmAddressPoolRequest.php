@@ -11,6 +11,7 @@ class DeleteGtmAddressPoolRequest extends Model
     /**
      * @description The ID of the address pool that you want to delete.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var string

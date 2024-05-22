@@ -74,6 +74,8 @@ class record extends Model
     /**
      * @description The description of the DNS record.
      *
+     * @example test
+     *
      * @var string
      */
     public $remark;

@@ -11,7 +11,7 @@ class BindInstanceDomainsRequest extends Model
     /**
      * @description The domain names.
      *
-     * >  Separate multiple domain names with commas (,). Up to 100 domain names can be entered.
+     * This parameter is required.
      * @example example.com,example.net
      *
      * @var string
@@ -21,6 +21,7 @@ class BindInstanceDomainsRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example sdfasdf
      *
      * @var string

@@ -11,6 +11,7 @@ class AddGtmRecoveryPlanRequest extends Model
     /**
      * @description The list of IDs of faulty address pools.
      *
+     * This parameter is required.
      * @example ["hra0or"]
      *
      * @var string
@@ -29,6 +30,7 @@ class AddGtmRecoveryPlanRequest extends Model
     /**
      * @description The name of the disaster recovery plan that you want to create.
      *
+     * This parameter is required.
      * @example name-example
      *
      * @var string

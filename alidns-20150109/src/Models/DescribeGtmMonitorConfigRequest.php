@@ -20,6 +20,7 @@ class DescribeGtmMonitorConfigRequest extends Model
     /**
      * @description The ID of the health check configuration.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeGtmAccessStrategyAvailableConfigRequest extends Model
     /**
      * @description The ID of the Global Traffic Manager (GTM) instance.
      *
+     * This parameter is required.
      * @example gtm-cn-xxxx
      *
      * @var string

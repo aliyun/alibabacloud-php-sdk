@@ -20,6 +20,7 @@ class DescribeGtmAccessStrategyRequest extends Model
     /**
      * @description The ID of the access policy that you want to query.
      *
+     * This parameter is required.
      * @example hra0hs
      *
      * @var string

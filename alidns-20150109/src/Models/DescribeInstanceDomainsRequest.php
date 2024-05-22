@@ -11,6 +11,7 @@ class DescribeInstanceDomainsRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example weriwieru
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeInstanceDomainsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -25,6 +28,8 @@ class DescribeInstanceDomainsRequest extends Model
     public $lang;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int

@@ -20,6 +20,7 @@ class DescribeDnsGtmAccessStrategyRequest extends Model
     /**
      * @description The ID of the access policy.
      *
+     * This parameter is required.
      * @example strategyId1
      *
      * @var string

@@ -20,6 +20,7 @@ class ChangeDomainOfDnsProductRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud DNS instance.
      *
+     * This parameter is required.
      * @example i-7sb
      *
      * @var string

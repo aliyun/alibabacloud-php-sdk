@@ -20,6 +20,7 @@ class DescribeDnsGtmMonitorConfigRequest extends Model
     /**
      * @description The ID of the health check task.
      *
+     * This parameter is required.
      * @example MonitorConfigId1
      *
      * @var string
