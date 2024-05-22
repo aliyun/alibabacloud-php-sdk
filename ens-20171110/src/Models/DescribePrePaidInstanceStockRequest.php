@@ -11,6 +11,7 @@ class DescribePrePaidInstanceStockRequest extends Model
     /**
      * @description The ID of the datadisk.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -20,6 +21,7 @@ class DescribePrePaidInstanceStockRequest extends Model
     /**
      * @description The ID of the edge node.
      *
+     * This parameter is required.
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -29,6 +31,7 @@ class DescribePrePaidInstanceStockRequest extends Model
     /**
      * @description The size of the system disk. Unit: GB.
      *
+     * This parameter is required.
      * @example ens.sn1.stiny
      *
      * @var string
@@ -38,6 +41,7 @@ class DescribePrePaidInstanceStockRequest extends Model
     /**
      * @description The ID of the systemdisk
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int

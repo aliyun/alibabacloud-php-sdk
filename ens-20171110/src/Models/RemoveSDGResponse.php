@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeWorkflowResponse extends Model
+class RemoveSDGResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeWorkflowResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeWorkflowResponseBody
+     * @var RemoveSDGResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class DescribeWorkflowResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeWorkflowResponse
+     * @return RemoveSDGResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class DescribeWorkflowResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeWorkflowResponseBody::fromMap($map['body']);
+            $model->body = RemoveSDGResponseBody::fromMap($map['body']);
         }
 
         return $model;

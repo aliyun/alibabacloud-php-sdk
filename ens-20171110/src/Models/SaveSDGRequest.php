@@ -6,14 +6,18 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RetryWorkflowShrinkRequest extends Model
+class SaveSDGRequest extends Model
 {
     /**
+     * @description The ID of the SDG to be saved.
+     *
+     * @example sdg-xxxx
+     *
      * @var string
      */
-    public $workflowIdsShrink;
+    public $SDGId;
     protected $_name = [
-        'workflowIdsShrink' => 'WorkflowIds',
+        'SDGId' => 'SDGId',
     ];
 
     public function validate()
@@ -23,8 +27,8 @@ class RetryWorkflowShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workflowIdsShrink) {
-            $res['WorkflowIds'] = $this->workflowIdsShrink;
+        if (null !== $this->SDGId) {
+            $res['SDGId'] = $this->SDGId;
         }
 
         return $res;
@@ -33,13 +37,13 @@ class RetryWorkflowShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return RetryWorkflowShrinkRequest
+     * @return SaveSDGRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkflowIds'])) {
-            $model->workflowIdsShrink = $map['WorkflowIds'];
+        if (isset($map['SDGId'])) {
+            $model->SDGId = $map['SDGId'];
         }
 
         return $model;

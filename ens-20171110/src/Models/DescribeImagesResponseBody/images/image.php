@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
-     * @description The architecture of the image. Example: **x86\_64**.
+     * @description The architecture of the image. Example: **x86_64**.
      *
      * @example x86_64
      *

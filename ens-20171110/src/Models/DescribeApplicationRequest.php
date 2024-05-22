@@ -11,6 +11,7 @@ class DescribeApplicationRequest extends Model
     /**
      * @description The ID of the application. You can call the ListApplications operation to obtain the application ID.
      *
+     * This parameter is required.
      * @example a2bac6f4-75dc-455e-8389-2dc8e47526d3
      *
      * @var string
@@ -45,16 +46,22 @@ class DescribeApplicationRequest extends Model
     /**
      * @description Specifies whether to return other information about the application, such as statistics on resource instances and pods. The value must be a JSON string. By default, all information is returned.
      *
-     * @example {\"appInfo\":true,\"detailStat\": true, \"appVersionStat\": true, \"districtStat\":true ,\"instanceStat\": true, \"podCountStat\": true}
+     * @example {\\"appInfo\\":true,\\"detailStat\\": true, \\"appVersionStat\\": true, \\"districtStat\\":true ,\\"instanceStat\\": true, \\"podCountStat\\": true}
      *
      * @var string
      */
     public $outDetailStatParams;
+
+    /**
+     * @var string
+     */
+    public $resourceSelector;
     protected $_name = [
         'appId'               => 'AppId',
         'appVersions'         => 'AppVersions',
         'level'               => 'Level',
         'outDetailStatParams' => 'OutDetailStatParams',
+        'resourceSelector'    => 'ResourceSelector',
     ];
 
     public function validate()
@@ -75,6 +82,9 @@ class DescribeApplicationRequest extends Model
         }
         if (null !== $this->outDetailStatParams) {
             $res['OutDetailStatParams'] = $this->outDetailStatParams;
+        }
+        if (null !== $this->resourceSelector) {
+            $res['ResourceSelector'] = $this->resourceSelector;
         }
 
         return $res;
@@ -99,6 +109,9 @@ class DescribeApplicationRequest extends Model
         }
         if (isset($map['OutDetailStatParams'])) {
             $model->outDetailStatParams = $map['OutDetailStatParams'];
+        }
+        if (isset($map['ResourceSelector'])) {
+            $model->resourceSelector = $map['ResourceSelector'];
         }
 
         return $model;

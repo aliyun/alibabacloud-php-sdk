@@ -11,6 +11,7 @@ class ResetDiskRequest extends Model
     /**
      * @description The ID of the disk that you want to roll back.
      *
+     * This parameter is required.
      * @example d-bp199lyny9b3****
      *
      * @var string
@@ -20,6 +21,7 @@ class ResetDiskRequest extends Model
     /**
      * @description The ID of the snapshot that you want to use to roll back the disk.
      *
+     * This parameter is required.
      * @example sp-bp199lyny9b3****
      *
      * @var string

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnsSaleControlRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $aliUidAccount;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var saleControls[]
      */
     public $saleControls;

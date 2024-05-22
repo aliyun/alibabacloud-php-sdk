@@ -11,6 +11,7 @@ class CreateSnatEntryRequest extends Model
     /**
      * @description The ID of the Network Address Translation (NAT) gateway.
      *
+     * This parameter is required.
      * @example nat-5tawjw5j7sgd2deujxuk0****
      *
      * @var string
@@ -29,6 +30,7 @@ class CreateSnatEntryRequest extends Model
     /**
      * @description The elastic IP address (EIP) in the SNAT entry. Separate multiple EIPs with commas (,).
      *
+     * This parameter is required.
      * @example 120.XXX.XXX.71
      *
      * @var string

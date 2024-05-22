@@ -11,6 +11,7 @@ class ReInitDiskRequest extends Model
     /**
      * @description The ID of the disk to be initialized. You can initialize only one disk at a time.
      *
+     * This parameter is required.
      * @example d-5r7v69e0bejrnzger09w71yjv
      *
      * @var string
@@ -20,6 +21,7 @@ class ReInitDiskRequest extends Model
     /**
      * @description The ID of the image to use to create the instance.
      *
+     * This parameter is required.
      * @example m-5rz3i231o531s4p4ozanxmgx7
      *
      * @var string

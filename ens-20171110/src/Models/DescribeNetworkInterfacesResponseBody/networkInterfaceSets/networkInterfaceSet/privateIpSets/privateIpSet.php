@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class privateIpSet extends Model
 {
     /**
-     * @description Indicates whether the IP address is the primary private IP address. Valid values:
+     * @description Specifies whether the private IP address is the primary private IP address. Valid values:
      *
-     *   true: The IP address is the primary private IP address.
-     *   false: The IP address is the secondary private IP address.
+     *   true
+     *   false
      *
      * @example true
      *

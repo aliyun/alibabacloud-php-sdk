@@ -29,6 +29,7 @@ class JoinSecurityGroupRequest extends Model
     /**
      * @description The ID of the security group.
      *
+     * This parameter is required.
      * @example sg-bp67acfmxazb4ph***
      *
      * @var string

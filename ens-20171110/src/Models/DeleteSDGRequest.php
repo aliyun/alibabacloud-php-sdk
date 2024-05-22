@@ -6,14 +6,17 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RollbackWorkflowShrinkRequest extends Model
+class DeleteSDGRequest extends Model
 {
     /**
-     * @var string
+     * @description IDs of SDGs that you want to delete. You can delete a maximum of 10 SDGs at a time.
+     *
+     * This parameter is required.
+     * @var string[]
      */
-    public $workflowIdsShrink;
+    public $SDGId;
     protected $_name = [
-        'workflowIdsShrink' => 'WorkflowIds',
+        'SDGId' => 'SDGId',
     ];
 
     public function validate()
@@ -23,8 +26,8 @@ class RollbackWorkflowShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workflowIdsShrink) {
-            $res['WorkflowIds'] = $this->workflowIdsShrink;
+        if (null !== $this->SDGId) {
+            $res['SDGId'] = $this->SDGId;
         }
 
         return $res;
@@ -33,13 +36,15 @@ class RollbackWorkflowShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return RollbackWorkflowShrinkRequest
+     * @return DeleteSDGRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkflowIds'])) {
-            $model->workflowIdsShrink = $map['WorkflowIds'];
+        if (isset($map['SDGId'])) {
+            if (!empty($map['SDGId'])) {
+                $model->SDGId = $map['SDGId'];
+            }
         }
 
         return $model;

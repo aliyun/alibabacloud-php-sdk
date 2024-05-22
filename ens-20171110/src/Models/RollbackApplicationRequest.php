@@ -11,6 +11,7 @@ class RollbackApplicationRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example 474bdef0-d149-4695-abfb-52912d9143f0
      *
      * @var string
@@ -20,6 +21,7 @@ class RollbackApplicationRequest extends Model
     /**
      * @description The current version number.
      *
+     * This parameter is required.
      * @example v2-1
      *
      * @var string

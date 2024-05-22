@@ -90,6 +90,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkAclRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkAclResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateNetworkResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSecurityGroupResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateSnapshotRequest;
@@ -140,6 +142,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteNetworkResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteObjectRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteObjectResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSecurityGroupResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnapshotRequest;
@@ -294,6 +299,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeResourceTimelineRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeResourceTimelineResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGDeploymentStatusRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGDeploymentStatusResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGsRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGsResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSDGsShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSecurityGroupsRequest;
@@ -312,10 +320,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeUserBandWidthDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeUserBandWidthDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeVSwitchesResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeWorkflowActivityRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeWorkflowActivityResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeWorkflowRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeWorkflowResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DistApplicationDataRequest;
@@ -427,6 +431,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveBackendServersResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveBackendServersShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemovePublicIpsFromEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemovePublicIpsFromEpnInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveVSwitchesFromEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RemoveVSwitchesFromEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RenewARMServerInstanceRequest;
@@ -439,7 +446,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RescaleDeviceServiceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RescaleDeviceServiceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDeviceInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDeviceInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDiskRequest;
@@ -448,26 +454,19 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ResizeDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResizeDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RestartDeviceInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RestartDeviceInstanceResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\RestartWorkflowRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\RestartWorkflowResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\RestartWorkflowShrinkRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\RetryWorkflowRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\RetryWorkflowResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\RetryWorkflowShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RevokeSecurityGroupEgressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RevokeSecurityGroupEgressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RevokeSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RevokeSecurityGroupResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RollbackApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RollbackApplicationResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\RollbackWorkflowRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\RollbackWorkflowResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\RollbackWorkflowShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunInstancesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunServiceScheduleRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunServiceScheduleResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\SaveSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\SaveSDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\SetBackendServersRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\SetBackendServersResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\SetBackendServersShrinkRequest;
@@ -503,9 +502,6 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopSnatIpForSnatEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopSnatIpForSnatEntryResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\TerminateWorkflowRequest;
-use AlibabaCloud\SDK\Ens\V20171110\Models\TerminateWorkflowResponse;
-use AlibabaCloud\SDK\Ens\V20171110\Models\TerminateWorkflowShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressRequest;
@@ -560,10 +556,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AccosicateNetworkAclRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Associates a network access control list (ACL) with a network.
+     *  *
+     * @param AccosicateNetworkAclRequest $request AccosicateNetworkAclRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AccosicateNetworkAclResponse
+     * @return AccosicateNetworkAclResponse AccosicateNetworkAclResponse
      */
     public function accosicateNetworkAclWithOptions($request, $runtime)
     {
@@ -594,9 +592,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AccosicateNetworkAclRequest $request
+     * @summary Associates a network access control list (ACL) with a network.
+     *  *
+     * @param AccosicateNetworkAclRequest $request AccosicateNetworkAclRequest
      *
-     * @return AccosicateNetworkAclResponse
+     * @return AccosicateNetworkAclResponse AccosicateNetworkAclResponse
      */
     public function accosicateNetworkAcl($request)
     {
@@ -606,9 +606,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
+     * @summary Adds backend servers.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
+     *  *
      * @param AddBackendServersRequest $tmpReq  AddBackendServersRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -648,9 +650,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
+     * @summary Adds backend servers.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
+     *  *
      * @param AddBackendServersRequest $request AddBackendServersRequest
      *
      * @return AddBackendServersResponse AddBackendServersResponse
@@ -663,10 +667,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AddDeviceInternetPortRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Configures Network Address Translation (NAT) rules for an instance. This operation is an asynchronous API operation. For more information about the configurations, see the API documentation of GetDeviceInternetPort.
+     *  *
+     * @param AddDeviceInternetPortRequest $request AddDeviceInternetPortRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDeviceInternetPortResponse
+     * @return AddDeviceInternetPortResponse AddDeviceInternetPortResponse
      */
     public function addDeviceInternetPortWithOptions($request, $runtime)
     {
@@ -691,9 +697,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AddDeviceInternetPortRequest $request
+     * @summary Configures Network Address Translation (NAT) rules for an instance. This operation is an asynchronous API operation. For more information about the configurations, see the API documentation of GetDeviceInternetPort.
+     *  *
+     * @param AddDeviceInternetPortRequest $request AddDeviceInternetPortRequest
      *
-     * @return AddDeviceInternetPortResponse
+     * @return AddDeviceInternetPortResponse AddDeviceInternetPortResponse
      */
     public function addDeviceInternetPort($request)
     {
@@ -703,11 +711,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * # [](#)Usage notes
-     *   * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   * *   Internal networks and IPv4 addresses are not supported.
-     *   *
+     * @summary Adds an IPv6 network interface controller (NIC). A public IP address is automatically assigned at the same time.
+     *  *
+     * @description # [](#)Usage notes
+     * *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 5 times per second per user.
+     * *   Internal networks and IPv4 addresses are not supported.
+     *  *
      * @param AddNetworkInterfaceToInstanceRequest $request AddNetworkInterfaceToInstanceRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -745,11 +755,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * # [](#)Usage notes
-     *   * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   * *   Internal networks and IPv4 addresses are not supported.
-     *   *
+     * @summary Adds an IPv6 network interface controller (NIC). A public IP address is automatically assigned at the same time.
+     *  *
+     * @description # [](#)Usage notes
+     * *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 5 times per second per user.
+     * *   Internal networks and IPv4 addresses are not supported.
+     *  *
      * @param AddNetworkInterfaceToInstanceRequest $request AddNetworkInterfaceToInstanceRequest
      *
      * @return AddNetworkInterfaceToInstanceResponse AddNetworkInterfaceToInstanceResponse
@@ -762,10 +774,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AddSnatIpForSnatEntryRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Adds an elastic IP address (EIP) to a Source Network Address Translation (SNAT) entry.
+     *  *
+     * @param AddSnatIpForSnatEntryRequest $request AddSnatIpForSnatEntryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddSnatIpForSnatEntryResponse
+     * @return AddSnatIpForSnatEntryResponse AddSnatIpForSnatEntryResponse
      */
     public function addSnatIpForSnatEntryWithOptions($request, $runtime)
     {
@@ -796,9 +810,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AddSnatIpForSnatEntryRequest $request
+     * @summary Adds an elastic IP address (EIP) to a Source Network Address Translation (SNAT) entry.
+     *  *
+     * @param AddSnatIpForSnatEntryRequest $request AddSnatIpForSnatEntryRequest
      *
-     * @return AddSnatIpForSnatEntryResponse
+     * @return AddSnatIpForSnatEntryResponse AddSnatIpForSnatEntryResponse
      */
     public function addSnatIpForSnatEntry($request)
     {
@@ -808,10 +824,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AssignPrivateIpAddressesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Assigns secondary private IP addresses to an elastic network interface (ENI).
+     *  *
+     * @param AssignPrivateIpAddressesRequest $request AssignPrivateIpAddressesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssignPrivateIpAddressesResponse
+     * @return AssignPrivateIpAddressesResponse AssignPrivateIpAddressesResponse
      */
     public function assignPrivateIpAddressesWithOptions($request, $runtime)
     {
@@ -842,9 +860,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AssignPrivateIpAddressesRequest $request
+     * @summary Assigns secondary private IP addresses to an elastic network interface (ENI).
+     *  *
+     * @param AssignPrivateIpAddressesRequest $request AssignPrivateIpAddressesRequest
      *
-     * @return AssignPrivateIpAddressesResponse
+     * @return AssignPrivateIpAddressesResponse AssignPrivateIpAddressesResponse
      */
     public function assignPrivateIpAddresses($request)
     {
@@ -854,10 +874,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AssociateEnsEipAddressRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Associates an elastic IP address (EIP) with a cloud resource that is deployed in the same region.
+     *  *
+     * @param AssociateEnsEipAddressRequest $request AssociateEnsEipAddressRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateEnsEipAddressResponse
+     * @return AssociateEnsEipAddressResponse AssociateEnsEipAddressResponse
      */
     public function associateEnsEipAddressWithOptions($request, $runtime)
     {
@@ -894,9 +916,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AssociateEnsEipAddressRequest $request
+     * @summary Associates an elastic IP address (EIP) with a cloud resource that is deployed in the same region.
+     *  *
+     * @param AssociateEnsEipAddressRequest $request AssociateEnsEipAddressRequest
      *
-     * @return AssociateEnsEipAddressResponse
+     * @return AssociateEnsEipAddressResponse AssociateEnsEipAddressResponse
      */
     public function associateEnsEipAddress($request)
     {
@@ -906,10 +930,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AttachDiskRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Attaches a disk to an Edge Node Service (ENS) instance.
+     *  *
+     * @param AttachDiskRequest $request AttachDiskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachDiskResponse
+     * @return AttachDiskResponse AttachDiskResponse
      */
     public function attachDiskWithOptions($request, $runtime)
     {
@@ -943,9 +969,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AttachDiskRequest $request
+     * @summary Attaches a disk to an Edge Node Service (ENS) instance.
+     *  *
+     * @param AttachDiskRequest $request AttachDiskRequest
      *
-     * @return AttachDiskResponse
+     * @return AttachDiskResponse AttachDiskResponse
      */
     public function attachDisk($request)
     {
@@ -955,11 +983,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * # [](#)Usage notes
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   * *   After you execute the command, the instance restarts loading.
-     *   * *   Limits: The instance has at least two vCPUs and 4 GB memory. An image of CentOS 7.4 or later is required.
-     *   *
+     * @summary Adds an Edge Node Service (ENS) instance to Container Service for Kubernetes (ACK).
+     *  *
+     * @description # [](#)Usage notes
+     * *   You can call this operation up to 10 times per second per account.
+     * *   After you execute the command, the instance restarts loading.
+     * *   Limits: The instance has at least two vCPUs and 4 GB memory. An image of CentOS 7.4 or later is required.
+     *  *
      * @param AttachEnsInstancesRequest $request AttachEnsInstancesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -994,11 +1024,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * # [](#)Usage notes
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   * *   After you execute the command, the instance restarts loading.
-     *   * *   Limits: The instance has at least two vCPUs and 4 GB memory. An image of CentOS 7.4 or later is required.
-     *   *
+     * @summary Adds an Edge Node Service (ENS) instance to Container Service for Kubernetes (ACK).
+     *  *
+     * @description # [](#)Usage notes
+     * *   You can call this operation up to 10 times per second per account.
+     * *   After you execute the command, the instance restarts loading.
+     * *   Limits: The instance has at least two vCPUs and 4 GB memory. An image of CentOS 7.4 or later is required.
+     *  *
      * @param AttachEnsInstancesRequest $request AttachEnsInstancesRequest
      *
      * @return AttachEnsInstancesResponse AttachEnsInstancesResponse
@@ -1011,10 +1043,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeSecurityGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Creates an inbound security group rule. This operation allows or denies the inbound traffic from other devices to instances in the security group.
+     *  *
+     * @param AuthorizeSecurityGroupRequest $request AuthorizeSecurityGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AuthorizeSecurityGroupResponse
+     * @return AuthorizeSecurityGroupResponse AuthorizeSecurityGroupResponse
      */
     public function authorizeSecurityGroupWithOptions($request, $runtime)
     {
@@ -1060,9 +1094,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeSecurityGroupRequest $request
+     * @summary Creates an inbound security group rule. This operation allows or denies the inbound traffic from other devices to instances in the security group.
+     *  *
+     * @param AuthorizeSecurityGroupRequest $request AuthorizeSecurityGroupRequest
      *
-     * @return AuthorizeSecurityGroupResponse
+     * @return AuthorizeSecurityGroupResponse AuthorizeSecurityGroupResponse
      */
     public function authorizeSecurityGroup($request)
     {
@@ -1072,8 +1108,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * In the security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-     *   *
+     * @summary Creates an outbound security group rule. This operation allows or denies the outbound traffic from the instances in the security group to other devices.
+     *  *
+     * @description In the security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
+     *  *
      * @param AuthorizeSecurityGroupEgressRequest $request AuthorizeSecurityGroupEgressRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -1123,8 +1161,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * In the security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-     *   *
+     * @summary Creates an outbound security group rule. This operation allows or denies the outbound traffic from the instances in the security group to other devices.
+     *  *
+     * @description In the security group-related API documents, outbound traffic refers to the traffic that is sent by the source device and received at the destination device.
+     *  *
      * @param AuthorizeSecurityGroupEgressRequest $request AuthorizeSecurityGroupEgressRequest
      *
      * @return AuthorizeSecurityGroupEgressResponse AuthorizeSecurityGroupEgressResponse
@@ -1137,10 +1177,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CleanDistDataRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 清理分发数据
+     *  *
+     * @param CleanDistDataRequest $request CleanDistDataRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CleanDistDataResponse
+     * @return CleanDistDataResponse CleanDistDataResponse
      */
     public function cleanDistDataWithOptions($request, $runtime)
     {
@@ -1177,9 +1219,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CleanDistDataRequest $request
+     * @summary 清理分发数据
+     *  *
+     * @param CleanDistDataRequest $request CleanDistDataRequest
      *
-     * @return CleanDistDataResponse
+     * @return CleanDistDataResponse CleanDistDataResponse
      */
     public function cleanDistData($request)
     {
@@ -1189,10 +1233,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CopySDGRequest $tmpReq
-     * @param RuntimeOptions $runtime
+     * @summary Copies a shared data group (SDG) across nodes.
+     *  *
+     * @param CopySDGRequest $tmpReq  CopySDGRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopySDGResponse
+     * @return CopySDGResponse CopySDGResponse
      */
     public function copySDGWithOptions($tmpReq, $runtime)
     {
@@ -1222,9 +1268,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CopySDGRequest $request
+     * @summary Copies a shared data group (SDG) across nodes.
+     *  *
+     * @param CopySDGRequest $request CopySDGRequest
      *
-     * @return CopySDGResponse
+     * @return CopySDGResponse CopySDGResponse
      */
     public function copySDG($request)
     {
@@ -1234,10 +1282,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CopySnapshotRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary Copies a snapshot.
+     *  *
+     * @param CopySnapshotRequest $tmpReq  CopySnapshotRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CopySnapshotResponse
+     * @return CopySnapshotResponse CopySnapshotResponse
      */
     public function copySnapshotWithOptions($tmpReq, $runtime)
     {
@@ -1279,9 +1329,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CopySnapshotRequest $request
+     * @summary Copies a snapshot.
+     *  *
+     * @param CopySnapshotRequest $request CopySnapshotRequest
      *
-     * @return CopySnapshotResponse
+     * @return CopySnapshotResponse CopySnapshotResponse
      */
     public function copySnapshot($request)
     {
@@ -1291,10 +1343,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateARMServerInstancesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Creates an ARM server.
+     *  *
+     * @param CreateARMServerInstancesRequest $request CreateARMServerInstancesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateARMServerInstancesResponse
+     * @return CreateARMServerInstancesResponse CreateARMServerInstancesResponse
      */
     public function createARMServerInstancesWithOptions($request, $runtime)
     {
@@ -1364,9 +1418,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateARMServerInstancesRequest $request
+     * @summary Creates an ARM server.
+     *  *
+     * @param CreateARMServerInstancesRequest $request CreateARMServerInstancesRequest
      *
-     * @return CreateARMServerInstancesResponse
+     * @return CreateARMServerInstancesResponse CreateARMServerInstancesResponse
      */
     public function createARMServerInstances($request)
     {
@@ -1376,10 +1432,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates an edge application that allows you to manage Edge Node Service (ENS) nodes in containers, bare metal instances, and virtual machines.
+     *  *
+     * @param CreateApplicationRequest $request CreateApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplicationWithOptions($request, $runtime)
     {
@@ -1410,9 +1468,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
+     * @summary Creates an edge application that allows you to manage Edge Node Service (ENS) nodes in containers, bare metal instances, and virtual machines.
+     *  *
+     * @param CreateApplicationRequest $request CreateApplicationRequest
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplication($request)
     {
@@ -1422,10 +1482,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateClassicNetworkRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Creates a classic network
+     *  *
+     * @param CreateClassicNetworkRequest $request CreateClassicNetworkRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateClassicNetworkResponse
+     * @return CreateClassicNetworkResponse CreateClassicNetworkResponse
      */
     public function createClassicNetworkWithOptions($request, $runtime)
     {
@@ -1462,9 +1524,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateClassicNetworkRequest $request
+     * @summary Creates a classic network
+     *  *
+     * @param CreateClassicNetworkRequest $request CreateClassicNetworkRequest
      *
-     * @return CreateClassicNetworkResponse
+     * @return CreateClassicNetworkResponse CreateClassicNetworkResponse
      */
     public function createClassicNetwork($request)
     {
@@ -1474,10 +1538,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateDiskRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Creates a pay-as-you-go or subscription data disk.
+     *  *
+     * @param CreateDiskRequest $request CreateDiskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDiskResponse
+     * @return CreateDiskResponse CreateDiskResponse
      */
     public function createDiskWithOptions($request, $runtime)
     {
@@ -1526,9 +1592,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateDiskRequest $request
+     * @summary Creates a pay-as-you-go or subscription data disk.
+     *  *
+     * @param CreateDiskRequest $request CreateDiskRequest
      *
-     * @return CreateDiskResponse
+     * @return CreateDiskResponse CreateDiskResponse
      */
     public function createDisk($request)
     {
@@ -1538,9 +1606,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 5,000 times per second per account.
-     *   * *   You can call this operation up to 50 times per second per user.
-     *   *
+     * @summary Applies for an elastic IP address (EIP).
+     *  *
+     * @description *   You can call this operation up to 5,000 times per second per account.
+     * *   You can call this operation up to 50 times per second per user.
+     *  *
      * @param CreateEipInstanceRequest $request CreateEipInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1590,9 +1660,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 5,000 times per second per account.
-     *   * *   You can call this operation up to 50 times per second per user.
-     *   *
+     * @summary Applies for an elastic IP address (EIP).
+     *  *
+     * @description *   You can call this operation up to 5,000 times per second per account.
+     * *   You can call this operation up to 50 times per second per user.
+     *  *
      * @param CreateEipInstanceRequest $request CreateEipInstanceRequest
      *
      * @return CreateEipInstanceResponse CreateEipInstanceResponse
@@ -1605,10 +1677,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateEnsRouteEntryRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a custom route entry.
+     *  *
+     * @param CreateEnsRouteEntryRequest $request CreateEnsRouteEntryRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEnsRouteEntryResponse
+     * @return CreateEnsRouteEntryResponse CreateEnsRouteEntryResponse
      */
     public function createEnsRouteEntryWithOptions($request, $runtime)
     {
@@ -1651,9 +1725,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateEnsRouteEntryRequest $request
+     * @summary Creates a custom route entry.
+     *  *
+     * @param CreateEnsRouteEntryRequest $request CreateEnsRouteEntryRequest
      *
-     * @return CreateEnsRouteEntryResponse
+     * @return CreateEnsRouteEntryResponse CreateEnsRouteEntryResponse
      */
     public function createEnsRouteEntry($request)
     {
@@ -1663,10 +1739,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateEnsSaleControlRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary 创建售卖约束
+     *  *
+     * @param CreateEnsSaleControlRequest $tmpReq  CreateEnsSaleControlRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEnsSaleControlResponse
+     * @return CreateEnsSaleControlResponse CreateEnsSaleControlResponse
      */
     public function createEnsSaleControlWithOptions($tmpReq, $runtime)
     {
@@ -1705,9 +1783,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateEnsSaleControlRequest $request
+     * @summary 创建售卖约束
+     *  *
+     * @param CreateEnsSaleControlRequest $request CreateEnsSaleControlRequest
      *
-     * @return CreateEnsSaleControlResponse
+     * @return CreateEnsSaleControlResponse CreateEnsSaleControlResponse
      */
     public function createEnsSaleControl($request)
     {
@@ -1717,10 +1797,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateEnsServiceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates an edge service.
+     *  *
+     * @param CreateEnsServiceRequest $request CreateEnsServiceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEnsServiceResponse
+     * @return CreateEnsServiceResponse CreateEnsServiceResponse
      */
     public function createEnsServiceWithOptions($request, $runtime)
     {
@@ -1751,9 +1833,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateEnsServiceRequest $request
+     * @summary Creates an edge service.
+     *  *
+     * @param CreateEnsServiceRequest $request CreateEnsServiceRequest
      *
-     * @return CreateEnsServiceResponse
+     * @return CreateEnsServiceResponse CreateEnsServiceResponse
      */
     public function createEnsService($request)
     {
@@ -1763,10 +1847,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateEpnInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates an edge private network (EPN) instance.
+     *  *
+     * @param CreateEpnInstanceRequest $request CreateEpnInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEpnInstanceResponse
+     * @return CreateEpnInstanceResponse CreateEpnInstanceResponse
      */
     public function createEpnInstanceWithOptions($request, $runtime)
     {
@@ -1806,9 +1892,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateEpnInstanceRequest $request
+     * @summary Creates an edge private network (EPN) instance.
+     *  *
+     * @param CreateEpnInstanceRequest $request CreateEpnInstanceRequest
      *
-     * @return CreateEpnInstanceResponse
+     * @return CreateEpnInstanceResponse CreateEpnInstanceResponse
      */
     public function createEpnInstance($request)
     {
@@ -1818,10 +1906,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateFileSystemRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Creates a Network Attached Storage (NAS) file system.
+     *  *
+     * @param CreateFileSystemRequest $tmpReq  CreateFileSystemRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFileSystemResponse
+     * @return CreateFileSystemResponse CreateFileSystemResponse
      */
     public function createFileSystemWithOptions($tmpReq, $runtime)
     {
@@ -1851,9 +1941,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateFileSystemRequest $request
+     * @summary Creates a Network Attached Storage (NAS) file system.
+     *  *
+     * @param CreateFileSystemRequest $request CreateFileSystemRequest
      *
-     * @return CreateFileSystemResponse
+     * @return CreateFileSystemResponse CreateFileSystemResponse
      */
     public function createFileSystem($request)
     {
@@ -1863,10 +1955,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateForwardEntryRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Adds a Destination Network Address Translation (DNAT) entry to a DNAT table.
+     *  *
+     * @param CreateForwardEntryRequest $request CreateForwardEntryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateForwardEntryResponse
+     * @return CreateForwardEntryResponse CreateForwardEntryResponse
      */
     public function createForwardEntryWithOptions($request, $runtime)
     {
@@ -1918,9 +2012,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateForwardEntryRequest $request
+     * @summary Adds a Destination Network Address Translation (DNAT) entry to a DNAT table.
+     *  *
+     * @param CreateForwardEntryRequest $request CreateForwardEntryRequest
      *
-     * @return CreateForwardEntryResponse
+     * @return CreateForwardEntryResponse CreateForwardEntryResponse
      */
     public function createForwardEntry($request)
     {
@@ -1930,10 +2026,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates an image from an instance.
+     *  *
+     * @param CreateImageRequest $request CreateImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateImageResponse
+     * @return CreateImageResponse CreateImageResponse
      */
     public function createImageWithOptions($request, $runtime)
     {
@@ -1970,9 +2068,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateImageRequest $request
+     * @summary Creates an image from an instance.
+     *  *
+     * @param CreateImageRequest $request CreateImageRequest
      *
-     * @return CreateImageResponse
+     * @return CreateImageResponse CreateImageResponse
      */
     public function createImage($request)
     {
@@ -1982,10 +2082,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 10 times per second per account.
-     *   * *   We recommend that you increase the request time because instance creation is an asynchronous operation. If the return code of the API operation is 0, it indicates that the request is successful, but does not indicate that the instance is created. If the request is successful, an instance ID is returned. You can check whether the instance is created based on the instance ID.
-     *   * *   InvalidUserData.NotInWhiteList operation restriction: You can create an instance only if you are in the whitelist in which members have the purchase permissions. Otherwise, an error is returned.
-     *   *
+     * @summary Creates an instance.
+     *  *
+     * @description *   You can call this operation up to 10 times per second per account.
+     * *   We recommend that you increase the request time because instance creation is an asynchronous operation. If the return code of the API operation is 0, it indicates that the request is successful, but does not indicate that the instance is created. If the request is successful, an instance ID is returned. You can check whether the instance is created based on the instance ID.
+     * *   InvalidUserData.NotInWhiteList operation restriction: You can create an instance only if you are in the whitelist in which members have the purchase permissions. Otherwise, an error is returned.
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2083,10 +2185,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 10 times per second per account.
-     *   * *   We recommend that you increase the request time because instance creation is an asynchronous operation. If the return code of the API operation is 0, it indicates that the request is successful, but does not indicate that the instance is created. If the request is successful, an instance ID is returned. You can check whether the instance is created based on the instance ID.
-     *   * *   InvalidUserData.NotInWhiteList operation restriction: You can create an instance only if you are in the whitelist in which members have the purchase permissions. Otherwise, an error is returned.
-     *   *
+     * @summary Creates an instance.
+     *  *
+     * @description *   You can call this operation up to 10 times per second per account.
+     * *   We recommend that you increase the request time because instance creation is an asynchronous operation. If the return code of the API operation is 0, it indicates that the request is successful, but does not indicate that the instance is created. If the request is successful, an instance ID is returned. You can check whether the instance is created based on the instance ID.
+     * *   InvalidUserData.NotInWhiteList operation restriction: You can create an instance only if you are in the whitelist in which members have the purchase permissions. Otherwise, an error is returned.
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      *
      * @return CreateInstanceResponse CreateInstanceResponse
@@ -2099,10 +2203,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceActiveOpsTaskRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * @summary 调用CreateInstanceOpsTask来针对一个实例或实例运维组发起运维任务
+     *  *
+     * @param CreateInstanceActiveOpsTaskRequest $tmpReq  CreateInstanceActiveOpsTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceActiveOpsTaskResponse
+     * @return CreateInstanceActiveOpsTaskResponse CreateInstanceActiveOpsTaskResponse
      */
     public function createInstanceActiveOpsTaskWithOptions($tmpReq, $runtime)
     {
@@ -2135,9 +2241,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceActiveOpsTaskRequest $request
+     * @summary 调用CreateInstanceOpsTask来针对一个实例或实例运维组发起运维任务
+     *  *
+     * @param CreateInstanceActiveOpsTaskRequest $request CreateInstanceActiveOpsTaskRequest
      *
-     * @return CreateInstanceActiveOpsTaskResponse
+     * @return CreateInstanceActiveOpsTaskResponse CreateInstanceActiveOpsTaskResponse
      */
     public function createInstanceActiveOpsTask($request)
     {
@@ -2147,8 +2255,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * An SSH key pair consists of a public key and a private key. ENS stores the public key and returns the unencrypted private key that is PEM-encoded in the PKCS#8 format. You must securely lock away the private key.
-     *   *
+     * @summary Creates an SSH key pair.
+     *  *
+     * @description An SSH key pair consists of a public key and a private key. ENS stores the public key and returns the unencrypted private key that is PEM-encoded in the PKCS#8 format. You must securely lock away the private key.
+     *  *
      * @param CreateKeyPairRequest $request CreateKeyPairRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2180,8 +2290,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * An SSH key pair consists of a public key and a private key. ENS stores the public key and returns the unencrypted private key that is PEM-encoded in the PKCS#8 format. You must securely lock away the private key.
-     *   *
+     * @summary Creates an SSH key pair.
+     *  *
+     * @description An SSH key pair consists of a public key and a private key. ENS stores the public key and returns the unencrypted private key that is PEM-encoded in the PKCS#8 format. You must securely lock away the private key.
+     *  *
      * @param CreateKeyPairRequest $request CreateKeyPairRequest
      *
      * @return CreateKeyPairResponse CreateKeyPairResponse
@@ -2194,9 +2306,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   *
+     * @summary Creates an Edge Load Balancer (ELB) instance.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 5 times per second per user.
+     *  *
      * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -2243,9 +2357,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   *
+     * @summary Creates an Edge Load Balancer (ELB) instance.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 5 times per second per user.
+     *  *
      * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
      *
      * @return CreateLoadBalancerResponse CreateLoadBalancerResponse
@@ -2258,9 +2374,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Creates an HTTP listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param CreateLoadBalancerHTTPListenerRequest $request CreateLoadBalancerHTTPListenerRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -2346,9 +2464,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Creates an HTTP listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param CreateLoadBalancerHTTPListenerRequest $request CreateLoadBalancerHTTPListenerRequest
      *
      * @return CreateLoadBalancerHTTPListenerResponse CreateLoadBalancerHTTPListenerResponse
@@ -2361,9 +2481,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Creates an HTTPS listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param CreateLoadBalancerHTTPSListenerRequest $request CreateLoadBalancerHTTPSListenerRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -2458,9 +2580,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Creates an HTTPS listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param CreateLoadBalancerHTTPSListenerRequest $request CreateLoadBalancerHTTPSListenerRequest
      *
      * @return CreateLoadBalancerHTTPSListenerResponse CreateLoadBalancerHTTPSListenerResponse
@@ -2473,9 +2597,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Creates a Transmission Control Protocol (TCP) listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param CreateLoadBalancerTCPListenerRequest $request CreateLoadBalancerTCPListenerRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -2555,9 +2681,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Creates a Transmission Control Protocol (TCP) listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param CreateLoadBalancerTCPListenerRequest $request CreateLoadBalancerTCPListenerRequest
      *
      * @return CreateLoadBalancerTCPListenerResponse CreateLoadBalancerTCPListenerResponse
@@ -2570,9 +2698,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Creates a User Datagram Protocol (UDP) listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param CreateLoadBalancerUDPListenerRequest $request CreateLoadBalancerUDPListenerRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -2640,9 +2770,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Creates a User Datagram Protocol (UDP) listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param CreateLoadBalancerUDPListenerRequest $request CreateLoadBalancerUDPListenerRequest
      *
      * @return CreateLoadBalancerUDPListenerResponse CreateLoadBalancerUDPListenerResponse
@@ -2655,9 +2787,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * ## [](#)Precautions
-     *   * After you call this operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the Active state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-     *   *
+     * @summary Creates a mount target.
+     *  *
+     * @description ## [](#)Precautions
+     * After you call this operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the Active state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+     *  *
      * @param CreateMountTargetRequest $request CreateMountTargetRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2698,9 +2832,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * ## [](#)Precautions
-     *   * After you call this operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the Active state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
-     *   *
+     * @summary Creates a mount target.
+     *  *
+     * @description ## [](#)Precautions
+     * After you call this operation, a mount target is not immediately created. Therefore, we recommend that you call the DescribeMountTargets operation to query the status of the mount target. If the mount target is in the Active state, you can then mount the file system. Otherwise, the file system may fail to be mounted.
+     *  *
      * @param CreateMountTargetRequest $request CreateMountTargetRequest
      *
      * @return CreateMountTargetResponse CreateMountTargetResponse
@@ -2713,10 +2849,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateNatGatewayRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates a network address translation (NAT) gateway.
+     *  *
+     * @param CreateNatGatewayRequest $request CreateNatGatewayRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNatGatewayResponse
+     * @return CreateNatGatewayResponse CreateNatGatewayResponse
      */
     public function createNatGatewayWithOptions($request, $runtime)
     {
@@ -2756,9 +2894,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateNatGatewayRequest $request
+     * @summary Creates a network address translation (NAT) gateway.
+     *  *
+     * @param CreateNatGatewayRequest $request CreateNatGatewayRequest
      *
-     * @return CreateNatGatewayResponse
+     * @return CreateNatGatewayResponse CreateNatGatewayResponse
      */
     public function createNatGateway($request)
     {
@@ -2768,9 +2908,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   *
+     * @summary Creates a virtual private cloud (VPC).
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 5 times per second per user.
+     *  *
      * @param CreateNetworkRequest $request CreateNetworkRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2811,9 +2953,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   *
+     * @summary Creates a virtual private cloud (VPC).
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 5 times per second per user.
+     *  *
      * @param CreateNetworkRequest $request CreateNetworkRequest
      *
      * @return CreateNetworkResponse CreateNetworkResponse
@@ -2826,10 +2970,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkAclRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Creates a network access control list (ACL).
+     *  *
+     * @param CreateNetworkAclRequest $request CreateNetworkAclRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNetworkAclResponse
+     * @return CreateNetworkAclResponse CreateNetworkAclResponse
      */
     public function createNetworkAclWithOptions($request, $runtime)
     {
@@ -2860,9 +3006,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkAclRequest $request
+     * @summary Creates a network access control list (ACL).
+     *  *
+     * @param CreateNetworkAclRequest $request CreateNetworkAclRequest
      *
-     * @return CreateNetworkAclResponse
+     * @return CreateNetworkAclResponse CreateNetworkAclResponse
      */
     public function createNetworkAcl($request)
     {
@@ -2872,10 +3020,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkAclEntryRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates a network access control list (ACL) rule.
+     *  *
+     * @param CreateNetworkAclEntryRequest $request CreateNetworkAclEntryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNetworkAclEntryResponse
+     * @return CreateNetworkAclEntryResponse CreateNetworkAclEntryResponse
      */
     public function createNetworkAclEntryWithOptions($request, $runtime)
     {
@@ -2927,9 +3077,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkAclEntryRequest $request
+     * @summary Creates a network access control list (ACL) rule.
+     *  *
+     * @param CreateNetworkAclEntryRequest $request CreateNetworkAclEntryRequest
      *
-     * @return CreateNetworkAclEntryResponse
+     * @return CreateNetworkAclEntryResponse CreateNetworkAclEntryResponse
      */
     public function createNetworkAclEntry($request)
     {
@@ -2939,10 +3091,62 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateSecurityGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Creates a shared data group (SDG) by using a specific device.
+     *  *
+     * @description ## [](#)
+     * After you create an SDG, you must call the [SaveSDG](https://help.aliyun.com/document_detail/608126.html) operation to save the SDG. Otherwise, the SDG is unavailable.
+     *  *
+     * @param CreateSDGRequest $request CreateSDGRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSecurityGroupResponse
+     * @return CreateSDGResponse CreateSDGResponse
+     */
+    public function createSDGWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a shared data group (SDG) by using a specific device.
+     *  *
+     * @description ## [](#)
+     * After you create an SDG, you must call the [SaveSDG](https://help.aliyun.com/document_detail/608126.html) operation to save the SDG. Otherwise, the SDG is unavailable.
+     *  *
+     * @param CreateSDGRequest $request CreateSDGRequest
+     *
+     * @return CreateSDGResponse CreateSDGResponse
+     */
+    public function createSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSDGWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a security group.
+     *  *
+     * @param CreateSecurityGroupRequest $request CreateSecurityGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSecurityGroupResponse CreateSecurityGroupResponse
      */
     public function createSecurityGroupWithOptions($request, $runtime)
     {
@@ -2973,9 +3177,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateSecurityGroupRequest $request
+     * @summary Creates a security group.
+     *  *
+     * @param CreateSecurityGroupRequest $request CreateSecurityGroupRequest
      *
-     * @return CreateSecurityGroupResponse
+     * @return CreateSecurityGroupResponse CreateSecurityGroupResponse
      */
     public function createSecurityGroup($request)
     {
@@ -2985,10 +3191,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateSnapshotRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a snapshot.
+     *  *
+     * @param CreateSnapshotRequest $request CreateSnapshotRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSnapshotResponse
+     * @return CreateSnapshotResponse CreateSnapshotResponse
      */
     public function createSnapshotWithOptions($request, $runtime)
     {
@@ -3025,9 +3233,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateSnapshotRequest $request
+     * @summary Creates a snapshot.
+     *  *
+     * @param CreateSnapshotRequest $request CreateSnapshotRequest
      *
-     * @return CreateSnapshotResponse
+     * @return CreateSnapshotResponse CreateSnapshotResponse
      */
     public function createSnapshot($request)
     {
@@ -3037,10 +3247,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateSnatEntryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Adds a source network address translation (SNAT) entry to a specified SNAT table.
+     *  *
+     * @param CreateSnatEntryRequest $request CreateSnatEntryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSnatEntryResponse
+     * @return CreateSnatEntryResponse CreateSnatEntryResponse
      */
     public function createSnatEntryWithOptions($request, $runtime)
     {
@@ -3086,9 +3298,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateSnatEntryRequest $request
+     * @summary Adds a source network address translation (SNAT) entry to a specified SNAT table.
+     *  *
+     * @param CreateSnatEntryRequest $request CreateSnatEntryRequest
      *
-     * @return CreateSnatEntryResponse
+     * @return CreateSnatEntryResponse CreateSnatEntryResponse
      */
     public function createSnatEntry($request)
     {
@@ -3098,10 +3312,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateVSwitchRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Creates a vSwitch.
+     *  *
+     * @param CreateVSwitchRequest $request CreateVSwitchRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVSwitchResponse
+     * @return CreateVSwitchResponse CreateVSwitchResponse
      */
     public function createVSwitchWithOptions($request, $runtime)
     {
@@ -3141,9 +3357,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param CreateVSwitchRequest $request
+     * @summary Creates a vSwitch.
+     *  *
+     * @param CreateVSwitchRequest $request CreateVSwitchRequest
      *
-     * @return CreateVSwitchResponse
+     * @return CreateVSwitchResponse CreateVSwitchResponse
      */
     public function createVSwitch($request)
     {
@@ -3153,10 +3371,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Releases all containers and resource instances related to a specific application in an asynchronous manner.
+     *  *
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplicationWithOptions($request, $runtime)
     {
@@ -3187,9 +3407,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationRequest $request
+     * @summary Releases all containers and resource instances related to a specific application in an asynchronous manner.
+     *  *
+     * @param DeleteApplicationRequest $request DeleteApplicationRequest
      *
-     * @return DeleteApplicationResponse
+     * @return DeleteApplicationResponse DeleteApplicationResponse
      */
     public function deleteApplication($request)
     {
@@ -3199,10 +3421,15 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteBucketRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Deletes a bucket.
+     *  *
+     * @description *   Only the Alibaba Cloud Account ID owner of a bucket can delete the bucket from the account.
+     * *   You cannot delete buckets that store objects. You can only delete empty buckets.
+     *  *
+     * @param DeleteBucketRequest $request DeleteBucketRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBucketResponse
+     * @return DeleteBucketResponse DeleteBucketResponse
      */
     public function deleteBucketWithOptions($request, $runtime)
     {
@@ -3230,9 +3457,14 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteBucketRequest $request
+     * @summary Deletes a bucket.
+     *  *
+     * @description *   Only the Alibaba Cloud Account ID owner of a bucket can delete the bucket from the account.
+     * *   You cannot delete buckets that store objects. You can only delete empty buckets.
+     *  *
+     * @param DeleteBucketRequest $request DeleteBucketRequest
      *
-     * @return DeleteBucketResponse
+     * @return DeleteBucketResponse DeleteBucketResponse
      */
     public function deleteBucket($request)
     {
@@ -3242,10 +3474,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteBucketLifecycleRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes the lifecycle rules for objects in a bucket.
+     *  *
+     * @param DeleteBucketLifecycleRequest $request DeleteBucketLifecycleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBucketLifecycleResponse
+     * @return DeleteBucketLifecycleResponse DeleteBucketLifecycleResponse
      */
     public function deleteBucketLifecycleWithOptions($request, $runtime)
     {
@@ -3276,9 +3510,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteBucketLifecycleRequest $request
+     * @summary Deletes the lifecycle rules for objects in a bucket.
+     *  *
+     * @param DeleteBucketLifecycleRequest $request DeleteBucketLifecycleRequest
      *
-     * @return DeleteBucketLifecycleResponse
+     * @return DeleteBucketLifecycleResponse DeleteBucketLifecycleResponse
      */
     public function deleteBucketLifecycle($request)
     {
@@ -3288,10 +3524,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceInternetPortRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Deletes Network Address Translation (NAT) rules for a server or container based on the ID.
+     *  *
+     * @param DeleteDeviceInternetPortRequest $request DeleteDeviceInternetPortRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDeviceInternetPortResponse
+     * @return DeleteDeviceInternetPortResponse DeleteDeviceInternetPortResponse
      */
     public function deleteDeviceInternetPortWithOptions($request, $runtime)
     {
@@ -3316,9 +3554,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteDeviceInternetPortRequest $request
+     * @summary Deletes Network Address Translation (NAT) rules for a server or container based on the ID.
+     *  *
+     * @param DeleteDeviceInternetPortRequest $request DeleteDeviceInternetPortRequest
      *
-     * @return DeleteDeviceInternetPortResponse
+     * @return DeleteDeviceInternetPortResponse DeleteDeviceInternetPortResponse
      */
     public function deleteDeviceInternetPort($request)
     {
@@ -3328,8 +3568,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * When you release a disk, the disk must be in the Available state.
-     *   *
+     * @summary Deletes a disk.
+     *  *
+     * @description When you release a disk, the disk must be in the Available state.
+     *  *
      * @param DeleteDiskRequest $request DeleteDiskRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -3361,8 +3603,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * When you release a disk, the disk must be in the Available state.
-     *   *
+     * @summary Deletes a disk.
+     *  *
+     * @description When you release a disk, the disk must be in the Available state.
+     *  *
      * @param DeleteDiskRequest $request DeleteDiskRequest
      *
      * @return DeleteDiskResponse DeleteDiskResponse
@@ -3375,10 +3619,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnsRouteEntryRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes a custom route entry.
+     *  *
+     * @param DeleteEnsRouteEntryRequest $request DeleteEnsRouteEntryRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEnsRouteEntryResponse
+     * @return DeleteEnsRouteEntryResponse DeleteEnsRouteEntryResponse
      */
     public function deleteEnsRouteEntryWithOptions($request, $runtime)
     {
@@ -3406,9 +3652,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnsRouteEntryRequest $request
+     * @summary Deletes a custom route entry.
+     *  *
+     * @param DeleteEnsRouteEntryRequest $request DeleteEnsRouteEntryRequest
      *
-     * @return DeleteEnsRouteEntryResponse
+     * @return DeleteEnsRouteEntryResponse DeleteEnsRouteEntryResponse
      */
     public function deleteEnsRouteEntry($request)
     {
@@ -3418,10 +3666,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnsSaleConditionControlRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
+     * @summary 删除售卖约束的条件约束
+     *  *
+     * @param DeleteEnsSaleConditionControlRequest $tmpReq  DeleteEnsSaleConditionControlRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEnsSaleConditionControlResponse
+     * @return DeleteEnsSaleConditionControlResponse DeleteEnsSaleConditionControlResponse
      */
     public function deleteEnsSaleConditionControlWithOptions($tmpReq, $runtime)
     {
@@ -3460,9 +3710,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnsSaleConditionControlRequest $request
+     * @summary 删除售卖约束的条件约束
+     *  *
+     * @param DeleteEnsSaleConditionControlRequest $request DeleteEnsSaleConditionControlRequest
      *
-     * @return DeleteEnsSaleConditionControlResponse
+     * @return DeleteEnsSaleConditionControlResponse DeleteEnsSaleConditionControlResponse
      */
     public function deleteEnsSaleConditionControl($request)
     {
@@ -3472,10 +3724,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnsSaleControlRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary 删除售卖约束基础约束
+     *  *
+     * @param DeleteEnsSaleControlRequest $tmpReq  DeleteEnsSaleControlRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEnsSaleControlResponse
+     * @return DeleteEnsSaleControlResponse DeleteEnsSaleControlResponse
      */
     public function deleteEnsSaleControlWithOptions($tmpReq, $runtime)
     {
@@ -3514,9 +3768,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteEnsSaleControlRequest $request
+     * @summary 删除售卖约束基础约束
+     *  *
+     * @param DeleteEnsSaleControlRequest $request DeleteEnsSaleControlRequest
      *
-     * @return DeleteEnsSaleControlResponse
+     * @return DeleteEnsSaleControlResponse DeleteEnsSaleControlResponse
      */
     public function deleteEnsSaleControl($request)
     {
@@ -3526,8 +3782,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can delete an EPN instance only when the instance group information is empty.
-     *   *
+     * @summary Deletes an edge private network (EPN) instance.
+     *  *
+     * @description You can delete an EPN instance only when the instance group information is empty.
+     *  *
      * @param DeleteEpnInstanceRequest $request DeleteEpnInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3559,8 +3817,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * You can delete an EPN instance only when the instance group information is empty.
-     *   *
+     * @summary Deletes an edge private network (EPN) instance.
+     *  *
+     * @description You can delete an EPN instance only when the instance group information is empty.
+     *  *
      * @param DeleteEpnInstanceRequest $request DeleteEpnInstanceRequest
      *
      * @return DeleteEpnInstanceResponse DeleteEpnInstanceResponse
@@ -3573,10 +3833,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileSystemRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes a Network Attached Storage (NAS) file system.
+     *  *
+     * @param DeleteFileSystemRequest $request DeleteFileSystemRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFileSystemResponse
+     * @return DeleteFileSystemResponse DeleteFileSystemResponse
      */
     public function deleteFileSystemWithOptions($request, $runtime)
     {
@@ -3601,9 +3863,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteFileSystemRequest $request
+     * @summary Deletes a Network Attached Storage (NAS) file system.
+     *  *
+     * @param DeleteFileSystemRequest $request DeleteFileSystemRequest
      *
-     * @return DeleteFileSystemResponse
+     * @return DeleteFileSystemResponse DeleteFileSystemResponse
      */
     public function deleteFileSystem($request)
     {
@@ -3613,10 +3877,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteForwardEntryRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a Destination Network Address Translation (DNAT) entry from a specified DNAT table.
+     *  *
+     * @param DeleteForwardEntryRequest $request DeleteForwardEntryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteForwardEntryResponse
+     * @return DeleteForwardEntryResponse DeleteForwardEntryResponse
      */
     public function deleteForwardEntryWithOptions($request, $runtime)
     {
@@ -3644,9 +3910,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteForwardEntryRequest $request
+     * @summary Deletes a Destination Network Address Translation (DNAT) entry from a specified DNAT table.
+     *  *
+     * @param DeleteForwardEntryRequest $request DeleteForwardEntryRequest
      *
-     * @return DeleteForwardEntryResponse
+     * @return DeleteForwardEntryResponse DeleteForwardEntryResponse
      */
     public function deleteForwardEntry($request)
     {
@@ -3656,10 +3924,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Deletes a custom image.
+     *  *
+     * @param DeleteImageRequest $request DeleteImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteImageResponse
+     * @return DeleteImageResponse DeleteImageResponse
      */
     public function deleteImageWithOptions($request, $runtime)
     {
@@ -3687,9 +3957,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteImageRequest $request
+     * @summary Deletes a custom image.
+     *  *
+     * @param DeleteImageRequest $request DeleteImageRequest
      *
-     * @return DeleteImageResponse
+     * @return DeleteImageResponse DeleteImageResponse
      */
     public function deleteImage($request)
     {
@@ -3699,9 +3971,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
-     *   * *   If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
-     *   *
+     * @summary Deletes SSH key pairs.
+     *  *
+     * @description *   After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
+     * *   If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
+     *  *
      * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -3736,9 +4010,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
-     *   * *   If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
-     *   *
+     * @summary Deletes SSH key pairs.
+     *  *
+     * @description *   After you delete an SSH key pair, you can no longer query the key pair by calling the DescribeKeyPairs operation.
+     * *   If you delete an SSH key pair that is bound to an Edge Node Service (ENS) instance, ENS no longer stores the SSH key pair. However, you can still use the key pair to access the instance. When you call the DescribeInstance operation to query instance information, no other information but the name of the key pair (**KeyPairName**) is returned.
+     *  *
      * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
      *
      * @return DeleteKeyPairsResponse DeleteKeyPairsResponse
@@ -3751,9 +4027,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Deletes a listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DeleteLoadBalancerListenerRequest $request DeleteLoadBalancerListenerRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -3791,9 +4069,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Deletes a listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DeleteLoadBalancerListenerRequest $request DeleteLoadBalancerListenerRequest
      *
      * @return DeleteLoadBalancerListenerResponse DeleteLoadBalancerListenerResponse
@@ -3806,8 +4086,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
-     *   *
+     * @summary Deletes a mount target.
+     *  *
+     * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+     *  *
      * @param DeleteMountTargetRequest $request DeleteMountTargetRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3845,8 +4127,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * After you delete a mount target, the mount target cannot be restored. Proceed with caution.
-     *   *
+     * @summary Deletes a mount target.
+     *  *
+     * @description After you delete a mount target, the mount target cannot be restored. Proceed with caution.
+     *  *
      * @param DeleteMountTargetRequest $request DeleteMountTargetRequest
      *
      * @return DeleteMountTargetResponse DeleteMountTargetResponse
@@ -3859,10 +4143,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteNatGatewayRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes an Internet network address translation (NAT) gateway.
+     *  *
+     * @param DeleteNatGatewayRequest $request DeleteNatGatewayRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNatGatewayResponse
+     * @return DeleteNatGatewayResponse DeleteNatGatewayResponse
      */
     public function deleteNatGatewayWithOptions($request, $runtime)
     {
@@ -3890,9 +4176,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteNatGatewayRequest $request
+     * @summary Deletes an Internet network address translation (NAT) gateway.
+     *  *
+     * @param DeleteNatGatewayRequest $request DeleteNatGatewayRequest
      *
-     * @return DeleteNatGatewayResponse
+     * @return DeleteNatGatewayResponse DeleteNatGatewayResponse
      */
     public function deleteNatGateway($request)
     {
@@ -3902,10 +4190,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes a virtual private cloud (VPC).
+     *  *
+     * @param DeleteNetworkRequest $request DeleteNetworkRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNetworkResponse
+     * @return DeleteNetworkResponse DeleteNetworkResponse
      */
     public function deleteNetworkWithOptions($request, $runtime)
     {
@@ -3933,9 +4223,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkRequest $request
+     * @summary Deletes a virtual private cloud (VPC).
+     *  *
+     * @param DeleteNetworkRequest $request DeleteNetworkRequest
      *
-     * @return DeleteNetworkResponse
+     * @return DeleteNetworkResponse DeleteNetworkResponse
      */
     public function deleteNetwork($request)
     {
@@ -3945,10 +4237,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkAclRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes a network access control list (ACL).
+     *  *
+     * @param DeleteNetworkAclRequest $request DeleteNetworkAclRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNetworkAclResponse
+     * @return DeleteNetworkAclResponse DeleteNetworkAclResponse
      */
     public function deleteNetworkAclWithOptions($request, $runtime)
     {
@@ -3976,9 +4270,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkAclRequest $request
+     * @summary Deletes a network access control list (ACL).
+     *  *
+     * @param DeleteNetworkAclRequest $request DeleteNetworkAclRequest
      *
-     * @return DeleteNetworkAclResponse
+     * @return DeleteNetworkAclResponse DeleteNetworkAclResponse
      */
     public function deleteNetworkAcl($request)
     {
@@ -3988,10 +4284,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkAclEntryRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes a network access control list (ACL) rule.
+     *  *
+     * @param DeleteNetworkAclEntryRequest $request DeleteNetworkAclEntryRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNetworkAclEntryResponse
+     * @return DeleteNetworkAclEntryResponse DeleteNetworkAclEntryResponse
      */
     public function deleteNetworkAclEntryWithOptions($request, $runtime)
     {
@@ -4019,9 +4317,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkAclEntryRequest $request
+     * @summary Deletes a network access control list (ACL) rule.
+     *  *
+     * @param DeleteNetworkAclEntryRequest $request DeleteNetworkAclEntryRequest
      *
-     * @return DeleteNetworkAclEntryResponse
+     * @return DeleteNetworkAclEntryResponse DeleteNetworkAclEntryResponse
      */
     public function deleteNetworkAclEntry($request)
     {
@@ -4031,10 +4331,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteObjectRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Deletes an object.
+     *  *
+     * @param DeleteObjectRequest $request DeleteObjectRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteObjectResponse
+     * @return DeleteObjectResponse DeleteObjectResponse
      */
     public function deleteObjectWithOptions($request, $runtime)
     {
@@ -4065,9 +4367,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteObjectRequest $request
+     * @summary Deletes an object.
+     *  *
+     * @param DeleteObjectRequest $request DeleteObjectRequest
      *
-     * @return DeleteObjectResponse
+     * @return DeleteObjectResponse DeleteObjectResponse
      */
     public function deleteObject($request)
     {
@@ -4077,8 +4381,65 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Before you delete a security group, make sure that no instances exist in the security group.
-     *   *
+     * @summary Deletes a shared data group (SDG).
+     *  *
+     * @description ## [](#)
+     * If all the SDGs corresponding to the original disk are deleted, the original disk is automatically cleared.
+     *  *
+     * @param DeleteSDGRequest $tmpReq  DeleteSDGRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSDGResponse DeleteSDGResponse
+     */
+    public function deleteSDGWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteSDGShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->SDGId)) {
+            $request->SDGIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->SDGId, 'SDGId', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a shared data group (SDG).
+     *  *
+     * @description ## [](#)
+     * If all the SDGs corresponding to the original disk are deleted, the original disk is automatically cleared.
+     *  *
+     * @param DeleteSDGRequest $request DeleteSDGRequest
+     *
+     * @return DeleteSDGResponse DeleteSDGResponse
+     */
+    public function deleteSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSDGWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a security group.
+     *  *
+     * @description Before you delete a security group, make sure that no instances exist in the security group.
+     *  *
      * @param DeleteSecurityGroupRequest $request DeleteSecurityGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -4110,8 +4471,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Before you delete a security group, make sure that no instances exist in the security group.
-     *   *
+     * @summary Deletes a security group.
+     *  *
+     * @description Before you delete a security group, make sure that no instances exist in the security group.
+     *  *
      * @param DeleteSecurityGroupRequest $request DeleteSecurityGroupRequest
      *
      * @return DeleteSecurityGroupResponse DeleteSecurityGroupResponse
@@ -4124,10 +4487,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteSnapshotRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes a snapshot.
+     *  *
+     * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSnapshotResponse
+     * @return DeleteSnapshotResponse DeleteSnapshotResponse
      */
     public function deleteSnapshotWithOptions($request, $runtime)
     {
@@ -4155,9 +4520,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteSnapshotRequest $request
+     * @summary Deletes a snapshot.
+     *  *
+     * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      *
-     * @return DeleteSnapshotResponse
+     * @return DeleteSnapshotResponse DeleteSnapshotResponse
      */
     public function deleteSnapshot($request)
     {
@@ -4167,10 +4534,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteSnatEntryRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes a source network address translation (SNAT) entry from a specified SNAT table.
+     *  *
+     * @param DeleteSnatEntryRequest $request DeleteSnatEntryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSnatEntryResponse
+     * @return DeleteSnatEntryResponse DeleteSnatEntryResponse
      */
     public function deleteSnatEntryWithOptions($request, $runtime)
     {
@@ -4198,9 +4567,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteSnatEntryRequest $request
+     * @summary Deletes a source network address translation (SNAT) entry from a specified SNAT table.
+     *  *
+     * @param DeleteSnatEntryRequest $request DeleteSnatEntryRequest
      *
-     * @return DeleteSnatEntryResponse
+     * @return DeleteSnatEntryResponse DeleteSnatEntryResponse
      */
     public function deleteSnatEntry($request)
     {
@@ -4210,10 +4581,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteSnatIpForSnatEntryRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Deletes an elastic IP address (EIP) from a source network address translation (SNAT) entry.
+     *  *
+     * @param DeleteSnatIpForSnatEntryRequest $request DeleteSnatIpForSnatEntryRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSnatIpForSnatEntryResponse
+     * @return DeleteSnatIpForSnatEntryResponse DeleteSnatIpForSnatEntryResponse
      */
     public function deleteSnatIpForSnatEntryWithOptions($request, $runtime)
     {
@@ -4244,9 +4617,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeleteSnatIpForSnatEntryRequest $request
+     * @summary Deletes an elastic IP address (EIP) from a source network address translation (SNAT) entry.
+     *  *
+     * @param DeleteSnatIpForSnatEntryRequest $request DeleteSnatIpForSnatEntryRequest
      *
-     * @return DeleteSnatIpForSnatEntryResponse
+     * @return DeleteSnatIpForSnatEntryResponse DeleteSnatIpForSnatEntryResponse
      */
     public function deleteSnatIpForSnatEntry($request)
     {
@@ -4256,8 +4631,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Before you delete a vSwitch, make sure that no instances exist in the vSwitch.
-     *   *
+     * @summary Deletes a vSwitch.
+     *  *
+     * @description Before you delete a vSwitch, make sure that no instances exist in the vSwitch.
+     *  *
      * @param DeleteVSwitchRequest $request DeleteVSwitchRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -4289,8 +4666,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Before you delete a vSwitch, make sure that no instances exist in the vSwitch.
-     *   *
+     * @summary Deletes a vSwitch.
+     *  *
+     * @description Before you delete a vSwitch, make sure that no instances exist in the vSwitch.
+     *  *
      * @param DeleteVSwitchRequest $request DeleteVSwitchRequest
      *
      * @return DeleteVSwitchResponse DeleteVSwitchResponse
@@ -4303,10 +4682,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeploySDGRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary Deploys shared data groups (SDGs).
+     *  *
+     * @param DeploySDGRequest $tmpReq  DeploySDGRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeploySDGResponse
+     * @return DeploySDGResponse DeploySDGResponse
      */
     public function deploySDGWithOptions($tmpReq, $runtime)
     {
@@ -4336,9 +4717,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DeploySDGRequest $request
+     * @summary Deploys shared data groups (SDGs).
+     *  *
+     * @param DeploySDGRequest $request DeploySDGRequest
      *
-     * @return DeploySDGResponse
+     * @return DeploySDGResponse DeploySDGResponse
      */
     public function deploySDG($request)
     {
@@ -4348,10 +4731,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeAICImagesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries information about images of the Android in Container (AIC) instance.
+     *  *
+     * @param DescribeAICImagesRequest $request DescribeAICImagesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAICImagesResponse
+     * @return DescribeAICImagesResponse DescribeAICImagesResponse
      */
     public function describeAICImagesWithOptions($request, $runtime)
     {
@@ -4403,9 +4788,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeAICImagesRequest $request
+     * @summary Queries information about images of the Android in Container (AIC) instance.
+     *  *
+     * @param DescribeAICImagesRequest $request DescribeAICImagesRequest
      *
-     * @return DescribeAICImagesResponse
+     * @return DescribeAICImagesResponse DescribeAICImagesResponse
      */
     public function describeAICImages($request)
     {
@@ -4415,10 +4802,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeARMServerInstancesRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries information about ARM servers and Android in Container (AIC) instances.
+     *  *
+     * @param DescribeARMServerInstancesRequest $tmpReq  DescribeARMServerInstancesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeARMServerInstancesResponse
+     * @return DescribeARMServerInstancesResponse DescribeARMServerInstancesResponse
      */
     public function describeARMServerInstancesWithOptions($tmpReq, $runtime)
     {
@@ -4460,9 +4849,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeARMServerInstancesRequest $request
+     * @summary Queries information about ARM servers and Android in Container (AIC) instances.
+     *  *
+     * @param DescribeARMServerInstancesRequest $request DescribeARMServerInstancesRequest
      *
-     * @return DescribeARMServerInstancesResponse
+     * @return DescribeARMServerInstancesResponse DescribeARMServerInstancesResponse
      */
     public function describeARMServerInstances($request)
     {
@@ -4472,10 +4863,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the basic properties, resources, and container status of an application.
+     *  *
+     * @param DescribeApplicationRequest $request DescribeApplicationRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApplicationResponse
+     * @return DescribeApplicationResponse DescribeApplicationResponse
      */
     public function describeApplicationWithOptions($request, $runtime)
     {
@@ -4492,6 +4885,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->outDetailStatParams)) {
             $query['OutDetailStatParams'] = $request->outDetailStatParams;
+        }
+        if (!Utils::isUnset($request->resourceSelector)) {
+            $query['ResourceSelector'] = $request->resourceSelector;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4512,9 +4908,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationRequest $request
+     * @summary Queries the basic properties, resources, and container status of an application.
+     *  *
+     * @param DescribeApplicationRequest $request DescribeApplicationRequest
      *
-     * @return DescribeApplicationResponse
+     * @return DescribeApplicationResponse DescribeApplicationResponse
      */
     public function describeApplication($request)
     {
@@ -4524,10 +4922,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationResourceSummaryRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the total quota of resources and the resource usage in different region levels. You can perform resource scale-out based on this information.
+     *  *
+     * @param DescribeApplicationResourceSummaryRequest $request DescribeApplicationResourceSummaryRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeApplicationResourceSummaryResponse
+     * @return DescribeApplicationResourceSummaryResponse DescribeApplicationResourceSummaryResponse
      */
     public function describeApplicationResourceSummaryWithOptions($request, $runtime)
     {
@@ -4558,9 +4958,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeApplicationResourceSummaryRequest $request
+     * @summary Queries the total quota of resources and the resource usage in different region levels. You can perform resource scale-out based on this information.
+     *  *
+     * @param DescribeApplicationResourceSummaryRequest $request DescribeApplicationResourceSummaryRequest
      *
-     * @return DescribeApplicationResourceSummaryResponse
+     * @return DescribeApplicationResourceSummaryResponse DescribeApplicationResourceSummaryResponse
      */
     public function describeApplicationResourceSummary($request)
     {
@@ -4570,9 +4972,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the resources that can be created.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResourceWithOptions($runtime)
     {
@@ -4593,7 +4997,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @return DescribeAvailableResourceResponse
+     * @summary Queries the resources that can be created.
+     *  *
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResource()
     {
@@ -4603,9 +5009,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the specifications of resources that you can purchase when you create an instance.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableResourceInfoResponse
+     * @return DescribeAvailableResourceInfoResponse DescribeAvailableResourceInfoResponse
      */
     public function describeAvailableResourceInfoWithOptions($runtime)
     {
@@ -4626,7 +5034,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @return DescribeAvailableResourceInfoResponse
+     * @summary Queries the specifications of resources that you can purchase when you create an instance.
+     *  *
+     * @return DescribeAvailableResourceInfoResponse DescribeAvailableResourceInfoResponse
      */
     public function describeAvailableResourceInfo()
     {
@@ -4636,9 +5046,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries available bandwidth metering methods.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBandWithdChargeTypeResponse
+     * @return DescribeBandWithdChargeTypeResponse DescribeBandWithdChargeTypeResponse
      */
     public function describeBandWithdChargeTypeWithOptions($runtime)
     {
@@ -4659,7 +5071,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @return DescribeBandWithdChargeTypeResponse
+     * @summary Queries available bandwidth metering methods.
+     *  *
+     * @return DescribeBandWithdChargeTypeResponse DescribeBandWithdChargeTypeResponse
      */
     public function describeBandWithdChargeType()
     {
@@ -4669,10 +5083,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeBandwitdhByInternetChargeTypeRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries the metering method for the bandwidth.
+     *  *
+     * @param DescribeBandwitdhByInternetChargeTypeRequest $request DescribeBandwitdhByInternetChargeTypeRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBandwitdhByInternetChargeTypeResponse
+     * @return DescribeBandwitdhByInternetChargeTypeResponse DescribeBandwitdhByInternetChargeTypeResponse
      */
     public function describeBandwitdhByInternetChargeTypeWithOptions($request, $runtime)
     {
@@ -4709,9 +5125,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeBandwitdhByInternetChargeTypeRequest $request
+     * @summary Queries the metering method for the bandwidth.
+     *  *
+     * @param DescribeBandwitdhByInternetChargeTypeRequest $request DescribeBandwitdhByInternetChargeTypeRequest
      *
-     * @return DescribeBandwitdhByInternetChargeTypeResponse
+     * @return DescribeBandwitdhByInternetChargeTypeResponse DescribeBandwitdhByInternetChargeTypeResponse
      */
     public function describeBandwitdhByInternetChargeType($request)
     {
@@ -4721,9 +5139,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the available resources in a region.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudDiskAvailableResourceInfoResponse
+     * @return DescribeCloudDiskAvailableResourceInfoResponse DescribeCloudDiskAvailableResourceInfoResponse
      */
     public function describeCloudDiskAvailableResourceInfoWithOptions($runtime)
     {
@@ -4744,7 +5164,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @return DescribeCloudDiskAvailableResourceInfoResponse
+     * @summary Queries the available resources in a region.
+     *  *
+     * @return DescribeCloudDiskAvailableResourceInfoResponse DescribeCloudDiskAvailableResourceInfoResponse
      */
     public function describeCloudDiskAvailableResourceInfo()
     {
@@ -4754,10 +5176,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudDiskTypesRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the specifications of resources that you can purchase when you create an instance.
+     *  *
+     * @param DescribeCloudDiskTypesRequest $request DescribeCloudDiskTypesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCloudDiskTypesResponse
+     * @return DescribeCloudDiskTypesResponse DescribeCloudDiskTypesResponse
      */
     public function describeCloudDiskTypesWithOptions($request, $runtime)
     {
@@ -4782,9 +5206,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeCloudDiskTypesRequest $request
+     * @summary Queries the specifications of resources that you can purchase when you create an instance.
+     *  *
+     * @param DescribeCloudDiskTypesRequest $request DescribeCloudDiskTypesRequest
      *
-     * @return DescribeCloudDiskTypesResponse
+     * @return DescribeCloudDiskTypesResponse DescribeCloudDiskTypesResponse
      */
     public function describeCloudDiskTypes($request)
     {
@@ -4794,10 +5220,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeCreatePrePaidInstanceResultRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Queries the results of creating an instance.
+     *  *
+     * @param DescribeCreatePrePaidInstanceResultRequest $request DescribeCreatePrePaidInstanceResultRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCreatePrePaidInstanceResultResponse
+     * @return DescribeCreatePrePaidInstanceResultResponse DescribeCreatePrePaidInstanceResultResponse
      */
     public function describeCreatePrePaidInstanceResultWithOptions($request, $runtime)
     {
@@ -4825,9 +5253,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeCreatePrePaidInstanceResultRequest $request
+     * @summary Queries the results of creating an instance.
+     *  *
+     * @param DescribeCreatePrePaidInstanceResultRequest $request DescribeCreatePrePaidInstanceResultRequest
      *
-     * @return DescribeCreatePrePaidInstanceResultResponse
+     * @return DescribeCreatePrePaidInstanceResultResponse DescribeCreatePrePaidInstanceResultResponse
      */
     public function describeCreatePrePaidInstanceResult($request)
     {
@@ -4837,10 +5267,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataDistResultRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the distribution status of data files on edge instances of an application.
+     *  *
+     * @param DescribeDataDistResultRequest $tmpReq  DescribeDataDistResultRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataDistResultResponse
+     * @return DescribeDataDistResultResponse DescribeDataDistResultResponse
      */
     public function describeDataDistResultWithOptions($tmpReq, $runtime)
     {
@@ -4897,9 +5329,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataDistResultRequest $request
+     * @summary Queries the distribution status of data files on edge instances of an application.
+     *  *
+     * @param DescribeDataDistResultRequest $request DescribeDataDistResultRequest
      *
-     * @return DescribeDataDistResultResponse
+     * @return DescribeDataDistResultResponse DescribeDataDistResultResponse
      */
     public function describeDataDistResult($request)
     {
@@ -4909,10 +5343,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataDownloadURLRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the download URLs of application data on file servers and returns the file servers on which data is pushed.
+     *  *
+     * @param DescribeDataDownloadURLRequest $request DescribeDataDownloadURLRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataDownloadURLResponse
+     * @return DescribeDataDownloadURLResponse DescribeDataDownloadURLResponse
      */
     public function describeDataDownloadURLWithOptions($request, $runtime)
     {
@@ -4937,9 +5373,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataDownloadURLRequest $request
+     * @summary Queries the download URLs of application data on file servers and returns the file servers on which data is pushed.
+     *  *
+     * @param DescribeDataDownloadURLRequest $request DescribeDataDownloadURLRequest
      *
-     * @return DescribeDataDownloadURLResponse
+     * @return DescribeDataDownloadURLResponse DescribeDataDownloadURLResponse
      */
     public function describeDataDownloadURL($request)
     {
@@ -4949,10 +5387,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataPushResultRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the push status of application data files on Edge Node Service (ENS) nodes.
+     *  *
+     * @param DescribeDataPushResultRequest $request DescribeDataPushResultRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataPushResultResponse
+     * @return DescribeDataPushResultResponse DescribeDataPushResultResponse
      */
     public function describeDataPushResultWithOptions($request, $runtime)
     {
@@ -5001,9 +5441,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataPushResultRequest $request
+     * @summary Queries the push status of application data files on Edge Node Service (ENS) nodes.
+     *  *
+     * @param DescribeDataPushResultRequest $request DescribeDataPushResultRequest
      *
-     * @return DescribeDataPushResultResponse
+     * @return DescribeDataPushResultResponse DescribeDataPushResultResponse
      */
     public function describeDataPushResult($request)
     {
@@ -5013,10 +5455,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceServiceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the properties of instances and virtual devices in a specific edge application.
+     *  *
+     * @param DescribeDeviceServiceRequest $request DescribeDeviceServiceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDeviceServiceResponse
+     * @return DescribeDeviceServiceResponse DescribeDeviceServiceResponse
      */
     public function describeDeviceServiceWithOptions($request, $runtime)
     {
@@ -5041,9 +5485,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceServiceRequest $request
+     * @summary Queries the properties of instances and virtual devices in a specific edge application.
+     *  *
+     * @param DescribeDeviceServiceRequest $request DescribeDeviceServiceRequest
      *
-     * @return DescribeDeviceServiceResponse
+     * @return DescribeDeviceServiceResponse DescribeDeviceServiceResponse
      */
     public function describeDeviceService($request)
     {
@@ -5053,10 +5499,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeDisksRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the information about one or more disks.
+     *  *
+     * @param DescribeDisksRequest $request DescribeDisksRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDisksResponse
+     * @return DescribeDisksResponse DescribeDisksResponse
      */
     public function describeDisksWithOptions($request, $runtime)
     {
@@ -5126,9 +5574,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeDisksRequest $request
+     * @summary Queries the information about one or more disks.
+     *  *
+     * @param DescribeDisksRequest $request DescribeDisksRequest
      *
-     * @return DescribeDisksResponse
+     * @return DescribeDisksResponse DescribeDisksResponse
      */
     public function describeDisks($request)
     {
@@ -5138,10 +5588,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEipAddressesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the properties of elastic IP addresses (EIPs).
+     *  *
+     * @param DescribeEipAddressesRequest $request DescribeEipAddressesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEipAddressesResponse
+     * @return DescribeEipAddressesResponse DescribeEipAddressesResponse
      */
     public function describeEipAddressesWithOptions($request, $runtime)
     {
@@ -5172,9 +5624,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEipAddressesRequest $request
+     * @summary Queries the properties of elastic IP addresses (EIPs).
+     *  *
+     * @param DescribeEipAddressesRequest $request DescribeEipAddressesRequest
      *
-     * @return DescribeEipAddressesResponse
+     * @return DescribeEipAddressesResponse DescribeEipAddressesResponse
      */
     public function describeEipAddresses($request)
     {
@@ -5184,9 +5638,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the specifications of resources that you can purchase when you create an instance.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeElbAvailableResourceInfoResponse
+     * @return DescribeElbAvailableResourceInfoResponse DescribeElbAvailableResourceInfoResponse
      */
     public function describeElbAvailableResourceInfoWithOptions($runtime)
     {
@@ -5207,7 +5663,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @return DescribeElbAvailableResourceInfoResponse
+     * @summary Queries the specifications of resources that you can purchase when you create an instance.
+     *  *
+     * @return DescribeElbAvailableResourceInfoResponse DescribeElbAvailableResourceInfoResponse
      */
     public function describeElbAvailableResourceInfo()
     {
@@ -5217,10 +5675,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsCommodityCodeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 描述商品code
+     *  *
+     * @param DescribeEnsCommodityCodeRequest $request DescribeEnsCommodityCodeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsCommodityCodeResponse
+     * @return DescribeEnsCommodityCodeResponse DescribeEnsCommodityCodeResponse
      */
     public function describeEnsCommodityCodeWithOptions($request, $runtime)
     {
@@ -5248,9 +5708,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsCommodityCodeRequest $request
+     * @summary 描述商品code
+     *  *
+     * @param DescribeEnsCommodityCodeRequest $request DescribeEnsCommodityCodeRequest
      *
-     * @return DescribeEnsCommodityCodeResponse
+     * @return DescribeEnsCommodityCodeResponse DescribeEnsCommodityCodeResponse
      */
     public function describeEnsCommodityCode($request)
     {
@@ -5260,10 +5722,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsCommodityModuleCodeRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 获取模块code
+     *  *
+     * @param DescribeEnsCommodityModuleCodeRequest $request DescribeEnsCommodityModuleCodeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsCommodityModuleCodeResponse
+     * @return DescribeEnsCommodityModuleCodeResponse DescribeEnsCommodityModuleCodeResponse
      */
     public function describeEnsCommodityModuleCodeWithOptions($request, $runtime)
     {
@@ -5294,9 +5758,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsCommodityModuleCodeRequest $request
+     * @summary 获取模块code
+     *  *
+     * @param DescribeEnsCommodityModuleCodeRequest $request DescribeEnsCommodityModuleCodeRequest
      *
-     * @return DescribeEnsCommodityModuleCodeResponse
+     * @return DescribeEnsCommodityModuleCodeResponse DescribeEnsCommodityModuleCodeResponse
      */
     public function describeEnsCommodityModuleCode($request)
     {
@@ -5306,10 +5772,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsEipAddressesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries elastic IP addresses (EIPs).
+     *  *
+     * @param DescribeEnsEipAddressesRequest $request DescribeEnsEipAddressesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsEipAddressesResponse
+     * @return DescribeEnsEipAddressesResponse DescribeEnsEipAddressesResponse
      */
     public function describeEnsEipAddressesWithOptions($request, $runtime)
     {
@@ -5361,9 +5829,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsEipAddressesRequest $request
+     * @summary Queries elastic IP addresses (EIPs).
+     *  *
+     * @param DescribeEnsEipAddressesRequest $request DescribeEnsEipAddressesRequest
      *
-     * @return DescribeEnsEipAddressesResponse
+     * @return DescribeEnsEipAddressesResponse DescribeEnsEipAddressesResponse
      */
     public function describeEnsEipAddresses($request)
     {
@@ -5373,10 +5843,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsNetDistrictRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries regions in which ENS resources can be created.
+     *  *
+     * @param DescribeEnsNetDistrictRequest $request DescribeEnsNetDistrictRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsNetDistrictResponse
+     * @return DescribeEnsNetDistrictResponse DescribeEnsNetDistrictResponse
      */
     public function describeEnsNetDistrictWithOptions($request, $runtime)
     {
@@ -5407,9 +5879,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsNetDistrictRequest $request
+     * @summary Queries regions in which ENS resources can be created.
+     *  *
+     * @param DescribeEnsNetDistrictRequest $request DescribeEnsNetDistrictRequest
      *
-     * @return DescribeEnsNetDistrictResponse
+     * @return DescribeEnsNetDistrictResponse DescribeEnsNetDistrictResponse
      */
     public function describeEnsNetDistrict($request)
     {
@@ -5419,9 +5893,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the supported network levels.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsNetLevelResponse
+     * @return DescribeEnsNetLevelResponse DescribeEnsNetLevelResponse
      */
     public function describeEnsNetLevelWithOptions($runtime)
     {
@@ -5442,7 +5918,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @return DescribeEnsNetLevelResponse
+     * @summary Queries the supported network levels.
+     *  *
+     * @return DescribeEnsNetLevelResponse DescribeEnsNetLevelResponse
      */
     public function describeEnsNetLevel()
     {
@@ -5452,10 +5930,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsNetSaleDistrictRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the information about ISPs and number of ISPs in an area.
+     *  *
+     * @param DescribeEnsNetSaleDistrictRequest $request DescribeEnsNetSaleDistrictRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsNetSaleDistrictResponse
+     * @return DescribeEnsNetSaleDistrictResponse DescribeEnsNetSaleDistrictResponse
      */
     public function describeEnsNetSaleDistrictWithOptions($request, $runtime)
     {
@@ -5486,9 +5966,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsNetSaleDistrictRequest $request
+     * @summary Queries the information about ISPs and number of ISPs in an area.
+     *  *
+     * @param DescribeEnsNetSaleDistrictRequest $request DescribeEnsNetSaleDistrictRequest
      *
-     * @return DescribeEnsNetSaleDistrictResponse
+     * @return DescribeEnsNetSaleDistrictResponse DescribeEnsNetSaleDistrictResponse
      */
     public function describeEnsNetSaleDistrict($request)
     {
@@ -5498,10 +5980,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsRegionIdIpv6InfoRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries whether an edge node supports IPv6.
+     *  *
+     * @param DescribeEnsRegionIdIpv6InfoRequest $request DescribeEnsRegionIdIpv6InfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsRegionIdIpv6InfoResponse
+     * @return DescribeEnsRegionIdIpv6InfoResponse DescribeEnsRegionIdIpv6InfoResponse
      */
     public function describeEnsRegionIdIpv6InfoWithOptions($request, $runtime)
     {
@@ -5529,9 +6013,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsRegionIdIpv6InfoRequest $request
+     * @summary Queries whether an edge node supports IPv6.
+     *  *
+     * @param DescribeEnsRegionIdIpv6InfoRequest $request DescribeEnsRegionIdIpv6InfoRequest
      *
-     * @return DescribeEnsRegionIdIpv6InfoResponse
+     * @return DescribeEnsRegionIdIpv6InfoResponse DescribeEnsRegionIdIpv6InfoResponse
      */
     public function describeEnsRegionIdIpv6Info($request)
     {
@@ -5541,8 +6027,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary Queries node resources.
+     *  *
+     * @description ****
+     *  *
      * @param DescribeEnsRegionIdResourceRequest $request DescribeEnsRegionIdResourceRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -5589,8 +6077,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
+     * @summary Queries node resources.
+     *  *
+     * @description ****
+     *  *
      * @param DescribeEnsRegionIdResourceRequest $request DescribeEnsRegionIdResourceRequest
      *
      * @return DescribeEnsRegionIdResourceResponse DescribeEnsRegionIdResourceResponse
@@ -5603,10 +6093,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsRegionsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the Edge Node Service (ENS) nodes that you can use.
+     *  *
+     * @param DescribeEnsRegionsRequest $request DescribeEnsRegionsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsRegionsResponse
+     * @return DescribeEnsRegionsResponse DescribeEnsRegionsResponse
      */
     public function describeEnsRegionsWithOptions($request, $runtime)
     {
@@ -5634,9 +6126,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsRegionsRequest $request
+     * @summary Queries the Edge Node Service (ENS) nodes that you can use.
+     *  *
+     * @param DescribeEnsRegionsRequest $request DescribeEnsRegionsRequest
      *
-     * @return DescribeEnsRegionsResponse
+     * @return DescribeEnsRegionsResponse DescribeEnsRegionsResponse
      */
     public function describeEnsRegions($request)
     {
@@ -5646,10 +6140,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsResourceUsageRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the usage summary of ENS virtual machines (VMs), disks, and networks.
+     *  *
+     * @param DescribeEnsResourceUsageRequest $request DescribeEnsResourceUsageRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsResourceUsageResponse
+     * @return DescribeEnsResourceUsageResponse DescribeEnsResourceUsageResponse
      */
     public function describeEnsResourceUsageWithOptions($request, $runtime)
     {
@@ -5674,9 +6170,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsResourceUsageRequest $request
+     * @summary Queries the usage summary of ENS virtual machines (VMs), disks, and networks.
+     *  *
+     * @param DescribeEnsResourceUsageRequest $request DescribeEnsResourceUsageRequest
      *
-     * @return DescribeEnsResourceUsageResponse
+     * @return DescribeEnsResourceUsageResponse DescribeEnsResourceUsageResponse
      */
     public function describeEnsResourceUsage($request)
     {
@@ -5686,10 +6184,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsRouteEntryListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries route entries.
+     *  *
+     * @param DescribeEnsRouteEntryListRequest $request DescribeEnsRouteEntryListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsRouteEntryListResponse
+     * @return DescribeEnsRouteEntryListResponse DescribeEnsRouteEntryListResponse
      */
     public function describeEnsRouteEntryListWithOptions($request, $runtime)
     {
@@ -5741,9 +6241,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsRouteEntryListRequest $request
+     * @summary Queries route entries.
+     *  *
+     * @param DescribeEnsRouteEntryListRequest $request DescribeEnsRouteEntryListRequest
      *
-     * @return DescribeEnsRouteEntryListResponse
+     * @return DescribeEnsRouteEntryListResponse DescribeEnsRouteEntryListResponse
      */
     public function describeEnsRouteEntryList($request)
     {
@@ -5753,10 +6255,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsSaleControlRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 展示配置的售卖约束信息
+     *  *
+     * @param DescribeEnsSaleControlRequest $request DescribeEnsSaleControlRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsSaleControlResponse
+     * @return DescribeEnsSaleControlResponse DescribeEnsSaleControlResponse
      */
     public function describeEnsSaleControlWithOptions($request, $runtime)
     {
@@ -5796,9 +6300,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsSaleControlRequest $request
+     * @summary 展示配置的售卖约束信息
+     *  *
+     * @param DescribeEnsSaleControlRequest $request DescribeEnsSaleControlRequest
      *
-     * @return DescribeEnsSaleControlResponse
+     * @return DescribeEnsSaleControlResponse DescribeEnsSaleControlResponse
      */
     public function describeEnsSaleControl($request)
     {
@@ -5808,10 +6314,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsSaleControlAvailableResourceRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary 获取可用资源
+     *  *
+     * @param DescribeEnsSaleControlAvailableResourceRequest $request DescribeEnsSaleControlAvailableResourceRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsSaleControlAvailableResourceResponse
+     * @return DescribeEnsSaleControlAvailableResourceResponse DescribeEnsSaleControlAvailableResourceResponse
      */
     public function describeEnsSaleControlAvailableResourceWithOptions($request, $runtime)
     {
@@ -5845,9 +6353,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsSaleControlAvailableResourceRequest $request
+     * @summary 获取可用资源
+     *  *
+     * @param DescribeEnsSaleControlAvailableResourceRequest $request DescribeEnsSaleControlAvailableResourceRequest
      *
-     * @return DescribeEnsSaleControlAvailableResourceResponse
+     * @return DescribeEnsSaleControlAvailableResourceResponse DescribeEnsSaleControlAvailableResourceResponse
      */
     public function describeEnsSaleControlAvailableResource($request)
     {
@@ -5857,10 +6367,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsSaleControlStockRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 获取售卖约束库存
+     *  *
+     * @param DescribeEnsSaleControlStockRequest $request DescribeEnsSaleControlStockRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEnsSaleControlStockResponse
+     * @return DescribeEnsSaleControlStockResponse DescribeEnsSaleControlStockResponse
      */
     public function describeEnsSaleControlStockWithOptions($request, $runtime)
     {
@@ -5900,9 +6412,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEnsSaleControlStockRequest $request
+     * @summary 获取售卖约束库存
+     *  *
+     * @param DescribeEnsSaleControlStockRequest $request DescribeEnsSaleControlStockRequest
      *
-     * @return DescribeEnsSaleControlStockResponse
+     * @return DescribeEnsSaleControlStockResponse DescribeEnsSaleControlStockResponse
      */
     public function describeEnsSaleControlStock($request)
     {
@@ -5912,10 +6426,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEpnBandWidthDataRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the EPN bandwidth usage.
+     *  *
+     * @param DescribeEpnBandWidthDataRequest $request DescribeEpnBandWidthDataRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEpnBandWidthDataResponse
+     * @return DescribeEpnBandWidthDataResponse DescribeEpnBandWidthDataResponse
      */
     public function describeEpnBandWidthDataWithOptions($request, $runtime)
     {
@@ -5964,9 +6480,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEpnBandWidthDataRequest $request
+     * @summary Queries the EPN bandwidth usage.
+     *  *
+     * @param DescribeEpnBandWidthDataRequest $request DescribeEpnBandWidthDataRequest
      *
-     * @return DescribeEpnBandWidthDataResponse
+     * @return DescribeEpnBandWidthDataResponse DescribeEpnBandWidthDataResponse
      */
     public function describeEpnBandWidthData($request)
     {
@@ -5976,10 +6494,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEpnBandwitdhByInternetChargeTypeRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @summary Queries the metering method of the EPN bandwidth within a time period.
+     *  *
+     * @param DescribeEpnBandwitdhByInternetChargeTypeRequest $request DescribeEpnBandwitdhByInternetChargeTypeRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEpnBandwitdhByInternetChargeTypeResponse
+     * @return DescribeEpnBandwitdhByInternetChargeTypeResponse DescribeEpnBandwitdhByInternetChargeTypeResponse
      */
     public function describeEpnBandwitdhByInternetChargeTypeWithOptions($request, $runtime)
     {
@@ -6019,9 +6539,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEpnBandwitdhByInternetChargeTypeRequest $request
+     * @summary Queries the metering method of the EPN bandwidth within a time period.
+     *  *
+     * @param DescribeEpnBandwitdhByInternetChargeTypeRequest $request DescribeEpnBandwitdhByInternetChargeTypeRequest
      *
-     * @return DescribeEpnBandwitdhByInternetChargeTypeResponse
+     * @return DescribeEpnBandwitdhByInternetChargeTypeResponse DescribeEpnBandwitdhByInternetChargeTypeResponse
      */
     public function describeEpnBandwitdhByInternetChargeType($request)
     {
@@ -6031,8 +6553,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * In internal networking mode, the value of Instances is empty in the response. In public networking mode, the value of VSwitches is empty in the response.
-     *   *
+     * @summary Queries networking information about an EPN instance.
+     *  *
+     * @description In internal networking mode, the value of Instances is empty in the response. In public networking mode, the value of VSwitches is empty in the response.
+     *  *
      * @param DescribeEpnInstanceAttributeRequest $request DescribeEpnInstanceAttributeRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -6064,8 +6588,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * In internal networking mode, the value of Instances is empty in the response. In public networking mode, the value of VSwitches is empty in the response.
-     *   *
+     * @summary Queries networking information about an EPN instance.
+     *  *
+     * @description In internal networking mode, the value of Instances is empty in the response. In public networking mode, the value of VSwitches is empty in the response.
+     *  *
      * @param DescribeEpnInstanceAttributeRequest $request DescribeEpnInstanceAttributeRequest
      *
      * @return DescribeEpnInstanceAttributeResponse DescribeEpnInstanceAttributeResponse
@@ -6078,10 +6604,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEpnInstancesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries EPN instances.
+     *  *
+     * @param DescribeEpnInstancesRequest $request DescribeEpnInstancesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEpnInstancesResponse
+     * @return DescribeEpnInstancesResponse DescribeEpnInstancesResponse
      */
     public function describeEpnInstancesWithOptions($request, $runtime)
     {
@@ -6118,9 +6646,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEpnInstancesRequest $request
+     * @summary Queries EPN instances.
+     *  *
+     * @param DescribeEpnInstancesRequest $request DescribeEpnInstancesRequest
      *
-     * @return DescribeEpnInstancesResponse
+     * @return DescribeEpnInstancesResponse DescribeEpnInstancesResponse
      */
     public function describeEpnInstances($request)
     {
@@ -6130,10 +6660,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEpnMeasurementDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the metering data of the edge private network (EPN).
+     *  *
+     * @param DescribeEpnMeasurementDataRequest $request DescribeEpnMeasurementDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEpnMeasurementDataResponse
+     * @return DescribeEpnMeasurementDataResponse DescribeEpnMeasurementDataResponse
      */
     public function describeEpnMeasurementDataWithOptions($request, $runtime)
     {
@@ -6164,9 +6696,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeEpnMeasurementDataRequest $request
+     * @summary Queries the metering data of the edge private network (EPN).
+     *  *
+     * @param DescribeEpnMeasurementDataRequest $request DescribeEpnMeasurementDataRequest
      *
-     * @return DescribeEpnMeasurementDataResponse
+     * @return DescribeEpnMeasurementDataResponse DescribeEpnMeasurementDataResponse
      */
     public function describeEpnMeasurementData($request)
     {
@@ -6176,10 +6710,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
-     *   * *   Empty strings are returned for images that are not exported.
-     *   * *   The download links may become invalid if you delete objects in OSS.
-     *   *
+     * @summary Queries the export result of an image.
+     *  *
+     * @description *   You can call this operation to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
+     * *   Empty strings are returned for images that are not exported.
+     * *   The download links may become invalid if you delete objects in OSS.
+     *  *
      * @param DescribeExportImageInfoRequest $request DescribeExportImageInfoRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -6220,10 +6756,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
-     *   * *   Empty strings are returned for images that are not exported.
-     *   * *   The download links may become invalid if you delete objects in OSS.
-     *   *
+     * @summary Queries the export result of an image.
+     *  *
+     * @description *   You can call this operation to query information about all custom images in your account. The information include the image properties, image export status, and the Object Storage Service (OSS) download links.
+     * *   Empty strings are returned for images that are not exported.
+     * *   The download links may become invalid if you delete objects in OSS.
+     *  *
      * @param DescribeExportImageInfoRequest $request DescribeExportImageInfoRequest
      *
      * @return DescribeExportImageInfoResponse DescribeExportImageInfoResponse
@@ -6236,10 +6774,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeExportImageStatusRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the export status of an image.
+     *  *
+     * @param DescribeExportImageStatusRequest $request DescribeExportImageStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeExportImageStatusResponse
+     * @return DescribeExportImageStatusResponse DescribeExportImageStatusResponse
      */
     public function describeExportImageStatusWithOptions($request, $runtime)
     {
@@ -6267,9 +6807,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeExportImageStatusRequest $request
+     * @summary Queries the export status of an image.
+     *  *
+     * @param DescribeExportImageStatusRequest $request DescribeExportImageStatusRequest
      *
-     * @return DescribeExportImageStatusResponse
+     * @return DescribeExportImageStatusResponse DescribeExportImageStatusResponse
      */
     public function describeExportImageStatus($request)
     {
@@ -6279,10 +6821,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeFileSystemsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about file systems.
+     *  *
+     * @param DescribeFileSystemsRequest $request DescribeFileSystemsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFileSystemsResponse
+     * @return DescribeFileSystemsResponse DescribeFileSystemsResponse
      */
     public function describeFileSystemsWithOptions($request, $runtime)
     {
@@ -6307,9 +6851,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeFileSystemsRequest $request
+     * @summary Queries the information about file systems.
+     *  *
+     * @param DescribeFileSystemsRequest $request DescribeFileSystemsRequest
      *
-     * @return DescribeFileSystemsResponse
+     * @return DescribeFileSystemsResponse DescribeFileSystemsResponse
      */
     public function describeFileSystems($request)
     {
@@ -6319,10 +6865,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeForwardTableEntriesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries Destination Network Address Translation (DNAT) entries that you created.
+     *  *
+     * @param DescribeForwardTableEntriesRequest $request DescribeForwardTableEntriesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeForwardTableEntriesResponse
+     * @return DescribeForwardTableEntriesResponse DescribeForwardTableEntriesResponse
      */
     public function describeForwardTableEntriesWithOptions($request, $runtime)
     {
@@ -6371,9 +6919,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeForwardTableEntriesRequest $request
+     * @summary Queries Destination Network Address Translation (DNAT) entries that you created.
+     *  *
+     * @param DescribeForwardTableEntriesRequest $request DescribeForwardTableEntriesRequest
      *
-     * @return DescribeForwardTableEntriesResponse
+     * @return DescribeForwardTableEntriesResponse DescribeForwardTableEntriesResponse
      */
     public function describeForwardTableEntries($request)
     {
@@ -6383,10 +6933,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageInfosRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries available images.
+     *  *
+     * @param DescribeImageInfosRequest $request DescribeImageInfosRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageInfosResponse
+     * @return DescribeImageInfosResponse DescribeImageInfosResponse
      */
     public function describeImageInfosWithOptions($request, $runtime)
     {
@@ -6414,9 +6966,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageInfosRequest $request
+     * @summary Queries available images.
+     *  *
+     * @param DescribeImageInfosRequest $request DescribeImageInfosRequest
      *
-     * @return DescribeImageInfosResponse
+     * @return DescribeImageInfosResponse DescribeImageInfosResponse
      */
     public function describeImageInfos($request)
     {
@@ -6426,10 +6980,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageSharePermissionRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the accounts with which you share an image specified by the ImageId parameter.
+     *  *
+     * @param DescribeImageSharePermissionRequest $request DescribeImageSharePermissionRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImageSharePermissionResponse
+     * @return DescribeImageSharePermissionResponse DescribeImageSharePermissionResponse
      */
     public function describeImageSharePermissionWithOptions($request, $runtime)
     {
@@ -6466,9 +7022,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeImageSharePermissionRequest $request
+     * @summary Queries the accounts with which you share an image specified by the ImageId parameter.
+     *  *
+     * @param DescribeImageSharePermissionRequest $request DescribeImageSharePermissionRequest
      *
-     * @return DescribeImageSharePermissionResponse
+     * @return DescribeImageSharePermissionResponse DescribeImageSharePermissionResponse
      */
     public function describeImageSharePermission($request)
     {
@@ -6478,10 +7036,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeImagesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries available images.
+     *  *
+     * @param DescribeImagesRequest $request DescribeImagesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeImagesResponse
+     * @return DescribeImagesResponse DescribeImagesResponse
      */
     public function describeImagesWithOptions($request, $runtime)
     {
@@ -6527,9 +7087,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeImagesRequest $request
+     * @summary Queries available images.
+     *  *
+     * @param DescribeImagesRequest $request DescribeImagesRequest
      *
-     * @return DescribeImagesResponse
+     * @return DescribeImagesResponse DescribeImagesResponse
      */
     public function describeImages($request)
     {
@@ -6539,10 +7101,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAutoRenewAttributeRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary You can call this operation to query whether auto-renewal is enabled for an instance.
+     *  *
+     * @param DescribeInstanceAutoRenewAttributeRequest $request DescribeInstanceAutoRenewAttributeRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceAutoRenewAttributeResponse
+     * @return DescribeInstanceAutoRenewAttributeResponse DescribeInstanceAutoRenewAttributeResponse
      */
     public function describeInstanceAutoRenewAttributeWithOptions($request, $runtime)
     {
@@ -6573,9 +7137,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceAutoRenewAttributeRequest $request
+     * @summary You can call this operation to query whether auto-renewal is enabled for an instance.
+     *  *
+     * @param DescribeInstanceAutoRenewAttributeRequest $request DescribeInstanceAutoRenewAttributeRequest
      *
-     * @return DescribeInstanceAutoRenewAttributeResponse
+     * @return DescribeInstanceAutoRenewAttributeResponse DescribeInstanceAutoRenewAttributeResponse
      */
     public function describeInstanceAutoRenewAttribute($request)
     {
@@ -6585,10 +7151,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceMonitorDataRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the vCPU and memory usage of an instance.
+     *  *
+     * @param DescribeInstanceMonitorDataRequest $request DescribeInstanceMonitorDataRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceMonitorDataResponse
+     * @return DescribeInstanceMonitorDataResponse DescribeInstanceMonitorDataResponse
      */
     public function describeInstanceMonitorDataWithOptions($request, $runtime)
     {
@@ -6625,9 +7193,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceMonitorDataRequest $request
+     * @summary Queries the vCPU and memory usage of an instance.
+     *  *
+     * @param DescribeInstanceMonitorDataRequest $request DescribeInstanceMonitorDataRequest
      *
-     * @return DescribeInstanceMonitorDataResponse
+     * @return DescribeInstanceMonitorDataResponse DescribeInstanceMonitorDataResponse
      */
     public function describeInstanceMonitorData($request)
     {
@@ -6637,9 +7207,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the instance specifications that you can purchase.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceSpecResponse
+     * @return DescribeInstanceSpecResponse DescribeInstanceSpecResponse
      */
     public function describeInstanceSpecWithOptions($runtime)
     {
@@ -6660,7 +7232,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @return DescribeInstanceSpecResponse
+     * @summary Queries the instance specifications that you can purchase.
+     *  *
+     * @return DescribeInstanceSpecResponse DescribeInstanceSpecResponse
      */
     public function describeInstanceSpec()
     {
@@ -6670,9 +7244,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the specifications of instance types.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceTypesResponse
+     * @return DescribeInstanceTypesResponse DescribeInstanceTypesResponse
      */
     public function describeInstanceTypesWithOptions($runtime)
     {
@@ -6693,7 +7269,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @return DescribeInstanceTypesResponse
+     * @summary Queries the specifications of instance types.
+     *  *
+     * @return DescribeInstanceTypesResponse DescribeInstanceTypesResponse
      */
     public function describeInstanceTypes()
     {
@@ -6703,10 +7281,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceVncUrlRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the Virtual Network Computing (VNC) URL of an Edge Node Service (ENS) instance.
+     *  *
+     * @param DescribeInstanceVncUrlRequest $request DescribeInstanceVncUrlRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceVncUrlResponse
+     * @return DescribeInstanceVncUrlResponse DescribeInstanceVncUrlResponse
      */
     public function describeInstanceVncUrlWithOptions($request, $runtime)
     {
@@ -6734,9 +7314,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceVncUrlRequest $request
+     * @summary Queries the Virtual Network Computing (VNC) URL of an Edge Node Service (ENS) instance.
+     *  *
+     * @param DescribeInstanceVncUrlRequest $request DescribeInstanceVncUrlRequest
      *
-     * @return DescribeInstanceVncUrlResponse
+     * @return DescribeInstanceVncUrlResponse DescribeInstanceVncUrlResponse
      */
     public function describeInstanceVncUrl($request)
     {
@@ -6746,10 +7328,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 800 times per second per account.
-     *   * *   You can call this operation up to 100 times per second per user.
-     *   * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
-     *   *
+     * @summary Queries the details of one or more Edge Node Service (ENS) instances.
+     *  *
+     * @description *   You can call this operation up to 800 times per second per account.
+     * *   You can call this operation up to 100 times per second per user.
+     * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
+     *  *
      * @param DescribeInstancesRequest $tmpReq  DescribeInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -6837,10 +7421,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 800 times per second per account.
-     *   * *   You can call this operation up to 100 times per second per user.
-     *   * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
-     *   *
+     * @summary Queries the details of one or more Edge Node Service (ENS) instances.
+     *  *
+     * @description *   You can call this operation up to 800 times per second per account.
+     * *   You can call this operation up to 100 times per second per user.
+     * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions. However, if InstanceIds is set to an empty JSON array, it is regarded as a valid filter condition and an empty result is returned.
+     *  *
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
      * @return DescribeInstancesResponse DescribeInstancesResponse
@@ -6853,10 +7439,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeKeyPairsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries one or more key pairs.
+     *  *
+     * @param DescribeKeyPairsRequest $request DescribeKeyPairsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeKeyPairsResponse
+     * @return DescribeKeyPairsResponse DescribeKeyPairsResponse
      */
     public function describeKeyPairsWithOptions($request, $runtime)
     {
@@ -6893,9 +7481,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeKeyPairsRequest $request
+     * @summary Queries one or more key pairs.
+     *  *
+     * @param DescribeKeyPairsRequest $request DescribeKeyPairsRequest
      *
-     * @return DescribeKeyPairsResponse
+     * @return DescribeKeyPairsResponse DescribeKeyPairsResponse
      */
     public function describeKeyPairs($request)
     {
@@ -6905,10 +7495,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries detailed information about an Edge Load Balancer (ELB) instance.
+     *  *
+     * @description >
+     * *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancerAttributeRequest $request DescribeLoadBalancerAttributeRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -6940,10 +7532,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries detailed information about an Edge Load Balancer (ELB) instance.
+     *  *
+     * @description >
+     * *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancerAttributeRequest $request DescribeLoadBalancerAttributeRequest
      *
      * @return DescribeLoadBalancerAttributeResponse DescribeLoadBalancerAttributeResponse
@@ -6956,10 +7550,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries the configuration of an HTTP listener.
+     *  *
+     * @description >
+     * *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancerHTTPListenerAttributeRequest $request DescribeLoadBalancerHTTPListenerAttributeRequest
      * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
@@ -6994,10 +7590,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries the configuration of an HTTP listener.
+     *  *
+     * @description >
+     * *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancerHTTPListenerAttributeRequest $request DescribeLoadBalancerHTTPListenerAttributeRequest
      *
      * @return DescribeLoadBalancerHTTPListenerAttributeResponse DescribeLoadBalancerHTTPListenerAttributeResponse
@@ -7010,9 +7608,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries the configurations of an HTTPS listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancerHTTPSListenerAttributeRequest $request DescribeLoadBalancerHTTPSListenerAttributeRequest
      * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
@@ -7047,9 +7647,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries the configurations of an HTTPS listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancerHTTPSListenerAttributeRequest $request DescribeLoadBalancerHTTPSListenerAttributeRequest
      *
      * @return DescribeLoadBalancerHTTPSListenerAttributeResponse DescribeLoadBalancerHTTPSListenerAttributeResponse
@@ -7062,10 +7664,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerSpecRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the specifications of an Edge Load Balancer (ELB) instance.
+     *  *
+     * @param DescribeLoadBalancerSpecRequest $request DescribeLoadBalancerSpecRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLoadBalancerSpecResponse
+     * @return DescribeLoadBalancerSpecResponse DescribeLoadBalancerSpecResponse
      */
     public function describeLoadBalancerSpecWithOptions($request, $runtime)
     {
@@ -7090,9 +7694,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerSpecRequest $request
+     * @summary Queries the specifications of an Edge Load Balancer (ELB) instance.
+     *  *
+     * @param DescribeLoadBalancerSpecRequest $request DescribeLoadBalancerSpecRequest
      *
-     * @return DescribeLoadBalancerSpecResponse
+     * @return DescribeLoadBalancerSpecResponse DescribeLoadBalancerSpecResponse
      */
     public function describeLoadBalancerSpec($request)
     {
@@ -7102,9 +7708,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries the configurations of a Transmission Control Protocol (TCP) listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancerTCPListenerAttributeRequest $request DescribeLoadBalancerTCPListenerAttributeRequest
      * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
@@ -7139,9 +7747,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries the configurations of a Transmission Control Protocol (TCP) listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancerTCPListenerAttributeRequest $request DescribeLoadBalancerTCPListenerAttributeRequest
      *
      * @return DescribeLoadBalancerTCPListenerAttributeResponse DescribeLoadBalancerTCPListenerAttributeResponse
@@ -7154,9 +7764,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries the configuration of a User Datagram Protocol (UDP) listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancerUDPListenerAttributeRequest $request DescribeLoadBalancerUDPListenerAttributeRequest
      * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
@@ -7191,9 +7803,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries the configuration of a User Datagram Protocol (UDP) listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancerUDPListenerAttributeRequest $request DescribeLoadBalancerUDPListenerAttributeRequest
      *
      * @return DescribeLoadBalancerUDPListenerAttributeResponse DescribeLoadBalancerUDPListenerAttributeResponse
@@ -7206,9 +7820,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries Edge Load Balancer (ELB) instances.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancersRequest $request DescribeLoadBalancersRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -7237,9 +7853,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Queries Edge Load Balancer (ELB) instances.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param DescribeLoadBalancersRequest $request DescribeLoadBalancersRequest
      *
      * @return DescribeLoadBalancersResponse DescribeLoadBalancersResponse
@@ -7252,10 +7870,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeasurementDataRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the metering data of the user.
+     *  *
+     * @param DescribeMeasurementDataRequest $request DescribeMeasurementDataRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMeasurementDataResponse
+     * @return DescribeMeasurementDataResponse DescribeMeasurementDataResponse
      */
     public function describeMeasurementDataWithOptions($request, $runtime)
     {
@@ -7286,9 +7906,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeMeasurementDataRequest $request
+     * @summary Queries the metering data of the user.
+     *  *
+     * @param DescribeMeasurementDataRequest $request DescribeMeasurementDataRequest
      *
-     * @return DescribeMeasurementDataResponse
+     * @return DescribeMeasurementDataResponse DescribeMeasurementDataResponse
      */
     public function describeMeasurementData($request)
     {
@@ -7298,10 +7920,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeMountTargetsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the information about mount targets.
+     *  *
+     * @param DescribeMountTargetsRequest $request DescribeMountTargetsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMountTargetsResponse
+     * @return DescribeMountTargetsResponse DescribeMountTargetsResponse
      */
     public function describeMountTargetsWithOptions($request, $runtime)
     {
@@ -7341,9 +7965,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeMountTargetsRequest $request
+     * @summary Queries the information about mount targets.
+     *  *
+     * @param DescribeMountTargetsRequest $request DescribeMountTargetsRequest
      *
-     * @return DescribeMountTargetsResponse
+     * @return DescribeMountTargetsResponse DescribeMountTargetsResponse
      */
     public function describeMountTargets($request)
     {
@@ -7353,10 +7979,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeNCInformationRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 根据筛选条件获取指定NC属性和资源量信息
+     *  *
+     * @param DescribeNCInformationRequest $request DescribeNCInformationRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNCInformationResponse
+     * @return DescribeNCInformationResponse DescribeNCInformationResponse
      */
     public function describeNCInformationWithOptions($request, $runtime)
     {
@@ -7381,9 +8009,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeNCInformationRequest $request
+     * @summary 根据筛选条件获取指定NC属性和资源量信息
+     *  *
+     * @param DescribeNCInformationRequest $request DescribeNCInformationRequest
      *
-     * @return DescribeNCInformationResponse
+     * @return DescribeNCInformationResponse DescribeNCInformationResponse
      */
     public function describeNCInformation($request)
     {
@@ -7393,10 +8023,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeNatGatewaysRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries created Network Address Translation (NAT) gateways.
+     *  *
+     * @param DescribeNatGatewaysRequest $request DescribeNatGatewaysRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNatGatewaysResponse
+     * @return DescribeNatGatewaysResponse DescribeNatGatewaysResponse
      */
     public function describeNatGatewaysWithOptions($request, $runtime)
     {
@@ -7421,9 +8053,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeNatGatewaysRequest $request
+     * @summary Queries created Network Address Translation (NAT) gateways.
+     *  *
+     * @param DescribeNatGatewaysRequest $request DescribeNatGatewaysRequest
      *
-     * @return DescribeNatGatewaysResponse
+     * @return DescribeNatGatewaysResponse DescribeNatGatewaysResponse
      */
     public function describeNatGateways($request)
     {
@@ -7433,10 +8067,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkAclsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries network access control lists (ACLs).
+     *  *
+     * @param DescribeNetworkAclsRequest $request DescribeNetworkAclsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNetworkAclsResponse
+     * @return DescribeNetworkAclsResponse DescribeNetworkAclsResponse
      */
     public function describeNetworkAclsWithOptions($request, $runtime)
     {
@@ -7461,9 +8097,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkAclsRequest $request
+     * @summary Queries network access control lists (ACLs).
+     *  *
+     * @param DescribeNetworkAclsRequest $request DescribeNetworkAclsRequest
      *
-     * @return DescribeNetworkAclsResponse
+     * @return DescribeNetworkAclsResponse DescribeNetworkAclsResponse
      */
     public function describeNetworkAcls($request)
     {
@@ -7473,9 +8111,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
+     * @summary Queries the configuration of a specified network.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
+     *  *
      * @param DescribeNetworkAttributeRequest $request DescribeNetworkAttributeRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -7507,9 +8147,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
+     * @summary Queries the configuration of a specified network.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
+     *  *
      * @param DescribeNetworkAttributeRequest $request DescribeNetworkAttributeRequest
      *
      * @return DescribeNetworkAttributeResponse DescribeNetworkAttributeResponse
@@ -7522,10 +8164,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkInterfacesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries Elastic Network Interfaces (ENIs).
+     *  *
+     * @param DescribeNetworkInterfacesRequest $request DescribeNetworkInterfacesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNetworkInterfacesResponse
+     * @return DescribeNetworkInterfacesResponse DescribeNetworkInterfacesResponse
      */
     public function describeNetworkInterfacesWithOptions($request, $runtime)
     {
@@ -7586,9 +8230,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeNetworkInterfacesRequest $request
+     * @summary Queries Elastic Network Interfaces (ENIs).
+     *  *
+     * @param DescribeNetworkInterfacesRequest $request DescribeNetworkInterfacesRequest
      *
-     * @return DescribeNetworkInterfacesResponse
+     * @return DescribeNetworkInterfacesResponse DescribeNetworkInterfacesResponse
      */
     public function describeNetworkInterfaces($request)
     {
@@ -7598,9 +8244,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
+     * @summary Query the network list.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
+     *  *
      * @param DescribeNetworksRequest $request DescribeNetworksRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -7644,9 +8292,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
+     * @summary Query the network list.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
+     *  *
      * @param DescribeNetworksRequest $request DescribeNetworksRequest
      *
      * @return DescribeNetworksResponse DescribeNetworksResponse
@@ -7659,10 +8309,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribePrePaidInstanceStockRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the specifications of resources that you can purchase.
+     *  *
+     * @param DescribePrePaidInstanceStockRequest $request DescribePrePaidInstanceStockRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePrePaidInstanceStockResponse
+     * @return DescribePrePaidInstanceStockResponse DescribePrePaidInstanceStockResponse
      */
     public function describePrePaidInstanceStockWithOptions($request, $runtime)
     {
@@ -7699,9 +8351,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribePrePaidInstanceStockRequest $request
+     * @summary Queries the specifications of resources that you can purchase.
+     *  *
+     * @param DescribePrePaidInstanceStockRequest $request DescribePrePaidInstanceStockRequest
      *
-     * @return DescribePrePaidInstanceStockResponse
+     * @return DescribePrePaidInstanceStockResponse DescribePrePaidInstanceStockResponse
      */
     public function describePrePaidInstanceStock($request)
     {
@@ -7711,10 +8365,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the most recent price of an Edge Node Service (ENS) instance.
+     *  *
+     * @param DescribePriceRequest $tmpReq  DescribePriceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePriceWithOptions($tmpReq, $runtime)
     {
@@ -7771,9 +8427,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request
+     * @summary Queries the most recent price of an Edge Node Service (ENS) instance.
+     *  *
+     * @param DescribePriceRequest $request DescribePriceRequest
      *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePrice($request)
     {
@@ -7783,10 +8441,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionIspsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries information about the Internet service providers (ISPs) of edge nodes.
+     *  *
+     * @param DescribeRegionIspsRequest $request DescribeRegionIspsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionIspsResponse
+     * @return DescribeRegionIspsResponse DescribeRegionIspsResponse
      */
     public function describeRegionIspsWithOptions($request, $runtime)
     {
@@ -7811,9 +8471,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionIspsRequest $request
+     * @summary Queries information about the Internet service providers (ISPs) of edge nodes.
+     *  *
+     * @param DescribeRegionIspsRequest $request DescribeRegionIspsRequest
      *
-     * @return DescribeRegionIspsResponse
+     * @return DescribeRegionIspsResponse DescribeRegionIspsResponse
      */
     public function describeRegionIsps($request)
     {
@@ -7823,10 +8485,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionResourceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 获取区域节点资源量信息
+     *  *
+     * @param DescribeRegionResourceRequest $request DescribeRegionResourceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionResourceResponse
+     * @return DescribeRegionResourceResponse DescribeRegionResourceResponse
      */
     public function describeRegionResourceWithOptions($request, $runtime)
     {
@@ -7851,9 +8515,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionResourceRequest $request
+     * @summary 获取区域节点资源量信息
+     *  *
+     * @param DescribeRegionResourceRequest $request DescribeRegionResourceRequest
      *
-     * @return DescribeRegionResourceResponse
+     * @return DescribeRegionResourceResponse DescribeRegionResourceResponse
      */
     public function describeRegionResource($request)
     {
@@ -7863,9 +8529,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the specifications of resources that you can purchase.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeReservedResourceResponse
+     * @return DescribeReservedResourceResponse DescribeReservedResourceResponse
      */
     public function describeReservedResourceWithOptions($runtime)
     {
@@ -7886,7 +8554,9 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @return DescribeReservedResourceResponse
+     * @summary Queries the specifications of resources that you can purchase.
+     *  *
+     * @return DescribeReservedResourceResponse DescribeReservedResourceResponse
      */
     public function describeReservedResource()
     {
@@ -7896,10 +8566,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceTimelineRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 获取资源状态变化时间线
+     *  *
+     * @param DescribeResourceTimelineRequest $request DescribeResourceTimelineRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourceTimelineResponse
+     * @return DescribeResourceTimelineResponse DescribeResourceTimelineResponse
      */
     public function describeResourceTimelineWithOptions($request, $runtime)
     {
@@ -7924,9 +8596,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceTimelineRequest $request
+     * @summary 获取资源状态变化时间线
+     *  *
+     * @param DescribeResourceTimelineRequest $request DescribeResourceTimelineRequest
      *
-     * @return DescribeResourceTimelineResponse
+     * @return DescribeResourceTimelineResponse DescribeResourceTimelineResponse
      */
     public function describeResourceTimeline($request)
     {
@@ -7936,10 +8610,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSDGDeploymentStatusRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Queries the deployment status of the shared data group (SDG).
+     *  *
+     * @param DescribeSDGDeploymentStatusRequest $request DescribeSDGDeploymentStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSDGDeploymentStatusResponse
+     * @return DescribeSDGDeploymentStatusResponse DescribeSDGDeploymentStatusResponse
      */
     public function describeSDGDeploymentStatusWithOptions($request, $runtime)
     {
@@ -7964,9 +8640,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSDGDeploymentStatusRequest $request
+     * @summary Queries the deployment status of the shared data group (SDG).
+     *  *
+     * @param DescribeSDGDeploymentStatusRequest $request DescribeSDGDeploymentStatusRequest
      *
-     * @return DescribeSDGDeploymentStatusResponse
+     * @return DescribeSDGDeploymentStatusResponse DescribeSDGDeploymentStatusResponse
      */
     public function describeSDGDeploymentStatus($request)
     {
@@ -7976,10 +8654,64 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityGroupAttributeRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries information about created shared data groups (SDGs).
+     *  *
+     * @param DescribeSDGsRequest $tmpReq  DescribeSDGsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityGroupAttributeResponse
+     * @return DescribeSDGsResponse DescribeSDGsResponse
+     */
+    public function describeSDGsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeSDGsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->SDGIds)) {
+            $request->SDGIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->SDGIds, 'SDGIds', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSDGs',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSDGsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries information about created shared data groups (SDGs).
+     *  *
+     * @param DescribeSDGsRequest $request DescribeSDGsRequest
+     *
+     * @return DescribeSDGsResponse DescribeSDGsResponse
+     */
+    public function describeSDGs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSDGsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the rules of a security group.
+     *  *
+     * @param DescribeSecurityGroupAttributeRequest $request DescribeSecurityGroupAttributeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSecurityGroupAttributeResponse DescribeSecurityGroupAttributeResponse
      */
     public function describeSecurityGroupAttributeWithOptions($request, $runtime)
     {
@@ -8007,9 +8739,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityGroupAttributeRequest $request
+     * @summary Queries the rules of a security group.
+     *  *
+     * @param DescribeSecurityGroupAttributeRequest $request DescribeSecurityGroupAttributeRequest
      *
-     * @return DescribeSecurityGroupAttributeResponse
+     * @return DescribeSecurityGroupAttributeResponse DescribeSecurityGroupAttributeResponse
      */
     public function describeSecurityGroupAttribute($request)
     {
@@ -8019,10 +8753,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityGroupsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries details about created security groups.
+     *  *
+     * @param DescribeSecurityGroupsRequest $request DescribeSecurityGroupsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityGroupsResponse
+     * @return DescribeSecurityGroupsResponse DescribeSecurityGroupsResponse
      */
     public function describeSecurityGroupsWithOptions($request, $runtime)
     {
@@ -8059,9 +8795,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityGroupsRequest $request
+     * @summary Queries details about created security groups.
+     *  *
+     * @param DescribeSecurityGroupsRequest $request DescribeSecurityGroupsRequest
      *
-     * @return DescribeSecurityGroupsResponse
+     * @return DescribeSecurityGroupsResponse DescribeSecurityGroupsResponse
      */
     public function describeSecurityGroups($request)
     {
@@ -8071,10 +8809,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSelfImagesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries custom images.
+     *  *
+     * @param DescribeSelfImagesRequest $request DescribeSelfImagesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSelfImagesResponse
+     * @return DescribeSelfImagesResponse DescribeSelfImagesResponse
      */
     public function describeSelfImagesWithOptions($request, $runtime)
     {
@@ -8114,9 +8854,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSelfImagesRequest $request
+     * @summary Queries custom images.
+     *  *
+     * @param DescribeSelfImagesRequest $request DescribeSelfImagesRequest
      *
-     * @return DescribeSelfImagesResponse
+     * @return DescribeSelfImagesResponse DescribeSelfImagesResponse
      */
     public function describeSelfImages($request)
     {
@@ -8126,10 +8868,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeServcieScheduleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary You can call the DescribeServcieSchedule to query the real-time status of the instance device or container that is being occupied by the UUID.
+     *  *
+     * @param DescribeServcieScheduleRequest $request DescribeServcieScheduleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeServcieScheduleResponse
+     * @return DescribeServcieScheduleResponse DescribeServcieScheduleResponse
      */
     public function describeServcieScheduleWithOptions($request, $runtime)
     {
@@ -8163,9 +8907,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeServcieScheduleRequest $request
+     * @summary You can call the DescribeServcieSchedule to query the real-time status of the instance device or container that is being occupied by the UUID.
+     *  *
+     * @param DescribeServcieScheduleRequest $request DescribeServcieScheduleRequest
      *
-     * @return DescribeServcieScheduleResponse
+     * @return DescribeServcieScheduleResponse DescribeServcieScheduleResponse
      */
     public function describeServcieSchedule($request)
     {
@@ -8175,10 +8921,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnapshotsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries information about snapshots.
+     *  *
+     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSnapshotsResponse
+     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
      */
     public function describeSnapshotsWithOptions($request, $runtime)
     {
@@ -8221,9 +8969,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnapshotsRequest $request
+     * @summary Queries information about snapshots.
+     *  *
+     * @param DescribeSnapshotsRequest $request DescribeSnapshotsRequest
      *
-     * @return DescribeSnapshotsResponse
+     * @return DescribeSnapshotsResponse DescribeSnapshotsResponse
      */
     public function describeSnapshots($request)
     {
@@ -8233,10 +8983,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnatAttributeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the details of a specific source network address translation (SNAT) entry.
+     *  *
+     * @param DescribeSnatAttributeRequest $request DescribeSnatAttributeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSnatAttributeResponse
+     * @return DescribeSnatAttributeResponse DescribeSnatAttributeResponse
      */
     public function describeSnatAttributeWithOptions($request, $runtime)
     {
@@ -8264,9 +9016,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnatAttributeRequest $request
+     * @summary Queries the details of a specific source network address translation (SNAT) entry.
+     *  *
+     * @param DescribeSnatAttributeRequest $request DescribeSnatAttributeRequest
      *
-     * @return DescribeSnatAttributeResponse
+     * @return DescribeSnatAttributeResponse DescribeSnatAttributeResponse
      */
     public function describeSnatAttribute($request)
     {
@@ -8276,10 +9030,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnatTableEntriesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries source network address translation (SNAT) entries.
+     *  *
+     * @param DescribeSnatTableEntriesRequest $request DescribeSnatTableEntriesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSnatTableEntriesResponse
+     * @return DescribeSnatTableEntriesResponse DescribeSnatTableEntriesResponse
      */
     public function describeSnatTableEntriesWithOptions($request, $runtime)
     {
@@ -8304,9 +9060,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeSnatTableEntriesRequest $request
+     * @summary Queries source network address translation (SNAT) entries.
+     *  *
+     * @param DescribeSnatTableEntriesRequest $request DescribeSnatTableEntriesRequest
      *
-     * @return DescribeSnatTableEntriesResponse
+     * @return DescribeSnatTableEntriesResponse DescribeSnatTableEntriesResponse
      */
     public function describeSnatTableEntries($request)
     {
@@ -8316,10 +9074,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserBandWidthDataRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the bandwidth that you use within a specified period of time.
+     *  *
+     * @param DescribeUserBandWidthDataRequest $request DescribeUserBandWidthDataRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserBandWidthDataResponse
+     * @return DescribeUserBandWidthDataResponse DescribeUserBandWidthDataResponse
      */
     public function describeUserBandWidthDataWithOptions($request, $runtime)
     {
@@ -8362,9 +9122,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserBandWidthDataRequest $request
+     * @summary Queries the bandwidth that you use within a specified period of time.
+     *  *
+     * @param DescribeUserBandWidthDataRequest $request DescribeUserBandWidthDataRequest
      *
-     * @return DescribeUserBandWidthDataResponse
+     * @return DescribeUserBandWidthDataResponse DescribeUserBandWidthDataResponse
      */
     public function describeUserBandWidthData($request)
     {
@@ -8374,10 +9136,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeVSwitchesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries information about available vSwitches.
+     *  *
+     * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVSwitchesResponse
+     * @return DescribeVSwitchesResponse DescribeVSwitchesResponse
      */
     public function describeVSwitchesWithOptions($request, $runtime)
     {
@@ -8423,9 +9187,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeVSwitchesRequest $request
+     * @summary Queries information about available vSwitches.
+     *  *
+     * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
      *
-     * @return DescribeVSwitchesResponse
+     * @return DescribeVSwitchesResponse DescribeVSwitchesResponse
      */
     public function describeVSwitches($request)
     {
@@ -8435,129 +9201,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DescribeWorkflowRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Detaches a pay-as-you-go data disk or a system disk from an Elastic Compute Service (ECS) instance.
+     *  *
+     * @param DetachDiskRequest $request DetachDiskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWorkflowResponse
-     */
-    public function describeWorkflowWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
-        }
-        if (!Utils::isUnset($request->businessId)) {
-            $query['BusinessId'] = $request->businessId;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->ensRegionId)) {
-            $query['EnsRegionId'] = $request->ensRegionId;
-        }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->workFlowId)) {
-            $query['WorkFlowId'] = $request->workFlowId;
-        }
-        if (!Utils::isUnset($request->workFlowName)) {
-            $query['WorkFlowName'] = $request->workFlowName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeWorkflow',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeWorkflowRequest $request
-     *
-     * @return DescribeWorkflowResponse
-     */
-    public function describeWorkflow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeWorkflowWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeWorkflowActivityRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeWorkflowActivityResponse
-     */
-    public function describeWorkflowActivityWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->workFlowId)) {
-            $query['WorkFlowId'] = $request->workFlowId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeWorkflowActivity',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeWorkflowActivityResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeWorkflowActivityRequest $request
-     *
-     * @return DescribeWorkflowActivityResponse
-     */
-    public function describeWorkflowActivity($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeWorkflowActivityWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DetachDiskRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DetachDiskResponse
+     * @return DetachDiskResponse DetachDiskResponse
      */
     public function detachDiskWithOptions($request, $runtime)
     {
@@ -8588,9 +9237,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DetachDiskRequest $request
+     * @summary Detaches a pay-as-you-go data disk or a system disk from an Elastic Compute Service (ECS) instance.
+     *  *
+     * @param DetachDiskRequest $request DetachDiskRequest
      *
-     * @return DetachDiskResponse
+     * @return DetachDiskResponse DetachDiskResponse
      */
     public function detachDisk($request)
     {
@@ -8600,10 +9251,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DistApplicationDataRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Distributes pushed data to the Edge Node Service (ENS) instances of the application. You can specify multiple canary release policies, decompress files, and restart containers.
+     *  *
+     * @param DistApplicationDataRequest $request DistApplicationDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DistApplicationDataResponse
+     * @return DistApplicationDataResponse DistApplicationDataResponse
      */
     public function distApplicationDataWithOptions($request, $runtime)
     {
@@ -8637,9 +9290,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param DistApplicationDataRequest $request
+     * @summary Distributes pushed data to the Edge Node Service (ENS) instances of the application. You can specify multiple canary release policies, decompress files, and restart containers.
+     *  *
+     * @param DistApplicationDataRequest $request DistApplicationDataRequest
      *
-     * @return DistApplicationDataResponse
+     * @return DistApplicationDataResponse DistApplicationDataResponse
      */
     public function distApplicationData($request)
     {
@@ -8649,10 +9304,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ExportBillDetailDataRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Exports billing details within a specific time range.
+     *  *
+     * @param ExportBillDetailDataRequest $request ExportBillDetailDataRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportBillDetailDataResponse
+     * @return ExportBillDetailDataResponse ExportBillDetailDataResponse
      */
     public function exportBillDetailDataWithOptions($request, $runtime)
     {
@@ -8683,9 +9340,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ExportBillDetailDataRequest $request
+     * @summary Exports billing details within a specific time range.
+     *  *
+     * @param ExportBillDetailDataRequest $request ExportBillDetailDataRequest
      *
-     * @return ExportBillDetailDataResponse
+     * @return ExportBillDetailDataResponse ExportBillDetailDataResponse
      */
     public function exportBillDetailData($request)
     {
@@ -8695,10 +9354,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ExportImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Exports a custom image to an Object Storage Service (OSS) bucket in the same region.
+     *  *
+     * @param ExportImageRequest $request ExportImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportImageResponse
+     * @return ExportImageResponse ExportImageResponse
      */
     public function exportImageWithOptions($request, $runtime)
     {
@@ -8738,9 +9399,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ExportImageRequest $request
+     * @summary Exports a custom image to an Object Storage Service (OSS) bucket in the same region.
+     *  *
+     * @param ExportImageRequest $request ExportImageRequest
      *
-     * @return ExportImageResponse
+     * @return ExportImageResponse ExportImageResponse
      */
     public function exportImage($request)
     {
@@ -8750,10 +9413,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ExportMeasurementDataRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Exports the metering data within a specific time range.
+     *  *
+     * @param ExportMeasurementDataRequest $request ExportMeasurementDataRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExportMeasurementDataResponse
+     * @return ExportMeasurementDataResponse ExportMeasurementDataResponse
      */
     public function exportMeasurementDataWithOptions($request, $runtime)
     {
@@ -8784,9 +9449,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ExportMeasurementDataRequest $request
+     * @summary Exports the metering data within a specific time range.
+     *  *
+     * @param ExportMeasurementDataRequest $request ExportMeasurementDataRequest
      *
-     * @return ExportMeasurementDataResponse
+     * @return ExportMeasurementDataResponse ExportMeasurementDataResponse
      */
     public function exportMeasurementData($request)
     {
@@ -8796,10 +9463,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param GetBucketAclRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the access control list (ACL) of a bucket.
+     *  *
+     * @param GetBucketAclRequest $request GetBucketAclRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBucketAclResponse
+     * @return GetBucketAclResponse GetBucketAclResponse
      */
     public function getBucketAclWithOptions($request, $runtime)
     {
@@ -8824,9 +9493,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param GetBucketAclRequest $request
+     * @summary Queries the access control list (ACL) of a bucket.
+     *  *
+     * @param GetBucketAclRequest $request GetBucketAclRequest
      *
-     * @return GetBucketAclResponse
+     * @return GetBucketAclResponse GetBucketAclResponse
      */
     public function getBucketAcl($request)
     {
@@ -8836,10 +9507,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param GetBucketInfoRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the detailed information about a bucket.
+     *  *
+     * @param GetBucketInfoRequest $request GetBucketInfoRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBucketInfoResponse
+     * @return GetBucketInfoResponse GetBucketInfoResponse
      */
     public function getBucketInfoWithOptions($request, $runtime)
     {
@@ -8867,9 +9540,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param GetBucketInfoRequest $request
+     * @summary Queries the detailed information about a bucket.
+     *  *
+     * @param GetBucketInfoRequest $request GetBucketInfoRequest
      *
-     * @return GetBucketInfoResponse
+     * @return GetBucketInfoResponse GetBucketInfoResponse
      */
     public function getBucketInfo($request)
     {
@@ -8879,10 +9554,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param GetBucketLifecycleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries lifecycle rules.
+     *  *
+     * @param GetBucketLifecycleRequest $request GetBucketLifecycleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBucketLifecycleResponse
+     * @return GetBucketLifecycleResponse GetBucketLifecycleResponse
      */
     public function getBucketLifecycleWithOptions($request, $runtime)
     {
@@ -8913,9 +9590,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param GetBucketLifecycleRequest $request
+     * @summary Queries lifecycle rules.
+     *  *
+     * @param GetBucketLifecycleRequest $request GetBucketLifecycleRequest
      *
-     * @return GetBucketLifecycleResponse
+     * @return GetBucketLifecycleResponse GetBucketLifecycleResponse
      */
     public function getBucketLifecycle($request)
     {
@@ -8925,10 +9604,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceInternetPortRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the network address translation (NAT) rule details of a device such as a server or container by its ID.
+     *  *
+     * @param GetDeviceInternetPortRequest $request GetDeviceInternetPortRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDeviceInternetPortResponse
+     * @return GetDeviceInternetPortResponse GetDeviceInternetPortResponse
      */
     public function getDeviceInternetPortWithOptions($request, $runtime)
     {
@@ -8953,9 +9634,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceInternetPortRequest $request
+     * @summary Queries the network address translation (NAT) rule details of a device such as a server or container by its ID.
+     *  *
+     * @param GetDeviceInternetPortRequest $request GetDeviceInternetPortRequest
      *
-     * @return GetDeviceInternetPortResponse
+     * @return GetDeviceInternetPortResponse GetDeviceInternetPortResponse
      */
     public function getDeviceInternetPort($request)
     {
@@ -8965,10 +9648,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param GetOssStorageAndAccByBucketsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the storage usage in the previous billing cycle and the cumulative number of calls in this month.
+     *  *
+     * @param GetOssStorageAndAccByBucketsRequest $request GetOssStorageAndAccByBucketsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOssStorageAndAccByBucketsResponse
+     * @return GetOssStorageAndAccByBucketsResponse GetOssStorageAndAccByBucketsResponse
      */
     public function getOssStorageAndAccByBucketsWithOptions($request, $runtime)
     {
@@ -8993,9 +9678,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param GetOssStorageAndAccByBucketsRequest $request
+     * @summary Queries the storage usage in the previous billing cycle and the cumulative number of calls in this month.
+     *  *
+     * @param GetOssStorageAndAccByBucketsRequest $request GetOssStorageAndAccByBucketsRequest
      *
-     * @return GetOssStorageAndAccByBucketsResponse
+     * @return GetOssStorageAndAccByBucketsResponse GetOssStorageAndAccByBucketsResponse
      */
     public function getOssStorageAndAccByBuckets($request)
     {
@@ -9005,8 +9692,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
-     *   *
+     * @summary Queries the storage and bandwidth usage within a specific time range.
+     *  *
+     * @description The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
+     *  *
      * @param GetOssUsageDataRequest $request GetOssUsageDataRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -9035,8 +9724,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
-     *   *
+     * @summary Queries the storage and bandwidth usage within a specific time range.
+     *  *
+     * @description The query and aggregation granularity of bandwidth and storage usage cannot exceed one day. Data aggregation is to collect the maximum values of usage data within a period of time.
+     *  *
      * @param GetOssUsageDataRequest $request GetOssUsageDataRequest
      *
      * @return GetOssUsageDataResponse GetOssUsageDataResponse
@@ -9049,9 +9740,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   After the key pair is imported, ENS stores the public key. You must securely store the private key.
-     *   * *   The key pair can be only in the ssh-rsa format.
-     *   *
+     * @summary Imports the public key of a Rivest–Shamir–Adleman (RSA)-encrypted key pair that is generated by a third-party tool.
+     *  *
+     * @description *   After the key pair is imported, ENS stores the public key. You must securely store the private key.
+     * *   The key pair can be only in the ssh-rsa format.
+     *  *
      * @param ImportKeyPairRequest $request ImportKeyPairRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -9086,9 +9779,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   After the key pair is imported, ENS stores the public key. You must securely store the private key.
-     *   * *   The key pair can be only in the ssh-rsa format.
-     *   *
+     * @summary Imports the public key of a Rivest–Shamir–Adleman (RSA)-encrypted key pair that is generated by a third-party tool.
+     *  *
+     * @description *   After the key pair is imported, ENS stores the public key. You must securely store the private key.
+     * *   The key pair can be only in the ssh-rsa format.
+     *  *
      * @param ImportKeyPairRequest $request ImportKeyPairRequest
      *
      * @return ImportKeyPairResponse ImportKeyPairResponse
@@ -9101,10 +9796,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param JoinPublicIpsToEpnInstanceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Assigns public IP addresses to an EPN instance.
+     *  *
+     * @param JoinPublicIpsToEpnInstanceRequest $request JoinPublicIpsToEpnInstanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return JoinPublicIpsToEpnInstanceResponse
+     * @return JoinPublicIpsToEpnInstanceResponse JoinPublicIpsToEpnInstanceResponse
      */
     public function joinPublicIpsToEpnInstanceWithOptions($request, $runtime)
     {
@@ -9135,9 +9832,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param JoinPublicIpsToEpnInstanceRequest $request
+     * @summary Assigns public IP addresses to an EPN instance.
+     *  *
+     * @param JoinPublicIpsToEpnInstanceRequest $request JoinPublicIpsToEpnInstanceRequest
      *
-     * @return JoinPublicIpsToEpnInstanceResponse
+     * @return JoinPublicIpsToEpnInstanceResponse JoinPublicIpsToEpnInstanceResponse
      */
     public function joinPublicIpsToEpnInstance($request)
     {
@@ -9147,8 +9846,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Before you call this operation to add an instance to a security group, make sure that the instance is in the Stopped or Running state.
-     *   *
+     * @summary Adds an Edge Node Service (ENS) instance to a specified security group.
+     *  *
+     * @description Before you call this operation to add an instance to a security group, make sure that the instance is in the Stopped or Running state.
+     *  *
      * @param JoinSecurityGroupRequest $request JoinSecurityGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -9186,8 +9887,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Before you call this operation to add an instance to a security group, make sure that the instance is in the Stopped or Running state.
-     *   *
+     * @summary Adds an Edge Node Service (ENS) instance to a specified security group.
+     *  *
+     * @description Before you call this operation to add an instance to a security group, make sure that the instance is in the Stopped or Running state.
+     *  *
      * @param JoinSecurityGroupRequest $request JoinSecurityGroupRequest
      *
      * @return JoinSecurityGroupResponse JoinSecurityGroupResponse
@@ -9200,10 +9903,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param JoinVSwitchesToEpnInstanceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary For internal connections, instances that are associated with a vSwitch automatically take effect. For public connections such as intelligent acceleration, you need to manually add the instances.
+     *  *
+     * @param JoinVSwitchesToEpnInstanceRequest $request JoinVSwitchesToEpnInstanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return JoinVSwitchesToEpnInstanceResponse
+     * @return JoinVSwitchesToEpnInstanceResponse JoinVSwitchesToEpnInstanceResponse
      */
     public function joinVSwitchesToEpnInstanceWithOptions($request, $runtime)
     {
@@ -9234,9 +9939,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param JoinVSwitchesToEpnInstanceRequest $request
+     * @summary For internal connections, instances that are associated with a vSwitch automatically take effect. For public connections such as intelligent acceleration, you need to manually add the instances.
+     *  *
+     * @param JoinVSwitchesToEpnInstanceRequest $request JoinVSwitchesToEpnInstanceRequest
      *
-     * @return JoinVSwitchesToEpnInstanceResponse
+     * @return JoinVSwitchesToEpnInstanceResponse JoinVSwitchesToEpnInstanceResponse
      */
     public function joinVSwitchesToEpnInstance($request)
     {
@@ -9246,8 +9953,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Before you remove an instance from a security group, the instance must be in the Stopped or Running state.
-     *   *
+     * @summary Removes an instance from a security group.
+     *  *
+     * @description Before you remove an instance from a security group, the instance must be in the Stopped or Running state.
+     *  *
      * @param LeaveSecurityGroupRequest $request LeaveSecurityGroupRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -9285,8 +9994,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * Before you remove an instance from a security group, the instance must be in the Stopped or Running state.
-     *   *
+     * @summary Removes an instance from a security group.
+     *  *
+     * @description Before you remove an instance from a security group, the instance must be in the Stopped or Running state.
+     *  *
      * @param LeaveSecurityGroupRequest $request LeaveSecurityGroupRequest
      *
      * @return LeaveSecurityGroupResponse LeaveSecurityGroupResponse
@@ -9299,10 +10010,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the created applications.
+     *  *
+     * @param ListApplicationsRequest $request ListApplicationsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplicationsWithOptions($request, $runtime)
     {
@@ -9351,9 +10064,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $request
+     * @summary Queries the created applications.
+     *  *
+     * @param ListApplicationsRequest $request ListApplicationsRequest
      *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplications($request)
     {
@@ -9363,10 +10078,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ListBucketsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries all buckets of a user.
+     *  *
+     * @param ListBucketsRequest $request ListBucketsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListBucketsResponse
+     * @return ListBucketsResponse ListBucketsResponse
      */
     public function listBucketsWithOptions($request, $runtime)
     {
@@ -9400,9 +10117,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ListBucketsRequest $request
+     * @summary Queries all buckets of a user.
+     *  *
+     * @param ListBucketsRequest $request ListBucketsRequest
      *
-     * @return ListBucketsResponse
+     * @return ListBucketsResponse ListBucketsResponse
      */
     public function listBuckets($request)
     {
@@ -9412,10 +10131,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ListObjectsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Lists all objects in a bucket.
+     *  *
+     * @param ListObjectsRequest $request ListObjectsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListObjectsResponse
+     * @return ListObjectsResponse ListObjectsResponse
      */
     public function listObjectsWithOptions($request, $runtime)
     {
@@ -9461,9 +10182,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ListObjectsRequest $request
+     * @summary Lists all objects in a bucket.
+     *  *
+     * @param ListObjectsRequest $request ListObjectsRequest
      *
-     * @return ListObjectsResponse
+     * @return ListObjectsResponse ListObjectsResponse
      */
     public function listObjects($request)
     {
@@ -9473,10 +10196,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyEnsEipAddressAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Modifies the name, description, and peak bandwidth of a specified elastic IP address (EIP).
+     *  *
+     * @param ModifyEnsEipAddressAttributeRequest $request ModifyEnsEipAddressAttributeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyEnsEipAddressAttributeResponse
+     * @return ModifyEnsEipAddressAttributeResponse ModifyEnsEipAddressAttributeResponse
      */
     public function modifyEnsEipAddressAttributeWithOptions($request, $runtime)
     {
@@ -9513,9 +10238,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyEnsEipAddressAttributeRequest $request
+     * @summary Modifies the name, description, and peak bandwidth of a specified elastic IP address (EIP).
+     *  *
+     * @param ModifyEnsEipAddressAttributeRequest $request ModifyEnsEipAddressAttributeRequest
      *
-     * @return ModifyEnsEipAddressAttributeResponse
+     * @return ModifyEnsEipAddressAttributeResponse ModifyEnsEipAddressAttributeResponse
      */
     public function modifyEnsEipAddressAttribute($request)
     {
@@ -9525,10 +10252,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyEpnInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Modifies an Edge Private Network (EPN) instance.
+     *  *
+     * @param ModifyEpnInstanceRequest $request ModifyEpnInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyEpnInstanceResponse
+     * @return ModifyEpnInstanceResponse ModifyEpnInstanceResponse
      */
     public function modifyEpnInstanceWithOptions($request, $runtime)
     {
@@ -9565,9 +10294,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyEpnInstanceRequest $request
+     * @summary Modifies an Edge Private Network (EPN) instance.
+     *  *
+     * @param ModifyEpnInstanceRequest $request ModifyEpnInstanceRequest
      *
-     * @return ModifyEpnInstanceResponse
+     * @return ModifyEpnInstanceResponse ModifyEpnInstanceResponse
      */
     public function modifyEpnInstance($request)
     {
@@ -9577,10 +10308,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyFileSystemRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Modifies the description of a file system.
+     *  *
+     * @param ModifyFileSystemRequest $request ModifyFileSystemRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyFileSystemResponse
+     * @return ModifyFileSystemResponse ModifyFileSystemResponse
      */
     public function modifyFileSystemWithOptions($request, $runtime)
     {
@@ -9614,9 +10347,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyFileSystemRequest $request
+     * @summary Modifies the description of a file system.
+     *  *
+     * @param ModifyFileSystemRequest $request ModifyFileSystemRequest
      *
-     * @return ModifyFileSystemResponse
+     * @return ModifyFileSystemResponse ModifyFileSystemResponse
      */
     public function modifyFileSystem($request)
     {
@@ -9626,10 +10361,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyForwardEntryRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies a Destination Network Address Translation (DNAT) rule.
+     *  *
+     * @param ModifyForwardEntryRequest $request ModifyForwardEntryRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyForwardEntryResponse
+     * @return ModifyForwardEntryResponse ModifyForwardEntryResponse
      */
     public function modifyForwardEntryWithOptions($request, $runtime)
     {
@@ -9663,9 +10400,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyForwardEntryRequest $request
+     * @summary Modifies a Destination Network Address Translation (DNAT) rule.
+     *  *
+     * @param ModifyForwardEntryRequest $request ModifyForwardEntryRequest
      *
-     * @return ModifyForwardEntryResponse
+     * @return ModifyForwardEntryResponse ModifyForwardEntryResponse
      */
     public function modifyForwardEntry($request)
     {
@@ -9675,10 +10414,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyImageAttributeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Modifies the image attributes.
+     *  *
+     * @param ModifyImageAttributeRequest $request ModifyImageAttributeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyImageAttributeResponse
+     * @return ModifyImageAttributeResponse ModifyImageAttributeResponse
      */
     public function modifyImageAttributeWithOptions($request, $runtime)
     {
@@ -9709,9 +10450,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyImageAttributeRequest $request
+     * @summary Modifies the image attributes.
+     *  *
+     * @param ModifyImageAttributeRequest $request ModifyImageAttributeRequest
      *
-     * @return ModifyImageAttributeResponse
+     * @return ModifyImageAttributeResponse ModifyImageAttributeResponse
      */
     public function modifyImageAttribute($request)
     {
@@ -9721,10 +10464,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyImageSharePermissionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Shares or unshares an image.
+     *  *
+     * @param ModifyImageSharePermissionRequest $request ModifyImageSharePermissionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyImageSharePermissionResponse
+     * @return ModifyImageSharePermissionResponse ModifyImageSharePermissionResponse
      */
     public function modifyImageSharePermissionWithOptions($request, $runtime)
     {
@@ -9758,9 +10503,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyImageSharePermissionRequest $request
+     * @summary Shares or unshares an image.
+     *  *
+     * @param ModifyImageSharePermissionRequest $request ModifyImageSharePermissionRequest
      *
-     * @return ModifyImageSharePermissionResponse
+     * @return ModifyImageSharePermissionResponse ModifyImageSharePermissionResponse
      */
     public function modifyImageSharePermission($request)
     {
@@ -9770,10 +10517,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   If an instance is in the Starting state, you cannot reset the password of the instance.
-     *   * *   When the instance is in the Running state, you cannot change the password of the instance.
-     *   * *   After resetting the password, you must Restart the instance in the ECS console or call the RebootInstance operation to validate the modifications. The restart operation within the instance does not validate the modifications.
-     *   *
+     * @summary Changes the attributes of an instance, such as the name and the password.
+     *  *
+     * @description *   If an instance is in the Starting state, you cannot reset the password of the instance.
+     * *   When the instance is in the Running state, you cannot change the password of the instance.
+     * *   After resetting the password, you must Restart the instance in the ECS console or call the RebootInstance operation to validate the modifications. The restart operation within the instance does not validate the modifications.
+     *  *
      * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -9817,10 +10566,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   If an instance is in the Starting state, you cannot reset the password of the instance.
-     *   * *   When the instance is in the Running state, you cannot change the password of the instance.
-     *   * *   After resetting the password, you must Restart the instance in the ECS console or call the RebootInstance operation to validate the modifications. The restart operation within the instance does not validate the modifications.
-     *   *
+     * @summary Changes the attributes of an instance, such as the name and the password.
+     *  *
+     * @description *   If an instance is in the Starting state, you cannot reset the password of the instance.
+     * *   When the instance is in the Running state, you cannot change the password of the instance.
+     * *   After resetting the password, you must Restart the instance in the ECS console or call the RebootInstance operation to validate the modifications. The restart operation within the instance does not validate the modifications.
+     *  *
      * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      *
      * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
@@ -9833,10 +10584,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceAutoRenewAttributeRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Configures auto-renewal for instances.
+     *  *
+     * @param ModifyInstanceAutoRenewAttributeRequest $request ModifyInstanceAutoRenewAttributeRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceAutoRenewAttributeResponse
+     * @return ModifyInstanceAutoRenewAttributeResponse ModifyInstanceAutoRenewAttributeResponse
      */
     public function modifyInstanceAutoRenewAttributeWithOptions($request, $runtime)
     {
@@ -9876,9 +10629,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceAutoRenewAttributeRequest $request
+     * @summary Configures auto-renewal for instances.
+     *  *
+     * @param ModifyInstanceAutoRenewAttributeRequest $request ModifyInstanceAutoRenewAttributeRequest
      *
-     * @return ModifyInstanceAutoRenewAttributeResponse
+     * @return ModifyInstanceAutoRenewAttributeResponse ModifyInstanceAutoRenewAttributeResponse
      */
     public function modifyInstanceAutoRenewAttribute($request)
     {
@@ -9888,10 +10643,15 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceChargeTypeRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * @summary Changes the billing method of Edge Node Service (ENS) instances. You can switch between the pay-as-you-go and subscription billing methods for instances. You can also change the billing method for disks that you created with pay-as-you-go instances to subscription.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of ENS.
+     * The instances must be in the Running or Stopped state, and you have no overdue payments for them.
+     *  *
+     * @param ModifyInstanceChargeTypeRequest $tmpReq  ModifyInstanceChargeTypeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceChargeTypeResponse
+     * @return ModifyInstanceChargeTypeResponse ModifyInstanceChargeTypeResponse
      */
     public function modifyInstanceChargeTypeWithOptions($tmpReq, $runtime)
     {
@@ -9942,9 +10702,14 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceChargeTypeRequest $request
+     * @summary Changes the billing method of Edge Node Service (ENS) instances. You can switch between the pay-as-you-go and subscription billing methods for instances. You can also change the billing method for disks that you created with pay-as-you-go instances to subscription.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of ENS.
+     * The instances must be in the Running or Stopped state, and you have no overdue payments for them.
+     *  *
+     * @param ModifyInstanceChargeTypeRequest $request ModifyInstanceChargeTypeRequest
      *
-     * @return ModifyInstanceChargeTypeResponse
+     * @return ModifyInstanceChargeTypeResponse ModifyInstanceChargeTypeResponse
      */
     public function modifyInstanceChargeType($request)
     {
@@ -9954,9 +10719,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the information about an Edge Load Balancer (ELB) instance.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param ModifyLoadBalancerAttributeRequest $request ModifyLoadBalancerAttributeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -9991,9 +10758,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the information about an Edge Load Balancer (ELB) instance.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param ModifyLoadBalancerAttributeRequest $request ModifyLoadBalancerAttributeRequest
      *
      * @return ModifyLoadBalancerAttributeResponse ModifyLoadBalancerAttributeResponse
@@ -10006,9 +10775,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   *
+     * @summary Modifies the network information.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 5 times per second per user.
+     *  *
      * @param ModifyNetworkAttributeRequest $request ModifyNetworkAttributeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -10046,9 +10817,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   *
+     * @summary Modifies the network information.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 5 times per second per user.
+     *  *
      * @param ModifyNetworkAttributeRequest $request ModifyNetworkAttributeRequest
      *
      * @return ModifyNetworkAttributeResponse ModifyNetworkAttributeResponse
@@ -10061,10 +10834,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyPrepayInstanceSpecRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Upgrades or downgrades the instance type of a subscription Edge Node Service (ENS) instance. The new instance type takes effect for the remaining lifecycle of the instance.
+     *  *
+     * @param ModifyPrepayInstanceSpecRequest $request ModifyPrepayInstanceSpecRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPrepayInstanceSpecResponse
+     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpecWithOptions($request, $runtime)
     {
@@ -10095,9 +10870,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifyPrepayInstanceSpecRequest $request
+     * @summary Upgrades or downgrades the instance type of a subscription Edge Node Service (ENS) instance. The new instance type takes effect for the remaining lifecycle of the instance.
+     *  *
+     * @param ModifyPrepayInstanceSpecRequest $request ModifyPrepayInstanceSpecRequest
      *
-     * @return ModifyPrepayInstanceSpecResponse
+     * @return ModifyPrepayInstanceSpecResponse ModifyPrepayInstanceSpecResponse
      */
     public function modifyPrepayInstanceSpec($request)
     {
@@ -10107,9 +10884,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   *
+     * @summary Modifies the information about a security group.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 5 times per second per user.
+     *  *
      * @param ModifySecurityGroupAttributeRequest $request ModifySecurityGroupAttributeRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -10147,9 +10926,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   *
+     * @summary Modifies the information about a security group.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 5 times per second per user.
+     *  *
      * @param ModifySecurityGroupAttributeRequest $request ModifySecurityGroupAttributeRequest
      *
      * @return ModifySecurityGroupAttributeResponse ModifySecurityGroupAttributeResponse
@@ -10162,10 +10943,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifySnapshotAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the information about a snapshot.
+     *  *
+     * @param ModifySnapshotAttributeRequest $request ModifySnapshotAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySnapshotAttributeResponse
+     * @return ModifySnapshotAttributeResponse ModifySnapshotAttributeResponse
      */
     public function modifySnapshotAttributeWithOptions($request, $runtime)
     {
@@ -10199,9 +10982,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ModifySnapshotAttributeRequest $request
+     * @summary Modifies the information about a snapshot.
+     *  *
+     * @param ModifySnapshotAttributeRequest $request ModifySnapshotAttributeRequest
      *
-     * @return ModifySnapshotAttributeResponse
+     * @return ModifySnapshotAttributeResponse ModifySnapshotAttributeResponse
      */
     public function modifySnapshotAttribute($request)
     {
@@ -10211,9 +10996,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   *
+     * @summary Modifies information about a vSwitch.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 5 times per second per user.
+     *  *
      * @param ModifyVSwitchAttributeRequest $request ModifyVSwitchAttributeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -10251,9 +11038,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 5 times per second per user.
-     *   *
+     * @summary Modifies information about a vSwitch.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 5 times per second per user.
+     *  *
      * @param ModifyVSwitchAttributeRequest $request ModifyVSwitchAttributeRequest
      *
      * @return ModifyVSwitchAttributeResponse ModifyVSwitchAttributeResponse
@@ -10266,10 +11055,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param PushApplicationDataRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Pushes the business or service data of an application to file servers.
+     *  *
+     * @param PushApplicationDataRequest $request PushApplicationDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushApplicationDataResponse
+     * @return PushApplicationDataResponse PushApplicationDataResponse
      */
     public function pushApplicationDataWithOptions($request, $runtime)
     {
@@ -10306,9 +11097,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param PushApplicationDataRequest $request
+     * @summary Pushes the business or service data of an application to file servers.
+     *  *
+     * @param PushApplicationDataRequest $request PushApplicationDataRequest
      *
-     * @return PushApplicationDataResponse
+     * @return PushApplicationDataResponse PushApplicationDataResponse
      */
     public function pushApplicationData($request)
     {
@@ -10318,10 +11111,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param PutBucketRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Creates an EOS bucket.
+     *  *
+     * @param PutBucketRequest $request PutBucketRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutBucketResponse
+     * @return PutBucketResponse PutBucketResponse
      */
     public function putBucketWithOptions($request, $runtime)
     {
@@ -10361,9 +11156,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param PutBucketRequest $request
+     * @summary Creates an EOS bucket.
+     *  *
+     * @param PutBucketRequest $request PutBucketRequest
      *
-     * @return PutBucketResponse
+     * @return PutBucketResponse PutBucketResponse
      */
     public function putBucket($request)
     {
@@ -10373,10 +11170,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param PutBucketAclRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Modifies the access control list (ACL) of a bucket.
+     *  *
+     * @param PutBucketAclRequest $request PutBucketAclRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutBucketAclResponse
+     * @return PutBucketAclResponse PutBucketAclResponse
      */
     public function putBucketAclWithOptions($request, $runtime)
     {
@@ -10407,9 +11206,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param PutBucketAclRequest $request
+     * @summary Modifies the access control list (ACL) of a bucket.
+     *  *
+     * @param PutBucketAclRequest $request PutBucketAclRequest
      *
-     * @return PutBucketAclResponse
+     * @return PutBucketAclResponse PutBucketAclResponse
      */
     public function putBucketAcl($request)
     {
@@ -10419,9 +11220,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * - You can configure up to 1000 rules.
-     *   * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
-     *   *
+     * @summary Configures lifecycle rules for objects.
+     *  *
+     * @description - You can configure up to 1000 rules.
+     * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
+     *  *
      * @param PutBucketLifecycleRequest $request PutBucketLifecycleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -10471,9 +11274,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * - You can configure up to 1000 rules.
-     *   * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
-     *   *
+     * @summary Configures lifecycle rules for objects.
+     *  *
+     * @description - You can configure up to 1000 rules.
+     * - If an object meets multiple rules, the rule that has the earliest expiration time prevails.
+     *  *
      * @param PutBucketLifecycleRequest $request PutBucketLifecycleRequest
      *
      * @return PutBucketLifecycleResponse PutBucketLifecycleResponse
@@ -10486,10 +11291,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReInitDiskRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Initializes a disk.
+     *  *
+     * @param ReInitDiskRequest $request ReInitDiskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReInitDiskResponse
+     * @return ReInitDiskResponse ReInitDiskResponse
      */
     public function reInitDiskWithOptions($request, $runtime)
     {
@@ -10520,9 +11327,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReInitDiskRequest $request
+     * @summary Initializes a disk.
+     *  *
+     * @param ReInitDiskRequest $request ReInitDiskRequest
      *
-     * @return ReInitDiskResponse
+     * @return ReInitDiskResponse ReInitDiskResponse
      */
     public function reInitDisk($request)
     {
@@ -10532,10 +11341,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RebootAICInstanceRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary Restarts an Android in Container (AIC) instance.
+     *  *
+     * @param RebootAICInstanceRequest $tmpReq  RebootAICInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RebootAICInstanceResponse
+     * @return RebootAICInstanceResponse RebootAICInstanceResponse
      */
     public function rebootAICInstanceWithOptions($tmpReq, $runtime)
     {
@@ -10565,9 +11376,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RebootAICInstanceRequest $request
+     * @summary Restarts an Android in Container (AIC) instance.
+     *  *
+     * @param RebootAICInstanceRequest $request RebootAICInstanceRequest
      *
-     * @return RebootAICInstanceResponse
+     * @return RebootAICInstanceResponse RebootAICInstanceResponse
      */
     public function rebootAICInstance($request)
     {
@@ -10577,10 +11390,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RebootARMServerInstanceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Reboots an Android in Container (AIC) server.
+     *  *
+     * @param RebootARMServerInstanceRequest $request RebootARMServerInstanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RebootARMServerInstanceResponse
+     * @return RebootARMServerInstanceResponse RebootARMServerInstanceResponse
      */
     public function rebootARMServerInstanceWithOptions($request, $runtime)
     {
@@ -10605,9 +11420,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RebootARMServerInstanceRequest $request
+     * @summary Reboots an Android in Container (AIC) server.
+     *  *
+     * @param RebootARMServerInstanceRequest $request RebootARMServerInstanceRequest
      *
-     * @return RebootARMServerInstanceResponse
+     * @return RebootARMServerInstanceResponse RebootARMServerInstanceResponse
      */
     public function rebootARMServerInstance($request)
     {
@@ -10617,9 +11434,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   Only instances that are in the Running state can be restarted.
-     *   * *   If the operation is successful, the status of the instance becomes Starting.
-     *   *
+     * @summary Reboots an instance.
+     *  *
+     * @description *   Only instances that are in the Running state can be restarted.
+     * *   If the operation is successful, the status of the instance becomes Starting.
+     *  *
      * @param RebootInstanceRequest $request RebootInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -10654,9 +11473,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   Only instances that are in the Running state can be restarted.
-     *   * *   If the operation is successful, the status of the instance becomes Starting.
-     *   *
+     * @summary Reboots an instance.
+     *  *
+     * @description *   Only instances that are in the Running state can be restarted.
+     * *   If the operation is successful, the status of the instance becomes Starting.
+     *  *
      * @param RebootInstanceRequest $request RebootInstanceRequest
      *
      * @return RebootInstanceResponse RebootInstanceResponse
@@ -10669,10 +11490,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RebootInstancesRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary 选择批量实例进行重启操作
+     *  *
+     * @param RebootInstancesRequest $tmpReq  RebootInstancesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RebootInstancesResponse
+     * @return RebootInstancesResponse RebootInstancesResponse
      */
     public function rebootInstancesWithOptions($tmpReq, $runtime)
     {
@@ -10705,9 +11528,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RebootInstancesRequest $request
+     * @summary 选择批量实例进行重启操作
+     *  *
+     * @param RebootInstancesRequest $request RebootInstancesRequest
      *
-     * @return RebootInstancesResponse
+     * @return RebootInstancesResponse RebootInstancesResponse
      */
     public function rebootInstances($request)
     {
@@ -10717,10 +11542,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RecoverAICInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Recovers an Android in Container (AIC) instance on the server.
+     *  *
+     * @param RecoverAICInstanceRequest $request RecoverAICInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RecoverAICInstanceResponse
+     * @return RecoverAICInstanceResponse RecoverAICInstanceResponse
      */
     public function recoverAICInstanceWithOptions($request, $runtime)
     {
@@ -10745,9 +11572,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RecoverAICInstanceRequest $request
+     * @summary Recovers an Android in Container (AIC) instance on the server.
+     *  *
+     * @param RecoverAICInstanceRequest $request RecoverAICInstanceRequest
      *
-     * @return RecoverAICInstanceResponse
+     * @return RecoverAICInstanceResponse RecoverAICInstanceResponse
      */
     public function recoverAICInstance($request)
     {
@@ -10757,10 +11586,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReinitInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Resets an instance based on specific parameters.
+     *  *
+     * @param ReinitInstanceRequest $request ReinitInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReinitInstanceResponse
+     * @return ReinitInstanceResponse ReinitInstanceResponse
      */
     public function reinitInstanceWithOptions($request, $runtime)
     {
@@ -10794,9 +11625,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReinitInstanceRequest $request
+     * @summary Resets an instance based on specific parameters.
+     *  *
+     * @param ReinitInstanceRequest $request ReinitInstanceRequest
      *
-     * @return ReinitInstanceResponse
+     * @return ReinitInstanceResponse ReinitInstanceResponse
      */
     public function reinitInstance($request)
     {
@@ -10806,10 +11639,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReinitInstancesRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary 选择批量实例进行重置操作
+     *  *
+     * @param ReinitInstancesRequest $tmpReq  ReinitInstancesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReinitInstancesResponse
+     * @return ReinitInstancesResponse ReinitInstancesResponse
      */
     public function reinitInstancesWithOptions($tmpReq, $runtime)
     {
@@ -10848,9 +11683,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReinitInstancesRequest $request
+     * @summary 选择批量实例进行重置操作
+     *  *
+     * @param ReinitInstancesRequest $request ReinitInstancesRequest
      *
-     * @return ReinitInstancesResponse
+     * @return ReinitInstancesResponse ReinitInstancesResponse
      */
     public function reinitInstances($request)
     {
@@ -10860,10 +11697,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReleaseAICInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Releases an Android in Container (AIC) instance from the server.
+     *  *
+     * @param ReleaseAICInstanceRequest $request ReleaseAICInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseAICInstanceResponse
+     * @return ReleaseAICInstanceResponse ReleaseAICInstanceResponse
      */
     public function releaseAICInstanceWithOptions($request, $runtime)
     {
@@ -10891,9 +11730,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReleaseAICInstanceRequest $request
+     * @summary Releases an Android in Container (AIC) instance from the server.
+     *  *
+     * @param ReleaseAICInstanceRequest $request ReleaseAICInstanceRequest
      *
-     * @return ReleaseAICInstanceResponse
+     * @return ReleaseAICInstanceResponse ReleaseAICInstanceResponse
      */
     public function releaseAICInstance($request)
     {
@@ -10903,10 +11744,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReleaseARMServerInstanceRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Releases an ARM server.
+     *  *
+     * @param ReleaseARMServerInstanceRequest $request ReleaseARMServerInstanceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseARMServerInstanceResponse
+     * @return ReleaseARMServerInstanceResponse ReleaseARMServerInstanceResponse
      */
     public function releaseARMServerInstanceWithOptions($request, $runtime)
     {
@@ -10934,9 +11777,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReleaseARMServerInstanceRequest $request
+     * @summary Releases an ARM server.
+     *  *
+     * @param ReleaseARMServerInstanceRequest $request ReleaseARMServerInstanceRequest
      *
-     * @return ReleaseARMServerInstanceResponse
+     * @return ReleaseARMServerInstanceResponse ReleaseARMServerInstanceResponse
      */
     public function releaseARMServerInstance($request)
     {
@@ -10946,9 +11791,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 10,000 times per second per account.
-     *   * *   The maximum number of times that each user can call this operation per second is 50.
-     *   *
+     * @summary Releases an instance.
+     *  *
+     * @description *   You can call this operation up to 10,000 times per second per account.
+     * *   The maximum number of times that each user can call this operation per second is 50.
+     *  *
      * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -10980,9 +11827,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 10,000 times per second per account.
-     *   * *   The maximum number of times that each user can call this operation per second is 50.
-     *   *
+     * @summary Releases an instance.
+     *  *
+     * @description *   You can call this operation up to 10,000 times per second per account.
+     * *   The maximum number of times that each user can call this operation per second is 50.
+     *  *
      * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
      *
      * @return ReleaseInstanceResponse ReleaseInstanceResponse
@@ -10995,10 +11844,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReleasePostPaidInstanceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Deletes a pay-as-you-go instance.
+     *  *
+     * @param ReleasePostPaidInstanceRequest $request ReleasePostPaidInstanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleasePostPaidInstanceResponse
+     * @return ReleasePostPaidInstanceResponse ReleasePostPaidInstanceResponse
      */
     public function releasePostPaidInstanceWithOptions($request, $runtime)
     {
@@ -11026,9 +11877,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReleasePostPaidInstanceRequest $request
+     * @summary Deletes a pay-as-you-go instance.
+     *  *
+     * @param ReleasePostPaidInstanceRequest $request ReleasePostPaidInstanceRequest
      *
-     * @return ReleasePostPaidInstanceResponse
+     * @return ReleasePostPaidInstanceResponse ReleasePostPaidInstanceResponse
      */
     public function releasePostPaidInstance($request)
     {
@@ -11038,10 +11891,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReleasePrePaidInstanceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Call ReleasePrePaidInstance to delete a subscription instance.
+     *  *
+     * @param ReleasePrePaidInstanceRequest $request ReleasePrePaidInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleasePrePaidInstanceResponse
+     * @return ReleasePrePaidInstanceResponse ReleasePrePaidInstanceResponse
      */
     public function releasePrePaidInstanceWithOptions($request, $runtime)
     {
@@ -11069,9 +11924,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ReleasePrePaidInstanceRequest $request
+     * @summary Call ReleasePrePaidInstance to delete a subscription instance.
+     *  *
+     * @param ReleasePrePaidInstanceRequest $request ReleasePrePaidInstanceRequest
      *
-     * @return ReleasePrePaidInstanceResponse
+     * @return ReleasePrePaidInstanceResponse ReleasePrePaidInstanceResponse
      */
     public function releasePrePaidInstance($request)
     {
@@ -11081,9 +11938,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
+     * @summary Removes backend servers.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
+     *  *
      * @param RemoveBackendServersRequest $tmpReq  RemoveBackendServersRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -11123,9 +11982,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
+     * @summary Removes backend servers.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
+     *  *
      * @param RemoveBackendServersRequest $request RemoveBackendServersRequest
      *
      * @return RemoveBackendServersResponse RemoveBackendServersResponse
@@ -11138,10 +11999,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RemovePublicIpsFromEpnInstanceRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Removes IP addresses from an edge private network (EPN) instance.
+     *  *
+     * @param RemovePublicIpsFromEpnInstanceRequest $request RemovePublicIpsFromEpnInstanceRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemovePublicIpsFromEpnInstanceResponse
+     * @return RemovePublicIpsFromEpnInstanceResponse RemovePublicIpsFromEpnInstanceResponse
      */
     public function removePublicIpsFromEpnInstanceWithOptions($request, $runtime)
     {
@@ -11172,9 +12035,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RemovePublicIpsFromEpnInstanceRequest $request
+     * @summary Removes IP addresses from an edge private network (EPN) instance.
+     *  *
+     * @param RemovePublicIpsFromEpnInstanceRequest $request RemovePublicIpsFromEpnInstanceRequest
      *
-     * @return RemovePublicIpsFromEpnInstanceResponse
+     * @return RemovePublicIpsFromEpnInstanceResponse RemovePublicIpsFromEpnInstanceResponse
      */
     public function removePublicIpsFromEpnInstance($request)
     {
@@ -11184,10 +12049,61 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RemoveVSwitchesFromEpnInstanceRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Removes shared data groups (SDGs) that are deployed on instances.
+     *  *
+     * @param RemoveSDGRequest $tmpReq  RemoveSDGRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveVSwitchesFromEpnInstanceResponse
+     * @return RemoveSDGResponse RemoveSDGResponse
+     */
+    public function removeSDGWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveSDGShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Removes shared data groups (SDGs) that are deployed on instances.
+     *  *
+     * @param RemoveSDGRequest $request RemoveSDGRequest
+     *
+     * @return RemoveSDGResponse RemoveSDGResponse
+     */
+    public function removeSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeSDGWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes the networking information. This operation is applicable only for instances that reside in the internal network.
+     *  *
+     * @param RemoveVSwitchesFromEpnInstanceRequest $request RemoveVSwitchesFromEpnInstanceRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RemoveVSwitchesFromEpnInstanceResponse RemoveVSwitchesFromEpnInstanceResponse
      */
     public function removeVSwitchesFromEpnInstanceWithOptions($request, $runtime)
     {
@@ -11218,9 +12134,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RemoveVSwitchesFromEpnInstanceRequest $request
+     * @summary Deletes the networking information. This operation is applicable only for instances that reside in the internal network.
+     *  *
+     * @param RemoveVSwitchesFromEpnInstanceRequest $request RemoveVSwitchesFromEpnInstanceRequest
      *
-     * @return RemoveVSwitchesFromEpnInstanceResponse
+     * @return RemoveVSwitchesFromEpnInstanceResponse RemoveVSwitchesFromEpnInstanceResponse
      */
     public function removeVSwitchesFromEpnInstance($request)
     {
@@ -11230,10 +12148,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RenewARMServerInstanceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Renews a subscription Android in Container (AIC) instance.
+     *  *
+     * @param RenewARMServerInstanceRequest $request RenewARMServerInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewARMServerInstanceResponse
+     * @return RenewARMServerInstanceResponse RenewARMServerInstanceResponse
      */
     public function renewARMServerInstanceWithOptions($request, $runtime)
     {
@@ -11270,9 +12190,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RenewARMServerInstanceRequest $request
+     * @summary Renews a subscription Android in Container (AIC) instance.
+     *  *
+     * @param RenewARMServerInstanceRequest $request RenewARMServerInstanceRequest
      *
-     * @return RenewARMServerInstanceResponse
+     * @return RenewARMServerInstanceResponse RenewARMServerInstanceResponse
      */
     public function renewARMServerInstance($request)
     {
@@ -11282,10 +12204,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RenewInstanceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Renews a subscription instance.
+     *  *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
@@ -11310,9 +12234,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RenewInstanceRequest $request
+     * @summary Renews a subscription instance.
+     *  *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstance($request)
     {
@@ -11322,10 +12248,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RescaleApplicationRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Scales resources in an asynchronous manner and deploys or releases the container.
+     *  *
+     * @param RescaleApplicationRequest $request RescaleApplicationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RescaleApplicationResponse
+     * @return RescaleApplicationResponse RescaleApplicationResponse
      */
     public function rescaleApplicationWithOptions($request, $runtime)
     {
@@ -11368,9 +12296,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RescaleApplicationRequest $request
+     * @summary Scales resources in an asynchronous manner and deploys or releases the container.
+     *  *
+     * @param RescaleApplicationRequest $request RescaleApplicationRequest
      *
-     * @return RescaleApplicationResponse
+     * @return RescaleApplicationResponse RescaleApplicationResponse
      */
     public function rescaleApplication($request)
     {
@@ -11380,10 +12310,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RescaleDeviceServiceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Scales out a bare metal device.
+     *  *
+     * @param RescaleDeviceServiceRequest $request RescaleDeviceServiceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RescaleDeviceServiceResponse
+     * @return RescaleDeviceServiceResponse RescaleDeviceServiceResponse
      */
     public function rescaleDeviceServiceWithOptions($request, $runtime)
     {
@@ -11440,9 +12372,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RescaleDeviceServiceRequest $request
+     * @summary Scales out a bare metal device.
+     *  *
+     * @param RescaleDeviceServiceRequest $request RescaleDeviceServiceRequest
      *
-     * @return RescaleDeviceServiceResponse
+     * @return RescaleDeviceServiceResponse RescaleDeviceServiceResponse
      */
     public function rescaleDeviceService($request)
     {
@@ -11452,19 +12386,16 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ResetAICInstanceRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Resets an Android in Container (AIC) instance.
+     *  *
+     * @param ResetAICInstanceRequest $request ResetAICInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAICInstanceResponse
+     * @return ResetAICInstanceResponse ResetAICInstanceResponse
      */
-    public function resetAICInstanceWithOptions($tmpReq, $runtime)
+    public function resetAICInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ResetAICInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceIds)) {
-            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -11485,9 +12416,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ResetAICInstanceRequest $request
+     * @summary Resets an Android in Container (AIC) instance.
+     *  *
+     * @param ResetAICInstanceRequest $request ResetAICInstanceRequest
      *
-     * @return ResetAICInstanceResponse
+     * @return ResetAICInstanceResponse ResetAICInstanceResponse
      */
     public function resetAICInstance($request)
     {
@@ -11497,10 +12430,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ResetDeviceInstanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Resets an instance including its image.
+     *  *
+     * @param ResetDeviceInstanceRequest $request ResetDeviceInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetDeviceInstanceResponse
+     * @return ResetDeviceInstanceResponse ResetDeviceInstanceResponse
      */
     public function resetDeviceInstanceWithOptions($request, $runtime)
     {
@@ -11525,9 +12460,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ResetDeviceInstanceRequest $request
+     * @summary Resets an instance including its image.
+     *  *
+     * @param ResetDeviceInstanceRequest $request ResetDeviceInstanceRequest
      *
-     * @return ResetDeviceInstanceResponse
+     * @return ResetDeviceInstanceResponse ResetDeviceInstanceResponse
      */
     public function resetDeviceInstance($request)
     {
@@ -11537,12 +12474,14 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-     *   * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
-     *   * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
-     *   * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
-     *   *
+     * @summary Rolls back a disk by using a snapshot.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
+     * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
+     * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
+     * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
+     *  *
      * @param ResetDiskRequest $request ResetDiskRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -11577,12 +12516,14 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-     *   * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
-     *   * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
-     *   * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
-     *   *
+     * @summary Rolls back a disk by using a snapshot.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
+     * *   The instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the **StopInstance** operation to stop an instance.
+     * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
+     * *   When you call the **DescribeInstance** operation to query instance information, if the response contains `{"OperationLocks": {"LockReason" : "security"}}` for an instance, the instance is locked for security reasons and you cannot perform operations on the instance.
+     *  *
      * @param ResetDiskRequest $request ResetDiskRequest
      *
      * @return ResetDiskResponse ResetDiskResponse
@@ -11595,10 +12536,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ResizeDiskRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Resizes a pay-as-you-go disk that you purchase.
+     *  *
+     * @param ResizeDiskRequest $request ResizeDiskRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResizeDiskResponse
+     * @return ResizeDiskResponse ResizeDiskResponse
      */
     public function resizeDiskWithOptions($request, $runtime)
     {
@@ -11629,9 +12572,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ResizeDiskRequest $request
+     * @summary Resizes a pay-as-you-go disk that you purchase.
+     *  *
+     * @param ResizeDiskRequest $request ResizeDiskRequest
      *
-     * @return ResizeDiskResponse
+     * @return ResizeDiskResponse ResizeDiskResponse
      */
     public function resizeDisk($request)
     {
@@ -11641,10 +12586,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RestartDeviceInstanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Restarts applications deployed on an instance and returns the restart results in a synchronous manner.
+     *  *
+     * @param RestartDeviceInstanceRequest $request RestartDeviceInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartDeviceInstanceResponse
+     * @return RestartDeviceInstanceResponse RestartDeviceInstanceResponse
      */
     public function restartDeviceInstanceWithOptions($request, $runtime)
     {
@@ -11669,9 +12616,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RestartDeviceInstanceRequest $request
+     * @summary Restarts applications deployed on an instance and returns the restart results in a synchronous manner.
+     *  *
+     * @param RestartDeviceInstanceRequest $request RestartDeviceInstanceRequest
      *
-     * @return RestartDeviceInstanceResponse
+     * @return RestartDeviceInstanceResponse RestartDeviceInstanceResponse
      */
     public function restartDeviceInstance($request)
     {
@@ -11681,106 +12630,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RestartWorkflowRequest $tmpReq
-     * @param RuntimeOptions         $runtime
-     *
-     * @return RestartWorkflowResponse
-     */
-    public function restartWorkflowWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RestartWorkflowShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->workflowIds)) {
-            $request->workflowIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->workflowIds, 'WorkflowIds', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->workflowIdsShrink)) {
-            $query['WorkflowIds'] = $request->workflowIdsShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RestartWorkflow',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RestartWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RestartWorkflowRequest $request
-     *
-     * @return RestartWorkflowResponse
-     */
-    public function restartWorkflow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->restartWorkflowWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RetryWorkflowRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RetryWorkflowResponse
-     */
-    public function retryWorkflowWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RetryWorkflowShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->workflowIds)) {
-            $request->workflowIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->workflowIds, 'WorkflowIds', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->workflowIdsShrink)) {
-            $query['WorkflowIds'] = $request->workflowIdsShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RetryWorkflow',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RetryWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RetryWorkflowRequest $request
-     *
-     * @return RetryWorkflowResponse
-     */
-    public function retryWorkflow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->retryWorkflowWithOptions($request, $runtime);
-    }
-
-    /**
-     * *   In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
-     *   * *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-     *   * *   You can specify one or more of the following parameters to remove access control for a CIDR block: IpProtocol, PortRange, Policy, and SourceCidrIp.
-     *   *
+     * @summary Deletes an inbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+     *  *
+     * @description *   In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
+     * *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+     * *   You can specify one or more of the following parameters to remove access control for a CIDR block: IpProtocol, PortRange, Policy, and SourceCidrIp.
+     *  *
      * @param RevokeSecurityGroupRequest $request RevokeSecurityGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -11830,10 +12685,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
-     *   * *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-     *   * *   You can specify one or more of the following parameters to remove access control for a CIDR block: IpProtocol, PortRange, Policy, and SourceCidrIp.
-     *   *
+     * @summary Deletes an inbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+     *  *
+     * @description *   In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
+     * *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
+     * *   You can specify one or more of the following parameters to remove access control for a CIDR block: IpProtocol, PortRange, Policy, and SourceCidrIp.
+     *  *
      * @param RevokeSecurityGroupRequest $request RevokeSecurityGroupRequest
      *
      * @return RevokeSecurityGroupResponse RevokeSecurityGroupResponse
@@ -11846,8 +12703,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * >  In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
-     *   *
+     * @summary Deletes an outbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+     *  *
+     * @description >  In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
+     *  *
      * @param RevokeSecurityGroupEgressRequest $request RevokeSecurityGroupEgressRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -11897,8 +12756,10 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * >  In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
-     *   *
+     * @summary Deletes an outbound security group rule. After the rule is deleted, the access control implemented by the rule is removed.
+     *  *
+     * @description >  In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
+     *  *
      * @param RevokeSecurityGroupEgressRequest $request RevokeSecurityGroupEgressRequest
      *
      * @return RevokeSecurityGroupEgressResponse RevokeSecurityGroupEgressResponse
@@ -11911,10 +12772,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RollbackApplicationRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Rolls back the container version of a specific application.
+     *  *
+     * @param RollbackApplicationRequest $request RollbackApplicationRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RollbackApplicationResponse
+     * @return RollbackApplicationResponse RollbackApplicationResponse
      */
     public function rollbackApplicationWithOptions($request, $runtime)
     {
@@ -11951,9 +12814,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RollbackApplicationRequest $request
+     * @summary Rolls back the container version of a specific application.
+     *  *
+     * @param RollbackApplicationRequest $request RollbackApplicationRequest
      *
-     * @return RollbackApplicationResponse
+     * @return RollbackApplicationResponse RollbackApplicationResponse
      */
     public function rollbackApplication($request)
     {
@@ -11963,58 +12828,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RollbackWorkflowRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Creates one or more pay-as-you-go or subscription Edge Node Service (ENS) instances.
+     *  *
+     * @param RunInstancesRequest $tmpReq  RunInstancesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RollbackWorkflowResponse
-     */
-    public function rollbackWorkflowWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RollbackWorkflowShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->workflowIds)) {
-            $request->workflowIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->workflowIds, 'WorkflowIds', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->workflowIdsShrink)) {
-            $query['WorkflowIds'] = $request->workflowIdsShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RollbackWorkflow',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RollbackWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RollbackWorkflowRequest $request
-     *
-     * @return RollbackWorkflowResponse
-     */
-    public function rollbackWorkflow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->rollbackWorkflowWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RunInstancesRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return RunInstancesResponse
+     * @return RunInstancesResponse RunInstancesResponse
      */
     public function runInstancesWithOptions($tmpReq, $runtime)
     {
@@ -12030,6 +12849,9 @@ class Ens extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->amount)) {
             $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->autoReleaseTime)) {
+            $query['AutoReleaseTime'] = $request->autoReleaseTime;
         }
         if (!Utils::isUnset($request->autoRenew)) {
             $query['AutoRenew'] = $request->autoRenew;
@@ -12115,6 +12937,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->securityId)) {
             $query['SecurityId'] = $request->securityId;
         }
+        if (!Utils::isUnset($request->spotStrategy)) {
+            $query['SpotStrategy'] = $request->spotStrategy;
+        }
         if (!Utils::isUnset($request->systemDiskShrink)) {
             $query['SystemDisk'] = $request->systemDiskShrink;
         }
@@ -12149,9 +12974,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RunInstancesRequest $request
+     * @summary Creates one or more pay-as-you-go or subscription Edge Node Service (ENS) instances.
+     *  *
+     * @param RunInstancesRequest $request RunInstancesRequest
      *
-     * @return RunInstancesResponse
+     * @return RunInstancesResponse RunInstancesResponse
      */
     public function runInstances($request)
     {
@@ -12161,10 +12988,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RunServiceScheduleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Schedules the nearest idle resources including instances and pods for your device based on the user ID and IP address and initializes the virtual environment.
+     *  *
+     * @param RunServiceScheduleRequest $request RunServiceScheduleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunServiceScheduleResponse
+     * @return RunServiceScheduleResponse RunServiceScheduleResponse
      */
     public function runServiceScheduleWithOptions($request, $runtime)
     {
@@ -12216,9 +13045,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RunServiceScheduleRequest $request
+     * @summary Schedules the nearest idle resources including instances and pods for your device based on the user ID and IP address and initializes the virtual environment.
+     *  *
+     * @param RunServiceScheduleRequest $request RunServiceScheduleRequest
      *
-     * @return RunServiceScheduleResponse
+     * @return RunServiceScheduleResponse RunServiceScheduleResponse
      */
     public function runServiceSchedule($request)
     {
@@ -12228,9 +13059,55 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
+     * @summary Saves the disk of a specific device as a shared data group (SDG).
+     *  *
+     * @param SaveSDGRequest $request SaveSDGRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SaveSDGResponse SaveSDGResponse
+     */
+    public function saveSDGWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Saves the disk of a specific device as a shared data group (SDG).
+     *  *
+     * @param SaveSDGRequest $request SaveSDGRequest
+     *
+     * @return SaveSDGResponse SaveSDGResponse
+     */
+    public function saveSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveSDGWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Sets the weights of backend servers.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
+     *  *
      * @param SetBackendServersRequest $tmpReq  SetBackendServersRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -12270,9 +13147,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
+     * @summary Sets the weights of backend servers.
+     *  *
+     * @description *   You can call this operation up to 100 times per second.
+     * *   You can call this operation up to 10 times per second per account.
+     *  *
      * @param SetBackendServersRequest $request SetBackendServersRequest
      *
      * @return SetBackendServersResponse SetBackendServersResponse
@@ -12285,9 +13164,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the configurations of an HTTP listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param SetLoadBalancerHTTPListenerAttributeRequest $request SetLoadBalancerHTTPListenerAttributeRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -12364,9 +13245,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the configurations of an HTTP listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param SetLoadBalancerHTTPListenerAttributeRequest $request SetLoadBalancerHTTPListenerAttributeRequest
      *
      * @return SetLoadBalancerHTTPListenerAttributeResponse SetLoadBalancerHTTPListenerAttributeResponse
@@ -12379,9 +13262,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the configurations of an HTTPS listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param SetLoadBalancerHTTPSListenerAttributeRequest $request SetLoadBalancerHTTPSListenerAttributeRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
@@ -12461,9 +13346,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the configurations of an HTTPS listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param SetLoadBalancerHTTPSListenerAttributeRequest $request SetLoadBalancerHTTPSListenerAttributeRequest
      *
      * @return SetLoadBalancerHTTPSListenerAttributeResponse SetLoadBalancerHTTPSListenerAttributeResponse
@@ -12476,9 +13363,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the status of an Edge Load Balancer (ELB) instance.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param SetLoadBalancerStatusRequest $request SetLoadBalancerStatusRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -12513,9 +13402,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the status of an Edge Load Balancer (ELB) instance.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param SetLoadBalancerStatusRequest $request SetLoadBalancerStatusRequest
      *
      * @return SetLoadBalancerStatusResponse SetLoadBalancerStatusResponse
@@ -12528,9 +13419,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the configurations of a TCP listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param SetLoadBalancerTCPListenerAttributeRequest $request SetLoadBalancerTCPListenerAttributeRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -12607,9 +13500,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the configurations of a TCP listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param SetLoadBalancerTCPListenerAttributeRequest $request SetLoadBalancerTCPListenerAttributeRequest
      *
      * @return SetLoadBalancerTCPListenerAttributeResponse SetLoadBalancerTCPListenerAttributeResponse
@@ -12622,10 +13517,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the configurations of a UDP listener.
+     *  *
+     * @description >
+     * *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param SetLoadBalancerUDPListenerAttributeRequest $request SetLoadBalancerUDPListenerAttributeRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -12690,10 +13587,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Modifies the configurations of a UDP listener.
+     *  *
+     * @description >
+     * *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param SetLoadBalancerUDPListenerAttributeRequest $request SetLoadBalancerUDPListenerAttributeRequest
      *
      * @return SetLoadBalancerUDPListenerAttributeResponse SetLoadBalancerUDPListenerAttributeResponse
@@ -12706,10 +13605,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StartEpnInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Starts an edge network instance.
+     *  *
+     * @param StartEpnInstanceRequest $request StartEpnInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartEpnInstanceResponse
+     * @return StartEpnInstanceResponse StartEpnInstanceResponse
      */
     public function startEpnInstanceWithOptions($request, $runtime)
     {
@@ -12737,9 +13638,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StartEpnInstanceRequest $request
+     * @summary Starts an edge network instance.
+     *  *
+     * @param StartEpnInstanceRequest $request StartEpnInstanceRequest
      *
-     * @return StartEpnInstanceResponse
+     * @return StartEpnInstanceResponse StartEpnInstanceResponse
      */
     public function startEpnInstance($request)
     {
@@ -12749,9 +13652,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call the operation only when the instance is in the Stopped state.
-     *   * *   If the operation is successful, the status of the instance becomes Starting.
-     *   *
+     * @summary Starts an instance.
+     *  *
+     * @description *   You can call the operation only when the instance is in the Stopped state.
+     * *   If the operation is successful, the status of the instance becomes Starting.
+     *  *
      * @param StartInstanceRequest $request StartInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -12783,9 +13688,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call the operation only when the instance is in the Stopped state.
-     *   * *   If the operation is successful, the status of the instance becomes Starting.
-     *   *
+     * @summary Starts an instance.
+     *  *
+     * @description *   You can call the operation only when the instance is in the Stopped state.
+     * *   If the operation is successful, the status of the instance becomes Starting.
+     *  *
      * @param StartInstanceRequest $request StartInstanceRequest
      *
      * @return StartInstanceResponse StartInstanceResponse
@@ -12798,10 +13705,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StartInstancesRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 选择批量实例进行启动操作
+     *  *
+     * @param StartInstancesRequest $tmpReq  StartInstancesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartInstancesResponse
+     * @return StartInstancesResponse StartInstancesResponse
      */
     public function startInstancesWithOptions($tmpReq, $runtime)
     {
@@ -12834,9 +13743,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StartInstancesRequest $request
+     * @summary 选择批量实例进行启动操作
+     *  *
+     * @param StartInstancesRequest $request StartInstancesRequest
      *
-     * @return StartInstancesResponse
+     * @return StartInstancesResponse StartInstancesResponse
      */
     public function startInstances($request)
     {
@@ -12846,9 +13757,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Enables a listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param StartLoadBalancerListenerRequest $request StartLoadBalancerListenerRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -12886,9 +13799,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Enables a listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param StartLoadBalancerListenerRequest $request StartLoadBalancerListenerRequest
      *
      * @return StartLoadBalancerListenerResponse StartLoadBalancerListenerResponse
@@ -12901,10 +13816,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StartSnatIpForSnatEntryRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Starts the elastic IP address (EIP) specified in a source network address translation (SNAT) entry.
+     *  *
+     * @param StartSnatIpForSnatEntryRequest $request StartSnatIpForSnatEntryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartSnatIpForSnatEntryResponse
+     * @return StartSnatIpForSnatEntryResponse StartSnatIpForSnatEntryResponse
      */
     public function startSnatIpForSnatEntryWithOptions($request, $runtime)
     {
@@ -12935,9 +13852,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StartSnatIpForSnatEntryRequest $request
+     * @summary Starts the elastic IP address (EIP) specified in a source network address translation (SNAT) entry.
+     *  *
+     * @param StartSnatIpForSnatEntryRequest $request StartSnatIpForSnatEntryRequest
      *
-     * @return StartSnatIpForSnatEntryResponse
+     * @return StartSnatIpForSnatEntryResponse StartSnatIpForSnatEntryResponse
      */
     public function startSnatIpForSnatEntry($request)
     {
@@ -12947,10 +13866,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StopEpnInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Stops an EPN instance.
+     *  *
+     * @param StopEpnInstanceRequest $request StopEpnInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopEpnInstanceResponse
+     * @return StopEpnInstanceResponse StopEpnInstanceResponse
      */
     public function stopEpnInstanceWithOptions($request, $runtime)
     {
@@ -12978,9 +13899,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StopEpnInstanceRequest $request
+     * @summary Stops an EPN instance.
+     *  *
+     * @param StopEpnInstanceRequest $request StopEpnInstanceRequest
      *
-     * @return StopEpnInstanceResponse
+     * @return StopEpnInstanceResponse StopEpnInstanceResponse
      */
     public function stopEpnInstance($request)
     {
@@ -12990,11 +13913,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to stop instances that are only in the Running state.
-     *   * *   If the call is successful, the state of the instance becomes Stopping.
-     *   * *   Once the instance is stopped, the state of the instance becomes Stopped.
-     *   * *   Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
-     *   *
+     * @summary Stops an instance.
+     *  *
+     * @description *   You can call this operation to stop instances that are only in the Running state.
+     * *   If the call is successful, the state of the instance becomes Stopping.
+     * *   Once the instance is stopped, the state of the instance becomes Stopped.
+     * *   Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
+     *  *
      * @param StopInstanceRequest $request StopInstanceRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -13029,11 +13954,13 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to stop instances that are only in the Running state.
-     *   * *   If the call is successful, the state of the instance becomes Stopping.
-     *   * *   Once the instance is stopped, the state of the instance becomes Stopped.
-     *   * *   Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
-     *   *
+     * @summary Stops an instance.
+     *  *
+     * @description *   You can call this operation to stop instances that are only in the Running state.
+     * *   If the call is successful, the state of the instance becomes Stopping.
+     * *   Once the instance is stopped, the state of the instance becomes Stopped.
+     * *   Force stop is supported, which is equivalent to power-off. Data that is not written to disks on the instance may be lost.
+     *  *
      * @param StopInstanceRequest $request StopInstanceRequest
      *
      * @return StopInstanceResponse StopInstanceResponse
@@ -13046,10 +13973,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StopInstancesRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 选择批量实例进行停止操作
+     *  *
+     * @param StopInstancesRequest $tmpReq  StopInstancesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopInstancesResponse
+     * @return StopInstancesResponse StopInstancesResponse
      */
     public function stopInstancesWithOptions($tmpReq, $runtime)
     {
@@ -13082,9 +14011,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StopInstancesRequest $request
+     * @summary 选择批量实例进行停止操作
+     *  *
+     * @param StopInstancesRequest $request StopInstancesRequest
      *
-     * @return StopInstancesResponse
+     * @return StopInstancesResponse StopInstancesResponse
      */
     public function stopInstances($request)
     {
@@ -13094,9 +14025,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Disables a listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param StopLoadBalancerListenerRequest $request StopLoadBalancerListenerRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -13134,9 +14067,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can call this operation up to 10 times per second per user.
-     *   *
+     * @summary Disables a listener.
+     *  *
+     * @description *   You can call this operation up to 100 times per second per account.
+     * *   You can call this operation up to 10 times per second per user.
+     *  *
      * @param StopLoadBalancerListenerRequest $request StopLoadBalancerListenerRequest
      *
      * @return StopLoadBalancerListenerResponse StopLoadBalancerListenerResponse
@@ -13149,10 +14084,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StopSnatIpForSnatEntryRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Disables an elastic IP address (EIP) in a source network address translation (SNAT) entry.
+     *  *
+     * @param StopSnatIpForSnatEntryRequest $request StopSnatIpForSnatEntryRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopSnatIpForSnatEntryResponse
+     * @return StopSnatIpForSnatEntryResponse StopSnatIpForSnatEntryResponse
      */
     public function stopSnatIpForSnatEntryWithOptions($request, $runtime)
     {
@@ -13183,9 +14120,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param StopSnatIpForSnatEntryRequest $request
+     * @summary Disables an elastic IP address (EIP) in a source network address translation (SNAT) entry.
+     *  *
+     * @param StopSnatIpForSnatEntryRequest $request StopSnatIpForSnatEntryRequest
      *
-     * @return StopSnatIpForSnatEntryResponse
+     * @return StopSnatIpForSnatEntryResponse StopSnatIpForSnatEntryResponse
      */
     public function stopSnatIpForSnatEntry($request)
     {
@@ -13195,58 +14134,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param TerminateWorkflowRequest $tmpReq
-     * @param RuntimeOptions           $runtime
+     * @summary Disassociates an elastic IP address (EIP) from an instance.
+     *  *
+     * @param UnAssociateEnsEipAddressRequest $request UnAssociateEnsEipAddressRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return TerminateWorkflowResponse
-     */
-    public function terminateWorkflowWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new TerminateWorkflowShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->workflowIds)) {
-            $request->workflowIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->workflowIds, 'WorkflowIds', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->workflowIdsShrink)) {
-            $query['WorkflowIds'] = $request->workflowIdsShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'TerminateWorkflow',
-            'version'     => '2017-11-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return TerminateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param TerminateWorkflowRequest $request
-     *
-     * @return TerminateWorkflowResponse
-     */
-    public function terminateWorkflow($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->terminateWorkflowWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UnAssociateEnsEipAddressRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return UnAssociateEnsEipAddressResponse
+     * @return UnAssociateEnsEipAddressResponse UnAssociateEnsEipAddressResponse
      */
     public function unAssociateEnsEipAddressWithOptions($request, $runtime)
     {
@@ -13274,9 +14167,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param UnAssociateEnsEipAddressRequest $request
+     * @summary Disassociates an elastic IP address (EIP) from an instance.
+     *  *
+     * @param UnAssociateEnsEipAddressRequest $request UnAssociateEnsEipAddressRequest
      *
-     * @return UnAssociateEnsEipAddressResponse
+     * @return UnAssociateEnsEipAddressResponse UnAssociateEnsEipAddressResponse
      */
     public function unAssociateEnsEipAddress($request)
     {
@@ -13286,10 +14181,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param UnassignPrivateIpAddressesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
+     *  *
+     * @param UnassignPrivateIpAddressesRequest $request UnassignPrivateIpAddressesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnassignPrivateIpAddressesResponse
+     * @return UnassignPrivateIpAddressesResponse UnassignPrivateIpAddressesResponse
      */
     public function unassignPrivateIpAddressesWithOptions($request, $runtime)
     {
@@ -13320,9 +14217,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param UnassignPrivateIpAddressesRequest $request
+     * @summary Unassigns secondary private IP addresses from an elastic network interface (ENI).
+     *  *
+     * @param UnassignPrivateIpAddressesRequest $request UnassignPrivateIpAddressesRequest
      *
-     * @return UnassignPrivateIpAddressesResponse
+     * @return UnassignPrivateIpAddressesResponse UnassignPrivateIpAddressesResponse
      */
     public function unassignPrivateIpAddresses($request)
     {
@@ -13332,10 +14231,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param UnassociateNetworkAclRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Disassociates a network access control list (ACL) from a network.
+     *  *
+     * @param UnassociateNetworkAclRequest $request UnassociateNetworkAclRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnassociateNetworkAclResponse
+     * @return UnassociateNetworkAclResponse UnassociateNetworkAclResponse
      */
     public function unassociateNetworkAclWithOptions($request, $runtime)
     {
@@ -13366,9 +14267,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param UnassociateNetworkAclRequest $request
+     * @summary Disassociates a network access control list (ACL) from a network.
+     *  *
+     * @param UnassociateNetworkAclRequest $request UnassociateNetworkAclRequest
      *
-     * @return UnassociateNetworkAclResponse
+     * @return UnassociateNetworkAclResponse UnassociateNetworkAclResponse
      */
     public function unassociateNetworkAcl($request)
     {
@@ -13378,10 +14281,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param UpdateEnsSaleControlRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary 修改售卖约束
+     *  *
+     * @param UpdateEnsSaleControlRequest $tmpReq  UpdateEnsSaleControlRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEnsSaleControlResponse
+     * @return UpdateEnsSaleControlResponse UpdateEnsSaleControlResponse
      */
     public function updateEnsSaleControlWithOptions($tmpReq, $runtime)
     {
@@ -13420,9 +14325,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param UpdateEnsSaleControlRequest $request
+     * @summary 修改售卖约束
+     *  *
+     * @param UpdateEnsSaleControlRequest $request UpdateEnsSaleControlRequest
      *
-     * @return UpdateEnsSaleControlResponse
+     * @return UpdateEnsSaleControlResponse UpdateEnsSaleControlResponse
      */
     public function updateEnsSaleControl($request)
     {
@@ -13432,10 +14339,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param UpgradeAICInstanceImageRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Updates the image of an Android in Container (AIC) instance.
+     *  *
+     * @param UpgradeAICInstanceImageRequest $tmpReq  UpgradeAICInstanceImageRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeAICInstanceImageResponse
+     * @return UpgradeAICInstanceImageResponse UpgradeAICInstanceImageResponse
      */
     public function upgradeAICInstanceImageWithOptions($tmpReq, $runtime)
     {
@@ -13465,9 +14374,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param UpgradeAICInstanceImageRequest $request
+     * @summary Updates the image of an Android in Container (AIC) instance.
+     *  *
+     * @param UpgradeAICInstanceImageRequest $request UpgradeAICInstanceImageRequest
      *
-     * @return UpgradeAICInstanceImageResponse
+     * @return UpgradeAICInstanceImageResponse UpgradeAICInstanceImageResponse
      */
     public function upgradeAICInstanceImage($request)
     {
@@ -13477,10 +14388,12 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param UpgradeApplicationRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Updates the container in an asynchronous manner. You can configure multiple canary release policies.
+     *  *
+     * @param UpgradeApplicationRequest $request UpgradeApplicationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeApplicationResponse
+     * @return UpgradeApplicationResponse UpgradeApplicationResponse
      */
     public function upgradeApplicationWithOptions($request, $runtime)
     {
@@ -13514,9 +14427,11 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param UpgradeApplicationRequest $request
+     * @summary Updates the container in an asynchronous manner. You can configure multiple canary release policies.
+     *  *
+     * @param UpgradeApplicationRequest $request UpgradeApplicationRequest
      *
-     * @return UpgradeApplicationResponse
+     * @return UpgradeApplicationResponse UpgradeApplicationResponse
      */
     public function upgradeApplication($request)
     {

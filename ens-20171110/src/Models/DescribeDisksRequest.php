@@ -46,7 +46,7 @@ class DescribeDisksRequest extends Model
     /**
      * @description The ID of the disk.
      *
-     * @example [\"d-wz99njena32z90ki****\"]
+     * @example [\\"d-wz99njena32z90ki****\\"]
      *
      * @var string
      */
@@ -93,7 +93,7 @@ class DescribeDisksRequest extends Model
     public $ensRegionIds;
 
     /**
-     * @description The instance to which the disk is attached.
+     * @description The ID of the instance to which the disk is attached.
      *
      * @example i-5t77rb0yoz79m28ku60sx****
      *
@@ -146,7 +146,7 @@ class DescribeDisksRequest extends Model
      *   Available: The disk can be attached.
      *   Attaching: The disk is being attached.
      *   Detaching: The disk is being detached.
-     *   Creating: The image is being created.
+     *   Creating: The disk is being created.
      *   ReIniting: The disk is being reset.
      *   Deleting: The disk is being released.
      *   Deleted: The disk is released.

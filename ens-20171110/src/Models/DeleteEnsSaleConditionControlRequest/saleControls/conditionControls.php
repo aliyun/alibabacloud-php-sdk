@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class conditionControls extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $conditionControlModuleCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $conditionControlModuleValue;

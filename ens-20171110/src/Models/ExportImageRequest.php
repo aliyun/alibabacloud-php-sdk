@@ -11,6 +11,7 @@ class ExportImageRequest extends Model
     /**
      * @description The ID of the image.
      *
+     * This parameter is required.
      * @example m-5ragaz3s74b7go8ks7jp9****
      *
      * @var string
@@ -20,6 +21,7 @@ class ExportImageRequest extends Model
     /**
      * @description The OSS bucket to which you want to export the image.
      *
+     * This parameter is required.
      * @example whxyl****
      *
      * @var string
@@ -42,6 +44,7 @@ class ExportImageRequest extends Model
      *
      *   cn-beijing
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string

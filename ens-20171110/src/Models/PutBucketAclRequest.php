@@ -9,12 +9,13 @@ use AlibabaCloud\Tea\Model;
 class PutBucketAclRequest extends Model
 {
     /**
-     * @description The ACL of the bucket.
+     * @description The access control list (ACL) of the bucket.
      *
      *   **public-read-write**
      *   **public-read**
      *   **private** (default)
      *
+     * This parameter is required.
      * @example private
      *
      * @var string
@@ -24,6 +25,7 @@ class PutBucketAclRequest extends Model
     /**
      * @description The name of the bucket.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

@@ -14,6 +14,8 @@ class DescribeEnsSaleControlStockRequest extends Model
     public $aliUidAccount;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $commodityCode;

@@ -11,6 +11,7 @@ class GetBucketLifecycleRequest extends Model
     /**
      * @description The name of the bucket.
      *
+     * This parameter is required.
      * @example tese
      *
      * @var string
@@ -18,7 +19,7 @@ class GetBucketLifecycleRequest extends Model
     public $bucketName;
 
     /**
-     * @description The ID of the rule to be queried. If this parameter is not specified, all rules are returned.
+     * @description The ID of the rule that you want to query. If this parameter is not specified, all rules are returned.
      *
      * @example 1
      *

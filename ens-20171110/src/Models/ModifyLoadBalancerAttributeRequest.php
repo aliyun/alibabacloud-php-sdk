@@ -11,6 +11,7 @@ class ModifyLoadBalancerAttributeRequest extends Model
     /**
      * @description The ID of the ELB instance.
      *
+     * This parameter is required.
      * @example lb-5q73cv04zeyh43lh74lp4gtm8
      *
      * @var string
@@ -20,7 +21,7 @@ class ModifyLoadBalancerAttributeRequest extends Model
     /**
      * @description The name of the ELB instance. The name must be **2** to **128** characters in length.
      *
-     * >  The value cannot start with `http://` or `https://`.
+     * This parameter is required.
      * @example test
      *
      * @var string

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description 实例的标签键。N的取值范围为1~20。
+     * @description The tag key. Valid values: 1 to 20.
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 实例的标签值。N的取值范围：1~20。
+     * @description The tag value. Valid values: 1 to 20.
      *
      * @var string
      */

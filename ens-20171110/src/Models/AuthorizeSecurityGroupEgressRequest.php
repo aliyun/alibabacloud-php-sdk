@@ -11,7 +11,7 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     /**
      * @description The destination IP addresses. CIDR blocks and IPv4 addresses are supported.
      *
-     * This parameter is empty by default.
+     * This parameter is required.
      * @example 10.0.XX.XX/8
      *
      * @var string
@@ -27,6 +27,7 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      *   gre: GRE.
      *   all: All protocols are supported.
      *
+     * This parameter is required.
      * @example all
      *
      * @var string
@@ -53,6 +54,7 @@ class AuthorizeSecurityGroupEgressRequest extends Model
      *   When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
      *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
      *
+     * This parameter is required.
      * @example 22/22
      *
      * @var string
@@ -71,6 +73,7 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     /**
      * @description The ID of the security group.
      *
+     * This parameter is required.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string

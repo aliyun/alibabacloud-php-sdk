@@ -11,6 +11,7 @@ class StartInstanceRequest extends Model
     /**
      * @description The ID of the instance. You can start only one instance.
      *
+     * This parameter is required.
      * @example i-instance****
      *
      * @var string

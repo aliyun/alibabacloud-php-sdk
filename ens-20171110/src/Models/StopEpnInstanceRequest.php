@@ -11,6 +11,7 @@ class StopEpnInstanceRequest extends Model
     /**
      * @description The ID of the EPN instance.
      *
+     * This parameter is required.
      * @example epn-20201014152822q2S9tQ
      *
      * @var string

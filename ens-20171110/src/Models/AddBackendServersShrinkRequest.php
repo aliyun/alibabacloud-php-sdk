@@ -11,7 +11,7 @@ class AddBackendServersShrinkRequest extends Model
     /**
      * @description The list of backend servers that you want to add. You can add at most 20 backend servers.
      *
-     * >  Only ENS instances that are in the running state can be attached to the ELB instance as backend servers.
+     * This parameter is required.
      * @var string
      */
     public $backendServersShrink;
@@ -19,6 +19,7 @@ class AddBackendServersShrinkRequest extends Model
     /**
      * @description The frontend port that is used by the Edge Load Balance (ELB) instance. Valid values: **1** to **65535**.
      *
+     * This parameter is required.
      * @example lb-5qzdmxefgrpxd7oz2mefonvtx
      *
      * @var string

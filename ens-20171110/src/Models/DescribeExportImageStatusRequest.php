@@ -11,6 +11,7 @@ class DescribeExportImageStatusRequest extends Model
     /**
      * @description The ID of the image.
      *
+     * This parameter is required.
      * @example centos_6_08_64_20G_alibase_****
      *
      * @var string

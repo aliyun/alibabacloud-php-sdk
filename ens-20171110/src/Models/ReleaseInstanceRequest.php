@@ -11,6 +11,7 @@ class ReleaseInstanceRequest extends Model
     /**
      * @description The ID of the EIP.
      *
+     * This parameter is required.
      * @example eip-****
      *
      * @var string

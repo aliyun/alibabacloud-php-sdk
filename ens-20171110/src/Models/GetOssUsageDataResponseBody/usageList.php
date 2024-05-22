@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class usageList extends Model
 {
     /**
-     * @description The inbound bandwidth over the intranet. Unit: bit/s.
+     * @description The inbound bandwidth over the internal network. Unit: bit/s.
      *
      * @example 37865147
      *
@@ -18,7 +18,7 @@ class usageList extends Model
     public $lanRxBw;
 
     /**
-     * @description The outbound bandwidth over the intranet. Unit: bit/s.
+     * @description The outbound bandwidth over the internal network. Unit: bit/s.
      *
      * @example 22012187890
      *
@@ -27,7 +27,7 @@ class usageList extends Model
     public $lanTxBw;
 
     /**
-     * @description The number of time point within a day.
+     * @description The number of time points within a day.
      *
      * @example 144
      *
@@ -54,7 +54,7 @@ class usageList extends Model
     public $storageUsageByte;
 
     /**
-     * @description The outbound bandwidth over the intranet. Unit: bit/s.
+     * @description The outbound bandwidth over the Internet. Unit: bit/s.
      *
      * @example 542155715
      *

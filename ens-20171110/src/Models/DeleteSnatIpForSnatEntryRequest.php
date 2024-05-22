@@ -11,6 +11,7 @@ class DeleteSnatIpForSnatEntryRequest extends Model
     /**
      * @description The ID of the SNAT entry.
      *
+     * This parameter is required.
      * @example snat-5tfi6f8gds82mjmlofeym****
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteSnatIpForSnatEntryRequest extends Model
     /**
      * @description The EIP that you want to delete from the SNAT entry.
      *
+     * This parameter is required.
      * @example 120.72.56.71
      *
      * @var string

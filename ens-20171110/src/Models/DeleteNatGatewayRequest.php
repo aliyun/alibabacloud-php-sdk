@@ -11,6 +11,7 @@ class DeleteNatGatewayRequest extends Model
     /**
      * @description The ID of the NAT gateway that you want to delete.
      *
+     * This parameter is required.
      * @example nat-5t7nh1cfm6kxiszlttr38****
      *
      * @var string

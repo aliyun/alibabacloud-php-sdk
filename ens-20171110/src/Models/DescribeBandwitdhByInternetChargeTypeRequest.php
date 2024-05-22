@@ -14,6 +14,7 @@ class DescribeBandwitdhByInternetChargeTypeRequest extends Model
      *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      *
+     * This parameter is required.
      * @example 2022-01-18T09:39:54Z
      *
      * @var string
@@ -49,6 +50,7 @@ class DescribeBandwitdhByInternetChargeTypeRequest extends Model
      *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      *
+     * This parameter is required.
      * @example 2021-11-15T16:00:00Z
      *
      * @var string

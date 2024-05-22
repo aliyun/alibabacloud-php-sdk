@@ -15,6 +15,7 @@ class CreateVSwitchRequest extends Model
      *   The CIDR block of the vSwitch must fall within the CIDR block of the VPC to which the vSwitch belongs.
      *   The CIDR block of the vSwitch cannot be the same as the destination CIDR block in a route entry of the VPC. However, it can be a subset of the destination CIDR block.
      *
+     * This parameter is required.
      * @example 172.16.0.0/24
      *
      * @var string
@@ -34,6 +35,7 @@ class CreateVSwitchRequest extends Model
     /**
      * @description The ID of the edge node.
      *
+     * This parameter is required.
      * @example cn-xian-unicom
      *
      * @var string
@@ -53,7 +55,7 @@ class CreateVSwitchRequest extends Model
      * @description The name of the vSwitch. The name must meet the following requirements:
      *
      *   The name must be 2 to 128 characters in length.
-     *   The name must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The name must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * Default value: null.
      * @var string

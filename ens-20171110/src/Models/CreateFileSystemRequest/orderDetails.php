@@ -14,6 +14,7 @@ class orderDetails extends Model
      *   PrePaid: subscription. This billing method is not supported.
      *   PostPaid: pay-as-you-go.
      *
+     * This parameter is required.
      * @example PostPaid
      *
      * @var string
@@ -23,6 +24,7 @@ class orderDetails extends Model
     /**
      * @description The ID of the node.
      *
+     * This parameter is required.
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -32,6 +34,7 @@ class orderDetails extends Model
     /**
      * @description The name of the file system.
      *
+     * This parameter is required.
      * @example nasFile
      *
      * @var string
@@ -41,6 +44,7 @@ class orderDetails extends Model
     /**
      * @description The name of the mount target.
      *
+     * This parameter is required.
      * @example nasMount
      *
      * @var string
@@ -50,6 +54,7 @@ class orderDetails extends Model
     /**
      * @description The ID of the VPC.
      *
+     * This parameter is required.
      * @example vpc-xxx
      *
      * @var string
@@ -59,6 +64,7 @@ class orderDetails extends Model
     /**
      * @description The type of the order.
      *
+     * This parameter is required.
      * @example BUY
      *
      * @var string
@@ -68,6 +74,7 @@ class orderDetails extends Model
     /**
      * @description The storage protocol. Valid values: nsf and smb.
      *
+     * This parameter is required.
      * @example nfs
      *
      * @var string
@@ -77,6 +84,7 @@ class orderDetails extends Model
     /**
      * @description The type of the storage. Set the value to capacity.
      *
+     * This parameter is required.
      * @example capacity
      *
      * @var string

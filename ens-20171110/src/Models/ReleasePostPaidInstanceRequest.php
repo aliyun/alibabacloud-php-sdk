@@ -11,6 +11,7 @@ class ReleasePostPaidInstanceRequest extends Model
     /**
      * @description The ID of the instance to be deleted. You can specify only one instance ID.
      *
+     * This parameter is required.
      * @example i-instance****
      *
      * @var string

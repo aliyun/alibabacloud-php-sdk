@@ -11,6 +11,7 @@ class DeleteVSwitchRequest extends Model
     /**
      * @description The ID of the vSwitch.
      *
+     * This parameter is required.
      * @example vsw-5m9xhl****
      *
      * @var string

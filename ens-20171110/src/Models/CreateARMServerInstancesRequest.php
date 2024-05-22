@@ -11,6 +11,7 @@ class CreateARMServerInstancesRequest extends Model
     /**
      * @description The number of instances to create. Valid values: **1** to **100**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -41,6 +42,7 @@ class CreateARMServerInstancesRequest extends Model
     /**
      * @description The ID of the Edge Node Service (ENS) node.
      *
+     * This parameter is required.
      * @example cn-guiyang-12
      *
      * @var string
@@ -59,6 +61,7 @@ class CreateARMServerInstancesRequest extends Model
     /**
      * @description The ID of the image.
      *
+     * This parameter is required.
      * @example yourImage ID
      *
      * @var string
@@ -90,6 +93,7 @@ class CreateARMServerInstancesRequest extends Model
      *   aic.cf52r.c3.np
      *   aic.cf52r.c4.np
      *
+     * This parameter is required.
      * @example aic.cf53r.c6.np
      *
      * @var string
@@ -117,7 +121,7 @@ class CreateARMServerInstancesRequest extends Model
     /**
      * @description The billing method. Set the value to **PrePaid**. PrePaid specifies the subscription billing method.
      *
-     * >  Only PrePaid is supported.
+     * This parameter is required.
      * @example PrePaid
      *
      * @var string
@@ -129,8 +133,9 @@ class CreateARMServerInstancesRequest extends Model
      *
      *   If you leave PeriodUnit empty, the instance is purchased on a monthly basis. Valid values: Day and Month.
      *   If you set PeriodUnit to Day, you can set Period only to 3.
-     *   If you set PeriodUnit to Month, you can set Period to a value within the range of \[1,9], or set the value to 12.
+     *   If you set PeriodUnit to Month, you can set Period to a value within the range of [1,9], or set the value to 12.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -142,8 +147,9 @@ class CreateARMServerInstancesRequest extends Model
      *
      *   If you leave PeriodUnit empty, the instance is purchased on a monthly basis. Valid values: Day and Month.
      *   If you set PeriodUnit to Day, you can set Period only to 3.
-     *   If you set PeriodUnit to Month, you can set Period to a value within the range of \[1,9], or set the value to 12.
+     *   If you set PeriodUnit to Month, you can set Period to a value within the range of [1,9], or set the value to 12.
      *
+     * This parameter is required.
      * @example Month
      *
      * @var string
@@ -153,26 +159,27 @@ class CreateARMServerInstancesRequest extends Model
     /**
      * @description The resolution. Valid values:
      *
-     *   1920\*1080
-     *   1080\*1920
-     *   1280\*720
-     *   720\*1280
-     *   2400\*1080
-     *   1920\*864
-     *   1080\*2400
-     *   864\*1920
+     *   1920\\*1080
+     *   1080\\*1920
+     *   1280\\*720
+     *   720\\*1280
+     *   2400\\*1080
+     *   1920\\*864
+     *   1080\\*2400
+     *   864\\*1920
      *
      * <!---->
      *
-     *   1920\*1080
-     *   1080\*1920
-     *   1280\*720
-     *   720\*1280
-     *   2400\*1080
-     *   1920\*864
-     *   1080\*2400
-     *   864\*1920
+     *   1920\\*1080
+     *   1080\\*1920
+     *   1280\\*720
+     *   720\\*1280
+     *   2400\\*1080
+     *   1920\\*864
+     *   1080\\*2400
+     *   864\\*1920
      *
+     * This parameter is required.
      * @example 720*1280
      *
      * @var string
@@ -197,6 +204,7 @@ class CreateARMServerInstancesRequest extends Model
      *   cas.tg52g2
      *   ens.afq-c2m3i.medium
      *
+     * This parameter is required.
      * @example cas.cf53r
      *
      * @var string

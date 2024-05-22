@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class failedItems extends Model
 {
     /**
+     * @description The ID of the destination node.
+     *
      * @example cn-hangzhou-xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class failedItems extends Model
     public $destinationRegionId;
 
     /**
+     * @description The error message.
+     *
      * @example region not found
      *
      * @var string

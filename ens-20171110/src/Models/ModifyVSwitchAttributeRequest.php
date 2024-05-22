@@ -11,7 +11,9 @@ class ModifyVSwitchAttributeRequest extends Model
     /**
      * @description The description of the vSwitch.
      *
-     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with http:// or https://.
+     *   The description must be 2 to 256 characters in length.
+     *   The description cannot start with http:// or https://.
+     *
      * @example this is my first network
      *
      * @var string
@@ -21,6 +23,7 @@ class ModifyVSwitchAttributeRequest extends Model
     /**
      * @description The ID of the vSwitch.
      *
+     * This parameter is required.
      * @example n-****
      *
      * @var string
@@ -31,8 +34,7 @@ class ModifyVSwitchAttributeRequest extends Model
      * @description The name of the vSwitch.
      *
      *   The name must be 2 to 128 characters in length.
-     *   The name must start with a letter but cannot start with http:// or https://.
-     *   The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The name must start with a letter and cannot start with http:// or https://.
      *
      * @example Test-switch
      *

@@ -18,7 +18,7 @@ class DescribeSnapshotsRequest extends Model
     public $diskId;
 
     /**
-     * @description The region ID of the disk. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the disk. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *

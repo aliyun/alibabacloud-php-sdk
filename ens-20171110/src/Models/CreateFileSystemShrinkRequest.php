@@ -11,6 +11,7 @@ class CreateFileSystemShrinkRequest extends Model
     /**
      * @description The information about the orders.
      *
+     * This parameter is required.
      * @var string
      */
     public $orderDetailsShrink;

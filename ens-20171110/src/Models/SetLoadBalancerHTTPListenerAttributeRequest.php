@@ -53,10 +53,10 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
     /**
      * @description The HTTP status code for a successful health check. Valid values:
      *
-     *   **http\_2xx** (default)
-     *   **http\_3xx**.
-     *   **http\_4xx**
-     *   **http\_5xx**
+     *   **http_2xx** (default)
+     *   **http_3xx**.
+     *   **http_4xx**
+     *   **http_5xx**
      *
      * >  This parameter takes effect only if you set HealthCheck to on.
      * @example http_2xx
@@ -145,6 +145,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
     /**
      * @description The frontend port that is used by the ELB instance. Valid values: **1** to **65535**.
      *
+     * This parameter is required.
      * @example 8080
      *
      * @var int
@@ -154,6 +155,7 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
     /**
      * @description The ID of the Edge Load Balancer (ELB) instance.
      *
+     * This parameter is required.
      * @example lb-5snthcyu1x10g7tywj7iu****
      *
      * @var string

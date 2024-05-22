@@ -20,7 +20,6 @@ class DescribeNetworkAclsRequest extends Model
     /**
      * @description The name of the network ACL.
      *
-     * The name must be 1 to 128 characters in length. The name cannot start with \*\*http:// **or** https://\*\*.
      * @example acl-1
      *
      * @var string

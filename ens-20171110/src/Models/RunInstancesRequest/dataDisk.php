@@ -11,10 +11,10 @@ class dataDisk extends Model
     /**
      * @description The category of the disk. Valid values:
      *
-     *   **cloud_efficiency**: ultra disk
-     *   **cloud_ssd**: all-flash disk
-     *   **local_hdd**: local HDD
-     *   **local_ssd**: local SSD
+     *   **cloud_efficiency**: ultra disk.
+     *   **cloud_ssd**: all-flash disk.
+     *   **local_hdd**: local HDD.
+     *   **local_ssd**: local SSD.
      *
      * @example cloud_efficiency
      *
@@ -23,12 +23,11 @@ class dataDisk extends Model
     public $category;
 
     /**
-     * @description Specifies whether to encrypt data disk N. Valid values:
+     * @description Specifies whether to encrypt the disk. Valid values:
      *
-     *   true: encrypts the data disk.
-     *   false: does not encrypt the data disk.
+     *   true
+     *   false (default)
      *
-     * Default value: false.
      * @example false
      *
      * @var bool
@@ -36,15 +35,12 @@ class dataDisk extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used by the cloud disk. Valid values:
+     * @description The ID of the Key Management Service (KMS) key that is used for the disk. Valid values:
      *
      *   true
-     *   false
+     *   false (default)
      *
-     * Default value: false.
-     *
-     *
-     * >  If you set the **Encrypted** parameter to **true**, the default service key is used when the **KMSKeyId** parameter is empty.
+     * >  If you set the Encrypted parameter to true, the default service key is used when the KMSKeyId parameter is empty.
      * @example false
      *
      * @var string

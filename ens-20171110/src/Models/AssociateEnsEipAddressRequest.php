@@ -11,6 +11,7 @@ class AssociateEnsEipAddressRequest extends Model
     /**
      * @description The ID of the EIP.
      *
+     * This parameter is required.
      * @example eip-5sc1sgcrsrwgwdvx44hru3p63
      *
      * @var string
@@ -20,7 +21,7 @@ class AssociateEnsEipAddressRequest extends Model
     /**
      * @description The ID of the cloud service with which you want to associate the EIP.
      *
-     * >  IDs of Edge Load Balancer (ELB) are supported.
+     * This parameter is required.
      * @example lb-5saivuir6b1mupxjfbhmk1xkb
      *
      * @var string

@@ -11,6 +11,7 @@ class resource extends Model
     /**
      * @description The ID of the resource with which you want to associate the network ACL.
      *
+     * This parameter is required.
      * @example n-5****
      *
      * @var string
@@ -20,7 +21,7 @@ class resource extends Model
     /**
      * @description The type of resource with which you want to associate the network ACL. Set the value to **Network**.
      *
-     ****
+     * This parameter is required.
      * @example Network
      *
      * @var string

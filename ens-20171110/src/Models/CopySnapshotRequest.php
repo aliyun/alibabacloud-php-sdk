@@ -11,6 +11,7 @@ class CopySnapshotRequest extends Model
     /**
      * @description The destination nodes.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $destinationRegionIds;
@@ -25,7 +26,7 @@ class CopySnapshotRequest extends Model
     public $destinationSnapshotDescription;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example testSnapshotName
      *
@@ -36,6 +37,7 @@ class CopySnapshotRequest extends Model
     /**
      * @description The ID of the source snapshot.
      *
+     * This parameter is required.
      * @example sp-bp1c0doj0taqyzzl****
      *
      * @var string

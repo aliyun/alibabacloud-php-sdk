@@ -11,7 +11,7 @@ class RevokeSecurityGroupEgressRequest extends Model
     /**
      * @description The destination IP addresses. CIDR blocks and IPv4 addresses are supported.
      *
-     * By default, this parameter is empty.
+     * This parameter is required.
      * @example 10.0.0.0/8
      *
      * @var string
@@ -27,6 +27,7 @@ class RevokeSecurityGroupEgressRequest extends Model
      *   gre
      *   all: All protocols are supported.
      *
+     * This parameter is required.
      * @example all
      *
      * @var string
@@ -54,6 +55,7 @@ class RevokeSecurityGroupEgressRequest extends Model
      *   When the IpProtocol parameter is set to gre, the port number range is **-1/-1**, which indicates all ports.
      *   When the IpProtocol parameter is set to all, the port number range is **-1/-1**, which indicates all ports.
      *
+     * This parameter is required.
      * @example 22/22
      *
      * @var string
@@ -73,6 +75,7 @@ class RevokeSecurityGroupEgressRequest extends Model
     /**
      * @description The ID of the security group.
      *
+     * This parameter is required.
      * @example sg-bp67acfmxazb4ph***
      *
      * @var string

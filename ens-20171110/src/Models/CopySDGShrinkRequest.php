@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CopySDGShrinkRequest extends Model
 {
     /**
+     * @description The destination nodes.
+     *
+     * This parameter is required.
      * @var string
      */
     public $destinationRegionIdsShrink;
 
     /**
+     * @description The ID of the SDG that you want to copy.
+     *
+     * This parameter is required.
      * @example sdg-xxx
      *
      * @var string

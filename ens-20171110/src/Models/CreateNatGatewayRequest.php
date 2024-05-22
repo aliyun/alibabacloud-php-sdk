@@ -11,6 +11,7 @@ class CreateNatGatewayRequest extends Model
     /**
      * @description The ID of the Edge Node Service (ENS) node.
      *
+     * This parameter is required.
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateNatGatewayRequest extends Model
     /**
      * @description The ID of the network.
      *
+     * This parameter is required.
      * @example n-5qj7ykuxmjn7k96l090sp****
      *
      * @var string
@@ -47,6 +49,7 @@ class CreateNatGatewayRequest extends Model
     /**
      * @description The ID of the vSwitch.
      *
+     * This parameter is required.
      * @example vsw-5savh5ngxh8sbj14bu7n****
      *
      * @var string

@@ -21,21 +21,29 @@ class saleControls extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $moduleCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var moduleValue
      */
     public $moduleValue;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $orderType;

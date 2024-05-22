@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class backendServers extends Model
 {
     /**
-     * @description The ID of the instance that is used as the backend server.
+     * @description The ID of the instance that you want to use as the backend server.
      *
+     * This parameter is required.
      * @example i-5ze0o05xccvbljtn****
      *
      * @var string
@@ -21,7 +22,7 @@ class backendServers extends Model
      * @description The type of the backend server. Valid values:
      *
      *   **ens**: ENS instance.
-     *   **eni**: ENI.
+     *   **eni**: Elastic Network Interface (ENI) instance.
      *
      * @example ens
      *
@@ -32,7 +33,7 @@ class backendServers extends Model
     /**
      * @description The weight of the backend server. Default value: 100. Valid values: **0** to **100**.
      *
-     * >  The value 0 indicates that requests are not forwarded to the backend server.
+     * This parameter is required.
      * @example 20
      *
      * @var int

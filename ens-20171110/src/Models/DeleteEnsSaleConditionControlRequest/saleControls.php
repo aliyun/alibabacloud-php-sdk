@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class saleControls extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var conditionControls[]
      */
     public $conditionControls;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $moduleCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $orderType;

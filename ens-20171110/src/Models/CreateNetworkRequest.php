@@ -15,6 +15,7 @@ class CreateNetworkRequest extends Model
      *   172.16.0.0/12
      *   192.168.0.0/16
      *
+     * This parameter is required.
      * @example 192.168.0.0/24
      *
      * @var string
@@ -34,6 +35,7 @@ class CreateNetworkRequest extends Model
     /**
      * @description The ID of the edge node.
      *
+     * This parameter is required.
      * @example cn-beijing-telecom
      *
      * @var string
@@ -45,7 +47,7 @@ class CreateNetworkRequest extends Model
      *
      *   The name must be 2 to 128 characters in length.
      *   The name must start with a letter but cannot start with http:// or https://.
-     *   The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example abc
      *

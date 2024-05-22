@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeKeyPairsRequest extends Model
 {
     /**
+     * @description The ID of the key pair.
+     *
+     * @example ssh-50cynkq42sgj4ej1tn78t4***
+     *
      * @var string
      */
     public $keyPairId;
@@ -18,7 +22,7 @@ class DescribeKeyPairsRequest extends Model
      *
      *   Digits
      *   :
-     *   \_
+     *   _
      * You can specify only one name. By default, all key pairs are queried.
      * @example TestKeyPairName
      *

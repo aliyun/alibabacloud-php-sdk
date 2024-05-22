@@ -18,13 +18,6 @@ class ResetAICInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The IDs of the AIC instance groups.
-     *
-     * @var string[]
-     */
-    public $instanceIds;
-
-    /**
      * @description The ID of the server.
      *
      * @example cas-instance****
@@ -33,9 +26,8 @@ class ResetAICInstanceRequest extends Model
      */
     public $serverId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'instanceIds' => 'InstanceIds',
-        'serverId'    => 'ServerId',
+        'instanceId' => 'InstanceId',
+        'serverId'   => 'ServerId',
     ];
 
     public function validate()
@@ -47,9 +39,6 @@ class ResetAICInstanceRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
@@ -68,11 +57,6 @@ class ResetAICInstanceRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
-            }
         }
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];

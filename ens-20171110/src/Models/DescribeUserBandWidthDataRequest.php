@@ -14,6 +14,7 @@ class DescribeUserBandWidthDataRequest extends Model
      *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      *
+     * This parameter is required.
      * @example 2019-05-21T12:22:00Z
      *
      * @var string
@@ -55,6 +56,7 @@ class DescribeUserBandWidthDataRequest extends Model
     /**
      * @description The precision of the monitoring data that you want to obtain. Valid values: 300, 1200, 3600, and 14400. Default value: 300. Unit: seconds.
      *
+     * This parameter is required.
      * @example 300
      *
      * @var string
@@ -67,6 +69,7 @@ class DescribeUserBandWidthDataRequest extends Model
      *   Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   If the value of the seconds place is not 00, the start time is automatically set to the next minute.
      *
+     * This parameter is required.
      * @example 2019-05-21T10:22:00Z
      *
      * @var string

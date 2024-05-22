@@ -11,6 +11,7 @@ class DeleteApplicationRequest extends Model
     /**
      * @description The ID of the application. To obtain the application ID, call the ListApplication operation.
      *
+     * This parameter is required.
      * @example d0639abf-789a-4527-b420-031d2cd9ad9b
      *
      * @var string

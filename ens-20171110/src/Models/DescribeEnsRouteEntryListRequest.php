@@ -88,6 +88,7 @@ class DescribeEnsRouteEntryListRequest extends Model
     /**
      * @description The ID of the route table that you want to query.
      *
+     * This parameter is required.
      * @example vtb-hp3wdhynneo7fsclox8hs
      *
      * @var string

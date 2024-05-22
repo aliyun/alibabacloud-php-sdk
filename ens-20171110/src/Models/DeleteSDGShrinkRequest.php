@@ -6,14 +6,17 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TerminateWorkflowShrinkRequest extends Model
+class DeleteSDGShrinkRequest extends Model
 {
     /**
+     * @description IDs of SDGs that you want to delete. You can delete a maximum of 10 SDGs at a time.
+     *
+     * This parameter is required.
      * @var string
      */
-    public $workflowIdsShrink;
+    public $SDGIdShrink;
     protected $_name = [
-        'workflowIdsShrink' => 'WorkflowIds',
+        'SDGIdShrink' => 'SDGId',
     ];
 
     public function validate()
@@ -23,8 +26,8 @@ class TerminateWorkflowShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workflowIdsShrink) {
-            $res['WorkflowIds'] = $this->workflowIdsShrink;
+        if (null !== $this->SDGIdShrink) {
+            $res['SDGId'] = $this->SDGIdShrink;
         }
 
         return $res;
@@ -33,13 +36,13 @@ class TerminateWorkflowShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return TerminateWorkflowShrinkRequest
+     * @return DeleteSDGShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkflowIds'])) {
-            $model->workflowIdsShrink = $map['WorkflowIds'];
+        if (isset($map['SDGId'])) {
+            $model->SDGIdShrink = $map['SDGId'];
         }
 
         return $model;

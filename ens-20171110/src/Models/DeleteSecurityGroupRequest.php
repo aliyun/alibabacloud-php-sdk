@@ -11,6 +11,7 @@ class DeleteSecurityGroupRequest extends Model
     /**
      * @description The security group ID of the instance.
      *
+     * This parameter is required.
      * @example sg-bp67acfmxazb4ph***
      *
      * @var string

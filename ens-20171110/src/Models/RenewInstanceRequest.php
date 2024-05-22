@@ -11,6 +11,7 @@ class RenewInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-56789acfmxazb4p****
      *
      * @var string
@@ -33,6 +34,7 @@ class RenewInstanceRequest extends Model
      *   9
      *   12
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

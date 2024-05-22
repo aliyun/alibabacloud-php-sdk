@@ -59,8 +59,8 @@ class ingressAclEntries extends Model
     /**
      * @description The destination port range of the inbound rule.
      *
-     *   If **Protocol** in the inbound rule is set to **all** or **icmp**, \*\*-1/-1\*\* is returned for this parameter. \*\*-1/-1\*\* indicates all ports.
-     *   If **Protocol** in the inbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200 and 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
+     *   If **Protocol** of the inbound rule is set to **all** or **icmp**, the port range is **-1/-1**, which indicates all ports.
+     *   If **Protocol** of the inbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
      *
      * @example -1/-1
      *
@@ -78,12 +78,12 @@ class ingressAclEntries extends Model
     public $priority;
 
     /**
-     * @description The protocol. Valid values:
+     * @description The protocol type. Valid values:
      *
-     *   **icmp**
-     *   **tcp**
-     *   **udp**
-     *   **all**
+     *   **icmp**: ICMP.
+     *   **tcp**: TCP.
+     *   **udp**: UDP.
+     *   **all**: all protocols.
      *
      * @example all
      *

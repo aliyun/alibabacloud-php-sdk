@@ -29,6 +29,7 @@ class DescribeSDGDeploymentStatusRequest extends Model
     /**
      * @description The ID of the SDG.
      *
+     * This parameter is required.
      * @example sdg-xxxx
      *
      * @var string

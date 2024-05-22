@@ -11,6 +11,7 @@ class ReleaseARMServerInstanceRequest extends Model
     /**
      * @description The ID of the server.
      *
+     * This parameter is required.
      * @example yourInstance ID
      *
      * @var string

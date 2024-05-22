@@ -11,7 +11,7 @@ class DescribeEipAddressesRequest extends Model
     /**
      * @description The information about the EIPs.
      *
-     * @example [\"eip-5rd9i3pftfgbavl4y1b7hm4a3\"]
+     * @example [\\"eip-5rd9i3pftfgbavl4y1b7hm4a3\\"]
      *
      * @var string
      */
@@ -20,6 +20,7 @@ class DescribeEipAddressesRequest extends Model
     /**
      * @description The ID of the Edge Node Service (ENS) node.
      *
+     * This parameter is required.
      * @example cn-nanjing-cmcc
      *
      * @var string

@@ -20,6 +20,7 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @description The ID of the instance for which you want to modify attributes. You can specify only one ID.
      *
+     * This parameter is required.
      * @example i-instanc****
      *
      * @var string
@@ -29,7 +30,7 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @description The name of the instance.
      *
-     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      * @example i-instanceidname
      *
      * @var string

@@ -11,6 +11,7 @@ class RecoverAICInstanceRequest extends Model
     /**
      * @description The ID of the server.
      *
+     * This parameter is required.
      * @example cas-instance****
      *
      * @var string

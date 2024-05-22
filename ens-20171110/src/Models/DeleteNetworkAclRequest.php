@@ -11,6 +11,7 @@ class DeleteNetworkAclRequest extends Model
     /**
      * @description The ID of the network ACL.
      *
+     * This parameter is required.
      * @example nacl-bp1lhl0taikrbgnh****
      *
      * @var string

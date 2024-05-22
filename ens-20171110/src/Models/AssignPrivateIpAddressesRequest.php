@@ -11,6 +11,7 @@ class AssignPrivateIpAddressesRequest extends Model
     /**
      * @description The ID of the ENI.
      *
+     * This parameter is required.
      * @example eni-uf6533jbifugr5fo2j1w
      *
      * @var string

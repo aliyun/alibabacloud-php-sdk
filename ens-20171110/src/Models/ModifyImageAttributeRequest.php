@@ -11,6 +11,7 @@ class ModifyImageAttributeRequest extends Model
     /**
      * @description The ID of the image.
      *
+     * This parameter is required.
      * @example m-5t4xwkfkbs0uxv0kymdb6uip7
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyImageAttributeRequest extends Model
     /**
      * @description The name of the image.
      *
+     * This parameter is required.
      * @var string
      */
     public $imageName;

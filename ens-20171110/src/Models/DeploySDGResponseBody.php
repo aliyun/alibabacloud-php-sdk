@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DeploySDGResponseBody extends Model
 {
     /**
+     * @description The returned data object.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A331CA96-3948-4BD2-B067-F6174F5C17EA
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskResponseBody extends Model
 {
     /**
-     * @description IDs of instances.
+     * @description The IDs of the instances.
      *
      * @var string[]
      */

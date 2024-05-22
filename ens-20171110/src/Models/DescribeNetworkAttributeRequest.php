@@ -11,6 +11,7 @@ class DescribeNetworkAttributeRequest extends Model
     /**
      * @description The ID of the network.
      *
+     * This parameter is required.
      * @example n-****
      *
      * @var string

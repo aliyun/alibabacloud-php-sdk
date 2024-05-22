@@ -11,6 +11,7 @@ class DescribeMountTargetsRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeMountTargetsRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example c50f8*****
      *
      * @var string

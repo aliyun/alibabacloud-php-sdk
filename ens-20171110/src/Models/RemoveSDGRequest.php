@@ -6,14 +6,17 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RestartWorkflowRequest extends Model
+class RemoveSDGRequest extends Model
 {
     /**
+     * @description IDs of Android in Container (AIC) instances.
+     *
+     * This parameter is required.
      * @var string[]
      */
-    public $workflowIds;
+    public $instanceIds;
     protected $_name = [
-        'workflowIds' => 'WorkflowIds',
+        'instanceIds' => 'InstanceIds',
     ];
 
     public function validate()
@@ -23,8 +26,8 @@ class RestartWorkflowRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workflowIds) {
-            $res['WorkflowIds'] = $this->workflowIds;
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
         }
 
         return $res;
@@ -33,14 +36,14 @@ class RestartWorkflowRequest extends Model
     /**
      * @param array $map
      *
-     * @return RestartWorkflowRequest
+     * @return RemoveSDGRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkflowIds'])) {
-            if (!empty($map['WorkflowIds'])) {
-                $model->workflowIds = $map['WorkflowIds'];
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
             }
         }
 

@@ -22,8 +22,9 @@ class AttachDiskRequest extends Model
     public $deleteWithInstance;
 
     /**
-     * @description The ID of the disk to be attached. The cloud disk and the instance must belong to the same zone.
+     * @description The ID of the disk to be attached. The cloud disk and the instance must belong to the same node.
      *
+     * This parameter is required.
      * @example d-5saf13yy6sopmmg88mzsg****
      *
      * @var string
@@ -33,6 +34,7 @@ class AttachDiskRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-5rr19av7tkpgi9os52ag1****
      *
      * @var string

@@ -6,14 +6,18 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RetryWorkflowRequest extends Model
+class DeleteSDGResponseBody extends Model
 {
     /**
-     * @var string[]
+     * @description The request ID.
+     *
+     * @example 86A6D421-A0C7-4C01-8648-47377CA6A2CE
+     *
+     * @var string
      */
-    public $workflowIds;
+    public $requestId;
     protected $_name = [
-        'workflowIds' => 'WorkflowIds',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -23,8 +27,8 @@ class RetryWorkflowRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->workflowIds) {
-            $res['WorkflowIds'] = $this->workflowIds;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -33,15 +37,13 @@ class RetryWorkflowRequest extends Model
     /**
      * @param array $map
      *
-     * @return RetryWorkflowRequest
+     * @return DeleteSDGResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['WorkflowIds'])) {
-            if (!empty($map['WorkflowIds'])) {
-                $model->workflowIds = $map['WorkflowIds'];
-            }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

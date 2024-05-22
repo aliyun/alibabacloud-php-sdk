@@ -11,6 +11,7 @@ class UnAssociateEnsEipAddressRequest extends Model
     /**
      * @description The ID of the EIP.
      *
+     * This parameter is required.
      * @example eip-5sqa431nx3vee8heqxfxp4e4r
      *
      * @var string

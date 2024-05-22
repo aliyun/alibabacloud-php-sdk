@@ -11,6 +11,7 @@ class ModifyForwardEntryRequest extends Model
     /**
      * @description The ID of the DNAT entry.
      *
+     * This parameter is required.
      * @example dnat-5tfjp3537mi6iokl59g5c****
      *
      * @var string

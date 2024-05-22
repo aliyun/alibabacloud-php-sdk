@@ -6,9 +6,13 @@ namespace AlibabaCloud\SDK\Ens\V20171110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RestartWorkflowResponseBody extends Model
+class SaveSDGResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example C0003E8B-B930-4F59-ADC0-0E209A9012A8
+     *
      * @var string
      */
     public $requestId;
@@ -33,7 +37,7 @@ class RestartWorkflowResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RestartWorkflowResponseBody
+     * @return SaveSDGResponseBody
      */
     public static function fromMap($map = [])
     {

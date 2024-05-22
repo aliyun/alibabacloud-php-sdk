@@ -18,6 +18,11 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @var string
+     */
+    public $autoReleaseTime;
+
+    /**
      * @description The number of vCPUs.
      *
      * @example 2
@@ -74,7 +79,7 @@ class instance extends Model
      *
      *   The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
      *   For a Windows instance, the hostname must be 2 to 15 characters in length and can contain letters, digits, and hyphens (-). The hostname cannot contain periods (.) or contain only digits.
-     *   For an instance that runs another operating system such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate the hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
+     *   For other operating systems: The hostname must be 2 to 64 characters in length and can contain letters, digits, and hyphens (-). It can be separated by periods (.).
      *
      * @example testHostName
      *
@@ -108,7 +113,7 @@ class instance extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The name of the virtual private cloud (VPC).
      *
      * @example i-5itef0f28t17bcdw9deu6meub
      *
@@ -133,10 +138,10 @@ class instance extends Model
     /**
      * @description The instance family. Valid values:
      *
-     *   x86\_vm: x86-based computing instance.
-     *   x86\_pm: x86-based physical machine.
-     *   x86\_bmi: x86-based bare metal instance.
-     *   x86\_bm: bare metal instance with the SmartNIC.
+     *   x86_vm: x86-based computing instance.
+     *   x86_pm: x86-based physical machine.
+     *   x86_bmi: x86-based bare metal instance.
+     *   x86_bm: bare metal instance with the SmartNIC.
      *   pc_bmi: heterogeneous bare metal instance.
      *   pc_vm: heterogeneous virtual machine.
      *   arm_bmi: Arm-based computing instance.
@@ -175,7 +180,7 @@ class instance extends Model
     public $memory;
 
     /**
-     * @description The returned information about the network.
+     * @description Details of the network.
      *
      * @var networkAttributes
      */
@@ -228,7 +233,12 @@ class instance extends Model
     public $specName;
 
     /**
-     * @description The status. Valid values:
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
+     * @description The status of the instance. Valid values:
      *
      *   Running
      *   Expired
@@ -241,7 +251,7 @@ class instance extends Model
     public $status;
 
     /**
-     * @description The returned information about the disk.
+     * @description Details of the system disk.
      *
      * @var systemDisk
      */
@@ -252,6 +262,7 @@ class instance extends Model
      */
     public $tags;
     protected $_name = [
+        'autoReleaseTime'         => 'AutoReleaseTime',
         'cpu'                     => 'Cpu',
         'creationTime'            => 'CreationTime',
         'dataDisk'                => 'DataDisk',
@@ -275,6 +286,7 @@ class instance extends Model
         'publicIpAddresses'       => 'PublicIpAddresses',
         'securityGroupIds'        => 'SecurityGroupIds',
         'specName'                => 'SpecName',
+        'spotStrategy'            => 'SpotStrategy',
         'status'                  => 'Status',
         'systemDisk'              => 'SystemDisk',
         'tags'                    => 'Tags',
@@ -287,6 +299,9 @@ class instance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoReleaseTime) {
+            $res['AutoReleaseTime'] = $this->autoReleaseTime;
+        }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
@@ -356,6 +371,9 @@ class instance extends Model
         if (null !== $this->specName) {
             $res['SpecName'] = $this->specName;
         }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -377,6 +395,9 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoReleaseTime'])) {
+            $model->autoReleaseTime = $map['AutoReleaseTime'];
+        }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
@@ -445,6 +466,9 @@ class instance extends Model
         }
         if (isset($map['SpecName'])) {
             $model->specName = $map['SpecName'];
+        }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -101,6 +101,7 @@ class CreateLoadBalancerUDPListenerRequest extends Model
     /**
      * @description The frontend port that is used by the ELB instance. Valid values: **1** to **65535**.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -110,6 +111,7 @@ class CreateLoadBalancerUDPListenerRequest extends Model
     /**
      * @description The ID of the Edge Load Balancer (ELB) instance.
      *
+     * This parameter is required.
      * @example lb-5q73cv04zeyh43lh74lp4****
      *
      * @var string

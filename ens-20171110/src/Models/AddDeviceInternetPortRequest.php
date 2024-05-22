@@ -25,6 +25,7 @@ class AddDeviceInternetPortRequest extends Model
     /**
      * @description The ID of the instance. You can specify the ID of the server or container.
      *
+     * This parameter is required.
      * @example i-5saiou41t6ude2ia56ri902ke
      *
      * @var string
@@ -34,6 +35,7 @@ class AddDeviceInternetPortRequest extends Model
     /**
      * @description The internal IP address of the instance.
      *
+     * This parameter is required.
      * @example 10.0.0.50
      *
      * @var string
@@ -55,6 +57,7 @@ class AddDeviceInternetPortRequest extends Model
      *   SNAT
      *   DNAT
      *
+     * This parameter is required.
      * @example DNAT
      *
      * @var string
@@ -64,6 +67,7 @@ class AddDeviceInternetPortRequest extends Model
     /**
      * @description The ID of the Edge Node Service (ENS) node.
      *
+     * This parameter is required.
      * @example cn-wuxi-5
      *
      * @var string

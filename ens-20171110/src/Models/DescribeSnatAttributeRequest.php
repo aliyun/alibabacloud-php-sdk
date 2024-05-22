@@ -11,6 +11,7 @@ class DescribeSnatAttributeRequest extends Model
     /**
      * @description The ID of the SNAT entry.
      *
+     * This parameter is required.
      * @example snat-5tc08qfj5ecblfdn2rqr9****
      *
      * @var string

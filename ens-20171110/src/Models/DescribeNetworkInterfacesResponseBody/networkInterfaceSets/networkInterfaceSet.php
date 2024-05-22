@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaceSet extends Model
 {
     /**
-     * @description The time when the ENI was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC. The format is yyyy-MM-ddThh:mmZ.
+     * @description The time when the ENI was created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
      *
      * @example 2022-02-22T03:53:25Z
      *
@@ -20,7 +20,7 @@ class networkInterfaceSet extends Model
     public $creationTime;
 
     /**
-     * @description The description of the ENI.
+     * @description The description of ENI.
      *
      * @example test-description
      *
@@ -38,7 +38,7 @@ class networkInterfaceSet extends Model
     public $ensRegionId;
 
     /**
-     * @description The ID of the instance to which the ENI is attached.
+     * @description The ID of the instance to which the ENI is bound.
      *
      * @example i-5siavnr3
      *
@@ -47,7 +47,7 @@ class networkInterfaceSet extends Model
     public $instanceId;
 
     /**
-     * @description The media access control (MAC) address of the ENI.
+     * @description The MAC address of the ENI.
      *
      * @example 00:16:3e:08:60:0a
      *
@@ -74,7 +74,7 @@ class networkInterfaceSet extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The name of the ENI.
+     * @description The ENI name.
      *
      * @example primaryTest
      *
@@ -83,7 +83,7 @@ class networkInterfaceSet extends Model
     public $networkInterfaceName;
 
     /**
-     * @description The primary private IP address.
+     * @description The private IP address of the server.
      *
      * @example 12.23.3.4
      *
@@ -92,10 +92,10 @@ class networkInterfaceSet extends Model
     public $primaryIp;
 
     /**
-     * @description The type of the primary IP address. Valid values:
+     * @description The primary private IP address. Valid values:
      *
-     *   **Public**: public endpoint.
-     *   **Private**: internal endpoint.
+     *   **Public**: public IP address.
+     *   **Private**: internal IP address.
      *
      * @example private
      *
@@ -104,14 +104,14 @@ class networkInterfaceSet extends Model
     public $primaryIpType;
 
     /**
-     * @description Details about the private IP addresses.
+     * @description Details about the private IP address.
      *
      * @var privateIpSets
      */
     public $privateIpSets;
 
     /**
-     * @description IDs of security groups.
+     * @description The ID of the security group.
      *
      * @var securityGroupIds
      */

@@ -11,6 +11,7 @@ class DescribeServcieScheduleRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example 474bdef0-d149-4695-abfb-52912d9143f0
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeServcieScheduleRequest extends Model
     /**
      * @description The UUID of the device.
      *
+     * This parameter is required.
      * @example hdm_f022bf160dc69e2d8eb421e508eb9170
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class keyPair extends Model
 {
     /**
-     * @description The time when the key pair was created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the key pair was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2020-04-26T15:38:27Z
      *
@@ -27,6 +27,10 @@ class keyPair extends Model
     public $keyPairFingerPrint;
 
     /**
+     * @description The ID of the key pair.
+     *
+     * @example ssh-50cynkq42sgj4ej1tn78t4***
+     *
      * @var string
      */
     public $keyPairId;

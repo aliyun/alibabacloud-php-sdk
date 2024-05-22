@@ -12,6 +12,7 @@ class UnassociateNetworkAclRequest extends Model
     /**
      * @description The ID of the network ACL that you want to disassociate from a resource.
      *
+     * This parameter is required.
      * @example nacl-a2do9e413e0sp****
      *
      * @var string
@@ -19,8 +20,9 @@ class UnassociateNetworkAclRequest extends Model
     public $networkAclId;
 
     /**
-     * @description The information about the associated resource.
+     * @description Resources that you want to disassociate. Valid values of **N**: 0 to 29. A maximum of 30 resources can be unbound.
      *
+     * This parameter is required.
      * @var resource[]
      */
     public $resource;

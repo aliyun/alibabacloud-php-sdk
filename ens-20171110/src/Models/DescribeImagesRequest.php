@@ -28,7 +28,7 @@ class DescribeImagesRequest extends Model
     public $imageId;
 
     /**
-     * @description The name of the custom image. The name must be 2 to 128 characters in length The name must start with a letter and cannot start with `acs:` or `aliyun`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the custom image. The name must be 2 to 128 characters in length The name must start with a letter and cannot start with `acs:` or `aliyun`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (_), and hyphens (-).
      *
      * By default, this parameter is left empty, which indicates that the original name is retained.
      * @example centos_6_08_64_20G_a****

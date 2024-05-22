@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ReinitInstanceRequest extends Model
 {
     /**
+     * @description The ID of the image file that is used to reset the instance.
+     *
+     * This parameter is required.
+     * @example m-5wn1dhz5syoo9b48f440ntvad
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     * @example i-5vn4n3y4laeb2ii9zxxltlvzi
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The password of the instance.
+     *
+     * It must be 8 to 30 characters in length. It must include at least three of the following characters types: uppercase letters, lowercase letters, digits, and special characters. The following special character are supported: `()\\"~! @#$%^&*-_+={}[]:;\\"<>,.?/`
+     * @example ***
+     *
      * @var string
      */
     public $password;

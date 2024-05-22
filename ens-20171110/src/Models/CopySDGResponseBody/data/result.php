@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The number of failed nodes.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class result extends Model
     public $failedCount;
 
     /**
+     * @description Details of failed nodes.
+     *
      * @var failedItems[]
      */
     public $failedItems;
 
     /**
+     * @description The number of successful nodes.
+     *
      * @example 1
      *
      * @var int

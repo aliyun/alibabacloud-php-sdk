@@ -27,7 +27,7 @@ class backendServer extends Model
     public $port;
 
     /**
-     * @description The ID of the instance that is used as the backend server.
+     * @description The instance ID of the backend server.
      *
      * @example i-5vb5h5njxiuhn48a****
      *
@@ -38,8 +38,8 @@ class backendServer extends Model
     /**
      * @description The type of the backend server. Valid values:
      *
-     *   **ens**: ENS instance.
-     *   **eni**: ENI.
+     *   **ens**: an ENS instance.
+     *   **eni**: an ENI.
      *
      * @example ens
      *
@@ -48,7 +48,7 @@ class backendServer extends Model
     public $type;
 
     /**
-     * @description The weight of the backend server. Default value: 100. Valid values: **0** to **100**.
+     * @description The weight of the backend server.
      *
      * >  The value 0 indicates that requests are not forwarded to the backend server.
      * @example 50

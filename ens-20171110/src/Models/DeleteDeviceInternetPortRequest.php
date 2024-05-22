@@ -11,6 +11,7 @@ class DeleteDeviceInternetPortRequest extends Model
     /**
      * @description The ID of the instance. You can specify the ID of the server or container.
      *
+     * This parameter is required.
      * @example i-5scdmgpdegymqyugf85q66l1a
      *
      * @var string
@@ -23,6 +24,7 @@ class DeleteDeviceInternetPortRequest extends Model
      *   SNAT
      *   DNAT
      *
+     * This parameter is required.
      * @example DNAT
      *
      * @var string
@@ -32,6 +34,7 @@ class DeleteDeviceInternetPortRequest extends Model
     /**
      * @description The ID of the rule.
      *
+     * This parameter is required.
      * @example snat-5rfzxah5gzfo869fl6epvon3y
      *
      * @var string

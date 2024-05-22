@@ -11,6 +11,7 @@ class CreateNetworkAclEntryRequest extends Model
     /**
      * @description The source CIDR block.
      *
+     * This parameter is required.
      * @example 10.0.0.0/24
      *
      * @var string
@@ -33,6 +34,7 @@ class CreateNetworkAclEntryRequest extends Model
      *   **ingress**
      *   **egress**
      *
+     * This parameter is required.
      * @example ingress
      *
      * @var string
@@ -52,6 +54,7 @@ class CreateNetworkAclEntryRequest extends Model
     /**
      * @description The ID of the network ACL.
      *
+     * This parameter is required.
      * @example nacl-bp1lhl0taikrbgnh****
      *
      * @var string
@@ -64,6 +67,7 @@ class CreateNetworkAclEntryRequest extends Model
      *   **accept**: allows network traffic.
      *   **drop**: blocks network traffic.
      *
+     * This parameter is required.
      * @example accept
      *
      * @var string
@@ -76,6 +80,7 @@ class CreateNetworkAclEntryRequest extends Model
      *   If you set **Protocol** to **all** or **icmp**, set this parameter to -1/-1, which specifies all ports.
      *   If you set **Protocol** to **tcp** or **udp**, the port can be **1 to 65535**. You can set this parameter to **1/200** or **80/80**, which specifies ports 1 to 200 or port 80.
      *
+     * This parameter is required.
      * @example -1/-1
      *
      * @var string
@@ -85,6 +90,7 @@ class CreateNetworkAclEntryRequest extends Model
     /**
      * @description The priority of the rule. Valid values: **1 to 100**. Default value: **1**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -99,6 +105,7 @@ class CreateNetworkAclEntryRequest extends Model
      *   **udp**: UDP
      *   **all**: all protocols
      *
+     * This parameter is required.
      * @example all
      *
      * @var string

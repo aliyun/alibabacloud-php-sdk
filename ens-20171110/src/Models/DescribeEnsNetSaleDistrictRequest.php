@@ -27,6 +27,7 @@ class DescribeEnsNetSaleDistrictRequest extends Model
      *   **Middle**: province
      *   **Small**: city
      *
+     * This parameter is required.
      * @example Big
      *
      * @var string

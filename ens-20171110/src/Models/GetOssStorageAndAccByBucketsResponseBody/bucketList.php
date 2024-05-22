@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class bucketList extends Model
 {
     /**
-     * @description The number of visits.
+     * @description The number of times that the bucket is accessed.
      *
      * @example 1000
      *
@@ -18,7 +18,7 @@ class bucketList extends Model
     public $acc;
 
     /**
-     * @description The bucket name.
+     * @description The name of the bucket.
      *
      * @example my-bucket
      *
@@ -27,7 +27,7 @@ class bucketList extends Model
     public $bucket;
 
     /**
-     * @description The storage usage of the cluster, in bytes.
+     * @description The storage usage of the bucket. Unit: bytes.
      *
      * @example 1024
      *

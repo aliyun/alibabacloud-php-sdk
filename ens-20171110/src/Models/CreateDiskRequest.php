@@ -13,9 +13,8 @@ class CreateDiskRequest extends Model
      *
      *   cloud_efficiency: ultra disk.
      *   cloud_ssd: all-flash disk.
-     *   local_hdd: local HDD.
-     *   local_ssd: local SSD.
      *
+     * This parameter is required.
      * @example cloud_efficiency
      *
      * @var string
@@ -46,6 +45,7 @@ class CreateDiskRequest extends Model
     /**
      * @description The ID of the edge node.
      *
+     * This parameter is required.
      * @example cn-chengdu-telecom
      *
      * @var string
@@ -53,11 +53,9 @@ class CreateDiskRequest extends Model
     public $ensRegionId;
 
     /**
-     * @description The billing method of the instance. Valid values:
+     * @description The billing method of the instance. Set the value to **PostPaid**.
      *
-     *   PrePaid: subscription.
-     *   PostPaid: pay-as-you-go.
-     *
+     * This parameter is required.
      * @example PostPaid
      *
      * @var string

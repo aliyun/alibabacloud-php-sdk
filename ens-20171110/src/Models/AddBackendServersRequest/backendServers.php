@@ -29,6 +29,7 @@ class backendServers extends Model
     /**
      * @description The ID of the ENS instance.
      *
+     * This parameter is required.
      * @example i-5uf6dwyzch3wly790****
      *
      * @var string

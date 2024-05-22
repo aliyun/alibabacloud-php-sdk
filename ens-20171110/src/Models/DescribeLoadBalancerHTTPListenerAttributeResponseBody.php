@@ -75,10 +75,10 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     /**
      * @description The HTTP status codes for a successful health check. Valid values:
      *
-     *   **http\_2xx** (default)
-     *   **http\_3xx**.
-     *   **http\_4xx**
-     *   **http\_5xx**
+     *   **http_2xx** (default)
+     *   **http_3xx**.
+     *   **http_4xx**
+     *   **http_5xx**
      *
      * >  This parameter is returned only if you set HealthCheck to on.
      * @example http_2xx

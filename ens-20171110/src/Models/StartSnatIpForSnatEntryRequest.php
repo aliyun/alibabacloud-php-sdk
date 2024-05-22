@@ -11,6 +11,7 @@ class StartSnatIpForSnatEntryRequest extends Model
     /**
      * @description The ID of the SNAT entry.
      *
+     * This parameter is required.
      * @example snat-5tfi6f8gds82mjmlofeym****
      *
      * @var string
@@ -20,6 +21,7 @@ class StartSnatIpForSnatEntryRequest extends Model
     /**
      * @description The EIP specified in the SNAT entry.
      *
+     * This parameter is required.
      * @example 219.152.82.143
      *
      * @var string

@@ -12,6 +12,7 @@ class AccosicateNetworkAclRequest extends Model
     /**
      * @description The ID of the network ACL.
      *
+     * This parameter is required.
      * @example nacl-a2do9e413e0sp****
      *
      * @var string
@@ -21,6 +22,7 @@ class AccosicateNetworkAclRequest extends Model
     /**
      * @description The information about the resources with which you want to associate the network ACL.
      *
+     * This parameter is required.
      * @var resource[]
      */
     public $resource;

@@ -11,6 +11,7 @@ class DescribeEpnInstanceAttributeRequest extends Model
     /**
      * @description The ID of the EPN instance.
      *
+     * This parameter is required.
      * @example epn-xxxx
      *
      * @var string

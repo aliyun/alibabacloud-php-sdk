@@ -11,6 +11,7 @@ class DeleteFileSystemRequest extends Model
     /**
      * @description The ID of the node.
      *
+     * This parameter is required.
      * @example cn-chengdu-telecom-4
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteFileSystemRequest extends Model
     /**
      * @description The ID of the file system that you want to delete.
      *
+     * This parameter is required.
      * @example e42640****
      *
      * @var string

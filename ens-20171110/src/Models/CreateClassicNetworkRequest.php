@@ -15,6 +15,7 @@ class CreateClassicNetworkRequest extends Model
      *   172.16.0.0/12
      *   192.168.0.0/16
      *
+     * This parameter is required.
      * @example 10.0.0.0/16
      *
      * @var string
@@ -22,9 +23,8 @@ class CreateClassicNetworkRequest extends Model
     public $cidrBlock;
 
     /**
-     * @description The description of the listener. The description is **1** to **80** characters in length.
+     * @description The description of the network. The name must be 2 to 256 characters in length. It must start with a letter but cannot start with http:// or https://.
      *
-     * >  The value cannot start with `http://` or `https://`.
      * @example This is my vswitch.
      *
      * @var string
@@ -34,6 +34,7 @@ class CreateClassicNetworkRequest extends Model
     /**
      * @description The ID of the edge node.
      *
+     * This parameter is required.
      * @example cn-chengdu-xxxx-4
      *
      * @var string
@@ -45,7 +46,7 @@ class CreateClassicNetworkRequest extends Model
      *
      *   The name must be 2 to 128 characters in length.
      *   The name must start with a letter but cannot start with http:// or https://.
-     *   The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example example
      *

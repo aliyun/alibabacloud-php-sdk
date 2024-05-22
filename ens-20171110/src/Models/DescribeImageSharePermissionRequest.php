@@ -20,6 +20,7 @@ class DescribeImageSharePermissionRequest extends Model
     /**
      * @description The ID of the image.
      *
+     * This parameter is required.
      * @example m-5s7qotzavwbrnzaqh4unm****
      *
      * @var string

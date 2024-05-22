@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @description The ID of the ENS node.
+     * @description The ID of the edge node.
      *
      * @example cn-fuzhou-telecom
      *

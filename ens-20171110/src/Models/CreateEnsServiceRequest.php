@@ -11,6 +11,7 @@ class CreateEnsServiceRequest extends Model
     /**
      * @description The ID of the resource that you want to obtain. You can specify only one ID in a request.
      *
+     * This parameter is required.
      * @example ens-20190806****
      *
      * @var string
@@ -23,6 +24,7 @@ class CreateEnsServiceRequest extends Model
      *   **Buy**: create
      *   **Upgrade**: change
      *
+     * This parameter is required.
      * @example Buy
      *
      * @var string

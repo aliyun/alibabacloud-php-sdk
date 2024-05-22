@@ -41,6 +41,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -75,7 +76,7 @@ class CreateInstanceRequest extends Model
      *
      *   The name must be **2** to **128** characters in length.
      *   It must start with a letter but cannot start with http:// or https://.
-     *   The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     *   The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * If you do not specify this parameter, the instance ID is used as the instance name by default.
      * @example test:Instance_Name.1-2
@@ -87,7 +88,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The type of the instance.
      *
-     * For more information, see [](~~66124~~).
+     * This parameter is required.
      * @example ens.se1.tiny
      *
      * @var string
@@ -136,7 +137,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The password of the instance.
      *
-     * The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include: ``()`~!@#$%^&*-_+=|{}[]:;\"<>,.?/``
+     * The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include: ``()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/``
      * @example yourPassword:1
      *
      * @var string
@@ -167,6 +168,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The subscription period of the instance. Valid values: **1** to **9** and **12**. Unit: months.
      *
+     * This parameter is required.
      * @example 12
      *
      * @var string
@@ -197,6 +199,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The number of instances.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

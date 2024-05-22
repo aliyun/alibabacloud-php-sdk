@@ -11,6 +11,7 @@ class ResetDeviceInstanceRequest extends Model
     /**
      * @description The ID of the application. To obtain the application ID, call the ListApplications operation. For more information, see the API documentation of ListApplications.
      *
+     * This parameter is required.
      * @example d0639abf-789a-4527-b420-031d2cd9ad9b
      *
      * @var string
@@ -20,6 +21,7 @@ class ResetDeviceInstanceRequest extends Model
     /**
      * @description The ID of the image.
      *
+     * This parameter is required.
      * @example m-5si16wo6simkt267p8b7hcmy3
      *
      * @var string
@@ -29,6 +31,7 @@ class ResetDeviceInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example i-5sfdblzjqf3zvjnr7oh0bhhj2
      *
      * @var string

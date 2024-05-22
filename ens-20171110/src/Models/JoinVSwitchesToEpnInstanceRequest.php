@@ -11,6 +11,7 @@ class JoinVSwitchesToEpnInstanceRequest extends Model
     /**
      * @description The ID of the edge network instance.
      *
+     * This parameter is required.
      * @example epn-xxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class JoinVSwitchesToEpnInstanceRequest extends Model
     /**
      * @description The information about the internal networking to which you want to add the edge network instance.
      *
+     * This parameter is required.
      * @example [{"VSwitchId":"vs-ixxxx"},{"VSwitchId":"vs-ixxxx"}]
      *
      * @var string

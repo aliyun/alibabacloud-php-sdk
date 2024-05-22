@@ -29,6 +29,7 @@ class CreateEipInstanceRequest extends Model
     /**
      * @description The ID of the Edge Node Service (ENS) node.
      *
+     * This parameter is required.
      * @example cn-suzhou-telecom
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateEipInstanceRequest extends Model
     /**
      * @description The billing method of the EIP. Set the value to **PostPaid**.
      *
+     * This parameter is required.
      * @example PostPaid
      *
      * @var string
@@ -47,6 +49,7 @@ class CreateEipInstanceRequest extends Model
     /**
      * @description The metering method of the EIP. Set the value to **95BandwidthByMonth**.
      *
+     * This parameter is required.
      * @example 95BandwidthByMonth
      *
      * @var string

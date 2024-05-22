@@ -11,6 +11,7 @@ class DescribeSnatTableEntriesRequest extends Model
     /**
      * @description The ID of the Network Address Translation (NAT) gateway.
      *
+     * This parameter is required.
      * @example nat-5tawjw5j7sgd2deujxuk0****
      *
      * @var string

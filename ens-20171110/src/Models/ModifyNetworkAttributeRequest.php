@@ -21,6 +21,7 @@ class ModifyNetworkAttributeRequest extends Model
     /**
      * @description The ID of the network.
      *
+     * This parameter is required.
      * @example n-****
      *
      * @var string
@@ -30,9 +31,9 @@ class ModifyNetworkAttributeRequest extends Model
     /**
      * @description The name of the network. The name must meet the following requirements:
      *
-     *   The name must be 2 to 128 characters in length.
-     *   The name must start with a letter but cannot start with http:// or https://.
-     *   The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *   The name must be 2 to 128 characters in length
+     *   It must start with a letter but cannot start with http:// or https://.
+     *   The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example abc
      *

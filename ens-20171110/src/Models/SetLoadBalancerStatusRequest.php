@@ -11,6 +11,7 @@ class SetLoadBalancerStatusRequest extends Model
     /**
      * @description The ID of the ELB instance.
      *
+     * This parameter is required.
      * @example lb-5t18quoohsrc3xkf86spmnu77
      *
      * @var string
@@ -23,6 +24,7 @@ class SetLoadBalancerStatusRequest extends Model
      *   **Active** (default): The listener for the instance can forward the received traffic based on the rule.
      *   **InActive**: The listener for the instance does not forward the received traffic.
      *
+     * This parameter is required.
      * @example Active
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeMeasurementDataRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-08-30T00:00:00Z
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeMeasurementDataRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-06-01T00:00:00Z
      *
      * @var string

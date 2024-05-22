@@ -11,6 +11,7 @@ class DeleteMountTargetRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-beijing-cmcc
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteMountTargetRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example c50f8*****
      *
      * @var string
@@ -29,6 +31,7 @@ class DeleteMountTargetRequest extends Model
     /**
      * @description The name of the mount target.
      *
+     * This parameter is required.
      * @example TestMountPath
      *
      * @var string

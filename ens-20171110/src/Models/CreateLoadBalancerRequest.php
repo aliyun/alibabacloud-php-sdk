@@ -11,6 +11,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The ID of the Edge Node Service (ENS) node.
      *
+     * This parameter is required.
      * @example cn-chengdu-telecom
      *
      * @var string
@@ -30,6 +31,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The specification of the ELB instance.
      *
+     * This parameter is required.
      * @example elb.s2.medium
      *
      * @var string
@@ -39,6 +41,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The network ID of the created ELB instance.
      *
+     * This parameter is required.
      * @example n-5sax03dh2eyagujgsn7z9****
      *
      * @var string
@@ -48,6 +51,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The billing method of the instance. Valid value: PostPaid. PostPaid specifies the pay-as-you-go billing method.
      *
+     * This parameter is required.
      * @example PostPaid
      *
      * @var string
@@ -57,6 +61,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The ID of the vSwitch to which the internal-facing ELB instance belongs.
      *
+     * This parameter is required.
      * @example vsw-5s78haoys9oylle6ln71m****
      *
      * @var string

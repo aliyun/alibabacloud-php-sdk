@@ -11,6 +11,7 @@ class ListObjectsRequest extends Model
     /**
      * @description The name of the bucket.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

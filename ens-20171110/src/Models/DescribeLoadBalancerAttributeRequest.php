@@ -11,6 +11,7 @@ class DescribeLoadBalancerAttributeRequest extends Model
     /**
      * @description The ID of the ELB instance.
      *
+     * This parameter is required.
      * @example lb-5rcvo1n1t3hykfhhjwjgq****
      *
      * @var string

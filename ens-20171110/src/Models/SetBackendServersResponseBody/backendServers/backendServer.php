@@ -27,7 +27,7 @@ class backendServer extends Model
     public $port;
 
     /**
-     * @description The ID of the instance that is used as the backend server.
+     * @description The ID of the instance that you want to use as the backend server.
      *
      * @example i-5uf6hj58zvml4ali8****
      *
@@ -39,7 +39,7 @@ class backendServer extends Model
      * @description The type of the backend server. Valid values:
      *
      *   **ens**: ENS instance.
-     *   **eni**: ENI.
+     *   **eni**: ENI instance.
      *
      * @example ens
      *

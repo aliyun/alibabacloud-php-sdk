@@ -21,6 +21,7 @@ class CreateSnapshotRequest extends Model
     /**
      * @description The ID of the cloud disk.
      *
+     * This parameter is required.
      * @example d-bp1s5fnvk4gn2tws0****
      *
      * @var string
@@ -30,6 +31,7 @@ class CreateSnapshotRequest extends Model
     /**
      * @description The ID of the edge node.
      *
+     * This parameter is required.
      * @example cn-shenzhen-3
      *
      * @var string
@@ -37,7 +39,7 @@ class CreateSnapshotRequest extends Model
     public $ensRegionId;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the snapshot. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example testSnapshotName
      *

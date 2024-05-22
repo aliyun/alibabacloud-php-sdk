@@ -27,8 +27,9 @@ class backendServers extends Model
     public $port;
 
     /**
-     * @description The ID of the instance that is used as the backend server.
+     * @description The instance ID of the backend server.
      *
+     * This parameter is required.
      * @example i-5uf68ts0fqexe1a4n****
      *
      * @var string
@@ -38,8 +39,8 @@ class backendServers extends Model
     /**
      * @description The type of the backend server. Valid values:
      *
-     *   **ens**: ENS instance.
-     *   **eni**: ENI.
+     *   **ens**: an Edge Node Service (ENS) instance.
+     *   **eni**: an elastic network interface (ENI).
      *
      * @example ens
      *
@@ -48,9 +49,8 @@ class backendServers extends Model
     public $type;
 
     /**
-     * @description The weight of the backend server. Default value: 100. Valid values: **0** to **100**.
+     * @description The weight of the backend server.
      *
-     * >  The value 0 indicates that requests are not forwarded to the backend server.
      * @example 100
      *
      * @var int

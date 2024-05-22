@@ -23,6 +23,7 @@ class PutBucketLifecycleRequest extends Model
     /**
      * @description The name of the bucket.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -79,6 +80,7 @@ class PutBucketLifecycleRequest extends Model
      *   **Enabled**: The rule is periodically executed.
      *   **Disabled**: The rule is ignored.
      *
+     * This parameter is required.
      * @example Enabled
      *
      * @var string

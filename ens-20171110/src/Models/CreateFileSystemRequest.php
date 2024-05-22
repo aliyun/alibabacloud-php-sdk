@@ -12,6 +12,7 @@ class CreateFileSystemRequest extends Model
     /**
      * @description The information about the orders.
      *
+     * This parameter is required.
      * @var orderDetails[]
      */
     public $orderDetails;

@@ -24,7 +24,7 @@ class PutBucketRequest extends Model
     /**
      * @description The name of the bucket.
      *
-     * This parameter can contain 3 to 50 characters in length and can contain only lowercase letters, digits, and hyphens (-). The name cannot start or end with a hyphen (-).
+     * This parameter is required.
      * @example test
      *
      * @var string

@@ -16,6 +16,8 @@ class BucketInfo extends Model
     public $bucketAcl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example bucket001
      *
      * @var string

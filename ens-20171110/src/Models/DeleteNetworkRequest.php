@@ -11,6 +11,7 @@ class DeleteNetworkRequest extends Model
     /**
      * @description The ID of the network.
      *
+     * This parameter is required.
      * @example n-5***
      *
      * @var string

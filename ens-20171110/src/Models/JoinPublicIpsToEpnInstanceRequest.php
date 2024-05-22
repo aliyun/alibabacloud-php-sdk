@@ -11,6 +11,7 @@ class JoinPublicIpsToEpnInstanceRequest extends Model
     /**
      * @description The ID of the EPN instance.
      *
+     * This parameter is required.
      * @example epn-xxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class JoinPublicIpsToEpnInstanceRequest extends Model
     /**
      * @description The information about the public IP address that you want to add to the EPN instance.
      *
+     * This parameter is required.
      * @example InstanceInfos=[{"PublicIpAddress":"2.230.XX.XX"},{"PublicIpAddress":"2.230.XX.XX"}]
      *
      * @var string

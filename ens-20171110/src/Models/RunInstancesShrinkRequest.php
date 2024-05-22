@@ -12,11 +12,25 @@ class RunInstancesShrinkRequest extends Model
     /**
      * @description The number of instances that you want to create. Valid values: 1 to 100.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
      */
     public $amount;
+
+    /**
+     * @description The time when to automatically release the pay-as-you-go instance. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in Coordinated Universal Time (UTC).
+     *
+     *   If the value of `ss` is not `00`, the start time is automatically rounded down to the nearest minute based on the value of `mm`.
+     *   The specified time must be at least one hour later than the current time.
+     *
+     * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+     * @example 2023-06-28T14:38:52Z
+     *
+     * @var string
+     */
+    public $autoReleaseTime;
 
     /**
      * @description Specifies whether to enable auto-renewal. Valid values:
@@ -32,9 +46,8 @@ class RunInstancesShrinkRequest extends Model
     public $autoRenew;
 
     /**
-     * @description Specifies whether to use vouchers. Default values: true. Valid values:
+     * @description Specifies whether to use coupons. Default value: true.
      *
-     * - false
      * @example true
      *
      * @var string
@@ -44,9 +57,8 @@ class RunInstancesShrinkRequest extends Model
     /**
      * @description The billing cycle of computing resources of the instance. Only pay-as-you-go instances are supported. Valid values:
      *
-     *   Hour
-     *   Day
-     *   Month
+     *   **Day**
+     *   **Month**
      *
      * @example Day
      *
@@ -65,7 +77,7 @@ class RunInstancesShrinkRequest extends Model
     public $carrier;
 
     /**
-     * @description The specification of the data disk.
+     * @description The specifications of the data disk.
      *
      * @var string
      */
@@ -117,6 +129,7 @@ class RunInstancesShrinkRequest extends Model
      *   **PrePaid**: subscription.
      *   **PostPaid**: pay-as-you-go.
      *
+     * This parameter is required.
      * @example PostPaid
      *
      * @var string
@@ -124,7 +137,7 @@ class RunInstancesShrinkRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * The default value of this parameter is the value of the InstanceId parameter.
      * @example TestName
@@ -136,6 +149,7 @@ class RunInstancesShrinkRequest extends Model
     /**
      * @description The instance type.
      *
+     * This parameter is required.
      * @example ens.sn1.small
      *
      * @var string
@@ -158,6 +172,7 @@ class RunInstancesShrinkRequest extends Model
     /**
      * @description The maximum public bandwidth. If the value of this parameter is greater than 0, a public IP address is assigned to the instance.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -165,11 +180,11 @@ class RunInstancesShrinkRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description The type of IP address. Valid values:
+     * @description The type of the IP address. Valid values:
      *
-     *   **ipv4**: IPv4. This is the default value.
-     *   **ipv6**: IPv6.
-     *   **ipv4Andipv6**: IPv4 and IPv6.
+     *   **ipv4** (default)
+     *   **ipv6**
+     *   **ipv4Andipv6**
      *
      * @example ipv4
      *
@@ -281,6 +296,7 @@ class RunInstancesShrinkRequest extends Model
      *   **Small**: city
      *   **Region**: node
      *
+     * This parameter is required.
      * @example Region
      *
      * @var string
@@ -322,6 +338,19 @@ class RunInstancesShrinkRequest extends Model
     public $securityId;
 
     /**
+     * @description The bidding policy for the pay-as-you-go instance. This parameter is valid only when the `InstanceChargeType` parameter is set to `PostPaid`. Valid values:
+     *
+     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     *
+     * Default value: NoSpot.
+     * @example SpotAsPriceGo
+     *
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
      * @description The specification of the system disk.
      *
      * @var string
@@ -329,6 +358,8 @@ class RunInstancesShrinkRequest extends Model
     public $systemDiskShrink;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
@@ -362,6 +393,7 @@ class RunInstancesShrinkRequest extends Model
     public $vSwitchId;
     protected $_name = [
         'amount'                  => 'Amount',
+        'autoReleaseTime'         => 'AutoReleaseTime',
         'autoRenew'               => 'AutoRenew',
         'autoUseCoupon'           => 'AutoUseCoupon',
         'billingCycle'            => 'BillingCycle',
@@ -390,6 +422,7 @@ class RunInstancesShrinkRequest extends Model
         'schedulingPriceStrategy' => 'SchedulingPriceStrategy',
         'schedulingStrategy'      => 'SchedulingStrategy',
         'securityId'              => 'SecurityId',
+        'spotStrategy'            => 'SpotStrategy',
         'systemDiskShrink'        => 'SystemDisk',
         'tag'                     => 'Tag',
         'uniqueSuffix'            => 'UniqueSuffix',
@@ -406,6 +439,9 @@ class RunInstancesShrinkRequest extends Model
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
+        }
+        if (null !== $this->autoReleaseTime) {
+            $res['AutoReleaseTime'] = $this->autoReleaseTime;
         }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
@@ -491,6 +527,9 @@ class RunInstancesShrinkRequest extends Model
         if (null !== $this->securityId) {
             $res['SecurityId'] = $this->securityId;
         }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
+        }
         if (null !== $this->systemDiskShrink) {
             $res['SystemDisk'] = $this->systemDiskShrink;
         }
@@ -526,6 +565,9 @@ class RunInstancesShrinkRequest extends Model
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
+        }
+        if (isset($map['AutoReleaseTime'])) {
+            $model->autoReleaseTime = $map['AutoReleaseTime'];
         }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
@@ -610,6 +652,9 @@ class RunInstancesShrinkRequest extends Model
         }
         if (isset($map['SecurityId'])) {
             $model->securityId = $map['SecurityId'];
+        }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
         }
         if (isset($map['SystemDisk'])) {
             $model->systemDiskShrink = $map['SystemDisk'];

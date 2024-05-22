@@ -11,6 +11,7 @@ class UnassignPrivateIpAddressesRequest extends Model
     /**
      * @description The ID of the ENI.
      *
+     * This parameter is required.
      * @example eni-f8z57orgmt6d144t20dw
      *
      * @var string
@@ -20,6 +21,7 @@ class UnassignPrivateIpAddressesRequest extends Model
     /**
      * @description The secondary private IP addresses that you want to unassign.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $privateIpAddress;

@@ -24,6 +24,7 @@ class CreateEnsRouteEntryRequest extends Model
      *   The destination CIDR block of the custom route entry is different from the destination CIDR blocks of other route entries in the same route table.
      *   0.0.0.0/0 indicates the default CIDR block.
      *
+     * This parameter is required.
      * @example 0.0.0.0/0
      *
      * @var string
@@ -33,6 +34,7 @@ class CreateEnsRouteEntryRequest extends Model
     /**
      * @description The ID of the next hop of the custom route entry.
      *
+     * This parameter is required.
      * @example i-5vb7leks9z4mxy1ay258
      *
      * @var string
@@ -62,6 +64,7 @@ class CreateEnsRouteEntryRequest extends Model
     /**
      * @description The ID of the route table to which you want to add a custom route entry.
      *
+     * This parameter is required.
      * @example vtb-bp1cifr72dioje82lse2j
      *
      * @var string

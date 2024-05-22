@@ -11,6 +11,7 @@ class DescribeLoadBalancerTCPListenerAttributeRequest extends Model
     /**
      * @description The frontend port that is used by the Edge Load Balance (ELB) instance. Valid values: **1** to **65535**.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -20,6 +21,7 @@ class DescribeLoadBalancerTCPListenerAttributeRequest extends Model
     /**
      * @description The ID of the ELB instance.
      *
+     * This parameter is required.
      * @example lb-5snthcyu1x10g7tywj7iu****
      *
      * @var string

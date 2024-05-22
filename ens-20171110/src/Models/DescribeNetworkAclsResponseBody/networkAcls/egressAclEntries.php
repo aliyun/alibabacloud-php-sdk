@@ -45,7 +45,7 @@ class egressAclEntries extends Model
     public $networkAclEntryName;
 
     /**
-     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     * @description The action that is performed on network traffic that matches the rule. Valid values:
      *
      *   **accept**: allows the network traffic.
      *   **drop**: blocks the network traffic.
@@ -59,8 +59,8 @@ class egressAclEntries extends Model
     /**
      * @description The destination port range of the outbound rule.
      *
-     *   If **Protocol** in the outbound rule is set to **all** or **icmp**, \*\*-1/-1\*\* is returned for this parameter. \*\*-1/-1\*\* indicates all ports.
-     *   If **Protocol** in the outbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 120/120 indicates port 1 to port 200 and 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
+     *   If **Protocol** of the outbound rule is set to **all** or **icmp** the port range is **-1/-1**, which indicates all ports.
+     *   If **Protocol** of the outbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1 to 65535**.
      *
      * @example -1/-1
      *
@@ -78,12 +78,12 @@ class egressAclEntries extends Model
     public $priority;
 
     /**
-     * @description The protocol. Valid values:
+     * @description The protocol type. Valid values:
      *
-     *   **icmp**
-     *   **tcp**
-     *   **udp**
-     *   **all**
+     *   **icmp**: ICMP.
+     *   **tcp**: TCP.
+     *   **udp**: UDP.
+     *   **all**: all protocols.
      *
      * @example all
      *

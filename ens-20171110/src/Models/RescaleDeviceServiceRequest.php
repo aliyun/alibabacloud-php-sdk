@@ -41,6 +41,7 @@ class RescaleDeviceServiceRequest extends Model
     /**
      * @description The region level of the scale-out. Set the value to RegionId. RegionId specifies that resource scale-out is performed based on the ID of the edge node.
      *
+     * This parameter is required.
      * @example RegionId
      *
      * @var string
@@ -50,6 +51,7 @@ class RescaleDeviceServiceRequest extends Model
     /**
      * @description The scaling operation. Set the value to Add to add new resources.
      *
+     * This parameter is required.
      * @example Add
      *
      * @var string
@@ -59,7 +61,7 @@ class RescaleDeviceServiceRequest extends Model
     /**
      * @description The information about the resource specification template. The value must be a JSON string.
      *
-     * @example {\"imageId\":\"m-5s4z4c10avgwvwtn33gl2vgob\",\"ipType\":2,\"specName\":\"ens.pfb-c3m7.medium\"}
+     * @example {\\"imageId\\":\\"m-5s4z4c10avgwvwtn33gl2vgob\\",\\"ipType\\":2,\\"specName\\":\\"ens.pfb-c3m7.medium\\"}
      *
      * @var string
      */
@@ -68,7 +70,8 @@ class RescaleDeviceServiceRequest extends Model
     /**
      * @description The required resources. The value must be a JSON string.
      *
-     * @example [{\"regionCode\": \"cn-wuxi-telecom_unicom_cmcc-3\",    \"ispCode\": \"telecom\",    \"count\": 2	},{    \"regionCode\": \"cn-shanghai-cmcc\",    \"count\": 4	}]
+     * This parameter is required.
+     * @example [{\\"regionCode\\": \\"cn-wuxi-telecom_unicom_cmcc-3\\",    \\"ispCode\\": \\"telecom\\",    \\"count\\": 2	},{    \\"regionCode\\": \\"cn-shanghai-cmcc\\",    \\"count\\": 4	}]
      *
      * @var string
      */

@@ -18,7 +18,7 @@ class CreateSecurityGroupRequest extends Model
     public $description;
 
     /**
-     * @description The name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-). By default, this parameter is empty.
+     * @description The name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (_), and hyphens (-). By default, this parameter is empty.
      *
      * @example Dcdn1:2_3-4
      *

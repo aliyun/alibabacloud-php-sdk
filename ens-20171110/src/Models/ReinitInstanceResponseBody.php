@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ReinitInstanceResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example C46C79B7-0C31-5947-9D86-82207661EADA
+     *
      * @var string
      */
     public $requestId;

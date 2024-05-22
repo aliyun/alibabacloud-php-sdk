@@ -19,6 +19,7 @@ class StartLoadBalancerListenerRequest extends Model
      *
      *   We recommend that you use port 443 for HTTPS.
      *
+     * This parameter is required.
      * @example 8080
      *
      * @var int
@@ -43,6 +44,7 @@ class StartLoadBalancerListenerRequest extends Model
     /**
      * @description The ID of the ELB instance.
      *
+     * This parameter is required.
      * @example lb-5saivuir6b1mupxjfbhmk****
      *
      * @var string

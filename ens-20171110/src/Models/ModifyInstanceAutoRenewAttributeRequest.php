@@ -11,6 +11,7 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     /**
      * @description Specifies whether to enable the auto-renewal feature. Valid values: **True and False**. Default value: False.
      *
+     * This parameter is required.
      * @example false
      *
      * @var string
@@ -29,6 +30,7 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     /**
      * @description The IDs of the instances. Separate IDs with semicolons (;).
      *
+     * This parameter is required.
      * @example instance-test
      *
      * @var string

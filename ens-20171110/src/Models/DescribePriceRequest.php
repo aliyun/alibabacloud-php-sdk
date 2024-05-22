@@ -31,6 +31,7 @@ class DescribePriceRequest extends Model
     /**
      * @description The ID of the ENS node.
      *
+     * This parameter is required.
      * @example cn-shanghai-unicom
      *
      * @var string
@@ -38,8 +39,9 @@ class DescribePriceRequest extends Model
     public $ensRegionId;
 
     /**
-     * @description The type of the instance.
+     * @description The specifications of instances.
      *
+     * This parameter is required.
      * @example ens.sn1.tiny
      *
      * @var string
@@ -54,6 +56,7 @@ class DescribePriceRequest extends Model
      *   PayByBandwidth4thMonth: Pay by monthly fourth peak bandwidth
      *   PayByBandwidth: Pay by fixed bandwidth
      *
+     * This parameter is required.
      * @example 95BandwidthByMonth
      *
      * @var string
@@ -67,6 +70,7 @@ class DescribePriceRequest extends Model
      *   If you set PeriodUnit to Day, you can set Period only to 3.
      *   If you set PeriodUnit to Month, you can set Period to a number from 1 to 9, or set Period to 12.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -88,6 +92,7 @@ class DescribePriceRequest extends Model
     /**
      * @description The number of instances.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class bucketInfo extends Model
 {
     /**
-     * @description The access control list (ACL) of the bucket.
+     * @description The ACL of the bucket.
      *
      *   **public-read-write**
      *   **public-read**
@@ -40,7 +40,7 @@ class bucketInfo extends Model
     public $comment;
 
     /**
-     * @description The time when the bucket was created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The time when the bucket was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2022-10-12T05:45:00Z
      *
@@ -58,7 +58,7 @@ class bucketInfo extends Model
     public $logicalBucketType;
 
     /**
-     * @description The time when the bucket was modified. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The time when the bucket was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2022-10-12T06:45:00Z
      *

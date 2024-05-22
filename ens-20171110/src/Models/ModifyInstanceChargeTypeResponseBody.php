@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceChargeTypeResponseBody extends Model
 {
     /**
+     * @description The IDs of the instances.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 21522202681****
      *
      * @var int
@@ -21,6 +25,8 @@ class ModifyInstanceChargeTypeResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example E2CE5821-7A18-5F7B-A18A-1C751B933D2A
      *
      * @var string
