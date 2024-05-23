@@ -21,6 +21,7 @@ class CreateDBNodesShrinkRequest extends Model
     /**
      * @description The instance ID You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-2ze450g4ctg6t****
      *
      * @var string
@@ -30,6 +31,7 @@ class CreateDBNodesShrinkRequest extends Model
     /**
      * @description The details of the node.
      *
+     * This parameter is required.
      * @var string
      */
     public $DBNodeShrink;

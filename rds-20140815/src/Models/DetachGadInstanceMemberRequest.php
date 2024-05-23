@@ -11,6 +11,7 @@ class DetachGadInstanceMemberRequest extends Model
     /**
      * @description The ID of the global active database cluster.
      *
+     * This parameter is required.
      * @example gad-rm-bp1npi2j8********
      *
      * @var string
@@ -20,6 +21,7 @@ class DetachGadInstanceMemberRequest extends Model
     /**
      * @description The ID of the instance that serves as the unit node you want to remove. You can call the DescribeGadInstances query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp1npi2j8********
      *
      * @var string

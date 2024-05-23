@@ -21,7 +21,7 @@ class items extends Model
     /**
      * @description The content of the upgrade check report.
      *
-     * @example [user_check_report]User check success\n[pg_upgrade_internal.log]Performing...
+     * @example [user_check_report]User check success\\n[pg_upgrade_internal.log]Performing...
      *
      * @var string
      */
@@ -45,7 +45,7 @@ class items extends Model
      *   Success
      *   Fail
      *
-     * >  If the check result is **Fail**, you must check the value of the **Detail** parameter to obtain the information about the errors that occurred, resolve the errors, and then try again. For more information about how to resolve common errors, see [Introduction to the check report for a major engine version upgrade to an ApsaraDB RDS for PostgreSQL instance](~~218391~~).
+     * >  If the check result is **Fail**, you must check the value of the **Detail** parameter to obtain the information about the errors that occurred, resolve the errors, and then try again. For more information about how to resolve common errors, see [Introduction to the check report for a major engine version upgrade to an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/218391.html).
      * @example Success
      *
      * @var string

@@ -16,7 +16,7 @@ class CheckServiceLinkedRoleRequest extends Model
     /**
      * @description The region ID.
      *
-     * >  You can specify any region for this parameter, which does not affect your query results. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -45,7 +45,7 @@ class CheckServiceLinkedRoleRequest extends Model
     /**
      * @description The SLR name.
      *
-     * >  For more information about the SLRs supported by ApsaraDB RDS, see [Service-linked roles](~~342840~~).
+     * This parameter is required.
      * @example AliyunServiceRoleForRdsPgsqlOnEcs
      *
      * @var string

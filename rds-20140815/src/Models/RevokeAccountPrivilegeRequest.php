@@ -11,6 +11,7 @@ class RevokeAccountPrivilegeRequest extends Model
     /**
      * @description The name of the account.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string
@@ -20,6 +21,7 @@ class RevokeAccountPrivilegeRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -29,6 +31,7 @@ class RevokeAccountPrivilegeRequest extends Model
     /**
      * @description The name of the database. You can revoke all permissions of the account on this database. Separate multiple databases with commas (,).
      *
+     * This parameter is required.
      * @example testDB
      *
      * @var string

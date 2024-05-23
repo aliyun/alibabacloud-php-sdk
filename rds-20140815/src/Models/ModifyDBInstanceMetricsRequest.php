@@ -11,6 +11,7 @@ class ModifyDBInstanceMetricsRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example pgm-bp1s1j103lo6****
      *
      * @var string
@@ -20,7 +21,7 @@ class ModifyDBInstanceMetricsRequest extends Model
     /**
      * @description The keys of the Enhanced Monitoring metrics that you want to display for the instance. You can enter a maximum of 30 metric keys. If you enter multiple metric keys, you must separate the metric keys with commas (,).
      *
-     * You can call the DescribeAvailableMetrics operation to query the keys of metrics.
+     * This parameter is required.
      * @example os.cpu_usage.sys.avg,os.cpu_usage.user.avg
      *
      * @var string
@@ -38,6 +39,7 @@ class ModifyDBInstanceMetricsRequest extends Model
      *   **instance**: This modification is applied only to the current instance.
      *   **region**: This modification is applied to all ApsaraDB RDS for PostgreSQL instances that are equipped with the same type of storage media as the current instance in the region to which the current instance belongs. For example, if the current instance is equipped with cloud disks, this modification is applied to all ApsaraDB RDS for PostgreSQL instances that are equipped with cloud disks in the region to which the current instance belongs.
      *
+     * This parameter is required.
      * @example instance
      *
      * @var string

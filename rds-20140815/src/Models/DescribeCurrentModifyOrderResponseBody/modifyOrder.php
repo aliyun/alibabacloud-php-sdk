@@ -39,7 +39,7 @@ class modifyOrder extends Model
      * @description The effective time. Valid values:
      *
      *   **Immediate**: This is the default value.
-     *   **MaintainTime**: The effective time is within the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](~~610402~~).
+     *   **MaintainTime**: The effective time is within the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](https://help.aliyun.com/document_detail/610402.html).
      *
      * @example MaintainTime
      *

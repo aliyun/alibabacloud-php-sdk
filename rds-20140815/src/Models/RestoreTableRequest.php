@@ -30,6 +30,7 @@ class RestoreTableRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -42,7 +43,7 @@ class RestoreTableRequest extends Model
      *   **true**: enables the feature.
      *   **false**: disables the feature.
      *
-     * > For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](~~103175~~).
+     * > For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/103175.html).
      * @example true
      *
      * @var bool
@@ -73,7 +74,7 @@ class RestoreTableRequest extends Model
      * @description The point in time to which you want to restore data. The point in time must fall within the specified log backup retention period. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * > *   You must specify at least one of **BackupId** and **RestoreTime**.
-     * > *   You must enable the log backup feature. For more information, see [Back up an ApsaraDB RDS for MySQL instance](~~98818~~).
+     * > *   You must enable the log backup feature. For more information, see [Back up an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html).
      * @example 2011-06-11T16:00:00Z
      *
      * @var string
@@ -83,6 +84,7 @@ class RestoreTableRequest extends Model
     /**
      * @description The names of the databases and tables that you want to restore. The value is in the following format: `[{"type":"db","name":"<The name of Database 1 on the source instance>","newname":"<The name of Database 1 on the destination instance>","tables":[{"type":"table","name":"<The name of Table 1 in Database 1 on the source instance>","newname":"<The name of Table 1 in Database 1 on the destination instance>"},{"type":"table","name":"<The name of Table 2 in Database 1 on the source instance>","newname":"<The name of Table 2 in Database 1 on the destination instance>"}]},{"type":"db","name":"<The name of Database 2 on the source instance>","newname":"<The name of Database 2 on the destination instance>","tables":[{"type":"table","name":"<The name of Table 3 in Database 2 on the source instance>","newname":"<The name of Table 3 in Database 2 on the destination instance>"},{"type":"table","name":"<The name of Table 4 in Database 2 on the source instance>","newname":"<The name of Table 4 in Database 2 on the destination instance>"}]}]`
      *
+     * This parameter is required.
      * @example [{"type":"db","name":"testdb1","newname":"testdb1_new","tables":[{"type":"table","name":"testdb1table1","newname":"testdb1table1_new"}]}]
      *
      * @var string

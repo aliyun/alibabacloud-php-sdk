@@ -19,7 +19,7 @@ class DescribeDBInstanceDetailRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the ID of the instance.
      *
      * @example rm-bp6wjk5xxxxxxxxxx
      *

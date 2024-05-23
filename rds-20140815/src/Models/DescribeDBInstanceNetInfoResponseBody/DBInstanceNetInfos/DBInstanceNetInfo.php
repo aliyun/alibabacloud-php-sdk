@@ -13,7 +13,7 @@ class DBInstanceNetInfo extends Model
     /**
      * @description The Tabular Data Stream (TDS) port of the instance for which Babelfish is enabled.
      *
-     * >  This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](~~428613~~).
+     * >  This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](https://help.aliyun.com/document_detail/428613.html).
      * @example 1433
      *
      * @var string

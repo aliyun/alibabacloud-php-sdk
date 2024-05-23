@@ -11,6 +11,7 @@ class LockAccountRequest extends Model
     /**
      * @description The account that you want to lock. You can lock only a single account at a time.
      *
+     * This parameter is required.
      * @example testaccount
      *
      * @var string
@@ -20,6 +21,7 @@ class LockAccountRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example pgm-bpxxxxx
      *
      * @var string

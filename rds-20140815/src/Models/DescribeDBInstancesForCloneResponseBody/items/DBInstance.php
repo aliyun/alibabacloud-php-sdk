@@ -44,7 +44,7 @@ class DBInstance extends Model
     public $createTime;
 
     /**
-     * @description The instance type of the instance. For more information, see [Instance types](~~26312~~).
+     * @description The instance type of the instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * @example mysql.n1.micro.1
      *
@@ -53,7 +53,7 @@ class DBInstance extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The name of the instance. It must be 2 to 256 characters in length. The value can contain letters, digits, underscores (\_), and hyphens (-). The value must start with a letter.
+     * @description The name of the instance. It must be 2 to 256 characters in length. The value can contain letters, digits, underscores (_), and hyphens (-). The value must start with a letter.
      *
      * > The value cannot start with http:// or https://.
      * @example Test
@@ -84,7 +84,7 @@ class DBInstance extends Model
     public $DBInstanceNetType;
 
     /**
-     * @description The status of the instance. For more information, see [Instance state table](~~26315~~).
+     * @description The status of the instance. For more information, see [Instance state table](https://help.aliyun.com/document_detail/26315.html).
      *
      * @example Running
      *

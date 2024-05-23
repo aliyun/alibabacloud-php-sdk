@@ -11,6 +11,7 @@ class EvaluateLocalExtendDiskRequest extends Model
     /**
      * @description The instance name.
      *
+     * This parameter is required.
      * @example rm-m5e999iqm65******
      *
      * @var string
@@ -23,8 +24,9 @@ class EvaluateLocalExtendDiskRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

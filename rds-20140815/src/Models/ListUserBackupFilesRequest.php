@@ -28,7 +28,7 @@ class ListUserBackupFilesRequest extends Model
     public $comment;
 
     /**
-     * @description The URL from which you can download the full backup file that is stored as an object in an Object Storage Service (OSS) bucket. For more information about how to obtain the URL, see [Obtain the access URL after you upload objects](~~39607~~).
+     * @description The URL from which you can download the full backup file that is stored as an object in an Object Storage Service (OSS) bucket. For more information about how to obtain the URL, see [Obtain the access URL after you upload objects](https://help.aliyun.com/document_detail/39607.html).
      *
      * @example https://******.oss-ap-********.aliyuncs.com/backup_qp.xb
      *
@@ -42,8 +42,9 @@ class ListUserBackupFilesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,7 +52,7 @@ class ListUserBackupFilesRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource group ID. You can call the [DescribeDBInstanceAttribute](~~610394~~) to query the resource group ID.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the ID of the resource group.
      *
      * @example rg-acfmy*****
      *

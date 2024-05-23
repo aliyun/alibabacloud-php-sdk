@@ -11,6 +11,7 @@ class MigrateConnectionToOtherZoneRequest extends Model
     /**
      * @description The endpoint of the instance. The endpoint is specified when you create the instance.
      *
+     * This parameter is required.
      * @example rm-bp1oypo6ky19y****
      *
      * @var string
@@ -20,6 +21,7 @@ class MigrateConnectionToOtherZoneRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp1oypo6ky19y****
      *
      * @var string
@@ -39,6 +41,7 @@ class MigrateConnectionToOtherZoneRequest extends Model
     /**
      * @description The ID of the zone.
      *
+     * This parameter is required.
      * @example cn-hangzhou-i
      *
      * @var string

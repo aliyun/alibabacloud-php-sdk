@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMaskingRulesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $DBInstanceName;
@@ -29,6 +31,8 @@ class DeleteMaskingRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ruleName;

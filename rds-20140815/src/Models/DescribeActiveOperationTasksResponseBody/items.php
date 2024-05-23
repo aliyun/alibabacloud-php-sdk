@@ -27,7 +27,7 @@ class items extends Model
     public $allowChange;
 
     /**
-     * @description The code of the task level. The value S1 indicates the system O\&M level. The value S0 indicates the exception fixing level.
+     * @description The code of the task level. The value S1 indicates the system O\\&M level. The value S0 indicates the exception fixing level.
      *
      * @example S1
      *
@@ -234,7 +234,7 @@ class items extends Model
     public $taskParams;
 
     /**
-     * @description The type of the O\&M task. Valid values:
+     * @description The type of the O\\&M task. Valid values:
      *
      *   **rds_apsaradb_ha**: primary/secondary switchover
      *   **rds_apsaradb_transfer**: instance migration

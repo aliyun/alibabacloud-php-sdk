@@ -32,6 +32,7 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bpxxxxx
      *
      * @var string
@@ -61,6 +62,7 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

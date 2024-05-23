@@ -11,6 +11,7 @@ class DescribeHostGroupElasticStrategyParametersRequest extends Model
     /**
      * @description The name of the dedicated cluster.
      *
+     * This parameter is required.
      * @example dhg-d0dwi82293b2w9t5
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeHostGroupElasticStrategyParametersRequest extends Model
     public $dedicatedHostGroupName;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

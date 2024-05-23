@@ -11,6 +11,7 @@ class DescribeReadDBInstanceDelayRequest extends Model
     /**
      * @description The primary instance ID. You can call the DescribeDBInstances operation to query the primary instance ID.
      *
+     * This parameter is required.
      * @example rm-bp*****
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeReadDBInstanceDelayRequest extends Model
     /**
      * @description The read-only instance ID. You can call the DescribeDBInstances operation to query the read-only instance ID.
      *
+     * This parameter is required.
      * @example rr-bp*****
      *
      * @var string

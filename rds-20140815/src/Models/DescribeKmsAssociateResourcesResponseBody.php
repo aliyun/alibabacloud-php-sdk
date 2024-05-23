@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeKmsAssociateResourcesResponseBody extends Model
 {
     /**
-     * @description The information about the associated ApsaraDB RDS instance.
+     * @description The information about the associated ApsaraDB RDS instances.
      *
      * @var associateDBInstances[]
      */

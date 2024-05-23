@@ -20,6 +20,7 @@ class DescibeImportsFromDatabaseRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the IDs of instances.
      *
+     * This parameter is required.
      * @example rm-bpxxxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class DescibeImportsFromDatabaseRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2011-06-11T16:00Z
      *
      * @var string
@@ -38,6 +40,7 @@ class DescibeImportsFromDatabaseRequest extends Model
     /**
      * @description The database engine of the instance. Set the value to **MySQL**
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -109,6 +112,7 @@ class DescibeImportsFromDatabaseRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2011-06-11T15:00Z
      *
      * @var string

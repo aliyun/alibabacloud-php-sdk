@@ -11,6 +11,7 @@ class DeleteGadInstanceRequest extends Model
     /**
      * @description The ID of the global active database cluster. You can call the GadInstanceName operation to query the cluster ID.
      *
+     * This parameter is required.
      * @example gad-rm-bp1npi2j8********
      *
      * @var string

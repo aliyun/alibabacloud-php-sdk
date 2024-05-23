@@ -20,6 +20,7 @@ class GetDbProxyInstanceSslRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-t4n3axxxxx
      *
      * @var string

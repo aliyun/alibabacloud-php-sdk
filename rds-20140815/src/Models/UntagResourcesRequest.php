@@ -31,6 +31,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -40,6 +41,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The instance ID. You can remove tags from N instances at a time. Valid values of N: **1** to **50**.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string[]
@@ -59,6 +61,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The type of the resource. Set the value to **INSTANCE**.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

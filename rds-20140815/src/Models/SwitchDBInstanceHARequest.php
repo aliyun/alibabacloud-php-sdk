@@ -11,6 +11,7 @@ class SwitchDBInstanceHARequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -46,6 +47,7 @@ class SwitchDBInstanceHARequest extends Model
     /**
      * @description The secondary instance ID. You can call the DescribeDBInstanceHAConfig operation to query the secondary instance ID.
      *
+     * This parameter is required.
      * @example 349054
      *
      * @var string

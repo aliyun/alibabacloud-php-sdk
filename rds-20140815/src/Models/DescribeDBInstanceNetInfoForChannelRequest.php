@@ -18,8 +18,9 @@ class DescribeDBInstanceNetInfoForChannelRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
+     * @description The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp1k8s41l2o52****
      *
      * @var string

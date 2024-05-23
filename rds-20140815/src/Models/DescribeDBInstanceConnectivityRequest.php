@@ -11,6 +11,7 @@ class DescribeDBInstanceConnectivityRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-t4ns09hgoy99i5gez
      *
      * @var string
@@ -54,6 +55,7 @@ class DescribeDBInstanceConnectivityRequest extends Model
     /**
      * @description The source IP address.
      *
+     * This parameter is required.
      * @example 172.16.XX.XX
      *
      * @var string

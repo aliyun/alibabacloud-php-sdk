@@ -43,6 +43,7 @@ class TransformDBInstancePayTypeRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxx
      *
      * @var string
@@ -65,6 +66,7 @@ class TransformDBInstancePayTypeRequest extends Model
      *   **Postpaid**: pay-as-you-go
      *   **Prepaid**: subscription
      *
+     * This parameter is required.
      * @example Prepaid
      *
      * @var string

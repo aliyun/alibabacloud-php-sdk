@@ -11,6 +11,7 @@ class DeleteUserBackupFileRequest extends Model
     /**
      * @description The ID of the full backup file. You can call the ListUserBackupFiles operation to query the information about all full backup files in a region.
      *
+     * This parameter is required.
      * @example b-w1haya7e4i25********
      *
      * @var string
@@ -25,6 +26,7 @@ class DeleteUserBackupFileRequest extends Model
     /**
      * @description The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

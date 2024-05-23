@@ -21,7 +21,7 @@ class RecoveryDBInstanceRequest extends Model
     public $backupId;
 
     /**
-     * @description The instance type of the new instance. For more information, see [Instance types](~~26312~~).
+     * @description The instance type of the new instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * @example rds.mysql.s2.large
      *
@@ -41,7 +41,7 @@ class RecoveryDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The storage capacity of the new instance. Unit: GB. For more information, see [Instance types](~~26312~~).
+     * @description The storage capacity of the new instance. Unit: GB. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * >  You must set this parameter to a value that is greater than or equal to the storage capacity of the original instance.
      * @example 5
@@ -69,6 +69,7 @@ class RecoveryDBInstanceRequest extends Model
      *   If you want to restore databases to a new instance, the value is in the format of `Original database name 1,New database name 2`.
      *   If you want to restore databases to an existing instance, the value is in the format of `{"Original database name 1":"New database name 1","Original database name 2":"New database name 2"`.
      *
+     * This parameter is required.
      * @example Restore databases to a new instance: test1,test2. Restore databases to an existing instance: {"test1":"newtest1","test2":"newtest2"}
      *
      * @var string

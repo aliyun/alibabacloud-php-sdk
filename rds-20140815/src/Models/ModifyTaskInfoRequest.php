@@ -11,15 +11,16 @@ class ModifyTaskInfoRequest extends Model
     /**
      * @description The action parameter.
      *
-     * @example {\"recoverTime\":\"2023-04-12T18:30:00Z\",\"recoverMode\":\"timePoint\"}
+     * @example {\\"recoverTime\\":\\"2023-04-12T18:30:00Z\\",\\"recoverMode\\":\\"timePoint\\"}
      *
      * @var string
      */
     public $actionParams;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -67,6 +68,7 @@ class ModifyTaskInfoRequest extends Model
     /**
      * @description The task ID.
      *
+     * This parameter is required.
      * @example t-83br18hloum8u3948s
      *
      * @var string

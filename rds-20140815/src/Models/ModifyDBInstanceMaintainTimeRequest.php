@@ -20,6 +20,7 @@ class ModifyDBInstanceMaintainTimeRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class ModifyDBInstanceMaintainTimeRequest extends Model
     /**
      * @description The maintenance window of the instance. Specify the time in the *HH:mm*Z-*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 22:00Z-02:00Z
      *
      * @var string

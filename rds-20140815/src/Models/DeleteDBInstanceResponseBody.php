@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBInstanceResponseBody extends Model
 {
     /**
-     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query region ID of the instance.
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/26231.html) operation to query region ID of the instance.
      *
      * @example ap-southeast-1
      *

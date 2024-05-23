@@ -29,8 +29,9 @@ class DescribeDBInstanceEndpointsRequest extends Model
     public $DBInstanceEndpointId;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-u****
      *
      * @var string

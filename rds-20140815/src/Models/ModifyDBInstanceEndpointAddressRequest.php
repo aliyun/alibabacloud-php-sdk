@@ -21,6 +21,7 @@ class ModifyDBInstanceEndpointAddressRequest extends Model
     /**
      * @description The endpoint that you want to modify. The endpoint can be a public endpoint or an internal endpoint.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5****.mysql.rds.aliyuncs.com
      *
      * @var string
@@ -37,8 +38,9 @@ class ModifyDBInstanceEndpointAddressRequest extends Model
     public $connectionStringPrefix;
 
     /**
-     * @description The endpoint ID of the instance. You can call the [DescribeDBInstanceEndpoints](~~610488~~) operation to query the endpoint ID of the instance.
+     * @description The endpoint ID of the instance. You can call the DescribeDBInstanceEndpoints operation to query the endpoint ID of the instance.
      *
+     * This parameter is required.
      * @example ep-****
      *
      * @var string
@@ -46,8 +48,9 @@ class ModifyDBInstanceEndpointAddressRequest extends Model
     public $DBInstanceEndpointId;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example rm-****
      *
      * @var string

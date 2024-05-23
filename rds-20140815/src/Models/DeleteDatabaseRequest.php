@@ -11,6 +11,7 @@ class DeleteDatabaseRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5*****
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteDatabaseRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example testdb01
      *
      * @var string

@@ -27,7 +27,7 @@ class DescribeRenewalPriceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance type of the instance. For more information, see [Primary instance types](~~26312~~). By default, the current instance type applies.
+     * @description The instance type of the instance. For more information, see [Primary instance types](https://help.aliyun.com/document_detail/26312.html). By default, the current instance type applies.
      *
      * @example mysql.n2.medium.2c
      *
@@ -38,6 +38,7 @@ class DescribeRenewalPriceRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxx
      *
      * @var string
@@ -45,7 +46,7 @@ class DescribeRenewalPriceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The type of the order that you want to place. Set the value to **BUY**.
+     * @description The type of order. Set the value to **BUY**.
      *
      * @example BUY
      *
@@ -118,6 +119,7 @@ class DescribeRenewalPriceRequest extends Model
      *   **Year**
      *   **Month**
      *
+     * This parameter is required.
      * @example Year
      *
      * @var string
@@ -130,6 +132,7 @@ class DescribeRenewalPriceRequest extends Model
      *   If you set the **TimeType** parameter to **Year**, the value of the UsedTime parameter is within the range of **1 to 3**.
      *   If you set the **TimeType** parameter to **Month**, the value of the UsedTime parameter is within the range of **1 to 9**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

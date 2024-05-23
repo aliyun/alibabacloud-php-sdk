@@ -11,6 +11,7 @@ class CreatePostgresExtensionsRequest extends Model
     /**
      * @description The account of the user who owns the extension. Only privileged accounts are supported.
      *
+     * This parameter is required.
      * @example test_user
      *
      * @var string
@@ -29,6 +30,7 @@ class CreatePostgresExtensionsRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example pgm-gc7f1****
      *
      * @var string
@@ -38,6 +40,7 @@ class CreatePostgresExtensionsRequest extends Model
     /**
      * @description The database name. You can call the DescribeDatabases operation to query the database name.
      *
+     * This parameter is required.
      * @example test_db
      *
      * @var string
@@ -88,7 +91,7 @@ class CreatePostgresExtensionsRequest extends Model
      *   true
      *   false
      *
-     * >  For more information about the risks, see [Limits on extension creation for ApsaraDB RDS for PostgreSQL instances](~~2587815~~).
+     * >  For more information about the risks, see [Limits on extension creation for ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/2587815.html).
      * @example true
      *
      * @var bool

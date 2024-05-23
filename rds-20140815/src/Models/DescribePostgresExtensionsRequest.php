@@ -20,6 +20,7 @@ class DescribePostgresExtensionsRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example pgm-bp156o9ti493****
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribePostgresExtensionsRequest extends Model
     /**
      * @description The database name. You can call the DescribeDatabases operation to query the database name.
      *
+     * This parameter is required.
      * @example test_db
      *
      * @var string

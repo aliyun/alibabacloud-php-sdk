@@ -11,6 +11,7 @@ class DescribeMarketingActivityRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account.
      *
+     * This parameter is required.
      * @example 20725049
      *
      * @var int
@@ -42,8 +43,9 @@ class DescribeMarketingActivityRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -72,6 +74,7 @@ class DescribeMarketingActivityRequest extends Model
     /**
      * @description The service name.
      *
+     * This parameter is required.
      * @example series
      *
      * @var string

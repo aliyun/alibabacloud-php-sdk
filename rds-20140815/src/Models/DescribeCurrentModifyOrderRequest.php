@@ -20,6 +20,7 @@ class DescribeCurrentModifyOrderRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp1u775467ggm7j9j
      *
      * @var string
@@ -34,6 +35,7 @@ class DescribeCurrentModifyOrderRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

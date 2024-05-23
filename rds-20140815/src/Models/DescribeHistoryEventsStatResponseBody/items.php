@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+     * @description The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
      *
      * @example Exception
      *

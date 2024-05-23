@@ -11,6 +11,7 @@ class RebuildDBInstanceRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class RebuildDBInstanceRequest extends Model
     /**
      * @description The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
      *
+     * This parameter is required.
      * @example dhg-4nxxxxxxx
      *
      * @var string

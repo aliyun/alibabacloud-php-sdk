@@ -40,7 +40,7 @@ class DescribeDBInstancesForCloneRequest extends Model
     public $currentInstanceId;
 
     /**
-     * @description The instance type of the instance. For more information, see [Instance types](~~26312~~).
+     * @description The instance type of the instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * @example mysql.n1.micro.1
      *
@@ -58,7 +58,7 @@ class DescribeDBInstancesForCloneRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The status of the instance. For more information, see [Instance state table](~~26315~~).
+     * @description The status of the instance. For more information, see [Instance state table](https://help.aliyun.com/document_detail/26315.html).
      *
      * @example Running
      *
@@ -187,6 +187,7 @@ class DescribeDBInstancesForCloneRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -91,6 +91,7 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @description The internal or public endpoint for which the server certificate needs to be created or updated.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxx.mysql.rds.aliyuncs.com
      *
      * @var string
@@ -100,6 +101,7 @@ class ModifyDBInstanceSSLRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -107,7 +109,7 @@ class ModifyDBInstanceSSLRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description Specifies whether to enable the forceful SSL encryption feature. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](~~95715~~). Valid values:
+     * @description Specifies whether to enable the forceful SSL encryption feature. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](https://help.aliyun.com/document_detail/95715.html). Valid values:
      *
      *   **1**: enables the feature.
      *   **0**: disables the feature.
@@ -192,7 +194,7 @@ class ModifyDBInstanceSSLRequest extends Model
     public $serverKey;
 
     /**
-     * @description The minimum Transport Layer Security (TLS) version. Valid values: 1.0, 1.1, and 1.2. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](~~95715~~).
+     * @description The minimum Transport Layer Security (TLS) version. Valid values: 1.0, 1.1, and 1.2. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](https://help.aliyun.com/document_detail/95715.html).
      *
      * @example 1.1
      *

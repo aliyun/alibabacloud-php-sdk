@@ -87,7 +87,7 @@ class CloneDBInstanceRequest extends Model
     public $category;
 
     /**
-     * @description The instance type of the new instance. For information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     * @description The instance type of the new instance. For information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * > By default, the new instance uses the same instance type as the original primary instance.
      * @example mysql.n1.micro.1
@@ -99,6 +99,7 @@ class CloneDBInstanceRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -106,7 +107,7 @@ class CloneDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The storage capacity of the new instance. Unit: GB. You can increase the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     * @description The storage capacity of the new instance. Unit: GB. You can increase the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * > By default, the new instance has the same storage capacity as the original primary instance.
      * @example 1000
@@ -188,8 +189,9 @@ class CloneDBInstanceRequest extends Model
      *
      *   **Postpaid**: pay-as-you-go.
      *   **Prepaid**: subscription.
-     *   **Serverless**: serverless. This value is not supported for instances that run MariaDB. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](~~411291~~), [Overview of serverless ApsaraDB RDS for SQL Server instances](~~604344~~), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](~~607742~~).
+     *   **Serverless**: serverless. This value is not supported for instances that run MariaDB. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/411291.html), [Overview of serverless ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/607742.html).
      *
+     * This parameter is required.
      * @example Postpaid
      *
      * @var string
@@ -252,8 +254,9 @@ class CloneDBInstanceRequest extends Model
     public $restoreTime;
 
     /**
-     * @description The configuration of the serverless instance. You must specify this parameter only when you restore data to a new serverless instance.
+     * @description The specifications for the serverless instance. You must specify this parameter only when you restore data to a new serverless instance.
      *
+     * >  This parameter is available only on the China site (aliyun.com).
      * @var serverlessConfig
      */
     public $serverlessConfig;

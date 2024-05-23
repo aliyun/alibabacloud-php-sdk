@@ -15,6 +15,8 @@ class CreateGADInstanceRequest extends Model
      *
      * > *   A primary instance can serve only as the central node of a single global active database cluster.
      * > *   The primary instance can serve as the central node of the global active database cluster only in the following regions: China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu).
+     *
+     * This parameter is required.
      * @example rm-uf6wjk5*******
      *
      * @var string
@@ -24,6 +26,7 @@ class CreateGADInstanceRequest extends Model
     /**
      * @description The username of the privileged account of the central node. You can call the DescribeAccounts operation to query the privileged account of the central node.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -33,6 +36,7 @@ class CreateGADInstanceRequest extends Model
     /**
      * @description The password of the privileged account of the central node.
      *
+     * This parameter is required.
      * @example Test12345
      *
      * @var string
@@ -42,6 +46,7 @@ class CreateGADInstanceRequest extends Model
     /**
      * @description The region ID of the central node. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -55,7 +60,7 @@ class CreateGADInstanceRequest extends Model
      *   **all**: specifies whether to synchronize all data in the database or the table. Valid values: **true** and **false**.
      *   **Table**: the name of the table. If you set the **all** field to **false**, you must nest the name of the table that you want to synchronize into the JSON array.
      *
-     * Example: `{ "testdb": { "name": "testdb", "all": false, "Table": { "order": { "name": "order", "all": true }, "ordernew": { "name": "ordernew", "all": true } } } }`
+     * This parameter is required.
      * @example {    "testdb": {     "name": "testdb",     "all": false,     "Table": {       "order": {         "name": "order",         "all": true       },       "ordernew": {         "name": "ordernew",         "all": true       }     }   } }
      *
      * @var string
@@ -90,6 +95,7 @@ class CreateGADInstanceRequest extends Model
     /**
      * @description The information about the unit node.
      *
+     * This parameter is required.
      * @var unitNode[]
      */
     public $unitNode;

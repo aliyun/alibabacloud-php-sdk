@@ -25,6 +25,7 @@ class ListClassesRequest extends Model
      *   **rords_intl**: The instances are pay-as-you-go read-only instances.
      *   **rds_rordspre_public_intl**: The instances are subscription read-only instances.
      *
+     * This parameter is required.
      * @example bards_intl
      *
      * @var string
@@ -49,6 +50,7 @@ class ListClassesRequest extends Model
      *   **RENEW**: specifies the query orders that are used to renew instances.
      *   **CONVERT**: specifies the query orders that are used to change the billing methods of instances.
      *
+     * This parameter is required.
      * @example BUY
      *
      * @var string

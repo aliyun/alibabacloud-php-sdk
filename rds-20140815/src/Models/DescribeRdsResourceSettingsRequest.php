@@ -14,6 +14,8 @@ class DescribeRdsResourceSettingsRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $resourceNiche;

@@ -21,6 +21,7 @@ class DescribeKmsAssociateResourcesRequest extends Model
     /**
      * @description The ID of the KMS resource. Only key IDs are supported.
      *
+     * This parameter is required.
      * @example 494c98ce-f2b5-48ab-96ab-36c986b6****
      *
      * @var string
@@ -39,6 +40,7 @@ class DescribeKmsAssociateResourcesRequest extends Model
     /**
      * @description The type of the KMS resource. Only key is supported.
      *
+     * This parameter is required.
      * @example key
      *
      * @var string
@@ -48,6 +50,7 @@ class DescribeKmsAssociateResourcesRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the KMS resource belongs.
      *
+     * This parameter is required.
      * @example 164882191396****
      *
      * @var string

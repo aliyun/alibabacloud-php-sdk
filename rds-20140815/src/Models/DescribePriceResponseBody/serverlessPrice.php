@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class serverlessPrice extends Model
 {
     /**
+     * @description MaxRCU discount amount.
+     *
+     * @example 1**.*
+     *
      * @var float
      */
     public $RCUDiscountMaxAmount;
 
     /**
+     * @description MinRCU discount amount.
+     *
+     * @example 1*.*
+     *
      * @var float
      */
     public $RCUDiscountMinAmount;
 
     /**
+     * @description MaxRCU price.
+     *
+     * @example 2**.*
+     *
      * @var float
      */
     public $RCUOriginalMaxAmount;
 
     /**
+     * @description MinRCU price.
+     *
+     * @example 3*.*
+     *
      * @var float
      */
     public $RCUOriginalMinAmount;
 
     /**
+     * @description Original price of the disk.
+     *
+     * @example 1*
+     *
      * @var float
      */
     public $storageOriginalAmount;
 
     /**
+     * @description Maximum total price before discount.
+     *
+     * @example 2**.*
+     *
      * @var float
      */
     public $totalOriginalMaxAmount;
 
     /**
+     * @description The minimum total price before the discount.
+     *
+     * @example 2*.*
+     *
      * @var float
      */
     public $totalOriginalMinAmount;
 
     /**
+     * @description MaxRCU transaction price.
+     *
+     * @example 1**.*
+     *
      * @var float
      */
     public $tradeMaxRCUAmount;
 
     /**
+     * @description MinRCU transaction price.
+     *
+     * @example 2*.*
+     *
      * @var float
      */
     public $tradeMinRCUAmount;
 
     /**
+     * @description Disk discount price.
+     *
+     * @example 2.*
+     *
      * @var float
      */
     public $storageDiscountAmount;

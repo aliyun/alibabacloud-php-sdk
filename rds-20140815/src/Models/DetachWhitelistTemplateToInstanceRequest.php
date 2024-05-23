@@ -11,6 +11,7 @@ class DetachWhitelistTemplateToInstanceRequest extends Model
     /**
      * @description The instance name.
      *
+     * This parameter is required.
      * @example rm-bp191w771k******
      *
      * @var string
@@ -18,6 +19,10 @@ class DetachWhitelistTemplateToInstanceRequest extends Model
     public $insName;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +49,7 @@ class DetachWhitelistTemplateToInstanceRequest extends Model
     /**
      * @description The ID of the whitelist template. You can call the DescribeAllWhitelistTemplate operation to obtain the ID of the whitelist template.
      *
+     * This parameter is required.
      * @example 412
      *
      * @var int

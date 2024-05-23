@@ -11,6 +11,7 @@ class DescribeOssDownloadsRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeOssDownloadsRequest extends Model
     /**
      * @description The migration task ID. You can call the DescribeMigrateTasks operation to query the migration task ID.
      *
+     * This parameter is required.
      * @example 5625458541
      *
      * @var string

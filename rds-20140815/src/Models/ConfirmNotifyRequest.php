@@ -11,6 +11,7 @@ class ConfirmNotifyRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account that is used to confirm the notification. You can set this parameter to **0**, which indicates that the notification is confirmed by the system.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -20,6 +21,7 @@ class ConfirmNotifyRequest extends Model
     /**
      * @description The notification IDs.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $notifyIdList;

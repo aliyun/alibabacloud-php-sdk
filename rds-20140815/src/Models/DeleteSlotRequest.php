@@ -21,6 +21,7 @@ class DeleteSlotRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example pgm-bp102g323jd4****
      *
      * @var string
@@ -59,6 +60,7 @@ class DeleteSlotRequest extends Model
     /**
      * @description The name of the replication slot. You can call the DescribeSlots operation to query the name of the replication slot.
      *
+     * This parameter is required.
      * @example slot_test01
      *
      * @var string
@@ -71,6 +73,7 @@ class DeleteSlotRequest extends Model
      *   ACTIVE
      *   INACTIVE
      *
+     * This parameter is required.
      * @example INACTIVE
      *
      * @var string

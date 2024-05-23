@@ -20,6 +20,7 @@ class DescribePGHbaConfigRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example pgm-bp1lymyn1v3i****
      *
      * @var string

@@ -47,6 +47,7 @@ class DescribeMarketingActivityResponseBody extends Model
     /**
      * @description The request ID.
      *
+     * This parameter is required.
      * @example 7D8F09DB-1124-5D78-A520-FF88FAF4351B
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceEncryptionKeyRequest extends Model
 {
     /**
-     * @description The ID of the instance You can call the [DescribeDBInstances](~~26232~~) operation to query the IDs of instances.
+     * @description The ID of the instance You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the IDs of instances.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -37,7 +37,7 @@ class DescribeDBInstanceEncryptionKeyRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -61,7 +61,7 @@ class DescribeDBInstanceEncryptionKeyRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the destination region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The ID of the destination region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
      *
      * @example cn-qingdao
      *

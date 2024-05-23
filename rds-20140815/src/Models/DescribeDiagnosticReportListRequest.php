@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosticReportListRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string

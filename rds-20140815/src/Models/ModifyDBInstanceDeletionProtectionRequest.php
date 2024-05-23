@@ -20,6 +20,7 @@ class ModifyDBInstanceDeletionProtectionRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -32,6 +33,7 @@ class ModifyDBInstanceDeletionProtectionRequest extends Model
      *   **true**
      *   **false**
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

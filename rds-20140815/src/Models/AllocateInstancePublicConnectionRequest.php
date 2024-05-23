@@ -11,7 +11,7 @@ class AllocateInstancePublicConnectionRequest extends Model
     /**
      * @description The Tabular Data Stream (TDS) port of the instance for which Babelfish is enabled.
      *
-     * > This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](~~428613~~).
+     * > This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](https://help.aliyun.com/document_detail/428613.html).
      * @example 1433
      *
      * @var string
@@ -21,7 +21,9 @@ class AllocateInstancePublicConnectionRequest extends Model
     /**
      * @description The prefix of the public endpoint. A valid public endpoint is in the following format: `Prefix.Database engine.rds.aliyuncs.com`. Example: `test1234.mysql.rds.aliyuncs.com`.
      *
-     * > The value can be 5 to 40 characters in length and can contain letters, digits, and hyphens (-). The value cannot contain any of the following characters: ~ ! # % ^ & \* = + | {} ; : \" " , <> / ?
+     * > The value can be 5 to 40 characters in length and can contain letters, digits, and hyphens (-). The value cannot contain any of the following characters: ~ ! # % ^ & \\* = + | {} ; : \\" " , <> / ?
+     *
+     * This parameter is required.
      * @example test1234
      *
      * @var string
@@ -31,6 +33,7 @@ class AllocateInstancePublicConnectionRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5*****
      *
      * @var string
@@ -69,6 +72,7 @@ class AllocateInstancePublicConnectionRequest extends Model
     /**
      * @description The public port of the instance. Valid values: **1000 to 5999**.
      *
+     * This parameter is required.
      * @example 3306
      *
      * @var string

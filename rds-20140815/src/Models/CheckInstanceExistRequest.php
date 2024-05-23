@@ -9,9 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CheckInstanceExistRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example rm-uf6wjk5****
+     * @description This parameter is required.
      *
      * @var string
      */

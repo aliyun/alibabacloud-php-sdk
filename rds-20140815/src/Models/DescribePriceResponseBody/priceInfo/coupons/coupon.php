@@ -36,7 +36,7 @@ class coupon extends Model
     public $isSelected;
 
     /**
-     * @description The name of the coupon.
+     * @description The coupon name.
      *
      * @example test
      *

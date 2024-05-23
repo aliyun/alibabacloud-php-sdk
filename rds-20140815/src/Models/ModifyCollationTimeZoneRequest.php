@@ -14,10 +14,10 @@ class ModifyCollationTimeZoneRequest extends Model
      *   **Chinese_PRC_CI_AS**
      *   **Chinese_PRC_CS_AS**
      *   **Chinese_PRC_BIN**
-     *   **Latin1\_General_CI_AS**
-     *   **Latin1\_General_CS_AS**
-     *   **SQL_Latin1\_General_CP1\_CI_AS**
-     *   **SQL_Latin1\_General_CP1\_CS_AS**
+     *   **Latin1_General_CI_AS**
+     *   **Latin1_General_CS_AS**
+     *   **SQL_Latin1_General_CP1_CI_AS**
+     *   **SQL_Latin1_General_CP1_CS_AS**
      *   **Japanese_CI_AS**
      *   **Japanese_CS_AS**
      *   **Chinese_Taiwan_Stroke_CI_AS**
@@ -38,6 +38,7 @@ class ModifyCollationTimeZoneRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string

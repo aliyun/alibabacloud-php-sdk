@@ -14,6 +14,7 @@ class CreateParameterGroupRequest extends Model
      *   **mysql**
      *   **PostgreSQL**
      *
+     * This parameter is required.
      * @example mysql
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateParameterGroupRequest extends Model
      *   **14.0**
      *   **15.0**
      *
+     * This parameter is required.
      * @example 5.7
      *
      * @var string
@@ -61,9 +63,10 @@ class CreateParameterGroupRequest extends Model
     /**
      * @description The name of the parameter template.
      *
-     *   The value must start with a letter and can contain letters, digits, periods (.), and underscores (\_).
+     *   The value must start with a letter and can contain letters, digits, periods (.), and underscores (_).
      *   The value can be 8 to 64 characters in length.
      *
+     * This parameter is required.
      * @example test1234
      *
      * @var string
@@ -71,8 +74,9 @@ class CreateParameterGroupRequest extends Model
     public $parameterGroupName;
 
     /**
-     * @description A JSON string that consists of parameters and their values in the parameter template. Format: {"Parameter 1":"Value of Parameter 1","Parameter 2":"Value of Parameter 2"...}. For more information about the parameters that can be modified, see [Modify the parameters of an ApsaraDB RDS for MySQL instance](~~96063~~) or [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](~~96751~~).
+     * @description A JSON string that consists of parameters and their values in the parameter template. Format: {"Parameter 1":"Value of Parameter 1","Parameter 2":"Value of Parameter 2"...}. For more information about the parameters that can be modified, see [Modify the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html) or [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html).
      *
+     * This parameter is required.
      * @example {"back_log":"3000","wait_timeout":"86400"}
      *
      * @var string
@@ -82,6 +86,7 @@ class CreateParameterGroupRequest extends Model
     /**
      * @description The region ID of the parameter template. You can call the DescribeRegions operation to query the most recent zone list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

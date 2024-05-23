@@ -11,6 +11,7 @@ class DescribeTasksRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string

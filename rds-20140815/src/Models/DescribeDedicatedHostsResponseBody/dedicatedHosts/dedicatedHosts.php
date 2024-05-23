@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHosts extends Model
 {
     /**
-     * @description The host account. You can call the [CreateDedicatedHostAccount](~~196877~~) operation to create a host account.
+     * @description The host account. You can call the [CreateDedicatedHostAccount](https://help.aliyun.com/document_detail/196877.html) operation to create a host account.
      *
      * @example test123
      *
@@ -39,7 +39,7 @@ class dedicatedHosts extends Model
     public $bastionInstanceId;
 
     /**
-     * @description The core overcommitment ratio of the dedicated cluster. Unit: percentage. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     * @description The core overcommitment ratio of the dedicated cluster. Unit: percentage. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](https://help.aliyun.com/document_detail/182328.html).
      *
      * @example 200
      *
@@ -84,7 +84,7 @@ class dedicatedHosts extends Model
     public $dedicatedHostId;
 
     /**
-     * @description The disk overcommitment ratio of the dedicated cluster. Unit: percentage. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     * @description The disk overcommitment ratio of the dedicated cluster. Unit: percentage. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](https://help.aliyun.com/document_detail/182328.html).
      *
      * @example 200
      *

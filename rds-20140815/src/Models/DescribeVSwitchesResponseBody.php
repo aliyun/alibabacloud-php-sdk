@@ -46,7 +46,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The information about the vSwitches.
+     * @description The information about the vSwitch.
      *
      * @var vSwitchs[]
      */

@@ -39,6 +39,7 @@ class DescribeCrossRegionBackupsRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -86,6 +87,7 @@ class DescribeCrossRegionBackupsRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

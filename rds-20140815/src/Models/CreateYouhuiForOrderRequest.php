@@ -11,6 +11,7 @@ class CreateYouhuiForOrderRequest extends Model
     /**
      * @description The activity ID.
      *
+     * This parameter is required.
      * @example 1711510887******
      *
      * @var int
@@ -25,6 +26,7 @@ class CreateYouhuiForOrderRequest extends Model
     /**
      * @description The promotion ID. You can call the GetResourcePrice operation to query the promotion ID.
      *
+     * This parameter is required.
      * @example 2000001******
      *
      * @var int
@@ -34,6 +36,7 @@ class CreateYouhuiForOrderRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

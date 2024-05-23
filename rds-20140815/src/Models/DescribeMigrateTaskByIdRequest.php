@@ -11,6 +11,7 @@ class DescribeMigrateTaskByIdRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp11e1tzgxxxx4ox
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeMigrateTaskByIdRequest extends Model
     /**
      * @description The migration task ID. You can call the DescribeMigrateTasks operation to query the migration task ID.
      *
+     * This parameter is required.
      * @example 235943
      *
      * @var string

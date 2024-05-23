@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class serverlessConfiguration extends Model
 {
     /**
-     * @description Specifies whether to enable the automatic start and stop feature for the serverless instance. Valid values: Valid values:
+     * @description Specifies whether to enable the automatic start and stop feature for the serverless instance. Valid values:
      *
      *   **true**
      *   **false** (default)
@@ -50,7 +50,7 @@ class serverlessConfiguration extends Model
     public $minCapacity;
 
     /**
-     * @description Specifies whether to enable the forced scaling feature for the serverless instance.
+     * @description Specifies whether to enable the forced scaling feature for the serverless instance. Valid values:
      *
      *   **true**
      *   **false** (default)

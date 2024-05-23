@@ -11,6 +11,7 @@ class DescribeDBInstancePromoteActivityRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account.
      *
+     * This parameter is required.
      * @example 22973492**********
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeDBInstancePromoteActivityRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string

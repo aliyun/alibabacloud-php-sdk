@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMaskingRulesShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $DBInstanceName;
@@ -44,6 +46,8 @@ class CreateMaskingRulesShrinkRequest extends Model
     public $ruleConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ruleName;

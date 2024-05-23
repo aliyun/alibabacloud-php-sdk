@@ -11,6 +11,7 @@ class ModifyDTCSecurityIpHostsForSQLServerRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -30,6 +31,7 @@ class ModifyDTCSecurityIpHostsForSQLServerRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -49,7 +51,7 @@ class ModifyDTCSecurityIpHostsForSQLServerRequest extends Model
     /**
      * @description The IP address of the ECS instance and the hostname of the Windows computer. Format: `IP address,Hostname`. Separate multiple entries with semicolon (;).
      *
-     * >  For more information about how to query the computer hostname, see [Configure a distributed transaction whitelist](~~124321~~).
+     * This parameter is required.
      * @example 192.168.1.100,k3ecstest
      *
      * @var string
@@ -64,6 +66,7 @@ class ModifyDTCSecurityIpHostsForSQLServerRequest extends Model
     /**
      * @description The name of the IP address whitelist.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string

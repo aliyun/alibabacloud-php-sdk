@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateParameterGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the parameter template. You can call the [DescribeParameterGroups](~~144491~~) operation to query the IDs of parameter templates.
+     * @description The ID of the parameter template. You can call the [DescribeParameterGroups](https://help.aliyun.com/document_detail/144491.html) operation to query the IDs of parameter templates.
      *
      * @example rpg-q488w14xvsk****
      *

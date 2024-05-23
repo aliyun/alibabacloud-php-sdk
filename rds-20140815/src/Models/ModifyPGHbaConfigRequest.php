@@ -21,6 +21,7 @@ class ModifyPGHbaConfigRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example pgm-bp1lymyn1v3i****
      *
      * @var string
@@ -30,6 +31,7 @@ class ModifyPGHbaConfigRequest extends Model
     /**
      * @description An array that consists of the details of the AD domain services.
      *
+     * This parameter is required.
      * @var hbaItem[]
      */
     public $hbaItem;
@@ -42,6 +44,7 @@ class ModifyPGHbaConfigRequest extends Model
      *   **modify**: modifies one or more records. If you use this method, the record that corresponds to the specified value of the **PriorityId** parameter is modified.
      *   **update**: overwrites the existing configuration in the pg_hba.conf file by using the new configuration.
      *
+     * This parameter is required.
      * @example add
      *
      * @var string

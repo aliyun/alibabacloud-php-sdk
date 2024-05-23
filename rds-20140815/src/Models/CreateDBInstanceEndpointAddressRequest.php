@@ -21,6 +21,7 @@ class CreateDBInstanceEndpointAddressRequest extends Model
     /**
      * @description The prefix of the public endpoint.
      *
+     * This parameter is required.
      * @example rm-*****
      *
      * @var string
@@ -28,8 +29,9 @@ class CreateDBInstanceEndpointAddressRequest extends Model
     public $connectionStringPrefix;
 
     /**
-     * @description The endpoint ID of the instance. You can call the [DescribeDBInstanceEndpoints](~~610488~~) operation to query the endpoint ID of the instance.
+     * @description The endpoint ID of the instance. You can call the DescribeDBInstanceEndpoints operation to query the endpoint ID.
      *
+     * This parameter is required.
      * @example ep-****
      *
      * @var string
@@ -37,8 +39,9 @@ class CreateDBInstanceEndpointAddressRequest extends Model
     public $DBInstanceEndpointId;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-****
      *
      * @var string
@@ -48,6 +51,7 @@ class CreateDBInstanceEndpointAddressRequest extends Model
     /**
      * @description The network type of the endpoint. Only Internet is supported. Set the value to **Public**.
      *
+     * This parameter is required.
      * @example Public
      *
      * @var string
@@ -57,6 +61,7 @@ class CreateDBInstanceEndpointAddressRequest extends Model
     /**
      * @description The port number of the public endpoint.
      *
+     * This parameter is required.
      * @example 3306
      *
      * @var string
@@ -64,7 +69,7 @@ class CreateDBInstanceEndpointAddressRequest extends Model
     public $port;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the ID of the resource group.
      *
      * @example rg-acfmy****
      *

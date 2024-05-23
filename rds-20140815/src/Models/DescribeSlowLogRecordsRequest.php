@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5******
      *
      * @var string
@@ -29,7 +30,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.**
      *
-     * > The end time must be later than the start time.
+     * This parameter is required.
      * @example 2020-06-18T16:00Z
      *
      * @var string
@@ -96,6 +97,7 @@ class DescribeSlowLogRecordsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2020-06-17T16:00Z
      *
      * @var string

@@ -20,6 +20,7 @@ class CreateSecretRequest extends Model
     /**
      * @description The ID of the instance. You can call the DescribeDBInstances operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example rm-sdfljk123***
      *
      * @var string
@@ -47,7 +48,7 @@ class CreateSecretRequest extends Model
     /**
      * @description The engine of the database.
      *
-     * > Only MySQL is supported.
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -62,6 +63,7 @@ class CreateSecretRequest extends Model
     /**
      * @description The password that is used to access the database.
      *
+     * This parameter is required.
      * @example 12345678
      *
      * @var string
@@ -71,6 +73,7 @@ class CreateSecretRequest extends Model
     /**
      * @description The region ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -80,6 +83,7 @@ class CreateSecretRequest extends Model
     /**
      * @description The ID of the resource group to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the ID of the resource group.
      *
+     * This parameter is required.
      * @example rg-acfmxypivk***
      *
      * @var string
@@ -108,6 +112,7 @@ class CreateSecretRequest extends Model
     /**
      * @description The username that is used to access the database.
      *
+     * This parameter is required.
      * @example user_jack
      *
      * @var string

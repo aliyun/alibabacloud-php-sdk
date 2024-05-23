@@ -11,6 +11,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -20,7 +21,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
-     * >  The time span between the beginning time and the end time must be longer than the monitoring frequency. Otherwise, this operation may return an empty array.
+     * This parameter is required.
      * @example 2012-06-18T15:00Z
      *
      * @var string
@@ -28,9 +29,11 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $endTime;
 
     /**
-     * @description The performance metrics that you want to query. Separate multiple values with commas (,). You can specify up to 30 values. For more information, see [Performance parameters](~~26316~~).
+     * @description The performance metrics that you want to query. Separate multiple values with commas (,). You can specify up to 30 values. For more information, see [Performance parameters](https://help.aliyun.com/document_detail/26316.html).
      *
      * >  If you set **Key** to **MySQL_SpaceUsage** or **SQLServer_SpaceUsage**, you can query the monitoring data within only one day.
+     *
+     * This parameter is required.
      * @example MySQL_Sessions
      *
      * @var string
@@ -54,7 +57,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
-     * >  The time span between the beginning time and the end time must be longer than the monitoring frequency. Otherwise, this operation may return an empty array.
+     * This parameter is required.
      * @example 2012-06-08T15:00Z
      *
      * @var string

@@ -11,7 +11,7 @@ class ModifyEventInfoRequest extends Model
     /**
      * @description The action parameter. Set this value in the JSON string format.
      *
-     * @example {\"recoverTime\":\"2023-04-17T14:02:35Z\",\"recoverMode\":\"timePoint\"}
+     * @example {\\"recoverTime\\":\\"2023-04-17T14:02:35Z\\",\\"recoverMode\\":\\"timePoint\\"}
      *
      * @var string
      */
@@ -29,6 +29,7 @@ class ModifyEventInfoRequest extends Model
     /**
      * @description The event ID. Separate multiple event IDs with commas (,). You can configure up to 20 event IDs.
      *
+     * This parameter is required.
      * @example 5422964
      *
      * @var string
@@ -38,6 +39,7 @@ class ModifyEventInfoRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

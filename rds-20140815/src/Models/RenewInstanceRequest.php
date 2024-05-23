@@ -13,11 +13,17 @@ class RenewInstanceRequest extends Model
      *
      *   **True**: enables automatic payment. Make sure that your Alibaba Cloud account has adequate balance.
      *   **False** (default): disables automatic payment. You have to manually pay the order in the console.
-     * >  For more information about manual renewal in the console, see the following topics:
-     * > *   [Manually renew an ApsaraDB RDS for MySQL instance](~~96050~~)
-     * > *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](~~96741~~)
-     * > *   [Manually renew an ApsaraDB RDS for SQL Server instance](~~95637~~)
-     * > *   [Manually renew an ApsaraDB RDS for MariaDB instance](~~97122~~)
+     *
+     * >  For more information about how to manually renew an instance in the console, see the following topic:
+     *
+     *   [Manually renew an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96050.html)
+     *
+     *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96741.html)
+     *
+     *   [Manually renew an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95637.html)
+     *
+     *   [Manually renew an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97122.html)
+     *
      * @example True
      *
      * @var string
@@ -48,6 +54,7 @@ class RenewInstanceRequest extends Model
     /**
      * @description The instance ID You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -69,6 +76,7 @@ class RenewInstanceRequest extends Model
      *   **48**
      *   **60**
      *
+     * This parameter is required.
      * @example 12
      *
      * @var int

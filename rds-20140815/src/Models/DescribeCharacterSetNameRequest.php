@@ -16,6 +16,7 @@ class DescribeCharacterSetNameRequest extends Model
      *   **PostgreSQL**
      *   **MariaDB**
      *
+     * This parameter is required.
      * @example mysql
      *
      * @var string
@@ -35,6 +36,7 @@ class DescribeCharacterSetNameRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

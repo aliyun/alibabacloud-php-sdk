@@ -19,8 +19,9 @@ class DescribeSlotsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example pgm-bp102g323jd4****
      *
      * @var string

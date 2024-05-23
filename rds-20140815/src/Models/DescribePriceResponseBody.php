@@ -12,6 +12,10 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
+     * @description Order parameters.
+     *
+     * @example {\\"autoPay\\":false}"
+     *
      * @var string
      */
     public $orderParams;
@@ -40,6 +44,8 @@ class DescribePriceResponseBody extends Model
     public $rules;
 
     /**
+     * @description Serverless price information.
+     *
      * @var serverlessPrice
      */
     public $serverlessPrice;

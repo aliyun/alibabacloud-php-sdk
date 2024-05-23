@@ -28,8 +28,9 @@ class ModifyDBInstanceEndpointShrinkRequest extends Model
     public $DBInstanceEndpointDescription;
 
     /**
-     * @description The endpoint ID of the instance. You can call the [DescribeDBInstanceEndpoints](~~610488~~) operation to query the endpoint ID of the instance.
+     * @description The endpoint ID of the instance. You can call the DescribeDBInstanceEndpoints operation to query the endpoint ID.
      *
+     * This parameter is required.
      * @example ep-****
      *
      * @var string
@@ -37,8 +38,9 @@ class ModifyDBInstanceEndpointShrinkRequest extends Model
     public $DBInstanceEndpointId;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-****
      *
      * @var string
@@ -46,7 +48,7 @@ class ModifyDBInstanceEndpointShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The information about the node that is configured for the endpoint.
+     * @description The information about the endpoint.
      *
      * @var string
      */

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ReceiveDBInstanceRequest extends Model
 {
     /**
-     * @description The ID of the primary instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the primary instance.
+     * @description The ID of the primary instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the ID of the primary instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5*****
      *
      * @var string
@@ -18,8 +19,9 @@ class ReceiveDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the disaster recovery instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the disaster recovery instance.
+     * @description The ID of the disaster recovery instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the ID of the disaster recovery instance.
      *
+     * This parameter is required.
      * @example rm-tr2whku*****
      *
      * @var string

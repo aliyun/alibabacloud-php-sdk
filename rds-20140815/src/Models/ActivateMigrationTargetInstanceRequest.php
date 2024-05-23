@@ -11,6 +11,7 @@ class ActivateMigrationTargetInstanceRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example pgm-bp102g323jd4****
      *
      * @var string

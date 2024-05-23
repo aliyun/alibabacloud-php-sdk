@@ -11,6 +11,7 @@ class ModifyDBProxyEndpointAddressRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-t4n3a****
      *
      * @var string
@@ -36,6 +37,7 @@ class ModifyDBProxyEndpointAddressRequest extends Model
     /**
      * @description The ID of the dedicated proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID of the proxy endpoint.
      *
+     * This parameter is required.
      * @example ta9um4****
      *
      * @var string

@@ -16,6 +16,7 @@ class DescribeAvailableCrossRegionRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent zone list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

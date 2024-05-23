@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class minorVersionItems extends Model
 {
     /**
-     * @description The PostgreSQL version to which the minor engine version corresponds. For more information, see [Release notes for AliPG](~~126002~~).
+     * @description The PostgreSQL version to which the minor engine version corresponds. For more information, see [Release notes for AliPG](https://help.aliyun.com/document_detail/126002.html).
      *
      * >  This parameter is available only for instances that run **PostgreSQL**.
      * @example 13.6

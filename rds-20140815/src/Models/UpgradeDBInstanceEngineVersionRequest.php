@@ -20,6 +20,7 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -45,6 +46,7 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
      *   **5.7**
      *   **5.6**
      *
+     * This parameter is required.
      * @example 5.7
      *
      * @var string

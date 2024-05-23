@@ -47,6 +47,7 @@ class DescribeParameterTemplatesRequest extends Model
      *   **PostgreSQL**: PostgreSQL
      *   **MariaDB**: MariaDB
      *
+     * This parameter is required.
      * @example mysql
      *
      * @var string
@@ -61,6 +62,7 @@ class DescribeParameterTemplatesRequest extends Model
      *   Valid values when you set the Engine parameter to PostgreSQL: **10.0, 11.0, 12.0, 13.0, 14.0, and 15.0**.
      *   Valid values when you set the Engine parameter to MariaDB: **10.3**.
      *
+     * This parameter is required.
      * @example 8.0
      *
      * @var string

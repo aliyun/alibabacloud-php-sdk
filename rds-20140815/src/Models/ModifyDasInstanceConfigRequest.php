@@ -20,6 +20,7 @@ class ModifyDasInstanceConfigRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5*****
      *
      * @var string
@@ -47,6 +48,7 @@ class ModifyDasInstanceConfigRequest extends Model
      *   **Enable**
      *   **Disable**
      *
+     * This parameter is required.
      * @example Enable
      *
      * @var string

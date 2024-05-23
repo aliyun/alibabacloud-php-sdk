@@ -29,7 +29,7 @@ class DescribeParameterGroupsResponseBody extends Model
      * @description Indicates whether parameter templates exist in the specified region. Valid values:
      *   true
      *   false
-     * ><notice>This parameter is deprecated.></notice>
+     * >Notice: This parameter is deprecated.
      * @example false
      *
      * @var bool

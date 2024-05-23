@@ -21,7 +21,7 @@ class CreateDBInstanceEndpointShrinkRequest extends Model
     /**
      * @description The prefix of the internal endpoint.
      *
-     * When you create any type of endpoint, an internal endpoint is automatically created for the endpoint. This parameter specifies the prefix of the internal endpoint.
+     * This parameter is required.
      * @example rm-****-ro
      *
      * @var string
@@ -38,11 +38,12 @@ class CreateDBInstanceEndpointShrinkRequest extends Model
     public $DBInstanceEndpointDescription;
 
     /**
-     * @description The type of the endpoint. Valid values:
+     * @description The endpoint type. Valid values:
      *
      *   Primary: read/write endpoint of the instance
      *   Readonly: read-only endpoint of the instance
      *
+     * This parameter is required.
      * @example Readonly
      *
      * @var string
@@ -50,8 +51,9 @@ class CreateDBInstanceEndpointShrinkRequest extends Model
     public $DBInstanceEndpointType;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-****
      *
      * @var string
@@ -59,8 +61,9 @@ class CreateDBInstanceEndpointShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The information about the node that is configured for the endpoint.
+     * @description The information about the endpoint.
      *
+     * This parameter is required.
      * @var string
      */
     public $nodeItemsShrink;
@@ -68,7 +71,7 @@ class CreateDBInstanceEndpointShrinkRequest extends Model
     /**
      * @description The port number of the internal endpoint. You can specify the port number for the internal endpoint.
      *
-     * Valid values: 3000 to 5999.
+     * This parameter is required.
      * @example 3306
      *
      * @var string
@@ -85,7 +88,7 @@ class CreateDBInstanceEndpointShrinkRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) to obtain the ID of the resource group.
+     * @description The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the ID of the resource group.
      *
      * @example rg-acfmy****
      *
@@ -101,6 +104,7 @@ class CreateDBInstanceEndpointShrinkRequest extends Model
     /**
      * @description The vSwitch ID of the internal endpoint.
      *
+     * This parameter is required.
      * @example vsw-bp1kqp****
      *
      * @var string
@@ -108,8 +112,9 @@ class CreateDBInstanceEndpointShrinkRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The virtual private cloud (VPC) ID of the internal endpoint.
+     * @description The VPC ID of the internal endpoint.
      *
+     * This parameter is required.
      * @example vpc-xxxmmxjqqi****
      *
      * @var string

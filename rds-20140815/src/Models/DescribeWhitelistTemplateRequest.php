@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeWhitelistTemplateRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -33,8 +37,9 @@ class DescribeWhitelistTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the whitelist template. You can call the [DescribeAllWhitelistTemplate](~~2412075~~) operation to obtain the ID of the whitelist template.
+     * @description The ID of the whitelist template. You can call the [DescribeAllWhitelistTemplate](https://help.aliyun.com/document_detail/2412075.html) operation to obtain the ID of the whitelist template.
      *
+     * This parameter is required.
      * @example 1012
      *
      * @var int

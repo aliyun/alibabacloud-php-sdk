@@ -19,7 +19,7 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $clientToken;
 
     /**
-     * @description The name of the instance. The name must be 2 to 256 characters in length. The name can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @description The name of the instance. The name must be 2 to 256 characters in length. The name can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
      *
      * > : The name cannot start with http:// or https://.
      * @example Test database
@@ -29,8 +29,9 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -80,6 +81,7 @@ class CreateDBInstanceForRebuildRequest extends Model
      *   **Postpaid**: pay-as-you-go
      *   **Prepaid**: subscription
      *
+     * This parameter is required.
      * @example Postpaid
      *
      * @var string
@@ -100,8 +102,9 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $period;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -128,7 +131,7 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IP address whitelist of the serverless instance. For more information, see [Use a database client or the CLI to connect to an ApsaraDB RDS for PostgreSQL instance](~~43185~~). If the IP address whitelist contains more than one entry, separate the entries with commas (,). Each entry must be unique. You can specify up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
+     * @description The IP address whitelist of the serverless instance. For more information, see [Use a database client or the CLI to connect to an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43185.html). If the IP address whitelist contains more than one entry, separate the entries with commas (,). Each entry must be unique. You can specify up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
      *
      *   IP addresses, such as 10.10.XX.XX.
      *   CIDR blocks, such as 10.10.XX.XX/24. In this example, 24 indicates that the prefix of each IP address in the IP address whitelist is 24 bits in length. You can replace 24 with a value within the range of 1 to 32.
@@ -184,7 +187,7 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone ID of the primary instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent zone list.
+     * @description The zone ID of the primary instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent zone list.
      *
      * > If you specify a virtual private cloud (VPC) and a vSwitch, you must specify this parameter to identify the zone for the vSwitch.
      * @example cn-hangzhou-e

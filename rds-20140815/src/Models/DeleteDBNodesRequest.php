@@ -19,8 +19,9 @@ class DeleteDBNodesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5****
      *
      * @var string
@@ -30,6 +31,7 @@ class DeleteDBNodesRequest extends Model
     /**
      * @description The node IDs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $DBNodeId;
@@ -45,7 +47,7 @@ class DeleteDBNodesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
+     * @description The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to obtain the ID of the resource group.
      *
      * @example rg-acfmy****
      *

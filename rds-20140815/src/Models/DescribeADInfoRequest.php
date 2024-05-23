@@ -20,6 +20,7 @@ class DescribeADInfoRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp1k8s41l2o52****
      *
      * @var string
@@ -34,6 +35,7 @@ class DescribeADInfoRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

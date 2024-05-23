@@ -11,6 +11,7 @@ class DescribeInstanceLinkedWhitelistTemplateRequest extends Model
     /**
      * @description The instance name.
      *
+     * This parameter is required.
      * @example rm-bp191w771kd3****
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeInstanceLinkedWhitelistTemplateRequest extends Model
     public $insName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

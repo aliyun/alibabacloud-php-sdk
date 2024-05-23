@@ -26,7 +26,7 @@ class MigrateToOtherZoneRequest extends Model
     /**
      * @description The new instance type of the instance. You can change the instance type of the instance. You cannot change the storage type of the instance. If you set **IsModifySpec** to **true**, you must specify at least one of DBInstanceClass and **DBInstanceStorage**.
      *
-     * For more information about instance types, see [Primary ApsaraDB RDS for MySQL instance types](~~276975~~).
+     * For more information about instance types, see [Primary ApsaraDB RDS for MySQL instance types](https://help.aliyun.com/document_detail/276975.html).
      * @example mysql.x4.xlarge.2
      *
      * @var string
@@ -36,6 +36,7 @@ class MigrateToOtherZoneRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -45,7 +46,7 @@ class MigrateToOtherZoneRequest extends Model
     /**
      * @description The new storage capacity of the instance. If you set **IsModifySpec** to **true**, you must specify at least one of DBInstanceStorage and **DBInstanceClass**.
      *
-     * Unit: GB. The available storage capacity range varies based on the instance type of the instance. For more information, see [Primary ApsaraDB RDS for MySQL instance types](~~276975~~).
+     * Unit: GB. The available storage capacity range varies based on the instance type of the instance. For more information, see [Primary ApsaraDB RDS for MySQL instance types](https://help.aliyun.com/document_detail/276975.html).
      * @example 500
      *
      * @var int
@@ -145,6 +146,7 @@ class MigrateToOtherZoneRequest extends Model
     /**
      * @description The ID of the destination zone. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou-b
      *
      * @var string

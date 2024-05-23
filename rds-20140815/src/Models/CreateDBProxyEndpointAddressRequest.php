@@ -11,6 +11,7 @@ class CreateDBProxyEndpointAddressRequest extends Model
     /**
      * @description The prefix of the proxy endpoint Enter a custom prefix.
      *
+     * This parameter is required.
      * @example test1234
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateDBProxyEndpointAddressRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-t4n3axxxxx
      *
      * @var string
@@ -34,6 +36,8 @@ class CreateDBProxyEndpointAddressRequest extends Model
      *   **Classic**: classic network
      *
      * Default value: **Classic**
+     *
+     * This parameter is required.
      * @example Public
      *
      * @var string
@@ -43,6 +47,7 @@ class CreateDBProxyEndpointAddressRequest extends Model
     /**
      * @description The proxy endpoint ID. You can call the DescribeDBProxyEndpoint operation to query the proxy endpoint ID.
      *
+     * This parameter is required.
      * @example ta9um4xxxxx
      *
      * @var string

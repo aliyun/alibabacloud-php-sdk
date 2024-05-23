@@ -20,6 +20,7 @@ class CheckDBNameAvailableRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-t4n3axxxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class CheckDBNameAvailableRequest extends Model
     /**
      * @description The database name that you want to check.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string

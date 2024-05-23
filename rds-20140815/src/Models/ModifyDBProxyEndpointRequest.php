@@ -32,6 +32,7 @@ class ModifyDBProxyEndpointRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp145737x5bi6****
      *
      * @var string
@@ -114,7 +115,7 @@ class ModifyDBProxyEndpointRequest extends Model
      *   **Standard**: The system automatically allocates read weights to the instance and its read-only instances based on the specifications of the instances.
      *   **Custom**: You must manually allocate read weights to the instance and its read-only instances.
      *
-     * > You must specify this parameter only when the read/write splitting feature is enabled. For more information about the permission allocation policy, see [Modify the latency threshold and read weights of ApsaraDB RDS for MySQL instances](~~96076~~) and [Enable and configure the database proxy feature for an ApsaraDB RDS for PostgreSQL instance](~~418272~~).
+     * > You must specify this parameter only when the read/write splitting feature is enabled. For more information about the permission allocation policy, see [Modify the latency threshold and read weights of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96076.html) and [Enable and configure the database proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html).
      * @example Standard
      *
      * @var string

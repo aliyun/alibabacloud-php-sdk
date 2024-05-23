@@ -54,7 +54,7 @@ class DescribeDBInstancesRequest extends Model
     public $connectionString;
 
     /**
-     * @description The instance type of the instance. For information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     * @description The instance type of the instance. For information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * @example rds.mys2.small
      *
@@ -72,7 +72,7 @@ class DescribeDBInstancesRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The status of the instance. For more information, see [Instance states](~~26315~~).
+     * @description The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/26315.html).
      *
      * @example Running
      *
@@ -249,6 +249,7 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

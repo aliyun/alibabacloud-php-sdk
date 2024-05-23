@@ -30,7 +30,7 @@ class CheckCloudResourceAuthorizedResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](~~93689~~).
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
      *
      * @example acs:ram::1406926****:role/aliyunrdsinstanceencryptiondefaultrole
      *

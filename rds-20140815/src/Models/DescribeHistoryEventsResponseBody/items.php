@@ -71,7 +71,7 @@ class items extends Model
     public $time;
 
     /**
-     * @description The event type. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+     * @description The event type. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
      *
      * @example host
      *

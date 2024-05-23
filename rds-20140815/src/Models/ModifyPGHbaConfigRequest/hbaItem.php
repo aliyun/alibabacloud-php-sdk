@@ -11,6 +11,7 @@ class hbaItem extends Model
     /**
      * @description The IP addresses from which the specified users can access the specified databases. If you set this parameter to 0.0.0.0/0, the specified users are allowed to access the specified databases from all IP addresses.
      *
+     * This parameter is required.
      * @example 0.0.0.0/0
      *
      * @var string
@@ -20,7 +21,7 @@ class hbaItem extends Model
     /**
      * @description The name of the database. If you set this parameter to all, the specified users are allowed to access all databases on the instance.
      *
-     * If you specify multiple entries, separate the entries with commas (,).
+     * This parameter is required.
      * @example all
      *
      * @var string
@@ -51,6 +52,7 @@ class hbaItem extends Model
      *   **cert**
      *   **pam**
      *
+     * This parameter is required.
      * @example ldap
      *
      * @var string
@@ -69,7 +71,7 @@ class hbaItem extends Model
     /**
      * @description The priority of the record. If you set this parameter to 0, the record has the highest priority. Valid values: 0 to 10000.
      *
-     * This parameter is used to identify each record. When you add a record, the value of the PriorityId parameter for the new record must be different from the value of the PriorityId parameter of any existing record. When you modify or delete a record, you must also modify or delete the value of the PriorityId parameter for this record.
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -85,7 +87,7 @@ class hbaItem extends Model
      *   **hostssl**: The record matches only TCP/IP connections that are established over SSL.
      *   **hostnossl**: The record matches only TCP/IP connections that are not established over SSL connections.
      *
-     * >  You can set this parameter to hostssl only when SSL encryption is enabled for the instance. For more information, see Configure SSL encryption for an ApsaraDB RDS for PostgreSQL instance.[](~~229518~~)
+     * This parameter is required.
      * @example host
      *
      * @var string
@@ -95,6 +97,7 @@ class hbaItem extends Model
     /**
      * @description The user who is allowed to access the specified databases. You must specify the user that is used to log on to the RDS instance. If you specify multiple entries, separate the entries with commas (,).
      *
+     * This parameter is required.
      * @example ldapuser
      *
      * @var string

@@ -12,7 +12,7 @@ class items extends Model
      * @description A set of allowed actions that can be taken on the task. The system matches the current step name and status of the task to the available actions specified by ActionInfo. If no matching action is found, the current status of the task does not support any action. Example:
      *
      * The system may support the following actions: retry cancel modifySwitchTime: changes the switching or restoration time.
-     * @example {\"steps\":[{\"action_info\":{\"Waiting\":[\"modifySwitchTime\"]},\"step_name\":\"exec_task\"}]}
+     * @example {\\"steps\\":[{\\"action_info\\":{\\"Waiting\\":[\\"modifySwitchTime\\"]},\\"step_name\\":\\"exec_task\\"}]}
      *
      * @var string
      */
@@ -164,14 +164,14 @@ class items extends Model
     /**
      * @description The task details provided in the form of a JSON string. The JSON string can be customized and extended to include additional information about the task. The details vary based on the task type.
      *
-     * @example {\"callerUid\":\"test\"}
+     * @example {\\"callerUid\\":\\"test\\"}
      *
      * @var string
      */
     public $taskDetail;
 
     /**
-     * @description The task ID in the t-\*\*\* format.
+     * @description The task ID in the t-\\*\\*\\* format.
      *
      * @example t-83br18hloy3faf****
      *

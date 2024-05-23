@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustinsResourceInfoRequest extends Model
 {
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
+     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-wz9s06u4drmqj4aqv
      *
      * @var string

@@ -16,6 +16,7 @@ class CreateServiceLinkedRoleRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateServiceLinkedRoleRequest extends Model
      *   **AliyunServiceRoleForRdsPgsqlOnEcs**: the service-linked role for ApsaraDB RDS for PostgreSQL.
      *   **AliyunServiceRoleForRDSProxyOnEcs**: the service-linked role for the database proxy feature of ApsaraDB RDS for PostgreSQL.
      *
+     * This parameter is required.
      * @example AliyunServiceRoleForRdsPgsqlOnEcs
      *
      * @var string

@@ -35,7 +35,7 @@ class items extends Model
     public $chargeType;
 
     /**
-     * @description The instance type. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~) and [Read-only ApsaraDB RDS instance types](~~145759~~).
+     * @description The instance type. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html) and [Read-only ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/145759.html).
      *
      * @example rds.mysql.s3.large
      *
@@ -44,7 +44,7 @@ class items extends Model
     public $classCode;
 
     /**
-     * @description The instance family. For more information, see [Overview of instance families](~~57184~~).
+     * @description The instance family. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/57184.html).
      *
      * @example x
      *

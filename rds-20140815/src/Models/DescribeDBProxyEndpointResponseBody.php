@@ -101,7 +101,7 @@ class DescribeDBProxyEndpointResponseBody extends Model
     public $endpointConnectItems;
 
     /**
-     * @description The method that is used to assign read weights. For more information, see [Modify the latency threshold and read weights of ApsaraDB RDS for MySQL instances](~~96076~~). Valid values:
+     * @description The method that is used to assign read weights. For more information, see [Modify the latency threshold and read weights of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96076.html). Valid values:
      *
      *   **Standard**: The system automatically assigns read weights to the instance and its read-only instances based on the specifications of these instances.
      *   **Custom**: You must manually assign read weights to the instance and its read-only instances.
@@ -130,7 +130,7 @@ class DescribeDBProxyEndpointResponseBody extends Model
      *   **NodeType**: The node type. Valid values: **Primary** and **Secondary**.
      *   **Weight**: the read weight of the instance. The read weight increases in increments of **100** and cannot exceed **10000**.
      *
-     * @example [{\"Availability\":\"Available\",\"DBInstanceId\":\"rr-bp176984qewd8****\",\"DBInstanceType\":\"ReadOnly\",\"Weight\":400},{\"Availability\":\"Available\",\"DBInstanceId\":\"rm-bp1ja4f56s7us****\",\"DBInstanceType\":\"Master\",\"Weight\":0}]
+     * @example [{\\"Availability\\":\\"Available\\",\\"DBInstanceId\\":\\"rr-bp176984qewd8****\\",\\"DBInstanceType\\":\\"ReadOnly\\",\\"Weight\\":400},{\\"Availability\\":\\"Available\\",\\"DBInstanceId\\":\\"rm-bp1ja4f56s7us****\\",\\"DBInstanceType\\":\\"Master\\",\\"Weight\\":0}]
      *
      * @var string
      */

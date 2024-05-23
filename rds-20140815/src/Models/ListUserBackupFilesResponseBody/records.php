@@ -20,7 +20,7 @@ class records extends Model
     /**
      * @description The information about the binary log file that contains incremental data. If incremental data is generated during the full backup, this parameter is returned.
      *
-     * @example {\"binlogPosition\":\"154\",\"binlogFile\":\"0.000002\"}
+     * @example {\\"binlogPosition\\":\\"154\\",\\"binlogFile\\":\\"0.000002\\"}
      *
      * @var string
      */
@@ -90,9 +90,9 @@ class records extends Model
     public $ossBucket;
 
     /**
-     * @description The metadata of the full backup file. For more information, see [Manage object metadata](~~31859~~).
+     * @description The metadata of the full backup file. For more information, see [Manage object metadata](https://help.aliyun.com/document_detail/31859.html).
      *
-     * @example {\"Accept-Ranges\":\"bytes\",\"Connection\":\"keep-alive\",\"Content-Length\":81014337,\"Content-Type\":\"application/octet-stream\",\"Date\":1623309548000,\"ETag\":\"889FE9E5FCEBFE4781829488A352863B-1\",\"Last-Modified\":1622186844000,\"Server\":\"AliyunOSS\",\"x-oss-hash-crc64ecma\":\"5793608435727323129\",\"x-oss-object-type\":\"Multipart\",\"x-oss-request-id\":\"60C1BCEC92572F37318BD499\",\"x-oss-server-time\":\"166\",\"x-oss-storage-class\":\"Standard\"}
+     * @example {\\"Accept-Ranges\\":\\"bytes\\",\\"Connection\\":\\"keep-alive\\",\\"Content-Length\\":81014337,\\"Content-Type\\":\\"application/octet-stream\\",\\"Date\\":1623309548000,\\"ETag\\":\\"889FE9E5FCEBFE4781829488A352863B-1\\",\\"Last-Modified\\":1622186844000,\\"Server\\":\\"AliyunOSS\\",\\"x-oss-hash-crc64ecma\\":\\"5793608435727323129\\",\\"x-oss-object-type\\":\\"Multipart\\",\\"x-oss-request-id\\":\\"60C1BCEC92572F37318BD499\\",\\"x-oss-server-time\\":\\"166\\",\\"x-oss-storage-class\\":\\"Standard\\"}
      *
      * @var string
      */

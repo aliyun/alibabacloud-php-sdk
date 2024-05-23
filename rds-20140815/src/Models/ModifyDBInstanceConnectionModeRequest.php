@@ -14,7 +14,7 @@ class ModifyDBInstanceConnectionModeRequest extends Model
      *   **Standard**: standard mode
      *   **Safe**: database proxy mode
      *
-     * >  SQL Server 2012, SQL Server 2016, and SQL Server 2017 support only the standard mode.
+     * This parameter is required.
      * @example Performance
      *
      * @var string
@@ -24,6 +24,7 @@ class ModifyDBInstanceConnectionModeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxx
      *
      * @var string

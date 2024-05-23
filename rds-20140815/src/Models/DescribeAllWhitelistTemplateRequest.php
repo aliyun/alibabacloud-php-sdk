@@ -23,6 +23,7 @@ class DescribeAllWhitelistTemplateRequest extends Model
     /**
      * @description The number of entries to return on each page. Enumerated valid values: 10, 30, and 50.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -32,6 +33,7 @@ class DescribeAllWhitelistTemplateRequest extends Model
     /**
      * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -39,6 +41,10 @@ class DescribeAllWhitelistTemplateRequest extends Model
     public $pageNumbers;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

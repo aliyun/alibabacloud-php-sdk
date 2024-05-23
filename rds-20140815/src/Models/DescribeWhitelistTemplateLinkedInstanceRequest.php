@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeWhitelistTemplateLinkedInstanceRequest extends Model
 {
     /**
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The resource group ID.
+     * @description The resource group ID. You can leave this parameter empty.
      *
      * @example rg-acfmy*****
      *
@@ -35,6 +39,7 @@ class DescribeWhitelistTemplateLinkedInstanceRequest extends Model
     /**
      * @description The ID of the whitelist template. You can call the DescribeAllWhitelistTemplate operation to obtain the ID of the whitelist template.
      *
+     * This parameter is required.
      * @example 412
      *
      * @var int

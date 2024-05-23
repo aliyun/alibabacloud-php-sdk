@@ -11,6 +11,7 @@ class vSwitchs extends Model
     /**
      * @description The number of available IP addresses in the vSwitch.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -59,7 +60,7 @@ class vSwitchs extends Model
     /**
      * @description The status of the vSwitch. Valid values:
      *
-     *   **Pending**: The vSwitch is being configured.
+     *   **Pending**: The vSwitch is being specified.
      *   **Available**: The vSwitch is available.
      *
      * @example Available

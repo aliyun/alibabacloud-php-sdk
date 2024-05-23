@@ -11,6 +11,7 @@ class MigrateDBInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5******
      *
      * @var string
@@ -20,6 +21,7 @@ class MigrateDBInstanceRequest extends Model
     /**
      * @description The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
      *
+     * This parameter is required.
      * @example dhg-4n******
      *
      * @var string
@@ -92,7 +94,7 @@ class MigrateDBInstanceRequest extends Model
     public $targetDedicatedHostIdForSlave;
 
     /**
-     * @description The zone ID of the secondary instance.
+     * @description The zone ID of the secondary node.
      *
      * @example cn-hangzhou-h
      *

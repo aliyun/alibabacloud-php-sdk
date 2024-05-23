@@ -11,6 +11,7 @@ class ModifyDBInstanceProxyConfigurationRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class ModifyDBInstanceProxyConfigurationRequest extends Model
      *   **PersistentConnections**: short-lived connection optimization
      *   **AttacksProtection**: brute-force attack protection
      *
+     * This parameter is required.
      * @example TransparentSwitch
      *
      * @var string
@@ -53,7 +55,7 @@ class ModifyDBInstanceProxyConfigurationRequest extends Model
      *   **Enable**: The feature is enabled.
      *   **Disable**: The feature is disabled. This is the default value.
      *
-     * Format: {"Feature 1":"Status 1","Feature 2":"Status 2"...}
+     * This parameter is required.
      * @example {"status":"Enable"}
      *
      * @var string

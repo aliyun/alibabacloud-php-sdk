@@ -11,6 +11,7 @@ class ModifyDBInstancePayTypeRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp1842vmucoa5w874
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyDBInstancePayTypeRequest extends Model
     /**
      * @description The billing method of the instance. The value is fixed as **Prepaid**, which indicates the subscription billing method.
      *
+     * This parameter is required.
      * @example Prepaid
      *
      * @var string
@@ -32,6 +34,7 @@ class ModifyDBInstancePayTypeRequest extends Model
      *   **Year**
      *   **Month**
      *
+     * This parameter is required.
      * @example Year
      *
      * @var string

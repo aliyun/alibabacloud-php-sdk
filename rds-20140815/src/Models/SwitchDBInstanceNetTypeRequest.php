@@ -20,6 +20,7 @@ class SwitchDBInstanceNetTypeRequest extends Model
     /**
      * @description The prefix of the custom endpoint. The prefix must be 8 to 64 characters in length and can contain letters and digits. It must start with a lowercase letter. A valid endpoint is in the following format: Prefix.Database engine.rds.aliyuncs.com. Example: test1234.mysql.rds.aliyuncs.com.
      *
+     * This parameter is required.
      * @example new**********
      *
      * @var string
@@ -42,6 +43,7 @@ class SwitchDBInstanceNetTypeRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp1**************
      *
      * @var string

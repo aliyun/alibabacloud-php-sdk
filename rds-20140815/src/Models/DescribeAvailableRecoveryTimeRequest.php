@@ -11,6 +11,7 @@ class DescribeAvailableRecoveryTimeRequest extends Model
     /**
      * @description The ID of the cross-region data backup file. You can call the DescribeCrossRegionBackups operation to query the backup file ID.
      *
+     * This parameter is required.
      * @example 14***
      *
      * @var int

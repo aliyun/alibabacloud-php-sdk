@@ -30,6 +30,7 @@ class RestoreDdrTableRequest extends Model
     /**
      * @description The source instance ID.
      *
+     * This parameter is required.
      * @example rm-bpxxxxx
      *
      * @var string
@@ -86,6 +87,8 @@ class RestoreDdrTableRequest extends Model
      *   **1**: restores data to a point in time. If you set this parameter to 1, you must also specify the **RestoreTime**, **SourceRegion**, and **SourceDBInstanceName** parameters.
      *
      * Default value: **0**.
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var string
@@ -115,6 +118,7 @@ class RestoreDdrTableRequest extends Model
     /**
      * @description The names of the databases and tables that you want to restore. The value is in the following format: `[{"type":"db","name":"<The name of Database 1 on the source instance>","newname":"<The name of Database 1 on the destination instance>","tables":[{"type":"table","name":"<The name of Table 1 in Database 1 on the source instance>","newname":"<The name of Table 1 in Database 1 on the destination instance>"},{"type":"table","name":"<The name of Table 2 in Database 1 on the source instance>","newname":"<The name of Table 2 in Database 1 on the destination instance>"}]},{"type":"db","name":"<The name of Database 2 on the source instance>","newname":"<The name of Database 2 on the destination instance>","tables":[{"type":"table","name":"<The name of Table 3 in Database 2 on the source instance>","newname":"<The name of Table 3 in Database 2 on the destination instance>"},{"type":"table","name":"<The name of Table 4 in Database 2 on the source instance>","newname":"<The name of Table 4 in Database 2 on the destination instance>"}]}]`
      *
+     * This parameter is required.
      * @example [{"type":"db","name":"testdb1","newname":"testdb1","tables":[{"type":"table","name":"test1","newname":"test1_backup"},{"type":"table","name":"test2","newname":"test2_backup"}]}]
      *
      * @var string

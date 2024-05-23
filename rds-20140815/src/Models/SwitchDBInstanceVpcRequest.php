@@ -11,6 +11,7 @@ class SwitchDBInstanceVpcRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5*****
      *
      * @var string
@@ -35,7 +36,7 @@ class SwitchDBInstanceVpcRequest extends Model
     /**
      * @description The VPC ID.
      *
-     * > The VPC must reside in the same region as the instance.
+     * This parameter is required.
      * @example vpc-uf6f7l4fg90*****
      *
      * @var string
@@ -45,7 +46,7 @@ class SwitchDBInstanceVpcRequest extends Model
     /**
      * @description The vSwitch ID of the instance.
      *
-     * > The vSwitch must belong to the same zone as the instance.
+     * This parameter is required.
      * @example vsw-uf6adz52c2p*****
      *
      * @var string

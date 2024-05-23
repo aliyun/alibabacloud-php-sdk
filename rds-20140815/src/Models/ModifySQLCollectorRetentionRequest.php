@@ -17,6 +17,7 @@ class ModifySQLCollectorRetentionRequest extends Model
      *   1095: three years
      *   1825: five years
      *
+     * This parameter is required.
      * @example 365
      *
      * @var string
@@ -26,6 +27,7 @@ class ModifySQLCollectorRetentionRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string

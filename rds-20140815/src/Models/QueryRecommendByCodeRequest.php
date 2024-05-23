@@ -11,6 +11,7 @@ class QueryRecommendByCodeRequest extends Model
     /**
      * @description The code.
      *
+     * This parameter is required.
      * @example rds_recommend
      *
      * @var string

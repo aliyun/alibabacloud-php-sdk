@@ -20,6 +20,7 @@ class DescribeBackupDatabaseRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string

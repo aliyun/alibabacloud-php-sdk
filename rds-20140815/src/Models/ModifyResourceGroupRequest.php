@@ -20,6 +20,7 @@ class ModifyResourceGroupRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bpxxxxx
      *
      * @var string
@@ -39,6 +40,7 @@ class ModifyResourceGroupRequest extends Model
     /**
      * @description The resource group ID. You can call the ListResourceGroups operation to obtain the resource group ID.
      *
+     * This parameter is required.
      * @example rg-acxxxxx
      *
      * @var string

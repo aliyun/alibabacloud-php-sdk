@@ -39,7 +39,7 @@ class DescribeActiveOperationTasksRequest extends Model
      *
      *   **all**: all types
      *   **S0**: returns the tasks of the exception fixing level.
-     *   **S1**: returns the tasks of the system O\&M level.
+     *   **S1**: returns the tasks of the system O\\&M level.
      *
      * @example all
      *
@@ -85,7 +85,7 @@ class DescribeActiveOperationTasksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 100. Default value: 25.
+     * @description The number of entries per page. Default value: 25. Maximum value: 100.
      *
      * @example 25
      *

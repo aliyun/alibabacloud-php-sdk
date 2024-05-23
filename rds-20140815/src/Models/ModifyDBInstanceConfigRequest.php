@@ -18,10 +18,12 @@ class ModifyDBInstanceConfigRequest extends Model
     public $clientToken;
 
     /**
-     * @description The name of the configuration item that you want to modify.
+     * @description The name of the configuration item that you want to modify. Valid values:
      *
-     *   **pgbouncer**
+     *   **pgbouncer**. This configuration item is supported for ApsaraDB RDS for PostgreSQL instances.
+     *   **clear_errorlog**. This configuration item is supported for ApsaraDB RDS for SQL Server instances.
      *
+     * This parameter is required.
      * @example pgbouncer
      *
      * @var string
@@ -29,11 +31,12 @@ class ModifyDBInstanceConfigRequest extends Model
     public $configName;
 
     /**
-     * @description The value of the configuration item that you want to modify.
+     * @description The value of the configuration item that you want to modify. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   If you set ConfigName to pgbouncer, the valid values are **true** and **false**.
+     *   If you set ConfigName to clear_errorlog, set the value to **1**. The value 1 indicates that error logs are cleaned up.
      *
+     * This parameter is required.
      * @example true
      *
      * @var string
@@ -43,6 +46,7 @@ class ModifyDBInstanceConfigRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string

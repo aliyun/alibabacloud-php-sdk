@@ -49,7 +49,7 @@ class dedicatedHostGroups extends Model
     public $cpuAllocatedAmount;
 
     /**
-     * @description The core overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     * @description The core overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](https://help.aliyun.com/document_detail/182328.html).
      *
      * @example 200
      *
@@ -115,7 +115,7 @@ class dedicatedHostGroups extends Model
     public $diskAllocatedAmount;
 
     /**
-     * @description The disk overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     * @description The disk overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](https://help.aliyun.com/document_detail/182328.html).
      *
      * @example 200
      *
@@ -199,7 +199,7 @@ class dedicatedHostGroups extends Model
     public $memAllocatedAmount;
 
     /**
-     * @description The memory overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     * @description The memory overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](https://help.aliyun.com/document_detail/182328.html).
      *
      * @example 90
      *

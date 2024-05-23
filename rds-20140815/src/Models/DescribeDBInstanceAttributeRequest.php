@@ -11,7 +11,7 @@ class DescribeDBInstanceAttributeRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
-     * ><notice>Do not query the details of multiple instances at a time by using multiple instance IDs. Otherwise, the query times out and fails.></notice>
+     * This parameter is required.
      * @example rm-uf6wjk5*****
      *
      * @var string

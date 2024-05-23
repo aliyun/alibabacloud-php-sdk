@@ -20,6 +20,7 @@ class DescribeHistoryTasksStatRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*t*HH:mm:ss*z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2023-05-08T07:04:17Z
      *
      * @var string
@@ -43,6 +44,7 @@ class DescribeHistoryTasksStatRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -121,6 +123,7 @@ class DescribeHistoryTasksStatRequest extends Model
     /**
      * @description The end of the time range to query. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2023-02-24T10:01:37Z
      *
      * @var string

@@ -38,7 +38,7 @@ class eventItems extends Model
     /**
      * @description The request or context parameters of the event.
      *
-     * @example {\"Domain\": \"rds-inc-share.aliyuncs.com\", \"Api\": \"ReleaseInstancePublicConnection\"}
+     * @example {\\"Domain\\": \\"rds-inc-share.aliyuncs.com\\", \\"Api\\": \\"ReleaseInstancePublicConnection\\"}
      *
      * @var string
      */

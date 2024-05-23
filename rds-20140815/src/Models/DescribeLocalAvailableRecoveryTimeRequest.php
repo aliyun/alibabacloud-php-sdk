@@ -11,6 +11,7 @@ class DescribeLocalAvailableRecoveryTimeRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string

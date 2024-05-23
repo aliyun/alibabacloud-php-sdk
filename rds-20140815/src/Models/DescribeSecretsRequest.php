@@ -42,7 +42,7 @@ class DescribeSecretsRequest extends Model
     /**
      * @description The database engine of the database.
      *
-     * > Only MySQL is supported.
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -62,7 +62,7 @@ class DescribeSecretsRequest extends Model
     /**
      * @description The number of the page to return. Valid values: any non-zero positive integer.
      *
-     * > The default value is 1.
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -72,6 +72,7 @@ class DescribeSecretsRequest extends Model
     /**
      * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -81,6 +82,7 @@ class DescribeSecretsRequest extends Model
     /**
      * @description The region ID. You can call the DescribeDBInstanceAttribute operation to query the region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -14,6 +14,7 @@ class CreateMigrateTaskRequest extends Model
      *   **FULL**: The migration task migrates full backup files.
      *   **UPDF**: The migration task migrates incremental or log backup files.
      *
+     * This parameter is required.
      * @example FULL
      *
      * @var string
@@ -23,10 +24,10 @@ class CreateMigrateTaskRequest extends Model
     /**
      * @description The consistency check method for the database. Valid values:
      *
-     *   **SyncExecuteDBCheck**: synchronous database check.
-     *   **AsyncExecuteDBCheck**: asynchronous database check.
+     *   **SyncExecuteDBCheck**: synchronous database check
+     *   **AsyncExecuteDBCheck**: asynchronous database check
      *
-     * Default value: **AsyncExecuteDBCheck** (compatible with SQL Server 2008 R2).
+     * Default value: **AsyncExecuteDBCheck** (compatible with SQL Server 2008 R2)
      *
      * >  This parameter is valid when **IsOnlineDB** is set to **True**.
      * @example AsyncExecuteDBCheck
@@ -38,6 +39,7 @@ class CreateMigrateTaskRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk******
      *
      * @var string
@@ -47,6 +49,7 @@ class CreateMigrateTaskRequest extends Model
     /**
      * @description The name of the destination database.
      *
+     * This parameter is required.
      * @example testDB
      *
      * @var string
@@ -60,6 +63,8 @@ class CreateMigrateTaskRequest extends Model
      *   **False**
      *
      * >  Set the value to **True** for instances that run SQL Server 2008 R2.
+     *
+     * This parameter is required.
      * @example True
      *
      * @var string
@@ -95,7 +100,7 @@ class CreateMigrateTaskRequest extends Model
      *
      *   OSS endpoint: oss-ap-southeast-1.aliyuncs.com.
      *   Name of the OSS bucket: rdsmssqlsingapore.
-     *   Key of the backup file in the OSS bucket: autotest\_2008R2\_TestMigration_FULL.bak.
+     *   Key of the backup file in the OSS bucket: autotest_2008R2_TestMigration_FULL.bak.
      *
      * > *   This parameter is optional for instances that run SQL Server 2008 R2.
      * > *   This parameter is required for instances that run a major engine version later than SQL Server 2008 R2.

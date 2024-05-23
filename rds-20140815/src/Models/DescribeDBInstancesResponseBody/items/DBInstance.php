@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
-     * @description Indicates whether the buffer pool extension (BPE) feature is enabled. Valid values:
-     *
-     *   **1**
-     *   **0**
+     * @description A deprecated parameter.
      *
      * @example 0
      *
@@ -87,12 +84,17 @@ class DBInstance extends Model
     public $createTime;
 
     /**
+     * @description The number of CPU instances.
+     *
+     * Returns only when the InstanceLevel parameter is 1.
+     * @example 2
+     *
      * @var string
      */
     public $DBInstanceCPU;
 
     /**
-     * @description The instance type of the instance. For information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     * @description The instance type of the instance. For information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * @example rds.mys2.small
      *
@@ -119,6 +121,11 @@ class DBInstance extends Model
     public $DBInstanceId;
 
     /**
+     * @description The memory size of the node. Unit: MB.
+     *
+     * Returns only when the InstanceLevel parameter is 1.
+     * @example 4096
+     *
      * @var int
      */
     public $DBInstanceMemory;
@@ -136,7 +143,7 @@ class DBInstance extends Model
     public $DBInstanceNetType;
 
     /**
-     * @description The instance status. For more information, see [Instance statuses](~~26315~~).
+     * @description The instance status. For more information, see [Instance statuses](https://help.aliyun.com/document_detail/26315.html).
      *
      * @example Running
      *
@@ -154,7 +161,7 @@ class DBInstance extends Model
     public $DBInstanceStorageType;
 
     /**
-     * @description The role of the instance. Valid values:
+     * @description The type of the instance. Valid values:
      *
      *   **Primary**: primary instance
      *   **Readonly**: read-only instance
@@ -168,7 +175,7 @@ class DBInstance extends Model
     public $DBInstanceType;
 
     /**
-     * @description The ID of the dedicated cluster to which the instances belong.
+     * @description The ID of the dedicated cluster.
      *
      * @example dhg-7a9xxxxxxxx
      *
@@ -177,7 +184,7 @@ class DBInstance extends Model
     public $dedicatedHostGroupId;
 
     /**
-     * @description The name of the dedicated cluster to which the instance belongs.
+     * @description The name of the dedicated cluster.
      *
      * @example testhostgroup
      *
@@ -346,9 +353,11 @@ class DBInstance extends Model
     public $instanceNetworkType;
 
     /**
-     * @description Whether IO acceleration is enabled. The value has the following meanings:
+     * @description Indicates whether the I/O acceleration feature is enabled. Valid values:
      *
-     * - 0: not enabled
+     *   1: enabled
+     *   0: disabled
+     *
      * @example 0
      *
      * @var string
@@ -415,7 +424,7 @@ class DBInstance extends Model
     public $payType;
 
     /**
-     * @description The IDs of the read-only instances that are attached to the primary instance. This parameter is returned only when the instance is a primary instance.
+     * @description The IDs of the read-only instances. This parameter is returned only when the instance is a primary instance and has the read-only instances attached.
      *
      * @var readOnlyDBInstanceIds
      */

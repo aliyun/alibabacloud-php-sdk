@@ -25,6 +25,7 @@ class CloneParameterGroupRequest extends Model
     /**
      * @description The ID of the parameter template. You can call the DescribeParameterGroups operation to query the parameter template ID.
      *
+     * This parameter is required.
      * @example rpg-13ppdh****
      *
      * @var string
@@ -34,6 +35,7 @@ class CloneParameterGroupRequest extends Model
     /**
      * @description The name of the parameter template in the destination region.
      *
+     * This parameter is required.
      * @example tartestgroup
      *
      * @var string
@@ -43,6 +45,7 @@ class CloneParameterGroupRequest extends Model
     /**
      * @description The ID of the source region to which the parameter template belongs. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -71,6 +74,7 @@ class CloneParameterGroupRequest extends Model
     /**
      * @description The ID of the destination region. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-qingdao
      *
      * @var string

@@ -31,7 +31,7 @@ class associateDBInstances extends Model
     public $engine;
 
     /**
-     * @description The way in which the key is used. Return values:
+     * @description The purpose of the key. Valid values:
      *
      *   **DiskEncryption**: cloud disk encryption
      *   **TDE**: transparent data encryption

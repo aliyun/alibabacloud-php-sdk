@@ -18,8 +18,9 @@ class DeletePostgresExtensionsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example pgm-bp156o9ti493****
      *
      * @var string
@@ -29,6 +30,7 @@ class DeletePostgresExtensionsRequest extends Model
     /**
      * @description The database on which the extension is installed. If you want to specify multiple databases, separate the databases with commas (,).
      *
+     * This parameter is required.
      * @example test_db
      *
      * @var string
@@ -38,6 +40,7 @@ class DeletePostgresExtensionsRequest extends Model
     /**
      * @description The name of the extension. If you want to specify multiple extensions, separate the extension names with commas (,).
      *
+     * This parameter is required.
      * @example citext
      *
      * @var string

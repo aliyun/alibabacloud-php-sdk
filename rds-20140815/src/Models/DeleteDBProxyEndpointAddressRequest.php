@@ -11,6 +11,7 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-t4n3a****
      *
      * @var string
@@ -27,6 +28,8 @@ class DeleteDBProxyEndpointAddressRequest extends Model
      * If the instance runs MySQL, the default value of this parameter is **Classic**.
      *
      * > If the instance runs PostgreSQL, you must set this parameter to **Public** or **VPC**.
+     *
+     * This parameter is required.
      * @example Public
      *
      * @var string
@@ -36,6 +39,7 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     /**
      * @description The proxy endpoint ID. You can call the DescribeDBProxyEndpoint operation to query the proxy endpoint ID.
      *
+     * This parameter is required.
      * @example ta9um4****
      *
      * @var string

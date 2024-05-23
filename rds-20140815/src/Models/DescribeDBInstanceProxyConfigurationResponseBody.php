@@ -24,7 +24,7 @@ class DescribeDBInstanceProxyConfigurationResponseBody extends Model
      *   max_failed_login_attempts: **10 to 5000**. Unit: times.
      *   blocking_seconds: **30 to 3600**. Unit: seconds.
      *
-     * @example {\"check_interval_seconds\":\"0\",\"max_failed_login_attempts\":\"0\",\"blocking_seconds\":\"0\",\"status\":\"Disable\"}
+     * @example {\\"check_interval_seconds\\":\\"0\\",\\"max_failed_login_attempts\\":\\"0\\",\\"blocking_seconds\\":\\"0\\",\\"status\\":\\"Disable\\"}
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class DescribeDBInstanceProxyConfigurationResponseBody extends Model
      *   **Disable**
      *
      * {"status":"Disable"}.
-     * @example {\"status\":\"Disable\"}
+     * @example {\\"status\\":\\"Disable\\"}
      *
      * @var string
      */
@@ -59,7 +59,7 @@ class DescribeDBInstanceProxyConfigurationResponseBody extends Model
      *   **Disable**
      *
      * {"status":"Enable"}
-     * @example {\"status\":\"Enable\"}
+     * @example {\\"status\\":\\"Enable\\"}
      *
      * @var string
      */

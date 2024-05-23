@@ -11,6 +11,7 @@ class GrantAccountPrivilegeRequest extends Model
     /**
      * @description The username of the account.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string
@@ -33,6 +34,7 @@ class GrantAccountPrivilegeRequest extends Model
      *   If the instance runs SQL Server, you can set this parameter to **ReadWrite**, **ReadOnly**, or **DBOwner**.
      *   If the instance runs PostgreSQL and uses cloud disks, you can set this parameter to **DBOwner**.
      *
+     * This parameter is required.
      * @example ReadWrite
      *
      * @var string
@@ -42,6 +44,7 @@ class GrantAccountPrivilegeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -51,6 +54,7 @@ class GrantAccountPrivilegeRequest extends Model
     /**
      * @description The name of the database on which you want to grant permissions. Separate multiple database names with commas (,).
      *
+     * This parameter is required.
      * @example testDB1
      *
      * @var string

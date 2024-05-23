@@ -59,7 +59,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description The configuration of the Babelfish feature for the ApsaraDB RDS for PostgreSQL instance.
      *
-     * >  This parameter applies only to ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see [Introduction to Babelfish](~~428613~~).
+     * >  This parameter applies only to ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see [Introduction to Babelfish](https://help.aliyun.com/document_detail/428613.html).
      * @var babelfishConfig
      */
     public $babelfishConfig;
@@ -81,6 +81,11 @@ class DBInstanceAttribute extends Model
      * @var bool
      */
     public $burstingEnabled;
+
+    /**
+     * @var bool
+     */
+    public $canTempUpgrade;
 
     /**
      * @description The RDS edition. Valid values:
@@ -185,7 +190,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceCPU;
 
     /**
-     * @description The instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     * @description The instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * @example rds.mys2.small
      *
@@ -256,7 +261,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceNetType;
 
     /**
-     * @description The status of the instance. For more information, see [Instance states](~~26315~~).
+     * @description The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/26315.html).
      *
      * @example Running
      *
@@ -665,6 +670,16 @@ class DBInstanceAttribute extends Model
     public $tempDBInstanceId;
 
     /**
+     * @var string
+     */
+    public $tempUpgradeTimeEnd;
+
+    /**
+     * @var string
+     */
+    public $tempUpgradeTimeStart;
+
+    /**
      * @description The time zone.
      *
      * @example Central Standard Time
@@ -748,6 +763,7 @@ class DBInstanceAttribute extends Model
         'babelfishConfig'                => 'BabelfishConfig',
         'bpeEnabled'                     => 'BpeEnabled',
         'burstingEnabled'                => 'BurstingEnabled',
+        'canTempUpgrade'                 => 'CanTempUpgrade',
         'category'                       => 'Category',
         'coldDataEnabled'                => 'ColdDataEnabled',
         'collation'                      => 'Collation',
@@ -806,6 +822,8 @@ class DBInstanceAttribute extends Model
         'slaveZones'                     => 'SlaveZones',
         'superPermissionMode'            => 'SuperPermissionMode',
         'tempDBInstanceId'               => 'TempDBInstanceId',
+        'tempUpgradeTimeEnd'             => 'TempUpgradeTimeEnd',
+        'tempUpgradeTimeStart'           => 'TempUpgradeTimeStart',
         'timeZone'                       => 'TimeZone',
         'tips'                           => 'Tips',
         'tipsLevel'                      => 'TipsLevel',
@@ -843,6 +861,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->burstingEnabled) {
             $res['BurstingEnabled'] = $this->burstingEnabled;
+        }
+        if (null !== $this->canTempUpgrade) {
+            $res['CanTempUpgrade'] = $this->canTempUpgrade;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
@@ -1018,6 +1039,12 @@ class DBInstanceAttribute extends Model
         if (null !== $this->tempDBInstanceId) {
             $res['TempDBInstanceId'] = $this->tempDBInstanceId;
         }
+        if (null !== $this->tempUpgradeTimeEnd) {
+            $res['TempUpgradeTimeEnd'] = $this->tempUpgradeTimeEnd;
+        }
+        if (null !== $this->tempUpgradeTimeStart) {
+            $res['TempUpgradeTimeStart'] = $this->tempUpgradeTimeStart;
+        }
         if (null !== $this->timeZone) {
             $res['TimeZone'] = $this->timeZone;
         }
@@ -1074,6 +1101,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['BurstingEnabled'])) {
             $model->burstingEnabled = $map['BurstingEnabled'];
+        }
+        if (isset($map['CanTempUpgrade'])) {
+            $model->canTempUpgrade = $map['CanTempUpgrade'];
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
@@ -1248,6 +1278,12 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['TempDBInstanceId'])) {
             $model->tempDBInstanceId = $map['TempDBInstanceId'];
+        }
+        if (isset($map['TempUpgradeTimeEnd'])) {
+            $model->tempUpgradeTimeEnd = $map['TempUpgradeTimeEnd'];
+        }
+        if (isset($map['TempUpgradeTimeStart'])) {
+            $model->tempUpgradeTimeStart = $map['TempUpgradeTimeStart'];
         }
         if (isset($map['TimeZone'])) {
             $model->timeZone = $map['TimeZone'];

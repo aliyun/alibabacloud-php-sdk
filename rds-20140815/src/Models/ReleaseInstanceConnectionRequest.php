@@ -11,6 +11,7 @@ class ReleaseInstanceConnectionRequest extends Model
     /**
      * @description The public endpoint of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxx.mysql.rds.aliyuncs.com
      *
      * @var string
@@ -20,6 +21,7 @@ class ReleaseInstanceConnectionRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -32,6 +34,7 @@ class ReleaseInstanceConnectionRequest extends Model
      *   **0**: virtual private cloud (VPC)
      *   **1**: classic network
      *
+     * This parameter is required.
      * @example 0
      *
      * @var string

@@ -30,7 +30,7 @@ class DeleteSecretRequest extends Model
     /**
      * @description The engine of the database.
      *
-     * > Only MySQL is supported.
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -45,6 +45,7 @@ class DeleteSecretRequest extends Model
     /**
      * @description The region ID. You can call the DescribeSecrets operation to query the region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

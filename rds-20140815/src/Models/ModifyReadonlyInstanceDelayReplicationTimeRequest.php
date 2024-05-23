@@ -11,6 +11,7 @@ class ModifyReadonlyInstanceDelayReplicationTimeRequest extends Model
     /**
      * @description The ID of the read-only instance. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rr-bpxxxxx
      *
      * @var string
@@ -25,6 +26,7 @@ class ModifyReadonlyInstanceDelayReplicationTimeRequest extends Model
     /**
      * @description The replication latency of the data replication. Unit: seconds.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var string

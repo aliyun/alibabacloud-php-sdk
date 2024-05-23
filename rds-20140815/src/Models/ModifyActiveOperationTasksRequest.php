@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationTasksRequest extends Model
 {
     /**
-     * @description The O\&M task ID. Separate multiple IDs with commas (,).
+     * @description The O\\&M task ID. Separate multiple IDs with commas (,).
      *
-     * >  You can call the DescribeActiveOperationTask operation to query the O\&M task ID.
+     * This parameter is required.
      * @example 11111,22222
      *
      * @var string
@@ -64,7 +64,7 @@ class ModifyActiveOperationTasksRequest extends Model
     /**
      * @description The scheduled switching time that you want to specify. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * >  The time that is specified by the SwitchTime parameter cannot be later than the time that is specified by the Deadline parameter. You can call the DescribeActiveOperationTasks operation to query the value of the Deadline parameter in the response.
+     * This parameter is required.
      * @example 2019-10-17T18:50:00Z
      *
      * @var string

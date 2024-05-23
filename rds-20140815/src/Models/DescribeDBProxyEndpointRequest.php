@@ -11,6 +11,7 @@ class DescribeDBProxyEndpointRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp1ja4f56s7us****
      *
      * @var string

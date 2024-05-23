@@ -11,6 +11,7 @@ class DBNode extends Model
     /**
      * @description The specification information of the node.
      *
+     * This parameter is required.
      * @example mysql.n2.medium.xc
      *
      * @var string
@@ -18,13 +19,18 @@ class DBNode extends Model
     public $classCode;
 
     /**
+     * @description The vSwitch ID of the node.
+     *
+     * @example vsw-bp1sxxsodv28ey5dl****
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
-     * @description The zone ID of the node.
+     * @description The ID of the zone in which the node is deployed.
      *
+     * This parameter is required.
      * @example cn-zhangjiakou-a
      *
      * @var string

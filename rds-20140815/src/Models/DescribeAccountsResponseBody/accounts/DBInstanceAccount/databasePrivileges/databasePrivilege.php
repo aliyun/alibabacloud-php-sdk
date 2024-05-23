@@ -24,7 +24,7 @@ class databasePrivilege extends Model
     public $accountPrivilege;
 
     /**
-     * @description The permissions that are granted to the account. For more information, see [Account permissions](~~146395~~).
+     * @description The permissions that are granted to the account. For more information, see [Account permissions](https://help.aliyun.com/document_detail/146395.html).
      *
      * @example SELECT,INSERT
      *

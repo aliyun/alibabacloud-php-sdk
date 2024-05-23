@@ -14,6 +14,7 @@ class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends Model
      *   **Auto:** automatic update.
      *   **Manual**: manual update. ApsaraDB RDS automatically updates the current minor engine version of the instance only when the current minor engine version is phased out.
      *
+     * This parameter is required.
      * @example Auto
      *
      * @var string
@@ -32,6 +33,7 @@ class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxx
      *
      * @var string

@@ -33,6 +33,7 @@ class ModifyDBNodeShrinkRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-bp1k8s41l2o52****
      *
      * @var string
@@ -40,7 +41,7 @@ class ModifyDBNodeShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The new storage capacity of the instance. Unit: GB For more information, see [Instance types](~~26312~~).
+     * @description The new storage capacity of the instance. Unit: GB For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
      *
      * @example 20
      *

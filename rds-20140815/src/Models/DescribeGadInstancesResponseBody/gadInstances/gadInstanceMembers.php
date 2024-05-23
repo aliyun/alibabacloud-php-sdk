@@ -21,7 +21,7 @@ class gadInstanceMembers extends Model
      * @description A JSON array that consists of the details about the Data Transmission Service (DTS) synchronization task.
      *
      * >  Each unit node (secondary node) synchronizes data from the central node (primary node) by using DTS. This parameter contains the synchronization link ID and request ID of DTS.
-     * @example {\"dtsInstanceId\":\"dtsm9t107c********\",\"dtsRequestId\":\"190F0C6C-4BE6-5676-989B-DBDE6D34CD9C\"}
+     * @example {\\"dtsInstanceId\\":\\"dtsm9t107c********\\",\\"dtsRequestId\\":\\"190F0C6C-4BE6-5676-989B-DBDE6D34CD9C\\"}
      *
      * @var string
      */

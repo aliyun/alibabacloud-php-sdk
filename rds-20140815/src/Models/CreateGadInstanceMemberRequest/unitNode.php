@@ -12,7 +12,7 @@ class unitNode extends Model
      * @description The name of the unit node that you want to create. The name must meet the following requirements:
      *
      *   The name must be **2 to 255** characters in length.
-     *   The name can contain letters, digits, underscores (\_), and hyphens (-) and must start with a letter.
+     *   The name can contain letters, digits, underscores (_), and hyphens (-) and must start with a letter.
      *   The name cannot start with `http://` or `https://`.
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
@@ -24,7 +24,7 @@ class unitNode extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The storage capacity of the unit node that you want to create. Unit: GB. You can adjust the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can also call the DescribeAvailableResource operation to query the storage capacity range that is available for a specific instance type in a region.
+     * @description The storage capacity of the unit node that you want to create. Unit: GB. You can adjust the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableResource operation to query the storage capacity range that is available for a specific instance type in a region.
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
@@ -50,7 +50,7 @@ class unitNode extends Model
     public $DBInstanceStorageType;
 
     /**
-     * @description The instance type of the unit node that you want to create. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can call the DescribeAvailableResource operation to query the available instance types in a region.
+     * @description The instance type of the unit node that you want to create. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can call the DescribeAvailableResource operation to query the available instance types in a region.
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
@@ -69,6 +69,7 @@ class unitNode extends Model
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
+     * This parameter is required.
      * @example overwrite
      *
      * @var string
@@ -83,10 +84,11 @@ class unitNode extends Model
      *   **large**
      *   **micro**
      *
-     * >  For more information, see [Specifications of data synchronization instances](~~26605~~).
+     * >  For more information, see [Specifications of data synchronization instances](https://help.aliyun.com/document_detail/26605.html).
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
+     * This parameter is required.
      * @example medium
      *
      * @var string
@@ -125,6 +127,7 @@ class unitNode extends Model
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -132,7 +135,7 @@ class unitNode extends Model
     public $regionID;
 
     /**
-     * @description The IP address whitelist of the unit node that you want to create. For more information, see [IP address whitelist](~~43185~~). If you want to add more than one entry to the IP address whitelist, separate the entries with commas (,). Each entry must be unique. The IP address whitelist can contain up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
+     * @description The IP address whitelist of the unit node that you want to create. For more information, see [IP address whitelist](https://help.aliyun.com/document_detail/43185.html). If you want to add more than one entry to the IP address whitelist, separate the entries with commas (,). Each entry must be unique. The IP address whitelist can contain up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
      *
      *   IP addresses, such as `10.10.XX.XX`.
      *   CIDR blocks, such as `10.10.XX.XX/24`. In this example, **24** indicates that the prefix of each IP address in the IP address whitelist is 24 bits in length. You can replace 24 with a value within the range of **1 to 32**.
@@ -150,6 +153,7 @@ class unitNode extends Model
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
+     * This parameter is required.
      * @example vsw-bp1tg609m5j85****
      *
      * @var string
@@ -161,6 +165,7 @@ class unitNode extends Model
      *
      **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
      *
+     * This parameter is required.
      * @example vpc-bp19ame5m1r3o****
      *
      * @var string

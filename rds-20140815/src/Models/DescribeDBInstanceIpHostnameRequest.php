@@ -11,6 +11,7 @@ class DescribeDBInstanceIpHostnameRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeDBInstanceIpHostnameRequest extends Model
     /**
      * @description You can call the DescribeDBInstanceAttribute operation to query the region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

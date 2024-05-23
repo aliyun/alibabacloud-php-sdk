@@ -11,6 +11,7 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
     /**
      * @description The retention days of the classic network endpoint. Valid values: **1 to 120**. Unit: days.
      *
+     * This parameter is required.
      * @example 7
      *
      * @var int
@@ -23,6 +24,7 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
      *   The internal endpoint of the classic network.
      *   The read/write splitting endpoint of the classic network.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxx.mysql.rds.aliyuncs.com
      *
      * @var string
@@ -32,6 +34,7 @@ class ModifyDBInstanceNetworkExpireTimeRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string

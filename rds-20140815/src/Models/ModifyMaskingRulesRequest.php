@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyMaskingRulesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $DBInstanceName;
@@ -50,6 +52,8 @@ class ModifyMaskingRulesRequest extends Model
     public $ruleConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ruleName;

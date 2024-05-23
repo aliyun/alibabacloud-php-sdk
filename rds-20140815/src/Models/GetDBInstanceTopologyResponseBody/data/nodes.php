@@ -40,7 +40,7 @@ class nodes extends Model
     /**
      * @description The ID of the instance.
      *
-     * > : The value \*\*-1\*\* is returned for an instance that does not reside in a dedicated cluster.
+     * > : The value \\*\\*-1\\*\\* is returned for an instance that does not reside in a dedicated cluster.
      * @example 349054
      *
      * @var string

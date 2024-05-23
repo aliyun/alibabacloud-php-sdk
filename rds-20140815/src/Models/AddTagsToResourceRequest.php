@@ -26,7 +26,7 @@ class AddTagsToResourceRequest extends Model
     /**
      * @description The instance ID.
      *
-     * >  You can enter up to 30 instance IDs in a single request. If you enter more than one instance ID, you must separate the instance IDs with commas (,).
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -46,6 +46,7 @@ class AddTagsToResourceRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hagnzhou
      *
      * @var string

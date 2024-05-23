@@ -11,6 +11,7 @@ class SwitchGuardToMasterInstanceRequest extends Model
     /**
      * @description The ID of the disaster recovery instance. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5*****
      *
      * @var string

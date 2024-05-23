@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceTDERequest extends Model
 {
     /**
-     * @description The file that contains the certificate.\
+     * @description The file that contains the certificate.\\
      * Format:
      *
      *   Public endpoint: `oss-<The ID of the region>.aliyuncs.com:<The name of the bucket>:<The name of the certificate file>` (The file name contains the extension.)
      *   Internal endpoint: `oss-<The ID of the region>-internal.aliyuncs.com:<The name of the bucket>:<The name of the certificate file>` (The file name contains the extension.)
      *
      * > *   This parameter is available when the instance runs SQL Server 2019 SE or an Enterprise Edition of SQL Server.
-     * > *   You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * > *   You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
      * @example oss-ap-southeast-1.aliyuncs.com:****:key.cer
      *
      * @var string
@@ -26,6 +26,7 @@ class ModifyDBInstanceTDERequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5****
      *
      * @var string
@@ -88,14 +89,14 @@ class ModifyDBInstanceTDERequest extends Model
     public $passWord;
 
     /**
-     * @description The file that contains the private key of the certificate.\
+     * @description The file that contains the private key of the certificate.\\
      * Format:
      *
      *   Public endpoint: `oss-<The ID of the region>.aliyuncs.com:<The name of the bucket>:<The name of the file that contains the private key>` (The file name contains the extension.)
      *   Internal endpoint: `oss-<The ID of the region>-internal.aliyuncs.com:<The name of the bucket>:<The name of the file that contains the private key>` (The file name contains the extension.)
      *
      * > *   This parameter is available when the instance runs SQL Server 2019 SE or an Enterprise Edition of SQL Server.
-     * > *   You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * > *   You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
      * @example oss-ap-southeast-1.aliyuncs.com:****:key.pvk
      *
      * @var string
@@ -113,7 +114,7 @@ class ModifyDBInstanceTDERequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](~~93689~~).
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
      *
      * > This parameter is available when the instance runs MySQL or PostgreSQL.
      * @example acs:ram::1406926****:role/aliyunrdsinstanceencryptiondefaultrole
@@ -128,6 +129,7 @@ class ModifyDBInstanceTDERequest extends Model
      *   **Enabled**
      *   **Disabled**
      *
+     * This parameter is required.
      * @example Enabled
      *
      * @var string

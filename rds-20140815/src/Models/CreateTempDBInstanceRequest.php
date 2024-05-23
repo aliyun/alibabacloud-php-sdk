@@ -11,7 +11,7 @@ class CreateTempDBInstanceRequest extends Model
     /**
      * @description The backup set ID. You can call the DescribeBackups operation to query the backup set ID.
      *
-     * >  You must specify at least one of the **BackupId** or **RestoreTime** parameters.
+     * >  You must specify at least one of **BackupId** and **RestoreTime** parameters.
      * @example 603******
      *
      * @var int
@@ -21,6 +21,7 @@ class CreateTempDBInstanceRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5******
      *
      * @var string

@@ -20,6 +20,7 @@ class UpdatePostgresExtensionsRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example pgm-gc7f1****
      *
      * @var string
@@ -29,6 +30,7 @@ class UpdatePostgresExtensionsRequest extends Model
     /**
      * @description The database name. You can call the DescribeDatabases operation to obtain the database name.
      *
+     * This parameter is required.
      * @example test_db
      *
      * @var string
@@ -38,6 +40,7 @@ class UpdatePostgresExtensionsRequest extends Model
     /**
      * @description The name of the extension. Separate multiple extensions with commas (,).
      *
+     * This parameter is required.
      * @example citext
      *
      * @var string

@@ -28,7 +28,7 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
     public $bid;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
+     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -59,7 +59,7 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
     public $DBType;
 
     /**
-     * @description The activity information about the instance. For more information, see [Instance activities](~~2391834~~).
+     * @description The activity information about the instance. For more information, see [Instance activities](https://help.aliyun.com/document_detail/2391834.html).
      *
      * @example 1
      *

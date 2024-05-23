@@ -18,8 +18,9 @@ class RestartDBInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxx
      *
      * @var string
@@ -27,9 +28,9 @@ class RestartDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The node ID, which can be used to restart a specified node. You can call the [DescribeDBInstanceHAConfig](~~610434~~) operation to obtain the node ID.
+     * @description The node ID, which can be used to restart a specified node. You can call the [DescribeDBInstanceHAConfig](https://help.aliyun.com/document_detail/610434.html) operation to obtain the node ID.
      *
-     * > : The secondary instance restart feature is supported for RDS instances that run SQL Server EE on RDS Cluster Edition. For more information, see [Restart a secondary database](~~2411880~~).
+     * > : The secondary instance restart feature is supported for RDS instances that run SQL Server EE on RDS Cluster Edition. For more information, see [Restart a secondary database](https://help.aliyun.com/document_detail/2411880.html).
      * @example 2614****
      *
      * @var string

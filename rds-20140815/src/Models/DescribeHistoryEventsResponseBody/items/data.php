@@ -54,7 +54,7 @@ class data extends Model
     public $endTime;
 
     /**
-     * @description The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+     * @description The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
      *
      * @example Exception
      *
@@ -99,7 +99,7 @@ class data extends Model
     public $eventImpact;
 
     /**
-     * @description The event level. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+     * @description The event level. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
      *
      * @example high
      *

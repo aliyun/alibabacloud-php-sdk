@@ -11,6 +11,7 @@ class DescribeErrorLogsRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeErrorLogsRequest extends Model
     /**
      * @description The end of the time range to query. The end time must be later than the start time. The time span between the start time and the end time must be less than 31 days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2011-05-30T20:10Z
      *
      * @var string
@@ -68,6 +70,7 @@ class DescribeErrorLogsRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2011-05-01T20:10Z
      *
      * @var string

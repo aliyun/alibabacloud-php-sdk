@@ -24,7 +24,7 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     /**
      * @description The instance type of the new instance. The CPU and memory specifications of the new instance must be higher than or equal to the CPU and memory specifications of the original instance.
      *
-     * > For more information about instance types in ApsaraDB RDS for PostgreSQL, see [Primary ApsaraDB RDS for PostgreSQL instance types](~~276990~~).
+     * > For more information about instance types in ApsaraDB RDS for PostgreSQL, see [Primary ApsaraDB RDS for PostgreSQL instance types](https://help.aliyun.com/document_detail/276990.html).
      * @example pg.n2.medium.2c
      *
      * @var string
@@ -49,7 +49,7 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
      *   Valid values if you use ESSDs of PL2: 500 to 3200
      *   Valid values if you use ESSDs of PL3: 1500 to 3200
      *
-     * > If the original instance uses local disks, you can reduce the storage capacity of the instance when you upgrade the major engine version of the instance. For more information about the minimum available storage capacity, see [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~).
+     * > If the original instance uses local disks, you can reduce the storage capacity of the instance when you upgrade the major engine version of the instance. For more information about the minimum available storage capacity, see [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html).
      * @example 20
      *
      * @var int
@@ -81,7 +81,7 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     /**
      * @description The network type of the new instance. Set the value to VPC. The major engine version upgrade feature is supported only for instances that reside in VPCs.
      *
-     * If the original instance resides in the classic network, you must migrate the instance to a VPC before you call this operation. For more information about how to view or change the network type of an instance, see [Change the network type of an ApsaraDB RDS for PostgreSQL instance](~~96761~~).
+     * If the original instance resides in the classic network, you must migrate the instance to a VPC before you call this operation. For more information about how to view or change the network type of an instance, see [Change the network type of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96761.html).
      * @example VPC
      *
      * @var string
@@ -91,7 +91,7 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     /**
      * @description The billing method. Set the value to Postpaid.
      *
-     * >  For more information about how to change the billing method of an instance after the upgrade, see [Change the billing method of an instance from pay-as-you-go to subscription](~~96743~~).
+     * This parameter is required.
      * @example Postpaid
      *
      * @var string
@@ -135,7 +135,7 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
      * > *   If read-only instances are attached to the original instance, you can set this parameter only to false. In this case, the read-only instances that are attached to the original instance cannot be cloned. After the upgrade is complete, you must create read-only instances for the new instance.
      * > *   If you set this parameter to false, you must take note of the following information:
      * > *   The data migration does not interrupt your workloads on the original instance.
-     * > *   After data is migrated to the new instance, you must update the endpoint configuration on your application. This update requires you to replace the endpoint of the original instance with the endpoint of the new instance. For more information about how to view the endpoint of an instance, see [View and change the internal and public endpoints and port numbers of an ApsaraDB RDS for PostgreSQL instance](~~96788~~).
+     * > *   After data is migrated to the new instance, you must update the endpoint configuration on your application. This update requires you to replace the endpoint of the original instance with the endpoint of the new instance. For more information about how to view the endpoint of an instance, see [View and change the internal and public endpoints and port numbers of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96788.html).
      * @example false
      *
      * @var string
@@ -205,9 +205,9 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone ID of the new instance. You can call the DescribeRegions operation to query the zone ID.
+     * @description The ID of the zone to which the new primary instance belongs. You can call the DescribeRegions operation to query zone IDs.
      *
-     * You can select a zone that is different from the zone of the original instance but belongs to the region in which the original instance resides.
+     * You can select a zone that belongs to the region in which the original instance resides.
      * @example cn-hangzhou-h
      *
      * @var string
@@ -215,9 +215,9 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     public $zoneId;
 
     /**
-     * @description The zone ID of the secondary instance for the new instance. You can specify this parameter only when the original instance runs RDS High-availability Edition.
+     * @description The ID of the zone to which the new secondary instance belongs. This parameter is available only when the original instance runs RDS High-availability Edition.
      *
-     * You can call the DescribeRegions operation to query the zone ID.
+     * You can call the DescribeRegions operation to query zone IDs.
      * @example cn-hangzhou-h
      *
      * @var string

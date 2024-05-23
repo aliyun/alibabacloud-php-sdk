@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountMaskingPrivilegeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $DBInstanceName;
@@ -24,6 +26,8 @@ class ModifyAccountMaskingPrivilegeRequest extends Model
     public $ownerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $privilege;
@@ -39,6 +43,8 @@ class ModifyAccountMaskingPrivilegeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userName;

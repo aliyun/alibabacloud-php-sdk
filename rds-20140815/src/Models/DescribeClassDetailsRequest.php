@@ -11,6 +11,7 @@ class DescribeClassDetailsRequest extends Model
     /**
      * @description The code of the instance type.
      *
+     * This parameter is required.
      * @example rds.mysql.s3.large
      *
      * @var string
@@ -34,6 +35,7 @@ class DescribeClassDetailsRequest extends Model
      *   **rords_intl**: The instance is a pay-as-you-go read-only instance.
      *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance.
      *
+     * This parameter is required.
      * @example rds
      *
      * @var string
@@ -43,6 +45,7 @@ class DescribeClassDetailsRequest extends Model
     /**
      * @description The type of the database engine.
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -52,6 +55,7 @@ class DescribeClassDetailsRequest extends Model
     /**
      * @description The database engine version of the instance.
      *
+     * This parameter is required.
      * @example 5.6
      *
      * @var string
@@ -66,6 +70,7 @@ class DescribeClassDetailsRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -9,19 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceDescriptionRequest extends Model
 {
     /**
-     * @description The name of the instance.
-     *
-     * > The name must be 2 to 64 characters in length.
-     * @example Instance in Alibaba Cloud test environment
+     * @description This parameter is required.
      *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example rm-uf6wjk5****
+     * @description This parameter is required.
      *
      * @var string
      */

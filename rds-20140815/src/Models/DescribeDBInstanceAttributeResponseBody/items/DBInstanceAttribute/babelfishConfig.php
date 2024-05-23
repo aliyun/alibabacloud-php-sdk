@@ -24,7 +24,7 @@ class babelfishConfig extends Model
      *   **single-db**
      *   **multi-db**
      *
-     * >  For more information about migration modes for Babelfish, see [Migration modes](~~428613~~).
+     * >  For more information about migration modes for Babelfish, see [Migration modes](https://help.aliyun.com/document_detail/428613.html).
      * @example single-db
      *
      * @var string

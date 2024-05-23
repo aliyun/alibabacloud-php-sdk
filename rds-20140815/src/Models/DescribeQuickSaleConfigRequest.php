@@ -35,7 +35,7 @@ class DescribeQuickSaleConfigRequest extends Model
     public $engine;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

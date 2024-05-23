@@ -11,6 +11,7 @@ class ModifySecurityGroupConfigurationRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxx
      *
      * @var string
@@ -35,6 +36,7 @@ class ModifySecurityGroupConfigurationRequest extends Model
     /**
      * @description The ID of the ECS security group. Each instance can be added to up to 10 security groups. Separate multiple security groups with commas (,). To delete an ECS security group, leave this parameter empty. You can call the DescribeSecurityGroups operation to query the ID of the ECS security group.
      *
+     * This parameter is required.
      * @example sg-xxxxxxx
      *
      * @var string

@@ -14,7 +14,7 @@ class CreateOnlineDatabaseTaskRequest extends Model
      *   **SyncExecuteDBCheck**: synchronous database check
      *   **AsyncExecuteDBCheck**: asynchronous database check
      *
-     * > The check methods are supported for RDS instances that run SQL Server 2008 R2.
+     * This parameter is required.
      * @example AsyncExecuteDBCheck
      *
      * @var string
@@ -33,6 +33,7 @@ class CreateOnlineDatabaseTaskRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -42,6 +43,7 @@ class CreateOnlineDatabaseTaskRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example testDB
      *
      * @var string
@@ -51,6 +53,7 @@ class CreateOnlineDatabaseTaskRequest extends Model
     /**
      * @description The ID of the migration task.
      *
+     * This parameter is required.
      * @example 5652255443
      *
      * @var string

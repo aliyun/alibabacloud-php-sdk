@@ -11,6 +11,7 @@ class ModifyDatabaseConfigRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-t4nnu1my39qr8****
      *
      * @var string
@@ -20,7 +21,7 @@ class ModifyDatabaseConfigRequest extends Model
     /**
      * @description The database name.
      *
-     * >  You can specify only one database name.
+     * This parameter is required.
      * @example testDB
      *
      * @var string
@@ -30,6 +31,7 @@ class ModifyDatabaseConfigRequest extends Model
     /**
      * @description The name of the database property that you want to modify.
      *
+     * This parameter is required.
      * @example compatibility_level
      *
      * @var string
@@ -39,6 +41,7 @@ class ModifyDatabaseConfigRequest extends Model
     /**
      * @description The value of the database property that you want to modify.
      *
+     * This parameter is required.
      * @example 150
      *
      * @var string

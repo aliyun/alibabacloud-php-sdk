@@ -691,12 +691,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Use the cloud migration feature](~~365562~~).
-     *   *
+     * @summary Switches workloads over from the source PostgreSQL instance to the destination ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+     *  *
      * @param ActivateMigrationTargetInstanceRequest $request ActivateMigrationTargetInstanceRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -740,12 +742,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Use the cloud migration feature](~~365562~~).
-     *   *
+     * @summary Switches workloads over from the source PostgreSQL instance to the destination ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+     *  *
      * @param ActivateMigrationTargetInstanceRequest $request ActivateMigrationTargetInstanceRequest
      *
      * @return ActivateMigrationTargetInstanceResponse ActivateMigrationTargetInstanceResponse
@@ -758,18 +762,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Usage notes
-     *   * *   Each tag consists of a tag key and a tag value. The tag key is required, and the tag value is optional.
-     *   * *   The tag key and tag value cannot start with aliyun.
-     *   * *   The tag key and tag value are not case-sensitive.
-     *   * *   The maximum length of a tag key is 64 characters, and the maximum length of a tag value is 128 characters.
-     *   * *   A maximum of 10 tags can be added to each instance. Each tag that is added to the same instance must have a unique tag key. If you add a new tag to the instance and the key of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
-     *   *
+     * @summary Adds tags to an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Usage notes
+     * *   Each tag consists of a tag key and a tag value. The tag key is required, and the tag value is optional.
+     * *   The tag key and tag value cannot start with aliyun.
+     * *   The tag key and tag value are not case-sensitive.
+     * *   The maximum length of a tag key is 64 characters, and the maximum length of a tag value is 128 characters.
+     * *   A maximum of 10 tags can be added to each instance. Each tag that is added to the same instance must have a unique tag key. If you add a new tag to the instance and the key of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
+     *  *
      * @param AddTagsToResourceRequest $request AddTagsToResourceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -831,18 +837,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Usage notes
-     *   * *   Each tag consists of a tag key and a tag value. The tag key is required, and the tag value is optional.
-     *   * *   The tag key and tag value cannot start with aliyun.
-     *   * *   The tag key and tag value are not case-sensitive.
-     *   * *   The maximum length of a tag key is 64 characters, and the maximum length of a tag value is 128 characters.
-     *   * *   A maximum of 10 tags can be added to each instance. Each tag that is added to the same instance must have a unique tag key. If you add a new tag to the instance and the key of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
-     *   *
+     * @summary Adds tags to an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Usage notes
+     * *   Each tag consists of a tag key and a tag value. The tag key is required, and the tag value is optional.
+     * *   The tag key and tag value cannot start with aliyun.
+     * *   The tag key and tag value are not case-sensitive.
+     * *   The maximum length of a tag key is 64 characters, and the maximum length of a tag value is 128 characters.
+     * *   A maximum of 10 tags can be added to each instance. Each tag that is added to the same instance must have a unique tag key. If you add a new tag to the instance and the key of the new tag is the same as that of an existing tag, the new tag overwrites the existing tag.
+     *  *
      * @param AddTagsToResourceRequest $request AddTagsToResourceRequest
      *
      * @return AddTagsToResourceResponse AddTagsToResourceResponse
@@ -855,18 +863,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Apply for a public endpoint for an ApsaraDB RDS for MySQL instance](~~26128~~)
-     *   * *   [Apply for a public endpoint for an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-     *   * *   [Apply for a public endpoint for an ApsaraDB RDS for SQL Server instance](~~97736~~)
-     *   * *   [Apply for a public endpoint for an ApsaraDB RDS for MariaDB instance](~~97740~~).
-     *   *
+     * @summary Apply for a public endpoint for an ApsaraDB RDS instance
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Apply for a public endpoint for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+     * *   [Apply for a public endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+     * *   [Apply for a public endpoint for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+     * *   [Apply for a public endpoint for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+     *  *
      * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -925,18 +935,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Apply for a public endpoint for an ApsaraDB RDS for MySQL instance](~~26128~~)
-     *   * *   [Apply for a public endpoint for an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-     *   * *   [Apply for a public endpoint for an ApsaraDB RDS for SQL Server instance](~~97736~~)
-     *   * *   [Apply for a public endpoint for an ApsaraDB RDS for MariaDB instance](~~97740~~).
-     *   *
+     * @summary Apply for a public endpoint for an ApsaraDB RDS instance
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Apply for a public endpoint for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+     * *   [Apply for a public endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+     * *   [Apply for a public endpoint for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+     * *   [Apply for a public endpoint for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+     *  *
      * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      *
      * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
@@ -949,22 +961,24 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)Feature description
-     *   * If read-only instances are attached to a primary ApsaraDB RDS for SQL Server instance, you can call this operation to apply for a unified read-only routing endpoint for the primary instance. After you apply for a read-only routing endpoint for a primary instance, the existing endpoints of the primary instance and its read-only instances remain valid. In addition, you can still apply for internal and public endpoints.
-     *   * ### [](#)Prerequisites
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-     *   * *   The instance is in the Running state.
-     *   * *   Read-only instances are attached to the primary instance.
-     *   * *   The instance does not have an ongoing Data Transmission Service (DTS) migration task.
-     *   * *   The instance runs one of the following database versions and RDS editions:
-     *   *     *   SQL Server on RDS Cluster Edition
-     *   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-     *   *     *   MySQL 5.6.
-     *   *
+     * @summary Applies for a read-only routing endpoint for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)Feature description
+     * If read-only instances are attached to a primary ApsaraDB RDS for SQL Server instance, you can call this operation to apply for a unified read-only routing endpoint for the primary instance. After you apply for a read-only routing endpoint for a primary instance, the existing endpoints of the primary instance and its read-only instances remain valid. In addition, you can still apply for internal and public endpoints.
+     * ### [](#)Prerequisites
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+     * *   The instance is in the Running state.
+     * *   Read-only instances are attached to the primary instance.
+     * *   The instance does not have an ongoing Data Transmission Service (DTS) migration task.
+     * *   The instance runs one of the following database versions and RDS editions:
+     *     *   SQL Server on RDS Cluster Edition
+     *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+     *     *   MySQL 5.6
+     *  *
      * @param AllocateReadWriteSplittingConnectionRequest $request AllocateReadWriteSplittingConnectionRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -1026,22 +1040,24 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)Feature description
-     *   * If read-only instances are attached to a primary ApsaraDB RDS for SQL Server instance, you can call this operation to apply for a unified read-only routing endpoint for the primary instance. After you apply for a read-only routing endpoint for a primary instance, the existing endpoints of the primary instance and its read-only instances remain valid. In addition, you can still apply for internal and public endpoints.
-     *   * ### [](#)Prerequisites
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-     *   * *   The instance is in the Running state.
-     *   * *   Read-only instances are attached to the primary instance.
-     *   * *   The instance does not have an ongoing Data Transmission Service (DTS) migration task.
-     *   * *   The instance runs one of the following database versions and RDS editions:
-     *   *     *   SQL Server on RDS Cluster Edition
-     *   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-     *   *     *   MySQL 5.6.
-     *   *
+     * @summary Applies for a read-only routing endpoint for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)Feature description
+     * If read-only instances are attached to a primary ApsaraDB RDS for SQL Server instance, you can call this operation to apply for a unified read-only routing endpoint for the primary instance. After you apply for a read-only routing endpoint for a primary instance, the existing endpoints of the primary instance and its read-only instances remain valid. In addition, you can still apply for internal and public endpoints.
+     * ### [](#)Prerequisites
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+     * *   The instance is in the Running state.
+     * *   Read-only instances are attached to the primary instance.
+     * *   The instance does not have an ongoing Data Transmission Service (DTS) migration task.
+     * *   The instance runs one of the following database versions and RDS editions:
+     *     *   SQL Server on RDS Cluster Edition
+     *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+     *     *   MySQL 5.6
+     *  *
      * @param AllocateReadWriteSplittingConnectionRequest $request AllocateReadWriteSplittingConnectionRequest
      *
      * @return AllocateReadWriteSplittingConnectionResponse AllocateReadWriteSplittingConnectionResponse
@@ -1054,11 +1070,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *
+     * @summary Associates a whitelist template with an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *  *
      * @param AttachWhitelistTemplateToInstanceRequest $request AttachWhitelistTemplateToInstanceRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -1105,11 +1123,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *
+     * @summary Associates a whitelist template with an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *  *
      * @param AttachWhitelistTemplateToInstanceRequest $request AttachWhitelistTemplateToInstanceRequest
      *
      * @return AttachWhitelistTemplateToInstanceResponse AttachWhitelistTemplateToInstanceResponse
@@ -1122,19 +1142,21 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)Feature description
-     *   * When the [read/write splitting](~~51073~~) feature is enabled, this operation is used to calculate system-assigned read weights. For more information about custom read weights, see [DescribeDBInstanceNetInfo](~~610423~~).
-     *   * ### [](#)Prerequisites
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   If the instance runs MySQL, the instance uses a shared proxy.
-     *   * *   The instance runs one of the following MySQL versions and RDS editions:
-     *   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-     *   *     *   MySQL 5.6
-     *   *     *   SQL Server on RDS Cluster Edition.
-     *   *
+     * @summary Queries system-assigned read weights.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)Feature description
+     * When the [read/write splitting](https://help.aliyun.com/document_detail/51073.html) feature is enabled, this operation is used to calculate system-assigned read weights. For more information about custom read weights, see [DescribeDBInstanceNetInfo](https://help.aliyun.com/document_detail/610423.html).
+     * ### [](#)Prerequisites
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   If the instance runs MySQL, the instance uses a shared proxy.
+     * *   The instance runs one of the following MySQL versions and RDS editions:
+     *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+     *     *   MySQL 5.6
+     *     *   SQL Server on RDS Cluster Edition
+     *  *
      * @param CalculateDBInstanceWeightRequest $request CalculateDBInstanceWeightRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1169,19 +1191,21 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)Feature description
-     *   * When the [read/write splitting](~~51073~~) feature is enabled, this operation is used to calculate system-assigned read weights. For more information about custom read weights, see [DescribeDBInstanceNetInfo](~~610423~~).
-     *   * ### [](#)Prerequisites
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   If the instance runs MySQL, the instance uses a shared proxy.
-     *   * *   The instance runs one of the following MySQL versions and RDS editions:
-     *   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-     *   *     *   MySQL 5.6
-     *   *     *   SQL Server on RDS Cluster Edition.
-     *   *
+     * @summary Queries system-assigned read weights.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)Feature description
+     * When the [read/write splitting](https://help.aliyun.com/document_detail/51073.html) feature is enabled, this operation is used to calculate system-assigned read weights. For more information about custom read weights, see [DescribeDBInstanceNetInfo](https://help.aliyun.com/document_detail/610423.html).
+     * ### [](#)Prerequisites
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   If the instance runs MySQL, the instance uses a shared proxy.
+     * *   The instance runs one of the following MySQL versions and RDS editions:
+     *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+     *     *   MySQL 5.6
+     *     *   SQL Server on RDS Cluster Edition
+     *  *
      * @param CalculateDBInstanceWeightRequest $request CalculateDBInstanceWeightRequest
      *
      * @return CalculateDBInstanceWeightResponse CalculateDBInstanceWeightResponse
@@ -1194,14 +1218,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   * ### [](#)Supported database engines
-     *   * *   RDS SQL Server
-     *   * ### [](#)Description
-     *   * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](~~610592~~).
-     *   * ### [](#)Usage notes
-     *   * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-     *   *
+     * @summary Cancels the migration task of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description This operation is phased out.
+     * ### [](#)Supported database engines
+     * *   RDS SQL Server
+     * ### [](#)Description
+     * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](https://help.aliyun.com/document_detail/610592.html).
+     * ### [](#)Usage notes
+     * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+     *  *
      * @param CancelImportRequest $request CancelImportRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1251,14 +1277,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   * ### [](#)Supported database engines
-     *   * *   RDS SQL Server
-     *   * ### [](#)Description
-     *   * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](~~610592~~).
-     *   * ### [](#)Usage notes
-     *   * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-     *   *
+     * @summary Cancels the migration task of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description This operation is phased out.
+     * ### [](#)Supported database engines
+     * *   RDS SQL Server
+     * ### [](#)Description
+     * This operation is supported for instances that run SQL Server and belong to the dedicated or dedicated host instance family. For more information about how to start a migration task, see [ImportDatabaseBetweenInstances](https://help.aliyun.com/document_detail/610592.html).
+     * ### [](#)Usage notes
+     * This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+     *  *
      * @param CancelImportRequest $request CancelImportRequest
      *
      * @return CancelImportResponse CancelImportResponse
@@ -1271,12 +1299,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Checks whether the username of the account that you want to create on an instance is available.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param CheckAccountNameAvailableRequest $request CheckAccountNameAvailableRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -1323,12 +1353,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Checks whether the username of the account that you want to create on an instance is available.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param CheckAccountNameAvailableRequest $request CheckAccountNameAvailableRequest
      *
      * @return CheckAccountNameAvailableResponse CheckAccountNameAvailableResponse
@@ -1341,12 +1373,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Checks permissions that are granted on an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -1402,12 +1436,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Checks permissions that are granted on an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      *
      * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
@@ -1420,17 +1456,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * >  If your ApsaraDB RDS for PostgreSQL instance uses the new architecture and is created after October 10, 2022, this feature is not supported for the RDS instance. For more information, see [\\[Notice\\] SLR authorization is required to create an ApsaraDB RDS for PostgreSQL instance from October 10, 2022](~~452313~~).
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~)
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for PostgreSQL instance](~~206671~~) and [Restore the data of an ApsaraDB RDS for PostgreSQL across regions](~~206662~~)
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for SQL Server instance](~~187923~~) and [Restore the data of an ApsaraDB RDS for SQL Server across regions](~~187924~~).
-     *   *
+     * @summary Queries whether an instance can be restored by using a cross-region backup set.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * >  If your ApsaraDB RDS for PostgreSQL instance uses the new architecture and is created after October 10, 2022, this feature is not supported for the RDS instance. For more information, see [[Notice\\] SLR authorization is required to create an ApsaraDB RDS for PostgreSQL instance from October 10, 2022](~~452313~~).
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html) and [Restore the data of an ApsaraDB RDS for PostgreSQL across regions](https://help.aliyun.com/document_detail/206662.html)
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html) and [Restore the data of an ApsaraDB RDS for SQL Server across regions](https://help.aliyun.com/document_detail/187924.html)
+     *  *
      * @param CheckCreateDdrDBInstanceRequest $request CheckCreateDdrDBInstanceRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1501,17 +1539,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * >  If your ApsaraDB RDS for PostgreSQL instance uses the new architecture and is created after October 10, 2022, this feature is not supported for the RDS instance. For more information, see [\\[Notice\\] SLR authorization is required to create an ApsaraDB RDS for PostgreSQL instance from October 10, 2022](~~452313~~).
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~)
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for PostgreSQL instance](~~206671~~) and [Restore the data of an ApsaraDB RDS for PostgreSQL across regions](~~206662~~)
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for SQL Server instance](~~187923~~) and [Restore the data of an ApsaraDB RDS for SQL Server across regions](~~187924~~).
-     *   *
+     * @summary Queries whether an instance can be restored by using a cross-region backup set.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * >  If your ApsaraDB RDS for PostgreSQL instance uses the new architecture and is created after October 10, 2022, this feature is not supported for the RDS instance. For more information, see [[Notice\\] SLR authorization is required to create an ApsaraDB RDS for PostgreSQL instance from October 10, 2022](~~452313~~).
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html) and [Restore the data of an ApsaraDB RDS for PostgreSQL across regions](https://help.aliyun.com/document_detail/206662.html)
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html) and [Restore the data of an ApsaraDB RDS for SQL Server across regions](https://help.aliyun.com/document_detail/187924.html)
+     *  *
      * @param CheckCreateDdrDBInstanceRequest $request CheckCreateDdrDBInstanceRequest
      *
      * @return CheckCreateDdrDBInstanceResponse CheckCreateDdrDBInstanceResponse
@@ -1524,12 +1564,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Checks whether a database name is unique and conforms to the naming conventions on an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param CheckDBNameAvailableRequest $request CheckDBNameAvailableRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1579,12 +1621,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Checks whether a database name is unique and conforms to the naming conventions on an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param CheckDBNameAvailableRequest $request CheckDBNameAvailableRequest
      *
      * @return CheckDBNameAvailableResponse CheckDBNameAvailableResponse
@@ -1597,10 +1641,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CheckInstanceExistRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary You can call the CheckInstanceExist operation to query whether an ApsaraDB RDS instance exists.
+     *  *
+     * @param CheckInstanceExistRequest $request CheckInstanceExistRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckInstanceExistResponse
+     * @return CheckInstanceExistResponse CheckInstanceExistResponse
      */
     public function checkInstanceExistWithOptions($request, $runtime)
     {
@@ -1637,9 +1683,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CheckInstanceExistRequest $request
+     * @summary You can call the CheckInstanceExist operation to query whether an ApsaraDB RDS instance exists.
+     *  *
+     * @param CheckInstanceExistRequest $request CheckInstanceExistRequest
      *
-     * @return CheckInstanceExistResponse
+     * @return CheckInstanceExistResponse CheckInstanceExistResponse
      */
     public function checkInstanceExist($request)
     {
@@ -1649,9 +1697,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL.
-     *   *
+     * @summary Checks whether a service-linked role (SLR) is created.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     *  *
      * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1698,9 +1748,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL.
-     *   *
+     * @summary Checks whether a service-linked role (SLR) is created.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     *  *
      * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
      *
      * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
@@ -1713,18 +1765,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Restore data of an ApsaraDB RDS for MySQL instance](~~96147~~)
-     *   * *   [Restore data of an ApsaraDB RDS for PostgreSQL instance](~~96776~~)
-     *   * *   [Restore data of an ApsaraDB RDS for SQL Server instance](~~95722~~)
-     *   * *   [Restore data of an ApsaraDB RDS for MariaDB instance](~~97151~~).
-     *   *
+     * @summary Restores the data of an original instance to a new instance. The new instance is called a cloned instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Restore data of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96147.html)
+     * *   [Restore data of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96776.html)
+     * *   [Restore data of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
+     * *   [Restore data of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97151.html)
+     *  *
      * @param CloneDBInstanceRequest $tmpReq  CloneDBInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1848,18 +1902,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Restore data of an ApsaraDB RDS for MySQL instance](~~96147~~)
-     *   * *   [Restore data of an ApsaraDB RDS for PostgreSQL instance](~~96776~~)
-     *   * *   [Restore data of an ApsaraDB RDS for SQL Server instance](~~95722~~)
-     *   * *   [Restore data of an ApsaraDB RDS for MariaDB instance](~~97151~~).
-     *   *
+     * @summary Restores the data of an original instance to a new instance. The new instance is called a cloned instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Restore data of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96147.html)
+     * *   [Restore data of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96776.html)
+     * *   [Restore data of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
+     * *   [Restore data of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97151.html)
+     *  *
      * @param CloneDBInstanceRequest $request CloneDBInstanceRequest
      *
      * @return CloneDBInstanceResponse CloneDBInstanceResponse
@@ -1872,14 +1928,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   *
+     * @summary Replicates a parameter template to the current region or another region.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param CloneParameterGroupRequest $request CloneParameterGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1935,14 +1993,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   *
+     * @summary Replicates a parameter template to the current region or another region.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param CloneParameterGroupRequest $request CloneParameterGroupRequest
      *
      * @return CloneParameterGroupResponse CloneParameterGroupResponse
@@ -1955,14 +2015,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Feature description
-     *   * After you call the [QueryNotify](~~610443~~) operation to query notifications for an instance, you can call this operation to mark the notifications as confirmed.
-     *   *
+     * @summary Marks the notifications of an instance within your Alibaba Cloud account as confirmed.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Feature description
+     * After you call the [QueryNotify](https://help.aliyun.com/document_detail/610443.html) operation to query notifications for an instance, you can call this operation to mark the notifications as confirmed.
+     *  *
      * @param ConfirmNotifyRequest $tmpReq  ConfirmNotifyRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2002,14 +2064,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Feature description
-     *   * After you call the [QueryNotify](~~610443~~) operation to query notifications for an instance, you can call this operation to mark the notifications as confirmed.
-     *   *
+     * @summary Marks the notifications of an instance within your Alibaba Cloud account as confirmed.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Feature description
+     * After you call the [QueryNotify](https://help.aliyun.com/document_detail/610443.html) operation to query notifications for an instance, you can call this operation to mark the notifications as confirmed.
+     *  *
      * @param ConfirmNotifyRequest $request ConfirmNotifyRequest
      *
      * @return ConfirmNotifyResponse ConfirmNotifyResponse
@@ -2022,8 +2086,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary Replicates the databases of an instance that runs SQL Server 2008 R2 to another instance. This operation is phased out.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param CopyDatabaseRequest $request CopyDatabaseRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -2064,8 +2130,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary Replicates the databases of an instance that runs SQL Server 2008 R2 to another instance. This operation is phased out.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param CopyDatabaseRequest $request CopyDatabaseRequest
      *
      * @return CopyDatabaseResponse CopyDatabaseResponse
@@ -2078,12 +2146,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS SQL Server
-     *   * ### References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Replicate databases between ApsaraDB RDS for SQL Server instances](~~95702~~).
-     *   *
+     * @summary Replicates databases between RDS SQL Server instances.
+     *  *
+     * @description ### Supported database engines
+     * RDS SQL Server
+     * ### References
+     * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Replicate databases between ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95702.html)
+     *  *
      * @param CopyDatabaseBetweenInstancesRequest $request CopyDatabaseBetweenInstancesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2133,12 +2203,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS SQL Server
-     *   * ### References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Replicate databases between ApsaraDB RDS for SQL Server instances](~~95702~~).
-     *   *
+     * @summary Replicates databases between RDS SQL Server instances.
+     *  *
+     * @description ### Supported database engines
+     * RDS SQL Server
+     * ### References
+     * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Replicate databases between ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95702.html)
+     *  *
      * @param CopyDatabaseBetweenInstancesRequest $request CopyDatabaseBetweenInstancesRequest
      *
      * @return CopyDatabaseBetweenInstancesResponse CopyDatabaseBetweenInstancesResponse
@@ -2151,18 +2223,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Create an account on an ApsaraDB RDS for MySQL instance](~~96089~~)
-     *   * *   [Create an account on an ApsaraDB RDS for PostgreSQL instance](~~96753~~)
-     *   * *   [Create an account on an ApsaraDB RDS for SQL Server instance](~~95810~~)
-     *   * *   [Create an account on an ApsaraDB RDS for MariaDB instance](~~97132~~).
-     *   *
+     * @summary Creates a database account.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * ### References
+     * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Create an account on an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96089.html)
+     * *   [Create an account on an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96753.html)
+     * *   [Create an account on an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95810.html)
+     * *   [Create an account on an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97132.html)
+     *  *
      * @param CreateAccountRequest $request CreateAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2218,18 +2292,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Create an account on an ApsaraDB RDS for MySQL instance](~~96089~~)
-     *   * *   [Create an account on an ApsaraDB RDS for PostgreSQL instance](~~96753~~)
-     *   * *   [Create an account on an ApsaraDB RDS for SQL Server instance](~~95810~~)
-     *   * *   [Create an account on an ApsaraDB RDS for MariaDB instance](~~97132~~).
-     *   *
+     * @summary Creates a database account.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * ### References
+     * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Create an account on an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96089.html)
+     * *   [Create an account on an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96753.html)
+     * *   [Create an account on an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95810.html)
+     * *   [Create an account on an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97132.html)
+     *  *
      * @param CreateAccountRequest $request CreateAccountRequest
      *
      * @return CreateAccountResponse CreateAccountResponse
@@ -2242,24 +2318,26 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Usage notes
-     *   * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](~~437245~~).
-     *   * ### [](#)Precautions
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the Running state.
-     *   * *   The instance does not have ongoing backup tasks.
-     *   * *   The number of backup files that are created per day for an instance cannot exceed 20.
-     *   * ### [](#)References
-     *   * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](~~378074~~)
-     *   * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](~~96772~~)
-     *   * *   [Use the data backup feature for an ApsaraDB RDS for SQL Server instance](~~95717~~)
-     *   * *   [Use the data backup feature for an ApsaraDB RDS for MariaDB instance](~~97147~~).
-     *   *
+     * @summary Creates a backup file for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Usage notes
+     * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/437245.html).
+     * ### [](#)Precautions
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The instance is in the Running state.
+     * *   The instance does not have ongoing backup tasks.
+     * *   The number of backup files that are created per day for an instance cannot exceed 20.
+     * ### [](#)References
+     * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/378074.html)
+     * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+     * *   [Use the data backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+     * *   [Use the data backup feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+     *  *
      * @param CreateBackupRequest $request CreateBackupRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -2309,24 +2387,26 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Usage notes
-     *   * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](~~437245~~).
-     *   * ### [](#)Precautions
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the Running state.
-     *   * *   The instance does not have ongoing backup tasks.
-     *   * *   The number of backup files that are created per day for an instance cannot exceed 20.
-     *   * ### [](#)References
-     *   * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](~~378074~~)
-     *   * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](~~96772~~)
-     *   * *   [Use the data backup feature for an ApsaraDB RDS for SQL Server instance](~~95717~~)
-     *   * *   [Use the data backup feature for an ApsaraDB RDS for MariaDB instance](~~97147~~).
-     *   *
+     * @summary Creates a backup file for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Usage notes
+     * This operation uses the backup feature of ApsaraDB RDS to create a backup set. You can also use an operation of Database Backup (DBS) to create a backup set. For more information, see [List of operations by function of DBS](https://help.aliyun.com/document_detail/437245.html).
+     * ### [](#)Precautions
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The instance is in the Running state.
+     * *   The instance does not have ongoing backup tasks.
+     * *   The number of backup files that are created per day for an instance cannot exceed 20.
+     * ### [](#)References
+     * *   [Use the data backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/378074.html)
+     * *   [Use the data backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+     * *   [Use the data backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+     * *   [Use the data backup feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+     *  *
      * @param CreateBackupRequest $request CreateBackupRequest
      *
      * @return CreateBackupResponse CreateBackupResponse
@@ -2339,12 +2419,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Use the cloud migration feature](~~365562~~).
-     *   *
+     * @summary Creates an assessment task for cloud migration to an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+     *  *
      * @param CreateCloudMigrationPrecheckTaskRequest $request CreateCloudMigrationPrecheckTaskRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -2397,12 +2479,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Use the cloud migration feature](~~365562~~).
-     *   *
+     * @summary Creates an assessment task for cloud migration to an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+     *  *
      * @param CreateCloudMigrationPrecheckTaskRequest $request CreateCloudMigrationPrecheckTaskRequest
      *
      * @return CreateCloudMigrationPrecheckTaskResponse CreateCloudMigrationPrecheckTaskResponse
@@ -2415,12 +2499,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Use the cloud migration feature](~~365562~~).
-     *   *
+     * @summary Creates a cloud migration task for an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+     *  *
      * @param CreateCloudMigrationTaskRequest $request CreateCloudMigrationTaskRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2473,12 +2559,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Use the cloud migration feature](~~365562~~).
-     *   *
+     * @summary Creates a cloud migration task for an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Use the cloud migration feature](https://help.aliyun.com/document_detail/365562.html)
+     *  *
      * @param CreateCloudMigrationTaskRequest $request CreateCloudMigrationTaskRequest
      *
      * @return CreateCloudMigrationTaskResponse CreateCloudMigrationTaskResponse
@@ -2491,22 +2579,24 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### References
-     *   * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-     *   * *   [Create an ApsaraDB RDS for MySQL instance](~~148036~~)
-     *   * *   [Create a serverless ApsaraDB RDS for MySQL instance](~~412231~~)
-     *   * *   [Create an ApsaraDB RDS for PostgreSQL instance](~~148038~~)
-     *   * *   [Create a serverless ApsaraDB RDS for PostgreSQL instance](~~607753~~)
-     *   * *   [Enable Babelfish for an ApsaraDB RDS for PostgreSQL instance](~~428615~~)
-     *   * *   [Create an ApsaraDB RDS for SQL Server instance](~~148037~~)
-     *   * *   [Create a serverless ApsaraDB RDS for SQL Server instance](~~603465~~)
-     *   * *   [Create an ApsaraDB RDS for MariaDB instance](~~148040~~).
-     *   *
+     * @summary Creates an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * ### References
+     * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+     * *   [Create an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/148036.html)
+     * *   [Create a serverless ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/412231.html)
+     * *   [Create an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/148038.html)
+     * *   [Create a serverless ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/607753.html)
+     * *   [Enable Babelfish for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/428615.html)
+     * *   [Create an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/148037.html)
+     * *   [Create a serverless ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/603465.html)
+     * *   [Create an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/148040.html)
+     *  *
      * @param CreateDBInstanceRequest $tmpReq  CreateDBInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2708,22 +2798,24 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### References
-     *   * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-     *   * *   [Create an ApsaraDB RDS for MySQL instance](~~148036~~)
-     *   * *   [Create a serverless ApsaraDB RDS for MySQL instance](~~412231~~)
-     *   * *   [Create an ApsaraDB RDS for PostgreSQL instance](~~148038~~)
-     *   * *   [Create a serverless ApsaraDB RDS for PostgreSQL instance](~~607753~~)
-     *   * *   [Enable Babelfish for an ApsaraDB RDS for PostgreSQL instance](~~428615~~)
-     *   * *   [Create an ApsaraDB RDS for SQL Server instance](~~148037~~)
-     *   * *   [Create a serverless ApsaraDB RDS for SQL Server instance](~~603465~~)
-     *   * *   [Create an ApsaraDB RDS for MariaDB instance](~~148040~~).
-     *   *
+     * @summary Creates an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * ### References
+     * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+     * *   [Create an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/148036.html)
+     * *   [Create a serverless ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/412231.html)
+     * *   [Create an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/148038.html)
+     * *   [Create a serverless ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/607753.html)
+     * *   [Enable Babelfish for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/428615.html)
+     * *   [Create an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/148037.html)
+     * *   [Create a serverless ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/603465.html)
+     * *   [Create an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/148040.html)
+     *  *
      * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      *
      * @return CreateDBInstanceResponse CreateDBInstanceResponse
@@ -2736,12 +2828,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-     *   * [Add a read-only endpoint for a cluster](~~464132~~).
-     *   *
+     * @summary Creates an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+     * [Add a read-only endpoint for a cluster](https://help.aliyun.com/document_detail/464132.html)
+     *  *
      * @param CreateDBInstanceEndpointRequest $tmpReq  CreateDBInstanceEndpointRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -2811,12 +2905,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-     *   * [Add a read-only endpoint for a cluster](~~464132~~).
-     *   *
+     * @summary Creates an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+     * [Add a read-only endpoint for a cluster](https://help.aliyun.com/document_detail/464132.html)
+     *  *
      * @param CreateDBInstanceEndpointRequest $request CreateDBInstanceEndpointRequest
      *
      * @return CreateDBInstanceEndpointResponse CreateDBInstanceEndpointResponse
@@ -2829,12 +2925,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### Precautions
-     *   * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
-     *   * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
-     *   *
+     * @summary Creates a public endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### Precautions
+     * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
+     * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
+     *  *
      * @param CreateDBInstanceEndpointAddressRequest $request CreateDBInstanceEndpointAddressRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -2887,12 +2985,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### Precautions
-     *   * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
-     *   * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
-     *   *
+     * @summary Creates a public endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### Precautions
+     * *   You can create a public endpoint of an endpoint type only when no public endpoint is created for this endpoint type.
+     * *   The node weights and other configurations are the same as those of the internal endpoint of this endpoint type. Only one public endpoint and one internal endpoint can be created for each endpoint type.
+     *  *
      * @param CreateDBInstanceEndpointAddressRequest $request CreateDBInstanceEndpointAddressRequest
      *
      * @return CreateDBInstanceEndpointAddressResponse CreateDBInstanceEndpointAddressResponse
@@ -2905,18 +3005,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### References
-     *   * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-     *   * *   [Manage ApsaraDB RDS for MySQL instances in the recycle bin](~~96065~~)
-     *   * *   [Manage ApsaraDB RDS for PostgreSQL instances in the recycle bin](~~96752~~)
-     *   * *   [Manage ApsaraDB RDS for SQL Server instances in the recycle bin](~~95669~~)
-     *   * *   [Manage ApsaraDB RDS for MariaDB instances in the recycle bin](~~97131~~).
-     *   *
+     * @summary Rebuilds an instance from the recycle bin.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * ### References
+     * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+     * *   [Manage ApsaraDB RDS for MySQL instances in the recycle bin](https://help.aliyun.com/document_detail/96065.html)
+     * *   [Manage ApsaraDB RDS for PostgreSQL instances in the recycle bin](https://help.aliyun.com/document_detail/96752.html)
+     * *   [Manage ApsaraDB RDS for SQL Server instances in the recycle bin](https://help.aliyun.com/document_detail/95669.html)
+     * *   [Manage ApsaraDB RDS for MariaDB instances in the recycle bin](https://help.aliyun.com/document_detail/97131.html)
+     *  *
      * @param CreateDBInstanceForRebuildRequest $request CreateDBInstanceForRebuildRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -3008,18 +3110,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### References
-     *   * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-     *   * *   [Manage ApsaraDB RDS for MySQL instances in the recycle bin](~~96065~~)
-     *   * *   [Manage ApsaraDB RDS for PostgreSQL instances in the recycle bin](~~96752~~)
-     *   * *   [Manage ApsaraDB RDS for SQL Server instances in the recycle bin](~~95669~~)
-     *   * *   [Manage ApsaraDB RDS for MariaDB instances in the recycle bin](~~97131~~).
-     *   *
+     * @summary Rebuilds an instance from the recycle bin.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * ### References
+     * > : Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+     * *   [Manage ApsaraDB RDS for MySQL instances in the recycle bin](https://help.aliyun.com/document_detail/96065.html)
+     * *   [Manage ApsaraDB RDS for PostgreSQL instances in the recycle bin](https://help.aliyun.com/document_detail/96752.html)
+     * *   [Manage ApsaraDB RDS for SQL Server instances in the recycle bin](https://help.aliyun.com/document_detail/95669.html)
+     * *   [Manage ApsaraDB RDS for MariaDB instances in the recycle bin](https://help.aliyun.com/document_detail/97131.html)
+     *  *
      * @param CreateDBInstanceForRebuildRequest $request CreateDBInstanceForRebuildRequest
      *
      * @return CreateDBInstanceForRebuildResponse CreateDBInstanceForRebuildResponse
@@ -3032,12 +3136,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * MySQL
-     *   * ### References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Add a node to an ApsaraDB RDS for MySQL cluster](~~464129~~).
-     *   *
+     * @summary Adds a node to an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition. An RDS instance that runs RDS Cluster Edition is referred to as an RDS cluster.
+     *  *
+     * @description ### Supported database engines
+     * MySQL
+     * ### References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Add a node to an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464129.html)
+     *  *
      * @param CreateDBNodesRequest $tmpReq  CreateDBNodesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -3095,12 +3201,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * MySQL
-     *   * ### References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Add a node to an ApsaraDB RDS for MySQL cluster](~~464129~~).
-     *   *
+     * @summary Adds a node to an ApsaraDB RDS for MySQL or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition. An RDS instance that runs RDS Cluster Edition is referred to as an RDS cluster.
+     *  *
+     * @description ### Supported database engines
+     * MySQL
+     * ### References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Add a node to an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464129.html)
+     *  *
      * @param CreateDBNodesRequest $request CreateDBNodesRequest
      *
      * @return CreateDBNodesResponse CreateDBNodesResponse
@@ -3113,14 +3221,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~).
-     *   *
+     * @summary Creates the endpoint that is used to connect to the dedicated proxy of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+     *  *
      * @param CreateDBProxyEndpointAddressRequest $request CreateDBProxyEndpointAddressRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -3182,14 +3292,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~).
-     *   *
+     * @summary Creates the endpoint that is used to connect to the dedicated proxy of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+     *  *
      * @param CreateDBProxyEndpointAddressRequest $request CreateDBProxyEndpointAddressRequest
      *
      * @return CreateDBProxyEndpointAddressResponse CreateDBProxyEndpointAddressResponse
@@ -3202,18 +3314,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Create a database in an ApsaraDB RDS for MySQL instance](~~96105~~)
-     *   * *   [Create a database in an ApsaraDB RDS for PostgreSQL instance](~~96758~~)
-     *   * *   [Create a database in an ApsaraDB RDS for SQL Server instance](~~95698~~)
-     *   * *   [Create a database in an ApsaraDB RDS for MariaDB instance](~~97136~~).
-     *   *
+     * @summary Creates a database in an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Create a database in an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96105.html)
+     * *   [Create a database in an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96758.html)
+     * *   [Create a database in an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95698.html)
+     * *   [Create a database in an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97136.html)
+     *  *
      * @param CreateDatabaseRequest $request CreateDatabaseRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -3269,18 +3383,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Create a database in an ApsaraDB RDS for MySQL instance](~~96105~~)
-     *   * *   [Create a database in an ApsaraDB RDS for PostgreSQL instance](~~96758~~)
-     *   * *   [Create a database in an ApsaraDB RDS for SQL Server instance](~~95698~~)
-     *   * *   [Create a database in an ApsaraDB RDS for MariaDB instance](~~97136~~).
-     *   *
+     * @summary Creates a database in an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Create a database in an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96105.html)
+     * *   [Create a database in an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96758.html)
+     * *   [Create a database in an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95698.html)
+     * *   [Create a database in an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97136.html)
+     *  *
      * @param CreateDatabaseRequest $request CreateDatabaseRequest
      *
      * @return CreateDatabaseResponse CreateDatabaseResponse
@@ -3293,17 +3409,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  Before restoration, you can call the [CheckCreateDdrDBInstance](~~121721~~) operation to check whether a cross-region backup set can be used for cross-region restoration.
-     *   * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
-     *   *
+     * @summary Restores data to a new instance across regions.
+     *  *
+     * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
+     * ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     *  *
      * @param CreateDdrInstanceRequest $request CreateDdrInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3422,17 +3540,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  Before restoration, you can call the [CheckCreateDdrDBInstance](~~121721~~) operation to check whether a cross-region backup set can be used for cross-region restoration.
-     *   * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
-     *   *
+     * @summary Restores data to a new instance across regions.
+     *  *
+     * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
+     * ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     *  *
      * @param CreateDdrInstanceRequest $request CreateDdrInstanceRequest
      *
      * @return CreateDdrInstanceResponse CreateDdrInstanceResponse
@@ -3445,9 +3565,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  This operation is no longer maintained. You can use the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
-     *   * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
-     *   *
+     * @summary Creates a diagnostic report.
+     *  *
+     * @description >  This operation is no longer maintained. You can call the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
+     * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
+     *  *
      * @param CreateDiagnosticReportRequest $request CreateDiagnosticReportRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -3485,9 +3607,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  This operation is no longer maintained. You can use the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
-     *   * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
-     *   *
+     * @summary Creates a diagnostic report.
+     *  *
+     * @description >  This operation is no longer maintained. You can call the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
+     * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
+     *  *
      * @param CreateDiagnosticReportRequest $request CreateDiagnosticReportRequest
      *
      * @return CreateDiagnosticReportResponse CreateDiagnosticReportResponse
@@ -3500,12 +3624,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   MySQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Create and release an ApsaraDB RDS global active database cluster](~~328592~~).
-     *   *
+     * @summary Creates an ApsaraDB RDS global active database cluster.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   MySQL
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Create and release an ApsaraDB RDS global active database cluster](https://help.aliyun.com/document_detail/328592.html)
+     *  *
      * @param CreateGADInstanceRequest $request CreateGADInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3561,12 +3687,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   MySQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Create and release an ApsaraDB RDS global active database cluster](~~328592~~).
-     *   *
+     * @summary Creates an ApsaraDB RDS global active database cluster.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   MySQL
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Create and release an ApsaraDB RDS global active database cluster](https://help.aliyun.com/document_detail/328592.html)
+     *  *
      * @param CreateGADInstanceRequest $request CreateGADInstanceRequest
      *
      * @return CreateGADInstanceResponse CreateGADInstanceResponse
@@ -3579,12 +3707,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Add or remove unit nodes](~~331851~~).
-     *   *
+     * @summary Adds nodes to an ApsaraDB RDS global active database cluster.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Add or remove unit nodes](https://help.aliyun.com/document_detail/331851.html)
+     *  *
      * @param CreateGadInstanceMemberRequest $request CreateGadInstanceMemberRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -3634,12 +3764,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Add or remove unit nodes](~~331851~~).
-     *   *
+     * @summary Adds nodes to an ApsaraDB RDS global active database cluster.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Add or remove unit nodes](https://help.aliyun.com/document_detail/331851.html)
+     *  *
      * @param CreateGadInstanceMemberRequest $request CreateGadInstanceMemberRequest
      *
      * @return CreateGadInstanceMemberResponse CreateGadInstanceMemberResponse
@@ -3652,10 +3784,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateMaskingRulesRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary 创建全密态规则
+     *  *
+     * @param CreateMaskingRulesRequest $tmpReq  CreateMaskingRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMaskingRulesResponse
+     * @return CreateMaskingRulesResponse CreateMaskingRulesResponse
      */
     public function createMaskingRulesWithOptions($tmpReq, $runtime)
     {
@@ -3709,9 +3843,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateMaskingRulesRequest $request
+     * @summary 创建全密态规则
+     *  *
+     * @param CreateMaskingRulesRequest $request CreateMaskingRulesRequest
      *
-     * @return CreateMaskingRulesResponse
+     * @return CreateMaskingRulesResponse CreateMaskingRulesResponse
      */
     public function createMaskingRules($request)
     {
@@ -3721,15 +3857,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * SQL Server
-     *   * ### [](#)Limits
-     *   * Data migration across Alibaba Cloud accounts is not supported. For example, backup files in an Object Storage Service (OSS) bucket within Alibaba Cloud Account A cannot be migrated to an ApsaraDB RDS for SQL Server instance within Alibaba Cloud Account B.
-     *   * >  You can migrate backup files from an OSS bucket within Alibaba Cloud Account A to an OSS bucket within Alibaba Cloud Account B. Make sure that the data in the OSS bucket and the RDS instance belong to the same Alibaba Cloud account. Then, you can call this operation to create a migration task. For more information, see [Use Data Online Migration to migrate data between accounts](~~342762~~).
-     *   * ### [](#)References
-     *   * >  Before you call this operation, carefully read the following topic. Make sure that you fully understand the prerequisites, preparations, and impacts for calling this operation.
-     *   * [Migrate data from a self-managed SQL Server instance to an ApsaraDB RDS for SQL Server instance](~~100019~~).
-     *   *
+     * @summary Creates a migration task to restore backup files from an Object Storage Service (OSS) bucket to an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)Limits
+     * Data migration across Alibaba Cloud accounts is not supported. For example, backup files in an Object Storage Service (OSS) bucket within Alibaba Cloud Account A cannot be migrated to an ApsaraDB RDS for SQL Server instance within Alibaba Cloud Account B.
+     * >  You can migrate backup files from an OSS bucket within Alibaba Cloud Account A to an OSS bucket within Alibaba Cloud Account B. Make sure that the data in the OSS bucket and the RDS instance belong to the same Alibaba Cloud account. Then, you can call this operation to create a migration task. For more information, see [Use Data Online Migration to migrate data between accounts](https://help.aliyun.com/document_detail/342762.html).
+     * ### [](#)References
+     * >  Before you call this operation, carefully read the following topic. Make sure that you fully understand the prerequisites, preparations, and impacts for calling this operation.
+     * [Migrate data from a self-managed SQL Server instance to an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/100019.html)
+     *  *
      * @param CreateMigrateTaskRequest $request CreateMigrateTaskRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -3791,15 +3929,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * SQL Server
-     *   * ### [](#)Limits
-     *   * Data migration across Alibaba Cloud accounts is not supported. For example, backup files in an Object Storage Service (OSS) bucket within Alibaba Cloud Account A cannot be migrated to an ApsaraDB RDS for SQL Server instance within Alibaba Cloud Account B.
-     *   * >  You can migrate backup files from an OSS bucket within Alibaba Cloud Account A to an OSS bucket within Alibaba Cloud Account B. Make sure that the data in the OSS bucket and the RDS instance belong to the same Alibaba Cloud account. Then, you can call this operation to create a migration task. For more information, see [Use Data Online Migration to migrate data between accounts](~~342762~~).
-     *   * ### [](#)References
-     *   * >  Before you call this operation, carefully read the following topic. Make sure that you fully understand the prerequisites, preparations, and impacts for calling this operation.
-     *   * [Migrate data from a self-managed SQL Server instance to an ApsaraDB RDS for SQL Server instance](~~100019~~).
-     *   *
+     * @summary Creates a migration task to restore backup files from an Object Storage Service (OSS) bucket to an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)Limits
+     * Data migration across Alibaba Cloud accounts is not supported. For example, backup files in an Object Storage Service (OSS) bucket within Alibaba Cloud Account A cannot be migrated to an ApsaraDB RDS for SQL Server instance within Alibaba Cloud Account B.
+     * >  You can migrate backup files from an OSS bucket within Alibaba Cloud Account A to an OSS bucket within Alibaba Cloud Account B. Make sure that the data in the OSS bucket and the RDS instance belong to the same Alibaba Cloud account. Then, you can call this operation to create a migration task. For more information, see [Use Data Online Migration to migrate data between accounts](https://help.aliyun.com/document_detail/342762.html).
+     * ### [](#)References
+     * >  Before you call this operation, carefully read the following topic. Make sure that you fully understand the prerequisites, preparations, and impacts for calling this operation.
+     * [Migrate data from a self-managed SQL Server instance to an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/100019.html)
+     *  *
      * @param CreateMigrateTaskRequest $request CreateMigrateTaskRequest
      *
      * @return CreateMigrateTaskResponse CreateMigrateTaskResponse
@@ -3812,15 +3952,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in the following topics:
-     *   * *   [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](~~95737~~)
-     *   * *   [Migrate full backup data of SQL Server 2012, 2014, 2016, 2017, or 2019 databases](~~95738~~)
-     *   * *   [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, or 2019](~~95736~~).
-     *   *
+     * @summary Opens the database that is involved in a backup data migration task of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in the following topics:
+     * *   [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](https://help.aliyun.com/document_detail/95737.html)
+     * *   [Migrate full backup data of SQL Server 2012, 2014, 2016, 2017, or 2019 databases](https://help.aliyun.com/document_detail/95738.html)
+     * *   [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, or 2019](https://help.aliyun.com/document_detail/95736.html)
+     *  *
      * @param CreateOnlineDatabaseTaskRequest $request CreateOnlineDatabaseTaskRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -3876,15 +4018,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in the following topics:
-     *   * *   [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](~~95737~~)
-     *   * *   [Migrate full backup data of SQL Server 2012, 2014, 2016, 2017, or 2019 databases](~~95738~~)
-     *   * *   [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, or 2019](~~95736~~).
-     *   *
+     * @summary Opens the database that is involved in a backup data migration task of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * This operation is used to migrate backup data to the cloud. Before you call this operation, make sure that you understand the descriptions in the following topics:
+     * *   [Migrate the full backup data of a self-managed SQL Server database to an ApsaraDB RDS instance that runs SQL Server 2008 R2](https://help.aliyun.com/document_detail/95737.html)
+     * *   [Migrate full backup data of SQL Server 2012, 2014, 2016, 2017, or 2019 databases](https://help.aliyun.com/document_detail/95738.html)
+     * *   [Migrate incremental backup data to ApsaraDB RDS for SQL Server 2012, 2014, 2016, 2017, or 2019](https://help.aliyun.com/document_detail/95736.html)
+     *  *
      * @param CreateOnlineDatabaseTaskRequest $request CreateOnlineDatabaseTaskRequest
      *
      * @return CreateOnlineDatabaseTaskResponse CreateOnlineDatabaseTaskResponse
@@ -3897,12 +4041,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL
-     *   * ### [](#)References
-     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~).
-     *   *
+     * @summary Deletes a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS MySQL
+     * ### [](#)References
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+     *  *
      * @param CreateOrderForDeleteDBNodesRequest $tmpReq  CreateOrderForDeleteDBNodesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -3984,12 +4130,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL
-     *   * ### [](#)References
-     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~).
-     *   *
+     * @summary Deletes a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS MySQL
+     * ### [](#)References
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+     *  *
      * @param CreateOrderForDeleteDBNodesRequest $request CreateOrderForDeleteDBNodesRequest
      *
      * @return CreateOrderForDeleteDBNodesResponse CreateOrderForDeleteDBNodesResponse
@@ -4002,14 +4150,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   *
+     * @summary Creates a parameter template for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4068,14 +4218,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   *
+     * @summary Creates a parameter template for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
      *
      * @return CreateParameterGroupResponse CreateParameterGroupResponse
@@ -4088,16 +4240,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS PostgreSQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Manage extensions](~~2402409~~)
-     *   * ### [](#)Precautions
-     *   * Install only the plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
-     *   * *   For more information, see [Extensions supported by ApsaraDB RDS for PostgreSQL](~~142340~~).
-     *   * *   You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the major engine version of an instance.
-     *   *
+     * @summary Creates an extension for a database.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS PostgreSQL
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+     * ### [](#)Precautions
+     * Install only the plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
+     * *   For more information, see [Extensions supported by ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/142340.html).
+     * *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the major engine version of an instance.
+     *  *
      * @param CreatePostgresExtensionsRequest $request CreatePostgresExtensionsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -4162,16 +4316,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS PostgreSQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Manage extensions](~~2402409~~)
-     *   * ### [](#)Precautions
-     *   * Install only the plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
-     *   * *   For more information, see [Extensions supported by ApsaraDB RDS for PostgreSQL](~~142340~~).
-     *   * *   You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the major engine version of an instance.
-     *   *
+     * @summary Creates an extension for a database.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS PostgreSQL
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+     * ### [](#)Precautions
+     * Install only the plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
+     * *   For more information, see [Extensions supported by ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/142340.html).
+     * *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the major engine version of an instance.
+     *  *
      * @param CreatePostgresExtensionsRequest $request CreatePostgresExtensionsRequest
      *
      * @return CreatePostgresExtensionsResponse CreatePostgresExtensionsResponse
@@ -4184,16 +4340,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Create a read-only ApsaraDB RDS for MySQL instance](~~56991~~)
-     *   * *   [Create a read-only ApsaraDB RDS for PostgreSQL instance](~~108959~~)
-     *   * *   [Create a read-only ApsaraDB RDS for SQL Server instance](~~99005~~).
-     *   *
+     * @summary Creates a read-only instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Create a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/56991.html)
+     * *   [Create a read-only ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/108959.html)
+     * *   [Create a read-only ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/99005.html)
+     *  *
      * @param CreateReadOnlyDBInstanceRequest $request CreateReadOnlyDBInstanceRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -4327,16 +4485,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Create a read-only ApsaraDB RDS for MySQL instance](~~56991~~)
-     *   * *   [Create a read-only ApsaraDB RDS for PostgreSQL instance](~~108959~~)
-     *   * *   [Create a read-only ApsaraDB RDS for SQL Server instance](~~99005~~).
-     *   *
+     * @summary Creates a read-only instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Create a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/56991.html)
+     * *   [Create a read-only ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/108959.html)
+     * *   [Create a read-only ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/99005.html)
+     *  *
      * @param CreateReadOnlyDBInstanceRequest $request CreateReadOnlyDBInstanceRequest
      *
      * @return CreateReadOnlyDBInstanceResponse CreateReadOnlyDBInstanceResponse
@@ -4349,9 +4509,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL.
-     *   *
+     * @summary Creates a credential for a user who uses the Data API feature.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     *  *
      * @param CreateSecretRequest $request CreateSecretRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -4419,9 +4581,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL.
-     *   *
+     * @summary Creates a credential for a user who uses the Data API feature.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     *  *
      * @param CreateSecretRequest $request CreateSecretRequest
      *
      * @return CreateSecretResponse CreateSecretResponse
@@ -4434,12 +4598,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Service-linked roles](~~342840~~).
-     *   *
+     * @summary Creates a service-linked role.
+     *  *
+     * @description ### Supported database engine
+     * PostgreSQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Service-linked roles](https://help.aliyun.com/document_detail/342840.html)
+     *  *
      * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -4483,12 +4649,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Service-linked roles](~~342840~~).
-     *   *
+     * @summary Creates a service-linked role.
+     *  *
+     * @description ### Supported database engine
+     * PostgreSQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Service-linked roles](https://help.aliyun.com/document_detail/342840.html)
+     *  *
      * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
      *
      * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
@@ -4501,12 +4669,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * Your RDS instance runs SQL Server 2008 R2 with local disks.
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Restore the data of an ApsaraDB RDS for SQL Server instance by using a temporary RDS instance](~~95724~~).
-     *   *
+     * @summary Creates a temporary instance for an RDS instance that runs SQL Server 2008 R2 and uses local disks.
+     *  *
+     * @description ### [](#)Supported database engines
+     * Your RDS instance runs SQL Server 2008 R2 with local disks.
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Restore the data of an ApsaraDB RDS for SQL Server instance by using a temporary RDS instance](https://help.aliyun.com/document_detail/95724.html)
+     *  *
      * @param CreateTempDBInstanceRequest $request CreateTempDBInstanceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -4559,12 +4729,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * Your RDS instance runs SQL Server 2008 R2 with local disks.
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Restore the data of an ApsaraDB RDS for SQL Server instance by using a temporary RDS instance](~~95724~~).
-     *   *
+     * @summary Creates a temporary instance for an RDS instance that runs SQL Server 2008 R2 and uses local disks.
+     *  *
+     * @description ### [](#)Supported database engines
+     * Your RDS instance runs SQL Server 2008 R2 with local disks.
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Restore the data of an ApsaraDB RDS for SQL Server instance by using a temporary RDS instance](https://help.aliyun.com/document_detail/95724.html)
+     *  *
      * @param CreateTempDBInstanceRequest $request CreateTempDBInstanceRequest
      *
      * @return CreateTempDBInstanceResponse CreateTempDBInstanceResponse
@@ -4577,10 +4749,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateYouhuiForOrderRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 下单领券接口
+     *  *
+     * @param CreateYouhuiForOrderRequest $request CreateYouhuiForOrderRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateYouhuiForOrderResponse
+     * @return CreateYouhuiForOrderResponse CreateYouhuiForOrderResponse
      */
     public function createYouhuiForOrderWithOptions($request, $runtime)
     {
@@ -4623,9 +4797,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param CreateYouhuiForOrderRequest $request
+     * @summary 下单领券接口
+     *  *
+     * @param CreateYouhuiForOrderRequest $request CreateYouhuiForOrderRequest
      *
-     * @return CreateYouhuiForOrderResponse
+     * @return CreateYouhuiForOrderResponse CreateYouhuiForOrderResponse
      */
     public function createYouhuiForOrder($request)
     {
@@ -4635,9 +4811,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server.
-     *   *
+     * @summary Deletes an ApsaraDB RDS for SQL Server instance from an Active Directory (AD) domain.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     *  *
      * @param DeleteADSettingRequest $request DeleteADSettingRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4684,9 +4862,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server.
-     *   *
+     * @summary Deletes an ApsaraDB RDS for SQL Server instance from an Active Directory (AD) domain.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     *  *
      * @param DeleteADSettingRequest $request DeleteADSettingRequest
      *
      * @return DeleteADSettingResponse DeleteADSettingResponse
@@ -4699,18 +4879,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Delete a database account from an ApsaraDB RDS for MySQL instance](~~96104~~)
-     *   * *   [Delete a database account from an ApsaraDB RDS for PostgreSQL instance](~~147649~~)
-     *   * *   [Delete a database account from an ApsaraDB RDS for SQL Server instance](~~95694~~)
-     *   * *   [Delete a database account from an ApsaraDB RDS for MariaDB instance](~~97135~~).
-     *   *
+     * @summary Deletes an account from an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Delete a database account from an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96104.html)
+     * *   [Delete a database account from an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+     * *   [Delete a database account from an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95694.html)
+     * *   [Delete a database account from an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97135.html)
+     *  *
      * @param DeleteAccountRequest $request DeleteAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -4757,18 +4939,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Delete a database account from an ApsaraDB RDS for MySQL instance](~~96104~~)
-     *   * *   [Delete a database account from an ApsaraDB RDS for PostgreSQL instance](~~147649~~)
-     *   * *   [Delete a database account from an ApsaraDB RDS for SQL Server instance](~~95694~~)
-     *   * *   [Delete a database account from an ApsaraDB RDS for MariaDB instance](~~97135~~).
-     *   *
+     * @summary Deletes an account from an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Delete a database account from an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96104.html)
+     * *   [Delete a database account from an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+     * *   [Delete a database account from an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95694.html)
+     * *   [Delete a database account from an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97135.html)
+     *  *
      * @param DeleteAccountRequest $request DeleteAccountRequest
      *
      * @return DeleteAccountResponse DeleteAccountResponse
@@ -4781,18 +4965,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * > Only instances that run RDS High-availability Edition are supported.
-     *   * ### Description
-     *   * You can call this operation to delete backup sets of the instance itself. Backup sets of the associated instances such as read-only, disaster recovery, and cloned instances are not deleted.
-     *   * ### Precautions
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the Running state.
-     *   * *   If the log backup feature is disabled, instances cannot be restored by point in time. You can delete data backup sets that are retained for more than seven days.
-     *   * *   If the log backup feature is enabled and the log backup retention period is shorter than the data backup retention period, you can delete the data backup files that are retained for a period longer than the log backup retention period.
-     *   *
+     * @summary Deletes the data backup files of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * > Only instances that run RDS High-availability Edition are supported.
+     * ### Description
+     * You can call this operation to delete backup sets of the instance itself. Backup sets of the associated instances such as read-only, disaster recovery, and cloned instances are not deleted.
+     * ### Precautions
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The instance is in the Running state.
+     * *   If the log backup feature is disabled, instances cannot be restored by point in time. You can delete data backup sets that are retained for more than seven days.
+     * *   If the log backup feature is enabled and the log backup retention period is shorter than the data backup retention period, you can delete the data backup files that are retained for a period longer than the log backup retention period.
+     *  *
      * @param DeleteBackupRequest $request DeleteBackupRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -4839,18 +5025,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * > Only instances that run RDS High-availability Edition are supported.
-     *   * ### Description
-     *   * You can call this operation to delete backup sets of the instance itself. Backup sets of the associated instances such as read-only, disaster recovery, and cloned instances are not deleted.
-     *   * ### Precautions
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The instance is in the Running state.
-     *   * *   If the log backup feature is disabled, instances cannot be restored by point in time. You can delete data backup sets that are retained for more than seven days.
-     *   * *   If the log backup feature is enabled and the log backup retention period is shorter than the data backup retention period, you can delete the data backup files that are retained for a period longer than the log backup retention period.
-     *   *
+     * @summary Deletes the data backup files of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * > Only instances that run RDS High-availability Edition are supported.
+     * ### Description
+     * You can call this operation to delete backup sets of the instance itself. Backup sets of the associated instances such as read-only, disaster recovery, and cloned instances are not deleted.
+     * ### Precautions
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The instance is in the Running state.
+     * *   If the log backup feature is disabled, instances cannot be restored by point in time. You can delete data backup sets that are retained for more than seven days.
+     * *   If the log backup feature is enabled and the log backup retention period is shorter than the data backup retention period, you can delete the data backup files that are retained for a period longer than the log backup retention period.
+     *  *
      * @param DeleteBackupRequest $request DeleteBackupRequest
      *
      * @return DeleteBackupResponse DeleteBackupResponse
@@ -4863,10 +5051,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS SQL Server
-     *   * >  This operation is available only for users that are added to the whitelist.
-     *   *
+     * @summary Deletes the backup files of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS SQL Server
+     * >  This operation is available only for users that are added to the whitelist.
+     *  *
      * @param DeleteBackupFileRequest $request DeleteBackupFileRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -4919,10 +5109,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS SQL Server
-     *   * >  This operation is available only for users that are added to the whitelist.
-     *   *
+     * @summary Deletes the backup files of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS SQL Server
+     * >  This operation is available only for users that are added to the whitelist.
+     *  *
      * @param DeleteBackupFileRequest $request DeleteBackupFileRequest
      *
      * @return DeleteBackupFileResponse DeleteBackupFileResponse
@@ -4935,18 +5127,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Release an ApsaraDB RDS for MySQL instance](~~96057~~)
-     *   * *   [Release an ApsaraDB RDS for PostgreSQL instance](~~96749~~)
-     *   * *   [Release an ApsaraDB RDS for SQL Server instance](~~95662~~)
-     *   * *   [Release an ApsaraDB RDS for MariaDB instance](~~97128~~).
-     *   *
+     * @summary Releases an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Release an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96057.html)
+     * *   [Release an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96749.html)
+     * *   [Release an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95662.html)
+     * *   [Release an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97128.html)
+     *  *
      * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -4993,18 +5187,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Release an ApsaraDB RDS for MySQL instance](~~96057~~)
-     *   * *   [Release an ApsaraDB RDS for PostgreSQL instance](~~96749~~)
-     *   * *   [Release an ApsaraDB RDS for SQL Server instance](~~95662~~)
-     *   * *   [Release an ApsaraDB RDS for MariaDB instance](~~97128~~).
-     *   *
+     * @summary Releases an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Release an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96057.html)
+     * *   [Release an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96749.html)
+     * *   [Release an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95662.html)
+     * *   [Release an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97128.html)
+     *  *
      * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      *
      * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
@@ -5017,12 +5213,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Delete the read-only endpoint of an ApsaraDB RDS for MySQL cluster](~~464133~~).
-     *   *
+     * @summary Deletes an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Delete the read-only endpoint of an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464133.html)
+     *  *
      * @param DeleteDBInstanceEndpointRequest $request DeleteDBInstanceEndpointRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -5063,12 +5261,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Delete the read-only endpoint of an ApsaraDB RDS for MySQL cluster](~~464133~~).
-     *   *
+     * @summary Deletes an endpoint for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Delete the read-only endpoint of an ApsaraDB RDS for MySQL cluster](https://help.aliyun.com/document_detail/464133.html)
+     *  *
      * @param DeleteDBInstanceEndpointRequest $request DeleteDBInstanceEndpointRequest
      *
      * @return DeleteDBInstanceEndpointResponse DeleteDBInstanceEndpointResponse
@@ -5081,11 +5281,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### Precautions
-     *   * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
-     *   *
+     * @summary Releases the public endpoint of an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL cluster instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### Precautions
+     * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
+     *  *
      * @param DeleteDBInstanceEndpointAddressRequest $request DeleteDBInstanceEndpointAddressRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -5131,11 +5333,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### Precautions
-     *   * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
-     *   *
+     * @summary Releases the public endpoint of an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL cluster instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### Precautions
+     * You can delete only the public endpoint of each endpoint type from the instance. If you want to delete an internal endpoint of any endpoint type, you can delete the type of endpoint.
+     *  *
      * @param DeleteDBInstanceEndpointAddressRequest $request DeleteDBInstanceEndpointAddressRequest
      *
      * @return DeleteDBInstanceEndpointAddressResponse DeleteDBInstanceEndpointAddressResponse
@@ -5148,12 +5352,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~).
-     *   *
+     * @summary Deletes a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+     *  *
      * @param DeleteDBNodesRequest $tmpReq  DeleteDBNodesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -5211,12 +5417,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](~~464130~~).
-     *   *
+     * @summary Deletes a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Delete a node from an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition](https://help.aliyun.com/document_detail/464130.html)
+     *  *
      * @param DeleteDBNodesRequest $request DeleteDBNodesRequest
      *
      * @return DeleteDBNodesResponse DeleteDBNodesResponse
@@ -5229,14 +5437,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-     *   * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418274~~).
-     *   *
+     * @summary Deletes the endpoint that is used to connect to the dedicated proxy of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+     * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+     *  *
      * @param DeleteDBProxyEndpointAddressRequest $request DeleteDBProxyEndpointAddressRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -5283,14 +5493,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-     *   * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418274~~).
-     *   *
+     * @summary Deletes the endpoint that is used to connect to the dedicated proxy of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+     * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+     *  *
      * @param DeleteDBProxyEndpointAddressRequest $request DeleteDBProxyEndpointAddressRequest
      *
      * @return DeleteDBProxyEndpointAddressResponse DeleteDBProxyEndpointAddressResponse
@@ -5303,18 +5515,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### [](#)References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Delete a database from an ApsaraDB RDS for MySQL instance](~~96106~~)
-     *   * *   [Delete a database from an ApsaraDB RDS for PostgreSQL instance](~~96759~~)
-     *   * *   [Delete a database from an ApsaraDB RDS for SQL Server instance](~~95699~~)
-     *   * *   [Delete a database from an ApsaraDB RDS for MariaDB instance](~~97137~~).
-     *   *
+     * @summary Deletes a database from an RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * ### [](#)References
+     * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Delete a database from an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96106.html)
+     * *   [Delete a database from an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96759.html)
+     * *   [Delete a database from an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95699.html)
+     * *   [Delete a database from an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97137.html)
+     *  *
      * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -5352,18 +5566,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### [](#)References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Delete a database from an ApsaraDB RDS for MySQL instance](~~96106~~)
-     *   * *   [Delete a database from an ApsaraDB RDS for PostgreSQL instance](~~96759~~)
-     *   * *   [Delete a database from an ApsaraDB RDS for SQL Server instance](~~95699~~)
-     *   * *   [Delete a database from an ApsaraDB RDS for MariaDB instance](~~97137~~).
-     *   *
+     * @summary Deletes a database from an RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * ### [](#)References
+     * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Delete a database from an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96106.html)
+     * *   [Delete a database from an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96759.html)
+     * *   [Delete a database from an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95699.html)
+     * *   [Delete a database from an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97137.html)
+     *  *
      * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
      *
      * @return DeleteDatabaseResponse DeleteDatabaseResponse
@@ -5376,12 +5592,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [Usage notes](#)
-     *   * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution.
-     *   * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](~~26229~~) to release the instances one after another.
-     *   *
+     * @summary Deletes a global active database cluster.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [Usage notes](#)
+     * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution.
+     * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](https://help.aliyun.com/document_detail/26229.html) to release the instances one after another.
+     *  *
      * @param DeleteGadInstanceRequest $request DeleteGadInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -5419,12 +5637,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [Usage notes](#)
-     *   * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution.
-     *   * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](~~26229~~) to release the instances one after another.
-     *   *
+     * @summary Deletes a global active database cluster.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [Usage notes](#)
+     * *   A global active database cluster cannot be restored after it is deleted. Proceed with caution.
+     * *   If you delete a global active database cluster, the system removes all nodes and Data Transmission Service (DTS) synchronization tasks from the cluster. However, the system does not release the ApsaraDB RDS for MySQL instances that run as nodes in the cluster. If you no longer need the ApsaraDB RDS for MySQL instances, you can call the [DeleteDBInstance](https://help.aliyun.com/document_detail/26229.html) to release the instances one after another.
+     *  *
      * @param DeleteGadInstanceRequest $request DeleteGadInstanceRequest
      *
      * @return DeleteGadInstanceResponse DeleteGadInstanceResponse
@@ -5437,10 +5657,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DeleteMaskingRulesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 删除全密态规则
+     *  *
+     * @param DeleteMaskingRulesRequest $request DeleteMaskingRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMaskingRulesResponse
+     * @return DeleteMaskingRulesResponse DeleteMaskingRulesResponse
      */
     public function deleteMaskingRulesWithOptions($request, $runtime)
     {
@@ -5480,9 +5702,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DeleteMaskingRulesRequest $request
+     * @summary 删除全密态规则
+     *  *
+     * @param DeleteMaskingRulesRequest $request DeleteMaskingRulesRequest
      *
-     * @return DeleteMaskingRulesResponse
+     * @return DeleteMaskingRulesResponse DeleteMaskingRulesResponse
      */
     public function deleteMaskingRules($request)
     {
@@ -5492,14 +5716,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   *
+     * @summary Deletes a parameter template from an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5546,14 +5772,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   *
+     * @summary Deletes a parameter template from an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
      *
      * @return DeleteParameterGroupResponse DeleteParameterGroupResponse
@@ -5566,12 +5794,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS PostgreSQL
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Manage extensions](~~2402409~~).
-     *   *
+     * @summary Deletes an extension from a database.
+     *  *
+     * @description ### Supported database engines
+     * RDS PostgreSQL
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+     *  *
      * @param DeletePostgresExtensionsRequest $request DeletePostgresExtensionsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -5627,12 +5857,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS PostgreSQL
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Manage extensions](~~2402409~~).
-     *   *
+     * @summary Deletes an extension from a database.
+     *  *
+     * @description ### Supported database engines
+     * RDS PostgreSQL
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+     *  *
      * @param DeletePostgresExtensionsRequest $request DeletePostgresExtensionsRequest
      *
      * @return DeletePostgresExtensionsResponse DeletePostgresExtensionsResponse
@@ -5645,10 +5877,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecretRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Deletes the credential of a user who uses the Data API feature.
+     *  *
+     * @param DeleteSecretRequest $request DeleteSecretRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSecretResponse
+     * @return DeleteSecretResponse DeleteSecretResponse
      */
     public function deleteSecretWithOptions($request, $runtime)
     {
@@ -5703,9 +5937,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecretRequest $request
+     * @summary Deletes the credential of a user who uses the Data API feature.
+     *  *
+     * @param DeleteSecretRequest $request DeleteSecretRequest
      *
-     * @return DeleteSecretResponse
+     * @return DeleteSecretResponse DeleteSecretResponse
      */
     public function deleteSecret($request)
     {
@@ -5715,11 +5951,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   PostgreSQL
-     *   * ### [](#)Precautions
-     *   * You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
-     *   *
+     * @summary Deletes a replication slot of an instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   PostgreSQL
+     * ### [](#)Precautions
+     * You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
+     *  *
      * @param DeleteSlotRequest $request DeleteSlotRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -5775,11 +6013,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   PostgreSQL
-     *   * ### [](#)Precautions
-     *   * You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
-     *   *
+     * @summary Deletes a replication slot of an instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   PostgreSQL
+     * ### [](#)Precautions
+     * You can delete a replication slot only when the status of the slot is **INACTIVE**. You can call the DescribeSlots operation to query the status of a replication slot.
+     *  *
      * @param DeleteSlotRequest $request DeleteSlotRequest
      *
      * @return DeleteSlotResponse DeleteSlotResponse
@@ -5792,12 +6032,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   MySQL
-     *   * ### [](#)Usage notes
-     *   * *   A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the ImportUserBackupFile operation to reimport the full backup file.
-     *   *
+     * @summary Deletes the backup files of an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   MySQL
+     * ### [](#)Usage notes
+     * *   A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+     * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the ImportUserBackupFile operation to reimport the full backup file.
+     *  *
      * @param DeleteUserBackupFileRequest $request DeleteUserBackupFileRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5844,12 +6086,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   MySQL
-     *   * ### [](#)Usage notes
-     *   * *   A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the ImportUserBackupFile operation to reimport the full backup file.
-     *   *
+     * @summary Deletes the backup files of an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   MySQL
+     * ### [](#)Usage notes
+     * *   A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+     * *   This operation deletes full backup files only from the ApsaraDB RDS console. This operation does not affect the full backup files that are stored as objects in Object Storage Service (OSS) buckets. After you call this operation to delete a full backup file, you can call the ImportUserBackupFile operation to reimport the full backup file.
+     *  *
      * @param DeleteUserBackupFileRequest $request DeleteUserBackupFileRequest
      *
      * @return DeleteUserBackupFileResponse DeleteUserBackupFileResponse
@@ -5862,9 +6106,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL.
-     *   *
+     * @summary Queries the migration tasks of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     *  *
      * @param DescibeImportsFromDatabaseRequest $request DescibeImportsFromDatabaseRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -5932,9 +6178,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL.
-     *   *
+     * @summary Queries the migration tasks of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     *  *
      * @param DescibeImportsFromDatabaseRequest $request DescibeImportsFromDatabaseRequest
      *
      * @return DescibeImportsFromDatabaseResponse DescibeImportsFromDatabaseResponse
@@ -5947,9 +6195,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server.
-     *   *
+     * @summary Queries information about the AD domain of an instance. The information includes whether the instance is added to the AD domain, the name of the AD domain, and the account.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     *  *
      * @param DescribeADInfoRequest $request DescribeADInfoRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -5996,9 +6246,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server.
-     *   *
+     * @summary Queries information about the AD domain of an instance. The information includes whether the instance is added to the AD domain, the name of the AD domain, and the account.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     *  *
      * @param DescribeADInfoRequest $request DescribeADInfoRequest
      *
      * @return DescribeADInfoResponse DescribeADInfoResponse
@@ -6011,10 +6263,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountMaskingPrivilegeRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 查询全密态用户权限
+     *  *
+     * @param DescribeAccountMaskingPrivilegeRequest $request DescribeAccountMaskingPrivilegeRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountMaskingPrivilegeResponse
+     * @return DescribeAccountMaskingPrivilegeResponse DescribeAccountMaskingPrivilegeResponse
      */
     public function describeAccountMaskingPrivilegeWithOptions($request, $runtime)
     {
@@ -6054,9 +6308,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountMaskingPrivilegeRequest $request
+     * @summary 查询全密态用户权限
+     *  *
+     * @param DescribeAccountMaskingPrivilegeRequest $request DescribeAccountMaskingPrivilegeRequest
      *
-     * @return DescribeAccountMaskingPrivilegeResponse
+     * @return DescribeAccountMaskingPrivilegeResponse DescribeAccountMaskingPrivilegeResponse
      */
     public function describeAccountMaskingPrivilege($request)
     {
@@ -6066,12 +6322,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the details about the accounts that are created on an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -6118,12 +6376,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the details about the accounts that are created on an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
      * @return DescribeAccountsResponse DescribeAccountsResponse
@@ -6136,12 +6396,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries whether the historical events feature is enabled.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeActionEventPolicyRequest $request DescribeActionEventPolicyRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -6185,12 +6447,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries whether the historical events feature is enabled.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeActionEventPolicyRequest $request DescribeActionEventPolicyRequest
      *
      * @return DescribeActionEventPolicyResponse DescribeActionEventPolicyResponse
@@ -6203,12 +6467,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the details about scheduled O\\\\\\&M tasks for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -6285,12 +6551,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the details about scheduled O\\\\\\&M tasks for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      *
      * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
@@ -6303,11 +6571,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Queries whitelist templates at a time by using fuzzy search.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DescribeAllWhitelistTemplateRequest $request DescribeAllWhitelistTemplateRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -6360,11 +6630,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Queries whitelist templates at a time by using fuzzy search.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DescribeAllWhitelistTemplateRequest $request DescribeAllWhitelistTemplateRequest
      *
      * @return DescribeAllWhitelistTemplateResponse DescribeAllWhitelistTemplateResponse
@@ -6377,11 +6649,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * MySQL
-     *   * ### [](#)References
-     *   * [Create and view an analytic instance](~~155180~~).
-     *   *
+     * @summary Queries the number of analytic instances that are associated with an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * MySQL
+     * ### [](#)References
+     * [Create and view an analytic instance](https://help.aliyun.com/document_detail/155180.html)
+     *  *
      * @param DescribeAnalyticdbByPrimaryDBInstanceRequest $request DescribeAnalyticdbByPrimaryDBInstanceRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
@@ -6425,11 +6699,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * MySQL
-     *   * ### [](#)References
-     *   * [Create and view an analytic instance](~~155180~~).
-     *   *
+     * @summary Queries the number of analytic instances that are associated with an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * MySQL
+     * ### [](#)References
+     * [Create and view an analytic instance](https://help.aliyun.com/document_detail/155180.html)
+     *  *
      * @param DescribeAnalyticdbByPrimaryDBInstanceRequest $request DescribeAnalyticdbByPrimaryDBInstanceRequest
      *
      * @return DescribeAnalyticdbByPrimaryDBInstanceResponse DescribeAnalyticdbByPrimaryDBInstanceResponse
@@ -6442,12 +6718,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the specifications that are supported for an instance. The specifications include the instance type and the storage capacity.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeAvailableClassesRequest $request DescribeAvailableClassesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -6509,12 +6787,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the specifications that are supported for an instance. The specifications include the instance type and the storage capacity.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeAvailableClassesRequest $request DescribeAvailableClassesRequest
      *
      * @return DescribeAvailableClassesResponse DescribeAvailableClassesResponse
@@ -6527,16 +6807,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
-     *   *
+     * @summary Queries the available destination regions to which the cross-region backup files from a specific source region can be replicated.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     *  *
      * @param DescribeAvailableCrossRegionRequest $request DescribeAvailableCrossRegionRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -6577,16 +6859,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
-     *   *
+     * @summary Queries the available destination regions to which the cross-region backup files from a specific source region can be replicated.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     *  *
      * @param DescribeAvailableCrossRegionRequest $request DescribeAvailableCrossRegionRequest
      *
      * @return DescribeAvailableCrossRegionResponse DescribeAvailableCrossRegionResponse
@@ -6599,12 +6883,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [View the Enhanced Monitoring metrics](~~299200~~).
-     *   *
+     * @summary Queries all Enhanced Monitoring metrics that are supported by an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+     *  *
      * @param DescribeAvailableMetricsRequest $request DescribeAvailableMetricsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -6642,12 +6928,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [View the Enhanced Monitoring metrics](~~299200~~).
-     *   *
+     * @summary Queries all Enhanced Monitoring metrics that are supported by an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+     *  *
      * @param DescribeAvailableMetricsRequest $request DescribeAvailableMetricsRequest
      *
      * @return DescribeAvailableMetricsResponse DescribeAvailableMetricsResponse
@@ -6660,13 +6948,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  To view the time range within which you can restore data from a standard backup set, see DescribeBackups.
-     *   * ### [](#)Supported database engines
-     *   * ApsaraDB RDS for MySQL instances with local disks
-     *   * ### [](#)References
-     *   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Use the cross-region backup feature](~~120824~~).
-     *   *
+     * @summary Queries the time range within which data can be restored from a cross-region backup file.
+     *  *
+     * @description >  To view the time range within which you can restore data from a standard backup set, see DescribeBackups.
+     * ### [](#)Supported database engines
+     * ApsaraDB RDS for MySQL instances with local disks
+     * ### [](#)References
+     * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Use the cross-region backup feature](https://help.aliyun.com/document_detail/120824.html)
+     *  *
      * @param DescribeAvailableRecoveryTimeRequest $request DescribeAvailableRecoveryTimeRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -6716,13 +7006,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  To view the time range within which you can restore data from a standard backup set, see DescribeBackups.
-     *   * ### [](#)Supported database engines
-     *   * ApsaraDB RDS for MySQL instances with local disks
-     *   * ### [](#)References
-     *   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Use the cross-region backup feature](~~120824~~).
-     *   *
+     * @summary Queries the time range within which data can be restored from a cross-region backup file.
+     *  *
+     * @description >  To view the time range within which you can restore data from a standard backup set, see DescribeBackups.
+     * ### [](#)Supported database engines
+     * ApsaraDB RDS for MySQL instances with local disks
+     * ### [](#)References
+     * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Use the cross-region backup feature](https://help.aliyun.com/document_detail/120824.html)
+     *  *
      * @param DescribeAvailableRecoveryTimeRequest $request DescribeAvailableRecoveryTimeRequest
      *
      * @return DescribeAvailableRecoveryTimeResponse DescribeAvailableRecoveryTimeResponse
@@ -6735,13 +7027,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
-     *   *
+     * @summary Queries the available zones for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
+     *  *
      * @param DescribeAvailableZonesRequest $request DescribeAvailableZonesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -6797,13 +7091,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
-     *   *
+     * @summary Queries the available zones for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * > You can call this operation to query the available zones for an instance. The query result may be different from the zones available on the buy page of the ApsaraDB RDS console. The values of some parameters on the buy page vary based on the actual sales policy. The actual information on the [buy page](https://rdsbuy.console.aliyun.com/create/rds/PostgreSQL) prevails.
+     *  *
      * @param DescribeAvailableZonesRequest $request DescribeAvailableZonesRequest
      *
      * @return DescribeAvailableZonesResponse DescribeAvailableZonesResponse
@@ -6816,8 +7112,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > This operation is phased out.
-     *   *
+     * @summary Queries the databases that are involved in a backup file.
+     *  *
+     * @description > This operation is phased out.
+     *  *
      * @param DescribeBackupDatabaseRequest $request DescribeBackupDatabaseRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -6861,8 +7159,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > This operation is phased out.
-     *   *
+     * @summary Queries the databases that are involved in a backup file.
+     *  *
+     * @description > This operation is phased out.
+     *  *
      * @param DescribeBackupDatabaseRequest $request DescribeBackupDatabaseRequest
      *
      * @return DescribeBackupDatabaseResponse DescribeBackupDatabaseResponse
@@ -6875,12 +7175,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the backup settings of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -6933,12 +7235,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the backup settings of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
      * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
@@ -6951,12 +7255,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the backup tasks of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -7015,12 +7321,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the backup tasks of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
      *
      * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
@@ -7033,12 +7341,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the data backup files of an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeBackupsRequest $request DescribeBackupsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -7100,12 +7410,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the data backup files of an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
      * @return DescribeBackupsResponse DescribeBackupsResponse
@@ -7118,16 +7430,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   MariaDB
-     *   * ### Usage notes
-     *   * *   If the return value of the **DownloadLink** parameter is NULL, ApsaraDB RDS does not provide a download URL.
-     *   * *   If the return value of the **DownloadLink** parameter is not NULL, ApsaraDB RDS provides a URL for you to download backup files. The expiration time of the URL is specified by the **LinkExpiredTime** parameter. You must download the backup files before the expiration time.
-     *   * *   If you use a RAM user to download backup files, you must grant permissions to the RAM user. For more information, see [Grant backup file download permissions to a RAM user with read-only permissions](~~100043~~).
-     *   * *   Each log file that is returned by this operation contains the log entries that are generated over the time range that is specified by the StartTime and EndTime parameters.
-     *   *
+     * @summary Queries the binary log files of an instance that runs MySQL or MariaDB or the write-ahead logging (WAL) files of an instance that runs PostgreSQL.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   MariaDB
+     * ### Usage notes
+     * *   If the return value of the **DownloadLink** parameter is NULL, ApsaraDB RDS does not provide a download URL.
+     * *   If the return value of the **DownloadLink** parameter is not NULL, ApsaraDB RDS provides a URL for you to download backup files. The expiration time of the URL is specified by the **LinkExpiredTime** parameter. You must download the backup files before the expiration time.
+     * *   If you use a RAM user to download backup files, you must grant permissions to the RAM user. For more information, see [Grant backup file download permissions to a RAM user with read-only permissions](https://help.aliyun.com/document_detail/100043.html).
+     * *   Each log file that is returned by this operation contains the log entries that are generated over the time range that is specified by the StartTime and EndTime parameters.
+     *  *
      * @param DescribeBinlogFilesRequest $request DescribeBinlogFilesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -7183,16 +7497,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   MariaDB
-     *   * ### Usage notes
-     *   * *   If the return value of the **DownloadLink** parameter is NULL, ApsaraDB RDS does not provide a download URL.
-     *   * *   If the return value of the **DownloadLink** parameter is not NULL, ApsaraDB RDS provides a URL for you to download backup files. The expiration time of the URL is specified by the **LinkExpiredTime** parameter. You must download the backup files before the expiration time.
-     *   * *   If you use a RAM user to download backup files, you must grant permissions to the RAM user. For more information, see [Grant backup file download permissions to a RAM user with read-only permissions](~~100043~~).
-     *   * *   Each log file that is returned by this operation contains the log entries that are generated over the time range that is specified by the StartTime and EndTime parameters.
-     *   *
+     * @summary Queries the binary log files of an instance that runs MySQL or MariaDB or the write-ahead logging (WAL) files of an instance that runs PostgreSQL.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   MariaDB
+     * ### Usage notes
+     * *   If the return value of the **DownloadLink** parameter is NULL, ApsaraDB RDS does not provide a download URL.
+     * *   If the return value of the **DownloadLink** parameter is not NULL, ApsaraDB RDS provides a URL for you to download backup files. The expiration time of the URL is specified by the **LinkExpiredTime** parameter. You must download the backup files before the expiration time.
+     * *   If you use a RAM user to download backup files, you must grant permissions to the RAM user. For more information, see [Grant backup file download permissions to a RAM user with read-only permissions](https://help.aliyun.com/document_detail/100043.html).
+     * *   Each log file that is returned by this operation contains the log entries that are generated over the time range that is specified by the StartTime and EndTime parameters.
+     *  *
      * @param DescribeBinlogFilesRequest $request DescribeBinlogFilesRequest
      *
      * @return DescribeBinlogFilesResponse DescribeBinlogFilesResponse
@@ -7205,12 +7521,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the character sets that are supported by an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeCharacterSetNameRequest $request DescribeCharacterSetNameRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -7260,12 +7578,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the character sets that are supported by an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeCharacterSetNameRequest $request DescribeCharacterSetNameRequest
      *
      * @return DescribeCharacterSetNameResponse DescribeCharacterSetNameResponse
@@ -7278,12 +7598,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the details about the instance types of an instance by using the code of the instance types.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeClassDetailsRequest $request DescribeClassDetailsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -7342,12 +7664,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the details about the instance types of an instance by using the code of the instance types.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeClassDetailsRequest $request DescribeClassDetailsRequest
      *
      * @return DescribeClassDetailsResponse DescribeClassDetailsResponse
@@ -7360,9 +7684,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL.
-     *   *
+     * @summary Query the details about the assessment report for cloud migration to an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     *  *
      * @param DescribeCloudMigrationPrecheckResultRequest $request DescribeCloudMigrationPrecheckResultRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -7415,9 +7741,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL.
-     *   *
+     * @summary Query the details about the assessment report for cloud migration to an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     *  *
      * @param DescribeCloudMigrationPrecheckResultRequest $request DescribeCloudMigrationPrecheckResultRequest
      *
      * @return DescribeCloudMigrationPrecheckResultResponse DescribeCloudMigrationPrecheckResultResponse
@@ -7430,9 +7758,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL.
-     *   *
+     * @summary Queries the details about the cloud migration task of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     *  *
      * @param DescribeCloudMigrationResultRequest $request DescribeCloudMigrationResultRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -7485,9 +7815,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL.
-     *   *
+     * @summary Queries the details about the cloud migration task of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     *  *
      * @param DescribeCloudMigrationResultRequest $request DescribeCloudMigrationResultRequest
      *
      * @return DescribeCloudMigrationResultResponse DescribeCloudMigrationResultResponse
@@ -7500,9 +7832,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * SQL Server.
-     *   *
+     * @summary Queries the character set collations and time zones that are available for use in ApsaraDB RDS for SQL Server.
+     *  *
+     * @description ### Supported database engine
+     * SQL Server
+     *  *
      * @param DescribeCollationTimeZonesRequest $request DescribeCollationTimeZonesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -7540,9 +7874,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * SQL Server.
-     *   *
+     * @summary Queries the character set collations and time zones that are available for use in ApsaraDB RDS for SQL Server.
+     *  *
+     * @description ### Supported database engine
+     * SQL Server
+     *  *
      * @param DescribeCollationTimeZonesRequest $request DescribeCollationTimeZonesRequest
      *
      * @return DescribeCollationTimeZonesResponse DescribeCollationTimeZonesResponse
@@ -7555,12 +7891,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ApsaraDB RDS for MySQL instances support cross-region backup and restoration. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~).
-     *   * Before you call this operation, make sure that the instance runs one of the following database engines:
-     *   * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
-     *   * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
-     *   * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
-     *   *
+     * @summary Queries the databases and tables whose data is included in a cross-region backup file of an instance.
+     *  *
+     * @description ApsaraDB RDS for MySQL instances support cross-region backup and restoration. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html).
+     * Before you call this operation, make sure that the instance runs one of the following database engines:
+     * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html).
+     * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](https://help.aliyun.com/document_detail/187923.html).
+     * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html).
+     *  *
      * @param DescribeCrossBackupMetaListRequest $request DescribeCrossBackupMetaListRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -7619,12 +7957,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ApsaraDB RDS for MySQL instances support cross-region backup and restoration. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~).
-     *   * Before you call this operation, make sure that the instance runs one of the following database engines:
-     *   * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~).
-     *   * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](~~187923~~).
-     *   * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](~~206671~~).
-     *   *
+     * @summary Queries the databases and tables whose data is included in a cross-region backup file of an instance.
+     *  *
+     * @description ApsaraDB RDS for MySQL instances support cross-region backup and restoration. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html) and [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html).
+     * Before you call this operation, make sure that the instance runs one of the following database engines:
+     * *   MySQL. For more information, see [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html).
+     * *   SQL Server. For more information, see [Back up an ApsaraDB RDS for SQL Server instance across regions](https://help.aliyun.com/document_detail/187923.html).
+     * *   PostgreSQL. For more information, see [Enable cross-region backups for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html).
+     *  *
      * @param DescribeCrossBackupMetaListRequest $request DescribeCrossBackupMetaListRequest
      *
      * @return DescribeCrossBackupMetaListResponse DescribeCrossBackupMetaListResponse
@@ -7637,16 +7977,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
-     *   *
+     * @summary Queries the instances for which the cross-region backup feature is enabled in a region and the cross-region backup settings of these instances.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     *  *
      * @param DescribeCrossRegionBackupDBInstanceRequest $request DescribeCrossRegionBackupDBInstanceRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -7696,16 +8038,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
-     *   *
+     * @summary Queries the instances for which the cross-region backup feature is enabled in a region and the cross-region backup settings of these instances.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     *  *
      * @param DescribeCrossRegionBackupDBInstanceRequest $request DescribeCrossRegionBackupDBInstanceRequest
      *
      * @return DescribeCrossRegionBackupDBInstanceResponse DescribeCrossRegionBackupDBInstanceResponse
@@ -7718,17 +8062,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   ApsaraDB RDS for MySQL instances with local disks
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * ### [](#)References
-     *   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * >  For more information about how to query cross-region log backup files, see DescribeCrossRegionLogBackupFiles.
-     *   *
+     * @summary Queries the cross-region data backup files of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   ApsaraDB RDS for MySQL instances with local disks
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * ### [](#)References
+     * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * >  For more information about how to query cross-region log backup files, see DescribeCrossRegionLogBackupFiles.
+     *  *
      * @param DescribeCrossRegionBackupsRequest $request DescribeCrossRegionBackupsRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -7796,17 +8142,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   ApsaraDB RDS for MySQL instances with local disks
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * ### [](#)References
-     *   * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * >  For more information about how to query cross-region log backup files, see DescribeCrossRegionLogBackupFiles.
-     *   *
+     * @summary Queries the cross-region data backup files of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   ApsaraDB RDS for MySQL instances with local disks
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * ### [](#)References
+     * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * >  For more information about how to query cross-region log backup files, see DescribeCrossRegionLogBackupFiles.
+     *  *
      * @param DescribeCrossRegionBackupsRequest $request DescribeCrossRegionBackupsRequest
      *
      * @return DescribeCrossRegionBackupsResponse DescribeCrossRegionBackupsResponse
@@ -7819,17 +8167,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * >  For more information about how to query cross-region data backup files, see [DescribeCrossRegionBackups](~~121733~~).
-     *   *
+     * @summary Queries the cross-region log backup files of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * >  For more information about how to query cross-region data backup files, see [DescribeCrossRegionBackups](https://help.aliyun.com/document_detail/121733.html).
+     *  *
      * @param DescribeCrossRegionLogBackupFilesRequest $request DescribeCrossRegionLogBackupFilesRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -7888,17 +8238,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * >  For more information about how to query cross-region data backup files, see [DescribeCrossRegionBackups](~~121733~~).
-     *   *
+     * @summary Queries the cross-region log backup files of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * >  For more information about how to query cross-region data backup files, see [DescribeCrossRegionBackups](https://help.aliyun.com/document_detail/121733.html).
+     *  *
      * @param DescribeCrossRegionLogBackupFilesRequest $request DescribeCrossRegionLogBackupFilesRequest
      *
      * @return DescribeCrossRegionLogBackupFilesResponse DescribeCrossRegionLogBackupFilesResponse
@@ -7911,10 +8263,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeCurrentModifyOrderRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 查询实例最新变配订单
+     *  *
+     * @param DescribeCurrentModifyOrderRequest $request DescribeCurrentModifyOrderRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCurrentModifyOrderResponse
+     * @return DescribeCurrentModifyOrderResponse DescribeCurrentModifyOrderResponse
      */
     public function describeCurrentModifyOrderWithOptions($request, $runtime)
     {
@@ -7960,9 +8314,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeCurrentModifyOrderRequest $request
+     * @summary 查询实例最新变配订单
+     *  *
+     * @param DescribeCurrentModifyOrderRequest $request DescribeCurrentModifyOrderRequest
      *
-     * @return DescribeCurrentModifyOrderResponse
+     * @return DescribeCurrentModifyOrderResponse DescribeCurrentModifyOrderResponse
      */
     public function describeCurrentModifyOrder($request)
     {
@@ -7972,10 +8328,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustinsResourceInfoRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeCustinsResourceInfoRequest $request DescribeCustinsResourceInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustinsResourceInfoResponse
+     * @return DescribeCustinsResourceInfoResponse DescribeCustinsResourceInfoResponse
      */
     public function describeCustinsResourceInfoWithOptions($request, $runtime)
     {
@@ -8015,9 +8371,9 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustinsResourceInfoRequest $request
+     * @param DescribeCustinsResourceInfoRequest $request DescribeCustinsResourceInfoRequest
      *
-     * @return DescribeCustinsResourceInfoResponse
+     * @return DescribeCustinsResourceInfoResponse DescribeCustinsResourceInfoResponse
      */
     public function describeCustinsResourceInfo($request)
     {
@@ -8027,12 +8383,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the details of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -8070,12 +8428,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the details of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      *
      * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
@@ -8088,12 +8448,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries information about the tags that are added to an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstanceByTagsRequest $request DescribeDBInstanceByTagsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -8152,12 +8514,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries information about the tags that are added to an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstanceByTagsRequest $request DescribeDBInstanceByTagsRequest
      *
      * @return DescribeDBInstanceByTagsResponse DescribeDBInstanceByTagsResponse
@@ -8170,10 +8534,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceConnectivityRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary 获取实例链路诊断信息
+     *  *
+     * @param DescribeDBInstanceConnectivityRequest $request DescribeDBInstanceConnectivityRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceConnectivityResponse
+     * @return DescribeDBInstanceConnectivityResponse DescribeDBInstanceConnectivityResponse
      */
     public function describeDBInstanceConnectivityWithOptions($request, $runtime)
     {
@@ -8198,9 +8564,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceConnectivityRequest $request
+     * @summary 获取实例链路诊断信息
+     *  *
+     * @param DescribeDBInstanceConnectivityRequest $request DescribeDBInstanceConnectivityRequest
      *
-     * @return DescribeDBInstanceConnectivityResponse
+     * @return DescribeDBInstanceConnectivityResponse DescribeDBInstanceConnectivityResponse
      */
     public function describeDBInstanceConnectivity($request)
     {
@@ -8210,8 +8578,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary You can call the DescribeDBInstanceDetail operation to query the details of an instance.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param DescribeDBInstanceDetailRequest $request DescribeDBInstanceDetailRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -8261,8 +8631,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary You can call the DescribeDBInstanceDetail operation to query the details of an instance.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param DescribeDBInstanceDetailRequest $request DescribeDBInstanceDetailRequest
      *
      * @return DescribeDBInstanceDetailResponse DescribeDBInstanceDetailResponse
@@ -8275,10 +8647,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceEncryptionKeyRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary You can call the DescribeDBInstanceEncryptionKey operation to check whether disk encryption is enabled for an instance. You can also query details about the keys that are used for disk encryption. This operation is supported for instances that run MySQL, SQL Server, or PostgreSQL.
+     *  *
+     * @param DescribeDBInstanceEncryptionKeyRequest $request DescribeDBInstanceEncryptionKeyRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceEncryptionKeyResponse
+     * @return DescribeDBInstanceEncryptionKeyResponse DescribeDBInstanceEncryptionKeyResponse
      */
     public function describeDBInstanceEncryptionKeyWithOptions($request, $runtime)
     {
@@ -8330,9 +8704,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceEncryptionKeyRequest $request
+     * @summary You can call the DescribeDBInstanceEncryptionKey operation to check whether disk encryption is enabled for an instance. You can also query details about the keys that are used for disk encryption. This operation is supported for instances that run MySQL, SQL Server, or PostgreSQL.
+     *  *
+     * @param DescribeDBInstanceEncryptionKeyRequest $request DescribeDBInstanceEncryptionKeyRequest
      *
-     * @return DescribeDBInstanceEncryptionKeyResponse
+     * @return DescribeDBInstanceEncryptionKeyResponse DescribeDBInstanceEncryptionKeyResponse
      */
     public function describeDBInstanceEncryptionKey($request)
     {
@@ -8342,9 +8718,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL.
-     *   *
+     * @summary Queries the information about the endpoints of an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS MySQL
+     *  *
      * @param DescribeDBInstanceEndpointsRequest $request DescribeDBInstanceEndpointsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -8385,9 +8763,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL.
-     *   *
+     * @summary Queries the information about the endpoints of an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS MySQL
+     *  *
      * @param DescribeDBInstanceEndpointsRequest $request DescribeDBInstanceEndpointsRequest
      *
      * @return DescribeDBInstanceEndpointsResponse DescribeDBInstanceEndpointsResponse
@@ -8400,16 +8780,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Query the data replication mode of an ApsaraDB RDS for MySQL instance](~~96055~~)
-     *   * *   [Query the data replication mode of an ApsaraDB RDS for PostgreSQL instance](~~151265~~)
-     *   * *   [Query the data replication mode of an ApsaraDB RDS for SQL Server instance](~~415433~~).
-     *   *
+     * @summary Queries the high availability mode and data replication mode of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Query the data replication mode of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96055.html)
+     * *   [Query the data replication mode of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/151265.html)
+     * *   [Query the data replication mode of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/415433.html)
+     *  *
      * @param DescribeDBInstanceHAConfigRequest $request DescribeDBInstanceHAConfigRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -8453,16 +8835,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Query the data replication mode of an ApsaraDB RDS for MySQL instance](~~96055~~)
-     *   * *   [Query the data replication mode of an ApsaraDB RDS for PostgreSQL instance](~~151265~~)
-     *   * *   [Query the data replication mode of an ApsaraDB RDS for SQL Server instance](~~415433~~).
-     *   *
+     * @summary Queries the high availability mode and data replication mode of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Query the data replication mode of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96055.html)
+     * *   [Query the data replication mode of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/151265.html)
+     * *   [Query the data replication mode of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/415433.html)
+     *  *
      * @param DescribeDBInstanceHAConfigRequest $request DescribeDBInstanceHAConfigRequest
      *
      * @return DescribeDBInstanceHAConfigResponse DescribeDBInstanceHAConfigResponse
@@ -8475,12 +8859,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the IP address whitelist of an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeDBInstanceIPArrayListRequest $request DescribeDBInstanceIPArrayListRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -8521,12 +8907,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the IP address whitelist of an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeDBInstanceIPArrayListRequest $request DescribeDBInstanceIPArrayListRequest
      *
      * @return DescribeDBInstanceIPArrayListResponse DescribeDBInstanceIPArrayListResponse
@@ -8539,16 +8927,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS SQL Server
-     *   * ### [](#)Prerequisites
-     *   * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
-     *   * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
-     *   * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Configure a distributed transaction whitelist](~~124321~~).
-     *   *
+     * @summary Queries the hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS SQL Server
+     * ### [](#)Prerequisites
+     * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
+     * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
+     * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+     *  *
      * @param DescribeDBInstanceIpHostnameRequest $request DescribeDBInstanceIpHostnameRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -8598,16 +8988,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS SQL Server
-     *   * ### [](#)Prerequisites
-     *   * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
-     *   * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
-     *   * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Configure a distributed transaction whitelist](~~124321~~).
-     *   *
+     * @summary Queries the hostname of the Elastic Compute Service (ECS) instance on which the ApsaraDB RDS for SQL Server instance runs.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS SQL Server
+     * ### [](#)Prerequisites
+     * *   The RDS instance runs RDS Basic Edition, RDS High-availability Edition, or RDS Cluster Edition. If your RDS instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
+     * *   The RDS instance belongs to a general-purpose or dedicated instance family. The shared instance family is not supported.
+     * *   If the RDS instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the Creation Time
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+     *  *
      * @param DescribeDBInstanceIpHostnameRequest $request DescribeDBInstanceIpHostnameRequest
      *
      * @return DescribeDBInstanceIpHostnameResponse DescribeDBInstanceIpHostnameResponse
@@ -8620,12 +9012,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [View the Enhanced Monitoring metrics](~~299200~~).
-     *   *
+     * @summary Queries the Enhanced Monitoring metrics that are displayed for an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+     *  *
      * @param DescribeDBInstanceMetricsRequest $request DescribeDBInstanceMetricsRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -8663,12 +9057,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [View the Enhanced Monitoring metrics](~~299200~~).
-     *   *
+     * @summary Queries the Enhanced Monitoring metrics that are displayed for an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+     *  *
      * @param DescribeDBInstanceMetricsRequest $request DescribeDBInstanceMetricsRequest
      *
      * @return DescribeDBInstanceMetricsResponse DescribeDBInstanceMetricsResponse
@@ -8681,11 +9077,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the monitoring frequency of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstanceMonitorRequest $request DescribeDBInstanceMonitorRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -8732,11 +9130,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the monitoring frequency of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstanceMonitorRequest $request DescribeDBInstanceMonitorRequest
      *
      * @return DescribeDBInstanceMonitorResponse DescribeDBInstanceMonitorResponse
@@ -8749,12 +9149,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries all endpoints of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -8810,12 +9212,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries all endpoints of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
      *
      * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
@@ -8828,12 +9232,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries all endpoints of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstanceNetInfoForChannelRequest $request DescribeDBInstanceNetInfoForChannelRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -8886,12 +9292,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries all endpoints of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstanceNetInfoForChannelRequest $request DescribeDBInstanceNetInfoForChannelRequest
      *
      * @return DescribeDBInstanceNetInfoForChannelResponse DescribeDBInstanceNetInfoForChannelResponse
@@ -8904,12 +9312,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the performance metrics of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -8956,12 +9366,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the performance metrics of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
      *
      * @return DescribeDBInstancePerformanceResponse DescribeDBInstancePerformanceResponse
@@ -8974,8 +9386,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeDBInstancePromoteActivity is deprecated
+     *  *
+     * @summary The operation is phased out.
+     *  *
      * Deprecated
      *
      * @param DescribeDBInstancePromoteActivityRequest $request DescribeDBInstancePromoteActivityRequest
@@ -9024,8 +9438,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeDBInstancePromoteActivity is deprecated
+     *  *
+     * @summary The operation is phased out.
+     *  *
      * Deprecated
      *
      * @param DescribeDBInstancePromoteActivityRequest $request DescribeDBInstancePromoteActivityRequest
@@ -9040,16 +9456,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)Feature description
-     *   * This operation is used to query the shared proxy settings of an instance that runs MySQL or the read/write splitting settings of an instance that runs SQL Server. For more information about how to query the dedicated proxy settings of an ApsaraDB RDS for MySQL instance, see [DescribeDBProxy](~~610506~~).
-     *   * ### [](#)Prerequisites
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The shared proxy feature must be enabled for the primary instance.
-     *   * *   The read/write splitting feature must be enabled for the primary instance.
-     *   *
+     * @summary Queries the settings of shared proxies that are enabled on an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)Feature description
+     * This operation is used to query the shared proxy settings of an instance that runs MySQL or the read/write splitting settings of an instance that runs SQL Server. For more information about how to query the dedicated proxy settings of an ApsaraDB RDS for MySQL instance, see [DescribeDBProxy](https://help.aliyun.com/document_detail/610506.html).
+     * ### [](#)Prerequisites
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The shared proxy feature must be enabled for the primary instance.
+     * *   The read/write splitting feature must be enabled for the primary instance.
+     *  *
      * @param DescribeDBInstanceProxyConfigurationRequest $request DescribeDBInstanceProxyConfigurationRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -9090,16 +9508,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)Feature description
-     *   * This operation is used to query the shared proxy settings of an instance that runs MySQL or the read/write splitting settings of an instance that runs SQL Server. For more information about how to query the dedicated proxy settings of an ApsaraDB RDS for MySQL instance, see [DescribeDBProxy](~~610506~~).
-     *   * ### [](#)Prerequisites
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The shared proxy feature must be enabled for the primary instance.
-     *   * *   The read/write splitting feature must be enabled for the primary instance.
-     *   *
+     * @summary Queries the settings of shared proxies that are enabled on an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)Feature description
+     * This operation is used to query the shared proxy settings of an instance that runs MySQL or the read/write splitting settings of an instance that runs SQL Server. For more information about how to query the dedicated proxy settings of an ApsaraDB RDS for MySQL instance, see [DescribeDBProxy](https://help.aliyun.com/document_detail/610506.html).
+     * ### [](#)Prerequisites
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The shared proxy feature must be enabled for the primary instance.
+     * *   The read/write splitting feature must be enabled for the primary instance.
+     *  *
      * @param DescribeDBInstanceProxyConfigurationRequest $request DescribeDBInstanceProxyConfigurationRequest
      *
      * @return DescribeDBInstanceProxyConfigurationResponse DescribeDBInstanceProxyConfigurationResponse
@@ -9112,11 +9532,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Queries the SSL configurations of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -9160,11 +9582,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Queries the SSL configurations of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
      *
      * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
@@ -9177,11 +9601,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *
+     * @summary Queries the status of the Transparent Data Encryption (TDE) feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *  *
      * @param DescribeDBInstanceTDERequest $request DescribeDBInstanceTDERequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -9225,11 +9651,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *
+     * @summary Queries the status of the Transparent Data Encryption (TDE) feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *  *
      * @param DescribeDBInstanceTDERequest $request DescribeDBInstanceTDERequest
      *
      * @return DescribeDBInstanceTDEResponse DescribeDBInstanceTDEResponse
@@ -9242,12 +9670,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries instances.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -9375,12 +9805,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries instances.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
      *
      * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
@@ -9393,9 +9825,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
-     *   * >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
-     *   *
+     * @deprecated openAPI DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead
+     *  *
+     * @summary Queries the instances.
+     *  *
+     * @description >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
+     *  *
      * Deprecated
      *
      * @param DescribeDBInstancesAsCsvRequest $request DescribeDBInstancesAsCsvRequest
@@ -9450,9 +9885,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
-     *   * >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
-     *   *
+     * @deprecated openAPI DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead
+     *  *
+     * @summary Queries the instances.
+     *  *
+     * @description >  The DescribeDBInstancesAsCsv operation is phased out. You can call the DescribeDBInstances operation.
+     *  *
      * Deprecated
      *
      * @param DescribeDBInstancesAsCsvRequest $request DescribeDBInstancesAsCsvRequest
@@ -9467,12 +9905,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the information about an ApsaraDB RDS instance based on the remaining subscription duration of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeDBInstancesByExpireTimeRequest $request DescribeDBInstancesByExpireTimeRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -9537,12 +9977,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the information about an ApsaraDB RDS instance based on the remaining subscription duration of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeDBInstancesByExpireTimeRequest $request DescribeDBInstancesByExpireTimeRequest
      *
      * @return DescribeDBInstancesByExpireTimeResponse DescribeDBInstancesByExpireTimeResponse
@@ -9555,8 +9997,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary You can call the DescribeDBInstancePerformance operation to query the performance of instances.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param DescribeDBInstancesByPerformanceRequest $request DescribeDBInstancesByPerformanceRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -9630,8 +10074,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary You can call the DescribeDBInstancePerformance operation to query the performance of instances.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param DescribeDBInstancesByPerformanceRequest $request DescribeDBInstancesByPerformanceRequest
      *
      * @return DescribeDBInstancesByPerformanceResponse DescribeDBInstancesByPerformanceResponse
@@ -9644,8 +10090,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary Queries a list of instances.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param DescribeDBInstancesForCloneRequest $request DescribeDBInstancesForCloneRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -9752,8 +10200,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary Queries a list of instances.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param DescribeDBInstancesForCloneRequest $request DescribeDBInstancesForCloneRequest
      *
      * @return DescribeDBInstancesForCloneResponse DescribeDBInstancesForCloneResponse
@@ -9766,12 +10216,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)Usage notes
-     *   * Before you purchase or upgrade an instance that runs MySQL or PostgreSQL, you can call the DescribeDBMiniEngineVersions operation to query the minor engine versions that are available for the instance.
-     *   *
+     * @summary Queries minor engine versions that are available for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)Usage notes
+     * Before you purchase or upgrade an instance that runs MySQL or PostgreSQL, you can call the DescribeDBMiniEngineVersions operation to query the minor engine versions that are available for the instance.
+     *  *
      * @param DescribeDBMiniEngineVersionsRequest $request DescribeDBMiniEngineVersionsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -9827,12 +10279,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)Usage notes
-     *   * Before you purchase or upgrade an instance that runs MySQL or PostgreSQL, you can call the DescribeDBMiniEngineVersions operation to query the minor engine versions that are available for the instance.
-     *   *
+     * @summary Queries minor engine versions that are available for an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)Usage notes
+     * Before you purchase or upgrade an instance that runs MySQL or PostgreSQL, you can call the DescribeDBMiniEngineVersions operation to query the minor engine versions that are available for the instance.
+     *  *
      * @param DescribeDBMiniEngineVersionsRequest $request DescribeDBMiniEngineVersionsRequest
      *
      * @return DescribeDBMiniEngineVersionsResponse DescribeDBMiniEngineVersionsResponse
@@ -9845,10 +10299,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL.
-     *   *
+     * @summary Queries the settings of the dedicated proxy for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     *  *
      * @param DescribeDBProxyRequest $request DescribeDBProxyRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -9901,10 +10357,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL.
-     *   *
+     * @summary Queries the settings of the dedicated proxy for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     *  *
      * @param DescribeDBProxyRequest $request DescribeDBProxyRequest
      *
      * @return DescribeDBProxyResponse DescribeDBProxyResponse
@@ -9917,10 +10375,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL.
-     *   *
+     * @summary Queries the information about the database proxy endpoints of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     *  *
      * @param DescribeDBProxyEndpointRequest $request DescribeDBProxyEndpointRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -9976,10 +10436,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL.
-     *   *
+     * @summary Queries the information about the database proxy endpoints of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     *  *
      * @param DescribeDBProxyEndpointRequest $request DescribeDBProxyEndpointRequest
      *
      * @return DescribeDBProxyEndpointResponse DescribeDBProxyEndpointResponse
@@ -9992,15 +10454,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [View the monitoring data of an ApsaraDB RDS for MySQL instance](~~194241~~)
-     *   * *   [View the monitoring data of an ApsaraDB RDS for PostgreSQL instance](~~418275~~).
-     *   *
+     * @summary Queries the performance data of the database proxy for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [View the monitoring data of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/194241.html)
+     * *   [View the monitoring data of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418275.html)
+     *  *
      * @param DescribeDBProxyPerformanceRequest $request DescribeDBProxyPerformanceRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -10062,15 +10526,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [View the monitoring data of an ApsaraDB RDS for MySQL instance](~~194241~~)
-     *   * *   [View the monitoring data of an ApsaraDB RDS for PostgreSQL instance](~~418275~~).
-     *   *
+     * @summary Queries the performance data of the database proxy for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [View the monitoring data of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/194241.html)
+     * *   [View the monitoring data of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418275.html)
+     *  *
      * @param DescribeDBProxyPerformanceRequest $request DescribeDBProxyPerformanceRequest
      *
      * @return DescribeDBProxyPerformanceResponse DescribeDBProxyPerformanceResponse
@@ -10083,12 +10549,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance](~~124321~~).
-     *   *
+     * @summary Queries the distributed transaction whitelists of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/124321.html)
+     *  *
      * @param DescribeDTCSecurityIpHostsForSQLServerRequest $request DescribeDTCSecurityIpHostsForSQLServerRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
@@ -10141,12 +10609,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance](~~124321~~).
-     *   *
+     * @summary Queries the distributed transaction whitelists of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/124321.html)
+     *  *
      * @param DescribeDTCSecurityIpHostsForSQLServerRequest $request DescribeDTCSecurityIpHostsForSQLServerRequest
      *
      * @return DescribeDTCSecurityIpHostsForSQLServerResponse DescribeDTCSecurityIpHostsForSQLServerResponse
@@ -10159,12 +10629,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the details about the databases on an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDatabasesRequest $request DescribeDatabasesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -10223,12 +10695,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the details about the databases on an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeDatabasesRequest $request DescribeDatabasesRequest
      *
      * @return DescribeDatabasesResponse DescribeDatabasesResponse
@@ -10241,8 +10715,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Dedicated clusters allow you to manage a number of instances in a cluster at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~).
-     *   *
+     * @summary Queries information about an ApsaraDB MyBase dedicated cluster.
+     *  *
+     * @description Dedicated clusters allow you to manage a number of instances in a cluster at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+     *  *
      * @param DescribeDedicatedHostGroupsRequest $request DescribeDedicatedHostGroupsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -10289,8 +10765,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Dedicated clusters allow you to manage a number of instances in a cluster at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~).
-     *   *
+     * @summary Queries information about an ApsaraDB MyBase dedicated cluster.
+     *  *
+     * @description Dedicated clusters allow you to manage a number of instances in a cluster at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+     *  *
      * @param DescribeDedicatedHostGroupsRequest $request DescribeDedicatedHostGroupsRequest
      *
      * @return DescribeDedicatedHostGroupsResponse DescribeDedicatedHostGroupsResponse
@@ -10303,8 +10781,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~).
-     *   *
+     * @summary Queries the information about the hosts in a dedicated cluster.
+     *  *
+     * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+     *  *
      * @param DescribeDedicatedHostsRequest $request DescribeDedicatedHostsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -10366,8 +10846,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~).
-     *   *
+     * @summary Queries the information about the hosts in a dedicated cluster.
+     *  *
+     * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+     *  *
      * @param DescribeDedicatedHostsRequest $request DescribeDedicatedHostsRequest
      *
      * @return DescribeDedicatedHostsResponse DescribeDedicatedHostsResponse
@@ -10380,13 +10862,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * > This operation is available only for instances that use local disks.
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * For more information about how to retain the data backup files of an instance after the instance is released, see [Configure automatic backup](~~98818~~).
-     *   *
+     * @summary Queries the data backup files of an ApsaraDB RDS instance that is released.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * > This operation is available only for instances that use local disks.
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * For more information about how to retain the data backup files of an instance after the instance is released, see [Configure automatic backup](https://help.aliyun.com/document_detail/98818.html).
+     *  *
      * @param DescribeDetachedBackupsRequest $request DescribeDetachedBackupsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -10448,13 +10932,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * > This operation is available only for instances that use local disks.
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * For more information about how to retain the data backup files of an instance after the instance is released, see [Configure automatic backup](~~98818~~).
-     *   *
+     * @summary Queries the data backup files of an ApsaraDB RDS instance that is released.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * > This operation is available only for instances that use local disks.
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * For more information about how to retain the data backup files of an instance after the instance is released, see [Configure automatic backup](https://help.aliyun.com/document_detail/98818.html).
+     *  *
      * @param DescribeDetachedBackupsRequest $request DescribeDetachedBackupsRequest
      *
      * @return DescribeDetachedBackupsResponse DescribeDetachedBackupsResponse
@@ -10467,9 +10953,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * >  This operation is phased out.
-     *   *
+     * @deprecated OpenAPI DescribeDiagnosticReportList is deprecated
+     *  *
+     * @summary Queries the information about diagnostics reports.
+     *  *
+     * @description >  This operation is phased out.
+     *  *
      * Deprecated
      *
      * @param DescribeDiagnosticReportListRequest $request DescribeDiagnosticReportListRequest
@@ -10506,9 +10995,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   * >  This operation is phased out.
-     *   *
+     * @deprecated OpenAPI DescribeDiagnosticReportList is deprecated
+     *  *
+     * @summary Queries the information about diagnostics reports.
+     *  *
+     * @description >  This operation is phased out.
+     *  *
      * Deprecated
      *
      * @param DescribeDiagnosticReportListRequest $request DescribeDiagnosticReportListRequest
@@ -10523,12 +11015,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the error logs of an instance over a specific time range.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeErrorLogsRequest $request DescribeErrorLogsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -10584,12 +11078,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the error logs of an instance over a specific time range.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeErrorLogsRequest $request DescribeErrorLogsRequest
      *
      * @return DescribeErrorLogsResponse DescribeErrorLogsResponse
@@ -10602,18 +11098,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Historical events of an ApsaraDB RDS for MySQL instance](~~129759~~)
-     *   * *   [Historical events of an ApsaraDB RDS for PostgreSQL instance](~~131008~~)
-     *   * *   [Historical events of an ApsaraDB RDS for SQL Server instance](~~131013~~)
-     *   * *   [Historical events of an ApsaraDB RDS for MariaDB instance](~~131010~~).
-     *   *
+     * @summary Queries historical events of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Historical events of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/129759.html)
+     * *   [Historical events of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/131008.html)
+     * *   [Historical events of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/131013.html)
+     * *   [Historical events of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/131010.html)
+     *  *
      * @param DescribeEventsRequest $request DescribeEventsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -10666,18 +11164,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Historical events of an ApsaraDB RDS for MySQL instance](~~129759~~)
-     *   * *   [Historical events of an ApsaraDB RDS for PostgreSQL instance](~~131008~~)
-     *   * *   [Historical events of an ApsaraDB RDS for SQL Server instance](~~131013~~)
-     *   * *   [Historical events of an ApsaraDB RDS for MariaDB instance](~~131010~~).
-     *   *
+     * @summary Queries historical events of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Historical events of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/129759.html)
+     * *   [Historical events of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/131008.html)
+     * *   [Historical events of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/131013.html)
+     * *   [Historical events of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/131010.html)
+     *  *
      * @param DescribeEventsRequest $request DescribeEventsRequest
      *
      * @return DescribeEventsResponse DescribeEventsResponse
@@ -10690,9 +11190,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL.
-     *   *
+     * @summary Queries the information about a global active database cluster or information about all global active database clusters in a region.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     *  *
      * @param DescribeGadInstancesRequest $request DescribeGadInstancesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -10730,9 +11232,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL.
-     *   *
+     * @summary Queries the information about a global active database cluster or information about all global active database clusters in a region.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     *  *
      * @param DescribeGadInstancesRequest $request DescribeGadInstancesRequest
      *
      * @return DescribeGadInstancesResponse DescribeGadInstancesResponse
@@ -10745,14 +11249,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * [What is availability detection?](~~207467~~).
-     *   *
+     * @summary Queries the availability check method of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * [What is availability detection?](https://help.aliyun.com/document_detail/207467.html)
+     *  *
      * @param DescribeHADiagnoseConfigRequest $request DescribeHADiagnoseConfigRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -10796,14 +11302,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * [What is availability detection?](~~207467~~).
-     *   *
+     * @summary Queries the availability check method of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * [What is availability detection?](https://help.aliyun.com/document_detail/207467.html)
+     *  *
      * @param DescribeHADiagnoseConfigRequest $request DescribeHADiagnoseConfigRequest
      *
      * @return DescribeHADiagnoseConfigResponse DescribeHADiagnoseConfigResponse
@@ -10816,12 +11324,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the settings of the automatic primary/secondary switchover feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeHASwitchConfigRequest $request DescribeHASwitchConfigRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -10865,12 +11375,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the settings of the automatic primary/secondary switchover feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeHASwitchConfigRequest $request DescribeHASwitchConfigRequest
      *
      * @return DescribeHASwitchConfigResponse DescribeHASwitchConfigResponse
@@ -10883,10 +11395,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryEventsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 事件中心事件列表
+     *  *
+     * @param DescribeHistoryEventsRequest $request DescribeHistoryEventsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHistoryEventsResponse
+     * @return DescribeHistoryEventsResponse DescribeHistoryEventsResponse
      */
     public function describeHistoryEventsWithOptions($request, $runtime)
     {
@@ -10959,9 +11473,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryEventsRequest $request
+     * @summary 事件中心事件列表
+     *  *
+     * @param DescribeHistoryEventsRequest $request DescribeHistoryEventsRequest
      *
-     * @return DescribeHistoryEventsResponse
+     * @return DescribeHistoryEventsResponse DescribeHistoryEventsResponse
      */
     public function describeHistoryEvents($request)
     {
@@ -10971,10 +11487,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryEventsStatRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 事件中心事件统计
+     *  *
+     * @param DescribeHistoryEventsStatRequest $request DescribeHistoryEventsStatRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHistoryEventsStatResponse
+     * @return DescribeHistoryEventsStatResponse DescribeHistoryEventsStatResponse
      */
     public function describeHistoryEventsStatWithOptions($request, $runtime)
     {
@@ -11014,9 +11532,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryEventsStatRequest $request
+     * @summary 事件中心事件统计
+     *  *
+     * @param DescribeHistoryEventsStatRequest $request DescribeHistoryEventsStatRequest
      *
-     * @return DescribeHistoryEventsStatResponse
+     * @return DescribeHistoryEventsStatResponse DescribeHistoryEventsStatResponse
      */
     public function describeHistoryEventsStat($request)
     {
@@ -11026,16 +11546,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Tasks of an ApsaraDB RDS for MySQL instance](~~474275~~)
-     *   * *   [Tasks of an ApsaraDB RDS for PostrgreSQL instance](~~474537~~)
-     *   * *   [Tasks of an ApsaraDB RDS for SQL Server instance](~~614826~~).
-     *   *
+     * @summary Queries the historical tasks that are created within 30 days.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Tasks of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/474275.html)
+     * *   [Tasks of an ApsaraDB RDS for PostrgreSQL instance](https://help.aliyun.com/document_detail/474537.html)
+     * *   [Tasks of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/614826.html)
+     *  *
      * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -11115,16 +11637,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Tasks of an ApsaraDB RDS for MySQL instance](~~474275~~)
-     *   * *   [Tasks of an ApsaraDB RDS for PostrgreSQL instance](~~474537~~)
-     *   * *   [Tasks of an ApsaraDB RDS for SQL Server instance](~~614826~~).
-     *   *
+     * @summary Queries the historical tasks that are created within 30 days.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Tasks of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/474275.html)
+     * *   [Tasks of an ApsaraDB RDS for PostrgreSQL instance](https://help.aliyun.com/document_detail/474537.html)
+     * *   [Tasks of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/614826.html)
+     *  *
      * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
      *
      * @return DescribeHistoryTasksResponse DescribeHistoryTasksResponse
@@ -11137,10 +11661,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryTasksStatRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 任务中心任务统计
+     *  *
+     * @param DescribeHistoryTasksStatRequest $request DescribeHistoryTasksStatRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHistoryTasksStatResponse
+     * @return DescribeHistoryTasksStatResponse DescribeHistoryTasksStatResponse
      */
     public function describeHistoryTasksStatWithOptions($request, $runtime)
     {
@@ -11207,9 +11733,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryTasksStatRequest $request
+     * @summary 任务中心任务统计
+     *  *
+     * @param DescribeHistoryTasksStatRequest $request DescribeHistoryTasksStatRequest
      *
-     * @return DescribeHistoryTasksStatResponse
+     * @return DescribeHistoryTasksStatResponse DescribeHistoryTasksStatResponse
      */
     public function describeHistoryTasksStat($request)
     {
@@ -11219,10 +11747,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHostGroupElasticStrategyParametersRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * @param DescribeHostGroupElasticStrategyParametersRequest $request DescribeHostGroupElasticStrategyParametersRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHostGroupElasticStrategyParametersResponse
+     * @return DescribeHostGroupElasticStrategyParametersResponse DescribeHostGroupElasticStrategyParametersResponse
      */
     public function describeHostGroupElasticStrategyParametersWithOptions($request, $runtime)
     {
@@ -11259,9 +11787,9 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHostGroupElasticStrategyParametersRequest $request
+     * @param DescribeHostGroupElasticStrategyParametersRequest $request DescribeHostGroupElasticStrategyParametersRequest
      *
-     * @return DescribeHostGroupElasticStrategyParametersResponse
+     * @return DescribeHostGroupElasticStrategyParametersResponse DescribeHostGroupElasticStrategyParametersResponse
      */
     public function describeHostGroupElasticStrategyParameters($request)
     {
@@ -11271,20 +11799,22 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   SQL Server
-     *   * ### [](#)Prerequisite
-     *   * *   The instance meets the following requirements:
-     *   *     *   The instance resides in a region other than the China (Zhangjiakou) region.
-     *   *     *   The instance runs RDS Basic Edition, RDS Cluster Edition, or RDS High-availability Edition. If your instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
-     *   *     *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
-     *   *     *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an RDS instance, see [Change the network type](~~95707~~).
-     *   *     *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, the instance is created on or after January 1, 2021. If the instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
-     *   * *   Your **Alibaba Cloud account** is used for logons.
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Create a host account and use the host account for logons](~~354862~~).
-     *   *
+     * @summary Queries the webshell URL that is used to connect to the host of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   SQL Server
+     * ### [](#)Prerequisite
+     * *   The instance meets the following requirements:
+     *     *   The instance resides in a region other than the China (Zhangjiakou) region.
+     *     *   The instance runs RDS Basic Edition, RDS Cluster Edition, or RDS High-availability Edition. If your instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
+     *     *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
+     *     *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an RDS instance, see [Change the network type](https://help.aliyun.com/document_detail/95707.html).
+     *     *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, the instance is created on or after January 1, 2021. If the instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
+     * *   Your **Alibaba Cloud account** is used for logons.
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Create a host account and use the host account for logons](https://help.aliyun.com/document_detail/354862.html)
+     *  *
      * @param DescribeHostWebShellRequest $request DescribeHostWebShellRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -11337,20 +11867,22 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   SQL Server
-     *   * ### [](#)Prerequisite
-     *   * *   The instance meets the following requirements:
-     *   *     *   The instance resides in a region other than the China (Zhangjiakou) region.
-     *   *     *   The instance runs RDS Basic Edition, RDS Cluster Edition, or RDS High-availability Edition. If your instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
-     *   *     *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
-     *   *     *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an RDS instance, see [Change the network type](~~95707~~).
-     *   *     *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, the instance is created on or after January 1, 2021. If the instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
-     *   * *   Your **Alibaba Cloud account** is used for logons.
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Create a host account and use the host account for logons](~~354862~~).
-     *   *
+     * @summary Queries the webshell URL that is used to connect to the host of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   SQL Server
+     * ### [](#)Prerequisite
+     * *   The instance meets the following requirements:
+     *     *   The instance resides in a region other than the China (Zhangjiakou) region.
+     *     *   The instance runs RDS Basic Edition, RDS Cluster Edition, or RDS High-availability Edition. If your instance runs RDS High-availability Edition, make sure that the instance runs SQL Server 2012 or later.
+     *     *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
+     *     *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an RDS instance, see [Change the network type](https://help.aliyun.com/document_detail/95707.html).
+     *     *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, the instance is created on or after January 1, 2021. If the instance runs RDS Basic Edition, the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
+     * *   Your **Alibaba Cloud account** is used for logons.
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Create a host account and use the host account for logons](https://help.aliyun.com/document_detail/354862.html)
+     *  *
      * @param DescribeHostWebShellRequest $request DescribeHostWebShellRequest
      *
      * @return DescribeHostWebShellResponse DescribeHostWebShellResponse
@@ -11363,12 +11895,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the automatic renewal status of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeInstanceAutoRenewalAttributeRequest $request DescribeInstanceAutoRenewalAttributeRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -11427,12 +11961,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the automatic renewal status of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeInstanceAutoRenewalAttributeRequest $request DescribeInstanceAutoRenewalAttributeRequest
      *
      * @return DescribeInstanceAutoRenewalAttributeResponse DescribeInstanceAutoRenewalAttributeResponse
@@ -11445,16 +11981,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
-     *   *
+     * @summary Queries the cross-region backup settings of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     *  *
      * @param DescribeInstanceCrossBackupPolicyRequest $request DescribeInstanceCrossBackupPolicyRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -11498,16 +12036,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
-     *   *
+     * @summary Queries the cross-region backup settings of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     *  *
      * @param DescribeInstanceCrossBackupPolicyRequest $request DescribeInstanceCrossBackupPolicyRequest
      *
      * @return DescribeInstanceCrossBackupPolicyResponse DescribeInstanceCrossBackupPolicyResponse
@@ -11520,12 +12060,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the reserved keywords of an instance. The reserved keywords cannot be used for the usernames of accounts or the names of databases.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeInstanceKeywordsRequest $request DescribeInstanceKeywordsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -11569,12 +12111,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the reserved keywords of an instance. The reserved keywords cannot be used for the usernames of accounts or the names of databases.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param DescribeInstanceKeywordsRequest $request DescribeInstanceKeywordsRequest
      *
      * @return DescribeInstanceKeywordsResponse DescribeInstanceKeywordsResponse
@@ -11587,11 +12131,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Queries associated whitelists by instance name.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DescribeInstanceLinkedWhitelistTemplateRequest $request DescribeInstanceLinkedWhitelistTemplateRequest
      * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
@@ -11635,11 +12181,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Queries associated whitelists by instance name.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DescribeInstanceLinkedWhitelistTemplateRequest $request DescribeInstanceLinkedWhitelistTemplateRequest
      *
      * @return DescribeInstanceLinkedWhitelistTemplateResponse DescribeInstanceLinkedWhitelistTemplateResponse
@@ -11652,11 +12200,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *
+     * @summary Checks whether the specified resource of Key Management Service (KMS) is associated with an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *  *
      * @param DescribeKmsAssociateResourcesRequest $request DescribeKmsAssociateResourcesRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -11718,11 +12268,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *
+     * @summary Checks whether the specified resource of Key Management Service (KMS) is associated with an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *  *
      * @param DescribeKmsAssociateResourcesRequest $request DescribeKmsAssociateResourcesRequest
      *
      * @return DescribeKmsAssociateResourcesResponse DescribeKmsAssociateResourcesResponse
@@ -11735,11 +12287,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the time range to which an RDS instance can be restored.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   MariaDB
+     *  *
      * @param DescribeLocalAvailableRecoveryTimeRequest $request DescribeLocalAvailableRecoveryTimeRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -11786,11 +12340,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the time range to which an RDS instance can be restored.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   MariaDB
+     *  *
      * @param DescribeLocalAvailableRecoveryTimeRequest $request DescribeLocalAvailableRecoveryTimeRequest
      *
      * @return DescribeLocalAvailableRecoveryTimeResponse DescribeLocalAvailableRecoveryTimeResponse
@@ -11803,10 +12359,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * SQL Server
-     *   * >  You can call the DescribeBinlogFiles operation to query the log files of instances that run different database engines.
-     *   *
+     * @summary Queries the log backup files of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * SQL Server
+     * >  You can call the DescribeBinlogFiles operation to query the log files of instances that run different database engines.
+     *  *
      * @param DescribeLogBackupFilesRequest $request DescribeLogBackupFilesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -11862,10 +12420,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * SQL Server
-     *   * >  You can call the DescribeBinlogFiles operation to query the log files of instances that run different database engines.
-     *   *
+     * @summary Queries the log backup files of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * SQL Server
+     * >  You can call the DescribeBinlogFiles operation to query the log files of instances that run different database engines.
+     *  *
      * @param DescribeLogBackupFilesRequest $request DescribeLogBackupFilesRequest
      *
      * @return DescribeLogBackupFilesResponse DescribeLogBackupFilesResponse
@@ -11878,10 +12438,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeMarketingActivityRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 获取RDS营销项目中待升级实例信息
+     *  *
+     * @param DescribeMarketingActivityRequest $request DescribeMarketingActivityRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMarketingActivityResponse
+     * @return DescribeMarketingActivityResponse DescribeMarketingActivityResponse
      */
     public function describeMarketingActivityWithOptions($request, $runtime)
     {
@@ -11933,9 +12495,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeMarketingActivityRequest $request
+     * @summary 获取RDS营销项目中待升级实例信息
+     *  *
+     * @param DescribeMarketingActivityRequest $request DescribeMarketingActivityRequest
      *
-     * @return DescribeMarketingActivityResponse
+     * @return DescribeMarketingActivityResponse DescribeMarketingActivityResponse
      */
     public function describeMarketingActivity($request)
     {
@@ -11945,10 +12509,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeMaskingRulesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询全密态规则
+     *  *
+     * @param DescribeMaskingRulesRequest $request DescribeMaskingRulesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMaskingRulesResponse
+     * @return DescribeMaskingRulesResponse DescribeMaskingRulesResponse
      */
     public function describeMaskingRulesWithOptions($request, $runtime)
     {
@@ -11988,9 +12554,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeMaskingRulesRequest $request
+     * @summary 查询全密态规则
+     *  *
+     * @param DescribeMaskingRulesRequest $request DescribeMaskingRulesRequest
      *
-     * @return DescribeMaskingRulesResponse
+     * @return DescribeMaskingRulesResponse DescribeMaskingRulesResponse
      */
     public function describeMaskingRules($request)
     {
@@ -12000,12 +12568,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * MySQL
-     *   * > This operation is available for RDS instances that run MySQL 8.0, MySQL 5.7, and MySQL 5.6 on RDS High-availability Edition with local disks.
-     *   * ### [](#)Description
-     *   * Before you call the [RestoreTable](~~131510~~) operation to restore individual databases or tables of an ApsaraDB RDS for MySQL instance, you can call this operation to query the information about the databases and tables that can be restored. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](~~103175~~).
-     *   *
+     * @summary Queries the information about the databases and tables that can be restored from a specified backup set.
+     *  *
+     * @description ### [](#)Supported database engines
+     * MySQL
+     * > This operation is available for RDS instances that run MySQL 8.0, MySQL 5.7, and MySQL 5.6 on RDS High-availability Edition with local disks.
+     * ### [](#)Description
+     * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to restore individual databases or tables of an ApsaraDB RDS for MySQL instance, you can call this operation to query the information about the databases and tables that can be restored. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/103175.html).
+     *  *
      * @param DescribeMetaListRequest $request DescribeMetaListRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -12073,12 +12643,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * MySQL
-     *   * > This operation is available for RDS instances that run MySQL 8.0, MySQL 5.7, and MySQL 5.6 on RDS High-availability Edition with local disks.
-     *   * ### [](#)Description
-     *   * Before you call the [RestoreTable](~~131510~~) operation to restore individual databases or tables of an ApsaraDB RDS for MySQL instance, you can call this operation to query the information about the databases and tables that can be restored. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](~~103175~~).
-     *   *
+     * @summary Queries the information about the databases and tables that can be restored from a specified backup set.
+     *  *
+     * @description ### [](#)Supported database engines
+     * MySQL
+     * > This operation is available for RDS instances that run MySQL 8.0, MySQL 5.7, and MySQL 5.6 on RDS High-availability Edition with local disks.
+     * ### [](#)Description
+     * Before you call the [RestoreTable](https://help.aliyun.com/document_detail/131510.html) operation to restore individual databases or tables of an ApsaraDB RDS for MySQL instance, you can call this operation to query the information about the databases and tables that can be restored. For more information, see [Restore individual databases and tables of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/103175.html).
+     *  *
      * @param DescribeMetaListRequest $request DescribeMetaListRequest
      *
      * @return DescribeMetaListResponse DescribeMetaListResponse
@@ -12091,9 +12663,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server.
-     *   *
+     * @summary Queries a task that is used to import the backup data of an ApsaraDB RDS for SQL Server instance to an Object Storage Service (OSS) bucket.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     *  *
      * @param DescribeMigrateTaskByIdRequest $request DescribeMigrateTaskByIdRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -12140,9 +12714,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server.
-     *   *
+     * @summary Queries a task that is used to import the backup data of an ApsaraDB RDS for SQL Server instance to an Object Storage Service (OSS) bucket.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     *  *
      * @param DescribeMigrateTaskByIdRequest $request DescribeMigrateTaskByIdRequest
      *
      * @return DescribeMigrateTaskByIdResponse DescribeMigrateTaskByIdResponse
@@ -12155,14 +12731,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   SQL Server
-     *   * ### [](#)Usage notes
-     *   * This operation allows you to query the migration tasks that are created for the instance over the last week.
-     *   * ### [](#)Precautions
-     *   * *   This operation is supported only for migration tasks that are created to migrate full backup files.
-     *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-     *   *
+     * @summary Queries the tasks that are created to migrate the backup data of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   SQL Server
+     * ### [](#)Usage notes
+     * This operation allows you to query the migration tasks that are created for the instance over the last week.
+     * ### [](#)Precautions
+     * *   This operation is supported only for migration tasks that are created to migrate full backup files.
+     * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+     *  *
      * @param DescribeMigrateTasksRequest $request DescribeMigrateTasksRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -12218,14 +12796,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   SQL Server
-     *   * ### [](#)Usage notes
-     *   * This operation allows you to query the migration tasks that are created for the instance over the last week.
-     *   * ### [](#)Precautions
-     *   * *   This operation is supported only for migration tasks that are created to migrate full backup files.
-     *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
-     *   *
+     * @summary Queries the tasks that are created to migrate the backup data of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   SQL Server
+     * ### [](#)Usage notes
+     * This operation allows you to query the migration tasks that are created for the instance over the last week.
+     * ### [](#)Precautions
+     * *   This operation is supported only for migration tasks that are created to migrate full backup files.
+     * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+     *  *
      * @param DescribeMigrateTasksRequest $request DescribeMigrateTasksRequest
      *
      * @return DescribeMigrateTasksResponse DescribeMigrateTasksResponse
@@ -12238,9 +12818,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS PostgreSQL.
-     *   *
+     * @summary Queries the details about the modifications to the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS PostgreSQL
+     *  *
      * @param DescribeModifyPGHbaConfigLogRequest $request DescribeModifyPGHbaConfigLogRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -12296,9 +12878,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS PostgreSQL.
-     *   *
+     * @summary Queries the details about the modifications to the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS PostgreSQL
+     *  *
      * @param DescribeModifyPGHbaConfigLogRequest $request DescribeModifyPGHbaConfigLogRequest
      *
      * @return DescribeModifyPGHbaConfigLogResponse DescribeModifyPGHbaConfigLogResponse
@@ -12311,12 +12895,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the parameter modification logs of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeModifyParameterLogRequest $request DescribeModifyParameterLogRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -12372,12 +12958,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the parameter modification logs of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeModifyParameterLogRequest $request DescribeModifyParameterLogRequest
      *
      * @return DescribeModifyParameterLogResponse DescribeModifyParameterLogResponse
@@ -12390,11 +12978,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server
-     *   * ### [Usage notes](#)
-     *   * This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
-     *   *
+     * @summary Queries the backup files that are included in a backup data migration task of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     * ### [Usage notes](#)
+     * This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
+     *  *
      * @param DescribeOssDownloadsRequest $request DescribeOssDownloadsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -12441,11 +13031,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server
-     *   * ### [Usage notes](#)
-     *   * This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
-     *   *
+     * @summary Queries the backup files that are included in a backup data migration task of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     * ### [Usage notes](#)
+     * This operation is not supported for instances that run SQL Server 2017 EE or SQL Server 2019 EE.
+     *  *
      * @param DescribeOssDownloadsRequest $request DescribeOssDownloadsRequest
      *
      * @return DescribeOssDownloadsResponse DescribeOssDownloadsResponse
@@ -12458,9 +13050,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS PostgreSQL.
-     *   *
+     * @summary Queries the configuration of the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS PostgreSQL
+     *  *
      * @param DescribePGHbaConfigRequest $request DescribePGHbaConfigRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -12510,9 +13104,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS PostgreSQL.
-     *   *
+     * @summary Queries the configuration of the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS PostgreSQL
+     *  *
      * @param DescribePGHbaConfigRequest $request DescribePGHbaConfigRequest
      *
      * @return DescribePGHbaConfigResponse DescribePGHbaConfigResponse
@@ -12525,14 +13121,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template for an ApsaraDB RDS for MySQL instance](~~130565~~)
-     *   * *   [Use a parameter template for an ApsaraDB RDS for PostgreSQL instance](~~457176~~).
-     *   *
+     * @summary Queries the information about a parameter template.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -12576,14 +13174,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template for an ApsaraDB RDS for MySQL instance](~~130565~~)
-     *   * *   [Use a parameter template for an ApsaraDB RDS for PostgreSQL instance](~~457176~~).
-     *   *
+     * @summary Queries the information about a parameter template.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
      *
      * @return DescribeParameterGroupResponse DescribeParameterGroupResponse
@@ -12596,14 +13196,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   *
+     * @summary Queries the parameter templates that are available in a region.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -12650,14 +13252,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   *
+     * @summary Queries the parameter templates that are available in a region.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
      *
      * @return DescribeParameterGroupsResponse DescribeParameterGroupsResponse
@@ -12670,12 +13274,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries parameter templates.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -12734,12 +13340,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries parameter templates.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      *
      * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
@@ -12752,12 +13360,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Applicable engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the parameter settings of an instance.
+     *  *
+     * @description ### Applicable engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeParametersRequest $request DescribeParametersRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -12804,12 +13414,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Applicable engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the parameter settings of an instance.
+     *  *
+     * @description ### Applicable engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeParametersRequest $request DescribeParametersRequest
      *
      * @return DescribeParametersResponse DescribeParametersResponse
@@ -12822,12 +13434,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS PostgreSQL
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Manage extensions](~~2402409~~).
-     *   *
+     * @summary Queries extensions that are installed on a database.
+     *  *
+     * @description ### Supported database engines
+     * RDS PostgreSQL
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+     *  *
      * @param DescribePostgresExtensionsRequest $request DescribePostgresExtensionsRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -12880,12 +13494,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS PostgreSQL
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Manage extensions](~~2402409~~).
-     *   *
+     * @summary Queries extensions that are installed on a database.
+     *  *
+     * @description ### Supported database engines
+     * RDS PostgreSQL
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+     *  *
      * @param DescribePostgresExtensionsRequest $request DescribePostgresExtensionsRequest
      *
      * @return DescribePostgresExtensionsResponse DescribePostgresExtensionsResponse
@@ -12898,12 +13514,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the price of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribePriceRequest $tmpReq  DescribePriceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -13006,12 +13624,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the price of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribePriceRequest $request DescribePriceRequest
      *
      * @return DescribePriceResponse DescribePriceResponse
@@ -13024,10 +13644,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeQuickSaleConfigRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询RDS快捷售卖配置
+     *  *
+     * @param DescribeQuickSaleConfigRequest $request DescribeQuickSaleConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeQuickSaleConfigResponse
+     * @return DescribeQuickSaleConfigResponse DescribeQuickSaleConfigResponse
      */
     public function describeQuickSaleConfigWithOptions($request, $runtime)
     {
@@ -13061,9 +13683,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeQuickSaleConfigRequest $request
+     * @summary 查询RDS快捷售卖配置
+     *  *
+     * @param DescribeQuickSaleConfigRequest $request DescribeQuickSaleConfigRequest
      *
-     * @return DescribeQuickSaleConfigResponse
+     * @return DescribeQuickSaleConfigResponse DescribeQuickSaleConfigResponse
      */
     public function describeQuickSaleConfig($request)
     {
@@ -13073,8 +13697,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeRdsResourceSettings is deprecated
+     *  *
+     * @summary This operation is deprecated.
+     *  *
      * Deprecated
      *
      * @param DescribeRdsResourceSettingsRequest $request DescribeRdsResourceSettingsRequest
@@ -13117,8 +13743,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI DescribeRdsResourceSettings is deprecated
+     *  *
+     * @summary This operation is deprecated.
+     *  *
      * Deprecated
      *
      * @param DescribeRdsResourceSettingsRequest $request DescribeRdsResourceSettingsRequest
@@ -13133,10 +13761,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL.
-     *   *
+     * @summary Queries the latency of data replication between a primary instance and its read-only instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     *  *
      * @param DescribeReadDBInstanceDelayRequest $request DescribeReadDBInstanceDelayRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -13189,10 +13819,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL.
-     *   *
+     * @summary Queries the latency of data replication between a primary instance and its read-only instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     *  *
      * @param DescribeReadDBInstanceDelayRequest $request DescribeReadDBInstanceDelayRequest
      *
      * @return DescribeReadDBInstanceDelayResponse DescribeReadDBInstanceDelayResponse
@@ -13205,12 +13837,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the regions.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeRegionInfosRequest $request DescribeRegionInfosRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -13254,12 +13888,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the regions.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeRegionInfosRequest $request DescribeRegionInfosRequest
      *
      * @return DescribeRegionInfosResponse DescribeRegionInfosResponse
@@ -13272,12 +13908,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the details of the regions that are available for ApsaraDB RDS.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -13312,12 +13950,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the details of the regions that are available for ApsaraDB RDS.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
      * @return DescribeRegionsResponse DescribeRegionsResponse
@@ -13330,12 +13970,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the renewal fees for a subscription instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeRenewalPriceRequest $request DescribeRenewalPriceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -13409,12 +14051,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the renewal fees for a subscription instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeRenewalPriceRequest $request DescribeRenewalPriceRequest
      *
      * @return DescribeRenewalPriceResponse DescribeRenewalPriceResponse
@@ -13427,10 +14071,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceDetailsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 概览页资源详情
+     *  *
+     * @param DescribeResourceDetailsRequest $request DescribeResourceDetailsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeResourceDetailsResponse
+     * @return DescribeResourceDetailsResponse DescribeResourceDetailsResponse
      */
     public function describeResourceDetailsWithOptions($request, $runtime)
     {
@@ -13476,9 +14122,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeResourceDetailsRequest $request
+     * @summary 概览页资源详情
+     *  *
+     * @param DescribeResourceDetailsRequest $request DescribeResourceDetailsRequest
      *
-     * @return DescribeResourceDetailsResponse
+     * @return DescribeResourceDetailsResponse DescribeResourceDetailsResponse
      */
     public function describeResourceDetails($request)
     {
@@ -13488,12 +14136,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the storage usage of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeResourceUsageRequest $request DescribeResourceUsageRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -13540,12 +14190,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the storage usage of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeResourceUsageRequest $request DescribeResourceUsageRequest
      *
      * @return DescribeResourceUsageResponse DescribeResourceUsageResponse
@@ -13558,11 +14210,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *
+     * @summary Queries the status of the SQL Explorer (SQL Audit) feature for an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *  *
      * @param DescribeSQLCollectorPolicyRequest $request DescribeSQLCollectorPolicyRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -13612,11 +14266,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *
+     * @summary Queries the status of the SQL Explorer (SQL Audit) feature for an ApsaraDB RDS instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *  *
      * @param DescribeSQLCollectorPolicyRequest $request DescribeSQLCollectorPolicyRequest
      *
      * @return DescribeSQLCollectorPolicyResponse DescribeSQLCollectorPolicyResponse
@@ -13629,11 +14285,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *
+     * @summary Queries the retention period of the log files that are generated by the SQL Explorer feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *  *
      * @param DescribeSQLCollectorRetentionRequest $request DescribeSQLCollectorRetentionRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -13683,11 +14341,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *
+     * @summary Queries the retention period of the log files that are generated by the SQL Explorer feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *  *
      * @param DescribeSQLCollectorRetentionRequest $request DescribeSQLCollectorRetentionRequest
      *
      * @return DescribeSQLCollectorRetentionResponse DescribeSQLCollectorRetentionResponse
@@ -13700,16 +14360,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *     **
-     *   *     **Note** Only SQL Server 2008 R2 is supported.
-     *   * ### [](#)Precautions
-     *   * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
-     *   * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](~~610533~~) operation with the request parameter **Form** set to **File**.
-     *   *
+     * @summary Queries the log files that are generated by the SQL Explorer (SQL Audit) feature for an instance. The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the DescribeSQLLogRecords operation with the request parameter Form set to File.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *     **
+     *     **Note** If your instance runs SQL Server, only SQL Server 2008 R2 is supported.
+     * ### [](#)Precautions
+     * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+     * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the request parameter **Form** set to **File**.
+     * *   The exported files are retained for only two days.
+     *  *
      * @param DescribeSQLLogFilesRequest $request DescribeSQLLogFilesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -13762,16 +14425,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server.
-     *   *     **
-     *   *     **Note** Only SQL Server 2008 R2 is supported.
-     *   * ### [](#)Precautions
-     *   * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
-     *   * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](~~610533~~) operation with the request parameter **Form** set to **File**.
-     *   *
+     * @summary Queries the log files that are generated by the SQL Explorer (SQL Audit) feature for an instance. The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the DescribeSQLLogRecords operation with the request parameter Form set to File.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     *     **
+     *     **Note** If your instance runs SQL Server, only SQL Server 2008 R2 is supported.
+     * ### [](#)Precautions
+     * *   The DescribeSQLLogFiles operation does not return the log files that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+     * *   The DescribeSQLLogFiles operation does not return the log files that are generated by the SQL Explorer feature and manually exported from the ApsaraDB RDS console. The DescribeSQLLogFiles operation returns the SQL Explorer log files that are generated by calling the [DescribeSQLLogRecords](https://help.aliyun.com/document_detail/610533.html) operation with the request parameter **Form** set to **File**.
+     * *   The exported files are retained for only two days.
+     *  *
      * @param DescribeSQLLogFilesRequest $request DescribeSQLLogFilesRequest
      *
      * @return DescribeSQLLogFilesResponse DescribeSQLLogFilesResponse
@@ -13784,15 +14450,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [Usage notes](#)
-     *   * *   You can call this operation up to 1,000 times per minute per account. The calls initiated by using both your Alibaba Cloud account and RAM users within your Alibaba Cloud account are counted.
-     *   * *   This operation cannot be used to query the logs that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
-     *   * *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, a maximum of 1 million log entries can be recorded in the audit file, and you cannot filter log entries by keyword.
-     *   *
+     * @summary Queries the logs that are generated by the SQL Explorer (SQL Audit) feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [Usage notes](#)
+     * *   You can call this operation up to 1,000 times per minute per account. The calls initiated by using both your Alibaba Cloud account and RAM users within your Alibaba Cloud account are counted.
+     * *   This operation cannot be used to query the logs that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+     * *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, a maximum of 1 million log entries can be recorded in the audit file, and you cannot filter log entries by keyword.
+     *  *
      * @param DescribeSQLLogRecordsRequest $request DescribeSQLLogRecordsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -13866,15 +14534,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [Usage notes](#)
-     *   * *   You can call this operation up to 1,000 times per minute per account. The calls initiated by using both your Alibaba Cloud account and RAM users within your Alibaba Cloud account are counted.
-     *   * *   This operation cannot be used to query the logs that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
-     *   * *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, a maximum of 1 million log entries can be recorded in the audit file, and you cannot filter log entries by keyword.
-     *   *
+     * @summary Queries the logs that are generated by the SQL Explorer (SQL Audit) feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [Usage notes](#)
+     * *   You can call this operation up to 1,000 times per minute per account. The calls initiated by using both your Alibaba Cloud account and RAM users within your Alibaba Cloud account are counted.
+     * *   This operation cannot be used to query the logs that are generated by SQL Explorer Trial Edition for an ApsaraDB RDS for MySQL instance.
+     * *   When you call this operation and set the **Form** parameter to **File** to generate an audit file, a maximum of 1 million log entries can be recorded in the audit file, and you cannot filter log entries by keyword.
+     *  *
      * @param DescribeSQLLogRecordsRequest $request DescribeSQLLogRecordsRequest
      *
      * @return DescribeSQLLogRecordsResponse DescribeSQLLogRecordsResponse
@@ -13887,12 +14557,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries SQL log reports.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeSQLLogReportListRequest $request DescribeSQLLogReportListRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -13948,12 +14620,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries SQL log reports.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeSQLLogReportListRequest $request DescribeSQLLogReportListRequest
      *
      * @return DescribeSQLLogReportListResponse DescribeSQLLogReportListResponse
@@ -13966,9 +14640,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   MySQL.
-     *   *
+     * @summary Queries the credential of a user who uses the Data API feature.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   MySQL
+     *  *
      * @param DescribeSecretsRequest $request DescribeSecretsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -14033,9 +14709,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   MySQL.
-     *   *
+     * @summary Queries the credential of a user who uses the Data API feature.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   MySQL
+     *  *
      * @param DescribeSecretsRequest $request DescribeSecretsRequest
      *
      * @return DescribeSecretsResponse DescribeSecretsResponse
@@ -14048,16 +14726,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](~~201042~~)
-     *   * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](~~206310~~)
-     *   * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](~~2392322~~).
-     *   *
+     * @summary Queries ECS security groups to which an instance is added.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
+     * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206310.html)
+     * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
+     *  *
      * @param DescribeSecurityGroupConfigurationRequest $request DescribeSecurityGroupConfigurationRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -14098,16 +14778,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](~~201042~~)
-     *   * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](~~206310~~)
-     *   * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](~~2392322~~).
-     *   *
+     * @summary Queries ECS security groups to which an instance is added.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
+     * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206310.html)
+     * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
+     *  *
      * @param DescribeSecurityGroupConfigurationRequest $request DescribeSecurityGroupConfigurationRequest
      *
      * @return DescribeSecurityGroupConfigurationResponse DescribeSecurityGroupConfigurationResponse
@@ -14120,9 +14802,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL.
-     *   *
+     * @summary Queries all replication slots of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     *  *
      * @param DescribeSlotsRequest $request DescribeSlotsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -14172,9 +14856,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL.
-     *   *
+     * @summary Queries all replication slots of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     *  *
      * @param DescribeSlotsRequest $request DescribeSlotsRequest
      *
      * @return DescribeSlotsResponse DescribeSlotsResponse
@@ -14187,14 +14873,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### Precautions
-     *   * The response parameters returned by this operation are updated every minute.
-     *   *
+     * @summary Queries the slow log details of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### Precautions
+     * The response parameters returned by this operation are updated every minute.
+     *  *
      * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -14259,14 +14947,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### Precautions
-     *   * The response parameters returned by this operation are updated every minute.
-     *   *
+     * @summary Queries the slow log details of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### Precautions
+     * The response parameters returned by this operation are updated every minute.
+     *  *
      * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
      * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
@@ -14279,18 +14969,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL.
-     *   *     **
-     *   *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
-     *   * *   SQL Server
-     *   *     **
-     *   *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
-     *   * *   MariaDB
-     *   * ### [](#)Precautions
-     *   * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
-     *   * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
-     *   *
+     * @summary Queries the statistics on slow query logs.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     *     **
+     *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
+     * *   SQL Server
+     *     **
+     *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
+     * *   MariaDB
+     * ### [](#)Precautions
+     * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
+     * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
+     *  *
      * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -14352,18 +15044,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL.
-     *   *     **
-     *   *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
-     *   * *   SQL Server
-     *   *     **
-     *   *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
-     *   * *   MariaDB
-     *   * ### [](#)Precautions
-     *   * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
-     *   * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
-     *   *
+     * @summary Queries the statistics on slow query logs.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     *     **
+     *     **Note** This operation is not supported for RDS instances that run MySQL 5.7 on RDS Basic Edition.
+     * *   SQL Server
+     *     **
+     *     **Note** This operation is supported only for RDS instances that run SQL Server 2008 R2.
+     * *   MariaDB
+     * ### [](#)Precautions
+     * *   Slow query logs are not collected in real time and may show a latency of 6 to 8 hours.
+     * *   If the return result is empty, check whether the StartTime and EndTime parameters meet the UTC format. If the parameters meet the UTC format, no slow logs are generated within the specified time range.
+     *  *
      * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
      *
      * @return DescribeSlowLogsResponse DescribeSlowLogsResponse
@@ -14376,9 +15070,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * SQL Server.
-     *   *
+     * @summary Checks whether the disk of an ApsaraDB RDS for SQL Server instance can be resized online.
+     *  *
+     * @description ### Supported database engine
+     * SQL Server
+     *  *
      * @param DescribeSupportOnlineResizeDiskRequest $request DescribeSupportOnlineResizeDiskRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -14413,9 +15109,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * SQL Server.
-     *   *
+     * @summary Checks whether the disk of an ApsaraDB RDS for SQL Server instance can be resized online.
+     *  *
+     * @description ### Supported database engine
+     * SQL Server
+     *  *
      * @param DescribeSupportOnlineResizeDiskRequest $request DescribeSupportOnlineResizeDiskRequest
      *
      * @return DescribeSupportOnlineResizeDiskResponse DescribeSupportOnlineResizeDiskResponse
@@ -14428,15 +15126,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [Usage notes](#)
-     *   * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
-     *   * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
-     *   *
+     * @summary Queries tags of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [Usage notes](#)
+     * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
+     * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
+     *  *
      * @param DescribeTagsRequest $request DescribeTagsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -14495,15 +15195,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [Usage notes](#)
-     *   * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
-     *   * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
-     *   *
+     * @summary Queries tags of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [Usage notes](#)
+     * *   If an instance ID is specified, all tags that are added to this instance are queried, and other filter conditions are invalid.
+     * *   If you specify only TagKey, the results that match the specified TagKey are returned. If you specify both TagKey and TagValue, the results that match both the specified TagKey and TagValue are returned.
+     *  *
      * @param DescribeTagsRequest $request DescribeTagsRequest
      *
      * @return DescribeTagsResponse DescribeTagsResponse
@@ -14516,8 +15218,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary You can call the DescribeTasks operation to query the tasks that are running on an instance.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param DescribeTasksRequest $request DescribeTasksRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -14579,8 +15283,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary You can call the DescribeTasks operation to query the tasks that are running on an instance.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param DescribeTasksRequest $request DescribeTasksRequest
      *
      * @return DescribeTasksResponse DescribeTasksResponse
@@ -14593,13 +15299,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~)
-     *   * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](~~218391~~).
-     *   *
+     * @summary Queries the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+     * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/218391.html)
+     *  *
      * @param DescribeUpgradeMajorVersionPrecheckTaskRequest $request DescribeUpgradeMajorVersionPrecheckTaskRequest
      * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
@@ -14655,13 +15363,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~)
-     *   * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](~~218391~~).
-     *   *
+     * @summary Queries the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+     * *   [Introduction to the check report of a major engine version upgrade for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/218391.html)
+     *  *
      * @param DescribeUpgradeMajorVersionPrecheckTaskRequest $request DescribeUpgradeMajorVersionPrecheckTaskRequest
      *
      * @return DescribeUpgradeMajorVersionPrecheckTaskResponse DescribeUpgradeMajorVersionPrecheckTaskResponse
@@ -14674,9 +15384,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * PostgreSQL.
-     *   *
+     * @summary Queries the historical tasks for major engine version upgrades of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * PostgreSQL
+     *  *
      * @param DescribeUpgradeMajorVersionTasksRequest $request DescribeUpgradeMajorVersionTasksRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -14732,9 +15444,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * PostgreSQL.
-     *   *
+     * @summary Queries the historical tasks for major engine version upgrades of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * PostgreSQL
+     *  *
      * @param DescribeUpgradeMajorVersionTasksRequest $request DescribeUpgradeMajorVersionTasksRequest
      *
      * @return DescribeUpgradeMajorVersionTasksResponse DescribeUpgradeMajorVersionTasksResponse
@@ -14747,12 +15461,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the details of vSwitches that are available in a virtual private cloud (VPC).
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -14817,12 +15533,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the details of vSwitches that are available in a virtual private cloud (VPC).
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param DescribeVSwitchesRequest $request DescribeVSwitchesRequest
      *
      * @return DescribeVSwitchesResponse DescribeVSwitchesResponse
@@ -14835,11 +15553,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Queries information about the specified IP whitelist.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DescribeWhitelistTemplateRequest $request DescribeWhitelistTemplateRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -14883,11 +15603,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Queries information about the specified IP whitelist.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DescribeWhitelistTemplateRequest $request DescribeWhitelistTemplateRequest
      *
      * @return DescribeWhitelistTemplateResponse DescribeWhitelistTemplateResponse
@@ -14900,11 +15622,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Queries associated instances by whitelist template.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DescribeWhitelistTemplateLinkedInstanceRequest $request DescribeWhitelistTemplateLinkedInstanceRequest
      * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
@@ -14950,11 +15674,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Queries associated instances by whitelist template.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DescribeWhitelistTemplateLinkedInstanceRequest $request DescribeWhitelistTemplateLinkedInstanceRequest
      *
      * @return DescribeWhitelistTemplateLinkedInstanceResponse DescribeWhitelistTemplateLinkedInstanceResponse
@@ -14967,8 +15693,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * The DestroyDBInstance operation is phased out.
-     *   *
+     * @summary You can call the DestroyDBInstance operation to destroy an instance. The instance is in the Locked state.
+     *  *
+     * @description The DestroyDBInstance operation is phased out.
+     *  *
      * @param DestroyDBInstanceRequest $request DestroyDBInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -15015,8 +15743,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * The DestroyDBInstance operation is phased out.
-     *   *
+     * @summary You can call the DestroyDBInstance operation to destroy an instance. The instance is in the Locked state.
+     *  *
+     * @description The DestroyDBInstance operation is phased out.
+     *  *
      * @param DestroyDBInstanceRequest $request DestroyDBInstanceRequest
      *
      * @return DestroyDBInstanceResponse DestroyDBInstanceResponse
@@ -15029,11 +15759,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [Usage notes](#)
-     *   * This operation can be used to remove only unit nodes.
-     *   *
+     * @summary Removes a unit node from a global active database cluster.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [Usage notes](#)
+     * This operation can be used to remove only unit nodes.
+     *  *
      * @param DetachGadInstanceMemberRequest $request DetachGadInstanceMemberRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -15074,11 +15806,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [Usage notes](#)
-     *   * This operation can be used to remove only unit nodes.
-     *   *
+     * @summary Removes a unit node from a global active database cluster.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [Usage notes](#)
+     * This operation can be used to remove only unit nodes.
+     *  *
      * @param DetachGadInstanceMemberRequest $request DetachGadInstanceMemberRequest
      *
      * @return DetachGadInstanceMemberResponse DetachGadInstanceMemberResponse
@@ -15091,11 +15825,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Disassociates a whitelist template from an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DetachWhitelistTemplateToInstanceRequest $request DetachWhitelistTemplateToInstanceRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -15142,11 +15878,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Disassociates a whitelist template from an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param DetachWhitelistTemplateToInstanceRequest $request DetachWhitelistTemplateToInstanceRequest
      *
      * @return DetachWhitelistTemplateToInstanceResponse DetachWhitelistTemplateToInstanceResponse
@@ -15159,10 +15897,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param EvaluateLocalExtendDiskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 评估紧急本地扩容磁盘解锁可使用的磁盘空间
+     *  *
+     * @param EvaluateLocalExtendDiskRequest $request EvaluateLocalExtendDiskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return EvaluateLocalExtendDiskResponse
+     * @return EvaluateLocalExtendDiskResponse EvaluateLocalExtendDiskResponse
      */
     public function evaluateLocalExtendDiskWithOptions($request, $runtime)
     {
@@ -15208,9 +15948,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param EvaluateLocalExtendDiskRequest $request
+     * @summary 评估紧急本地扩容磁盘解锁可使用的磁盘空间
+     *  *
+     * @param EvaluateLocalExtendDiskRequest $request EvaluateLocalExtendDiskRequest
      *
-     * @return EvaluateLocalExtendDiskResponse
+     * @return EvaluateLocalExtendDiskResponse EvaluateLocalExtendDiskResponse
      */
     public function evaluateLocalExtendDisk($request)
     {
@@ -15220,12 +15962,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the topology of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param GetDBInstanceTopologyRequest $request GetDBInstanceTopologyRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -15263,12 +16007,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Queries the topology of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param GetDBInstanceTopologyRequest $request GetDBInstanceTopologyRequest
      *
      * @return GetDBInstanceTopologyResponse GetDBInstanceTopologyResponse
@@ -15281,9 +16027,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL.
-     *   *
+     * @summary Queries the SSL encryption settings for a dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS MySQL
+     *  *
      * @param GetDbProxyInstanceSslRequest $request GetDbProxyInstanceSslRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -15324,9 +16072,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL.
-     *   *
+     * @summary Queries the SSL encryption settings for a dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS MySQL
+     *  *
      * @param GetDbProxyInstanceSslRequest $request GetDbProxyInstanceSslRequest
      *
      * @return GetDbProxyInstanceSslResponse GetDbProxyInstanceSslResponse
@@ -15339,9 +16089,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Each account can be granted permissions on one or more databases. Before you call this operation, make sure that the instance is in the Running state.
-     *   * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL with local disks.
-     *   *
+     * @summary Grants an account the permissions on a database of an instance.
+     *  *
+     * @description Each account can be granted permissions on one or more databases. Before you call this operation, make sure that the instance is in the Running state.
+     * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL with local disks.
+     *  *
      * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -15385,9 +16137,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Each account can be granted permissions on one or more databases. Before you call this operation, make sure that the instance is in the Running state.
-     *   * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL with local disks.
-     *   *
+     * @summary Grants an account the permissions on a database of an instance.
+     *  *
+     * @description Each account can be granted permissions on one or more databases. Before you call this operation, make sure that the instance is in the Running state.
+     * > This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition or run PostgreSQL with local disks.
+     *  *
      * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      *
      * @return GrantAccountPrivilegeResponse GrantAccountPrivilegeResponse
@@ -15400,14 +16154,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](~~96102~~)
-     *   * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](~~95693~~).
-     *   *
+     * @summary Grant permissions to a service account.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96102.html)
+     * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95693.html)
+     *  *
      * @param GrantOperatorPermissionRequest $request GrantOperatorPermissionRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -15457,14 +16213,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](~~96102~~)
-     *   * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](~~95693~~).
-     *   *
+     * @summary Grant permissions to a service account.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96102.html)
+     * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95693.html)
+     *  *
      * @param GrantOperatorPermissionRequest $request GrantOperatorPermissionRequest
      *
      * @return GrantOperatorPermissionResponse GrantOperatorPermissionResponse
@@ -15477,16 +16235,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [](#)Description
-     *   * A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance.
-     *   * ### [](#)Usage notes
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The self-managed MySQL instance runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * *   The full backup file of the self-managed MySQL instance is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * >  This operation is supported only for MySQL 5.7.
-     *   *
+     * @summary Imports the backup data of a self-managed instance that runs MySQL 5.7 to an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [](#)Description
+     * A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance.
+     * ### [](#)Usage notes
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The self-managed MySQL instance runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+     * *   The full backup file of the self-managed MySQL instance is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+     * >  This operation is supported only for MySQL 5.7.
+     *  *
      * @param ImportUserBackupFileRequest $request ImportUserBackupFileRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -15551,16 +16311,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [](#)Description
-     *   * A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance.
-     *   * ### [](#)Usage notes
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The self-managed MySQL instance runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * *   The full backup file of the self-managed MySQL instance is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * >  This operation is supported only for MySQL 5.7.
-     *   *
+     * @summary Imports the backup data of a self-managed instance that runs MySQL 5.7 to an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [](#)Description
+     * A full backup file contains the data of a self-managed MySQL instance. You can restore the data of a self-managed MySQL instance from a full backup file to an ApsaraDB RDS for MySQL instance.
+     * ### [](#)Usage notes
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The self-managed MySQL instance runs MySQL 5.7 and is backed up by using XtraBackup. The name of the backup file ends with `_qp.xb`. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+     * *   The full backup file of the self-managed MySQL instance is uploaded to an Object Storage Service (OSS) bucket in the region of the ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+     * >  This operation is supported only for MySQL 5.7.
+     *  *
      * @param ImportUserBackupFileRequest $request ImportUserBackupFileRequest
      *
      * @return ImportUserBackupFileResponse ImportUserBackupFileResponse
@@ -15573,12 +16335,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the specification details of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param ListClassesRequest $request ListClassesRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -15631,12 +16395,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the specification details of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param ListClassesRequest $request ListClassesRequest
      *
      * @return ListClassesResponse ListClassesResponse
@@ -15649,12 +16415,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the tags that are added to one or more instances.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -15707,12 +16475,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB.
-     *   *
+     * @summary Queries the tags that are added to one or more instances.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
      * @return ListTagResourcesResponse ListTagResourcesResponse
@@ -15725,13 +16495,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [](#)Feature description
-     *   * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * *   Before you call the [CreateDBInstance](~~26228~~) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
-     *   * *   You can call the [ImportUserBackupFile](~~260266~~) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
-     *   *
+     * @summary Queries the details about the full backup files that are imported into an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [](#)Feature description
+     * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+     * *   Before you call the [CreateDBInstance](https://help.aliyun.com/document_detail/26228.html) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
+     * *   You can call the [ImportUserBackupFile](https://help.aliyun.com/document_detail/260266.html) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
+     *  *
      * @param ListUserBackupFilesRequest $request ListUserBackupFilesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -15790,13 +16562,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [](#)Feature description
-     *   * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](~~251779~~).
-     *   * *   Before you call the [CreateDBInstance](~~26228~~) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
-     *   * *   You can call the [ImportUserBackupFile](~~260266~~) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
-     *   *
+     * @summary Queries the details about the full backup files that are imported into an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [](#)Feature description
+     * *   A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 instance to the cloud](https://help.aliyun.com/document_detail/251779.html).
+     * *   Before you call the [CreateDBInstance](https://help.aliyun.com/document_detail/26228.html) operation to create an ApsaraDB RDS for MySQL instance into which you want to import full backup files, you can call this operation to query the IDs of full backup files.
+     * *   You can call the [ImportUserBackupFile](https://help.aliyun.com/document_detail/260266.html) operation to import a full backup file into an ApsaraDB RDS for MySQL instance.
+     *  *
      * @param ListUserBackupFilesRequest $request ListUserBackupFilesRequest
      *
      * @return ListUserBackupFilesResponse ListUserBackupFilesResponse
@@ -15809,12 +16583,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](~~147649~~).
-     *   *
+     * @summary Locks an account of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+     *  *
      * @param LockAccountRequest $request LockAccountRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -15858,12 +16634,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](~~147649~~).
-     *   *
+     * @summary Locks an account of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+     *  *
      * @param LockAccountRequest $request LockAccountRequest
      *
      * @return LockAccountResponse LockAccountResponse
@@ -15876,16 +16654,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](~~96746~~)
-     *   * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](~~96746~~)
-     *   * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](~~95658~~).
-     *   *
+     * @summary Migrates an instance to a different zone.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+     * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+     * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](https://help.aliyun.com/document_detail/95658.html)
+     *  *
      * @param MigrateConnectionToOtherZoneRequest $request MigrateConnectionToOtherZoneRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -15929,16 +16709,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](~~96746~~)
-     *   * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](~~96746~~)
-     *   * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](~~95658~~).
-     *   *
+     * @summary Migrates an instance to a different zone.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+     * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+     * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](https://help.aliyun.com/document_detail/95658.html)
+     *  *
      * @param MigrateConnectionToOtherZoneRequest $request MigrateConnectionToOtherZoneRequest
      *
      * @return MigrateConnectionToOtherZoneResponse MigrateConnectionToOtherZoneResponse
@@ -15951,8 +16733,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~).
-     *   *
+     * @summary Migrates an instance across hosts in a dedicated cluster.
+     *  *
+     * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+     *  *
      * @param MigrateDBInstanceRequest $request MigrateDBInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -16017,8 +16801,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~).
-     *   *
+     * @summary Migrates an instance across hosts in a dedicated cluster.
+     *  *
+     * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+     *  *
      * @param MigrateDBInstanceRequest $request MigrateDBInstanceRequest
      *
      * @return MigrateDBInstanceResponse MigrateDBInstanceResponse
@@ -16031,14 +16817,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Change the whitelist mode of an ApsaraDB RDS for MySQL instance to the enhanced whitelist mode](~~96117~~)
-     *   * *   [Change the whitelist mode of an ApsaraDB RDS for PostgreSQL instance to the enhanced whitelist mode](~~96767~~).
-     *   *
+     * @summary Changes the whitelist mode of an instance from the standard whitelist mode to the enhanced whitelist mode.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Change the whitelist mode of an ApsaraDB RDS for MySQL instance to the enhanced whitelist mode](https://help.aliyun.com/document_detail/96117.html)
+     * *   [Change the whitelist mode of an ApsaraDB RDS for PostgreSQL instance to the enhanced whitelist mode](https://help.aliyun.com/document_detail/96767.html)
+     *  *
      * @param MigrateSecurityIPModeRequest $request MigrateSecurityIPModeRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -16079,14 +16867,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Change the whitelist mode of an ApsaraDB RDS for MySQL instance to the enhanced whitelist mode](~~96117~~)
-     *   * *   [Change the whitelist mode of an ApsaraDB RDS for PostgreSQL instance to the enhanced whitelist mode](~~96767~~).
-     *   *
+     * @summary Changes the whitelist mode of an instance from the standard whitelist mode to the enhanced whitelist mode.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Change the whitelist mode of an ApsaraDB RDS for MySQL instance to the enhanced whitelist mode](https://help.aliyun.com/document_detail/96117.html)
+     * *   [Change the whitelist mode of an ApsaraDB RDS for PostgreSQL instance to the enhanced whitelist mode](https://help.aliyun.com/document_detail/96767.html)
+     *  *
      * @param MigrateSecurityIPModeRequest $request MigrateSecurityIPModeRequest
      *
      * @return MigrateSecurityIPModeResponse MigrateSecurityIPModeResponse
@@ -16099,16 +16889,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](~~96053~~)
-     *   * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](~~96746~~)
-     *   * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](~~95658~~).
-     *   *
+     * @summary Migrates an instance across zones in the same region.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](https://help.aliyun.com/document_detail/96053.html)
+     * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+     * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](https://help.aliyun.com/document_detail/95658.html)
+     *  *
      * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -16188,16 +16980,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](~~96053~~)
-     *   * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](~~96746~~)
-     *   * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](~~95658~~).
-     *   *
+     * @summary Migrates an instance across zones in the same region.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Migrate an ApsaraDB RDS for MySQL instance across zones in the same region](https://help.aliyun.com/document_detail/96053.html)
+     * *   [Migrate an ApsaraDB RDS for PostgreSQL instance across zones in the same region](https://help.aliyun.com/document_detail/96746.html)
+     * *   [Migrate an ApsaraDB RDS for SQL Server instance across zones in the same region](https://help.aliyun.com/document_detail/95658.html)
+     *  *
      * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
      *
      * @return MigrateToOtherZoneResponse MigrateToOtherZoneResponse
@@ -16210,12 +17004,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Connect an RDS instance to a self-managed domain](~~170734~~).
-     *   *
+     * @summary Modifies the AD domain information about an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Connect an RDS instance to a self-managed domain](https://help.aliyun.com/document_detail/170734.html)
+     *  *
      * @param ModifyADInfoRequest $request ModifyADInfoRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -16274,12 +17070,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Connect an RDS instance to a self-managed domain](~~170734~~).
-     *   *
+     * @summary Modifies the AD domain information about an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Connect an RDS instance to a self-managed domain](https://help.aliyun.com/document_detail/170734.html)
+     *  *
      * @param ModifyADInfoRequest $request ModifyADInfoRequest
      *
      * @return ModifyADInfoResponse ModifyADInfoResponse
@@ -16292,12 +17090,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Modifies the description of a database account.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -16347,12 +17147,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Modifies the description of a database account.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
      * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
@@ -16365,10 +17167,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountMaskingPrivilegeRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 修改全密态用户权限
+     *  *
+     * @param ModifyAccountMaskingPrivilegeRequest $request ModifyAccountMaskingPrivilegeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountMaskingPrivilegeResponse
+     * @return ModifyAccountMaskingPrivilegeResponse ModifyAccountMaskingPrivilegeResponse
      */
     public function modifyAccountMaskingPrivilegeWithOptions($request, $runtime)
     {
@@ -16414,9 +17218,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountMaskingPrivilegeRequest $request
+     * @summary 修改全密态用户权限
+     *  *
+     * @param ModifyAccountMaskingPrivilegeRequest $request ModifyAccountMaskingPrivilegeRequest
      *
-     * @return ModifyAccountMaskingPrivilegeResponse
+     * @return ModifyAccountMaskingPrivilegeResponse ModifyAccountMaskingPrivilegeResponse
      */
     public function modifyAccountMaskingPrivilege($request)
     {
@@ -16426,18 +17232,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [View the event history of an ApsaraDB RDS for MySQL instance](~~129759~~)
-     *   * *   [View the event history of an ApsaraDB RDS for PostgreSQL instance](~~131008~~)
-     *   * *   [View the event history of an ApsaraDB RDS for SQL Server instance](~~131013~~)
-     *   * *   [View the event history of an ApsaraDB RDS for MariaDB instance](~~131010~~).
-     *   *
+     * @summary Enables or disables the event history feature of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [View the event history of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/129759.html)
+     * *   [View the event history of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/131008.html)
+     * *   [View the event history of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/131013.html)
+     * *   [View the event history of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/131010.html)
+     *  *
      * @param ModifyActionEventPolicyRequest $request ModifyActionEventPolicyRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -16481,18 +17289,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [View the event history of an ApsaraDB RDS for MySQL instance](~~129759~~)
-     *   * *   [View the event history of an ApsaraDB RDS for PostgreSQL instance](~~131008~~)
-     *   * *   [View the event history of an ApsaraDB RDS for SQL Server instance](~~131013~~)
-     *   * *   [View the event history of an ApsaraDB RDS for MariaDB instance](~~131010~~).
-     *   *
+     * @summary Enables or disables the event history feature of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [View the event history of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/129759.html)
+     * *   [View the event history of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/131008.html)
+     * *   [View the event history of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/131013.html)
+     * *   [View the event history of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/131010.html)
+     *  *
      * @param ModifyActionEventPolicyRequest $request ModifyActionEventPolicyRequest
      *
      * @return ModifyActionEventPolicyResponse ModifyActionEventPolicyResponse
@@ -16505,18 +17315,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Scheduled events for ApsaraDB RDS for MySQL instances](~~104183~~)
-     *   * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](~~104452~~)
-     *   * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](~~104451~~)
-     *   * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](~~104454~~).
-     *   *
+     * @summary Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Scheduled events for ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/104183.html)
+     * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/104452.html)
+     * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/104451.html)
+     * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](https://help.aliyun.com/document_detail/104454.html)
+     *  *
      * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -16569,18 +17381,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Scheduled events for ApsaraDB RDS for MySQL instances](~~104183~~)
-     *   * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](~~104452~~)
-     *   * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](~~104451~~)
-     *   * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](~~104454~~).
-     *   *
+     * @summary Changes the switching time of scheduled O\\\\\\&M tasks for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Scheduled events for ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/104183.html)
+     * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/104452.html)
+     * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/104451.html)
+     * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](https://help.aliyun.com/document_detail/104454.html)
+     *  *
      * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      *
      * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
@@ -16593,18 +17407,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](~~98818~~)
-     *   * *   [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](~~96772~~)
-     *   * *   [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](~~95717~~)
-     *   * *   [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](~~97147~~).
-     *   *
+     * @summary Modifies the backup policy settings of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
+     * *   [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+     * *   [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+     * *   [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+     *  *
      * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -16714,18 +17530,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](~~98818~~)
-     *   * *   [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](~~96772~~)
-     *   * *   [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](~~95717~~)
-     *   * *   [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](~~97147~~).
-     *   *
+     * @summary Modifies the backup policy settings of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
+     * *   [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+     * *   [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+     * *   [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+     *  *
      * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
      * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
@@ -16738,12 +17556,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS SQL Server
-     *   * ### [](#)References
-     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Change the character set collation and the time zone of system databases](~~95700~~).
-     *   *
+     * @summary Modifies the character set collation and time zone of system databases on an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS SQL Server
+     * ### [](#)References
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Change the character set collation and the time zone of system databases](https://help.aliyun.com/document_detail/95700.html)
+     *  *
      * @param ModifyCollationTimeZoneRequest $request ModifyCollationTimeZoneRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -16790,12 +17610,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS SQL Server
-     *   * ### [](#)References
-     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Change the character set collation and the time zone of system databases](~~95700~~).
-     *   *
+     * @summary Modifies the character set collation and time zone of system databases on an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS SQL Server
+     * ### [](#)References
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Change the character set collation and the time zone of system databases](https://help.aliyun.com/document_detail/95700.html)
+     *  *
      * @param ModifyCollationTimeZoneRequest $request ModifyCollationTimeZoneRequest
      *
      * @return ModifyCollationTimeZoneResponse ModifyCollationTimeZoneResponse
@@ -16808,10 +17630,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyCustinsResourceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 修改实例资源
+     *  *
+     * @param ModifyCustinsResourceRequest $request ModifyCustinsResourceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCustinsResourceResponse
+     * @return ModifyCustinsResourceResponse ModifyCustinsResourceResponse
      */
     public function modifyCustinsResourceWithOptions($request, $runtime)
     {
@@ -16857,9 +17681,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyCustinsResourceRequest $request
+     * @summary 修改实例资源
+     *  *
+     * @param ModifyCustinsResourceRequest $request ModifyCustinsResourceRequest
      *
-     * @return ModifyCustinsResourceResponse
+     * @return ModifyCustinsResourceResponse ModifyCustinsResourceResponse
      */
     public function modifyCustinsResource($request)
     {
@@ -16869,12 +17695,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Modifies the description of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param ModifyDBDescriptionRequest $request ModifyDBDescriptionRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -16924,12 +17752,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB.
-     *   *
+     * @summary Modifies the description of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     *  *
      * @param ModifyDBDescriptionRequest $request ModifyDBDescriptionRequest
      *
      * @return ModifyDBDescriptionResponse ModifyDBDescriptionResponse
@@ -16942,14 +17772,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Modify automatic update settings for an ApsaraDB RDS for MySQL instance](~~96059~~)
-     *   * *   [Modify automatic update settings for an ApsaraDB RDS for PostgreSQL instance](~~146895~~).
-     *   *
+     * @summary Changes the method that is used to update the minor engine version of an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Modify automatic update settings for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
+     * *   [Modify automatic update settings for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+     *  *
      * @param ModifyDBInstanceAutoUpgradeMinorVersionRequest $request ModifyDBInstanceAutoUpgradeMinorVersionRequest
      * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
@@ -16996,14 +17828,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Modify automatic update settings for an ApsaraDB RDS for MySQL instance](~~96059~~)
-     *   * *   [Modify automatic update settings for an ApsaraDB RDS for PostgreSQL instance](~~146895~~).
-     *   *
+     * @summary Changes the method that is used to update the minor engine version of an ApsaraDB RDS for MySQL instance or an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Modify automatic update settings for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
+     * *   [Modify automatic update settings for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+     *  *
      * @param ModifyDBInstanceAutoUpgradeMinorVersionRequest $request ModifyDBInstanceAutoUpgradeMinorVersionRequest
      *
      * @return ModifyDBInstanceAutoUpgradeMinorVersionResponse ModifyDBInstanceAutoUpgradeMinorVersionResponse
@@ -17016,10 +17850,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * >  The configuration item that is supported is [PgBouncer](~~2398301~~) of ApsaraDB RDS for PostgreSQL instances.
-     *   *
+     * @summary Modifies the configuration item of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * *   SQL Server
+     * >  The configuration items that are supported are pgbouncer and clear_errorlog. For more information, see [PgBouncer of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/2398301.html) and [Error log cleanup of ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95645.html).
+     *  *
      * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -17075,10 +17912,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * >  The configuration item that is supported is [PgBouncer](~~2398301~~) of ApsaraDB RDS for PostgreSQL instances.
-     *   *
+     * @summary Modifies the configuration item of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * *   SQL Server
+     * >  The configuration items that are supported are pgbouncer and clear_errorlog. For more information, see [PgBouncer of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/2398301.html) and [Error log cleanup of ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95645.html).
+     *  *
      * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
      *
      * @return ModifyDBInstanceConfigResponse ModifyDBInstanceConfigResponse
@@ -17091,8 +17931,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > The API has been taken offline.
-     *   *
+     * @summary 修改实例访问模式
+     *  *
+     * @description > The API has been taken offline
+     *  *
      * @param ModifyDBInstanceConnectionModeRequest $request ModifyDBInstanceConnectionModeRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -17139,8 +17981,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > The API has been taken offline.
-     *   *
+     * @summary 修改实例访问模式
+     *  *
+     * @description > The API has been taken offline
+     *  *
      * @param ModifyDBInstanceConnectionModeRequest $request ModifyDBInstanceConnectionModeRequest
      *
      * @return ModifyDBInstanceConnectionModeResponse ModifyDBInstanceConnectionModeResponse
@@ -17153,18 +17997,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-     *   * *   [Change the endpoint and port number of an ApsaraDB RDS for MySQL instance](~~96163~~)
-     *   * *   [Change the endpoint and port number of an ApsaraDB RDS for PostgreSQL instance](~~96788~~)
-     *   * *   [Change the endpoint and port number of an ApsaraDB RDS for SQL Server instance](~~95740~~)
-     *   * *   [Change the endpoint and port number of an ApsaraDB RDS for MariaDB instance](~~97157~~).
-     *   *
+     * @summary Modifies the endpoint and port of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+     * *   [Change the endpoint and port number of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96163.html)
+     * *   [Change the endpoint and port number of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96788.html)
+     * *   [Change the endpoint and port number of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95740.html)
+     * *   [Change the endpoint and port number of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97157.html)
+     *  *
      * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -17226,18 +18072,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-     *   * *   [Change the endpoint and port number of an ApsaraDB RDS for MySQL instance](~~96163~~)
-     *   * *   [Change the endpoint and port number of an ApsaraDB RDS for PostgreSQL instance](~~96788~~)
-     *   * *   [Change the endpoint and port number of an ApsaraDB RDS for SQL Server instance](~~95740~~)
-     *   * *   [Change the endpoint and port number of an ApsaraDB RDS for MariaDB instance](~~97157~~).
-     *   *
+     * @summary Modifies the endpoint and port of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+     * *   [Change the endpoint and port number of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96163.html)
+     * *   [Change the endpoint and port number of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96788.html)
+     * *   [Change the endpoint and port number of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95740.html)
+     * *   [Change the endpoint and port number of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97157.html)
+     *  *
      * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      *
      * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
@@ -17250,12 +18098,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure a data replication latency for a read-only ApsaraDB RDS for MySQL instance](~~96056~~).
-     *   *
+     * @summary Configures the replication latency for a read-only ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure a data replication latency for a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96056.html)
+     *  *
      * @param ModifyDBInstanceDelayedReplicationTimeRequest $request ModifyDBInstanceDelayedReplicationTimeRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
@@ -17299,12 +18149,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure a data replication latency for a read-only ApsaraDB RDS for MySQL instance](~~96056~~).
-     *   *
+     * @summary Configures the replication latency for a read-only ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure a data replication latency for a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96056.html)
+     *  *
      * @param ModifyDBInstanceDelayedReplicationTimeRequest $request ModifyDBInstanceDelayedReplicationTimeRequest
      *
      * @return ModifyDBInstanceDelayedReplicationTimeResponse ModifyDBInstanceDelayedReplicationTimeResponse
@@ -17317,18 +18169,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Enable and disable instance release protection for an ApsaraDB RDS for MySQL instance](~~414512~~)
-     *   * *   [Enable and disable instance release protection for an ApsaraDB RDS for PostgreSQL instance](~~471512~~)
-     *   * *   [Enable and disable instance release protection for an ApsaraDB RDS for SQL Server instance](~~416209~~)
-     *   * *   [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](~~414512~~).
-     *   *
+     * @summary Enable or disable the release protection feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Enable and disable instance release protection for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/414512.html)
+     * *   [Enable and disable instance release protection for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/471512.html)
+     * *   [Enable and disable instance release protection for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/416209.html)
+     * *   [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/414512.html)
+     *  *
      * @param ModifyDBInstanceDeletionProtectionRequest $request ModifyDBInstanceDeletionProtectionRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -17378,18 +18232,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Enable and disable instance release protection for an ApsaraDB RDS for MySQL instance](~~414512~~)
-     *   * *   [Enable and disable instance release protection for an ApsaraDB RDS for PostgreSQL instance](~~471512~~)
-     *   * *   [Enable and disable instance release protection for an ApsaraDB RDS for SQL Server instance](~~416209~~)
-     *   * *   [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](~~414512~~).
-     *   *
+     * @summary Enable or disable the release protection feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Enable and disable instance release protection for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/414512.html)
+     * *   [Enable and disable instance release protection for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/471512.html)
+     * *   [Enable and disable instance release protection for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/416209.html)
+     * *   [Enable and disable release protection for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/414512.html)
+     *  *
      * @param ModifyDBInstanceDeletionProtectionRequest $request ModifyDBInstanceDeletionProtectionRequest
      *
      * @return ModifyDBInstanceDeletionProtectionResponse ModifyDBInstanceDeletionProtectionResponse
@@ -17402,10 +18258,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceDescriptionRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary You can call the ModifyDBInstanceDescription operation to modify the name of an instance.
+     *  *
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescriptionWithOptions($request, $runtime)
     {
@@ -17448,9 +18306,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceDescriptionRequest $request
+     * @summary You can call the ModifyDBInstanceDescription operation to modify the name of an instance.
+     *  *
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
      *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescription($request)
     {
@@ -17460,9 +18320,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL.
-     *   *
+     * @summary Modifies the weight of an endpoint for an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS MySQL
+     *  *
      * @param ModifyDBInstanceEndpointRequest $tmpReq  ModifyDBInstanceEndpointRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -17514,9 +18376,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL.
-     *   *
+     * @summary Modifies the weight of an endpoint for an ApsaraDB RDS for MySQL instance or ApsaraDB RDS for PostgreSQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS MySQL
+     *  *
      * @param ModifyDBInstanceEndpointRequest $request ModifyDBInstanceEndpointRequest
      *
      * @return ModifyDBInstanceEndpointResponse ModifyDBInstanceEndpointResponse
@@ -17529,12 +18393,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL
-     *   * ### [](#)Precautions
-     *   * *   You can modify the following information about the endpoint of an instance: the public and internal endpoints, the public and internal ports, and the virtual private cloud (VPC), vSwitch, and IP address of the internal endpoint.
-     *   * *   The VPC and vSwitch must be modified at the same time. If you specify the VPC, vSwitch, and IP address of the internal endpoint, you do not need to specify the endpoint and port. If you specify the endpoint and port, you do not need to specify the VPC, vSwitch, and IP address of the internal endpoint.
-     *   *
+     * @summary Modifies the information about the endpoint of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### [](#)Supported database engines
+     * MySQL
+     * ### [](#)Precautions
+     * *   You can modify the following information about the endpoint of an instance: the public and internal endpoints, the public and internal ports, and the virtual private cloud (VPC), vSwitch, and IP address of the internal endpoint.
+     * *   The VPC and vSwitch must be modified at the same time. If you specify the VPC, vSwitch, and IP address of the internal endpoint, you do not need to specify the endpoint and port. If you specify the endpoint and port, you do not need to specify the VPC, vSwitch, and IP address of the internal endpoint.
+     *  *
      * @param ModifyDBInstanceEndpointAddressRequest $request ModifyDBInstanceEndpointAddressRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -17593,12 +18459,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL
-     *   * ### [](#)Precautions
-     *   * *   You can modify the following information about the endpoint of an instance: the public and internal endpoints, the public and internal ports, and the virtual private cloud (VPC), vSwitch, and IP address of the internal endpoint.
-     *   * *   The VPC and vSwitch must be modified at the same time. If you specify the VPC, vSwitch, and IP address of the internal endpoint, you do not need to specify the endpoint and port. If you specify the endpoint and port, you do not need to specify the VPC, vSwitch, and IP address of the internal endpoint.
-     *   *
+     * @summary Modifies the information about the endpoint of an ApsaraDB RDS for MySQL instance that runs RDS Cluster Edition.
+     *  *
+     * @description ### [](#)Supported database engines
+     * MySQL
+     * ### [](#)Precautions
+     * *   You can modify the following information about the endpoint of an instance: the public and internal endpoints, the public and internal ports, and the virtual private cloud (VPC), vSwitch, and IP address of the internal endpoint.
+     * *   The VPC and vSwitch must be modified at the same time. If you specify the VPC, vSwitch, and IP address of the internal endpoint, you do not need to specify the endpoint and port. If you specify the endpoint and port, you do not need to specify the VPC, vSwitch, and IP address of the internal endpoint.
+     *  *
      * @param ModifyDBInstanceEndpointAddressRequest $request ModifyDBInstanceEndpointAddressRequest
      *
      * @return ModifyDBInstanceEndpointAddressResponse ModifyDBInstanceEndpointAddressResponse
@@ -17611,10 +18479,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceHAConfigRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Changes the high availability (HA) and data replication mode of an instance.
+     *  *
+     * @param ModifyDBInstanceHAConfigRequest $request ModifyDBInstanceHAConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceHAConfigResponse
+     * @return ModifyDBInstanceHAConfigResponse ModifyDBInstanceHAConfigResponse
      */
     public function modifyDBInstanceHAConfigWithOptions($request, $runtime)
     {
@@ -17660,9 +18530,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceHAConfigRequest $request
+     * @summary Changes the high availability (HA) and data replication mode of an instance.
+     *  *
+     * @param ModifyDBInstanceHAConfigRequest $request ModifyDBInstanceHAConfigRequest
      *
-     * @return ModifyDBInstanceHAConfigResponse
+     * @return ModifyDBInstanceHAConfigResponse ModifyDBInstanceHAConfigResponse
      */
     public function modifyDBInstanceHAConfig($request)
     {
@@ -17672,18 +18544,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Set a maintenance window for an ApsaraDB RDS for MySQL instance](~~96052~~)
-     *   * *   [Set a maintenance window for an ApsaraDB RDS for PostgreSQL instance](~~96799~~)
-     *   * *   [Set a maintenance window for an ApsaraDB RDS for SQL Server instance](~~95657~~)
-     *   * *   [Set a maintenance window for an ApsaraDB RDS for MariaDB instance](~~97473~~).
-     *   *
+     * @summary Modifies the maintenance window of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Set a maintenance window for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96052.html)
+     * *   [Set a maintenance window for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96799.html)
+     * *   [Set a maintenance window for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95657.html)
+     * *   [Set a maintenance window for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97473.html)
+     *  *
      * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -17733,18 +18607,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Set a maintenance window for an ApsaraDB RDS for MySQL instance](~~96052~~)
-     *   * *   [Set a maintenance window for an ApsaraDB RDS for PostgreSQL instance](~~96799~~)
-     *   * *   [Set a maintenance window for an ApsaraDB RDS for SQL Server instance](~~95657~~)
-     *   * *   [Set a maintenance window for an ApsaraDB RDS for MariaDB instance](~~97473~~).
-     *   *
+     * @summary Modifies the maintenance window of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Set a maintenance window for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96052.html)
+     * *   [Set a maintenance window for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96799.html)
+     * *   [Set a maintenance window for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95657.html)
+     * *   [Set a maintenance window for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97473.html)
+     *  *
      * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
      *
      * @return ModifyDBInstanceMaintainTimeResponse ModifyDBInstanceMaintainTimeResponse
@@ -17757,12 +18633,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [View the Enhanced Monitoring metrics](~~299200~~).
-     *   *
+     * @summary Modifies the Enhanced Monitoring metrics that are displayed for an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+     *  *
      * @param ModifyDBInstanceMetricsRequest $request ModifyDBInstanceMetricsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -17803,12 +18681,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [View the Enhanced Monitoring metrics](~~299200~~).
-     *   *
+     * @summary Modifies the Enhanced Monitoring metrics that are displayed for an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [View the Enhanced Monitoring metrics](https://help.aliyun.com/document_detail/299200.html)
+     *  *
      * @param ModifyDBInstanceMetricsRequest $request ModifyDBInstanceMetricsRequest
      *
      * @return ModifyDBInstanceMetricsResponse ModifyDBInstanceMetricsResponse
@@ -17821,16 +18701,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)Usage notes
-     *   * If you use the Every 5 Seconds monitoring frequency, you are charged additional fees. Before you call this operation, make sure that you understand the [billing methods and pricing](~~45020~~) of ApsaraDB RDS.
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure the monitoring frequency for an ApsaraDB RDS for MySQL instance](~~96112~~)
-     *   * *   [Configure the monitoring frequency for an ApsaraDB RDS for SQL Server instance](~~95710~~).
-     *   *
+     * @summary Modifies a monitoring frequency.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)Usage notes
+     * If you use the Every 5 Seconds monitoring frequency, you are charged additional fees. Before you call this operation, make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/45020.html) of ApsaraDB RDS.
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure the monitoring frequency for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96112.html)
+     * *   [Configure the monitoring frequency for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95710.html)
+     *  *
      * @param ModifyDBInstanceMonitorRequest $request ModifyDBInstanceMonitorRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -17880,16 +18762,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)Usage notes
-     *   * If you use the Every 5 Seconds monitoring frequency, you are charged additional fees. Before you call this operation, make sure that you understand the [billing methods and pricing](~~45020~~) of ApsaraDB RDS.
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure the monitoring frequency for an ApsaraDB RDS for MySQL instance](~~96112~~)
-     *   * *   [Configure the monitoring frequency for an ApsaraDB RDS for SQL Server instance](~~95710~~).
-     *   *
+     * @summary Modifies a monitoring frequency.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)Usage notes
+     * If you use the Every 5 Seconds monitoring frequency, you are charged additional fees. Before you call this operation, make sure that you understand the [billing methods and pricing](https://help.aliyun.com/document_detail/45020.html) of ApsaraDB RDS.
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure the monitoring frequency for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96112.html)
+     * *   [Configure the monitoring frequency for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95710.html)
+     *  *
      * @param ModifyDBInstanceMonitorRequest $request ModifyDBInstanceMonitorRequest
      *
      * @return ModifyDBInstanceMonitorResponse ModifyDBInstanceMonitorResponse
@@ -17902,13 +18786,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * *   [Configure the hybrid access solution for an ApsaraDB RDS for MySQL instance](~~96110~~)
-     *   * *   [Configure the hybrid access solution for an ApsaraDB RDS for SQL Server instance](~~95708~~).
-     *   *
+     * @summary Changes the expiration time of the classic network endpoint of an instance in hybrid access mode.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)References
+     * *   [Configure the hybrid access solution for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96110.html)
+     * *   [Configure the hybrid access solution for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95708.html)
+     *  *
      * @param ModifyDBInstanceNetworkExpireTimeRequest $request ModifyDBInstanceNetworkExpireTimeRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
@@ -17958,13 +18844,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * *   [Configure the hybrid access solution for an ApsaraDB RDS for MySQL instance](~~96110~~)
-     *   * *   [Configure the hybrid access solution for an ApsaraDB RDS for SQL Server instance](~~95708~~).
-     *   *
+     * @summary Changes the expiration time of the classic network endpoint of an instance in hybrid access mode.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)References
+     * *   [Configure the hybrid access solution for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96110.html)
+     * *   [Configure the hybrid access solution for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95708.html)
+     *  *
      * @param ModifyDBInstanceNetworkExpireTimeRequest $request ModifyDBInstanceNetworkExpireTimeRequest
      *
      * @return ModifyDBInstanceNetworkExpireTimeResponse ModifyDBInstanceNetworkExpireTimeResponse
@@ -17977,16 +18865,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Change the network type of an ApsaraDB RDS for MySQL instance](~~96109~~)
-     *   * *   [Change the network type of an ApsaraDB RDS for PostgreSQL instance](~~96761~~)
-     *   * *   [Change the network type of an ApsaraDB RDS for SQL Server instance](~~95707~~).
-     *   *
+     * @summary Changes the network type of an ApsaraDB RDS instance from classic network to VPC
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Change the network type of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96109.html)
+     * *   [Change the network type of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96761.html)
+     * *   [Change the network type of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95707.html)
+     *  *
      * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -18054,16 +18944,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Change the network type of an ApsaraDB RDS for MySQL instance](~~96109~~)
-     *   * *   [Change the network type of an ApsaraDB RDS for PostgreSQL instance](~~96761~~)
-     *   * *   [Change the network type of an ApsaraDB RDS for SQL Server instance](~~95707~~).
-     *   *
+     * @summary Changes the network type of an ApsaraDB RDS instance from classic network to VPC
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Change the network type of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96109.html)
+     * *   [Change the network type of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96761.html)
+     * *   [Change the network type of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95707.html)
+     *  *
      * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
      *
      * @return ModifyDBInstanceNetworkTypeResponse ModifyDBInstanceNetworkTypeResponse
@@ -18076,18 +18968,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
-     *   * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](~~96048~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](~~96743~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](~~95631~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](~~97120~~).
-     *   *
+     * @summary Changes the billing method of an instance from pay-as-you-go to subscription.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+     * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96048.html)
+     * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96743.html)
+     * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/95631.html)
+     * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/97120.html)
+     *  *
      * @param ModifyDBInstancePayTypeRequest $request ModifyDBInstancePayTypeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -18131,18 +19025,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
-     *   * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](~~96048~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](~~96743~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](~~95631~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](~~97120~~).
-     *   *
+     * @summary Changes the billing method of an instance from pay-as-you-go to subscription.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+     * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96048.html)
+     * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96743.html)
+     * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/95631.html)
+     * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/97120.html)
+     *  *
      * @param ModifyDBInstancePayTypeRequest $request ModifyDBInstancePayTypeRequest
      *
      * @return ModifyDBInstancePayTypeResponse ModifyDBInstancePayTypeResponse
@@ -18155,8 +19051,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > This operation is phased out.
-     *   *
+     * @summary You can call the ModifyDBInstanceProxyConfiguration operation to configure the database proxy for an instance.
+     *  *
+     * @description > This operation is phased out.
+     *  *
      * @param ModifyDBInstanceProxyConfigurationRequest $request ModifyDBInstanceProxyConfigurationRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -18203,8 +19101,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > This operation is phased out.
-     *   *
+     * @summary You can call the ModifyDBInstanceProxyConfiguration operation to configure the database proxy for an instance.
+     *  *
+     * @description > This operation is phased out.
+     *  *
      * @param ModifyDBInstanceProxyConfigurationRequest $request ModifyDBInstanceProxyConfigurationRequest
      *
      * @return ModifyDBInstanceProxyConfigurationResponse ModifyDBInstanceProxyConfigurationResponse
@@ -18217,16 +19117,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Use the SSL encryption feature for an ApsaraDB RDS for MySQL instance](~~96120~~)
-     *   * *   [Use the SSL encryption feature for an ApsaraDB RDS for PostgreSQL instance](~~229517~~)
-     *   * *   [Use the SSL encryption feature for an ApsaraDB RDS for SQL Server instance](~~95715~~).
-     *   *
+     * @summary Modifies the SSL encryption settings of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the SSL encryption feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96120.html)
+     * *   [Use the SSL encryption feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/229517.html)
+     * *   [Use the SSL encryption feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95715.html)
+     *  *
      * @param ModifyDBInstanceSSLRequest $request ModifyDBInstanceSSLRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -18315,16 +19217,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Use the SSL encryption feature for an ApsaraDB RDS for MySQL instance](~~96120~~)
-     *   * *   [Use the SSL encryption feature for an ApsaraDB RDS for PostgreSQL instance](~~229517~~)
-     *   * *   [Use the SSL encryption feature for an ApsaraDB RDS for SQL Server instance](~~95715~~).
-     *   *
+     * @summary Modifies the SSL encryption settings of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the SSL encryption feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96120.html)
+     * *   [Use the SSL encryption feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/229517.html)
+     * *   [Use the SSL encryption feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95715.html)
+     *  *
      * @param ModifyDBInstanceSSLRequest $request ModifyDBInstanceSSLRequest
      *
      * @return ModifyDBInstanceSSLResponse ModifyDBInstanceSSLResponse
@@ -18337,18 +19241,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-     *   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~)
-     *   * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](~~96750~~)
-     *   * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](~~95665~~)
-     *   * *   [Change the specifications of an ApsaraDB RDS for MariaDB instance](~~97129~~).
-     *   *
+     * @summary Changes the instance type and storage capacity of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+     * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+     * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
+     * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95665.html)
+     * *   [Change the specifications of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97129.html)
+     *  *
      * @param ModifyDBInstanceSpecRequest $tmpReq  ModifyDBInstanceSpecRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -18457,18 +19363,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
-     *   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~)
-     *   * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](~~96750~~)
-     *   * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](~~95665~~)
-     *   * *   [Change the specifications of an ApsaraDB RDS for MariaDB instance](~~97129~~).
-     *   *
+     * @summary Changes the instance type and storage capacity of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Fees are generated if the call is successful. Before you call this operation, carefully read the following documentation:
+     * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+     * *   [Change the specifications of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96750.html)
+     * *   [Change the specifications of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95665.html)
+     * *   [Change the specifications of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97129.html)
+     *  *
      * @param ModifyDBInstanceSpecRequest $request ModifyDBInstanceSpecRequest
      *
      * @return ModifyDBInstanceSpecResponse ModifyDBInstanceSpecResponse
@@ -18481,16 +19389,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Configure TDE for an ApsaraDB RDS for MySQL instance](~~96121~~)
-     *   * *   [Configure TDE for an ApsaraDB RDS for PostgreSQL instance](~~465652~~)
-     *   * *   [Configure TDE for an ApsaraDB RDS for SQL Server instance](~~95716~~).
-     *   *
+     * @summary Enables the Transparent Data Encryption (TDE) feature for an ApsaraDB RDS instance and modifies the TDE status for the instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure TDE for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96121.html)
+     * *   [Configure TDE for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/465652.html)
+     * *   [Configure TDE for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95716.html)
+     *  *
      * @param ModifyDBInstanceTDERequest $request ModifyDBInstanceTDERequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -18558,16 +19468,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Configure TDE for an ApsaraDB RDS for MySQL instance](~~96121~~)
-     *   * *   [Configure TDE for an ApsaraDB RDS for PostgreSQL instance](~~465652~~)
-     *   * *   [Configure TDE for an ApsaraDB RDS for SQL Server instance](~~95716~~).
-     *   *
+     * @summary Enables the Transparent Data Encryption (TDE) feature for an ApsaraDB RDS instance and modifies the TDE status for the instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure TDE for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96121.html)
+     * *   [Configure TDE for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/465652.html)
+     * *   [Configure TDE for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95716.html)
+     *  *
      * @param ModifyDBInstanceTDERequest $request ModifyDBInstanceTDERequest
      *
      * @return ModifyDBInstanceTDEResponse ModifyDBInstanceTDEResponse
@@ -18580,12 +19492,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [](#)References
-     *   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
-     *   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~).
-     *   *
+     * @summary Changes the specifications and storage capacity of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [](#)References
+     * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+     * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+     *  *
      * @param ModifyDBNodeRequest $tmpReq  ModifyDBNodeRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -18658,12 +19572,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * ### [](#)References
-     *   * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
-     *   * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](~~96061~~).
-     *   *
+     * @summary Changes the specifications and storage capacity of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * ### [](#)References
+     * > Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+     * *   [Change the specifications of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96061.html)
+     *  *
      * @param ModifyDBNodeRequest $request ModifyDBNodeRequest
      *
      * @return ModifyDBNodeResponse ModifyDBNodeResponse
@@ -18676,15 +19592,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](~~197456~~)
-     *   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](~~418272~~).
-     *   *
+     * @summary Enables or disables the dedicated proxy feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197456.html)
+     * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html)
+     *  *
      * @param ModifyDBProxyRequest $request ModifyDBProxyRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -18758,15 +19676,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [\\[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](~~197456~~)
-     *   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](~~418272~~).
-     *   *
+     * @summary Enables or disables the dedicated proxy feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197456.html)
+     * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html)
+     *  *
      * @param ModifyDBProxyRequest $request ModifyDBProxyRequest
      *
      * @return ModifyDBProxyResponse ModifyDBProxyResponse
@@ -18779,14 +19699,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * ### [](#)References
-     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](~~2621331~~)
-     *   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418273~~).
-     *   *
+     * @summary Modifies the connection settings for a database proxy endpoint.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * ### [](#)References
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2621331.html)
+     * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418273.html)
+     *  *
      * @param ModifyDBProxyEndpointRequest $request ModifyDBProxyEndpointRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -18863,14 +19785,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * ### [](#)References
-     *   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](~~2621331~~)
-     *   * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418273~~).
-     *   *
+     * @summary Modifies the connection settings for a database proxy endpoint.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * ### [](#)References
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2621331.html)
+     * *   [Configure the connection settings for a database proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418273.html)
+     *  *
      * @param ModifyDBProxyEndpointRequest $request ModifyDBProxyEndpointRequest
      *
      * @return ModifyDBProxyEndpointResponse ModifyDBProxyEndpointResponse
@@ -18883,14 +19807,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~).
-     *   *
+     * @summary Changes an endpoint that is used to connect to the dedicated proxy of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+     *  *
      * @param ModifyDBProxyEndpointAddressRequest $request ModifyDBProxyEndpointAddressRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -18949,14 +19875,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
-     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](~~418274~~).
-     *   *
+     * @summary Changes an endpoint that is used to connect to the dedicated proxy of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+     * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+     *  *
      * @param ModifyDBProxyEndpointAddressRequest $request ModifyDBProxyEndpointAddressRequest
      *
      * @return ModifyDBProxyEndpointAddressResponse ModifyDBProxyEndpointAddressResponse
@@ -18969,10 +19897,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call the ModifyDBProxyInstance operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
-     *   * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
-     *   * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~).
-     *   *
+     * @summary Changes the configuration of a database proxy for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * >  Starting October 17, 2023, ApsaraDB RDS for MySQL instances that run RDS Cluster Edition offer one free-of-charge dedicated database proxy for each unit in phases. For more information, see [[Special offers/Price changes\\] One dedicated proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+     *  *
      * @param ModifyDBProxyInstanceRequest $request ModifyDBProxyInstanceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -19037,10 +19968,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Before you call the ModifyDBProxyInstance operation, make sure that the [ModifyDBProxy](~~141054~~) operation is called to enable the database proxy feature for the instance.
-     *   * *   The dedicated proxy feature of ApsaraDB RDS for MySQL provides capabilities such as read/write splitting and short-lived connection optimization. For more information, see [What are database proxies?](~~138705~~)
-     *   * *   The database proxy feature of ApsaraDB RDS for PostgreSQL supports read/write splitting. For more information, see [What are database proxies?](~~412194~~).
-     *   *
+     * @summary Changes the configuration of a database proxy for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * >  Starting October 17, 2023, ApsaraDB RDS for MySQL instances that run RDS Cluster Edition offer one free-of-charge dedicated database proxy for each unit in phases. For more information, see [[Special offers/Price changes\\] One dedicated proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+     *  *
      * @param ModifyDBProxyInstanceRequest $request ModifyDBProxyInstanceRequest
      *
      * @return ModifyDBProxyInstanceResponse ModifyDBProxyInstanceResponse
@@ -19053,12 +19987,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Configure a distributed transaction whitelist](~~124321~~).
-     *   *
+     * @summary Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+     *  *
      * @param ModifyDTCSecurityIpHostsForSQLServerRequest $request ModifyDTCSecurityIpHostsForSQLServerRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -19114,12 +20050,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Configure a distributed transaction whitelist](~~124321~~).
-     *   *
+     * @summary Configures a distributed transaction whitelist for an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Configure a distributed transaction whitelist](https://help.aliyun.com/document_detail/124321.html)
+     *  *
      * @param ModifyDTCSecurityIpHostsForSQLServerRequest $request ModifyDTCSecurityIpHostsForSQLServerRequest
      *
      * @return ModifyDTCSecurityIpHostsForSQLServerResponse ModifyDTCSecurityIpHostsForSQLServerResponse
@@ -19132,14 +20070,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure automatic storage expansion for ApsaraDB RDS for MySQL](~~173826~~)
-     *   * *   [Configure automatic storage expansion for ApsaraDB RDS for PostgreSQL](~~432496~~).
-     *   *
+     * @summary Configures automatic storage expansion for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure automatic storage expansion for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/173826.html)
+     * *   [Configure automatic storage expansion for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/432496.html)
+     *  *
      * @param ModifyDasInstanceConfigRequest $request ModifyDasInstanceConfigRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -19192,14 +20132,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure automatic storage expansion for ApsaraDB RDS for MySQL](~~173826~~)
-     *   * *   [Configure automatic storage expansion for ApsaraDB RDS for PostgreSQL](~~432496~~).
-     *   *
+     * @summary Configures automatic storage expansion for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure automatic storage expansion for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/173826.html)
+     * *   [Configure automatic storage expansion for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/432496.html)
+     *  *
      * @param ModifyDasInstanceConfigRequest $request ModifyDasInstanceConfigRequest
      *
      * @return ModifyDasInstanceConfigResponse ModifyDasInstanceConfigResponse
@@ -19212,9 +20154,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   SQL Server.
-     *   *
+     * @summary Modifies the property settings of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   SQL Server
+     *  *
      * @param ModifyDatabaseConfigRequest $request ModifyDatabaseConfigRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -19267,9 +20211,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engine
-     *   * *   SQL Server.
-     *   *
+     * @summary Modifies the property settings of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * *   SQL Server
+     *  *
      * @param ModifyDatabaseConfigRequest $request ModifyDatabaseConfigRequest
      *
      * @return ModifyDatabaseConfigResponse ModifyDatabaseConfigResponse
@@ -19282,12 +20228,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-     *   * [Configure SSL encryption for a proxy endpoint](~~188164~~).
-     *   *
+     * @summary Configures SSL encryption for an dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS MySQL
+     * ### [](#)References
+     * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+     * [Configure SSL encryption for a proxy endpoint](https://help.aliyun.com/document_detail/188164.html)
+     *  *
      * @param ModifyDbProxyInstanceSslRequest $request ModifyDbProxyInstanceSslRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -19337,12 +20285,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS MySQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-     *   * [Configure SSL encryption for a proxy endpoint](~~188164~~).
-     *   *
+     * @summary Configures SSL encryption for an dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS MySQL
+     * ### [](#)References
+     * > : Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+     * [Configure SSL encryption for a proxy endpoint](https://help.aliyun.com/document_detail/188164.html)
+     *  *
      * @param ModifyDbProxyInstanceSslRequest $request ModifyDbProxyInstanceSslRequest
      *
      * @return ModifyDbProxyInstanceSslResponse ModifyDbProxyInstanceSslResponse
@@ -19355,10 +20305,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyEventInfoRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 事件中心修改事件信息
+     *  *
+     * @param ModifyEventInfoRequest $request ModifyEventInfoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyEventInfoResponse
+     * @return ModifyEventInfoResponse ModifyEventInfoResponse
      */
     public function modifyEventInfoWithOptions($request, $runtime)
     {
@@ -19398,9 +20350,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyEventInfoRequest $request
+     * @summary 事件中心修改事件信息
+     *  *
+     * @param ModifyEventInfoRequest $request ModifyEventInfoRequest
      *
-     * @return ModifyEventInfoResponse
+     * @return ModifyEventInfoResponse ModifyEventInfoResponse
      */
     public function modifyEventInfo($request)
     {
@@ -19410,15 +20364,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [What is availability check?](~~207467~~).
-     *   *
+     * @summary Change the availability check method of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [What is availability check?](https://help.aliyun.com/document_detail/207467.html)
+     *  *
      * @param ModifyHADiagnoseConfigRequest $request ModifyHADiagnoseConfigRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -19465,15 +20421,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [What is availability check?](~~207467~~).
-     *   *
+     * @summary Change the availability check method of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [What is availability check?](https://help.aliyun.com/document_detail/207467.html)
+     *  *
      * @param ModifyHADiagnoseConfigRequest $request ModifyHADiagnoseConfigRequest
      *
      * @return ModifyHADiagnoseConfigResponse ModifyHADiagnoseConfigResponse
@@ -19486,18 +20444,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MySQL instance](~~96054~~)
-     *   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for PostgreSQL instance](~~96747~~)
-     *   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for SQL Server instance](~~95659~~)
-     *   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MariaDB instance](~~97127~~).
-     *   *
+     * @summary Enables or disables the automatic primary/secondary switchover feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96054.html)
+     * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96747.html)
+     * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95659.html)
+     * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97127.html)
+     *  *
      * @param ModifyHASwitchConfigRequest $request ModifyHASwitchConfigRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -19547,18 +20507,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MySQL instance](~~96054~~)
-     *   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for PostgreSQL instance](~~96747~~)
-     *   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for SQL Server instance](~~95659~~)
-     *   * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MariaDB instance](~~97127~~).
-     *   *
+     * @summary Enables or disables the automatic primary/secondary switchover feature for an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96054.html)
+     * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96747.html)
+     * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95659.html)
+     * *   [Use the automatic primary/secondary switchover feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97127.html)
+     *  *
      * @param ModifyHASwitchConfigRequest $request ModifyHASwitchConfigRequest
      *
      * @return ModifyHASwitchConfigResponse ModifyHASwitchConfigResponse
@@ -19571,18 +20533,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * ><notice>Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:></notice>
-     *   * *   [Use the auto-renewal feature for an ApsaraDB RDS for MySQL instance](~~96049~~)
-     *   * *   [Use the auto-renewal feature for an ApsaraDB RDS for PostgreSQL instance](~~96740~~)
-     *   * *   [Use the auto-renewal feature for an ApsaraDB RDS for SQL Server instance](~~95635~~)
-     *   * *   [Use the auto-renewal feature for an ApsaraDB RDS for MariaDB instance](~~97121~~).
-     *   *
+     * @summary Modifies the auto-renewal settings of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * >Notice: Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+     * *   [Use the auto-renewal feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96049.html)
+     * *   [Use the auto-renewal feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96740.html)
+     * *   [Use the auto-renewal feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95635.html)
+     * *   [Use the auto-renewal feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97121.html)
+     *  *
      * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -19638,18 +20602,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * ><notice>Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:></notice>
-     *   * *   [Use the auto-renewal feature for an ApsaraDB RDS for MySQL instance](~~96049~~)
-     *   * *   [Use the auto-renewal feature for an ApsaraDB RDS for PostgreSQL instance](~~96740~~)
-     *   * *   [Use the auto-renewal feature for an ApsaraDB RDS for SQL Server instance](~~95635~~)
-     *   * *   [Use the auto-renewal feature for an ApsaraDB RDS for MariaDB instance](~~97121~~).
-     *   *
+     * @summary Modifies the auto-renewal settings of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * >Notice: Fees are generated if the call is successful. Before you call this operation, carefully read the following topics:
+     * *   [Use the auto-renewal feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96049.html)
+     * *   [Use the auto-renewal feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96740.html)
+     * *   [Use the auto-renewal feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95635.html)
+     * *   [Use the auto-renewal feature for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97121.html)
+     *  *
      * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
      *
      * @return ModifyInstanceAutoRenewalAttributeResponse ModifyInstanceAutoRenewalAttributeResponse
@@ -19662,16 +20628,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
-     *   *
+     * @summary Modifies the cross-region backup settings of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     *  *
      * @param ModifyInstanceCrossBackupPolicyRequest $request ModifyInstanceCrossBackupPolicyRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -19733,16 +20701,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](~~120824~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](~~206671~~)
-     *   * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](~~187923~~).
-     *   *
+     * @summary Modifies the cross-region backup settings of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the cross-region backup feature of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206671.html)
+     * *   [Use the cross-region backup feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/187923.html)
+     *  *
      * @param ModifyInstanceCrossBackupPolicyRequest $request ModifyInstanceCrossBackupPolicyRequest
      *
      * @return ModifyInstanceCrossBackupPolicyResponse ModifyInstanceCrossBackupPolicyResponse
@@ -19755,10 +20725,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyMaskingRulesRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary 修改全密态规则
+     *  *
+     * @param ModifyMaskingRulesRequest $tmpReq  ModifyMaskingRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyMaskingRulesResponse
+     * @return ModifyMaskingRulesResponse ModifyMaskingRulesResponse
      */
     public function modifyMaskingRulesWithOptions($tmpReq, $runtime)
     {
@@ -19815,9 +20787,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyMaskingRulesRequest $request
+     * @summary 修改全密态规则
+     *  *
+     * @param ModifyMaskingRulesRequest $request ModifyMaskingRulesRequest
      *
-     * @return ModifyMaskingRulesResponse
+     * @return ModifyMaskingRulesResponse ModifyMaskingRulesResponse
      */
     public function modifyMaskingRules($request)
     {
@@ -19827,13 +20801,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS PostgreSQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Connect an ApsaraDB RDS for PostgreSQL instance to a self-managed AD domain](~~349288~~)
-     *   * *   [The pg_hba.conf File](https://www.postgresql.org/docs/11/auth-pg-hba-conf.html).
-     *   *
+     * @summary Modifies the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS PostgreSQL
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Connect an ApsaraDB RDS for PostgreSQL instance to a self-managed AD domain](https://help.aliyun.com/document_detail/349288.html)
+     * *   [The pg_hba.conf File](https://www.postgresql.org/docs/11/auth-pg-hba-conf.html)
+     *  *
      * @param ModifyPGHbaConfigRequest $request ModifyPGHbaConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -19886,13 +20862,15 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * RDS PostgreSQL
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Connect an ApsaraDB RDS for PostgreSQL instance to a self-managed AD domain](~~349288~~)
-     *   * *   [The pg_hba.conf File](https://www.postgresql.org/docs/11/auth-pg-hba-conf.html).
-     *   *
+     * @summary Modifies the pg_hba.conf file of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * RDS PostgreSQL
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Connect an ApsaraDB RDS for PostgreSQL instance to a self-managed AD domain](https://help.aliyun.com/document_detail/349288.html)
+     * *   [The pg_hba.conf File](https://www.postgresql.org/docs/11/auth-pg-hba-conf.html)
+     *  *
      * @param ModifyPGHbaConfigRequest $request ModifyPGHbaConfigRequest
      *
      * @return ModifyPGHbaConfigResponse ModifyPGHbaConfigResponse
@@ -19905,18 +20883,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Modify the parameters of an ApsaraDB RDS for MySQL instance](~~96063~~)
-     *   * *   [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](~~96751~~)
-     *   * *   [Modify the parameters of an ApsaraDB RDS for SQL Server instance](~~95667~~)
-     *   * *   [Modify the parameters of an ApsaraDB RDS for MariaDB instance](~~97130~~).
-     *   *
+     * @summary Modifies the parameter values of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Modify the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
+     * *   [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
+     * *   [Modify the parameters of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95667.html)
+     * *   [Modify the parameters of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97130.html)
+     *  *
      * @param ModifyParameterRequest $request ModifyParameterRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -19978,18 +20958,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Modify the parameters of an ApsaraDB RDS for MySQL instance](~~96063~~)
-     *   * *   [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](~~96751~~)
-     *   * *   [Modify the parameters of an ApsaraDB RDS for SQL Server instance](~~95667~~)
-     *   * *   [Modify the parameters of an ApsaraDB RDS for MariaDB instance](~~97130~~).
-     *   *
+     * @summary Modifies the parameter values of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Modify the parameters of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96063.html)
+     * *   [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96751.html)
+     * *   [Modify the parameters of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95667.html)
+     * *   [Modify the parameters of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97130.html)
+     *  *
      * @param ModifyParameterRequest $request ModifyParameterRequest
      *
      * @return ModifyParameterResponse ModifyParameterResponse
@@ -20002,14 +20984,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   *
+     * @summary Modifies the parameter template of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param ModifyParameterGroupRequest $request ModifyParameterGroupRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -20068,14 +21052,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](~~130565~~)
-     *   * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](~~457176~~).
-     *   *
+     * @summary Modifies the parameter template of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/130565.html)
+     * *   [Use a parameter template to configure the parameters of ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/457176.html)
+     *  *
      * @param ModifyParameterGroupRequest $request ModifyParameterGroupRequest
      *
      * @return ModifyParameterGroupResponse ModifyParameterGroupResponse
@@ -20088,18 +21074,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)Prerequisites
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-     *   * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
-     *   * *   The instance must run one of the following database engine versions and RDS editions:
-     *   *     *   MySQL 5.7 on RDS High-availability Edition with local disks
-     *   *     *   MySQL 5.6
-     *   *     *   SQL Server on RDS Cluster Edition.
-     *   *
+     * @summary Modifies the latency threshold of the read/write splitting link and the read weights of a primary instance and its read-only instances.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)Prerequisites
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+     * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
+     * *   The instance must run one of the following database engine versions and RDS editions:
+     *     *   MySQL 5.7 on RDS High-availability Edition with local disks
+     *     *   MySQL 5.6
+     *     *   SQL Server on RDS Cluster Edition
+     *  *
      * @param ModifyReadWriteSplittingConnectionRequest $request ModifyReadWriteSplittingConnectionRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
@@ -20158,18 +21146,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### [](#)Prerequisites
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-     *   * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
-     *   * *   The instance must run one of the following database engine versions and RDS editions:
-     *   *     *   MySQL 5.7 on RDS High-availability Edition with local disks
-     *   *     *   MySQL 5.6
-     *   *     *   SQL Server on RDS Cluster Edition.
-     *   *
+     * @summary Modifies the latency threshold of the read/write splitting link and the read weights of a primary instance and its read-only instances.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### [](#)Prerequisites
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+     * *   The read/write splitting feature is enabled for your ApsaraDB RDS for MySQL instance.
+     * *   The instance must run one of the following database engine versions and RDS editions:
+     *     *   MySQL 5.7 on RDS High-availability Edition with local disks
+     *     *   MySQL 5.6
+     *     *   SQL Server on RDS Cluster Edition
+     *  *
      * @param ModifyReadWriteSplittingConnectionRequest $request ModifyReadWriteSplittingConnectionRequest
      *
      * @return ModifyReadWriteSplittingConnectionResponse ModifyReadWriteSplittingConnectionResponse
@@ -20182,12 +21172,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS MySQL
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Set the data replication latency of a read-only ApsaraDB RDS for MySQL instance](~~96056~~).
-     *   *
+     * @summary Modifies the latency at which a read-only ApsaraDB RDS for MySQL instance replicates data from its primary instance.
+     *  *
+     * @description ### Supported database engines
+     * RDS MySQL
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Set the data replication latency of a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96056.html)
+     *  *
      * @param ModifyReadonlyInstanceDelayReplicationTimeRequest $request ModifyReadonlyInstanceDelayReplicationTimeRequest
      * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
@@ -20234,12 +21226,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS MySQL
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Set the data replication latency of a read-only ApsaraDB RDS for MySQL instance](~~96056~~).
-     *   *
+     * @summary Modifies the latency at which a read-only ApsaraDB RDS for MySQL instance replicates data from its primary instance.
+     *  *
+     * @description ### Supported database engines
+     * RDS MySQL
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Set the data replication latency of a read-only ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96056.html)
+     *  *
      * @param ModifyReadonlyInstanceDelayReplicationTimeRequest $request ModifyReadonlyInstanceDelayReplicationTimeRequest
      *
      * @return ModifyReadonlyInstanceDelayReplicationTimeResponse ModifyReadonlyInstanceDelayReplicationTimeResponse
@@ -20252,15 +21246,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Transfer resources across resource groups](~~94487~~).
-     *   *
+     * @summary Moves an ApsaraDB RDS instance to a specified resource group.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html)
+     *  *
      * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -20310,15 +21306,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Transfer resources across resource groups](~~94487~~).
-     *   *
+     * @summary Moves an ApsaraDB RDS instance to a specified resource group.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Transfer resources across resource groups](https://help.aliyun.com/document_detail/94487.html)
+     *  *
      * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
      *
      * @return ModifyResourceGroupResponse ModifyResourceGroupResponse
@@ -20331,16 +21329,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](~~476574~~)
-     *   * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](~~96766~~)
-     *   * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](~~95712~~).
-     *   *
+     * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/476574.html)
+     * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96766.html)
+     * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95712.html)
+     *  *
      * @param ModifySQLCollectorPolicyRequest $request ModifySQLCollectorPolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -20390,16 +21390,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](~~476574~~)
-     *   * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](~~96766~~)
-     *   * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](~~95712~~).
-     *   *
+     * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/476574.html)
+     * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96766.html)
+     * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95712.html)
+     *  *
      * @param ModifySQLCollectorPolicyRequest $request ModifySQLCollectorPolicyRequest
      *
      * @return ModifySQLCollectorPolicyResponse ModifySQLCollectorPolicyResponse
@@ -20412,14 +21414,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS MySQL
-     *   * ### Precautions
-     *   * After you shorten the log backup retention period, log backup files that are stored longer than the specified log backup retention period are immediately deleted.
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Use the SQL Explorer and Audit feature](~~476574~~).
-     *   *
+     * @summary Changes the retention period of the log files that are generated by the SQL Explorer feature for an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * RDS MySQL
+     * ### Precautions
+     * After you shorten the log backup retention period, log backup files that are stored longer than the specified log backup retention period are immediately deleted.
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Use the SQL Explorer and Audit feature](https://help.aliyun.com/document_detail/476574.html)
+     *  *
      * @param ModifySQLCollectorRetentionRequest $request ModifySQLCollectorRetentionRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -20472,14 +21476,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS MySQL
-     *   * ### Precautions
-     *   * After you shorten the log backup retention period, log backup files that are stored longer than the specified log backup retention period are immediately deleted.
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Use the SQL Explorer and Audit feature](~~476574~~).
-     *   *
+     * @summary Changes the retention period of the log files that are generated by the SQL Explorer feature for an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * RDS MySQL
+     * ### Precautions
+     * After you shorten the log backup retention period, log backup files that are stored longer than the specified log backup retention period are immediately deleted.
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Use the SQL Explorer and Audit feature](https://help.aliyun.com/document_detail/476574.html)
+     *  *
      * @param ModifySQLCollectorRetentionRequest $request ModifySQLCollectorRetentionRequest
      *
      * @return ModifySQLCollectorRetentionResponse ModifySQLCollectorRetentionResponse
@@ -20492,16 +21498,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](~~201042~~)
-     *   * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](~~206310~~)
-     *   * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](~~2392322~~).
-     *   *
+     * @summary Changes the ECS security groups to which an instance is added.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
+     * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206310.html)
+     * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
+     *  *
      * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -20545,16 +21553,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](~~201042~~)
-     *   * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](~~206310~~)
-     *   * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](~~2392322~~).
-     *   *
+     * @summary Changes the ECS security groups to which an instance is added.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Configure a security group for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/201042.html)
+     * *   [Configure a security group for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/206310.html)
+     * *   [Configure a security group for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/2392322.html)
+     *  *
      * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      *
      * @return ModifySecurityGroupConfigurationResponse ModifySecurityGroupConfigurationResponse
@@ -20567,18 +21577,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](~~96118~~)
-     *   * *   [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](~~43187~~)
-     *   * *   [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](~~43186~~)
-     *   * *   [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](~~90336~~).
-     *   *
+     * @summary Modifies the IP address whitelist of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
+     * *   [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
+     * *   [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
+     * *   [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
+     *  *
      * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -20634,18 +21646,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](~~96118~~)
-     *   * *   [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](~~43187~~)
-     *   * *   [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](~~43186~~)
-     *   * *   [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](~~90336~~).
-     *   *
+     * @summary Modifies the IP address whitelist of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
+     * *   [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
+     * *   [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
+     * *   [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
+     *  *
      * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *
      * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
@@ -20658,10 +21672,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyTaskInfoRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 任务中心修改任务信息
+     *  *
+     * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTaskInfoResponse
+     * @return ModifyTaskInfoResponse ModifyTaskInfoResponse
      */
     public function modifyTaskInfoWithOptions($request, $runtime)
     {
@@ -20710,9 +21726,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param ModifyTaskInfoRequest $request
+     * @summary 任务中心修改任务信息
+     *  *
+     * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
      *
-     * @return ModifyTaskInfoResponse
+     * @return ModifyTaskInfoResponse ModifyTaskInfoResponse
      */
     public function modifyTaskInfo($request)
     {
@@ -20722,11 +21740,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Edits a whitelist. You can call this operation to create, modify, or delete a whitelist.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param ModifyWhitelistTemplateRequest $request ModifyWhitelistTemplateRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -20776,11 +21796,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server.
-     *   *
+     * @summary Edits a whitelist. You can call this operation to create, modify, or delete a whitelist.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     *  *
      * @param ModifyWhitelistTemplateRequest $request ModifyWhitelistTemplateRequest
      *
      * @return ModifyWhitelistTemplateResponse ModifyWhitelistTemplateResponse
@@ -20793,10 +21815,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param PreCheckCreateOrderForDeleteDBNodesRequest $tmpReq
-     * @param RuntimeOptions                             $runtime
+     * @param PreCheckCreateOrderForDeleteDBNodesRequest $tmpReq  PreCheckCreateOrderForDeleteDBNodesRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return PreCheckCreateOrderForDeleteDBNodesResponse
+     * @return PreCheckCreateOrderForDeleteDBNodesResponse PreCheckCreateOrderForDeleteDBNodesResponse
      */
     public function preCheckCreateOrderForDeleteDBNodesWithOptions($tmpReq, $runtime)
     {
@@ -20871,9 +21893,9 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param PreCheckCreateOrderForDeleteDBNodesRequest $request
+     * @param PreCheckCreateOrderForDeleteDBNodesRequest $request PreCheckCreateOrderForDeleteDBNodesRequest
      *
-     * @return PreCheckCreateOrderForDeleteDBNodesResponse
+     * @return PreCheckCreateOrderForDeleteDBNodesResponse PreCheckCreateOrderForDeleteDBNodesResponse
      */
     public function preCheckCreateOrderForDeleteDBNodes($request)
     {
@@ -20883,16 +21905,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### Description
-     *   * The system automatically uploads log backup files to Object Storage Service (OSS) buckets. If the remaining storage of an instance is insufficient, you can call this operation to upload the log backup files of the instance to OSS buckets. After the upload is complete, the system deletes these files from the instance to release storage. This operation is called to upload log backup files from an instance to OSS buckets and then delete these files from the instance. If the instance runs SQL Server, transaction log backup files are compressed before they are uploaded.
-     *   * ### Precautions
-     *   * *   When you upload log backup files, the data restoration feature is not affected.
-     *   * *   This operation is called to release storage. The backup storage usage is not reduced.
-     *   * *   The OSS buckets to which log backup files are uploaded are provided by the system. You do not need to purchase these OSS buckets. In addition, you cannot access these OSS buckets.
-     *   *
+     * @summary Clears the on-premises logs of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### Description
+     * The system automatically uploads log backup files to Object Storage Service (OSS) buckets. If the remaining storage of an instance is insufficient, you can call this operation to upload the log backup files of the instance to OSS buckets. After the upload is complete, the system deletes these files from the instance to release storage. This operation is called to upload log backup files from an instance to OSS buckets and then delete these files from the instance. If the instance runs SQL Server, transaction log backup files are compressed before they are uploaded.
+     * ### Precautions
+     * *   When you upload log backup files, the data restoration feature is not affected.
+     * *   This operation is called to release storage. The backup storage usage is not reduced.
+     * *   The OSS buckets to which log backup files are uploaded are provided by the system. You do not need to purchase these OSS buckets. In addition, you cannot access these OSS buckets.
+     *  *
      * @param PurgeDBInstanceLogRequest $request PurgeDBInstanceLogRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -20939,16 +21963,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### Description
-     *   * The system automatically uploads log backup files to Object Storage Service (OSS) buckets. If the remaining storage of an instance is insufficient, you can call this operation to upload the log backup files of the instance to OSS buckets. After the upload is complete, the system deletes these files from the instance to release storage. This operation is called to upload log backup files from an instance to OSS buckets and then delete these files from the instance. If the instance runs SQL Server, transaction log backup files are compressed before they are uploaded.
-     *   * ### Precautions
-     *   * *   When you upload log backup files, the data restoration feature is not affected.
-     *   * *   This operation is called to release storage. The backup storage usage is not reduced.
-     *   * *   The OSS buckets to which log backup files are uploaded are provided by the system. You do not need to purchase these OSS buckets. In addition, you cannot access these OSS buckets.
-     *   *
+     * @summary Clears the on-premises logs of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### Description
+     * The system automatically uploads log backup files to Object Storage Service (OSS) buckets. If the remaining storage of an instance is insufficient, you can call this operation to upload the log backup files of the instance to OSS buckets. After the upload is complete, the system deletes these files from the instance to release storage. This operation is called to upload log backup files from an instance to OSS buckets and then delete these files from the instance. If the instance runs SQL Server, transaction log backup files are compressed before they are uploaded.
+     * ### Precautions
+     * *   When you upload log backup files, the data restoration feature is not affected.
+     * *   This operation is called to release storage. The backup storage usage is not reduced.
+     * *   The OSS buckets to which log backup files are uploaded are provided by the system. You do not need to purchase these OSS buckets. In addition, you cannot access these OSS buckets.
+     *  *
      * @param PurgeDBInstanceLogRequest $request PurgeDBInstanceLogRequest
      *
      * @return PurgeDBInstanceLogResponse PurgeDBInstanceLogResponse
@@ -20961,15 +21987,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### Feature description
-     *   * The notifications are highlighted at the top of the ApsaraDB RDS console. The notifications include renewal reminders and reminders of instance creation failures.
-     *   * After you call this operation to query notifications, you can call the [ConfirmNotify](~~610444~~) operation to mark the notifications as confirmed, which means that you understand the content of the notifications.
-     *   *
+     * @summary Queries the notifications of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### Feature description
+     * The notifications are highlighted at the top of the ApsaraDB RDS console. The notifications include renewal reminders and reminders of instance creation failures.
+     * After you call this operation to query notifications, you can call the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notifications as confirmed, which means that you understand the content of the notifications.
+     *  *
      * @param QueryNotifyRequest $request QueryNotifyRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -21013,15 +22041,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### Feature description
-     *   * The notifications are highlighted at the top of the ApsaraDB RDS console. The notifications include renewal reminders and reminders of instance creation failures.
-     *   * After you call this operation to query notifications, you can call the [ConfirmNotify](~~610444~~) operation to mark the notifications as confirmed, which means that you understand the content of the notifications.
-     *   *
+     * @summary Queries the notifications of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### Feature description
+     * The notifications are highlighted at the top of the ApsaraDB RDS console. The notifications include renewal reminders and reminders of instance creation failures.
+     * After you call this operation to query notifications, you can call the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notifications as confirmed, which means that you understand the content of the notifications.
+     *  *
      * @param QueryNotifyRequest $request QueryNotifyRequest
      *
      * @return QueryNotifyResponse QueryNotifyResponse
@@ -21034,10 +22064,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param QueryRecommendByCodeRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary rds机器人热点问题
+     *  *
+     * @param QueryRecommendByCodeRequest $request QueryRecommendByCodeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRecommendByCodeResponse
+     * @return QueryRecommendByCodeResponse QueryRecommendByCodeResponse
      */
     public function queryRecommendByCodeWithOptions($request, $runtime)
     {
@@ -21077,9 +22109,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param QueryRecommendByCodeRequest $request
+     * @summary rds机器人热点问题
+     *  *
+     * @param QueryRecommendByCodeRequest $request QueryRecommendByCodeRequest
      *
-     * @return QueryRecommendByCodeResponse
+     * @return QueryRecommendByCodeResponse QueryRecommendByCodeResponse
      */
     public function queryRecommendByCode($request)
     {
@@ -21089,8 +22123,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~).
-     *   *
+     * @summary Rebuilds the secondary instance of a primary instance in a dedicated cluster.
+     *  *
+     * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+     *  *
      * @param RebuildDBInstanceRequest $request RebuildDBInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -21143,8 +22179,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](~~141455~~).
-     *   *
+     * @summary Rebuilds the secondary instance of a primary instance in a dedicated cluster.
+     *  *
+     * @description Dedicated clusters allow you to manage a number of instances at a time. You can create multiple dedicated clusters in a single region. Each dedicated cluster consists of multiple hosts. You can create multiple instances on each host. For more information, see [What is ApsaraDB MyBase?](https://help.aliyun.com/document_detail/141455.html)
+     *  *
      * @param RebuildDBInstanceRequest $request RebuildDBInstanceRequest
      *
      * @return RebuildDBInstanceResponse RebuildDBInstanceResponse
@@ -21157,8 +22195,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * The operation is phased out.
-     *   *
+     * @summary Switches a primary instance to a disaster recovery instance or a disaster recovery instance to a primary instance.
+     *  *
+     * @description The operation is phased out.
+     *  *
      * @param ReceiveDBInstanceRequest $request ReceiveDBInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -21205,8 +22245,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * The operation is phased out.
-     *   *
+     * @summary Switches a primary instance to a disaster recovery instance or a disaster recovery instance to a primary instance.
+     *  *
+     * @description The operation is phased out.
+     *  *
      * @param ReceiveDBInstanceRequest $request ReceiveDBInstanceRequest
      *
      * @return ReceiveDBInstanceResponse ReceiveDBInstanceResponse
@@ -21219,12 +22261,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * SQL Server 2012 or later
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Restore the data of an ApsaraDB RDS for SQL Server instance](~~95722~~).
-     *   *
+     * @summary Restores an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * SQL Server 2012 or later
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Restore the data of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
+     *  *
      * @param RecoveryDBInstanceRequest $request RecoveryDBInstanceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -21301,12 +22345,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * SQL Server 2012 or later
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Restore the data of an ApsaraDB RDS for SQL Server instance](~~95722~~).
-     *   *
+     * @summary Restores an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * SQL Server 2012 or later
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Restore the data of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95722.html)
+     *  *
      * @param RecoveryDBInstanceRequest $request RecoveryDBInstanceRequest
      *
      * @return RecoveryDBInstanceResponse RecoveryDBInstanceResponse
@@ -21319,17 +22365,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](~~26128~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](~~97736~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](~~97740~~).
-     *   *
+     * @summary Releases the public endpoint of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+     *  *
      * @param ReleaseInstanceConnectionRequest $request ReleaseInstanceConnectionRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -21379,17 +22427,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](~~26128~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](~~97736~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](~~97740~~).
-     *   *
+     * @summary Releases the public endpoint of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+     *  *
      * @param ReleaseInstanceConnectionRequest $request ReleaseInstanceConnectionRequest
      *
      * @return ReleaseInstanceConnectionResponse ReleaseInstanceConnectionResponse
@@ -21402,18 +22452,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](~~26128~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](~~97736~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](~~97740~~).
-     *   *
+     * @summary Releases the public endpoint of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+     *  *
      * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -21460,18 +22512,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](~~26128~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](~~97738~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](~~97736~~)
-     *   * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](~~97740~~).
-     *   *
+     * @summary Releases the public endpoint of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Release the public endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/26128.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/97738.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/97736.html)
+     * *   [Release the public endpoint of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97740.html)
+     *  *
      * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      *
      * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
@@ -21484,18 +22538,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### Prerequisites
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-     *   * *   The read/write splitting feature is enabled for the instance.
-     *   * *   The instance must run one of the following database engine versions and RDS editions:
-     *   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-     *   *     *   MySQL 5.6
-     *   *     *   SQL Server on RDS Cluster Edition.
-     *   *
+     * @summary Releases the read/write splitting endpoint of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### Prerequisites
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+     * *   The read/write splitting feature is enabled for the instance.
+     * *   The instance must run one of the following database engine versions and RDS editions:
+     *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+     *     *   MySQL 5.6
+     *     *   SQL Server on RDS Cluster Edition
+     *  *
      * @param ReleaseReadWriteSplittingConnectionRequest $request ReleaseReadWriteSplittingConnectionRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -21539,18 +22595,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### Prerequisites
-     *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
-     *   * *   The read/write splitting feature is enabled for the instance.
-     *   * *   The instance must run one of the following database engine versions and RDS editions:
-     *   *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
-     *   *     *   MySQL 5.6
-     *   *     *   SQL Server on RDS Cluster Edition.
-     *   *
+     * @summary Releases the read/write splitting endpoint of an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### Prerequisites
+     * Before you call this operation, make sure that the following requirements are met:
+     * *   The shared proxy feature is enabled for your ApsaraDB RDS for MySQL instance.
+     * *   The read/write splitting feature is enabled for the instance.
+     * *   The instance must run one of the following database engine versions and RDS editions:
+     *     *   MySQL 5.7 on RDS High-availability Edition (with local disks)
+     *     *   MySQL 5.6
+     *     *   SQL Server on RDS Cluster Edition
+     *  *
      * @param ReleaseReadWriteSplittingConnectionRequest $request ReleaseReadWriteSplittingConnectionRequest
      *
      * @return ReleaseReadWriteSplittingConnectionResponse ReleaseReadWriteSplittingConnectionResponse
@@ -21563,17 +22621,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Usage notes
-     *   * *   A maximum of 10 tags can be removed in a single request.
-     *   * *   If a tag is removed from all instances to which the tag is added, the tag is automatically deleted.
-     *   * *   If you specify only TagKey, all tags that match the TagKey condition are removed.
-     *   * *   You must specify at least TagKey or a pair of TagKey and TagValue.
-     *   *
+     * @summary Removes tags from an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Usage notes
+     * *   A maximum of 10 tags can be removed in a single request.
+     * *   If a tag is removed from all instances to which the tag is added, the tag is automatically deleted.
+     * *   If you specify only TagKey, all tags that match the TagKey condition are removed.
+     * *   You must specify at least TagKey or a pair of TagKey and TagValue.
+     *  *
      * @param RemoveTagsFromResourceRequest $request RemoveTagsFromResourceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -21635,17 +22695,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Usage notes
-     *   * *   A maximum of 10 tags can be removed in a single request.
-     *   * *   If a tag is removed from all instances to which the tag is added, the tag is automatically deleted.
-     *   * *   If you specify only TagKey, all tags that match the TagKey condition are removed.
-     *   * *   You must specify at least TagKey or a pair of TagKey and TagValue.
-     *   *
+     * @summary Removes tags from an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Usage notes
+     * *   A maximum of 10 tags can be removed in a single request.
+     * *   If a tag is removed from all instances to which the tag is added, the tag is automatically deleted.
+     * *   If you specify only TagKey, all tags that match the TagKey condition are removed.
+     * *   You must specify at least TagKey or a pair of TagKey and TagValue.
+     *  *
      * @param RemoveTagsFromResourceRequest $request RemoveTagsFromResourceRequest
      *
      * @return RemoveTagsFromResourceResponse RemoveTagsFromResourceResponse
@@ -21658,18 +22720,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
-     *   * *   [Manually renew an ApsaraDB RDS for MySQL instance](~~96050~~)
-     *   * *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](~~96741~~)
-     *   * *   [Manually renew an ApsaraDB RDS for SQL Server instance](~~95637~~)
-     *   * *   [Manually renew an ApsaraDB RDS for MariaDB instance](~~97122~~).
-     *   *
+     * @summary Manually renews an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+     * *   [Manually renew an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96050.html)
+     * *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96741.html)
+     * *   [Manually renew an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95637.html)
+     * *   [Manually renew an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97122.html)
+     *  *
      * @param RenewInstanceRequest $request RenewInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -21722,18 +22786,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
-     *   * *   [Manually renew an ApsaraDB RDS for MySQL instance](~~96050~~)
-     *   * *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](~~96741~~)
-     *   * *   [Manually renew an ApsaraDB RDS for SQL Server instance](~~95637~~)
-     *   * *   [Manually renew an ApsaraDB RDS for MariaDB instance](~~97122~~).
-     *   *
+     * @summary Manually renews an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * >  Fees of an instance are changed if the call is successful. Before you call this operation, carefully read the following topics:
+     * *   [Manually renew an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96050.html)
+     * *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96741.html)
+     * *   [Manually renew an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95637.html)
+     * *   [Manually renew an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97122.html)
+     *  *
      * @param RenewInstanceRequest $request RenewInstanceRequest
      *
      * @return RenewInstanceResponse RenewInstanceResponse
@@ -21746,14 +22812,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Reset of the permissions of privileged accounts](~~140724~~).
-     *   *
+     * @summary Resets the permissions of the privileged account.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Reset of the permissions of privileged accounts](https://help.aliyun.com/document_detail/140724.html)
+     *  *
      * @param ResetAccountRequest $request ResetAccountRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -21803,14 +22871,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Reset of the permissions of privileged accounts](~~140724~~).
-     *   *
+     * @summary Resets the permissions of the privileged account.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Reset of the permissions of privileged accounts](https://help.aliyun.com/document_detail/140724.html)
+     *  *
      * @param ResetAccountRequest $request ResetAccountRequest
      *
      * @return ResetAccountResponse ResetAccountResponse
@@ -21823,18 +22893,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Reset the password of an ApsaraDB RDS for MySQL instance](~~96100~~)
-     *   * *   [Reset the password of an ApsaraDB RDS for PostgreSQL instance](~~96814~~)
-     *   * *   [Reset the password of an ApsaraDB RDS for SQL Server instance](~~95691~~)
-     *   * *   [Reset the password of an ApsaraDB RDS for MariaDB instance](~~97133~~).
-     *   *
+     * @summary Resets the password of a database account.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Reset the password of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96100.html)
+     * *   [Reset the password of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96814.html)
+     * *   [Reset the password of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95691.html)
+     * *   [Reset the password of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97133.html)
+     *  *
      * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -21884,18 +22956,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Reset the password of an ApsaraDB RDS for MySQL instance](~~96100~~)
-     *   * *   [Reset the password of an ApsaraDB RDS for PostgreSQL instance](~~96814~~)
-     *   * *   [Reset the password of an ApsaraDB RDS for SQL Server instance](~~95691~~)
-     *   * *   [Reset the password of an ApsaraDB RDS for MariaDB instance](~~97133~~).
-     *   *
+     * @summary Resets the password of a database account.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Reset the password of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96100.html)
+     * *   [Reset the password of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96814.html)
+     * *   [Reset the password of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95691.html)
+     * *   [Reset the password of an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97133.html)
+     *  *
      * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
      * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
@@ -21908,18 +22982,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Restart an ApsaraDB RDS for MySQL instance](~~96051~~)
-     *   * *   [Restart an ApsaraDB RDS for PostgreSQL instance](~~96798~~)
-     *   * *   [Restart an ApsaraDB RDS for SQL Server instance](~~95656~~)
-     *   * *   [Restart an ApsaraDB RDS for MariaDB instance](~~97472~~).
-     *   *
+     * @summary Restarts an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Restart an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96051.html)
+     * *   [Restart an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96798.html)
+     * *   [Restart an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95656.html)
+     * *   [Restart an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97472.html)
+     *  *
      * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -21969,18 +23045,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   RDS MySQL
-     *   * *   RDS PostgreSQL
-     *   * *   RDS SQL Server
-     *   * *   RDS MariaDB
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Restart an ApsaraDB RDS for MySQL instance](~~96051~~)
-     *   * *   [Restart an ApsaraDB RDS for PostgreSQL instance](~~96798~~)
-     *   * *   [Restart an ApsaraDB RDS for SQL Server instance](~~95656~~)
-     *   * *   [Restart an ApsaraDB RDS for MariaDB instance](~~97472~~).
-     *   *
+     * @summary Restarts an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   RDS MySQL
+     * *   RDS PostgreSQL
+     * *   RDS SQL Server
+     * *   RDS MariaDB
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Restart an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96051.html)
+     * *   [Restart an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96798.html)
+     * *   [Restart an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95656.html)
+     * *   [Restart an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97472.html)
+     *  *
      * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
      *
      * @return RestartDBInstanceResponse RestartDBInstanceResponse
@@ -21993,14 +23071,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  Before restoration, you can call the [CheckCreateDdrDBInstance](~~121721~~) operation to check whether a cross-region backup set can be used for cross-region restoration.
-     *   * ### [](#)Supported database engine
-     *   * MySQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~)
-     *   * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~).
-     *   *
+     * @summary Restores data to an existing instance across regions.
+     *  *
+     * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
+     * ### [](#)Supported database engine
+     * MySQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
+     *  *
      * @param RestoreDdrTableRequest $request RestoreDdrTableRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -22068,14 +23148,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  Before restoration, you can call the [CheckCreateDdrDBInstance](~~121721~~) operation to check whether a cross-region backup set can be used for cross-region restoration.
-     *   * ### [](#)Supported database engine
-     *   * MySQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Back up an ApsaraDB RDS for MySQL instance across regions](~~120824~~)
-     *   * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](~~120875~~).
-     *   *
+     * @summary Restores data to an existing instance across regions.
+     *  *
+     * @description >  Before restoration, you can call the [CheckCreateDdrDBInstance](https://help.aliyun.com/document_detail/121721.html) operation to check whether a cross-region backup set can be used for cross-region restoration.
+     * ### [](#)Supported database engine
+     * MySQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Back up an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120824.html)
+     * *   [Restore the data of an ApsaraDB RDS for MySQL instance across regions](https://help.aliyun.com/document_detail/120875.html)
+     *  *
      * @param RestoreDdrTableRequest $request RestoreDdrTableRequest
      *
      * @return RestoreDdrTableResponse RestoreDdrTableResponse
@@ -22088,12 +23170,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * MySQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Restore individual databases and tables](~~103175~~).
-     *   *
+     * @summary Restores individual databases or tables of an instance to the original instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * MySQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Restore individual databases and tables](https://help.aliyun.com/document_detail/103175.html)
+     *  *
      * @param RestoreTableRequest $request RestoreTableRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -22152,12 +23236,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * MySQL
-     *   * ### [](#)References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Restore individual databases and tables](~~103175~~).
-     *   *
+     * @summary Restores individual databases or tables of an instance to the original instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * MySQL
+     * ### [](#)References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Restore individual databases and tables](https://help.aliyun.com/document_detail/103175.html)
+     *  *
      * @param RestoreTableRequest $request RestoreTableRequest
      *
      * @return RestoreTableResponse RestoreTableResponse
@@ -22170,17 +23256,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Prerequisites
-     *   * *   The instance is in the Running state.
-     *   * *   The database is in the Running state.
-     *   * ### [](#)Precautions
-     *   * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
-     *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition and run PostgreSQL.
-     *   *
+     * @summary Removes the permissions on a database of an ApsaraDB RDS instance from an account.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Prerequisites
+     * *   The instance is in the Running state.
+     * *   The database is in the Running state.
+     * ### [](#)Precautions
+     * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
+     * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition and run PostgreSQL.
+     *  *
      * @param RevokeAccountPrivilegeRequest $request RevokeAccountPrivilegeRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -22230,17 +23318,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Prerequisites
-     *   * *   The instance is in the Running state.
-     *   * *   The database is in the Running state.
-     *   * ### [](#)Precautions
-     *   * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
-     *   * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition and run PostgreSQL.
-     *   *
+     * @summary Removes the permissions on a database of an ApsaraDB RDS instance from an account.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Prerequisites
+     * *   The instance is in the Running state.
+     * *   The database is in the Running state.
+     * ### [](#)Precautions
+     * *   The permissions that can be revoked include SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, EVENT, and TRIGGER.
+     * *   This operation is not supported for instances that run SQL Server 2017 on RDS Cluster Edition and run PostgreSQL.
+     *  *
      * @param RevokeAccountPrivilegeRequest $request RevokeAccountPrivilegeRequest
      *
      * @return RevokeAccountPrivilegeResponse RevokeAccountPrivilegeResponse
@@ -22253,16 +23343,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](~~96102~~)
-     *   * *   [Grant permissions to the service account of an ApsaraDB RDS for PostgreSQL instance](~~146887~~)
-     *   * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](~~95693~~).
-     *   *
+     * @summary Revokes permissions from the service account of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96102.html)
+     * *   [Grant permissions to the service account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146887.html)
+     * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95693.html)
+     *  *
      * @param RevokeOperatorPermissionRequest $request RevokeOperatorPermissionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -22306,16 +23398,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](~~96102~~)
-     *   * *   [Grant permissions to the service account of an ApsaraDB RDS for PostgreSQL instance](~~146887~~)
-     *   * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](~~95693~~).
-     *   *
+     * @summary Revokes permissions from the service account of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Grant permissions to the service account of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96102.html)
+     * *   [Grant permissions to the service account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146887.html)
+     * *   [Grant permissions to the service account of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95693.html)
+     *  *
      * @param RevokeOperatorPermissionRequest $request RevokeOperatorPermissionRequest
      *
      * @return RevokeOperatorPermissionResponse RevokeOperatorPermissionResponse
@@ -22328,16 +23422,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-     *   * *   [Resume an ApsaraDB RDS for MySQL instance](~~427093~~)
-     *   * *   [Resume an ApsaraDB RDS for PostgreSQL instance](~~452314~~)
-     *   * *   [Resume an ApsaraDB RDS for SQL Server instance](~~462504~~).
-     *   *
+     * @summary Resumes an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+     * *   [Resume an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
+     * *   [Resume an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
+     * *   [Resume an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+     *  *
      * @param StartDBInstanceRequest $request StartDBInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -22417,16 +23513,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-     *   * *   [Resume an ApsaraDB RDS for MySQL instance](~~427093~~)
-     *   * *   [Resume an ApsaraDB RDS for PostgreSQL instance](~~452314~~)
-     *   * *   [Resume an ApsaraDB RDS for SQL Server instance](~~462504~~).
-     *   *
+     * @summary Resumes an instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
+     * *   [Resume an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
+     * *   [Resume an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
+     * *   [Resume an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+     *  *
      * @param StartDBInstanceRequest $request StartDBInstanceRequest
      *
      * @return StartDBInstanceResponse StartDBInstanceResponse
@@ -22439,16 +23537,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Suspend an ApsaraDB RDS for MySQL instance](~~427093~~)
-     *   * *   [Suspend an ApsaraDB RDS for PostgreSQL instance](~~452314~~)
-     *   * *   [Suspend an ApsaraDB RDS for SQL Server instance](~~462504~~).
-     *   *
+     * @summary Suspends an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Suspend an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
+     * *   [Suspend an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
+     * *   [Suspend an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+     *  *
      * @param StopDBInstanceRequest $request StopDBInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -22492,16 +23592,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Suspend an ApsaraDB RDS for MySQL instance](~~427093~~)
-     *   * *   [Suspend an ApsaraDB RDS for PostgreSQL instance](~~452314~~)
-     *   * *   [Suspend an ApsaraDB RDS for SQL Server instance](~~462504~~).
-     *   *
+     * @summary Suspends an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Suspend an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
+     * *   [Suspend an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
+     * *   [Suspend an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+     *  *
      * @param StopDBInstanceRequest $request StopDBInstanceRequest
      *
      * @return StopDBInstanceResponse StopDBInstanceResponse
@@ -22514,18 +23616,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Switch workloads between primary and secondary ApsaraDB RDS for MySQL instances](~~96054~~)
-     *   * *   [Switch workloads between primary and secondary ApsaraDB RDS for PostgreSQL instances](~~96747~~)
-     *   * *   [Switch workloads between primary and secondary ApsaraDB RDS for SQL Server instances](~~95659~~)
-     *   * *   [Switch workloads between primary and secondary ApsaraDB RDS for MariaDB instances](~~97127~~).
-     *   *
+     * @summary Switches workloads between primary and secondary ApsaraDB RDS instances.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Switch workloads between primary and secondary ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96054.html)
+     * *   [Switch workloads between primary and secondary ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/96747.html)
+     * *   [Switch workloads between primary and secondary ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95659.html)
+     * *   [Switch workloads between primary and secondary ApsaraDB RDS for MariaDB instances](https://help.aliyun.com/document_detail/97127.html)
+     *  *
      * @param SwitchDBInstanceHARequest $request SwitchDBInstanceHARequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -22578,18 +23682,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Switch workloads between primary and secondary ApsaraDB RDS for MySQL instances](~~96054~~)
-     *   * *   [Switch workloads between primary and secondary ApsaraDB RDS for PostgreSQL instances](~~96747~~)
-     *   * *   [Switch workloads between primary and secondary ApsaraDB RDS for SQL Server instances](~~95659~~)
-     *   * *   [Switch workloads between primary and secondary ApsaraDB RDS for MariaDB instances](~~97127~~).
-     *   *
+     * @summary Switches workloads between primary and secondary ApsaraDB RDS instances.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Switch workloads between primary and secondary ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96054.html)
+     * *   [Switch workloads between primary and secondary ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/96747.html)
+     * *   [Switch workloads between primary and secondary ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/95659.html)
+     * *   [Switch workloads between primary and secondary ApsaraDB RDS for MariaDB instances](https://help.aliyun.com/document_detail/97127.html)
+     *  *
      * @param SwitchDBInstanceHARequest $request SwitchDBInstanceHARequest
      *
      * @return SwitchDBInstanceHAResponse SwitchDBInstanceHAResponse
@@ -22602,17 +23708,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### Prerequisites
-     *   * *   The instance is connected by using its internal or public endpoint.
-     *   * *   The instance is in the Running state.
-     *   * *   The number of times that you have switched the instance between its internal and public endpoints within the last 24 hours does not reach 20.
-     *   * *   The instance resides in the classic network.
-     *   * ### Usage notes
-     *   * After the endpoint that is used to connect to the instance is changed, you must update the endpoint information in the code of your application and restart the application.
-     *   *
+     * @summary Switches between internal and public endpoints of an instance in the classic network.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### Prerequisites
+     * *   The instance is connected by using its internal or public endpoint.
+     * *   The instance is in the Running state.
+     * *   The number of times that you have switched the instance between its internal and public endpoints within the last 24 hours does not reach 20.
+     * *   The instance resides in the classic network.
+     * ### Usage notes
+     * After the endpoint that is used to connect to the instance is changed, you must update the endpoint information in the code of your application and restart the application.
+     *  *
      * @param SwitchDBInstanceNetTypeRequest $request SwitchDBInstanceNetTypeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -22668,17 +23776,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   SQL Server
-     *   * ### Prerequisites
-     *   * *   The instance is connected by using its internal or public endpoint.
-     *   * *   The instance is in the Running state.
-     *   * *   The number of times that you have switched the instance between its internal and public endpoints within the last 24 hours does not reach 20.
-     *   * *   The instance resides in the classic network.
-     *   * ### Usage notes
-     *   * After the endpoint that is used to connect to the instance is changed, you must update the endpoint information in the code of your application and restart the application.
-     *   *
+     * @summary Switches between internal and public endpoints of an instance in the classic network.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   SQL Server
+     * ### Prerequisites
+     * *   The instance is connected by using its internal or public endpoint.
+     * *   The instance is in the Running state.
+     * *   The number of times that you have switched the instance between its internal and public endpoints within the last 24 hours does not reach 20.
+     * *   The instance resides in the classic network.
+     * ### Usage notes
+     * After the endpoint that is used to connect to the instance is changed, you must update the endpoint information in the code of your application and restart the application.
+     *  *
      * @param SwitchDBInstanceNetTypeRequest $request SwitchDBInstanceNetTypeRequest
      *
      * @return SwitchDBInstanceNetTypeResponse SwitchDBInstanceNetTypeResponse
@@ -22691,16 +23801,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Change the VPC and vSwitch for an ApsaraDB RDS for MySQL instance](~~137567~~)
-     *   * *   [Change the vSwitch for an ApsaraDB RDS for PostgreSQL instance](~~146885~~)
-     *   * *   [Change the VPC and vSwitch for an ApsaraDB RDS for SQL Server instance](~~347675~~).
-     *   *
+     * @summary Changes the virtual private cloud (VPC) and vSwitch for an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Change the VPC and vSwitch for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/137567.html)
+     * *   [Change the vSwitch for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146885.html)
+     * *   [Change the VPC and vSwitch for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/347675.html)
+     *  *
      * @param SwitchDBInstanceVpcRequest $request SwitchDBInstanceVpcRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -22744,16 +23856,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Change the VPC and vSwitch for an ApsaraDB RDS for MySQL instance](~~137567~~)
-     *   * *   [Change the vSwitch for an ApsaraDB RDS for PostgreSQL instance](~~146885~~)
-     *   * *   [Change the VPC and vSwitch for an ApsaraDB RDS for SQL Server instance](~~347675~~).
-     *   *
+     * @summary Changes the virtual private cloud (VPC) and vSwitch for an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Change the VPC and vSwitch for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/137567.html)
+     * *   [Change the vSwitch for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146885.html)
+     * *   [Change the VPC and vSwitch for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/347675.html)
+     *  *
      * @param SwitchDBInstanceVpcRequest $request SwitchDBInstanceVpcRequest
      *
      * @return SwitchDBInstanceVpcResponse SwitchDBInstanceVpcResponse
@@ -22766,8 +23880,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary Switches a disaster recovery instance to a primary instance.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param SwitchGuardToMasterInstanceRequest $request SwitchGuardToMasterInstanceRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -22814,8 +23930,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is phased out.
-     *   *
+     * @summary Switches a disaster recovery instance to a primary instance.
+     *  *
+     * @description This operation is phased out.
+     *  *
      * @param SwitchGuardToMasterInstanceRequest $request SwitchGuardToMasterInstanceRequest
      *
      * @return SwitchGuardToMasterInstanceResponse SwitchGuardToMasterInstanceResponse
@@ -22828,18 +23946,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Create tags for an ApsaraDB RDS for MySQL instance](~~96149~~)
-     *   * *   [Create tags for an ApsaraDB RDS for PostgreSQL instance](~~96777~~)
-     *   * *   [Create tags for an ApsaraDB RDS for SQL Server instance](~~95726~~)
-     *   * *   [Create tags for an ApsaraDB RDS for MariaDB instance](~~97152~~).
-     *   *
+     * @summary Creates and adds tags to one or more instances.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Create tags for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96149.html)
+     * *   [Create tags for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96777.html)
+     * *   [Create tags for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95726.html)
+     * *   [Create tags for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97152.html)
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -22889,18 +24009,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * *   [Create tags for an ApsaraDB RDS for MySQL instance](~~96149~~)
-     *   * *   [Create tags for an ApsaraDB RDS for PostgreSQL instance](~~96777~~)
-     *   * *   [Create tags for an ApsaraDB RDS for SQL Server instance](~~95726~~)
-     *   * *   [Create tags for an ApsaraDB RDS for MariaDB instance](~~97152~~).
-     *   *
+     * @summary Creates and adds tags to one or more instances.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Create tags for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96149.html)
+     * *   [Create tags for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96777.html)
+     * *   [Create tags for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95726.html)
+     * *   [Create tags for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97152.html)
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
      * @return TagResourcesResponse TagResourcesResponse
@@ -22913,9 +24035,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server.
-     *   *
+     * @summary Terminates an ongoing migration task of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     *  *
      * @param TerminateMigrateTaskRequest $request TerminateMigrateTaskRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -22959,9 +24083,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   SQL Server.
-     *   *
+     * @summary Terminates an ongoing migration task of an ApsaraDB RDS for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   SQL Server
+     *  *
      * @param TerminateMigrateTaskRequest $request TerminateMigrateTaskRequest
      *
      * @return TerminateMigrateTaskResponse TerminateMigrateTaskResponse
@@ -22974,18 +24100,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Fees are generated if the call is successful. Before you call this operation, you must read the following documentation.
-     *   * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](~~96048~~) or [Change the billing method of an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](~~161875~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](~~96743~~) or [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from subscription to pay-as-you-go](~~162756~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](~~95631~~) or [Change the billing method of an ApsaraDB RDS for SQL Server instance from subscription to pay-as-you-go](~~162755~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](~~97120~~) or [Change the billing method of an ApsaraDB RDS for MariaDB instance from subscription to pay-as-you-go](~~169252~~).
-     *   *
+     * @summary Changes the billing method of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Fees are generated if the call is successful. Before you call this operation, you must read the following documentation.
+     * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96048.html) or [Change the billing method of an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/161875.html)
+     * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96743.html) or [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162756.html)
+     * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/95631.html) or [Change the billing method of an ApsaraDB RDS for SQL Server instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162755.html)
+     * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/97120.html) or [Change the billing method of an ApsaraDB RDS for MariaDB instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/169252.html)
+     *  *
      * @param TransformDBInstancePayTypeRequest $request TransformDBInstancePayTypeRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -23047,18 +24175,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### References
-     *   * > Fees are generated if the call is successful. Before you call this operation, you must read the following documentation.
-     *   * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](~~96048~~) or [Change the billing method of an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](~~161875~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](~~96743~~) or [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from subscription to pay-as-you-go](~~162756~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](~~95631~~) or [Change the billing method of an ApsaraDB RDS for SQL Server instance from subscription to pay-as-you-go](~~162755~~)
-     *   * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](~~97120~~) or [Change the billing method of an ApsaraDB RDS for MariaDB instance from subscription to pay-as-you-go](~~169252~~).
-     *   *
+     * @summary Changes the billing method of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### References
+     * > Fees are generated if the call is successful. Before you call this operation, you must read the following documentation.
+     * *   [Change the billing method of an ApsaraDB RDS for MySQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96048.html) or [Change the billing method of an ApsaraDB RDS for MySQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/161875.html)
+     * *   [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/96743.html) or [Change the billing method of an ApsaraDB RDS for PostgreSQL instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162756.html)
+     * *   [Change the billing method of an ApsaraDB RDS for SQL Server instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/95631.html) or [Change the billing method of an ApsaraDB RDS for SQL Server instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/162755.html)
+     * *   [Change the billing method of an ApsaraDB RDS for MariaDB instance from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/97120.html) or [Change the billing method of an ApsaraDB RDS for MariaDB instance from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/169252.html)
+     *  *
      * @param TransformDBInstancePayTypeRequest $request TransformDBInstancePayTypeRequest
      *
      * @return TransformDBInstancePayTypeResponse TransformDBInstancePayTypeResponse
@@ -23071,12 +24201,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](~~147649~~).
-     *   *
+     * @summary Unlocks a database account of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### Supported database engine
+     * PostgreSQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+     *  *
      * @param UnlockAccountRequest $request UnlockAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -23120,12 +24252,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](~~147649~~).
-     *   *
+     * @summary Unlocks a database account of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### Supported database engine
+     * PostgreSQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Lock an account of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/147649.html)
+     *  *
      * @param UnlockAccountRequest $request UnlockAccountRequest
      *
      * @return UnlockAccountResponse UnlockAccountResponse
@@ -23138,15 +24272,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Usage notes
-     *   * *   You can remove up to 20 tags at a time.
-     *   * *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
-     *   *
+     * @summary Removes tags from one or more instances.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Usage notes
+     * *   You can remove up to 20 tags at a time.
+     * *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -23199,15 +24335,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### [](#)Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * *   MariaDB
-     *   * ### [](#)Usage notes
-     *   * *   You can remove up to 20 tags at a time.
-     *   * *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
-     *   *
+     * @summary Removes tags from one or more instances.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * *   MariaDB
+     * ### [](#)Usage notes
+     * *   You can remove up to 20 tags at a time.
+     * *   If a tag is removed from an instance and is not added to other instances, the tag is automatically deleted.
+     *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
      * @return UntagResourcesResponse UntagResourcesResponse
@@ -23220,12 +24358,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS PostgreSQL
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Manage extensions](~~2402409~~).
-     *   *
+     * @summary Updates the version of an extension on a database.
+     *  *
+     * @description ### Supported database engines
+     * RDS PostgreSQL
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+     *  *
      * @param UpdatePostgresExtensionsRequest $request UpdatePostgresExtensionsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -23281,12 +24421,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS PostgreSQL
-     *   * ### References
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Manage extensions](~~2402409~~).
-     *   *
+     * @summary Updates the version of an extension on a database.
+     *  *
+     * @description ### Supported database engines
+     * RDS PostgreSQL
+     * ### References
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
+     *  *
      * @param UpdatePostgresExtensionsRequest $request UpdatePostgresExtensionsRequest
      *
      * @return UpdatePostgresExtensionsResponse UpdatePostgresExtensionsResponse
@@ -23299,12 +24441,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS MySQL
-     *   * ### References
-     *   * A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 or MySQL 8.0 instance to an ApsaraDB RDS for MySQL instance](~~251779~~).
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   *
+     * @summary Modifies the description and retention period of a full backup file.
+     *  *
+     * @description ### Supported database engines
+     * RDS MySQL
+     * ### References
+     * A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 or MySQL 8.0 instance to an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/251779.html).
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *  *
      * @param UpdateUserBackupFileRequest $request UpdateUserBackupFileRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -23357,12 +24501,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * RDS MySQL
-     *   * ### References
-     *   * A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 or MySQL 8.0 instance to an ApsaraDB RDS for MySQL instance](~~251779~~).
-     *   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   *
+     * @summary Modifies the description and retention period of a full backup file.
+     *  *
+     * @description ### Supported database engines
+     * RDS MySQL
+     * ### References
+     * A full backup file contains the data of a self-managed MySQL database. You can restore the data of a self-managed MySQL database from a full backup file to an ApsaraDB RDS for MySQL instance. For more information, see [Migrate the data of a self-managed MySQL 5.7 or MySQL 8.0 instance to an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/251779.html).
+     * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *  *
      * @param UpdateUserBackupFileRequest $request UpdateUserBackupFileRequest
      *
      * @return UpdateUserBackupFileResponse UpdateUserBackupFileResponse
@@ -23375,12 +24521,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Upgrade the major engine version of an ApsaraDB RDS for MySQL instance](~~96058~~).
-     *   *
+     * @summary Upgrades the major engine version of an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Upgrade the major engine version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96058.html)
+     *  *
      * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -23433,12 +24581,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * MySQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * [Upgrade the major engine version of an ApsaraDB RDS for MySQL instance](~~96058~~).
-     *   *
+     * @summary Upgrades the major engine version of an ApsaraDB RDS for MySQL instance.
+     *  *
+     * @description ### Supported database engine
+     * MySQL
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * [Upgrade the major engine version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96058.html)
+     *  *
      * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
      *
      * @return UpgradeDBInstanceEngineVersionResponse UpgradeDBInstanceEngineVersionResponse
@@ -23451,16 +24601,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Update the minor engine version of an ApsaraDB RDS for MySQL instance](~~96059~~)
-     *   * *   [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](~~146895~~)
-     *   * *   [Update the minor engine version of an ApsaraDB RDS for SQL Server instance](~~213582~~).
-     *   *
+     * @summary Updates the minor engine version of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Update the minor engine version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
+     * *   [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+     * *   [Update the minor engine version of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/213582.html)
+     *  *
      * @param UpgradeDBInstanceKernelVersionRequest $request UpgradeDBInstanceKernelVersionRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -23510,16 +24662,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * *   SQL Server
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Update the minor engine version of an ApsaraDB RDS for MySQL instance](~~96059~~)
-     *   * *   [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](~~146895~~)
-     *   * *   [Update the minor engine version of an ApsaraDB RDS for SQL Server instance](~~213582~~).
-     *   *
+     * @summary Updates the minor engine version of an ApsaraDB RDS instance.
+     *  *
+     * @description ### Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * *   SQL Server
+     * ### References
+     * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * *   [Update the minor engine version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96059.html)
+     * *   [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html)
+     * *   [Update the minor engine version of an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/213582.html)
+     *  *
      * @param UpgradeDBInstanceKernelVersionRequest $request UpgradeDBInstanceKernelVersionRequest
      *
      * @return UpgradeDBInstanceKernelVersionResponse UpgradeDBInstanceKernelVersionResponse
@@ -23532,12 +24686,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * PostgreSQL
-     *   * ### References
-     *   * Fees are generated if the call is successful. Before you call this operation, read the following documentation and make sure that you fully understand the billing rules, prerequisites, and impacts of this operation.
-     *   * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~).
-     *   *
+     * @summary Initiates a task to upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### Supported database engine
+     * PostgreSQL
+     * ### References
+     * Fees are generated if the call is successful. Before you call this operation, read the following documentation and make sure that you fully understand the billing rules, prerequisites, and impacts of this operation.
+     * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+     *  *
      * @param UpgradeDBInstanceMajorVersionRequest $request UpgradeDBInstanceMajorVersionRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -23626,12 +24782,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * PostgreSQL
-     *   * ### References
-     *   * Fees are generated if the call is successful. Before you call this operation, read the following documentation and make sure that you fully understand the billing rules, prerequisites, and impacts of this operation.
-     *   * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~).
-     *   *
+     * @summary Initiates a task to upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### Supported database engine
+     * PostgreSQL
+     * ### References
+     * Fees are generated if the call is successful. Before you call this operation, read the following documentation and make sure that you fully understand the billing rules, prerequisites, and impacts of this operation.
+     * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+     *  *
      * @param UpgradeDBInstanceMajorVersionRequest $request UpgradeDBInstanceMajorVersionRequest
      *
      * @return UpgradeDBInstanceMajorVersionResponse UpgradeDBInstanceMajorVersionResponse
@@ -23644,12 +24802,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~).
-     *   *
+     * @summary Performs a precheck before the upgrade of the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### Supported database engine
+     * PostgreSQL
+     * ### References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+     *  *
      * @param UpgradeDBInstanceMajorVersionPrecheckRequest $request UpgradeDBInstanceMajorVersionPrecheckRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
@@ -23687,12 +24847,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engine
-     *   * PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
-     *   * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](~~203309~~).
-     *   *
+     * @summary Performs a precheck before the upgrade of the major engine version of an ApsaraDB RDS for PostgreSQL instance.
+     *  *
+     * @description ### Supported database engine
+     * PostgreSQL
+     * ### References
+     * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * [Upgrade the major engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/203309.html)
+     *  *
      * @param UpgradeDBInstanceMajorVersionPrecheckRequest $request UpgradeDBInstanceMajorVersionPrecheckRequest
      *
      * @return UpgradeDBInstanceMajorVersionPrecheckResponse UpgradeDBInstanceMajorVersionPrecheckResponse
@@ -23705,14 +24867,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Upgrade the dedicated proxy version of an ApsaraDB RDS for MySQL instance](~~197465~~)
-     *   * *   [Upgrade the dedicated proxy version of an ApsaraDB RDS for PostgreSQL instance](~~418469~~).
-     *   *
+     * @summary Upgrades the database proxy version of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Upgrade the database proxy version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197465.html)
+     * *   [Upgrade the database proxy version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418469.html)
+     *  *
      * @param UpgradeDBProxyInstanceKernelVersionRequest $request UpgradeDBProxyInstanceKernelVersionRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -23762,14 +24926,16 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * ### Supported database engines
-     *   * *   MySQL
-     *   * *   PostgreSQL
-     *   * ### References
-     *   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-     *   * *   [Upgrade the dedicated proxy version of an ApsaraDB RDS for MySQL instance](~~197465~~)
-     *   * *   [Upgrade the dedicated proxy version of an ApsaraDB RDS for PostgreSQL instance](~~418469~~).
-     *   *
+     * @summary Upgrades the database proxy version of an instance.
+     *  *
+     * @description ### [](#)Supported database engines
+     * *   MySQL
+     * *   PostgreSQL
+     * ### [](#)References
+     * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * *   [Upgrade the database proxy version of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197465.html)
+     * *   [Upgrade the database proxy version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418469.html)
+     *  *
      * @param UpgradeDBProxyInstanceKernelVersionRequest $request UpgradeDBProxyInstanceKernelVersionRequest
      *
      * @return UpgradeDBProxyInstanceKernelVersionResponse UpgradeDBProxyInstanceKernelVersionResponse

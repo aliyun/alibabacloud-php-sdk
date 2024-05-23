@@ -11,6 +11,7 @@ class ResetAccountRequest extends Model
     /**
      * @description The name of the privileged account.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string
@@ -28,6 +29,7 @@ class ResetAccountRequest extends Model
      *
      *   It can contain the following special characters: `! @ # $ & ; % ^ * () _ + - =`.
      *
+     * This parameter is required.
      * @example Test123456
      *
      * @var string
@@ -37,6 +39,7 @@ class ResetAccountRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string

@@ -11,6 +11,7 @@ class StopDBInstanceRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp1q915x50h******
      *
      * @var string
@@ -25,6 +26,7 @@ class StopDBInstanceRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

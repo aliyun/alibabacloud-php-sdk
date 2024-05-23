@@ -20,6 +20,7 @@ class ModifyDbProxyInstanceSslRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-t4n3axxxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class ModifyDbProxyInstanceSslRequest extends Model
     /**
      * @description The dedicated proxy endpoint of the instance.
      *
+     * This parameter is required.
      * @example test123456.rwlb.rds.aliyuncs.com
      *
      * @var string
@@ -38,6 +40,7 @@ class ModifyDbProxyInstanceSslRequest extends Model
     /**
      * @description The ID of the proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID of the proxy endpoint.
      *
+     * This parameter is required.
      * @example ta9um4xxxxx
      *
      * @var string
@@ -51,7 +54,7 @@ class ModifyDbProxyInstanceSslRequest extends Model
      *   1: enables SSL encryption or modifies the endpoint that requires SSL encryption.
      *   2: updates the validity period of the SSL certificate.
      *
-     * > This setting causes your instance to restart. Proceed with caution.
+     * This parameter is required.
      * @example 1
      *
      * @var string

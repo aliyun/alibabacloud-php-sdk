@@ -24,7 +24,7 @@ class CreateOrderForDeleteDBNodesRequest extends Model
     /**
      * @description The additional business information about the instance.
      *
-     * @example {\"shopCartItemId\":\"25******\",\"produceDriver\":\"NoOrder\",\"aliyun_shopcart_order_source\":\"fromShopcart\",\"shopCartId\":\"10190203suffix20230509******\"}
+     * @example {\\"shopCartItemId\\":\\"25******\\",\\"produceDriver\\":\\"NoOrder\\",\\"aliyun_shopcart_order_source\\":\\"fromShopcart\\",\\"shopCartId\\":\\"10190203suffix20230509******\\"}
      *
      * @var string
      */
@@ -51,6 +51,7 @@ class CreateOrderForDeleteDBNodesRequest extends Model
      *   **rords_intl**: The instance is a pay-as-you-go read-only instance.
      *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance.
      *
+     * This parameter is required.
      * @example bards
      *
      * @var string
@@ -58,7 +59,7 @@ class CreateOrderForDeleteDBNodesRequest extends Model
     public $commodityCode;
 
     /**
-     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
      *
      * @example rm-8vb******
      *
@@ -110,7 +111,7 @@ class CreateOrderForDeleteDBNodesRequest extends Model
     public $promotionCode;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

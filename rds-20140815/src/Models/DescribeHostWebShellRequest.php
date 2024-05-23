@@ -11,6 +11,7 @@ class DescribeHostWebShellRequest extends Model
     /**
      * @description The username of the account that is used to log on to the host of the instance.
      *
+     * This parameter is required.
      * @example testOsAccount1
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeHostWebShellRequest extends Model
     /**
      * @description The password of the host account.
      *
+     * This parameter is required.
      * @example ***
      *
      * @var string
@@ -29,6 +31,7 @@ class DescribeHostWebShellRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -38,6 +41,7 @@ class DescribeHostWebShellRequest extends Model
     /**
      * @description The instance hostname. You can call the DescribeDBInstanceIpHostname operation to query the hostname.
      *
+     * This parameter is required.
      * @example testHost1
      *
      * @var string
@@ -52,6 +56,7 @@ class DescribeHostWebShellRequest extends Model
     /**
      * @description The region ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

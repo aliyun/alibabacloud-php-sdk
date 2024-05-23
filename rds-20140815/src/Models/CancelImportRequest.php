@@ -11,6 +11,7 @@ class CancelImportRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -20,7 +21,7 @@ class CancelImportRequest extends Model
     /**
      * @description The migration task ID.
      *
-     * >  This parameter is returned when the migration task is started. For more information, see ImportDatabaseBetweenInstances.
+     * This parameter is required.
      * @example 8562584
      *
      * @var int

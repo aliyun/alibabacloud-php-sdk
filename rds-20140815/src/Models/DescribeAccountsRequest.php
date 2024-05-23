@@ -20,7 +20,7 @@ class DescribeAccountsRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
-     * >  This parameter is not supported for RDS instances that run SQL Server 2017 on RDS Cluster Edition.
+     * This parameter is required.
      * @example rm-uf6wjk5*****
      *
      * @var string

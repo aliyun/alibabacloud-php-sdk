@@ -20,6 +20,7 @@ class DescribeCrossRegionLogBackupFilesRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeCrossRegionLogBackupFilesRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-06-15T12:10:00Z
      *
      * @var string
@@ -67,6 +69,7 @@ class DescribeCrossRegionLogBackupFilesRequest extends Model
     /**
      * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -86,6 +89,7 @@ class DescribeCrossRegionLogBackupFilesRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-05-30T12:10:00Z
      *
      * @var string

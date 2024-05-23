@@ -48,7 +48,7 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
     public $crossBackupType;
 
     /**
-     * @description The name of the instance. It must be 2 to 256 characters in length. The value can contain letters, digits, underscores (\_), and hyphens (-), and must start with a letter.
+     * @description The name of the instance. It must be 2 to 256 characters in length. The value can contain letters, digits, underscores (_), and hyphens (-), and must start with a letter.
      *
      * >  The value cannot start with http:// or https://.
      * @example Test database
@@ -67,7 +67,7 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description The status of the instance. For more information, see [Instance state table](~~26315~~).
+     * @description The status of the instance. For more information, see [Instance state table](https://help.aliyun.com/document_detail/26315.html).
      *
      * @example Running
      *

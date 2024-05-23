@@ -14,6 +14,7 @@ class ModifyDBProxyRequest extends Model
      *   **Startup**: enables the database proxy feature.
      *   **Shutdown**: disables the database proxy feature.
      *
+     * This parameter is required.
      * @example Startup
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyDBProxyRequest extends Model
     /**
      * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string

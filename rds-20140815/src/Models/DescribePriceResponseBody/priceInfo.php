@@ -44,6 +44,10 @@ class priceInfo extends Model
     public $discountPrice;
 
     /**
+     * @description Order Information
+     *
+     * @example Order Information
+     *
      * @var string
      */
     public $orderLines;
@@ -65,11 +69,19 @@ class priceInfo extends Model
     public $ruleIds;
 
     /**
+     * @description Estimated hourly cost calculated based on the maximum RCU selected by the user.
+     *
+     * @example 1**
+     *
      * @var float
      */
     public $tradeMaxRCUAmount;
 
     /**
+     * @description Estimated hourly cost calculated based on the minimum RCU selected by the user.
+     *
+     * @example 2**
+     *
      * @var float
      */
     public $tradeMinRCUAmount;

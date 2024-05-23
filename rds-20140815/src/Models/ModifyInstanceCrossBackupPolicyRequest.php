@@ -42,6 +42,7 @@ class ModifyInstanceCrossBackupPolicyRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -69,6 +70,7 @@ class ModifyInstanceCrossBackupPolicyRequest extends Model
     /**
      * @description The region ID of the source instance. You can call the DescribeRegions operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

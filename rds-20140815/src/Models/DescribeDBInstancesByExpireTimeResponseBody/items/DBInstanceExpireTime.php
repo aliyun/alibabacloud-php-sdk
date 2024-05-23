@@ -27,7 +27,7 @@ class DBInstanceExpireTime extends Model
     public $DBInstanceId;
 
     /**
-     * @description The status of the instance. For more information, see [Instance state table](~~26315~~).
+     * @description The status of the instance. For more information, see [Instance state table](https://help.aliyun.com/document_detail/26315.html).
      *
      * @example Running
      *
