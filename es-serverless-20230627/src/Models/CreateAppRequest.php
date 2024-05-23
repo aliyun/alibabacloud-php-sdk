@@ -15,19 +15,20 @@ class CreateAppRequest extends Model
     /**
      * @description 应用名
      *
-     * @example es-severless-test-app
-     *
+     * This parameter is required.
      * @var string
      */
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var authentication
      */
     public $authentication;
 
     /**
-     * @example POSTPAY
+     * @description This parameter is required.
      *
      * @var string
      */
@@ -35,8 +36,6 @@ class CreateAppRequest extends Model
 
     /**
      * @description 应用备注
-     *
-     * @example test
      *
      * @var string
      */
@@ -58,15 +57,16 @@ class CreateAppRequest extends Model
     public $quotaInfo;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example 7.10
-     *
+     * @var string
+     */
+    public $scenario;
+
+    /**
      * @var string
      */
     public $version;
@@ -84,6 +84,7 @@ class CreateAppRequest extends Model
         'privateNetwork' => 'privateNetwork',
         'quotaInfo'      => 'quotaInfo',
         'regionId'       => 'regionId',
+        'scenario'       => 'scenario',
         'version'        => 'version',
         'dryRun'         => 'dryRun',
     ];
@@ -130,6 +131,9 @@ class CreateAppRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
+        }
+        if (null !== $this->scenario) {
+            $res['scenario'] = $this->scenario;
         }
         if (null !== $this->version) {
             $res['version'] = $this->version;
@@ -184,6 +188,9 @@ class CreateAppRequest extends Model
         }
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
+        }
+        if (isset($map['scenario'])) {
+            $model->scenario = $map['scenario'];
         }
         if (isset($map['version'])) {
             $model->version = $map['version'];

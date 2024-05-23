@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Esserverless\V20230627\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListAppsResponse extends Model
+class CreateEndpointResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListAppsResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListAppsResponseBody
+     * @var CreateEndpointResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class ListAppsResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListAppsResponse
+     * @return CreateEndpointResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class ListAppsResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListAppsResponseBody::fromMap($map['body']);
+            $model->body = CreateEndpointResponseBody::fromMap($map['body']);
         }
 
         return $model;

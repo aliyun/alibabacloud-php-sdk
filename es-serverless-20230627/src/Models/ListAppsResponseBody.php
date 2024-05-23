@@ -22,6 +22,8 @@ class ListAppsResponseBody extends Model
     public $result;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 4
      *
      * @var int

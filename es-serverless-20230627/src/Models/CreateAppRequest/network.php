@@ -10,29 +10,21 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
-     * @example test-75b.public.cn-hangzhou.es-serverless.aliyuncs.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @example 80
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @example PUBLIC_ES
-     *
      * @var string
      */
     public $type;

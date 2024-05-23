@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppResponse;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateEndpointRequest;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateEndpointResponse;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\DeleteAppResponse;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppQuotaResponse;
 use AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppRequest;
@@ -58,11 +60,13 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @param CreateAppRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @summary 创建Serverless应用
+     *  *
+     * @param CreateAppRequest $request CreateAppRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppResponse
+     * @return CreateAppResponse CreateAppResponse
      */
     public function createAppWithOptions($request, $headers, $runtime)
     {
@@ -96,6 +100,9 @@ class Esserverless extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['regionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->scenario)) {
+            $body['scenario'] = $request->scenario;
+        }
         if (!Utils::isUnset($request->version)) {
             $body['version'] = $request->version;
         }
@@ -120,9 +127,11 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @param CreateAppRequest $request
+     * @summary 创建Serverless应用
+     *  *
+     * @param CreateAppRequest $request CreateAppRequest
      *
-     * @return CreateAppResponse
+     * @return CreateAppResponse CreateAppResponse
      */
     public function createApp($request)
     {
@@ -133,11 +142,74 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @param string         $appName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 创建端点
+     *  *
+     * @param CreateEndpointRequest $request CreateEndpointRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppResponse
+     * @return CreateEndpointResponse CreateEndpointResponse
+     */
+    public function createEndpointWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->endpointZones)) {
+            $body['endpointZones'] = $request->endpointZones;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $body['vpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEndpoint',
+            'version'     => '2023-06-27',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/openapi/es-serverless/endpoints',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建端点
+     *  *
+     * @param CreateEndpointRequest $request CreateEndpointRequest
+     *
+     * @return CreateEndpointResponse CreateEndpointResponse
+     */
+    public function createEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createEndpointWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除Serverless应用。
+     *  *
+     * @param string         $appName
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAppResponse DeleteAppResponse
      */
     public function deleteAppWithOptions($appName, $headers, $runtime)
     {
@@ -160,9 +232,11 @@ class Esserverless extends OpenApiClient
     }
 
     /**
+     * @summary 删除Serverless应用。
+     *  *
      * @param string $appName
      *
-     * @return DeleteAppResponse
+     * @return DeleteAppResponse DeleteAppResponse
      */
     public function deleteApp($appName)
     {
@@ -173,12 +247,14 @@ class Esserverless extends OpenApiClient
     }
 
     /**
+     * @summary 获取Serverless应用详情
+     *  *
      * @param string         $appName
-     * @param GetAppRequest  $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param GetAppRequest  $request GetAppRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAppResponse
+     * @return GetAppResponse GetAppResponse
      */
     public function getAppWithOptions($appName, $request, $headers, $runtime)
     {
@@ -207,10 +283,12 @@ class Esserverless extends OpenApiClient
     }
 
     /**
+     * @summary 获取Serverless应用详情
+     *  *
      * @param string        $appName
-     * @param GetAppRequest $request
+     * @param GetAppRequest $request GetAppRequest
      *
-     * @return GetAppResponse
+     * @return GetAppResponse GetAppResponse
      */
     public function getApp($appName, $request)
     {
@@ -221,11 +299,13 @@ class Esserverless extends OpenApiClient
     }
 
     /**
+     * @summary 获取Serverless应用配额详情
+     *  *
      * @param string         $appName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAppQuotaResponse
+     * @return GetAppQuotaResponse GetAppQuotaResponse
      */
     public function getAppQuotaWithOptions($appName, $headers, $runtime)
     {
@@ -248,9 +328,11 @@ class Esserverless extends OpenApiClient
     }
 
     /**
+     * @summary 获取Serverless应用配额详情
+     *  *
      * @param string $appName
      *
-     * @return GetAppQuotaResponse
+     * @return GetAppQuotaResponse GetAppQuotaResponse
      */
     public function getAppQuota($appName)
     {
@@ -261,11 +343,13 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @param GetMonitorDataRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 获取监控数据
+     *  *
+     * @param GetMonitorDataRequest $request GetMonitorDataRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMonitorDataResponse
+     * @return GetMonitorDataResponse GetMonitorDataResponse
      */
     public function getMonitorDataWithOptions($request, $headers, $runtime)
     {
@@ -290,9 +374,11 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @param GetMonitorDataRequest $request
+     * @summary 获取监控数据
+     *  *
+     * @param GetMonitorDataRequest $request GetMonitorDataRequest
      *
-     * @return GetMonitorDataResponse
+     * @return GetMonitorDataResponse GetMonitorDataResponse
      */
     public function getMonitorData($request)
     {
@@ -303,11 +389,13 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @param ListAppsRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @summary 查看Serverless应用列表
+     *  *
+     * @param ListAppsRequest $request ListAppsRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppsResponse
+     * @return ListAppsResponse ListAppsResponse
      */
     public function listAppsWithOptions($request, $headers, $runtime)
     {
@@ -354,9 +442,11 @@ class Esserverless extends OpenApiClient
     }
 
     /**
-     * @param ListAppsRequest $request
+     * @summary 查看Serverless应用列表
+     *  *
+     * @param ListAppsRequest $request ListAppsRequest
      *
-     * @return ListAppsResponse
+     * @return ListAppsResponse ListAppsResponse
      */
     public function listApps($request)
     {
@@ -367,12 +457,14 @@ class Esserverless extends OpenApiClient
     }
 
     /**
+     * @summary 编辑Serverless应用
+     *  *
      * @param string           $appName
-     * @param UpdateAppRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param UpdateAppRequest $request UpdateAppRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAppResponse
+     * @return UpdateAppResponse UpdateAppResponse
      */
     public function updateAppWithOptions($appName, $request, $headers, $runtime)
     {
@@ -419,10 +511,12 @@ class Esserverless extends OpenApiClient
     }
 
     /**
+     * @summary 编辑Serverless应用
+     *  *
      * @param string           $appName
-     * @param UpdateAppRequest $request
+     * @param UpdateAppRequest $request UpdateAppRequest
      *
-     * @return UpdateAppResponse
+     * @return UpdateAppResponse UpdateAppResponse
      */
     public function updateApp($appName, $request)
     {

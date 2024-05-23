@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody;
 
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody\result\network;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody\result\privateNetwork;
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
@@ -47,11 +49,21 @@ class result extends Model
     public $modifiedTime;
 
     /**
+     * @var network[]
+     */
+    public $network;
+
+    /**
      * @example *******7595
      *
      * @var string
      */
     public $ownerId;
+
+    /**
+     * @var privateNetwork[]
+     */
+    public $privateNetwork;
 
     /**
      * @example cn-hangzhou
@@ -74,16 +86,18 @@ class result extends Model
      */
     public $version;
     protected $_name = [
-        'appId'        => 'appId',
-        'appName'      => 'appName',
-        'createTime'   => 'createTime',
-        'description'  => 'description',
-        'instanceId'   => 'instanceId',
-        'modifiedTime' => 'modifiedTime',
-        'ownerId'      => 'ownerId',
-        'regionId'     => 'regionId',
-        'status'       => 'status',
-        'version'      => 'version',
+        'appId'          => 'appId',
+        'appName'        => 'appName',
+        'createTime'     => 'createTime',
+        'description'    => 'description',
+        'instanceId'     => 'instanceId',
+        'modifiedTime'   => 'modifiedTime',
+        'network'        => 'network',
+        'ownerId'        => 'ownerId',
+        'privateNetwork' => 'privateNetwork',
+        'regionId'       => 'regionId',
+        'status'         => 'status',
+        'version'        => 'version',
     ];
 
     public function validate()
@@ -111,8 +125,26 @@ class result extends Model
         if (null !== $this->modifiedTime) {
             $res['modifiedTime'] = $this->modifiedTime;
         }
+        if (null !== $this->network) {
+            $res['network'] = [];
+            if (null !== $this->network && \is_array($this->network)) {
+                $n = 0;
+                foreach ($this->network as $item) {
+                    $res['network'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ownerId) {
             $res['ownerId'] = $this->ownerId;
+        }
+        if (null !== $this->privateNetwork) {
+            $res['privateNetwork'] = [];
+            if (null !== $this->privateNetwork && \is_array($this->privateNetwork)) {
+                $n = 0;
+                foreach ($this->privateNetwork as $item) {
+                    $res['privateNetwork'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
@@ -153,8 +185,26 @@ class result extends Model
         if (isset($map['modifiedTime'])) {
             $model->modifiedTime = $map['modifiedTime'];
         }
+        if (isset($map['network'])) {
+            if (!empty($map['network'])) {
+                $model->network = [];
+                $n              = 0;
+                foreach ($map['network'] as $item) {
+                    $model->network[$n++] = null !== $item ? network::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['ownerId'])) {
             $model->ownerId = $map['ownerId'];
+        }
+        if (isset($map['privateNetwork'])) {
+            if (!empty($map['privateNetwork'])) {
+                $model->privateNetwork = [];
+                $n                     = 0;
+                foreach ($map['privateNetwork'] as $item) {
+                    $model->privateNetwork[$n++] = null !== $item ? privateNetwork::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];

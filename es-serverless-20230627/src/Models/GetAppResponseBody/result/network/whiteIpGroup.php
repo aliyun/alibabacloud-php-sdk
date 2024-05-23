@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\CreateAppRequest\network;
+namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody\result\network;
 
 use AlibabaCloud\Tea\Model;
 

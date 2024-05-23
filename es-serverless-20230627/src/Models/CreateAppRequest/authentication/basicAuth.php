@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class basicAuth extends Model
 {
     /**
-     * @example Admin@123
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @example test-abc
-     *
      * @var string
      */
     public $username;

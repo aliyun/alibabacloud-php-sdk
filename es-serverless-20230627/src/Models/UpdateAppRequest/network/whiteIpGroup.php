@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class whiteIpGroup extends Model
 {
     /**
-     * @example local
-     *
      * @var string
      */
     public $groupName;

@@ -2,9 +2,9 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateAppRequest;
+namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody\result;
 
-use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateAppRequest\network\whiteIpGroup;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody\result\network\whiteIpGroup;
 use AlibabaCloud\Tea\Model;
 
 class network extends Model

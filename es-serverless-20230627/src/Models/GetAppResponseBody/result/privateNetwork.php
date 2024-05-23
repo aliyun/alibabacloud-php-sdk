@@ -2,12 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateAppRequest;
+namespace AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody\result;
 
-use AlibabaCloud\SDK\Esserverless\V20230627\Models\UpdateAppRequest\network\whiteIpGroup;
+use AlibabaCloud\SDK\Esserverless\V20230627\Models\GetAppResponseBody\result\privateNetwork\whiteIpGroup;
 use AlibabaCloud\Tea\Model;
 
-class network extends Model
+class privateNetwork extends Model
 {
     /**
      * @var string
@@ -27,18 +27,30 @@ class network extends Model
     /**
      * @var string
      */
+    public $pvlEndpointId;
+
+    /**
+     * @var string
+     */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
 
     /**
      * @var whiteIpGroup[]
      */
     public $whiteIpGroup;
     protected $_name = [
-        'domain'       => 'domain',
-        'enabled'      => 'enabled',
-        'port'         => 'port',
-        'type'         => 'type',
-        'whiteIpGroup' => 'whiteIpGroup',
+        'domain'        => 'domain',
+        'enabled'       => 'enabled',
+        'port'          => 'port',
+        'pvlEndpointId' => 'pvlEndpointId',
+        'type'          => 'type',
+        'vpcId'         => 'vpcId',
+        'whiteIpGroup'  => 'whiteIpGroup',
     ];
 
     public function validate()
@@ -57,8 +69,14 @@ class network extends Model
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
+        if (null !== $this->pvlEndpointId) {
+            $res['pvlEndpointId'] = $this->pvlEndpointId;
+        }
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+        if (null !== $this->vpcId) {
+            $res['vpcId'] = $this->vpcId;
         }
         if (null !== $this->whiteIpGroup) {
             $res['whiteIpGroup'] = [];
@@ -76,7 +94,7 @@ class network extends Model
     /**
      * @param array $map
      *
-     * @return network
+     * @return privateNetwork
      */
     public static function fromMap($map = [])
     {
@@ -90,8 +108,14 @@ class network extends Model
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }
+        if (isset($map['pvlEndpointId'])) {
+            $model->pvlEndpointId = $map['pvlEndpointId'];
+        }
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+        if (isset($map['vpcId'])) {
+            $model->vpcId = $map['vpcId'];
         }
         if (isset($map['whiteIpGroup'])) {
             if (!empty($map['whiteIpGroup'])) {
