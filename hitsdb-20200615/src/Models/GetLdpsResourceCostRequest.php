@@ -14,6 +14,8 @@ class GetLdpsResourceCostRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

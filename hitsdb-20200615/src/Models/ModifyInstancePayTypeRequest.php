@@ -23,6 +23,7 @@ class ModifyInstancePayTypeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example ld-bp1z3506imz2f****
      *
      * @var string
@@ -45,6 +46,7 @@ class ModifyInstancePayTypeRequest extends Model
      *   **PREPAY**: subscription.
      *   **POSTPAY**: pay-as-you-go.
      *
+     * This parameter is required.
      * @example POSTPAY
      *
      * @var string

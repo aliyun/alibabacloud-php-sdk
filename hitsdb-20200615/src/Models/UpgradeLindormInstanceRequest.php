@@ -59,8 +59,9 @@ class UpgradeLindormInstanceRequest extends Model
     public $filestoreSpec;
 
     /**
-     * @description The ID of the instance that you want to upgrade, scale up, or enable cold storage. You can call the [GetLindormInstanceList](~~426069~~) operation to query the instance ID.
+     * @description The ID of the instance that you want to upgrade, scale up, or enable cold storage. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example ld-bp1o3y0yme2i2****
      *
      * @var string
@@ -155,8 +156,9 @@ class UpgradeLindormInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region in which the instance that you want to upgrade, scale up, or enable cold storage is located. You can call the [DescribeRegions](~~426062~~) operation to query the region ID.
+     * @description The ID of the region in which the instance that you want to upgrade, scale up, or enable cold storage is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -250,6 +252,7 @@ class UpgradeLindormInstanceRequest extends Model
     /**
      * @description The upgrade type of the operation. For more information about upgrade types, see the UpgradeType parameters section.
      *
+     * This parameter is required.
      * @example upgrade-cold-storage
      *
      * @var string
@@ -257,8 +260,9 @@ class UpgradeLindormInstanceRequest extends Model
     public $upgradeType;
 
     /**
-     * @description The ID of the zone in which the instance that you want to upgrade, scale up, or enable cold storage is located. You can call the [GetLindormInstance](~~426067~~) operation to query the zone ID.
+     * @description The ID of the zone in which the instance that you want to upgrade, scale up, or enable cold storage is located. You can call the [GetLindormInstance](https://help.aliyun.com/document_detail/426067.html) operation to query the zone ID.
      *
+     * This parameter is required.
      * @example cn-shanghai-f
      *
      * @var string

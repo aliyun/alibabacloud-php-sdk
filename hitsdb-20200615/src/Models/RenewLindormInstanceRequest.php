@@ -14,6 +14,7 @@ class RenewLindormInstanceRequest extends Model
      *   If PricingCycle is set to **Month**, set this parameter to an integer that ranges from **1** to **9**.
      *   If PricingCycle is set to **Year**, set this parameter to an integer that ranges from **1** to **3**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -21,8 +22,9 @@ class RenewLindormInstanceRequest extends Model
     public $duration;
 
     /**
-     * @description The ID of the instance that you want to renew. You can call the [GetLindormInstanceList](~~426069~~) operation to obtain the instance ID.
+     * @description The ID of the instance that you want to renew. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426069.html) operation to obtain the instance ID.
      *
+     * This parameter is required.
      * @example ld-bp1z3506imz2f****
      *
      * @var string
@@ -45,6 +47,7 @@ class RenewLindormInstanceRequest extends Model
      *   **Month**: You are charged for the instance based on months.
      *   **Year**: You are charged for the instance based on years.
      *
+     * This parameter is required.
      * @example Month
      *
      * @var string
@@ -52,8 +55,9 @@ class RenewLindormInstanceRequest extends Model
     public $pricingCycle;
 
     /**
-     * @description The ID of the region in which the instance that you want to renew is located. You can call the [DescribeRegions](~~426062~~) operation to query the region ID.
+     * @description The ID of the region in which the instance that you want to renew is located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

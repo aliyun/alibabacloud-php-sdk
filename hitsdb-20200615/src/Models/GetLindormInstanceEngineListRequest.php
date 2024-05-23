@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLindormInstanceEngineListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ld-bp1nq34mv3smk****
      *
      * @var string

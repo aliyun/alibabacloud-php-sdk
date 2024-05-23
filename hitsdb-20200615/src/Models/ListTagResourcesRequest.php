@@ -30,8 +30,9 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region in which the instances whose tags you want to query are located. You can call the [DescribeRegions](~~426062~~) operation to query the region ID.
+     * @description The ID of the region in which the instances whose tags you want to query are located. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +59,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to **INSTANCE**.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

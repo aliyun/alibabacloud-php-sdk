@@ -11,7 +11,7 @@ class tag extends Model
     /**
      * @description The key of the tag that you want to associate with the resource.
      *
-     * > You can specify the keys of multiple tags. For example, you can specify the key of the first tag in the first key-value pair contained in the value of this parameter and specify the key of the second tag in the second key-value pair.
+     * This parameter is required.
      * @example test
      *
      * @var string

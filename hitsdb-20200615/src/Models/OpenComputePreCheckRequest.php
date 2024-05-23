@@ -14,6 +14,8 @@ class OpenComputePreCheckRequest extends Model
     public $cpuLimit;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

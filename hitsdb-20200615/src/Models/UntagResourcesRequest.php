@@ -39,6 +39,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The IDs of instances.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -56,6 +57,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource type. Set the value to **INSTANCE**.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string

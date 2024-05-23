@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RestartLdpsComputeGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

@@ -31,6 +31,11 @@ class instanceList extends Model
     public $createTime;
 
     /**
+     * @var bool
+     */
+    public $enableColumn;
+
+    /**
      * @example true
      *
      * @var bool
@@ -165,6 +170,7 @@ class instanceList extends Model
         'aliUid'              => 'AliUid',
         'createMilliseconds'  => 'CreateMilliseconds',
         'createTime'          => 'CreateTime',
+        'enableColumn'        => 'EnableColumn',
         'enableCompute'       => 'EnableCompute',
         'enableLts'           => 'EnableLts',
         'enableMessage'       => 'EnableMessage',
@@ -202,6 +208,9 @@ class instanceList extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->enableColumn) {
+            $res['EnableColumn'] = $this->enableColumn;
         }
         if (null !== $this->enableCompute) {
             $res['EnableCompute'] = $this->enableCompute;
@@ -289,6 +298,9 @@ class instanceList extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['EnableColumn'])) {
+            $model->enableColumn = $map['EnableColumn'];
         }
         if (isset($map['EnableCompute'])) {
             $model->enableCompute = $map['EnableCompute'];

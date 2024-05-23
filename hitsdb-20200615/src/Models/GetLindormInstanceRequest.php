@@ -14,6 +14,7 @@ class GetLindormInstanceRequest extends Model
      *   **cloud_efficiency**: The nodes use the Standard type of storage.
      *   **cloud_ssd**: The nodes use the Performance type of storage.
      *
+     * This parameter is required.
      * @example ld-bp1o3y0yme2i2****
      *
      * @var string

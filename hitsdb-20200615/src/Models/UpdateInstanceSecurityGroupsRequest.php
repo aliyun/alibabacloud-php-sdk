@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceSecurityGroupsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
@@ -34,6 +36,8 @@ class UpdateInstanceSecurityGroupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $securityGroups;

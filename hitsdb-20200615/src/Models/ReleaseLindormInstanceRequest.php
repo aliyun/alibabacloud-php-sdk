@@ -18,6 +18,8 @@ class ReleaseLindormInstanceRequest extends Model
     public $immediately;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ld-bp1z3506imz2f****
      *
      * @var string

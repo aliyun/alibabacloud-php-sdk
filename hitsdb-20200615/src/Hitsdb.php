@@ -106,10 +106,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param CreateLdpsComputeGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param CreateLdpsComputeGroupRequest $request CreateLdpsComputeGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLdpsComputeGroupResponse
+     * @return CreateLdpsComputeGroupResponse CreateLdpsComputeGroupResponse
      */
     public function createLdpsComputeGroupWithOptions($request, $runtime)
     {
@@ -161,9 +161,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param CreateLdpsComputeGroupRequest $request
+     * @param CreateLdpsComputeGroupRequest $request CreateLdpsComputeGroupRequest
      *
-     * @return CreateLdpsComputeGroupResponse
+     * @return CreateLdpsComputeGroupResponse CreateLdpsComputeGroupResponse
      */
     public function createLdpsComputeGroup($request)
     {
@@ -173,10 +173,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param CreateLdpsNamespaceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateLdpsNamespaceRequest $request CreateLdpsNamespaceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLdpsNamespaceResponse
+     * @return CreateLdpsNamespaceResponse CreateLdpsNamespaceResponse
      */
     public function createLdpsNamespaceWithOptions($request, $runtime)
     {
@@ -225,9 +225,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param CreateLdpsNamespaceRequest $request
+     * @param CreateLdpsNamespaceRequest $request CreateLdpsNamespaceRequest
      *
-     * @return CreateLdpsNamespaceResponse
+     * @return CreateLdpsNamespaceResponse CreateLdpsNamespaceResponse
      */
     public function createLdpsNamespace($request)
     {
@@ -237,8 +237,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
-     *   *
+     * @summary Creates a Lindorm instance.
+     *  *
+     * @description You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+     *  *
      * @param CreateLindormInstanceRequest $request CreateLindormInstanceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -307,6 +309,12 @@ class Hitsdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->logSpec)) {
             $query['LogSpec'] = $request->logSpec;
+        }
+        if (!Utils::isUnset($request->ltsNum)) {
+            $query['LtsNum'] = $request->ltsNum;
+        }
+        if (!Utils::isUnset($request->ltsSpec)) {
+            $query['LtsSpec'] = $request->ltsSpec;
         }
         if (!Utils::isUnset($request->multiZoneCombination)) {
             $query['MultiZoneCombination'] = $request->multiZoneCombination;
@@ -396,8 +404,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](~~181971~~) and [Select storage types](~~174643~~).
-     *   *
+     * @summary Creates a Lindorm instance.
+     *  *
+     * @description You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+     *  *
      * @param CreateLindormInstanceRequest $request CreateLindormInstanceRequest
      *
      * @return CreateLindormInstanceResponse CreateLindormInstanceResponse
@@ -410,10 +420,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteLdpsComputeGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param DeleteLdpsComputeGroupRequest $request DeleteLdpsComputeGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLdpsComputeGroupResponse
+     * @return DeleteLdpsComputeGroupResponse DeleteLdpsComputeGroupResponse
      */
     public function deleteLdpsComputeGroupWithOptions($request, $runtime)
     {
@@ -462,9 +472,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteLdpsComputeGroupRequest $request
+     * @param DeleteLdpsComputeGroupRequest $request DeleteLdpsComputeGroupRequest
      *
-     * @return DeleteLdpsComputeGroupResponse
+     * @return DeleteLdpsComputeGroupResponse DeleteLdpsComputeGroupResponse
      */
     public function deleteLdpsComputeGroup($request)
     {
@@ -474,10 +484,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Obtains the regions supported by Lindorm.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -520,9 +532,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Obtains the regions supported by Lindorm.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -532,10 +546,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetClientSourceIpRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetClientSourceIpRequest $request GetClientSourceIpRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetClientSourceIpResponse
+     * @return GetClientSourceIpResponse GetClientSourceIpResponse
      */
     public function getClientSourceIpWithOptions($request, $runtime)
     {
@@ -581,9 +595,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetClientSourceIpRequest $request
+     * @param GetClientSourceIpRequest $request GetClientSourceIpRequest
      *
-     * @return GetClientSourceIpResponse
+     * @return GetClientSourceIpResponse GetClientSourceIpResponse
      */
     public function getClientSourceIp($request)
     {
@@ -593,10 +607,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetEngineDefaultAuthRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param GetEngineDefaultAuthRequest $request GetEngineDefaultAuthRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEngineDefaultAuthResponse
+     * @return GetEngineDefaultAuthResponse GetEngineDefaultAuthResponse
      */
     public function getEngineDefaultAuthWithOptions($request, $runtime)
     {
@@ -642,9 +656,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetEngineDefaultAuthRequest $request
+     * @param GetEngineDefaultAuthRequest $request GetEngineDefaultAuthRequest
      *
-     * @return GetEngineDefaultAuthResponse
+     * @return GetEngineDefaultAuthResponse GetEngineDefaultAuthResponse
      */
     public function getEngineDefaultAuth($request)
     {
@@ -654,10 +668,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceIpWhiteListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the whitelists configured for a Lindorm instance.
+     *  *
+     * @param GetInstanceIpWhiteListRequest $request GetInstanceIpWhiteListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceIpWhiteListResponse
+     * @return GetInstanceIpWhiteListResponse GetInstanceIpWhiteListResponse
      */
     public function getInstanceIpWhiteListWithOptions($request, $runtime)
     {
@@ -700,9 +716,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceIpWhiteListRequest $request
+     * @summary Queries the whitelists configured for a Lindorm instance.
+     *  *
+     * @param GetInstanceIpWhiteListRequest $request GetInstanceIpWhiteListRequest
      *
-     * @return GetInstanceIpWhiteListResponse
+     * @return GetInstanceIpWhiteListResponse GetInstanceIpWhiteListResponse
      */
     public function getInstanceIpWhiteList($request)
     {
@@ -712,10 +730,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceSecurityGroupsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param GetInstanceSecurityGroupsRequest $request GetInstanceSecurityGroupsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceSecurityGroupsResponse
+     * @return GetInstanceSecurityGroupsResponse GetInstanceSecurityGroupsResponse
      */
     public function getInstanceSecurityGroupsWithOptions($request, $runtime)
     {
@@ -758,9 +776,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceSecurityGroupsRequest $request
+     * @param GetInstanceSecurityGroupsRequest $request GetInstanceSecurityGroupsRequest
      *
-     * @return GetInstanceSecurityGroupsResponse
+     * @return GetInstanceSecurityGroupsResponse GetInstanceSecurityGroupsResponse
      */
     public function getInstanceSecurityGroups($request)
     {
@@ -770,10 +788,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLdpsComputeGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetLdpsComputeGroupRequest $request GetLdpsComputeGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLdpsComputeGroupResponse
+     * @return GetLdpsComputeGroupResponse GetLdpsComputeGroupResponse
      */
     public function getLdpsComputeGroupWithOptions($request, $runtime)
     {
@@ -822,9 +840,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLdpsComputeGroupRequest $request
+     * @param GetLdpsComputeGroupRequest $request GetLdpsComputeGroupRequest
      *
-     * @return GetLdpsComputeGroupResponse
+     * @return GetLdpsComputeGroupResponse GetLdpsComputeGroupResponse
      */
     public function getLdpsComputeGroup($request)
     {
@@ -834,10 +852,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLdpsNamespacedQuotaRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetLdpsNamespacedQuotaRequest $request GetLdpsNamespacedQuotaRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLdpsNamespacedQuotaResponse
+     * @return GetLdpsNamespacedQuotaResponse GetLdpsNamespacedQuotaResponse
      */
     public function getLdpsNamespacedQuotaWithOptions($request, $runtime)
     {
@@ -886,9 +904,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLdpsNamespacedQuotaRequest $request
+     * @param GetLdpsNamespacedQuotaRequest $request GetLdpsNamespacedQuotaRequest
      *
-     * @return GetLdpsNamespacedQuotaResponse
+     * @return GetLdpsNamespacedQuotaResponse GetLdpsNamespacedQuotaResponse
      */
     public function getLdpsNamespacedQuota($request)
     {
@@ -898,10 +916,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLdpsResourceCostRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param GetLdpsResourceCostRequest $request GetLdpsResourceCostRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLdpsResourceCostResponse
+     * @return GetLdpsResourceCostResponse GetLdpsResourceCostResponse
      */
     public function getLdpsResourceCostWithOptions($request, $runtime)
     {
@@ -956,9 +974,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLdpsResourceCostRequest $request
+     * @param GetLdpsResourceCostRequest $request GetLdpsResourceCostRequest
      *
-     * @return GetLdpsResourceCostResponse
+     * @return GetLdpsResourceCostResponse GetLdpsResourceCostResponse
      */
     public function getLdpsResourceCost($request)
     {
@@ -968,10 +986,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLindormInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The storage capacity of the disk of a single core node. This parameter is returned only for multi-zone instances.
+     *  *
+     * @param GetLindormInstanceRequest $request GetLindormInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLindormInstanceResponse
+     * @return GetLindormInstanceResponse GetLindormInstanceResponse
      */
     public function getLindormInstanceWithOptions($request, $runtime)
     {
@@ -1014,9 +1034,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLindormInstanceRequest $request
+     * @summary The storage capacity of the disk of a single core node. This parameter is returned only for multi-zone instances.
+     *  *
+     * @param GetLindormInstanceRequest $request GetLindormInstanceRequest
      *
-     * @return GetLindormInstanceResponse
+     * @return GetLindormInstanceResponse GetLindormInstanceResponse
      */
     public function getLindormInstance($request)
     {
@@ -1026,10 +1048,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLindormInstanceEngineListRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param GetLindormInstanceEngineListRequest $request GetLindormInstanceEngineListRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLindormInstanceEngineListResponse
+     * @return GetLindormInstanceEngineListResponse GetLindormInstanceEngineListResponse
      */
     public function getLindormInstanceEngineListWithOptions($request, $runtime)
     {
@@ -1075,9 +1097,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLindormInstanceEngineListRequest $request
+     * @param GetLindormInstanceEngineListRequest $request GetLindormInstanceEngineListRequest
      *
-     * @return GetLindormInstanceEngineListResponse
+     * @return GetLindormInstanceEngineListResponse GetLindormInstanceEngineListResponse
      */
     public function getLindormInstanceEngineList($request)
     {
@@ -1087,10 +1109,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLindormInstanceListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param GetLindormInstanceListRequest $request GetLindormInstanceListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetLindormInstanceListResponse
+     * @return GetLindormInstanceListResponse GetLindormInstanceListResponse
      */
     public function getLindormInstanceListWithOptions($request, $runtime)
     {
@@ -1154,9 +1176,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param GetLindormInstanceListRequest $request
+     * @param GetLindormInstanceListRequest $request GetLindormInstanceListRequest
      *
-     * @return GetLindormInstanceListResponse
+     * @return GetLindormInstanceListResponse GetLindormInstanceListResponse
      */
     public function getLindormInstanceList($request)
     {
@@ -1166,10 +1188,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param ListLdpsComputeGroupsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ListLdpsComputeGroupsRequest $request ListLdpsComputeGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListLdpsComputeGroupsResponse
+     * @return ListLdpsComputeGroupsResponse ListLdpsComputeGroupsResponse
      */
     public function listLdpsComputeGroupsWithOptions($request, $runtime)
     {
@@ -1215,9 +1237,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param ListLdpsComputeGroupsRequest $request
+     * @param ListLdpsComputeGroupsRequest $request ListLdpsComputeGroupsRequest
      *
-     * @return ListLdpsComputeGroupsResponse
+     * @return ListLdpsComputeGroupsResponse ListLdpsComputeGroupsResponse
      */
     public function listLdpsComputeGroups($request)
     {
@@ -1227,10 +1249,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries tags associated with the specified Lindorm instances.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -1285,9 +1309,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries tags associated with the specified Lindorm instances.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1297,9 +1323,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
-     *   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
-     *   *
+     * @summary Changes the billing method of the specified Lindorm instance.
+     *  *
+     * @description You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
+     *  *
      * @param ModifyInstancePayTypeRequest $request ModifyInstancePayTypeRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -1355,9 +1383,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
-     *   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
-     *   *
+     * @summary Changes the billing method of the specified Lindorm instance.
+     *  *
+     * @description You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
+     *  *
      * @param ModifyInstancePayTypeRequest $request ModifyInstancePayTypeRequest
      *
      * @return ModifyInstancePayTypeResponse ModifyInstancePayTypeResponse
@@ -1370,10 +1400,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param OpenComputeEngineRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param OpenComputeEngineRequest $request OpenComputeEngineRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenComputeEngineResponse
+     * @return OpenComputeEngineResponse OpenComputeEngineResponse
      */
     public function openComputeEngineWithOptions($request, $runtime)
     {
@@ -1422,9 +1452,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param OpenComputeEngineRequest $request
+     * @param OpenComputeEngineRequest $request OpenComputeEngineRequest
      *
-     * @return OpenComputeEngineResponse
+     * @return OpenComputeEngineResponse OpenComputeEngineResponse
      */
     public function openComputeEngine($request)
     {
@@ -1434,10 +1464,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param OpenComputePreCheckRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param OpenComputePreCheckRequest $request OpenComputePreCheckRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenComputePreCheckResponse
+     * @return OpenComputePreCheckResponse OpenComputePreCheckResponse
      */
     public function openComputePreCheckWithOptions($request, $runtime)
     {
@@ -1486,9 +1516,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param OpenComputePreCheckRequest $request
+     * @param OpenComputePreCheckRequest $request OpenComputePreCheckRequest
      *
-     * @return OpenComputePreCheckResponse
+     * @return OpenComputePreCheckResponse OpenComputePreCheckResponse
      */
     public function openComputePreCheck($request)
     {
@@ -1498,10 +1528,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param ReleaseLindormInstanceRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param ReleaseLindormInstanceRequest $request ReleaseLindormInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseLindormInstanceResponse
+     * @return ReleaseLindormInstanceResponse ReleaseLindormInstanceResponse
      */
     public function releaseLindormInstanceWithOptions($request, $runtime)
     {
@@ -1547,9 +1577,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param ReleaseLindormInstanceRequest $request
+     * @param ReleaseLindormInstanceRequest $request ReleaseLindormInstanceRequest
      *
-     * @return ReleaseLindormInstanceResponse
+     * @return ReleaseLindormInstanceResponse ReleaseLindormInstanceResponse
      */
     public function releaseLindormInstance($request)
     {
@@ -1559,9 +1589,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
-     *   * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
-     *   *
+     * @summary Renews a subscription Lindorm instance.
+     *  *
+     * @description You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+     * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
+     *  *
      * @param RenewLindormInstanceRequest $request RenewLindormInstanceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1617,9 +1649,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
-     *   * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
-     *   *
+     * @summary Renews a subscription Lindorm instance.
+     *  *
+     * @description You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+     * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
+     *  *
      * @param RenewLindormInstanceRequest $request RenewLindormInstanceRequest
      *
      * @return RenewLindormInstanceResponse RenewLindormInstanceResponse
@@ -1632,10 +1666,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param RestartLdpsComputeGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param RestartLdpsComputeGroupRequest $request RestartLdpsComputeGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartLdpsComputeGroupResponse
+     * @return RestartLdpsComputeGroupResponse RestartLdpsComputeGroupResponse
      */
     public function restartLdpsComputeGroupWithOptions($request, $runtime)
     {
@@ -1684,9 +1718,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param RestartLdpsComputeGroupRequest $request
+     * @param RestartLdpsComputeGroupRequest $request RestartLdpsComputeGroupRequest
      *
-     * @return RestartLdpsComputeGroupResponse
+     * @return RestartLdpsComputeGroupResponse RestartLdpsComputeGroupResponse
      */
     public function restartLdpsComputeGroup($request)
     {
@@ -1696,11 +1730,13 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Prerequisites
-     *   * *   The LindormTable version of your instance is 2.6.0 or later.
-     *   * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
-     *   * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
-     *   *
+     * @summary Enables and disables the MySQL compatibility feature.
+     *  *
+     * @description Prerequisites
+     * *   The LindormTable version of your instance is 2.6.0 or later.
+     * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
+     * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+     *  *
      * @param SwitchLSQLV3MySQLServiceRequest $request SwitchLSQLV3MySQLServiceRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -1750,11 +1786,13 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Prerequisites
-     *   * *   The LindormTable version of your instance is 2.6.0 or later.
-     *   * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
-     *   * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
-     *   *
+     * @summary Enables and disables the MySQL compatibility feature.
+     *  *
+     * @description Prerequisites
+     * *   The LindormTable version of your instance is 2.6.0 or later.
+     * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
+     * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+     *  *
      * @param SwitchLSQLV3MySQLServiceRequest $request SwitchLSQLV3MySQLServiceRequest
      *
      * @return SwitchLSQLV3MySQLServiceResponse SwitchLSQLV3MySQLServiceResponse
@@ -1767,10 +1805,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Associates tags with a single or multiple Lindorm instances.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -1822,9 +1862,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Associates tags with a single or multiple Lindorm instances.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -1834,10 +1876,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes a tag from an instance. If the tag is not associated with another instance, the tag is deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -1889,9 +1933,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes a tag from an instance. If the tag is not associated with another instance, the tag is deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -1901,10 +1947,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceIpWhiteListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Configures an IP address whitelist for a Lindorm instance.
+     *  *
+     * @param UpdateInstanceIpWhiteListRequest $request UpdateInstanceIpWhiteListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceIpWhiteListResponse
+     * @return UpdateInstanceIpWhiteListResponse UpdateInstanceIpWhiteListResponse
      */
     public function updateInstanceIpWhiteListWithOptions($request, $runtime)
     {
@@ -1956,9 +2004,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceIpWhiteListRequest $request
+     * @summary Configures an IP address whitelist for a Lindorm instance.
+     *  *
+     * @param UpdateInstanceIpWhiteListRequest $request UpdateInstanceIpWhiteListRequest
      *
-     * @return UpdateInstanceIpWhiteListResponse
+     * @return UpdateInstanceIpWhiteListResponse UpdateInstanceIpWhiteListResponse
      */
     public function updateInstanceIpWhiteList($request)
     {
@@ -1968,10 +2018,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceSecurityGroupsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param UpdateInstanceSecurityGroupsRequest $request UpdateInstanceSecurityGroupsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceSecurityGroupsResponse
+     * @return UpdateInstanceSecurityGroupsResponse UpdateInstanceSecurityGroupsResponse
      */
     public function updateInstanceSecurityGroupsWithOptions($request, $runtime)
     {
@@ -2017,9 +2067,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceSecurityGroupsRequest $request
+     * @param UpdateInstanceSecurityGroupsRequest $request UpdateInstanceSecurityGroupsRequest
      *
-     * @return UpdateInstanceSecurityGroupsResponse
+     * @return UpdateInstanceSecurityGroupsResponse UpdateInstanceSecurityGroupsResponse
      */
     public function updateInstanceSecurityGroups($request)
     {
@@ -2029,10 +2079,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLdpsComputeGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param UpdateLdpsComputeGroupRequest $request UpdateLdpsComputeGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLdpsComputeGroupResponse
+     * @return UpdateLdpsComputeGroupResponse UpdateLdpsComputeGroupResponse
      */
     public function updateLdpsComputeGroupWithOptions($request, $runtime)
     {
@@ -2084,9 +2134,9 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLdpsComputeGroupRequest $request
+     * @param UpdateLdpsComputeGroupRequest $request UpdateLdpsComputeGroupRequest
      *
-     * @return UpdateLdpsComputeGroupResponse
+     * @return UpdateLdpsComputeGroupResponse UpdateLdpsComputeGroupResponse
      */
     public function updateLdpsComputeGroup($request)
     {
@@ -2096,8 +2146,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](~~181971~~) and [Select storage types](~~174643~~).
-     *   *
+     * @summary Upgrades, scales up, or enable cold storage for a Lindorm instance.
+     *  *
+     * @description For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+     *  *
      * @param UpgradeLindormInstanceRequest $request UpgradeLindormInstanceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -2207,8 +2259,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](~~181971~~) and [Select storage types](~~174643~~).
-     *   *
+     * @summary Upgrades, scales up, or enable cold storage for a Lindorm instance.
+     *  *
+     * @description For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+     *  *
      * @param UpgradeLindormInstanceRequest $request UpgradeLindormInstanceRequest
      *
      * @return UpgradeLindormInstanceResponse UpgradeLindormInstanceResponse

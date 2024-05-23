@@ -98,6 +98,7 @@ class CreateLindormInstanceRequest extends Model
      *   **local_ssd_pro**: This instance uses local SSDs.
      *   **local_hdd_pro**: This instance uses local HDDs.
      *
+     * This parameter is required.
      * @example cloud_efficiency
      *
      * @var string
@@ -231,6 +232,16 @@ class CreateLindormInstanceRequest extends Model
     public $logSpec;
 
     /**
+     * @var string
+     */
+    public $ltsNum;
+
+    /**
+     * @var string
+     */
+    public $ltsSpec;
+
+    /**
      * @description The combinations of zones that are available for the multi-zone instance. You can go to the purchase page of Lindorm to view the supported zone combinations.
      *
      *   **ap-southeast-5abc-aliyun**: Zone A+B+C in the Indonesia (Jakarta) region.
@@ -269,6 +280,7 @@ class CreateLindormInstanceRequest extends Model
      *   **PREPAY**: subscription.
      *   **POSTPAY**: pay-as-you-go.
      *
+     * This parameter is required.
      * @example POSTPAY
      *
      * @var string
@@ -305,8 +317,9 @@ class CreateLindormInstanceRequest extends Model
     public $primaryZoneId;
 
     /**
-     * @description The ID of the region in which you want to create the instance. You can call the [DescribeRegions](~~426062~~) operation to query the region in which you can create the instance.
+     * @description The ID of the region in which you want to create the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/426062.html) operation to query the region in which you can create the instance.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -430,6 +443,7 @@ class CreateLindormInstanceRequest extends Model
     /**
      * @description The ID of the VPC in which you want to create the instance.
      *
+     * This parameter is required.
      * @example vpc-bp1nme44gek34slfc****
      *
      * @var string
@@ -439,6 +453,7 @@ class CreateLindormInstanceRequest extends Model
     /**
      * @description The ID of the vSwitch to which you want the instance to connect.
      *
+     * This parameter is required.
      * @example vsw-bp1e7clcw529l773d****
      *
      * @var string
@@ -448,6 +463,7 @@ class CreateLindormInstanceRequest extends Model
     /**
      * @description The ID of the zone in which you want to create the instance.
      *
+     * This parameter is required.
      * @example cn-shanghai-f
      *
      * @var string
@@ -474,6 +490,8 @@ class CreateLindormInstanceRequest extends Model
         'logNum'               => 'LogNum',
         'logSingleStorage'     => 'LogSingleStorage',
         'logSpec'              => 'LogSpec',
+        'ltsNum'               => 'LtsNum',
+        'ltsSpec'              => 'LtsSpec',
         'multiZoneCombination' => 'MultiZoneCombination',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -565,6 +583,12 @@ class CreateLindormInstanceRequest extends Model
         }
         if (null !== $this->logSpec) {
             $res['LogSpec'] = $this->logSpec;
+        }
+        if (null !== $this->ltsNum) {
+            $res['LtsNum'] = $this->ltsNum;
+        }
+        if (null !== $this->ltsSpec) {
+            $res['LtsSpec'] = $this->ltsSpec;
         }
         if (null !== $this->multiZoneCombination) {
             $res['MultiZoneCombination'] = $this->multiZoneCombination;
@@ -706,6 +730,12 @@ class CreateLindormInstanceRequest extends Model
         }
         if (isset($map['LogSpec'])) {
             $model->logSpec = $map['LogSpec'];
+        }
+        if (isset($map['LtsNum'])) {
+            $model->ltsNum = $map['LtsNum'];
+        }
+        if (isset($map['LtsSpec'])) {
+            $model->ltsSpec = $map['LtsSpec'];
         }
         if (isset($map['MultiZoneCombination'])) {
             $model->multiZoneCombination = $map['MultiZoneCombination'];

@@ -14,6 +14,7 @@ class SwitchLSQLV3MySQLServiceRequest extends Model
      *   1: enables the MySQL compatibility feature.
      *   0: disables the MySQL compatibility feature.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -23,6 +24,7 @@ class SwitchLSQLV3MySQLServiceRequest extends Model
     /**
      * @description The cluster ID.
      *
+     * This parameter is required.
      * @example ld-bp1o3y0yme2i2****
      *
      * @var string

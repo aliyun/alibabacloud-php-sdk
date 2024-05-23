@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceIpWhiteListRequest extends Model
 {
     /**
-     * @description The ID of the instance whose whitelists you want to query. You can call the [GetLindormInstanceList](~~426068~~) operation to obtain the instance ID.
+     * @description The ID of the instance whose whitelists you want to query. You can call the [GetLindormInstanceList](https://help.aliyun.com/document_detail/426068.html) operation to obtain the instance ID.
      *
+     * This parameter is required.
      * @example ld-bp1z3506imz2f****
      *
      * @var string
