@@ -58,7 +58,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $alertName;
 
     /**
-     * @description Alarm Notification Channel Configuration. Used for compatibility with legacy rules.
+     * @description The configuration of the alert sending channel. This parameter is used to be compatible with the old version of the rule.
+     *
+     * @example -
      *
      * @var string
      */
@@ -69,7 +71,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
      *
      * ```
      *
-     * > The conditional fields vary depending on the values of the **MetricsType** and **AlertRuleItems.MetricKey** parameters. For more information about the types of metrics supported by Application Monitoring and Browser Monitoring and the alert rule fields corresponding to each metric, see the supplementary description.
+     * >  The filter conditions specified by the **AlertRuleItems.MetricKey** field depends on the value of the **MetricsType** parameter. For more information about the types of metrics supported by Application Monitoring and Browser Monitoring and the alert rule fields corresponding to each metric, see the supplementary description.
      * @example { "Condition": "OR", "AlertRuleItems": [ { "Operator": "CURRENT_LTE",  "MetricKey": "appstat.jvm.threadcount",  "Value": 1000,  "Aggregate": "AVG",   "N": 1  }  ]  }
      *
      * @var string
@@ -89,20 +91,14 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $alertStatus;
 
     /**
-     * @description The type of the alert rule. Valid values:
+     * @description The following alert rule types are available:
      *
      *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
      *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
-     *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Prometheus Service
-     *
-     * Valid values:
-     *
-     *   PROMETHEUS_MONITORING_ALERT_RULE
-     *   APPLICATION_MONITORING_ALERT_RULE
-     *   BROWSER_MONITORING_ALERT_RULE
-     *   prometheus monitoring alert
-     *   application monitoring alert
-     *   browser monitoring alert
+     *   RUM_MONITORING_ALERT_RULE: alert rule for RUM Monitoring
+     *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Managed Service for Prometheus
+     *   XTRACE_MONITORING_ALERT_RULE: alert rule for Managed Service for OpenTelemetry
+     *   EBPF_MONITORING_ALERT_RULE: alert rule for Application Monitoring eBPF Edition
      *
      * This parameter is required.
      * @example APPLICATION_MONITORING_ALERT_RULE
@@ -166,14 +162,14 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $duration;
 
     /**
-     * @description The filter conditions of the Application Monitoring or Browser Monitoring alert rule. The following code shows the format of matching rules:
+     * @description The filter conditions of the Application Monitoring or Browser Monitoring alert rule. Format:
      *
      * ]
      *
      * Valid values of **FilterOpt**:
      *
      *   STATIC: matches the value of the specified dimension.
-     *   ALL: matches the values of all dimensions.
+     *   ALL: traverses all dimension values. Dynamic thresholds do not support traversal.
      *   DISABLE: aggregates the values of all dimensions.
      *
      * @example {"DimFilters": [             {               "FilterOpt": "ALL",               "FilterValues": [],               "FilterKey": "rootIp"             }           ]         }
@@ -242,7 +238,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $metricsType;
 
     /**
-     * @description Effective Time and Notification Time. Used for compatibility with legacy rules.
+     * @description The effective time and notification time. This parameter is used to be compatible with the old version of the rule.
+     *
+     * @example -
      *
      * @var string
      */
@@ -279,6 +277,10 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $pids;
 
     /**
+     * @description It is determined when creating the underlying rules of Prometheus. The background will verify whether the product exists, which is used to distinguish cloud product filtering queries.
+     *
+     * @example xxxx
+     *
      * @var string
      */
     public $product;

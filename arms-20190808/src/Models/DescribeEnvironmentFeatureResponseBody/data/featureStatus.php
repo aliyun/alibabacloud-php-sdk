@@ -22,6 +22,11 @@ class featureStatus extends Model
     public $featureContainers;
 
     /**
+     * @var string[]
+     */
+    public $ips;
+
+    /**
      * @description The Kubernetes resource name of the feature.
      *
      * @example arms-prometheus-ack-arms-prometheus
@@ -64,6 +69,7 @@ class featureStatus extends Model
     protected $_name = [
         'bindResourceId'    => 'BindResourceId',
         'featureContainers' => 'FeatureContainers',
+        'ips'               => 'Ips',
         'name'              => 'Name',
         'namespace'         => 'Namespace',
         'securityGroupId'   => 'SecurityGroupId',
@@ -89,6 +95,9 @@ class featureStatus extends Model
                     $res['FeatureContainers'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ips) {
+            $res['Ips'] = $this->ips;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -127,6 +136,11 @@ class featureStatus extends Model
                 foreach ($map['FeatureContainers'] as $item) {
                     $model->featureContainers[$n++] = null !== $item ? featureContainers::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['Ips'])) {
+            if (!empty($map['Ips'])) {
+                $model->ips = $map['Ips'];
             }
         }
         if (isset($map['Name'])) {

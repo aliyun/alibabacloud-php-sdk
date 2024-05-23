@@ -111,6 +111,13 @@ class environments extends Model
     public $features;
 
     /**
+     * @description The payable resource plan. Valid values:
+     *
+     *   If the EnvironmentType parameter is set to CS, set the value to CS_Basic or CS_Pro. Default value: CS_Basic.
+     *   Otherwise, leave the parameter empty.
+     *
+     * @example CS_Pro
+     *
      * @var string
      */
     public $feePackage;
@@ -152,9 +159,12 @@ class environments extends Model
     public $latestReleaseCreateTime;
 
     /**
-     * @description type of managed:
+     * @description Indicates whether agents or exporters are managed. Valid values:
      *
-     * - agent-exproter: managed agent and exporter. default of prometheus for Cloud.
+     *   none: No. By default, no managed agents or exporters are provided for ACK clusters.
+     *   agent: Agents are managed. By default, managed agents are provided for ASK clusters, ACS clusters, and ACK One clusters.
+     *   agent-exproter: Agents and exporters are managed. By default, managed agents and exporters are provided for cloud services.
+     *
      * @example agent
      *
      * @var string
@@ -180,7 +190,7 @@ class environments extends Model
     public $prometheusInstanceId;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region where the Message Queue for RabbitMQ instance resides.
      *
      * @example cn-zhangjiakou
      *
@@ -198,7 +208,7 @@ class environments extends Model
     public $releaseCount;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmvt3xpr5aema
      *
@@ -214,7 +224,7 @@ class environments extends Model
     public $tags;
 
     /**
-     * @description The user ID.
+     * @description The ID of the user.
      *
      * @example 13990957477389
      *
