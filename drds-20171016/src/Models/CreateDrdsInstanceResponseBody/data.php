@@ -15,6 +15,8 @@ class data extends Model
     public $drdsInstanceIdList;
 
     /**
+     * @example 2334632414
+     *
      * @var int
      */
     public $orderId;

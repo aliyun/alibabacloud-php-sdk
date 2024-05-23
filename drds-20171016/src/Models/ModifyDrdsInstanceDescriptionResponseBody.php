@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDrdsInstanceDescriptionResponseBody extends Model
 {
     /**
+     * @example B4F76641-BA45-4320-BE7C-9C62CFDAR56T
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

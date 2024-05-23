@@ -148,22 +148,29 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateDrdsAccountRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateDrdsAccountRequest $request CreateDrdsAccountRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDrdsAccountResponse
+     * @return CreateDrdsAccountResponse CreateDrdsAccountResponse
      */
     public function createDrdsAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['Password']       = $request->password;
-        $query['UserName']       = $request->userName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDrdsAccount',
@@ -173,7 +180,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -181,9 +188,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateDrdsAccountRequest $request
+     * @param CreateDrdsAccountRequest $request CreateDrdsAccountRequest
      *
-     * @return CreateDrdsAccountResponse
+     * @return CreateDrdsAccountResponse CreateDrdsAccountResponse
      */
     public function createDrdsAccount($request)
     {
@@ -193,23 +200,32 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateDrdsDBRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param CreateDrdsDBRequest $request CreateDrdsDBRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDrdsDBResponse
+     * @return CreateDrdsDBResponse CreateDrdsDBResponse
      */
     public function createDrdsDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['Encode']         = $request->encode;
-        $query['Password']       = $request->password;
-        $query['RdsInstances']   = $request->rdsInstances;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->encode)) {
+            $query['Encode'] = $request->encode;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->rdsInstances)) {
+            $query['RdsInstances'] = $request->rdsInstances;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDrdsDB',
@@ -219,7 +235,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -227,9 +243,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateDrdsDBRequest $request
+     * @param CreateDrdsDBRequest $request CreateDrdsDBRequest
      *
-     * @return CreateDrdsDBResponse
+     * @return CreateDrdsDBResponse CreateDrdsDBResponse
      */
     public function createDrdsDB($request)
     {
@@ -239,33 +255,62 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateDrdsInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param CreateDrdsInstanceRequest $request CreateDrdsInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDrdsInstanceResponse
+     * @return CreateDrdsInstanceResponse CreateDrdsInstanceResponse
      */
     public function createDrdsInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['ClientToken']    = $request->clientToken;
-        $query['Description']    = $request->description;
-        $query['Duration']       = $request->duration;
-        $query['InstanceSeries'] = $request->instanceSeries;
-        $query['IsAutoRenew']    = $request->isAutoRenew;
-        $query['IsHa']           = $request->isHa;
-        $query['PayType']        = $request->payType;
-        $query['PricingCycle']   = $request->pricingCycle;
-        $query['Quantity']       = $request->quantity;
-        $query['RegionId']       = $request->regionId;
-        $query['Specification']  = $request->specification;
-        $query['Type']           = $request->type;
-        $query['VpcId']          = $request->vpcId;
-        $query['VswitchId']      = $request->vswitchId;
-        $query['ZoneId']         = $request->zoneId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->instanceSeries)) {
+            $query['InstanceSeries'] = $request->instanceSeries;
+        }
+        if (!Utils::isUnset($request->isAutoRenew)) {
+            $query['IsAutoRenew'] = $request->isAutoRenew;
+        }
+        if (!Utils::isUnset($request->isHa)) {
+            $query['IsHa'] = $request->isHa;
+        }
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
+        if (!Utils::isUnset($request->quantity)) {
+            $query['Quantity'] = $request->quantity;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->specification)) {
+            $query['Specification'] = $request->specification;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vswitchId)) {
+            $query['VswitchId'] = $request->vswitchId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateDrdsInstance',
@@ -275,7 +320,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -283,9 +328,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateDrdsInstanceRequest $request
+     * @param CreateDrdsInstanceRequest $request CreateDrdsInstanceRequest
      *
-     * @return CreateDrdsInstanceResponse
+     * @return CreateDrdsInstanceResponse CreateDrdsInstanceResponse
      */
     public function createDrdsInstance($request)
     {
@@ -295,21 +340,26 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateReadOnlyAccountRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param CreateReadOnlyAccountRequest $request CreateReadOnlyAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateReadOnlyAccountResponse
+     * @return CreateReadOnlyAccountResponse CreateReadOnlyAccountResponse
      */
     public function createReadOnlyAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['password']       = $request->password;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['password'] = $request->password;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'CreateReadOnlyAccount',
@@ -319,7 +369,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -327,9 +377,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param CreateReadOnlyAccountRequest $request
+     * @param CreateReadOnlyAccountRequest $request CreateReadOnlyAccountRequest
      *
-     * @return CreateReadOnlyAccountResponse
+     * @return CreateReadOnlyAccountResponse CreateReadOnlyAccountResponse
      */
     public function createReadOnlyAccount($request)
     {
@@ -339,20 +389,23 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DeleteDrdsDBRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param DeleteDrdsDBRequest $request DeleteDrdsDBRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDrdsDBResponse
+     * @return DeleteDrdsDBResponse DeleteDrdsDBResponse
      */
     public function deleteDrdsDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteDrdsDB',
@@ -362,7 +415,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -370,9 +423,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DeleteDrdsDBRequest $request
+     * @param DeleteDrdsDBRequest $request DeleteDrdsDBRequest
      *
-     * @return DeleteDrdsDBResponse
+     * @return DeleteDrdsDBResponse DeleteDrdsDBResponse
      */
     public function deleteDrdsDB($request)
     {
@@ -382,20 +435,23 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DeleteFailedDrdsDBRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DeleteFailedDrdsDBRequest $request DeleteFailedDrdsDBRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFailedDrdsDBResponse
+     * @return DeleteFailedDrdsDBResponse DeleteFailedDrdsDBResponse
      */
     public function deleteFailedDrdsDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DeleteFailedDrdsDB',
@@ -405,7 +461,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -413,9 +469,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DeleteFailedDrdsDBRequest $request
+     * @param DeleteFailedDrdsDBRequest $request DeleteFailedDrdsDBRequest
      *
-     * @return DeleteFailedDrdsDBResponse
+     * @return DeleteFailedDrdsDBResponse DeleteFailedDrdsDBResponse
      */
     public function deleteFailedDrdsDB($request)
     {
@@ -425,19 +481,20 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeCreateDrdsInstanceStatusRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @param DescribeCreateDrdsInstanceStatusRequest $request DescribeCreateDrdsInstanceStatusRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCreateDrdsInstanceStatusResponse
+     * @return DescribeCreateDrdsInstanceStatusResponse DescribeCreateDrdsInstanceStatusResponse
      */
     public function describeCreateDrdsInstanceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeCreateDrdsInstanceStatus',
@@ -447,7 +504,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -455,9 +512,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeCreateDrdsInstanceStatusRequest $request
+     * @param DescribeCreateDrdsInstanceStatusRequest $request DescribeCreateDrdsInstanceStatusRequest
      *
-     * @return DescribeCreateDrdsInstanceStatusResponse
+     * @return DescribeCreateDrdsInstanceStatusResponse DescribeCreateDrdsInstanceStatusResponse
      */
     public function describeCreateDrdsInstanceStatus($request)
     {
@@ -467,20 +524,23 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDBRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param DescribeDrdsDBRequest $request DescribeDrdsDBRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsDBResponse
+     * @return DescribeDrdsDBResponse DescribeDrdsDBResponse
      */
     public function describeDrdsDBWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDrdsDB',
@@ -490,7 +550,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -498,9 +558,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDBRequest $request
+     * @param DescribeDrdsDBRequest $request DescribeDrdsDBRequest
      *
-     * @return DescribeDrdsDBResponse
+     * @return DescribeDrdsDBResponse DescribeDrdsDBResponse
      */
     public function describeDrdsDB($request)
     {
@@ -510,21 +570,26 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDBIpWhiteListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeDrdsDBIpWhiteListRequest $request DescribeDrdsDBIpWhiteListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsDBIpWhiteListResponse
+     * @return DescribeDrdsDBIpWhiteListResponse DescribeDrdsDBIpWhiteListResponse
      */
     public function describeDrdsDBIpWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['GroupName']      = $request->groupName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDrdsDBIpWhiteList',
@@ -534,7 +599,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -542,9 +607,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDBIpWhiteListRequest $request
+     * @param DescribeDrdsDBIpWhiteListRequest $request DescribeDrdsDBIpWhiteListRequest
      *
-     * @return DescribeDrdsDBIpWhiteListResponse
+     * @return DescribeDrdsDBIpWhiteListResponse DescribeDrdsDBIpWhiteListResponse
      */
     public function describeDrdsDBIpWhiteList($request)
     {
@@ -554,19 +619,20 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDBsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeDrdsDBsRequest $request DescribeDrdsDBsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsDBsResponse
+     * @return DescribeDrdsDBsResponse DescribeDrdsDBsResponse
      */
     public function describeDrdsDBsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDrdsDBs',
@@ -576,7 +642,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -584,9 +650,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsDBsRequest $request
+     * @param DescribeDrdsDBsRequest $request DescribeDrdsDBsRequest
      *
-     * @return DescribeDrdsDBsResponse
+     * @return DescribeDrdsDBsResponse DescribeDrdsDBsResponse
      */
     public function describeDrdsDBs($request)
     {
@@ -596,19 +662,20 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeDrdsInstanceRequest $request DescribeDrdsInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsInstanceResponse
+     * @return DescribeDrdsInstanceResponse DescribeDrdsInstanceResponse
      */
     public function describeDrdsInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDrdsInstance',
@@ -618,7 +685,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -626,9 +693,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceRequest $request
+     * @param DescribeDrdsInstanceRequest $request DescribeDrdsInstanceRequest
      *
-     * @return DescribeDrdsInstanceResponse
+     * @return DescribeDrdsInstanceResponse DescribeDrdsInstanceResponse
      */
     public function describeDrdsInstance($request)
     {
@@ -638,23 +705,32 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceDbMonitorRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeDrdsInstanceDbMonitorRequest $request DescribeDrdsInstanceDbMonitorRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsInstanceDbMonitorResponse
+     * @return DescribeDrdsInstanceDbMonitorResponse DescribeDrdsInstanceDbMonitorResponse
      */
     public function describeDrdsInstanceDbMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['EndTime']        = $request->endTime;
-        $query['Key']            = $request->key;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDrdsInstanceDbMonitor',
@@ -664,7 +740,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -672,9 +748,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceDbMonitorRequest $request
+     * @param DescribeDrdsInstanceDbMonitorRequest $request DescribeDrdsInstanceDbMonitorRequest
      *
-     * @return DescribeDrdsInstanceDbMonitorResponse
+     * @return DescribeDrdsInstanceDbMonitorResponse DescribeDrdsInstanceDbMonitorResponse
      */
     public function describeDrdsInstanceDbMonitor($request)
     {
@@ -684,23 +760,32 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceMonitorRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param DescribeDrdsInstanceMonitorRequest $request DescribeDrdsInstanceMonitorRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsInstanceMonitorResponse
+     * @return DescribeDrdsInstanceMonitorResponse DescribeDrdsInstanceMonitorResponse
      */
     public function describeDrdsInstanceMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['EndTime']        = $request->endTime;
-        $query['Key']            = $request->key;
-        $query['PeriodMultiple'] = $request->periodMultiple;
-        $query['StartTime']      = $request->startTime;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->periodMultiple)) {
+            $query['PeriodMultiple'] = $request->periodMultiple;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDrdsInstanceMonitor',
@@ -710,7 +795,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -718,9 +803,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceMonitorRequest $request
+     * @param DescribeDrdsInstanceMonitorRequest $request DescribeDrdsInstanceMonitorRequest
      *
-     * @return DescribeDrdsInstanceMonitorResponse
+     * @return DescribeDrdsInstanceMonitorResponse DescribeDrdsInstanceMonitorResponse
      */
     public function describeDrdsInstanceMonitor($request)
     {
@@ -730,19 +815,20 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceNetInfoForInnerRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @param DescribeDrdsInstanceNetInfoForInnerRequest $request DescribeDrdsInstanceNetInfoForInnerRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsInstanceNetInfoForInnerResponse
+     * @return DescribeDrdsInstanceNetInfoForInnerResponse DescribeDrdsInstanceNetInfoForInnerResponse
      */
     public function describeDrdsInstanceNetInfoForInnerWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDrdsInstanceNetInfoForInner',
@@ -752,7 +838,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -760,9 +846,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstanceNetInfoForInnerRequest $request
+     * @param DescribeDrdsInstanceNetInfoForInnerRequest $request DescribeDrdsInstanceNetInfoForInnerRequest
      *
-     * @return DescribeDrdsInstanceNetInfoForInnerResponse
+     * @return DescribeDrdsInstanceNetInfoForInnerResponse DescribeDrdsInstanceNetInfoForInnerResponse
      */
     public function describeDrdsInstanceNetInfoForInner($request)
     {
@@ -772,21 +858,26 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstancesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeDrdsInstancesRequest $request DescribeDrdsInstancesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDrdsInstancesResponse
+     * @return DescribeDrdsInstancesResponse DescribeDrdsInstancesResponse
      */
     public function describeDrdsInstancesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['RegionId'] = $request->regionId;
-        $query['Tags']     = $request->tags;
-        $query['Type']     = $request->type;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeDrdsInstances',
@@ -796,7 +887,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -804,9 +895,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeDrdsInstancesRequest $request
+     * @param DescribeDrdsInstancesRequest $request DescribeDrdsInstancesRequest
      *
-     * @return DescribeDrdsInstancesResponse
+     * @return DescribeDrdsInstancesResponse DescribeDrdsInstancesResponse
      */
     public function describeDrdsInstances($request)
     {
@@ -816,21 +907,26 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeRdsListRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param DescribeRdsListRequest $request DescribeRdsListRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRdsListResponse
+     * @return DescribeRdsListResponse DescribeRdsListResponse
      */
     public function describeRdsListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['RegionId']       = $request->regionId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeRdsList',
@@ -840,7 +936,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -848,9 +944,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeRdsListRequest $request
+     * @param DescribeRdsListRequest $request DescribeRdsListRequest
      *
-     * @return DescribeRdsListResponse
+     * @return DescribeRdsListResponse DescribeRdsListResponse
      */
     public function describeRdsList($request)
     {
@@ -860,20 +956,23 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeReadOnlyAccountRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param DescribeReadOnlyAccountRequest $request DescribeReadOnlyAccountRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeReadOnlyAccountResponse
+     * @return DescribeReadOnlyAccountResponse DescribeReadOnlyAccountResponse
      */
     public function describeReadOnlyAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeReadOnlyAccount',
@@ -883,7 +982,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -891,9 +990,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeReadOnlyAccountRequest $request
+     * @param DescribeReadOnlyAccountRequest $request DescribeReadOnlyAccountRequest
      *
-     * @return DescribeReadOnlyAccountResponse
+     * @return DescribeReadOnlyAccountResponse DescribeReadOnlyAccountResponse
      */
     public function describeReadOnlyAccount($request)
     {
@@ -903,9 +1002,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($runtime)
     {
@@ -918,7 +1017,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -926,7 +1025,7 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -936,20 +1035,23 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeShardDBsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DescribeShardDBsRequest $request DescribeShardDBsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeShardDBsResponse
+     * @return DescribeShardDBsResponse DescribeShardDBsResponse
      */
     public function describeShardDBsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeShardDBs',
@@ -959,7 +1061,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -967,9 +1069,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeShardDBsRequest $request
+     * @param DescribeShardDBsRequest $request DescribeShardDBsRequest
      *
-     * @return DescribeShardDBsResponse
+     * @return DescribeShardDBsResponse DescribeShardDBsResponse
      */
     public function describeShardDBs($request)
     {
@@ -979,21 +1081,26 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeShardDbConnectionInfoRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param DescribeShardDbConnectionInfoRequest $request DescribeShardDbConnectionInfoRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeShardDbConnectionInfoResponse
+     * @return DescribeShardDbConnectionInfoResponse DescribeShardDbConnectionInfoResponse
      */
     public function describeShardDbConnectionInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['SubDbName']      = $request->subDbName;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->subDbName)) {
+            $query['SubDbName'] = $request->subDbName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'DescribeShardDbConnectionInfo',
@@ -1003,7 +1110,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1011,9 +1118,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param DescribeShardDbConnectionInfoRequest $request
+     * @param DescribeShardDbConnectionInfoRequest $request DescribeShardDbConnectionInfoRequest
      *
-     * @return DescribeShardDbConnectionInfoResponse
+     * @return DescribeShardDbConnectionInfoResponse DescribeShardDbConnectionInfoResponse
      */
     public function describeShardDbConnectionInfo($request)
     {
@@ -1023,28 +1130,47 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param EnableInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param EnableInstanceRequest $request EnableInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableInstanceResponse
+     * @return EnableInstanceResponse EnableInstanceResponse
      */
     public function enableInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                    = [];
-        $query['BackupId']        = $request->backupId;
-        $query['ClientToken']     = $request->clientToken;
-        $query['DbInstanceClass'] = $request->dbInstanceClass;
-        $query['DrdsInstanceId']  = $request->drdsInstanceId;
-        $query['EngineVersion']   = $request->engineVersion;
-        $query['RestoreTime']     = $request->restoreTime;
-        $query['SourceDbInstId']  = $request->sourceDbInstId;
-        $query['SwitchId']        = $request->switchId;
-        $query['VpcId']           = $request->vpcId;
-        $query['ZoneId']          = $request->zoneId;
-        $req                      = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dbInstanceClass)) {
+            $query['DbInstanceClass'] = $request->dbInstanceClass;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
+        }
+        if (!Utils::isUnset($request->sourceDbInstId)) {
+            $query['SourceDbInstId'] = $request->sourceDbInstId;
+        }
+        if (!Utils::isUnset($request->switchId)) {
+            $query['SwitchId'] = $request->switchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'EnableInstance',
@@ -1054,7 +1180,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1062,9 +1188,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param EnableInstanceRequest $request
+     * @param EnableInstanceRequest $request EnableInstanceRequest
      *
-     * @return EnableInstanceResponse
+     * @return EnableInstanceResponse EnableInstanceResponse
      */
     public function enableInstance($request)
     {
@@ -1074,21 +1200,26 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDrdsDBPasswdRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ModifyDrdsDBPasswdRequest $request ModifyDrdsDBPasswdRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDrdsDBPasswdResponse
+     * @return ModifyDrdsDBPasswdResponse ModifyDrdsDBPasswdResponse
      */
     public function modifyDrdsDBPasswdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['NewPasswd']      = $request->newPasswd;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->newPasswd)) {
+            $query['NewPasswd'] = $request->newPasswd;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyDrdsDBPasswd',
@@ -1098,7 +1229,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1106,9 +1237,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDrdsDBPasswdRequest $request
+     * @param ModifyDrdsDBPasswdRequest $request ModifyDrdsDBPasswdRequest
      *
-     * @return ModifyDrdsDBPasswdResponse
+     * @return ModifyDrdsDBPasswdResponse ModifyDrdsDBPasswdResponse
      */
     public function modifyDrdsDBPasswd($request)
     {
@@ -1118,20 +1249,23 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDrdsInstanceDescriptionRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param ModifyDrdsInstanceDescriptionRequest $request ModifyDrdsInstanceDescriptionRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDrdsInstanceDescriptionResponse
+     * @return ModifyDrdsInstanceDescriptionResponse ModifyDrdsInstanceDescriptionResponse
      */
     public function modifyDrdsInstanceDescriptionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['Description']    = $request->description;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyDrdsInstanceDescription',
@@ -1141,7 +1275,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1149,9 +1283,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDrdsInstanceDescriptionRequest $request
+     * @param ModifyDrdsInstanceDescriptionRequest $request ModifyDrdsInstanceDescriptionRequest
      *
-     * @return ModifyDrdsInstanceDescriptionResponse
+     * @return ModifyDrdsInstanceDescriptionResponse ModifyDrdsInstanceDescriptionResponse
      */
     public function modifyDrdsInstanceDescription($request)
     {
@@ -1161,24 +1295,35 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDrdsIpWhiteListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ModifyDrdsIpWhiteListRequest $request ModifyDrdsIpWhiteListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDrdsIpWhiteListResponse
+     * @return ModifyDrdsIpWhiteListResponse ModifyDrdsIpWhiteListResponse
      */
     public function modifyDrdsIpWhiteListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['GroupAttribute'] = $request->groupAttribute;
-        $query['GroupName']      = $request->groupName;
-        $query['IpWhiteList']    = $request->ipWhiteList;
-        $query['Mode']           = $request->mode;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->groupAttribute)) {
+            $query['GroupAttribute'] = $request->groupAttribute;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->ipWhiteList)) {
+            $query['IpWhiteList'] = $request->ipWhiteList;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyDrdsIpWhiteList',
@@ -1188,7 +1333,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1196,9 +1341,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyDrdsIpWhiteListRequest $request
+     * @param ModifyDrdsIpWhiteListRequest $request ModifyDrdsIpWhiteListRequest
      *
-     * @return ModifyDrdsIpWhiteListResponse
+     * @return ModifyDrdsIpWhiteListResponse ModifyDrdsIpWhiteListResponse
      */
     public function modifyDrdsIpWhiteList($request)
     {
@@ -1208,22 +1353,29 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyFullTableScanRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ModifyFullTableScanRequest $request ModifyFullTableScanRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyFullTableScanResponse
+     * @return ModifyFullTableScanResponse ModifyFullTableScanResponse
      */
     public function modifyFullTableScanWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['FullTableScan']  = $request->fullTableScan;
-        $query['TableNames']     = $request->tableNames;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->fullTableScan)) {
+            $query['FullTableScan'] = $request->fullTableScan;
+        }
+        if (!Utils::isUnset($request->tableNames)) {
+            $query['TableNames'] = $request->tableNames;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyFullTableScan',
@@ -1233,7 +1385,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1241,9 +1393,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyFullTableScanRequest $request
+     * @param ModifyFullTableScanRequest $request ModifyFullTableScanRequest
      *
-     * @return ModifyFullTableScanResponse
+     * @return ModifyFullTableScanResponse ModifyFullTableScanResponse
      */
     public function modifyFullTableScan($request)
     {
@@ -1253,22 +1405,29 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyRdsReadWeightRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param ModifyRdsReadWeightRequest $request ModifyRdsReadWeightRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyRdsReadWeightResponse
+     * @return ModifyRdsReadWeightResponse ModifyRdsReadWeightResponse
      */
     public function modifyRdsReadWeightWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['InstanceNames']  = $request->instanceNames;
-        $query['Weights']        = $request->weights;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->instanceNames)) {
+            $query['InstanceNames'] = $request->instanceNames;
+        }
+        if (!Utils::isUnset($request->weights)) {
+            $query['Weights'] = $request->weights;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyRdsReadWeight',
@@ -1278,7 +1437,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1286,9 +1445,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyRdsReadWeightRequest $request
+     * @param ModifyRdsReadWeightRequest $request ModifyRdsReadWeightRequest
      *
-     * @return ModifyRdsReadWeightResponse
+     * @return ModifyRdsReadWeightResponse ModifyRdsReadWeightResponse
      */
     public function modifyRdsReadWeight($request)
     {
@@ -1298,23 +1457,32 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyReadOnlyAccountPasswordRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param ModifyReadOnlyAccountPasswordRequest $request ModifyReadOnlyAccountPasswordRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyReadOnlyAccountPasswordResponse
+     * @return ModifyReadOnlyAccountPasswordResponse ModifyReadOnlyAccountPasswordResponse
      */
     public function modifyReadOnlyAccountPasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AccountName']    = $request->accountName;
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $query['NewPasswd']      = $request->newPasswd;
-        $query['OriginPassword'] = $request->originPassword;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        if (!Utils::isUnset($request->newPasswd)) {
+            $query['NewPasswd'] = $request->newPasswd;
+        }
+        if (!Utils::isUnset($request->originPassword)) {
+            $query['OriginPassword'] = $request->originPassword;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'ModifyReadOnlyAccountPassword',
@@ -1324,7 +1492,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1332,9 +1500,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param ModifyReadOnlyAccountPasswordRequest $request
+     * @param ModifyReadOnlyAccountPasswordRequest $request ModifyReadOnlyAccountPasswordRequest
      *
-     * @return ModifyReadOnlyAccountPasswordResponse
+     * @return ModifyReadOnlyAccountPasswordResponse ModifyReadOnlyAccountPasswordResponse
      */
     public function modifyReadOnlyAccountPassword($request)
     {
@@ -1344,21 +1512,26 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param QueryInstanceInfoByConnRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @param QueryInstanceInfoByConnRequest $request QueryInstanceInfoByConnRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryInstanceInfoByConnResponse
+     * @return QueryInstanceInfoByConnResponse QueryInstanceInfoByConnResponse
      */
     public function queryInstanceInfoByConnWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query             = [];
-        $query['Host']     = $request->host;
-        $query['Port']     = $request->port;
-        $query['UserName'] = $request->userName;
-        $req               = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'QueryInstanceInfoByConn',
@@ -1368,7 +1541,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1376,9 +1549,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param QueryInstanceInfoByConnRequest $request
+     * @param QueryInstanceInfoByConnRequest $request QueryInstanceInfoByConnRequest
      *
-     * @return QueryInstanceInfoByConnResponse
+     * @return QueryInstanceInfoByConnResponse QueryInstanceInfoByConnResponse
      */
     public function queryInstanceInfoByConn($request)
     {
@@ -1388,19 +1561,20 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RemoveDrdsInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param RemoveDrdsInstanceRequest $request RemoveDrdsInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveDrdsInstanceResponse
+     * @return RemoveDrdsInstanceResponse RemoveDrdsInstanceResponse
      */
     public function removeDrdsInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveDrdsInstance',
@@ -1410,7 +1584,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1418,9 +1592,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RemoveDrdsInstanceRequest $request
+     * @param RemoveDrdsInstanceRequest $request RemoveDrdsInstanceRequest
      *
-     * @return RemoveDrdsInstanceResponse
+     * @return RemoveDrdsInstanceResponse RemoveDrdsInstanceResponse
      */
     public function removeDrdsInstance($request)
     {
@@ -1430,21 +1604,26 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RemoveReadOnlyAccountRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param RemoveReadOnlyAccountRequest $request RemoveReadOnlyAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveReadOnlyAccountResponse
+     * @return RemoveReadOnlyAccountResponse RemoveReadOnlyAccountResponse
      */
     public function removeReadOnlyAccountWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query                   = [];
-        $query['AccountName']    = $request->accountName;
-        $query['DbName']         = $request->dbName;
-        $query['DrdsInstanceId'] = $request->drdsInstanceId;
-        $req                     = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->drdsInstanceId)) {
+            $query['DrdsInstanceId'] = $request->drdsInstanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body'  => Utils::toMap($request),
         ]);
         $params = new Params([
             'action'      => 'RemoveReadOnlyAccount',
@@ -1454,7 +1633,7 @@ class Drds extends OpenApiClient
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
@@ -1462,9 +1641,9 @@ class Drds extends OpenApiClient
     }
 
     /**
-     * @param RemoveReadOnlyAccountRequest $request
+     * @param RemoveReadOnlyAccountRequest $request RemoveReadOnlyAccountRequest
      *
-     * @return RemoveReadOnlyAccountResponse
+     * @return RemoveReadOnlyAccountResponse RemoveReadOnlyAccountResponse
      */
     public function removeReadOnlyAccount($request)
     {

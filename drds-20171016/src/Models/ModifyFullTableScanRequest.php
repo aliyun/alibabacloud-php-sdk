@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyFullTableScanRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $fullTableScan;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $tableNames;

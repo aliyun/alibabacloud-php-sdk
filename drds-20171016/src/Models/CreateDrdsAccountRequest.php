@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateDrdsAccountRequest extends Model
 {
     /**
+     * @example testdb
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example drdsusrzimk2****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @example Test!123
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example testaccount
+     *
      * @var string
      */
     public $userName;

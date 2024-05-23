@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyReadOnlyAccountPasswordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $newPasswd;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $originPassword;

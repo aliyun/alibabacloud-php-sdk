@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class vip extends Model
 {
     /**
+     * @example 1.2.XX.XX
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example vpc-en23cx****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vsw-ewk3****
+     *
      * @var string
      */
     public $vswitchId;

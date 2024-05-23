@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDrdsAccountResponseBody extends Model
 {
     /**
+     * @example 890BB376-5746-4145-A088-4E610EF3WERT
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

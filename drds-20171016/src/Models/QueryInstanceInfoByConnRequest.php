@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryInstanceInfoByConnRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $userName;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDrdsIpWhiteListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $drdsInstanceId;
@@ -29,6 +33,8 @@ class ModifyDrdsIpWhiteListRequest extends Model
     public $groupName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ipWhiteList;

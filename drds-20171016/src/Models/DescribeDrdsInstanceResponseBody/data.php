@@ -10,46 +10,64 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1568620311000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 111111
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example drdshbga33pe****
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example China (Hangzhou)
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example drds.sn1.4c8g.8C16G
+     *
      * @var string
      */
     public $specification;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $version;
@@ -60,11 +78,15 @@ class data extends Model
     public $vips;
 
     /**
+     * @example oogbx6c2atj****
+     *
      * @var string
      */
     public $vpcCloudInstanceId;
 
     /**
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;

@@ -15,11 +15,15 @@ class CreateDrdsInstanceResponseBody extends Model
     public $data;
 
     /**
+     * @example FF13E47D-4E38-4A5A-BA68-32A554RTY67H
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

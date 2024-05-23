@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyRdsReadWeightRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceNames;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $weights;

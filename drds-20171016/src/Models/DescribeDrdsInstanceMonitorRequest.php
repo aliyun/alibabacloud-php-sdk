@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstanceMonitorRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $key;
@@ -29,6 +35,8 @@ class DescribeDrdsInstanceMonitorRequest extends Model
     public $periodMultiple;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $startTime;

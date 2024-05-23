@@ -9,76 +9,118 @@ use AlibabaCloud\Tea\Model;
 class CreateDrdsInstanceRequest extends Model
 {
     /**
+     * @example DEWCEWQA
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example This is a test instance
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example drds.sn2.4c16g
+     *
      * @var string
      */
     public $instanceSeries;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAutoRenew;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isHa;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example drdsPre
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example drds.sn2.4c8g.8C16G
+     *
      * @var string
      */
     public $specification;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example PRIVATE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example vpc-en23cxsel1
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vsw-ewk32dsk
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;

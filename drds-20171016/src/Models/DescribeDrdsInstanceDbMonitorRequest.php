@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeDrdsInstanceDbMonitorRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $drdsInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $startTime;

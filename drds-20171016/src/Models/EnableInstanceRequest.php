@@ -39,6 +39,8 @@ class EnableInstanceRequest extends Model
     public $restoreTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $sourceDbInstId;

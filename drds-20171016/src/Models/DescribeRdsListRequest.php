@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $drdsInstanceId;

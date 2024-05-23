@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyDrdsInstanceDescriptionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example This is a test instance.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example drdshbga33pe****
+     *
      * @var string
      */
     public $drdsInstanceId;
