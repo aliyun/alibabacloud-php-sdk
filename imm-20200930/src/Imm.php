@@ -86,6 +86,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateOfficeConversionTaskShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateSimilarImageClusteringTaskRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateSimilarImageClusteringTaskResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\CreateSimilarImageClusteringTaskShrinkRequest;
@@ -203,6 +204,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListDatasetsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\ListProjectsShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListRegionsRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\ListTasksRequest;
@@ -260,6 +262,7 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateLocationDateClusterResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateLocationDateClusterShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectResponse;
+use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectShrinkRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryRequest;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryResponse;
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateStoryShrinkRequest;
@@ -2339,14 +2342,19 @@ class Imm extends OpenApiClient
     /**
      * @summary 创建项目
      *  *
-     * @param CreateProjectRequest $request CreateProjectRequest
+     * @param CreateProjectRequest $tmpReq  CreateProjectRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateProjectResponse CreateProjectResponse
      */
-    public function createProjectWithOptions($request, $runtime)
+    public function createProjectWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateProjectShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->datasetMaxBindCount)) {
             $query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
@@ -2374,6 +2382,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceRole)) {
             $query['ServiceRole'] = $request->serviceRole;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
@@ -5307,14 +5318,19 @@ class Imm extends OpenApiClient
     /**
      * @summary 获取项目列表
      *  *
-     * @param ListProjectsRequest $request ListProjectsRequest
+     * @param ListProjectsRequest $tmpReq  ListProjectsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
      * @return ListProjectsResponse ListProjectsResponse
      */
-    public function listProjectsWithOptions($request, $runtime)
+    public function listProjectsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListProjectsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -5324,6 +5340,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->prefix)) {
             $query['Prefix'] = $request->prefix;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6787,14 +6806,19 @@ class Imm extends OpenApiClient
     /**
      * @summary 更新项目
      *  *
-     * @param UpdateProjectRequest $request UpdateProjectRequest
+     * @param UpdateProjectRequest $tmpReq  UpdateProjectRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
      * @return UpdateProjectResponse UpdateProjectResponse
      */
-    public function updateProjectWithOptions($request, $runtime)
+    public function updateProjectWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateProjectShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->datasetMaxBindCount)) {
             $query['DatasetMaxBindCount'] = $request->datasetMaxBindCount;
@@ -6822,6 +6846,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceRole)) {
             $query['ServiceRole'] = $request->serviceRole;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;

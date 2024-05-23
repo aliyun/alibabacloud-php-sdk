@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateProjectRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class CreateProjectRequest extends Model
+class CreateProjectShrinkRequest extends Model
 {
     /**
      * @example 10
@@ -73,9 +72,9 @@ class CreateProjectRequest extends Model
     public $serviceRole;
 
     /**
-     * @var tag[]
+     * @var string
      */
-    public $tag;
+    public $tagShrink;
 
     /**
      * @example Official:AllFunction
@@ -93,7 +92,7 @@ class CreateProjectRequest extends Model
         'projectMaxDatasetCount'  => 'ProjectMaxDatasetCount',
         'projectName'             => 'ProjectName',
         'serviceRole'             => 'ServiceRole',
-        'tag'                     => 'Tag',
+        'tagShrink'               => 'Tag',
         'templateId'              => 'TemplateId',
     ];
 
@@ -131,14 +130,8 @@ class CreateProjectRequest extends Model
         if (null !== $this->serviceRole) {
             $res['ServiceRole'] = $this->serviceRole;
         }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -150,7 +143,7 @@ class CreateProjectRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateProjectRequest
+     * @return CreateProjectShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -183,13 +176,7 @@ class CreateProjectRequest extends Model
             $model->serviceRole = $map['ServiceRole'];
         }
         if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
-                }
-            }
+            $model->tagShrink = $map['Tag'];
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
