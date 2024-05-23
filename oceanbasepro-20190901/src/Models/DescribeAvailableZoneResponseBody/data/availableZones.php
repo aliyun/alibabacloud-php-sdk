@@ -17,6 +17,13 @@ class availableZones extends Model
     public $channel;
 
     /**
+     * @example x86
+     *
+     * @var string
+     */
+    public $cpuArch;
+
+    /**
      * @example multiple
      *
      * @var string
@@ -57,6 +64,7 @@ class availableZones extends Model
     public $zones;
     protected $_name = [
         'channel'               => 'Channel',
+        'cpuArch'               => 'CpuArch',
         'deployType'            => 'DeployType',
         'instanceType'          => 'InstanceType',
         'region'                => 'Region',
@@ -74,6 +82,9 @@ class availableZones extends Model
         $res = [];
         if (null !== $this->channel) {
             $res['Channel'] = $this->channel;
+        }
+        if (null !== $this->cpuArch) {
+            $res['CpuArch'] = $this->cpuArch;
         }
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
@@ -113,6 +124,9 @@ class availableZones extends Model
         $model = new self();
         if (isset($map['Channel'])) {
             $model->channel = $map['Channel'];
+        }
+        if (isset($map['CpuArch'])) {
+            $model->cpuArch = $map['CpuArch'];
         }
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];

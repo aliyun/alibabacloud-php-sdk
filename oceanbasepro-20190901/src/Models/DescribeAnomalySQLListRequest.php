@@ -28,7 +28,7 @@ class DescribeAnomalySQLListRequest extends Model
 
     /**
      * @description The end time of the time range for querying suspicious SQL statements.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2021-09-13T15:40:43Z
      *
      * @var string
@@ -45,6 +45,8 @@ class DescribeAnomalySQLListRequest extends Model
     public $filterCondition;
 
     /**
+     * @description This parameter is required.
+     *
      * @example obsd23j4f****
      *
      * @var string
@@ -143,7 +145,7 @@ class DescribeAnomalySQLListRequest extends Model
 
     /**
      * @description The start time of the time range for querying suspicious SQL statements.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2021-06-13T15:40:43Z
      *
      * @var string
@@ -153,6 +155,7 @@ class DescribeAnomalySQLListRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t2mr3oae0****
      *
      * @var string

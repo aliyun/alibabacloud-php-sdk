@@ -29,6 +29,7 @@ class CreateDatabaseRequest extends Model
     /**
      * @description Alibaba Cloud CLI
      *
+     * This parameter is required.
      * @example sms_pre
      *
      * @var string
@@ -47,6 +48,7 @@ class CreateDatabaseRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example utf8mb4
      *
      * @var string
@@ -56,6 +58,7 @@ class CreateDatabaseRequest extends Model
     /**
      * @description The collation.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -64,7 +67,7 @@ class CreateDatabaseRequest extends Model
 
     /**
      * @description The name of the database.
-     * You cannot use reserved keywords, such as test and mysql.
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeTenantZonesReadRequest extends Model
     /**
      * @description The zone information of the tenant.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeTenantZonesReadRequest extends Model
     /**
      * @description The return result of the request.
      *
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string

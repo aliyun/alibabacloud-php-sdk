@@ -30,7 +30,7 @@ class databases extends Model
 
     /**
      * @description The actual data size, in GB.
-     * ><notice>This parameter is no longer used in later versions. RequiredSize is used instead.></notice>
+     * >Notice: This parameter is no longer used in later versions. RequiredSize is used instead.
      * @example 5.67 GB
      *
      * @var float

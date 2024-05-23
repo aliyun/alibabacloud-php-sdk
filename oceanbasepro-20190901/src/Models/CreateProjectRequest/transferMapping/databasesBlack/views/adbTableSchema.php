@@ -21,7 +21,7 @@ class adbTableSchema extends Model
     public $partitionLifeCycle;
 
     /**
-     * @example PARTITION BY VALUE(\"id\")
+     * @example PARTITION BY VALUE(\\"id\\")
      *
      * @var string
      */

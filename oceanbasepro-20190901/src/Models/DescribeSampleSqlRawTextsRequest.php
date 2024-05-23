@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSampleSqlRawTextsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test_db
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeSampleSqlRawTextsRequest extends Model
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-04-12T05:38:38Z
      *
      * @var string
@@ -39,6 +43,7 @@ class DescribeSampleSqlRawTextsRequest extends Model
     /**
      * @description SQL ID。
      *
+     * This parameter is required.
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
      * @var string
@@ -46,6 +51,8 @@ class DescribeSampleSqlRawTextsRequest extends Model
     public $sqlId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-04-12T04:38:38Z
      *
      * @var string

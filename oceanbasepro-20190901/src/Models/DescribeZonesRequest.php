@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesRequest extends Model
 {
     /**
+     * @example x86
+     *
+     * @var string
+     */
+    public $cpuArch;
+
+    /**
      * @description The operation that you want to perform.
      * Set the value to **DescribeZones**.
      * @example single
@@ -26,6 +33,7 @@ class DescribeZonesRequest extends Model
      */
     public $series;
     protected $_name = [
+        'cpuArch'    => 'CpuArch',
         'deployType' => 'DeployType',
         'series'     => 'Series',
     ];
@@ -37,6 +45,9 @@ class DescribeZonesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cpuArch) {
+            $res['CpuArch'] = $this->cpuArch;
+        }
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
         }
@@ -55,6 +66,9 @@ class DescribeZonesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CpuArch'])) {
+            $model->cpuArch = $map['CpuArch'];
+        }
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];
         }

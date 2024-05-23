@@ -231,6 +231,20 @@ class instance extends Model
     public $payType;
 
     /**
+     * @example ob3h8ytroxxxxx
+     *
+     * @var string
+     */
+    public $primaryInstance;
+
+    /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $primaryRegion;
+
+    /**
      * @var string
      */
     public $proxyClusterId;
@@ -334,6 +348,8 @@ class instance extends Model
         'nodeNum'                         => 'NodeNum',
         'obRpmVersion'                    => 'ObRpmVersion',
         'payType'                         => 'PayType',
+        'primaryInstance'                 => 'PrimaryInstance',
+        'primaryRegion'                   => 'PrimaryRegion',
         'proxyClusterId'                  => 'ProxyClusterId',
         'proxyServiceStatus'              => 'ProxyServiceStatus',
         'readOnlyResource'                => 'ReadOnlyResource',
@@ -444,6 +460,12 @@ class instance extends Model
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->primaryInstance) {
+            $res['PrimaryInstance'] = $this->primaryInstance;
+        }
+        if (null !== $this->primaryRegion) {
+            $res['PrimaryRegion'] = $this->primaryRegion;
         }
         if (null !== $this->proxyClusterId) {
             $res['ProxyClusterId'] = $this->proxyClusterId;
@@ -584,6 +606,12 @@ class instance extends Model
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+        if (isset($map['PrimaryInstance'])) {
+            $model->primaryInstance = $map['PrimaryInstance'];
+        }
+        if (isset($map['PrimaryRegion'])) {
+            $model->primaryRegion = $map['PrimaryRegion'];
         }
         if (isset($map['ProxyClusterId'])) {
             $model->proxyClusterId = $map['ProxyClusterId'];

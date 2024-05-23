@@ -11,6 +11,8 @@ class ModifyTenantUserStatusRequest extends Model
     /**
      * @description The operation that you want to perform.
      * Set the value to **ModifyTenantUserStatus**.
+     *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,6 +22,7 @@ class ModifyTenantUserStatusRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string
@@ -29,6 +32,7 @@ class ModifyTenantUserStatusRequest extends Model
     /**
      * @description The list of database accounts in the tenant.
      *
+     * This parameter is required.
      * @example pay_test
      *
      * @var string
@@ -37,7 +41,7 @@ class ModifyTenantUserStatusRequest extends Model
 
     /**
      * @description The status of the database account. Valid values:
-     * - Online: The account is unlocked.
+     * This parameter is required.
      * @example The ID of the tenant.
      *
      * @var string

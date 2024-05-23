@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricsDataRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-06-13T15:40:43Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeMetricsDataRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example app,clusterId
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeMetricsDataRequest extends Model
     public $groupByLabels;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeMetricsDataRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example app:OB,clusterId:ob***
      *
      * @var string
@@ -44,6 +52,8 @@ class DescribeMetricsDataRequest extends Model
     public $limit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example tps
      *
      * @var string
@@ -70,6 +80,8 @@ class DescribeMetricsDataRequest extends Model
     public $sortOrder;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-06-13T15:40:43Z
      *
      * @var string

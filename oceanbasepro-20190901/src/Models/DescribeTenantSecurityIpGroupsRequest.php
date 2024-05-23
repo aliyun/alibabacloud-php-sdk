@@ -11,6 +11,7 @@ class DescribeTenantSecurityIpGroupsRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeTenantSecurityIpGroupsRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t4louaeei****
      *
      * @var string

@@ -11,6 +11,7 @@ class ModifyDatabaseDescriptionRequest extends Model
     /**
      * @description Example 1
      *
+     * This parameter is required.
      * @example sms_pre
      *
      * @var string
@@ -18,6 +19,8 @@ class ModifyDatabaseDescriptionRequest extends Model
     public $databaseName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example this is a test database
      *
      * @var string
@@ -27,6 +30,7 @@ class ModifyDatabaseDescriptionRequest extends Model
     /**
      * @description The description of the database.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -36,6 +40,8 @@ class ModifyDatabaseDescriptionRequest extends Model
     /**
      * @description The operation that you want to perform.
      * Set the value to **ModifyDatabaseDescription**.
+     *
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string

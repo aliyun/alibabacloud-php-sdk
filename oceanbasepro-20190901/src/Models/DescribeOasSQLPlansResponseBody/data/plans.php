@@ -200,7 +200,7 @@ class plans extends Model
     /**
      * @description The outline_data parameter of the SQL execution plan.
      *
-     * @example /*+ BEGIN_OUTLINE_DATA INDEX(@\"SEL$1\
+     * @example /*+ BEGIN_OUTLINE_DATA INDEX(@\\"SEL$1\\
      *
      * @var string
      */

@@ -10,7 +10,7 @@ class DescribeParametersHistoryRequest extends Model
 {
     /**
      * @description The type of the parameter.
-     * Valid values: CLUSTER and TENANT.
+     * This parameter is required.
      * @example TENANT
      *
      * @var string
@@ -29,6 +29,7 @@ class DescribeParametersHistoryRequest extends Model
     /**
      * @description The end time for the query of parameter modification history.
      *
+     * This parameter is required.
      * @example 2021-09-13 15:40:43
      *
      * @var string
@@ -38,6 +39,7 @@ class DescribeParametersHistoryRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -46,7 +48,7 @@ class DescribeParametersHistoryRequest extends Model
 
     /**
      * @description The number of the page to return.
-     * - Default value: 1
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -55,7 +57,7 @@ class DescribeParametersHistoryRequest extends Model
 
     /**
      * @description The number of rows to return on each page.
-     * - Default value: 10
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -65,6 +67,7 @@ class DescribeParametersHistoryRequest extends Model
     /**
      * @description The start time of the time range for querying the parameter modification history.
      *
+     * This parameter is required.
      * @example 2021-06-13 15:40:43
      *
      * @var string

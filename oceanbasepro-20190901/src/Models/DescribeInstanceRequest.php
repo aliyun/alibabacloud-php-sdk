@@ -11,6 +11,7 @@ class DescribeInstanceRequest extends Model
     /**
      * @description The size of the data disk, in GB.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string

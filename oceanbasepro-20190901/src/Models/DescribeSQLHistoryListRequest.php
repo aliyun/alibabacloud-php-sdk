@@ -10,7 +10,7 @@ class DescribeSQLHistoryListRequest extends Model
 {
     /**
      * @description The end time of the time range for querying the SQL execution history.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2021-09-13T15:40:43Z
      *
      * @var string
@@ -38,6 +38,7 @@ class DescribeSQLHistoryListRequest extends Model
     /**
      * @description SQLID.
      *
+     * This parameter is required.
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
      * @var string
@@ -46,7 +47,7 @@ class DescribeSQLHistoryListRequest extends Model
 
     /**
      * @description The start time of the time range for querying the SQL execution history.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2021-06-13T15:40:43Z
      *
      * @var string
@@ -56,6 +57,7 @@ class DescribeSQLHistoryListRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t2mr3oae0****
      *
      * @var string

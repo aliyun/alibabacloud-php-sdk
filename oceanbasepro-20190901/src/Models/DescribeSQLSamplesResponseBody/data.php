@@ -365,6 +365,11 @@ class data extends Model
     public $server;
 
     /**
+     * @var string
+     */
+    public $sqlText;
+
+    /**
      * @description SQL type.
      *
      * @example select
@@ -512,6 +517,7 @@ class data extends Model
         'rpcCount'            => 'RpcCount',
         'scheduleTime'        => 'ScheduleTime',
         'server'              => 'Server',
+        'sqlText'             => 'SqlText',
         'sqlType'             => 'SqlType',
         'ssstoreReadRows'     => 'SsstoreReadRows',
         'statement'           => 'Statement',
@@ -652,6 +658,9 @@ class data extends Model
         }
         if (null !== $this->server) {
             $res['Server'] = $this->server;
+        }
+        if (null !== $this->sqlText) {
+            $res['SqlText'] = $this->sqlText;
         }
         if (null !== $this->sqlType) {
             $res['SqlType'] = $this->sqlType;
@@ -820,6 +829,9 @@ class data extends Model
         }
         if (isset($map['Server'])) {
             $model->server = $map['Server'];
+        }
+        if (isset($map['SqlText'])) {
+            $model->sqlText = $map['SqlText'];
         }
         if (isset($map['SqlType'])) {
             $model->sqlType = $map['SqlType'];

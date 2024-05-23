@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableSpecRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -23,6 +25,8 @@ class DescribeAvailableSpecRequest extends Model
     public $spec;
 
     /**
+     * @description This parameter is required.
+     *
      * @example upgradespec
      *
      * @var string

@@ -20,6 +20,7 @@ class DescribeTenantSecurityConfigsRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string

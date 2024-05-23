@@ -42,7 +42,7 @@ class DescribeOasAnomalySQLListRequest extends Model
 
     /**
      * @description The end time of the monitoring data.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2023-04-12T05:38:38Z
      *
      * @var string
@@ -61,6 +61,7 @@ class DescribeOasAnomalySQLListRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -146,7 +147,7 @@ class DescribeOasAnomalySQLListRequest extends Model
 
     /**
      * @description The start time of the monitoring data.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2023-04-12T04:38:38Z
      *
      * @var string
@@ -156,6 +157,7 @@ class DescribeOasAnomalySQLListRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t4louaeei****
      *
      * @var string

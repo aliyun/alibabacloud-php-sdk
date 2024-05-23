@@ -11,6 +11,7 @@ class ModifyParametersRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example TENANT
      *
      * @var string
@@ -29,6 +30,7 @@ class ModifyParametersRequest extends Model
     /**
      * @description Alibaba Cloud CLI
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -37,7 +39,7 @@ class ModifyParametersRequest extends Model
 
     /**
      * @description The resource ID of the parameter type.
-     * You can leave this parameter unspecified when you call this operation to modify cluster parameters. In the case of tenant parameters, pass the tenant ID.
+     * This parameter is required.
      * @example [{"Name":"connect_timeout","Value":"20"}]
      *
      * @var string

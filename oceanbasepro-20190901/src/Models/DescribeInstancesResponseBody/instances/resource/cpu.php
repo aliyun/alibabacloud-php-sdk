@@ -13,7 +13,7 @@ class cpu extends Model
      *
      * @example 14
      *
-     * @var int
+     * @var float
      */
     public $originalTotalCpu;
 
@@ -22,7 +22,7 @@ class cpu extends Model
      *
      * @example 14
      *
-     * @var int
+     * @var float
      */
     public $totalCpu;
 
@@ -31,7 +31,7 @@ class cpu extends Model
      *
      * @example 10
      *
-     * @var int
+     * @var float
      */
     public $unitCpu;
 
@@ -40,7 +40,7 @@ class cpu extends Model
      *
      * @example 10
      *
-     * @var int
+     * @var float
      */
     public $usedCpu;
     protected $_name = [

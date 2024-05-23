@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectModifyRecordsShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $databasesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example np_fe****
      *
      * @var string

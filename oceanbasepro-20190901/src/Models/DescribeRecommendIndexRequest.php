@@ -11,6 +11,7 @@ class DescribeRecommendIndexRequest extends Model
     /**
      * @description The return result of the request.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeRecommendIndexRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
      * @var string
@@ -28,7 +30,7 @@ class DescribeRecommendIndexRequest extends Model
 
     /**
      * @description The index recommended for the SQL statement after calculation by the diagnostic system.
-     * The system recommends only one index for an SQL statement. You can call the DescribeIndexes operation to view the indexes of a table.
+     * This parameter is required.
      * @example t2mr3oae0****
      *
      * @var string

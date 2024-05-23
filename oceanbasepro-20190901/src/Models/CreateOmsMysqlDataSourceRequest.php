@@ -50,7 +50,7 @@ class CreateOmsMysqlDataSourceRequest extends Model
 
     /**
      * @description The name of the data source.
-     * > <br>Invalid characters, such as slashes (/), are not allowed.
+     * This parameter is required.
      * @example oms-mysql
      *
      * @var string
@@ -59,7 +59,7 @@ class CreateOmsMysqlDataSourceRequest extends Model
 
     /**
      * @description The password of the username that is used to access the database. It must be Base64 encoded.
-     * For example, for the password abcd123@!, the Base64-encoded value is YWJjZDEyM0Ah.
+     * This parameter is required.
      * @example YWJjZDEyM0Ah
      *
      * @var string
@@ -88,7 +88,7 @@ class CreateOmsMysqlDataSourceRequest extends Model
 
     /**
      * @description The type of the MySQL data source.
-     * Valid values: INTERNET, VPC, RDS, PolarDB, and DG.
+     * This parameter is required.
      * @example INTERNET
      *
      * @var string
@@ -98,6 +98,7 @@ class CreateOmsMysqlDataSourceRequest extends Model
     /**
      * @description The username that is used to access the database.
      *
+     * This parameter is required.
      * @example omsTestUser
      *
      * @var string

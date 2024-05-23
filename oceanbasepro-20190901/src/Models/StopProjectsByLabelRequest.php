@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopProjectsByLabelRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example l_****
      *
      * @var string

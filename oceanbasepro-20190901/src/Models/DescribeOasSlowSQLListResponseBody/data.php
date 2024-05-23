@@ -483,7 +483,7 @@ class data extends Model
      *
      * @example 0
      *
-     * @var int
+     * @var float
      */
     public $retCode4012Count;
 
@@ -492,7 +492,7 @@ class data extends Model
      *
      * @example 0
      *
-     * @var int
+     * @var float
      */
     public $retCode4013Count;
 
@@ -501,7 +501,7 @@ class data extends Model
      *
      * @example 0
      *
-     * @var int
+     * @var float
      */
     public $retCode5001Count;
 
@@ -510,7 +510,7 @@ class data extends Model
      *
      * @example 0
      *
-     * @var int
+     * @var float
      */
     public $retCode5024Count;
 
@@ -519,7 +519,7 @@ class data extends Model
      *
      * @example 0
      *
-     * @var int
+     * @var float
      */
     public $retCode5167Count;
 
@@ -528,7 +528,7 @@ class data extends Model
      *
      * @example 0
      *
-     * @var int
+     * @var float
      */
     public $retCode5217Count;
 
@@ -537,7 +537,7 @@ class data extends Model
      *
      * @example 0
      *
-     * @var int
+     * @var float
      */
     public $retCode6002Count;
 

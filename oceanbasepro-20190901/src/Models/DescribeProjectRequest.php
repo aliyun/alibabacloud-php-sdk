@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeProjectRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example np_fe****
      *
      * @var string

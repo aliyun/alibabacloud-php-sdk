@@ -23,6 +23,8 @@ class DescribeDataBackupSetRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ob317v4uif****
      *
      * @var string

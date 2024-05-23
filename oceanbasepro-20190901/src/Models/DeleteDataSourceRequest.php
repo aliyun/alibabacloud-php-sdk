@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataSourceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example e_5anwndq
      *
      * @var string

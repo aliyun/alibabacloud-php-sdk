@@ -14,7 +14,7 @@ class DescribeMetricsDataResponseBody extends Model
      * "sql_select_count":75.****15****1515,
      * "timestamp":165079****
      * ]
-     * @var string
+     * @var string[]
      */
     public $data;
 
@@ -55,7 +55,9 @@ class DescribeMetricsDataResponseBody extends Model
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = $map['Data'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

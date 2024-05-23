@@ -11,6 +11,7 @@ class DescribeSecurityIpGroupsRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example i-bp67acfmxazb4p****
      *
      * @var string

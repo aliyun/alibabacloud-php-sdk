@@ -37,6 +37,8 @@ class CreateMySqlDataSourceRequest extends Model
     public $ip;
 
     /**
+     * @description This parameter is required.
+     *
      * @example source_name
      *
      * @var string
@@ -44,6 +46,8 @@ class CreateMySqlDataSourceRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pass_word
      *
      * @var string
@@ -65,6 +69,8 @@ class CreateMySqlDataSourceRequest extends Model
     public $schema;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VPC
      *
      * @var string
@@ -72,6 +78,8 @@ class CreateMySqlDataSourceRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user_name
      *
      * @var string

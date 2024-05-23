@@ -28,7 +28,7 @@ class DeleteInstancesRequest extends Model
 
     /**
      * @description The ID of the cluster to be deleted.
-     * The value is a string in the JSON format.
+     * This parameter is required.
      * @example [”ob ob3f6yhv9uxxxx“]
      *
      * @var string

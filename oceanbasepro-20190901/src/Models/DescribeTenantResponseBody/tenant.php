@@ -159,6 +159,11 @@ class tenant extends Model
     public $instanceType;
 
     /**
+     * @var int[]
+     */
+    public $lowerCaseTableNames;
+
+    /**
      * @description ```
      * http(s)://[Endpoint]/?Action=DescribeTenant
      * &InstanceId=ob317v4uif****
@@ -290,6 +295,11 @@ class tenant extends Model
     public $timeZone;
 
     /**
+     * @var string
+     */
+    public $version;
+
+    /**
      * @description Indicates whether the clog service is available. To enable the clog service, submit a ticket.
      *
      * @example vpc-bp1d2q3mhg9i23ofi****
@@ -315,6 +325,7 @@ class tenant extends Model
         'enableReadOnlyReplica'        => 'EnableReadOnlyReplica',
         'enableReadWriteSplit'         => 'EnableReadWriteSplit',
         'instanceType'                 => 'InstanceType',
+        'lowerCaseTableNames'          => 'LowerCaseTableNames',
         'masterIntranetAddressZone'    => 'MasterIntranetAddressZone',
         'maxParallelQueryDegree'       => 'MaxParallelQueryDegree',
         'payType'                      => 'PayType',
@@ -330,6 +341,7 @@ class tenant extends Model
         'tenantResource'               => 'TenantResource',
         'tenantZones'                  => 'TenantZones',
         'timeZone'                     => 'TimeZone',
+        'version'                      => 'Version',
         'vpcId'                        => 'VpcId',
     ];
 
@@ -391,6 +403,9 @@ class tenant extends Model
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+        if (null !== $this->lowerCaseTableNames) {
+            $res['LowerCaseTableNames'] = $this->lowerCaseTableNames;
+        }
         if (null !== $this->masterIntranetAddressZone) {
             $res['MasterIntranetAddressZone'] = $this->masterIntranetAddressZone;
         }
@@ -447,6 +462,9 @@ class tenant extends Model
         }
         if (null !== $this->timeZone) {
             $res['TimeZone'] = $this->timeZone;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -516,6 +534,9 @@ class tenant extends Model
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+        if (isset($map['LowerCaseTableNames'])) {
+            $model->lowerCaseTableNames = $map['LowerCaseTableNames'];
+        }
         if (isset($map['MasterIntranetAddressZone'])) {
             $model->masterIntranetAddressZone = $map['MasterIntranetAddressZone'];
         }
@@ -572,6 +593,9 @@ class tenant extends Model
         }
         if (isset($map['TimeZone'])) {
             $model->timeZone = $map['TimeZone'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

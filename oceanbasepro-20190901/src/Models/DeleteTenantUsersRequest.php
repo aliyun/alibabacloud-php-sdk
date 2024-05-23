@@ -11,6 +11,7 @@ class DeleteTenantUsersRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteTenantUsersRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string
@@ -29,6 +31,7 @@ class DeleteTenantUsersRequest extends Model
     /**
      * @description A list of usernames.
      *
+     * This parameter is required.
      * @example ["testUser"]
      *
      * @var string

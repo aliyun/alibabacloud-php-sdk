@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\OceanBasePro\V20190901;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\BatchKillProcessListRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\BatchKillProcessListResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CancelProjectModifyRecordRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CancelProjectModifyRecordResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateBackupSetDownloadLinkRequest;
@@ -38,6 +40,7 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantSecurityIpGroupRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantSecurityIpGroupResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantShrinkRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantUserRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantUserResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteDatabasesRequest;
@@ -113,6 +116,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeParametersHistoryRequ
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeParametersHistoryResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeParametersRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeParametersResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProcessStatsCompositionRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProcessStatsCompositionResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectComponentsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectComponentsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectProgressRequest;
@@ -243,6 +248,9 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StopProjectsByLabelRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StopProjectsByLabelResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\SwitchoverInstanceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\SwitchoverInstanceResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\UpdateProjectConfigRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\UpdateProjectConfigResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\UpdateProjectConfigShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -283,10 +291,65 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CancelProjectModifyRecordRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary BatchKillProcessList
+     *  *
+     * @param BatchKillProcessListRequest $request BatchKillProcessListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelProjectModifyRecordResponse
+     * @return BatchKillProcessListResponse BatchKillProcessListResponse
+     */
+    public function batchKillProcessListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sessionList)) {
+            $body['SessionList'] = $request->sessionList;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchKillProcessList',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchKillProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary BatchKillProcessList
+     *  *
+     * @param BatchKillProcessListRequest $request BatchKillProcessListRequest
+     *
+     * @return BatchKillProcessListResponse BatchKillProcessListResponse
+     */
+    public function batchKillProcessList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchKillProcessListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 根据记录id取消修改操作 （仅支持处于 PENDING 状态的修改记录）
+     *  *
+     * @param CancelProjectModifyRecordRequest $request CancelProjectModifyRecordRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CancelProjectModifyRecordResponse CancelProjectModifyRecordResponse
      */
     public function cancelProjectModifyRecordWithOptions($request, $runtime)
     {
@@ -314,9 +377,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CancelProjectModifyRecordRequest $request
+     * @summary 根据记录id取消修改操作 （仅支持处于 PENDING 状态的修改记录）
+     *  *
+     * @param CancelProjectModifyRecordRequest $request CancelProjectModifyRecordRequest
      *
-     * @return CancelProjectModifyRecordResponse
+     * @return CancelProjectModifyRecordResponse CancelProjectModifyRecordResponse
      */
     public function cancelProjectModifyRecord($request)
     {
@@ -326,10 +391,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupSetDownloadLinkRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 创建备份任务下载链接
+     *  *
+     * @param CreateBackupSetDownloadLinkRequest $request CreateBackupSetDownloadLinkRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBackupSetDownloadLinkResponse
+     * @return CreateBackupSetDownloadLinkResponse CreateBackupSetDownloadLinkResponse
      */
     public function createBackupSetDownloadLinkWithOptions($request, $runtime)
     {
@@ -360,9 +427,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupSetDownloadLinkRequest $request
+     * @summary 创建备份任务下载链接
+     *  *
+     * @param CreateBackupSetDownloadLinkRequest $request CreateBackupSetDownloadLinkRequest
      *
-     * @return CreateBackupSetDownloadLinkResponse
+     * @return CreateBackupSetDownloadLinkResponse CreateBackupSetDownloadLinkResponse
      */
     public function createBackupSetDownloadLink($request)
     {
@@ -372,10 +441,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateDatabaseRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary The request ID.
+     *  *
+     * @param CreateDatabaseRequest $request CreateDatabaseRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDatabaseResponse
+     * @return CreateDatabaseResponse CreateDatabaseResponse
      */
     public function createDatabaseWithOptions($request, $runtime)
     {
@@ -421,9 +492,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateDatabaseRequest $request
+     * @summary The request ID.
+     *  *
+     * @param CreateDatabaseRequest $request CreateDatabaseRequest
      *
-     * @return CreateDatabaseResponse
+     * @return CreateDatabaseResponse CreateDatabaseResponse
      */
     public function createDatabase($request)
     {
@@ -433,10 +506,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary You can call this operation to create an OceanBase cluster.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
@@ -450,6 +525,9 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->chargeType)) {
             $body['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->cpuArch)) {
+            $body['CpuArch'] = $request->cpuArch;
         }
         if (!Utils::isUnset($request->diskSize)) {
             $body['DiskSize'] = $request->diskSize;
@@ -515,9 +593,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * @summary You can call this operation to create an OceanBase cluster.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -527,10 +607,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateLabelRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 创建标签
+     *  *
+     * @param CreateLabelRequest $request CreateLabelRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLabelResponse
+     * @return CreateLabelResponse CreateLabelResponse
      */
     public function createLabelWithOptions($request, $runtime)
     {
@@ -558,9 +640,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateLabelRequest $request
+     * @summary 创建标签
+     *  *
+     * @param CreateLabelRequest $request CreateLabelRequest
      *
-     * @return CreateLabelResponse
+     * @return CreateLabelResponse CreateLabelResponse
      */
     public function createLabel($request)
     {
@@ -570,10 +654,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateMySqlDataSourceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 创建 MySQL 数据源
+     *  *
+     * @param CreateMySqlDataSourceRequest $request CreateMySqlDataSourceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMySqlDataSourceResponse
+     * @return CreateMySqlDataSourceResponse CreateMySqlDataSourceResponse
      */
     public function createMySqlDataSourceWithOptions($request, $runtime)
     {
@@ -631,9 +717,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateMySqlDataSourceRequest $request
+     * @summary 创建 MySQL 数据源
+     *  *
+     * @param CreateMySqlDataSourceRequest $request CreateMySqlDataSourceRequest
      *
-     * @return CreateMySqlDataSourceResponse
+     * @return CreateMySqlDataSourceResponse CreateMySqlDataSourceResponse
      */
     public function createMySqlDataSource($request)
     {
@@ -643,10 +731,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateOceanBaseDataSourceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 创建 OceanBase 数据源
+     *  *
+     * @param CreateOceanBaseDataSourceRequest $request CreateOceanBaseDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOceanBaseDataSourceResponse
+     * @return CreateOceanBaseDataSourceResponse CreateOceanBaseDataSourceResponse
      */
     public function createOceanBaseDataSourceWithOptions($request, $runtime)
     {
@@ -719,9 +809,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateOceanBaseDataSourceRequest $request
+     * @summary 创建 OceanBase 数据源
+     *  *
+     * @param CreateOceanBaseDataSourceRequest $request CreateOceanBaseDataSourceRequest
      *
-     * @return CreateOceanBaseDataSourceResponse
+     * @return CreateOceanBaseDataSourceResponse CreateOceanBaseDataSourceResponse
      */
     public function createOceanBaseDataSource($request)
     {
@@ -731,8 +823,10 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
-     *   *
+     * @summary You can call this operation to create a MySQL data source.
+     *  *
+     * @description To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
+     *  *
      * @param CreateOmsMysqlDataSourceRequest $request CreateOmsMysqlDataSourceRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -794,8 +888,10 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
-     *   *
+     * @summary You can call this operation to create a MySQL data source.
+     *  *
+     * @description To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
+     *  *
      * @param CreateOmsMysqlDataSourceRequest $request CreateOmsMysqlDataSourceRequest
      *
      * @return CreateOmsMysqlDataSourceResponse CreateOmsMysqlDataSourceResponse
@@ -808,10 +904,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 创建项目
+     *  *
+     * @param CreateProjectRequest $tmpReq  CreateProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProjectWithOptions($tmpReq, $runtime)
     {
@@ -919,9 +1017,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectRequest $request
+     * @summary 创建项目
+     *  *
+     * @param CreateProjectRequest $request CreateProjectRequest
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProject($request)
     {
@@ -931,10 +1031,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectModifyRecordsRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
+     * @summary 修改传输对象（加减表）(仅支持处于 RUNNING/FAILED/SUSPEND 状态的项目)
+     *  *
+     * @param CreateProjectModifyRecordsRequest $tmpReq  CreateProjectModifyRecordsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProjectModifyRecordsResponse
+     * @return CreateProjectModifyRecordsResponse CreateProjectModifyRecordsResponse
      */
     public function createProjectModifyRecordsWithOptions($tmpReq, $runtime)
     {
@@ -970,9 +1072,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectModifyRecordsRequest $request
+     * @summary 修改传输对象（加减表）(仅支持处于 RUNNING/FAILED/SUSPEND 状态的项目)
+     *  *
+     * @param CreateProjectModifyRecordsRequest $request CreateProjectModifyRecordsRequest
      *
-     * @return CreateProjectModifyRecordsResponse
+     * @return CreateProjectModifyRecordsResponse CreateProjectModifyRecordsResponse
      */
     public function createProjectModifyRecords($request)
     {
@@ -982,10 +1086,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateRdsPostgreSQLDataSourceRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 创建RDS PG 数据源
+     *  *
+     * @param CreateRdsPostgreSQLDataSourceRequest $request CreateRdsPostgreSQLDataSourceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRdsPostgreSQLDataSourceResponse
+     * @return CreateRdsPostgreSQLDataSourceResponse CreateRdsPostgreSQLDataSourceResponse
      */
     public function createRdsPostgreSQLDataSourceWithOptions($request, $runtime)
     {
@@ -1028,9 +1134,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateRdsPostgreSQLDataSourceRequest $request
+     * @summary 创建RDS PG 数据源
+     *  *
+     * @param CreateRdsPostgreSQLDataSourceRequest $request CreateRdsPostgreSQLDataSourceRequest
      *
-     * @return CreateRdsPostgreSQLDataSourceResponse
+     * @return CreateRdsPostgreSQLDataSourceResponse CreateRdsPostgreSQLDataSourceResponse
      */
     public function createRdsPostgreSQLDataSource($request)
     {
@@ -1040,10 +1148,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateSecurityIpGroupRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary The name of the whitelist group.
+     *  *
+     * @param CreateSecurityIpGroupRequest $request CreateSecurityIpGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSecurityIpGroupResponse
+     * @return CreateSecurityIpGroupResponse CreateSecurityIpGroupResponse
      */
     public function createSecurityIpGroupWithOptions($request, $runtime)
     {
@@ -1077,9 +1187,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateSecurityIpGroupRequest $request
+     * @summary The name of the whitelist group.
+     *  *
+     * @param CreateSecurityIpGroupRequest $request CreateSecurityIpGroupRequest
      *
-     * @return CreateSecurityIpGroupResponse
+     * @return CreateSecurityIpGroupResponse CreateSecurityIpGroupResponse
      */
     public function createSecurityIpGroup($request)
     {
@@ -1089,20 +1201,30 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateTenantRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary You can call this operation to create a tenant.
+     *  *
+     * @param CreateTenantRequest $tmpReq  CreateTenantRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTenantResponse
+     * @return CreateTenantResponse CreateTenantResponse
      */
-    public function createTenantWithOptions($request, $runtime)
+    public function createTenantWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateTenantShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->createParams)) {
+            $request->createParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createParams, 'CreateParams', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->charset)) {
             $body['Charset'] = $request->charset;
         }
         if (!Utils::isUnset($request->cpu)) {
             $body['Cpu'] = $request->cpu;
+        }
+        if (!Utils::isUnset($request->createParamsShrink)) {
+            $body['CreateParams'] = $request->createParamsShrink;
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
@@ -1140,6 +1262,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->userVpcId)) {
             $body['UserVpcId'] = $request->userVpcId;
         }
+        if (!Utils::isUnset($request->userVpcOwnerId)) {
+            $body['UserVpcOwnerId'] = $request->userVpcOwnerId;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1159,9 +1284,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateTenantRequest $request
+     * @summary You can call this operation to create a tenant.
+     *  *
+     * @param CreateTenantRequest $request CreateTenantRequest
      *
-     * @return CreateTenantResponse
+     * @return CreateTenantResponse CreateTenantResponse
      */
     public function createTenant($request)
     {
@@ -1171,10 +1298,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateTenantReadOnlyConnectionRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary The request ID.
+     *  *
+     * @param CreateTenantReadOnlyConnectionRequest $request CreateTenantReadOnlyConnectionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTenantReadOnlyConnectionResponse
+     * @return CreateTenantReadOnlyConnectionResponse CreateTenantReadOnlyConnectionResponse
      */
     public function createTenantReadOnlyConnectionWithOptions($request, $runtime)
     {
@@ -1214,9 +1343,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateTenantReadOnlyConnectionRequest $request
+     * @summary The request ID.
+     *  *
+     * @param CreateTenantReadOnlyConnectionRequest $request CreateTenantReadOnlyConnectionRequest
      *
-     * @return CreateTenantReadOnlyConnectionResponse
+     * @return CreateTenantReadOnlyConnectionResponse CreateTenantReadOnlyConnectionResponse
      */
     public function createTenantReadOnlyConnection($request)
     {
@@ -1226,10 +1357,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateTenantSecurityIpGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary You can call this operation to create the security whitelist for the tenant.
+     *  *
+     * @param CreateTenantSecurityIpGroupRequest $request CreateTenantSecurityIpGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTenantSecurityIpGroupResponse
+     * @return CreateTenantSecurityIpGroupResponse CreateTenantSecurityIpGroupResponse
      */
     public function createTenantSecurityIpGroupWithOptions($request, $runtime)
     {
@@ -1266,9 +1399,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateTenantSecurityIpGroupRequest $request
+     * @summary You can call this operation to create the security whitelist for the tenant.
+     *  *
+     * @param CreateTenantSecurityIpGroupRequest $request CreateTenantSecurityIpGroupRequest
      *
-     * @return CreateTenantSecurityIpGroupResponse
+     * @return CreateTenantSecurityIpGroupResponse CreateTenantSecurityIpGroupResponse
      */
     public function createTenantSecurityIpGroup($request)
     {
@@ -1278,10 +1413,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateTenantUserRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary CreateTenantUser
+     *  *
+     * @param CreateTenantUserRequest $request CreateTenantUserRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTenantUserResponse
+     * @return CreateTenantUserResponse CreateTenantUserResponse
      */
     public function createTenantUserWithOptions($request, $runtime)
     {
@@ -1330,9 +1467,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param CreateTenantUserRequest $request
+     * @summary CreateTenantUser
+     *  *
+     * @param CreateTenantUserRequest $request CreateTenantUserRequest
      *
-     * @return CreateTenantUserResponse
+     * @return CreateTenantUserResponse CreateTenantUserResponse
      */
     public function createTenantUser($request)
     {
@@ -1342,10 +1481,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataSourceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 删除数据源
+     *  *
+     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataSourceResponse
+     * @return DeleteDataSourceResponse DeleteDataSourceResponse
      */
     public function deleteDataSourceWithOptions($request, $runtime)
     {
@@ -1373,9 +1514,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataSourceRequest $request
+     * @summary 删除数据源
+     *  *
+     * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
      *
-     * @return DeleteDataSourceResponse
+     * @return DeleteDataSourceResponse DeleteDataSourceResponse
      */
     public function deleteDataSource($request)
     {
@@ -1385,10 +1528,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabasesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary The request ID.
+     *  *
+     * @param DeleteDatabasesRequest $request DeleteDatabasesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDatabasesResponse
+     * @return DeleteDatabasesResponse DeleteDatabasesResponse
      */
     public function deleteDatabasesWithOptions($request, $runtime)
     {
@@ -1422,9 +1567,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabasesRequest $request
+     * @summary The request ID.
+     *  *
+     * @param DeleteDatabasesRequest $request DeleteDatabasesRequest
      *
-     * @return DeleteDatabasesResponse
+     * @return DeleteDatabasesResponse DeleteDatabasesResponse
      */
     public function deleteDatabases($request)
     {
@@ -1434,10 +1581,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, ensure that the following requirements are met:
-     *   * - The cluster is in the Running state.
-     *   * - The cluster is a primary cluster and the billing method is pay-as-you-go.
-     *   *
+     * @summary You can call this operation to release an OceanBase cluster.
+     *  *
+     * @description Before you call this operation, ensure that the following requirements are met:
+     * - The cluster is in the Running state.
+     * - The cluster is a primary cluster and the billing method is pay-as-you-go.
+     *  *
      * @param DeleteInstancesRequest $request DeleteInstancesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -1475,10 +1624,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, ensure that the following requirements are met:
-     *   * - The cluster is in the Running state.
-     *   * - The cluster is a primary cluster and the billing method is pay-as-you-go.
-     *   *
+     * @summary You can call this operation to release an OceanBase cluster.
+     *  *
+     * @description Before you call this operation, ensure that the following requirements are met:
+     * - The cluster is in the Running state.
+     * - The cluster is a primary cluster and the billing method is pay-as-you-go.
+     *  *
      * @param DeleteInstancesRequest $request DeleteInstancesRequest
      *
      * @return DeleteInstancesResponse DeleteInstancesResponse
@@ -1491,10 +1642,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteProjectRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 删除项目
+     *  *
+     * @param DeleteProjectRequest $request DeleteProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProjectResponse
+     * @return DeleteProjectResponse DeleteProjectResponse
      */
     public function deleteProjectWithOptions($request, $runtime)
     {
@@ -1522,9 +1675,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteProjectRequest $request
+     * @summary 删除项目
+     *  *
+     * @param DeleteProjectRequest $request DeleteProjectRequest
      *
-     * @return DeleteProjectResponse
+     * @return DeleteProjectResponse DeleteProjectResponse
      */
     public function deleteProject($request)
     {
@@ -1534,10 +1689,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecurityIpGroupRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary The name of the deleted IP address whitelist group.
+     *  *
+     * @param DeleteSecurityIpGroupRequest $request DeleteSecurityIpGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSecurityIpGroupResponse
+     * @return DeleteSecurityIpGroupResponse DeleteSecurityIpGroupResponse
      */
     public function deleteSecurityIpGroupWithOptions($request, $runtime)
     {
@@ -1568,9 +1725,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecurityIpGroupRequest $request
+     * @summary The name of the deleted IP address whitelist group.
+     *  *
+     * @param DeleteSecurityIpGroupRequest $request DeleteSecurityIpGroupRequest
      *
-     * @return DeleteSecurityIpGroupResponse
+     * @return DeleteSecurityIpGroupResponse DeleteSecurityIpGroupResponse
      */
     public function deleteSecurityIpGroup($request)
     {
@@ -1580,10 +1739,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteTenantSecurityIpGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary You can call this operation to delete the information on the whitelist group of the tenant.
+     *  *
+     * @param DeleteTenantSecurityIpGroupRequest $request DeleteTenantSecurityIpGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTenantSecurityIpGroupResponse
+     * @return DeleteTenantSecurityIpGroupResponse DeleteTenantSecurityIpGroupResponse
      */
     public function deleteTenantSecurityIpGroupWithOptions($request, $runtime)
     {
@@ -1617,9 +1778,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteTenantSecurityIpGroupRequest $request
+     * @summary You can call this operation to delete the information on the whitelist group of the tenant.
+     *  *
+     * @param DeleteTenantSecurityIpGroupRequest $request DeleteTenantSecurityIpGroupRequest
      *
-     * @return DeleteTenantSecurityIpGroupResponse
+     * @return DeleteTenantSecurityIpGroupResponse DeleteTenantSecurityIpGroupResponse
      */
     public function deleteTenantSecurityIpGroup($request)
     {
@@ -1629,10 +1792,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteTenantUsersRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary You can call this operation to delete one or more database accounts.
+     *  *
+     * @param DeleteTenantUsersRequest $request DeleteTenantUsersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTenantUsersResponse
+     * @return DeleteTenantUsersResponse DeleteTenantUsersResponse
      */
     public function deleteTenantUsersWithOptions($request, $runtime)
     {
@@ -1666,9 +1831,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteTenantUsersRequest $request
+     * @summary You can call this operation to delete one or more database accounts.
+     *  *
+     * @param DeleteTenantUsersRequest $request DeleteTenantUsersRequest
      *
-     * @return DeleteTenantUsersResponse
+     * @return DeleteTenantUsersResponse DeleteTenantUsersResponse
      */
     public function deleteTenantUsers($request)
     {
@@ -1678,10 +1845,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteTenantsRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary The return result of the request.
+     *  *
+     * @param DeleteTenantsRequest $request DeleteTenantsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTenantsResponse
+     * @return DeleteTenantsResponse DeleteTenantsResponse
      */
     public function deleteTenantsWithOptions($request, $runtime)
     {
@@ -1712,9 +1881,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DeleteTenantsRequest $request
+     * @summary The return result of the request.
+     *  *
+     * @param DeleteTenantsRequest $request DeleteTenantsRequest
      *
-     * @return DeleteTenantsResponse
+     * @return DeleteTenantsResponse DeleteTenantsResponse
      */
     public function deleteTenants($request)
     {
@@ -1724,10 +1895,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeAnomalySQLListRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary You can call this operation to obtain the list of SQL statements that may have performance problems according to the diagnostic system.
+     *  *
+     * @param DescribeAnomalySQLListRequest $tmpReq  DescribeAnomalySQLListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAnomalySQLListResponse
+     * @return DescribeAnomalySQLListResponse DescribeAnomalySQLListResponse
      */
     public function describeAnomalySQLListWithOptions($tmpReq, $runtime)
     {
@@ -1808,9 +1981,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeAnomalySQLListRequest $request
+     * @summary You can call this operation to obtain the list of SQL statements that may have performance problems according to the diagnostic system.
+     *  *
+     * @param DescribeAnomalySQLListRequest $request DescribeAnomalySQLListRequest
      *
-     * @return DescribeAnomalySQLListResponse
+     * @return DescribeAnomalySQLListResponse DescribeAnomalySQLListResponse
      */
     public function describeAnomalySQLList($request)
     {
@@ -1820,10 +1995,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableCpuResourceRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary The maximum number of CPU cores per resource unit.
+     *  *
+     * @param DescribeAvailableCpuResourceRequest $request DescribeAvailableCpuResourceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableCpuResourceResponse
+     * @return DescribeAvailableCpuResourceResponse DescribeAvailableCpuResourceResponse
      */
     public function describeAvailableCpuResourceWithOptions($request, $runtime)
     {
@@ -1857,9 +2034,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableCpuResourceRequest $request
+     * @summary The maximum number of CPU cores per resource unit.
+     *  *
+     * @param DescribeAvailableCpuResourceRequest $request DescribeAvailableCpuResourceRequest
      *
-     * @return DescribeAvailableCpuResourceResponse
+     * @return DescribeAvailableCpuResourceResponse DescribeAvailableCpuResourceResponse
      */
     public function describeAvailableCpuResource($request)
     {
@@ -1869,10 +2048,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableMemResourceRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary You can call this operation to query the available memory resource of an OceanBase Database tenant.
+     *  *
+     * @param DescribeAvailableMemResourceRequest $request DescribeAvailableMemResourceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableMemResourceResponse
+     * @return DescribeAvailableMemResourceResponse DescribeAvailableMemResourceResponse
      */
     public function describeAvailableMemResourceWithOptions($request, $runtime)
     {
@@ -1909,9 +2090,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableMemResourceRequest $request
+     * @summary You can call this operation to query the available memory resource of an OceanBase Database tenant.
+     *  *
+     * @param DescribeAvailableMemResourceRequest $request DescribeAvailableMemResourceRequest
      *
-     * @return DescribeAvailableMemResourceResponse
+     * @return DescribeAvailableMemResourceResponse DescribeAvailableMemResourceResponse
      */
     public function describeAvailableMemResource($request)
     {
@@ -1921,10 +2104,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableSpecRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 获取集群变配页可选配置
+     *  *
+     * @param DescribeAvailableSpecRequest $request DescribeAvailableSpecRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableSpecResponse
+     * @return DescribeAvailableSpecResponse DescribeAvailableSpecResponse
      */
     public function describeAvailableSpecWithOptions($request, $runtime)
     {
@@ -1958,9 +2143,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableSpecRequest $request
+     * @summary 获取集群变配页可选配置
+     *  *
+     * @param DescribeAvailableSpecRequest $request DescribeAvailableSpecRequest
      *
-     * @return DescribeAvailableSpecResponse
+     * @return DescribeAvailableSpecResponse DescribeAvailableSpecResponse
      */
     public function describeAvailableSpec($request)
     {
@@ -1970,15 +2157,20 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableZoneRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 获取集群售卖页可选配置
+     *  *
+     * @param DescribeAvailableZoneRequest $request DescribeAvailableZoneRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableZoneResponse
+     * @return DescribeAvailableZoneResponse DescribeAvailableZoneResponse
      */
     public function describeAvailableZoneWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->cpuArch)) {
+            $body['CpuArch'] = $request->cpuArch;
+        }
         if (!Utils::isUnset($request->deployType)) {
             $body['DeployType'] = $request->deployType;
         }
@@ -2013,9 +2205,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableZoneRequest $request
+     * @summary 获取集群售卖页可选配置
+     *  *
+     * @param DescribeAvailableZoneRequest $request DescribeAvailableZoneRequest
      *
-     * @return DescribeAvailableZoneResponse
+     * @return DescribeAvailableZoneResponse DescribeAvailableZoneResponse
      */
     public function describeAvailableZone($request)
     {
@@ -2025,10 +2219,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupSetDownloadLinkRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary You can call this operation to query the link for downloading a backup set of OceanBase Database.
+     *  *
+     * @param DescribeBackupSetDownloadLinkRequest $request DescribeBackupSetDownloadLinkRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupSetDownloadLinkResponse
+     * @return DescribeBackupSetDownloadLinkResponse DescribeBackupSetDownloadLinkResponse
      */
     public function describeBackupSetDownloadLinkWithOptions($request, $runtime)
     {
@@ -2059,9 +2255,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupSetDownloadLinkRequest $request
+     * @summary You can call this operation to query the link for downloading a backup set of OceanBase Database.
+     *  *
+     * @param DescribeBackupSetDownloadLinkRequest $request DescribeBackupSetDownloadLinkRequest
      *
-     * @return DescribeBackupSetDownloadLinkResponse
+     * @return DescribeBackupSetDownloadLinkResponse DescribeBackupSetDownloadLinkResponse
      */
     public function describeBackupSetDownloadLink($request)
     {
@@ -2071,10 +2269,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeCharsetRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary You can call this operation to query the character sets of an OceanBase Database tenant.
+     *  *
+     * @param DescribeCharsetRequest $request DescribeCharsetRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCharsetResponse
+     * @return DescribeCharsetResponse DescribeCharsetResponse
      */
     public function describeCharsetWithOptions($request, $runtime)
     {
@@ -2108,9 +2308,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeCharsetRequest $request
+     * @summary You can call this operation to query the character sets of an OceanBase Database tenant.
+     *  *
+     * @param DescribeCharsetRequest $request DescribeCharsetRequest
      *
-     * @return DescribeCharsetResponse
+     * @return DescribeCharsetResponse DescribeCharsetResponse
      */
     public function describeCharset($request)
     {
@@ -2120,10 +2322,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataBackupSetRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查询备份集信息
+     *  *
+     * @param DescribeDataBackupSetRequest $request DescribeDataBackupSetRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataBackupSetResponse
+     * @return DescribeDataBackupSetResponse DescribeDataBackupSetResponse
      */
     public function describeDataBackupSetWithOptions($request, $runtime)
     {
@@ -2169,9 +2373,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataBackupSetRequest $request
+     * @summary 查询备份集信息
+     *  *
+     * @param DescribeDataBackupSetRequest $request DescribeDataBackupSetRequest
      *
-     * @return DescribeDataBackupSetResponse
+     * @return DescribeDataBackupSetResponse DescribeDataBackupSetResponse
      */
     public function describeDataBackupSet($request)
     {
@@ -2181,10 +2387,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabasesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary You can call this operation to query databases in a tenant.
+     *  *
+     * @param DescribeDatabasesRequest $request DescribeDatabasesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDatabasesResponse
+     * @return DescribeDatabasesResponse DescribeDatabasesResponse
      */
     public function describeDatabasesWithOptions($request, $runtime)
     {
@@ -2230,9 +2438,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabasesRequest $request
+     * @summary You can call this operation to query databases in a tenant.
+     *  *
+     * @param DescribeDatabasesRequest $request DescribeDatabasesRequest
      *
-     * @return DescribeDatabasesResponse
+     * @return DescribeDatabasesResponse DescribeDatabasesResponse
      */
     public function describeDatabases($request)
     {
@@ -2242,10 +2452,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary The size of used memory in the cluster, in GB.
+     *  *
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
@@ -2276,9 +2488,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request
+     * @summary The size of used memory in the cluster, in GB.
+     *  *
+     * @param DescribeInstanceRequest $request DescribeInstanceRequest
      *
-     * @return DescribeInstanceResponse
+     * @return DescribeInstanceResponse DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -2288,10 +2502,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceCreatableZoneRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary The ID of the zone.
+     *  *
+     * @param DescribeInstanceCreatableZoneRequest $request DescribeInstanceCreatableZoneRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceCreatableZoneResponse
+     * @return DescribeInstanceCreatableZoneResponse DescribeInstanceCreatableZoneResponse
      */
     public function describeInstanceCreatableZoneWithOptions($request, $runtime)
     {
@@ -2319,9 +2535,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceCreatableZoneRequest $request
+     * @summary The ID of the zone.
+     *  *
+     * @param DescribeInstanceCreatableZoneRequest $request DescribeInstanceCreatableZoneRequest
      *
-     * @return DescribeInstanceCreatableZoneResponse
+     * @return DescribeInstanceCreatableZoneResponse DescribeInstanceCreatableZoneResponse
      */
     public function describeInstanceCreatableZone($request)
     {
@@ -2331,10 +2549,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSSLRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 查询集群SSL配置
+     *  *
+     * @param DescribeInstanceSSLRequest $request DescribeInstanceSSLRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceSSLResponse
+     * @return DescribeInstanceSSLResponse DescribeInstanceSSLResponse
      */
     public function describeInstanceSSLWithOptions($request, $runtime)
     {
@@ -2362,9 +2582,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSSLRequest $request
+     * @summary 查询集群SSL配置
+     *  *
+     * @param DescribeInstanceSSLRequest $request DescribeInstanceSSLRequest
      *
-     * @return DescribeInstanceSSLResponse
+     * @return DescribeInstanceSSLResponse DescribeInstanceSSLResponse
      */
     public function describeInstanceSSL($request)
     {
@@ -2374,10 +2596,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSecurityConfigsRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary You can call this operation to query security check items of an OceanBase cluster.
+     *  *
+     * @param DescribeInstanceSecurityConfigsRequest $request DescribeInstanceSecurityConfigsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceSecurityConfigsResponse
+     * @return DescribeInstanceSecurityConfigsResponse DescribeInstanceSecurityConfigsResponse
      */
     public function describeInstanceSecurityConfigsWithOptions($request, $runtime)
     {
@@ -2408,9 +2632,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSecurityConfigsRequest $request
+     * @summary You can call this operation to query security check items of an OceanBase cluster.
+     *  *
+     * @param DescribeInstanceSecurityConfigsRequest $request DescribeInstanceSecurityConfigsRequest
      *
-     * @return DescribeInstanceSecurityConfigsResponse
+     * @return DescribeInstanceSecurityConfigsResponse DescribeInstanceSecurityConfigsResponse
      */
     public function describeInstanceSecurityConfigs($request)
     {
@@ -2420,10 +2646,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTagsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary The tag of the resource.
+     *  *
+     * @param DescribeInstanceTagsRequest $request DescribeInstanceTagsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceTagsResponse
+     * @return DescribeInstanceTagsResponse DescribeInstanceTagsResponse
      */
     public function describeInstanceTagsWithOptions($request, $runtime)
     {
@@ -2454,9 +2682,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTagsRequest $request
+     * @summary The tag of the resource.
+     *  *
+     * @param DescribeInstanceTagsRequest $request DescribeInstanceTagsRequest
      *
-     * @return DescribeInstanceTagsResponse
+     * @return DescribeInstanceTagsResponse DescribeInstanceTagsResponse
      */
     public function describeInstanceTags($request)
     {
@@ -2466,10 +2696,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTenantModesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary The return result of the request.
+     *  *
+     * @param DescribeInstanceTenantModesRequest $request DescribeInstanceTenantModesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceTenantModesResponse
+     * @return DescribeInstanceTenantModesResponse DescribeInstanceTenantModesResponse
      */
     public function describeInstanceTenantModesWithOptions($request, $runtime)
     {
@@ -2497,9 +2729,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTenantModesRequest $request
+     * @summary The return result of the request.
+     *  *
+     * @param DescribeInstanceTenantModesRequest $request DescribeInstanceTenantModesRequest
      *
-     * @return DescribeInstanceTenantModesResponse
+     * @return DescribeInstanceTenantModesResponse DescribeInstanceTenantModesResponse
      */
     public function describeInstanceTenantModes($request)
     {
@@ -2509,10 +2743,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTopologyRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary The ID of the zone.
+     *  *
+     * @param DescribeInstanceTopologyRequest $request DescribeInstanceTopologyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceTopologyResponse
+     * @return DescribeInstanceTopologyResponse DescribeInstanceTopologyResponse
      */
     public function describeInstanceTopologyWithOptions($request, $runtime)
     {
@@ -2540,9 +2776,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTopologyRequest $request
+     * @summary The ID of the zone.
+     *  *
+     * @param DescribeInstanceTopologyRequest $request DescribeInstanceTopologyRequest
      *
-     * @return DescribeInstanceTopologyResponse
+     * @return DescribeInstanceTopologyResponse DescribeInstanceTopologyResponse
      */
     public function describeInstanceTopology($request)
     {
@@ -2552,10 +2790,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary You can call this operation to obtain the list of OceanBase clusters.
+     *  *
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
@@ -2598,9 +2838,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
+     * @summary You can call this operation to obtain the list of OceanBase clusters.
+     *  *
+     * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
-     * @return DescribeInstancesResponse
+     * @return DescribeInstancesResponse DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -2610,10 +2852,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricsDataRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 查询监控指标数据
+     *  *
+     * @param DescribeMetricsDataRequest $request DescribeMetricsDataRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricsDataResponse
+     * @return DescribeMetricsDataResponse DescribeMetricsDataResponse
      */
     public function describeMetricsDataWithOptions($request, $runtime)
     {
@@ -2670,9 +2914,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricsDataRequest $request
+     * @summary 查询监控指标数据
+     *  *
+     * @param DescribeMetricsDataRequest $request DescribeMetricsDataRequest
      *
-     * @return DescribeMetricsDataResponse
+     * @return DescribeMetricsDataResponse DescribeMetricsDataResponse
      */
     public function describeMetricsData($request)
     {
@@ -2682,10 +2928,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeNodeMetricsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary The list of nodes.
+     *  *
+     * @param DescribeNodeMetricsRequest $request DescribeNodeMetricsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNodeMetricsResponse
+     * @return DescribeNodeMetricsResponse DescribeNodeMetricsResponse
      */
     public function describeNodeMetricsWithOptions($request, $runtime)
     {
@@ -2737,9 +2985,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeNodeMetricsRequest $request
+     * @summary The list of nodes.
+     *  *
+     * @param DescribeNodeMetricsRequest $request DescribeNodeMetricsRequest
      *
-     * @return DescribeNodeMetricsResponse
+     * @return DescribeNodeMetricsResponse DescribeNodeMetricsResponse
      */
     public function describeNodeMetrics($request)
     {
@@ -2749,10 +2999,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasAnomalySQLListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary You can call this API to view the list of SQL statements that are identified as having performance issues by the diagnostic system.
+     *  *
+     * @param DescribeOasAnomalySQLListRequest $request DescribeOasAnomalySQLListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOasAnomalySQLListResponse
+     * @return DescribeOasAnomalySQLListResponse DescribeOasAnomalySQLListResponse
      */
     public function describeOasAnomalySQLListWithOptions($request, $runtime)
     {
@@ -2831,9 +3083,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasAnomalySQLListRequest $request
+     * @summary You can call this API to view the list of SQL statements that are identified as having performance issues by the diagnostic system.
+     *  *
+     * @param DescribeOasAnomalySQLListRequest $request DescribeOasAnomalySQLListRequest
      *
-     * @return DescribeOasAnomalySQLListResponse
+     * @return DescribeOasAnomalySQLListResponse DescribeOasAnomalySQLListResponse
      */
     public function describeOasAnomalySQLList($request)
     {
@@ -2843,10 +3097,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasSQLDetailsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary You can call this API to query detailed information about the SQL, including the SQL text, related table names, and so on.
+     *  *
+     * @param DescribeOasSQLDetailsRequest $request DescribeOasSQLDetailsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOasSQLDetailsResponse
+     * @return DescribeOasSQLDetailsResponse DescribeOasSQLDetailsResponse
      */
     public function describeOasSQLDetailsWithOptions($request, $runtime)
     {
@@ -2892,9 +3148,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasSQLDetailsRequest $request
+     * @summary You can call this API to query detailed information about the SQL, including the SQL text, related table names, and so on.
+     *  *
+     * @param DescribeOasSQLDetailsRequest $request DescribeOasSQLDetailsRequest
      *
-     * @return DescribeOasSQLDetailsResponse
+     * @return DescribeOasSQLDetailsResponse DescribeOasSQLDetailsResponse
      */
     public function describeOasSQLDetails($request)
     {
@@ -2904,10 +3162,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasSQLHistoryListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary You can call this API to view the SQL execution history.
+     *  *
+     * @param DescribeOasSQLHistoryListRequest $request DescribeOasSQLHistoryListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOasSQLHistoryListResponse
+     * @return DescribeOasSQLHistoryListResponse DescribeOasSQLHistoryListResponse
      */
     public function describeOasSQLHistoryListWithOptions($request, $runtime)
     {
@@ -2959,9 +3219,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasSQLHistoryListRequest $request
+     * @summary You can call this API to view the SQL execution history.
+     *  *
+     * @param DescribeOasSQLHistoryListRequest $request DescribeOasSQLHistoryListRequest
      *
-     * @return DescribeOasSQLHistoryListResponse
+     * @return DescribeOasSQLHistoryListResponse DescribeOasSQLHistoryListResponse
      */
     public function describeOasSQLHistoryList($request)
     {
@@ -2971,10 +3233,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasSQLPlansRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary You can call this API to retrieve information about the SQL execution plan stored in the diagnostic system based on the SQL ID.
+     *  *
+     * @param DescribeOasSQLPlansRequest $request DescribeOasSQLPlansRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOasSQLPlansResponse
+     * @return DescribeOasSQLPlansResponse DescribeOasSQLPlansResponse
      */
     public function describeOasSQLPlansWithOptions($request, $runtime)
     {
@@ -2994,6 +3258,12 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->planUnionHash)) {
+            $body['PlanUnionHash'] = $request->planUnionHash;
+        }
+        if (!Utils::isUnset($request->returnBriefInfo)) {
+            $body['ReturnBriefInfo'] = $request->returnBriefInfo;
         }
         if (!Utils::isUnset($request->sqlId)) {
             $body['SqlId'] = $request->sqlId;
@@ -3023,9 +3293,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasSQLPlansRequest $request
+     * @summary You can call this API to retrieve information about the SQL execution plan stored in the diagnostic system based on the SQL ID.
+     *  *
+     * @param DescribeOasSQLPlansRequest $request DescribeOasSQLPlansRequest
      *
-     * @return DescribeOasSQLPlansResponse
+     * @return DescribeOasSQLPlansResponse DescribeOasSQLPlansResponse
      */
     public function describeOasSQLPlans($request)
     {
@@ -3035,10 +3307,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasSlowSQLListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary You can call this API to view a list of slow queries.
+     *  *
+     * @param DescribeOasSlowSQLListRequest $request DescribeOasSlowSQLListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOasSlowSQLListResponse
+     * @return DescribeOasSlowSQLListResponse DescribeOasSlowSQLListResponse
      */
     public function describeOasSlowSQLListWithOptions($request, $runtime)
     {
@@ -3111,9 +3385,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasSlowSQLListRequest $request
+     * @summary You can call this API to view a list of slow queries.
+     *  *
+     * @param DescribeOasSlowSQLListRequest $request DescribeOasSlowSQLListRequest
      *
-     * @return DescribeOasSlowSQLListResponse
+     * @return DescribeOasSlowSQLListResponse DescribeOasSlowSQLListResponse
      */
     public function describeOasSlowSQLList($request)
     {
@@ -3123,10 +3399,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasTopSQLListRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary You can call this API to retrieve the list of data on the SQL execution performance collected by the diagnostic system.
+     *  *
+     * @param DescribeOasTopSQLListRequest $request DescribeOasTopSQLListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOasTopSQLListResponse
+     * @return DescribeOasTopSQLListResponse DescribeOasTopSQLListResponse
      */
     public function describeOasTopSQLListWithOptions($request, $runtime)
     {
@@ -3199,9 +3477,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOasTopSQLListRequest $request
+     * @summary You can call this API to retrieve the list of data on the SQL execution performance collected by the diagnostic system.
+     *  *
+     * @param DescribeOasTopSQLListRequest $request DescribeOasTopSQLListRequest
      *
-     * @return DescribeOasTopSQLListResponse
+     * @return DescribeOasTopSQLListResponse DescribeOasTopSQLListResponse
      */
     public function describeOasTopSQLList($request)
     {
@@ -3211,10 +3491,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOutlineBindingRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary You can call this operation to query the outline binding information or throttling information of an SQL statement in the database based on an SQLID.
+     *  *
+     * @param DescribeOutlineBindingRequest $request DescribeOutlineBindingRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOutlineBindingResponse
+     * @return DescribeOutlineBindingResponse DescribeOutlineBindingResponse
      */
     public function describeOutlineBindingWithOptions($request, $runtime)
     {
@@ -3257,9 +3539,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeOutlineBindingRequest $request
+     * @summary You can call this operation to query the outline binding information or throttling information of an SQL statement in the database based on an SQLID.
+     *  *
+     * @param DescribeOutlineBindingRequest $request DescribeOutlineBindingRequest
      *
-     * @return DescribeOutlineBindingResponse
+     * @return DescribeOutlineBindingResponse DescribeOutlineBindingResponse
      */
     public function describeOutlineBinding($request)
     {
@@ -3269,10 +3553,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Indicates whether a restart is required for changes to the parameter to take effect. Valid values: - true: A restart is required. - false: A restart is not required.
+     *  *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParametersWithOptions($request, $runtime)
     {
@@ -3306,9 +3592,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
+     * @summary Indicates whether a restart is required for changes to the parameter to take effect. Valid values: - true: A restart is required. - false: A restart is not required.
+     *  *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
      *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParameters($request)
     {
@@ -3318,10 +3606,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersHistoryRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary You can call this operation to query the modification history of cluster or tenant parameters.
+     *  *
+     * @param DescribeParametersHistoryRequest $request DescribeParametersHistoryRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParametersHistoryResponse
+     * @return DescribeParametersHistoryResponse DescribeParametersHistoryResponse
      */
     public function describeParametersHistoryWithOptions($request, $runtime)
     {
@@ -3367,9 +3657,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersHistoryRequest $request
+     * @summary You can call this operation to query the modification history of cluster or tenant parameters.
+     *  *
+     * @param DescribeParametersHistoryRequest $request DescribeParametersHistoryRequest
      *
-     * @return DescribeParametersHistoryResponse
+     * @return DescribeParametersHistoryResponse DescribeParametersHistoryResponse
      */
     public function describeParametersHistory($request)
     {
@@ -3379,10 +3671,80 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary DescribeProcessStatsComposition
+     *  *
+     * @param DescribeProcessStatsCompositionRequest $request DescribeProcessStatsCompositionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProjectResponse
+     * @return DescribeProcessStatsCompositionResponse DescribeProcessStatsCompositionResponse
+     */
+    public function describeProcessStatsCompositionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientIp)) {
+            $body['ClientIp'] = $request->clientIp;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->serverIp)) {
+            $body['ServerIp'] = $request->serverIp;
+        }
+        if (!Utils::isUnset($request->sqlText)) {
+            $body['SqlText'] = $request->sqlText;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->UId)) {
+            $body['UId'] = $request->UId;
+        }
+        if (!Utils::isUnset($request->users)) {
+            $body['Users'] = $request->users;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeProcessStatsComposition',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeProcessStatsCompositionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary DescribeProcessStatsComposition
+     *  *
+     * @param DescribeProcessStatsCompositionRequest $request DescribeProcessStatsCompositionRequest
+     *
+     * @return DescribeProcessStatsCompositionResponse DescribeProcessStatsCompositionResponse
+     */
+    public function describeProcessStatsComposition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeProcessStatsCompositionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询项目详情
+     *  *
+     * @param DescribeProjectRequest $request DescribeProjectRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeProjectResponse DescribeProjectResponse
      */
     public function describeProjectWithOptions($request, $runtime)
     {
@@ -3410,9 +3772,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectRequest $request
+     * @summary 查询项目详情
+     *  *
+     * @param DescribeProjectRequest $request DescribeProjectRequest
      *
-     * @return DescribeProjectResponse
+     * @return DescribeProjectResponse DescribeProjectResponse
      */
     public function describeProject($request)
     {
@@ -3422,10 +3786,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectComponentsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 获取项目的组件信息
+     *  *
+     * @param DescribeProjectComponentsRequest $request DescribeProjectComponentsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProjectComponentsResponse
+     * @return DescribeProjectComponentsResponse DescribeProjectComponentsResponse
      */
     public function describeProjectComponentsWithOptions($request, $runtime)
     {
@@ -3453,9 +3819,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectComponentsRequest $request
+     * @summary 获取项目的组件信息
+     *  *
+     * @param DescribeProjectComponentsRequest $request DescribeProjectComponentsRequest
      *
-     * @return DescribeProjectComponentsResponse
+     * @return DescribeProjectComponentsResponse DescribeProjectComponentsResponse
      */
     public function describeProjectComponents($request)
     {
@@ -3465,10 +3833,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectProgressRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 获取迁移/同步项目 Progress 信息
+     *  *
+     * @param DescribeProjectProgressRequest $request DescribeProjectProgressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProjectProgressResponse
+     * @return DescribeProjectProgressResponse DescribeProjectProgressResponse
      */
     public function describeProjectProgressWithOptions($request, $runtime)
     {
@@ -3496,9 +3866,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectProgressRequest $request
+     * @summary 获取迁移/同步项目 Progress 信息
+     *  *
+     * @param DescribeProjectProgressRequest $request DescribeProjectProgressRequest
      *
-     * @return DescribeProjectProgressResponse
+     * @return DescribeProjectProgressResponse DescribeProjectProgressResponse
      */
     public function describeProjectProgress($request)
     {
@@ -3508,10 +3880,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectStepMetricRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询项目步骤指标
+     *  *
+     * @param DescribeProjectStepMetricRequest $request DescribeProjectStepMetricRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProjectStepMetricResponse
+     * @return DescribeProjectStepMetricResponse DescribeProjectStepMetricResponse
      */
     public function describeProjectStepMetricWithOptions($request, $runtime)
     {
@@ -3557,9 +3931,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectStepMetricRequest $request
+     * @summary 查询项目步骤指标
+     *  *
+     * @param DescribeProjectStepMetricRequest $request DescribeProjectStepMetricRequest
      *
-     * @return DescribeProjectStepMetricResponse
+     * @return DescribeProjectStepMetricResponse DescribeProjectStepMetricResponse
      */
     public function describeProjectStepMetric($request)
     {
@@ -3569,10 +3945,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectStepsRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询项目步骤
+     *  *
+     * @param DescribeProjectStepsRequest $request DescribeProjectStepsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProjectStepsResponse
+     * @return DescribeProjectStepsResponse DescribeProjectStepsResponse
      */
     public function describeProjectStepsWithOptions($request, $runtime)
     {
@@ -3600,9 +3978,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectStepsRequest $request
+     * @summary 查询项目步骤
+     *  *
+     * @param DescribeProjectStepsRequest $request DescribeProjectStepsRequest
      *
-     * @return DescribeProjectStepsResponse
+     * @return DescribeProjectStepsResponse DescribeProjectStepsResponse
      */
     public function describeProjectSteps($request)
     {
@@ -3612,10 +3992,14 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecommendIndexRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary The tenant mode.   Valid values:
+     * Oracle
+     * MySQL
+     *  *
+     * @param DescribeRecommendIndexRequest $request DescribeRecommendIndexRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRecommendIndexResponse
+     * @return DescribeRecommendIndexResponse DescribeRecommendIndexResponse
      */
     public function describeRecommendIndexWithOptions($request, $runtime)
     {
@@ -3649,9 +4033,13 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecommendIndexRequest $request
+     * @summary The tenant mode.   Valid values:
+     * Oracle
+     * MySQL
+     *  *
+     * @param DescribeRecommendIndexRequest $request DescribeRecommendIndexRequest
      *
-     * @return DescribeRecommendIndexResponse
+     * @return DescribeRecommendIndexResponse DescribeRecommendIndexResponse
      */
     public function describeRecommendIndex($request)
     {
@@ -3661,10 +4049,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLDetailsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The username.
+     *  *
+     * @param DescribeSQLDetailsRequest $request DescribeSQLDetailsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSQLDetailsResponse
+     * @return DescribeSQLDetailsResponse DescribeSQLDetailsResponse
      */
     public function describeSQLDetailsWithOptions($request, $runtime)
     {
@@ -3695,9 +4085,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLDetailsRequest $request
+     * @summary The username.
+     *  *
+     * @param DescribeSQLDetailsRequest $request DescribeSQLDetailsRequest
      *
-     * @return DescribeSQLDetailsResponse
+     * @return DescribeSQLDetailsResponse DescribeSQLDetailsResponse
      */
     public function describeSQLDetails($request)
     {
@@ -3707,10 +4099,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLHistoryListRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary You can call this operation to query the execution history of an SQL statement in a specified period based on an SQL ID.
+     *  *
+     * @param DescribeSQLHistoryListRequest $request DescribeSQLHistoryListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSQLHistoryListResponse
+     * @return DescribeSQLHistoryListResponse DescribeSQLHistoryListResponse
      */
     public function describeSQLHistoryListWithOptions($request, $runtime)
     {
@@ -3753,9 +4147,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLHistoryListRequest $request
+     * @summary You can call this operation to query the execution history of an SQL statement in a specified period based on an SQL ID.
+     *  *
+     * @param DescribeSQLHistoryListRequest $request DescribeSQLHistoryListRequest
      *
-     * @return DescribeSQLHistoryListResponse
+     * @return DescribeSQLHistoryListResponse DescribeSQLHistoryListResponse
      */
     public function describeSQLHistoryList($request)
     {
@@ -3765,10 +4161,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLPlansRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary You can call this operation to query the information about the SQL execution plans stored in the diagnostic system based on an SQL ID.
+     *  *
+     * @param DescribeSQLPlansRequest $request DescribeSQLPlansRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSQLPlansResponse
+     * @return DescribeSQLPlansResponse DescribeSQLPlansResponse
      */
     public function describeSQLPlansWithOptions($request, $runtime)
     {
@@ -3799,9 +4197,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLPlansRequest $request
+     * @summary You can call this operation to query the information about the SQL execution plans stored in the diagnostic system based on an SQL ID.
+     *  *
+     * @param DescribeSQLPlansRequest $request DescribeSQLPlansRequest
      *
-     * @return DescribeSQLPlansResponse
+     * @return DescribeSQLPlansResponse DescribeSQLPlansResponse
      */
     public function describeSQLPlans($request)
     {
@@ -3811,10 +4211,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLSamplesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary You can call this API to view the sample data of the execution details of the slow queries.
+     *  *
+     * @param DescribeSQLSamplesRequest $request DescribeSQLSamplesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSQLSamplesResponse
+     * @return DescribeSQLSamplesResponse DescribeSQLSamplesResponse
      */
     public function describeSQLSamplesWithOptions($request, $runtime)
     {
@@ -3828,6 +4230,9 @@ class OceanBasePro extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->returnSqlText)) {
+            $body['ReturnSqlText'] = $request->returnSqlText;
         }
         if (!Utils::isUnset($request->sqlId)) {
             $body['SqlId'] = $request->sqlId;
@@ -3857,9 +4262,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLSamplesRequest $request
+     * @summary You can call this API to view the sample data of the execution details of the slow queries.
+     *  *
+     * @param DescribeSQLSamplesRequest $request DescribeSQLSamplesRequest
      *
-     * @return DescribeSQLSamplesResponse
+     * @return DescribeSQLSamplesResponse DescribeSQLSamplesResponse
      */
     public function describeSQLSamples($request)
     {
@@ -3869,10 +4276,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSampleSqlRawTextsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询采样SQL的原始文本
+     *  *
+     * @param DescribeSampleSqlRawTextsRequest $request DescribeSampleSqlRawTextsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSampleSqlRawTextsResponse
+     * @return DescribeSampleSqlRawTextsResponse DescribeSampleSqlRawTextsResponse
      */
     public function describeSampleSqlRawTextsWithOptions($request, $runtime)
     {
@@ -3921,9 +4330,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSampleSqlRawTextsRequest $request
+     * @summary 查询采样SQL的原始文本
+     *  *
+     * @param DescribeSampleSqlRawTextsRequest $request DescribeSampleSqlRawTextsRequest
      *
-     * @return DescribeSampleSqlRawTextsResponse
+     * @return DescribeSampleSqlRawTextsResponse DescribeSampleSqlRawTextsResponse
      */
     public function describeSampleSqlRawTexts($request)
     {
@@ -3933,10 +4344,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityIpGroupsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary The name of the security group.
+     *  *
+     * @param DescribeSecurityIpGroupsRequest $request DescribeSecurityIpGroupsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSecurityIpGroupsResponse
+     * @return DescribeSecurityIpGroupsResponse DescribeSecurityIpGroupsResponse
      */
     public function describeSecurityIpGroupsWithOptions($request, $runtime)
     {
@@ -3964,9 +4377,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityIpGroupsRequest $request
+     * @summary The name of the security group.
+     *  *
+     * @param DescribeSecurityIpGroupsRequest $request DescribeSecurityIpGroupsRequest
      *
-     * @return DescribeSecurityIpGroupsResponse
+     * @return DescribeSecurityIpGroupsResponse DescribeSecurityIpGroupsResponse
      */
     public function describeSecurityIpGroups($request)
     {
@@ -3976,10 +4391,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowSQLHistoryListRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary You can call this operation to query the execution history of an SQL statement by SQL ID that is determined as a slow SQL statement during a specified period of time.
+     *  *
+     * @param DescribeSlowSQLHistoryListRequest $request DescribeSlowSQLHistoryListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlowSQLHistoryListResponse
+     * @return DescribeSlowSQLHistoryListResponse DescribeSlowSQLHistoryListResponse
      */
     public function describeSlowSQLHistoryListWithOptions($request, $runtime)
     {
@@ -4022,9 +4439,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowSQLHistoryListRequest $request
+     * @summary You can call this operation to query the execution history of an SQL statement by SQL ID that is determined as a slow SQL statement during a specified period of time.
+     *  *
+     * @param DescribeSlowSQLHistoryListRequest $request DescribeSlowSQLHistoryListRequest
      *
-     * @return DescribeSlowSQLHistoryListResponse
+     * @return DescribeSlowSQLHistoryListResponse DescribeSlowSQLHistoryListResponse
      */
     public function describeSlowSQLHistoryList($request)
     {
@@ -4034,10 +4453,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowSQLListRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary You can call this operation to query the list of slow SQL statements
+     *  *
+     * @param DescribeSlowSQLListRequest $tmpReq  DescribeSlowSQLListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlowSQLListResponse
+     * @return DescribeSlowSQLListResponse DescribeSlowSQLListResponse
      */
     public function describeSlowSQLListWithOptions($tmpReq, $runtime)
     {
@@ -4112,9 +4533,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowSQLListRequest $request
+     * @summary You can call this operation to query the list of slow SQL statements
+     *  *
+     * @param DescribeSlowSQLListRequest $request DescribeSlowSQLListRequest
      *
-     * @return DescribeSlowSQLListResponse
+     * @return DescribeSlowSQLListResponse DescribeSlowSQLListResponse
      */
     public function describeSlowSQLList($request)
     {
@@ -4124,10 +4547,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary The ID of the VPC.
+     *  *
+     * @param DescribeTenantRequest $request DescribeTenantRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTenantResponse
+     * @return DescribeTenantResponse DescribeTenantResponse
      */
     public function describeTenantWithOptions($request, $runtime)
     {
@@ -4158,9 +4583,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantRequest $request
+     * @summary The ID of the VPC.
+     *  *
+     * @param DescribeTenantRequest $request DescribeTenantRequest
      *
-     * @return DescribeTenantResponse
+     * @return DescribeTenantResponse DescribeTenantResponse
      */
     public function describeTenant($request)
     {
@@ -4170,10 +4597,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantEncryptionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询租户加密信息
+     *  *
+     * @param DescribeTenantEncryptionRequest $request DescribeTenantEncryptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTenantEncryptionResponse
+     * @return DescribeTenantEncryptionResponse DescribeTenantEncryptionResponse
      */
     public function describeTenantEncryptionWithOptions($request, $runtime)
     {
@@ -4213,9 +4642,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantEncryptionRequest $request
+     * @summary 查询租户加密信息
+     *  *
+     * @param DescribeTenantEncryptionRequest $request DescribeTenantEncryptionRequest
      *
-     * @return DescribeTenantEncryptionResponse
+     * @return DescribeTenantEncryptionResponse DescribeTenantEncryptionResponse
      */
     public function describeTenantEncryption($request)
     {
@@ -4225,10 +4656,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantMetricsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary The list of tenant IDs.
+     *  *
+     * @param DescribeTenantMetricsRequest $request DescribeTenantMetricsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTenantMetricsResponse
+     * @return DescribeTenantMetricsResponse DescribeTenantMetricsResponse
      */
     public function describeTenantMetricsWithOptions($request, $runtime)
     {
@@ -4280,9 +4713,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantMetricsRequest $request
+     * @summary The list of tenant IDs.
+     *  *
+     * @param DescribeTenantMetricsRequest $request DescribeTenantMetricsRequest
      *
-     * @return DescribeTenantMetricsResponse
+     * @return DescribeTenantMetricsResponse DescribeTenantMetricsResponse
      */
     public function describeTenantMetrics($request)
     {
@@ -4292,10 +4727,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantSecurityConfigsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary You can call this operation to query security check items of an OceanBase Database tenant.
+     *  *
+     * @param DescribeTenantSecurityConfigsRequest $request DescribeTenantSecurityConfigsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTenantSecurityConfigsResponse
+     * @return DescribeTenantSecurityConfigsResponse DescribeTenantSecurityConfigsResponse
      */
     public function describeTenantSecurityConfigsWithOptions($request, $runtime)
     {
@@ -4329,9 +4766,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantSecurityConfigsRequest $request
+     * @summary You can call this operation to query security check items of an OceanBase Database tenant.
+     *  *
+     * @param DescribeTenantSecurityConfigsRequest $request DescribeTenantSecurityConfigsRequest
      *
-     * @return DescribeTenantSecurityConfigsResponse
+     * @return DescribeTenantSecurityConfigsResponse DescribeTenantSecurityConfigsResponse
      */
     public function describeTenantSecurityConfigs($request)
     {
@@ -4341,10 +4780,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantSecurityIpGroupsRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary You can call this operation to view the list of whitelist groups of the tenant.
+     *  *
+     * @param DescribeTenantSecurityIpGroupsRequest $request DescribeTenantSecurityIpGroupsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTenantSecurityIpGroupsResponse
+     * @return DescribeTenantSecurityIpGroupsResponse DescribeTenantSecurityIpGroupsResponse
      */
     public function describeTenantSecurityIpGroupsWithOptions($request, $runtime)
     {
@@ -4375,9 +4816,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantSecurityIpGroupsRequest $request
+     * @summary You can call this operation to view the list of whitelist groups of the tenant.
+     *  *
+     * @param DescribeTenantSecurityIpGroupsRequest $request DescribeTenantSecurityIpGroupsRequest
      *
-     * @return DescribeTenantSecurityIpGroupsResponse
+     * @return DescribeTenantSecurityIpGroupsResponse DescribeTenantSecurityIpGroupsResponse
      */
     public function describeTenantSecurityIpGroups($request)
     {
@@ -4387,10 +4830,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantTagsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary You can call this operation to view tenant tags.
+     *  *
+     * @param DescribeTenantTagsRequest $request DescribeTenantTagsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTenantTagsResponse
+     * @return DescribeTenantTagsResponse DescribeTenantTagsResponse
      */
     public function describeTenantTagsWithOptions($request, $runtime)
     {
@@ -4424,9 +4869,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantTagsRequest $request
+     * @summary You can call this operation to view tenant tags.
+     *  *
+     * @param DescribeTenantTagsRequest $request DescribeTenantTagsRequest
      *
-     * @return DescribeTenantTagsResponse
+     * @return DescribeTenantTagsResponse DescribeTenantTagsResponse
      */
     public function describeTenantTags($request)
     {
@@ -4436,10 +4883,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantUserRolesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary You can call this operation to obtain the account authorization information of the tenant.
+     *  *
+     * @param DescribeTenantUserRolesRequest $request DescribeTenantUserRolesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTenantUserRolesResponse
+     * @return DescribeTenantUserRolesResponse DescribeTenantUserRolesResponse
      */
     public function describeTenantUserRolesWithOptions($request, $runtime)
     {
@@ -4467,9 +4916,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantUserRolesRequest $request
+     * @summary You can call this operation to obtain the account authorization information of the tenant.
+     *  *
+     * @param DescribeTenantUserRolesRequest $request DescribeTenantUserRolesRequest
      *
-     * @return DescribeTenantUserRolesResponse
+     * @return DescribeTenantUserRolesResponse DescribeTenantUserRolesResponse
      */
     public function describeTenantUserRoles($request)
     {
@@ -4479,10 +4930,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantUsersRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary The return result of the request.
+     *  *
+     * @param DescribeTenantUsersRequest $request DescribeTenantUsersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTenantUsersResponse
+     * @return DescribeTenantUsersResponse DescribeTenantUsersResponse
      */
     public function describeTenantUsersWithOptions($request, $runtime)
     {
@@ -4522,9 +4975,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantUsersRequest $request
+     * @summary The return result of the request.
+     *  *
+     * @param DescribeTenantUsersRequest $request DescribeTenantUsersRequest
      *
-     * @return DescribeTenantUsersResponse
+     * @return DescribeTenantUsersResponse DescribeTenantUsersResponse
      */
     public function describeTenantUsers($request)
     {
@@ -4534,10 +4989,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantZonesReadRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Indicates whether a read-only connection has been created.
+     *  *
+     * @param DescribeTenantZonesReadRequest $request DescribeTenantZonesReadRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTenantZonesReadResponse
+     * @return DescribeTenantZonesReadResponse DescribeTenantZonesReadResponse
      */
     public function describeTenantZonesReadWithOptions($request, $runtime)
     {
@@ -4568,9 +5025,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantZonesReadRequest $request
+     * @summary Indicates whether a read-only connection has been created.
+     *  *
+     * @param DescribeTenantZonesReadRequest $request DescribeTenantZonesReadRequest
      *
-     * @return DescribeTenantZonesReadResponse
+     * @return DescribeTenantZonesReadResponse DescribeTenantZonesReadResponse
      */
     public function describeTenantZonesRead($request)
     {
@@ -4580,10 +5039,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary The total memory size of the tenant, in GB.
+     *  *
+     * @param DescribeTenantsRequest $request DescribeTenantsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTenantsResponse
+     * @return DescribeTenantsResponse DescribeTenantsResponse
      */
     public function describeTenantsWithOptions($request, $runtime)
     {
@@ -4626,9 +5087,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTenantsRequest $request
+     * @summary The total memory size of the tenant, in GB.
+     *  *
+     * @param DescribeTenantsRequest $request DescribeTenantsRequest
      *
-     * @return DescribeTenantsResponse
+     * @return DescribeTenantsResponse DescribeTenantsResponse
      */
     public function describeTenants($request)
     {
@@ -4638,9 +5101,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary The time zones supported by the tenant.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTimeZonesResponse
+     * @return DescribeTimeZonesResponse DescribeTimeZonesResponse
      */
     public function describeTimeZonesWithOptions($runtime)
     {
@@ -4661,7 +5126,9 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @return DescribeTimeZonesResponse
+     * @summary The time zones supported by the tenant.
+     *  *
+     * @return DescribeTimeZonesResponse DescribeTimeZonesResponse
      */
     public function describeTimeZones()
     {
@@ -4671,10 +5138,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTopSQLListRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary The name of the database.
+     *  *
+     * @param DescribeTopSQLListRequest $tmpReq  DescribeTopSQLListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTopSQLListResponse
+     * @return DescribeTopSQLListResponse DescribeTopSQLListResponse
      */
     public function describeTopSQLListWithOptions($tmpReq, $runtime)
     {
@@ -4749,9 +5218,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeTopSQLListRequest $request
+     * @summary The name of the database.
+     *  *
+     * @param DescribeTopSQLListRequest $request DescribeTopSQLListRequest
      *
-     * @return DescribeTopSQLListResponse
+     * @return DescribeTopSQLListResponse DescribeTopSQLListResponse
      */
     public function describeTopSQLList($request)
     {
@@ -4761,15 +5232,20 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary The deployment mode.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->cpuArch)) {
+            $body['CpuArch'] = $request->cpuArch;
+        }
         if (!Utils::isUnset($request->deployType)) {
             $body['DeployType'] = $request->deployType;
         }
@@ -4795,9 +5271,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
+     * @summary The deployment mode.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -4807,10 +5285,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param GetUploadOssUrlRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 公有云上传OSS 获取一个临时上传url
+     *  *
+     * @param GetUploadOssUrlRequest $request GetUploadOssUrlRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUploadOssUrlResponse
+     * @return GetUploadOssUrlResponse GetUploadOssUrlResponse
      */
     public function getUploadOssUrlWithOptions($request, $runtime)
     {
@@ -4841,9 +5321,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param GetUploadOssUrlRequest $request
+     * @summary 公有云上传OSS 获取一个临时上传url
+     *  *
+     * @param GetUploadOssUrlRequest $request GetUploadOssUrlRequest
      *
-     * @return GetUploadOssUrlResponse
+     * @return GetUploadOssUrlResponse GetUploadOssUrlResponse
      */
     public function getUploadOssUrl($request)
     {
@@ -4853,10 +5335,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param KillProcessListRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary You can call this operation to close a session.
+     *  *
+     * @param KillProcessListRequest $request KillProcessListRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return KillProcessListResponse
+     * @return KillProcessListResponse KillProcessListResponse
      */
     public function killProcessListWithOptions($request, $runtime)
     {
@@ -4890,9 +5374,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param KillProcessListRequest $request
+     * @summary You can call this operation to close a session.
+     *  *
+     * @param KillProcessListRequest $request KillProcessListRequest
      *
-     * @return KillProcessListResponse
+     * @return KillProcessListResponse KillProcessListResponse
      */
     public function killProcessList($request)
     {
@@ -4902,9 +5388,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询标签列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAllLabelsResponse
+     * @return ListAllLabelsResponse ListAllLabelsResponse
      */
     public function listAllLabelsWithOptions($runtime)
     {
@@ -4925,7 +5413,9 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @return ListAllLabelsResponse
+     * @summary 查询标签列表
+     *  *
+     * @return ListAllLabelsResponse ListAllLabelsResponse
      */
     public function listAllLabels()
     {
@@ -4935,10 +5425,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ListDataSourceRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 查询数据源列表 (MySql、OB_MYSQL、OB_ORACLE)
+     *  *
+     * @param ListDataSourceRequest $tmpReq  ListDataSourceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataSourceResponse
+     * @return ListDataSourceResponse ListDataSourceResponse
      */
     public function listDataSourceWithOptions($tmpReq, $runtime)
     {
@@ -4986,9 +5478,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ListDataSourceRequest $request
+     * @summary 查询数据源列表 (MySql、OB_MYSQL、OB_ORACLE)
+     *  *
+     * @param ListDataSourceRequest $request ListDataSourceRequest
      *
-     * @return ListDataSourceResponse
+     * @return ListDataSourceResponse ListDataSourceResponse
      */
     public function listDataSource($request)
     {
@@ -4998,10 +5492,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ListProjectFullVerifyResultRequest $tmpReq
-     * @param RuntimeOptions                     $runtime
+     * @summary 查询项目的全量校验结果
+     *  *
+     * @param ListProjectFullVerifyResultRequest $tmpReq  ListProjectFullVerifyResultRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectFullVerifyResultResponse
+     * @return ListProjectFullVerifyResultResponse ListProjectFullVerifyResultResponse
      */
     public function listProjectFullVerifyResultWithOptions($tmpReq, $runtime)
     {
@@ -5052,9 +5548,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ListProjectFullVerifyResultRequest $request
+     * @summary 查询项目的全量校验结果
+     *  *
+     * @param ListProjectFullVerifyResultRequest $request ListProjectFullVerifyResultRequest
      *
-     * @return ListProjectFullVerifyResultResponse
+     * @return ListProjectFullVerifyResultResponse ListProjectFullVerifyResultResponse
      */
     public function listProjectFullVerifyResult($request)
     {
@@ -5064,10 +5562,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ListProjectModifyRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 根据项目 ID 查询项目的修改记录
+     *  *
+     * @param ListProjectModifyRecordsRequest $request ListProjectModifyRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectModifyRecordsResponse
+     * @return ListProjectModifyRecordsResponse ListProjectModifyRecordsResponse
      */
     public function listProjectModifyRecordsWithOptions($request, $runtime)
     {
@@ -5095,9 +5595,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ListProjectModifyRecordsRequest $request
+     * @summary 根据项目 ID 查询项目的修改记录
+     *  *
+     * @param ListProjectModifyRecordsRequest $request ListProjectModifyRecordsRequest
      *
-     * @return ListProjectModifyRecordsResponse
+     * @return ListProjectModifyRecordsResponse ListProjectModifyRecordsResponse
      */
     public function listProjectModifyRecords($request)
     {
@@ -5107,10 +5609,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ListProjectsRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 查询项目列表
+     *  *
+     * @param ListProjectsRequest $tmpReq  ListProjectsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjectsWithOptions($tmpReq, $runtime)
     {
@@ -5185,9 +5689,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ListProjectsRequest $request
+     * @summary 查询项目列表
+     *  *
+     * @param ListProjectsRequest $request ListProjectsRequest
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjects($request)
     {
@@ -5197,10 +5703,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ListWorkerInstancesRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary 查询传输实例列表
+     *  *
+     * @param ListWorkerInstancesRequest $tmpReq  ListWorkerInstancesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListWorkerInstancesResponse
+     * @return ListWorkerInstancesResponse ListWorkerInstancesResponse
      */
     public function listWorkerInstancesWithOptions($tmpReq, $runtime)
     {
@@ -5251,9 +5759,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ListWorkerInstancesRequest $request
+     * @summary 查询传输实例列表
+     *  *
+     * @param ListWorkerInstancesRequest $request ListWorkerInstancesRequest
      *
-     * @return ListWorkerInstancesResponse
+     * @return ListWorkerInstancesResponse ListWorkerInstancesResponse
      */
     public function listWorkerInstances($request)
     {
@@ -5263,10 +5773,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseDescriptionRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary The request ID.
+     *  *
+     * @param ModifyDatabaseDescriptionRequest $request ModifyDatabaseDescriptionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDatabaseDescriptionResponse
+     * @return ModifyDatabaseDescriptionResponse ModifyDatabaseDescriptionResponse
      */
     public function modifyDatabaseDescriptionWithOptions($request, $runtime)
     {
@@ -5303,9 +5815,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseDescriptionRequest $request
+     * @summary The request ID.
+     *  *
+     * @param ModifyDatabaseDescriptionRequest $request ModifyDatabaseDescriptionRequest
      *
-     * @return ModifyDatabaseDescriptionResponse
+     * @return ModifyDatabaseDescriptionResponse ModifyDatabaseDescriptionResponse
      */
     public function modifyDatabaseDescription($request)
     {
@@ -5315,10 +5829,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseUserRolesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary The accounts that have privileges on the database.
+     *  *
+     * @param ModifyDatabaseUserRolesRequest $request ModifyDatabaseUserRolesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDatabaseUserRolesResponse
+     * @return ModifyDatabaseUserRolesResponse ModifyDatabaseUserRolesResponse
      */
     public function modifyDatabaseUserRolesWithOptions($request, $runtime)
     {
@@ -5355,9 +5871,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseUserRolesRequest $request
+     * @summary The accounts that have privileges on the database.
+     *  *
+     * @param ModifyDatabaseUserRolesRequest $request ModifyDatabaseUserRolesRequest
      *
-     * @return ModifyDatabaseUserRolesResponse
+     * @return ModifyDatabaseUserRolesResponse ModifyDatabaseUserRolesResponse
      */
     public function modifyDatabaseUserRoles($request)
     {
@@ -5367,10 +5885,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceNameRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The name of the OceanBase cluster.
+     *  *
+     * @param ModifyInstanceNameRequest $request ModifyInstanceNameRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceNameResponse
+     * @return ModifyInstanceNameResponse ModifyInstanceNameResponse
      */
     public function modifyInstanceNameWithOptions($request, $runtime)
     {
@@ -5401,9 +5921,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceNameRequest $request
+     * @summary The name of the OceanBase cluster.
+     *  *
+     * @param ModifyInstanceNameRequest $request ModifyInstanceNameRequest
      *
-     * @return ModifyInstanceNameResponse
+     * @return ModifyInstanceNameResponse ModifyInstanceNameResponse
      */
     public function modifyInstanceName($request)
     {
@@ -5413,10 +5935,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceNodeNumRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary You can call this operation to modify the number of nodes in a cluster.
+     *  *
+     * @param ModifyInstanceNodeNumRequest $request ModifyInstanceNodeNumRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceNodeNumResponse
+     * @return ModifyInstanceNodeNumResponse ModifyInstanceNodeNumResponse
      */
     public function modifyInstanceNodeNumWithOptions($request, $runtime)
     {
@@ -5450,9 +5974,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceNodeNumRequest $request
+     * @summary You can call this operation to modify the number of nodes in a cluster.
+     *  *
+     * @param ModifyInstanceNodeNumRequest $request ModifyInstanceNodeNumRequest
      *
-     * @return ModifyInstanceNodeNumResponse
+     * @return ModifyInstanceNodeNumResponse ModifyInstanceNodeNumResponse
      */
     public function modifyInstanceNodeNum($request)
     {
@@ -5462,10 +5988,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceSpecRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary You can call this operation to modify the cluster specifications and storage space.
+     *  *
+     * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceSpecResponse
+     * @return ModifyInstanceSpecResponse ModifyInstanceSpecResponse
      */
     public function modifyInstanceSpecWithOptions($request, $runtime)
     {
@@ -5505,9 +6033,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceSpecRequest $request
+     * @summary You can call this operation to modify the cluster specifications and storage space.
+     *  *
+     * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
      *
-     * @return ModifyInstanceSpecResponse
+     * @return ModifyInstanceSpecResponse ModifyInstanceSpecResponse
      */
     public function modifyInstanceSpec($request)
     {
@@ -5517,10 +6047,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceTagsRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary The returned response.
+     *  *
+     * @param ModifyInstanceTagsRequest $request ModifyInstanceTagsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceTagsResponse
+     * @return ModifyInstanceTagsResponse ModifyInstanceTagsResponse
      */
     public function modifyInstanceTagsWithOptions($request, $runtime)
     {
@@ -5551,9 +6083,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceTagsRequest $request
+     * @summary The returned response.
+     *  *
+     * @param ModifyInstanceTagsRequest $request ModifyInstanceTagsRequest
      *
-     * @return ModifyInstanceTagsResponse
+     * @return ModifyInstanceTagsResponse ModifyInstanceTagsResponse
      */
     public function modifyInstanceTags($request)
     {
@@ -5563,10 +6097,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceTemporaryCapacityRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary You can call this operation to modify the temporary capacity of the OceanBase cluster.
+     *  *
+     * @param ModifyInstanceTemporaryCapacityRequest $request ModifyInstanceTemporaryCapacityRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceTemporaryCapacityResponse
+     * @return ModifyInstanceTemporaryCapacityResponse ModifyInstanceTemporaryCapacityResponse
      */
     public function modifyInstanceTemporaryCapacityWithOptions($request, $runtime)
     {
@@ -5603,9 +6139,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceTemporaryCapacityRequest $request
+     * @summary You can call this operation to modify the temporary capacity of the OceanBase cluster.
+     *  *
+     * @param ModifyInstanceTemporaryCapacityRequest $request ModifyInstanceTemporaryCapacityRequest
      *
-     * @return ModifyInstanceTemporaryCapacityResponse
+     * @return ModifyInstanceTemporaryCapacityResponse ModifyInstanceTemporaryCapacityResponse
      */
     public function modifyInstanceTemporaryCapacity($request)
     {
@@ -5615,10 +6153,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyParametersRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary The modification results.
+     *  *
+     * @param ModifyParametersRequest $request ModifyParametersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyParametersResponse
+     * @return ModifyParametersResponse ModifyParametersResponse
      */
     public function modifyParametersWithOptions($request, $runtime)
     {
@@ -5655,9 +6195,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyParametersRequest $request
+     * @summary The modification results.
+     *  *
+     * @param ModifyParametersRequest $request ModifyParametersRequest
      *
-     * @return ModifyParametersResponse
+     * @return ModifyParametersResponse ModifyParametersResponse
      */
     public function modifyParameters($request)
     {
@@ -5667,10 +6209,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary The name of the security group.
+     *  *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
@@ -5704,9 +6248,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request
+     * @summary The name of the security group.
+     *  *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIps($request)
     {
@@ -5716,10 +6262,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantEncryptionRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 租户加密变更
+     *  *
+     * @param ModifyTenantEncryptionRequest $request ModifyTenantEncryptionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTenantEncryptionResponse
+     * @return ModifyTenantEncryptionResponse ModifyTenantEncryptionResponse
      */
     public function modifyTenantEncryptionWithOptions($request, $runtime)
     {
@@ -5756,9 +6304,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantEncryptionRequest $request
+     * @summary 租户加密变更
+     *  *
+     * @param ModifyTenantEncryptionRequest $request ModifyTenantEncryptionRequest
      *
-     * @return ModifyTenantEncryptionResponse
+     * @return ModifyTenantEncryptionResponse ModifyTenantEncryptionResponse
      */
     public function modifyTenantEncryption($request)
     {
@@ -5768,10 +6318,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantPrimaryZoneRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary The return result of the request.
+     *  *
+     * @param ModifyTenantPrimaryZoneRequest $request ModifyTenantPrimaryZoneRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTenantPrimaryZoneResponse
+     * @return ModifyTenantPrimaryZoneResponse ModifyTenantPrimaryZoneResponse
      */
     public function modifyTenantPrimaryZoneWithOptions($request, $runtime)
     {
@@ -5801,6 +6353,9 @@ class OceanBasePro extends OpenApiClient
         if (!Utils::isUnset($request->userVSwitchId)) {
             $body['UserVSwitchId'] = $request->userVSwitchId;
         }
+        if (!Utils::isUnset($request->userVpcOwnerId)) {
+            $body['UserVpcOwnerId'] = $request->userVpcOwnerId;
+        }
         if (!Utils::isUnset($request->vpcId)) {
             $body['VpcId'] = $request->vpcId;
         }
@@ -5823,9 +6378,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantPrimaryZoneRequest $request
+     * @summary The return result of the request.
+     *  *
+     * @param ModifyTenantPrimaryZoneRequest $request ModifyTenantPrimaryZoneRequest
      *
-     * @return ModifyTenantPrimaryZoneResponse
+     * @return ModifyTenantPrimaryZoneResponse ModifyTenantPrimaryZoneResponse
      */
     public function modifyTenantPrimaryZone($request)
     {
@@ -5835,10 +6392,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantResourceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary You can call this operation to modify the specifications of a tenant in an OceanBase cluster.
+     *  *
+     * @param ModifyTenantResourceRequest $request ModifyTenantResourceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTenantResourceResponse
+     * @return ModifyTenantResourceResponse ModifyTenantResourceResponse
      */
     public function modifyTenantResourceWithOptions($request, $runtime)
     {
@@ -5881,9 +6440,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantResourceRequest $request
+     * @summary You can call this operation to modify the specifications of a tenant in an OceanBase cluster.
+     *  *
+     * @param ModifyTenantResourceRequest $request ModifyTenantResourceRequest
      *
-     * @return ModifyTenantResourceResponse
+     * @return ModifyTenantResourceResponse ModifyTenantResourceResponse
      */
     public function modifyTenantResource($request)
     {
@@ -5893,10 +6454,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantSecurityIpGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary You can call this operation to modify the information on the whitelist group of the tenant.
+     *  *
+     * @param ModifyTenantSecurityIpGroupRequest $request ModifyTenantSecurityIpGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTenantSecurityIpGroupResponse
+     * @return ModifyTenantSecurityIpGroupResponse ModifyTenantSecurityIpGroupResponse
      */
     public function modifyTenantSecurityIpGroupWithOptions($request, $runtime)
     {
@@ -5933,9 +6496,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantSecurityIpGroupRequest $request
+     * @summary You can call this operation to modify the information on the whitelist group of the tenant.
+     *  *
+     * @param ModifyTenantSecurityIpGroupRequest $request ModifyTenantSecurityIpGroupRequest
      *
-     * @return ModifyTenantSecurityIpGroupResponse
+     * @return ModifyTenantSecurityIpGroupResponse ModifyTenantSecurityIpGroupResponse
      */
     public function modifyTenantSecurityIpGroup($request)
     {
@@ -5945,10 +6510,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantTagsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary You can call this operation to modify tenant tags.
+     *  *
+     * @param ModifyTenantTagsRequest $request ModifyTenantTagsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTenantTagsResponse
+     * @return ModifyTenantTagsResponse ModifyTenantTagsResponse
      */
     public function modifyTenantTagsWithOptions($request, $runtime)
     {
@@ -5982,9 +6549,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantTagsRequest $request
+     * @summary You can call this operation to modify tenant tags.
+     *  *
+     * @param ModifyTenantTagsRequest $request ModifyTenantTagsRequest
      *
-     * @return ModifyTenantTagsResponse
+     * @return ModifyTenantTagsResponse ModifyTenantTagsResponse
      */
     public function modifyTenantTags($request)
     {
@@ -5994,10 +6563,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantUserDescriptionRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary The description of the database.
+     *  *
+     * @param ModifyTenantUserDescriptionRequest $request ModifyTenantUserDescriptionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTenantUserDescriptionResponse
+     * @return ModifyTenantUserDescriptionResponse ModifyTenantUserDescriptionResponse
      */
     public function modifyTenantUserDescriptionWithOptions($request, $runtime)
     {
@@ -6034,9 +6605,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantUserDescriptionRequest $request
+     * @summary The description of the database.
+     *  *
+     * @param ModifyTenantUserDescriptionRequest $request ModifyTenantUserDescriptionRequest
      *
-     * @return ModifyTenantUserDescriptionResponse
+     * @return ModifyTenantUserDescriptionResponse ModifyTenantUserDescriptionResponse
      */
     public function modifyTenantUserDescription($request)
     {
@@ -6046,10 +6619,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantUserPasswordRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary The request ID.
+     *  *
+     * @param ModifyTenantUserPasswordRequest $request ModifyTenantUserPasswordRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTenantUserPasswordResponse
+     * @return ModifyTenantUserPasswordResponse ModifyTenantUserPasswordResponse
      */
     public function modifyTenantUserPasswordWithOptions($request, $runtime)
     {
@@ -6089,9 +6664,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantUserPasswordRequest $request
+     * @summary The request ID.
+     *  *
+     * @param ModifyTenantUserPasswordRequest $request ModifyTenantUserPasswordRequest
      *
-     * @return ModifyTenantUserPasswordResponse
+     * @return ModifyTenantUserPasswordResponse ModifyTenantUserPasswordResponse
      */
     public function modifyTenantUserPassword($request)
     {
@@ -6101,10 +6678,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantUserRolesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Indicates whether the privilege was granted to the role.
+     *  *
+     * @param ModifyTenantUserRolesRequest $request ModifyTenantUserRolesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTenantUserRolesResponse
+     * @return ModifyTenantUserRolesResponse ModifyTenantUserRolesResponse
      */
     public function modifyTenantUserRolesWithOptions($request, $runtime)
     {
@@ -6144,9 +6723,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantUserRolesRequest $request
+     * @summary Indicates whether the privilege was granted to the role.
+     *  *
+     * @param ModifyTenantUserRolesRequest $request ModifyTenantUserRolesRequest
      *
-     * @return ModifyTenantUserRolesResponse
+     * @return ModifyTenantUserRolesResponse ModifyTenantUserRolesResponse
      */
     public function modifyTenantUserRoles($request)
     {
@@ -6156,10 +6737,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantUserStatusRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary The ID of the tenant.
+     *  *
+     * @param ModifyTenantUserStatusRequest $request ModifyTenantUserStatusRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyTenantUserStatusResponse
+     * @return ModifyTenantUserStatusResponse ModifyTenantUserStatusResponse
      */
     public function modifyTenantUserStatusWithOptions($request, $runtime)
     {
@@ -6196,9 +6779,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ModifyTenantUserStatusRequest $request
+     * @summary The ID of the tenant.
+     *  *
+     * @param ModifyTenantUserStatusRequest $request ModifyTenantUserStatusRequest
      *
-     * @return ModifyTenantUserStatusResponse
+     * @return ModifyTenantUserStatusResponse ModifyTenantUserStatusResponse
      */
     public function modifyTenantUserStatus($request)
     {
@@ -6208,10 +6793,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ReleaseProjectRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 释放项目
+     *  *
+     * @param ReleaseProjectRequest $request ReleaseProjectRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseProjectResponse
+     * @return ReleaseProjectResponse ReleaseProjectResponse
      */
     public function releaseProjectWithOptions($request, $runtime)
     {
@@ -6239,9 +6826,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ReleaseProjectRequest $request
+     * @summary 释放项目
+     *  *
+     * @param ReleaseProjectRequest $request ReleaseProjectRequest
      *
-     * @return ReleaseProjectResponse
+     * @return ReleaseProjectResponse ReleaseProjectResponse
      */
     public function releaseProject($request)
     {
@@ -6251,10 +6840,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ReleaseWorkerInstanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 释放传输实例 （未绑定项目时才可以释放）
+     *  *
+     * @param ReleaseWorkerInstanceRequest $request ReleaseWorkerInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseWorkerInstanceResponse
+     * @return ReleaseWorkerInstanceResponse ReleaseWorkerInstanceResponse
      */
     public function releaseWorkerInstanceWithOptions($request, $runtime)
     {
@@ -6282,9 +6873,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ReleaseWorkerInstanceRequest $request
+     * @summary 释放传输实例 （未绑定项目时才可以释放）
+     *  *
+     * @param ReleaseWorkerInstanceRequest $request ReleaseWorkerInstanceRequest
      *
-     * @return ReleaseWorkerInstanceResponse
+     * @return ReleaseWorkerInstanceResponse ReleaseWorkerInstanceResponse
      */
     public function releaseWorkerInstance($request)
     {
@@ -6294,10 +6887,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ResumeProjectRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 恢复项目
+     *  *
+     * @param ResumeProjectRequest $request ResumeProjectRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeProjectResponse
+     * @return ResumeProjectResponse ResumeProjectResponse
      */
     public function resumeProjectWithOptions($request, $runtime)
     {
@@ -6325,9 +6920,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param ResumeProjectRequest $request
+     * @summary 恢复项目
+     *  *
+     * @param ResumeProjectRequest $request ResumeProjectRequest
      *
-     * @return ResumeProjectResponse
+     * @return ResumeProjectResponse ResumeProjectResponse
      */
     public function resumeProject($request)
     {
@@ -6337,10 +6934,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param RetryProjectModifyRecordsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 根据修改记录 ID 重试修改操作（仅支持处于 FAILED 状态的修改记录）
+     *  *
+     * @param RetryProjectModifyRecordsRequest $request RetryProjectModifyRecordsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return RetryProjectModifyRecordsResponse
+     * @return RetryProjectModifyRecordsResponse RetryProjectModifyRecordsResponse
      */
     public function retryProjectModifyRecordsWithOptions($request, $runtime)
     {
@@ -6368,9 +6967,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param RetryProjectModifyRecordsRequest $request
+     * @summary 根据修改记录 ID 重试修改操作（仅支持处于 FAILED 状态的修改记录）
+     *  *
+     * @param RetryProjectModifyRecordsRequest $request RetryProjectModifyRecordsRequest
      *
-     * @return RetryProjectModifyRecordsResponse
+     * @return RetryProjectModifyRecordsResponse RetryProjectModifyRecordsResponse
      */
     public function retryProjectModifyRecords($request)
     {
@@ -6380,10 +6981,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param StartProjectRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 启动项目
+     *  *
+     * @param StartProjectRequest $request StartProjectRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartProjectResponse
+     * @return StartProjectResponse StartProjectResponse
      */
     public function startProjectWithOptions($request, $runtime)
     {
@@ -6411,9 +7014,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param StartProjectRequest $request
+     * @summary 启动项目
+     *  *
+     * @param StartProjectRequest $request StartProjectRequest
      *
-     * @return StartProjectResponse
+     * @return StartProjectResponse StartProjectResponse
      */
     public function startProject($request)
     {
@@ -6423,10 +7028,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param StartProjectsByLabelRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 启动该label下的所有未启动项目
+     *  *
+     * @param StartProjectsByLabelRequest $request StartProjectsByLabelRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartProjectsByLabelResponse
+     * @return StartProjectsByLabelResponse StartProjectsByLabelResponse
      */
     public function startProjectsByLabelWithOptions($request, $runtime)
     {
@@ -6454,9 +7061,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param StartProjectsByLabelRequest $request
+     * @summary 启动该label下的所有未启动项目
+     *  *
+     * @param StartProjectsByLabelRequest $request StartProjectsByLabelRequest
      *
-     * @return StartProjectsByLabelResponse
+     * @return StartProjectsByLabelResponse StartProjectsByLabelResponse
      */
     public function startProjectsByLabel($request)
     {
@@ -6466,10 +7075,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param StopProjectRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 暂停项目
+     *  *
+     * @param StopProjectRequest $request StopProjectRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopProjectResponse
+     * @return StopProjectResponse StopProjectResponse
      */
     public function stopProjectWithOptions($request, $runtime)
     {
@@ -6497,9 +7108,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param StopProjectRequest $request
+     * @summary 暂停项目
+     *  *
+     * @param StopProjectRequest $request StopProjectRequest
      *
-     * @return StopProjectResponse
+     * @return StopProjectResponse StopProjectResponse
      */
     public function stopProject($request)
     {
@@ -6509,10 +7122,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param StopProjectModifyRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 根据修改记录 ID 终止修改操作，不可恢复（仅支持处于 RUNNING / FAILED 状态的修改记录）
+     *  *
+     * @param StopProjectModifyRecordsRequest $request StopProjectModifyRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopProjectModifyRecordsResponse
+     * @return StopProjectModifyRecordsResponse StopProjectModifyRecordsResponse
      */
     public function stopProjectModifyRecordsWithOptions($request, $runtime)
     {
@@ -6540,9 +7155,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param StopProjectModifyRecordsRequest $request
+     * @summary 根据修改记录 ID 终止修改操作，不可恢复（仅支持处于 RUNNING / FAILED 状态的修改记录）
+     *  *
+     * @param StopProjectModifyRecordsRequest $request StopProjectModifyRecordsRequest
      *
-     * @return StopProjectModifyRecordsResponse
+     * @return StopProjectModifyRecordsResponse StopProjectModifyRecordsResponse
      */
     public function stopProjectModifyRecords($request)
     {
@@ -6552,10 +7169,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param StopProjectsByLabelRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 暂停该label下的所有运行中项目
+     *  *
+     * @param StopProjectsByLabelRequest $request StopProjectsByLabelRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopProjectsByLabelResponse
+     * @return StopProjectsByLabelResponse StopProjectsByLabelResponse
      */
     public function stopProjectsByLabelWithOptions($request, $runtime)
     {
@@ -6583,9 +7202,11 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param StopProjectsByLabelRequest $request
+     * @summary 暂停该label下的所有运行中项目
+     *  *
+     * @param StopProjectsByLabelRequest $request StopProjectsByLabelRequest
      *
-     * @return StopProjectsByLabelResponse
+     * @return StopProjectsByLabelResponse StopProjectsByLabelResponse
      */
     public function stopProjectsByLabel($request)
     {
@@ -6595,10 +7216,12 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param SwitchoverInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary You can call this operation to switch between the primary and standby instances of OceanBase.
+     *  *
+     * @param SwitchoverInstanceRequest $request SwitchoverInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchoverInstanceResponse
+     * @return SwitchoverInstanceResponse SwitchoverInstanceResponse
      */
     public function switchoverInstanceWithOptions($request, $runtime)
     {
@@ -6632,14 +7255,83 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @param SwitchoverInstanceRequest $request
+     * @summary You can call this operation to switch between the primary and standby instances of OceanBase.
+     *  *
+     * @param SwitchoverInstanceRequest $request SwitchoverInstanceRequest
      *
-     * @return SwitchoverInstanceResponse
+     * @return SwitchoverInstanceResponse SwitchoverInstanceResponse
      */
     public function switchoverInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->switchoverInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新项目配置 Action=UpdateProjectConfig
+     *  *
+     * @param UpdateProjectConfigRequest $tmpReq  UpdateProjectConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateProjectConfigResponse UpdateProjectConfigResponse
+     */
+    public function updateProjectConfigWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateProjectConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->fullTransferConfig)) {
+            $request->fullTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fullTransferConfig, 'FullTransferConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->incrTransferConfig)) {
+            $request->incrTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->incrTransferConfig, 'IncrTransferConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->reverseIncrTransferConfig)) {
+            $request->reverseIncrTransferConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->reverseIncrTransferConfig, 'ReverseIncrTransferConfig', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->fullTransferConfigShrink)) {
+            $body['FullTransferConfig'] = $request->fullTransferConfigShrink;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->incrTransferConfigShrink)) {
+            $body['IncrTransferConfig'] = $request->incrTransferConfigShrink;
+        }
+        if (!Utils::isUnset($request->reverseIncrTransferConfigShrink)) {
+            $body['ReverseIncrTransferConfig'] = $request->reverseIncrTransferConfigShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProjectConfig',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateProjectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新项目配置 Action=UpdateProjectConfig
+     *  *
+     * @param UpdateProjectConfigRequest $request UpdateProjectConfigRequest
+     *
+     * @return UpdateProjectConfigResponse UpdateProjectConfigResponse
+     */
+    public function updateProjectConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProjectConfigWithOptions($request, $runtime);
     }
 }

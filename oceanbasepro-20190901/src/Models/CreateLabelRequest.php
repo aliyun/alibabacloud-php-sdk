@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLabelRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string

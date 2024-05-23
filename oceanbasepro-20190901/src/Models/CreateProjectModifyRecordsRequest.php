@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectModifyRecordsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var databases[]
      */
     public $databases;
 
     /**
+     * @description This parameter is required.
+     *
      * @example np_fe****
      *
      * @var string

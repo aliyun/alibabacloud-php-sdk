@@ -10,7 +10,7 @@ class ModifyTenantPrimaryZoneRequest extends Model
 {
     /**
      * @description The primary zone of the tenant.
-     * It is one of the zones in which the cluster is deployed.
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -53,6 +53,7 @@ class ModifyTenantPrimaryZoneRequest extends Model
     /**
      * @description The return result of the request.
      *
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string
@@ -76,6 +77,11 @@ class ModifyTenantPrimaryZoneRequest extends Model
     /**
      * @var string
      */
+    public $userVpcOwnerId;
+
+    /**
+     * @var string
+     */
     public $vpcId;
     protected $_name = [
         'instanceId'                => 'InstanceId',
@@ -86,6 +92,7 @@ class ModifyTenantPrimaryZoneRequest extends Model
         'tenantId'                  => 'TenantId',
         'userDirectVSwitchId'       => 'UserDirectVSwitchId',
         'userVSwitchId'             => 'UserVSwitchId',
+        'userVpcOwnerId'            => 'UserVpcOwnerId',
         'vpcId'                     => 'VpcId',
     ];
 
@@ -119,6 +126,9 @@ class ModifyTenantPrimaryZoneRequest extends Model
         }
         if (null !== $this->userVSwitchId) {
             $res['UserVSwitchId'] = $this->userVSwitchId;
+        }
+        if (null !== $this->userVpcOwnerId) {
+            $res['UserVpcOwnerId'] = $this->userVpcOwnerId;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -158,6 +168,9 @@ class ModifyTenantPrimaryZoneRequest extends Model
         }
         if (isset($map['UserVSwitchId'])) {
             $model->userVSwitchId = $map['UserVSwitchId'];
+        }
+        if (isset($map['UserVpcOwnerId'])) {
+            $model->userVpcOwnerId = $map['UserVpcOwnerId'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

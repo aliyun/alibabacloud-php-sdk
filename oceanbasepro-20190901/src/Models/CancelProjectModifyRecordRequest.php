@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelProjectModifyRecordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 344000005
      *
      * @var string

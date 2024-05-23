@@ -31,7 +31,7 @@ class dataDiskAutoScaleConfig extends Model
      *
      * @example 100
      *
-     * @var int
+     * @var float
      */
     public $scaleStepInMerge;
 
@@ -40,7 +40,7 @@ class dataDiskAutoScaleConfig extends Model
      *
      * @example 50
      *
-     * @var int
+     * @var float
      */
     public $scaleStepInNormal;
 
@@ -49,7 +49,7 @@ class dataDiskAutoScaleConfig extends Model
      *
      * @example 90
      *
-     * @var int
+     * @var float
      */
     public $upperMergeThreshold;
 
@@ -67,7 +67,7 @@ class dataDiskAutoScaleConfig extends Model
      *
      * @example 80
      *
-     * @var int
+     * @var float
      */
     public $upperThreshold;
 
@@ -76,7 +76,7 @@ class dataDiskAutoScaleConfig extends Model
      *
      * @example 16
      *
-     * @var int
+     * @var float
      */
     public $upperbound;
     protected $_name = [

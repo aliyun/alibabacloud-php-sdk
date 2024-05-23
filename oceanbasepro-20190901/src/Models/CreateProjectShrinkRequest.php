@@ -54,6 +54,8 @@ class CreateProjectShrinkRequest extends Model
     public $fullTransferConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $id;
@@ -69,6 +71,8 @@ class CreateProjectShrinkRequest extends Model
     public $labelIdsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -88,6 +92,8 @@ class CreateProjectShrinkRequest extends Model
     public $reverseIncrTransferConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e_4j0cz****
      *
      * @var string
@@ -95,6 +101,8 @@ class CreateProjectShrinkRequest extends Model
     public $sinkEndpointId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e_4j0c12z****
      *
      * @var string
@@ -107,11 +115,15 @@ class CreateProjectShrinkRequest extends Model
     public $structTransferConfigShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $transferMappingShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MIGRATION
      *
      * @var string
@@ -126,6 +138,8 @@ class CreateProjectShrinkRequest extends Model
     public $useOss;
 
     /**
+     * @description This parameter is required.
+     *
      * @example g_abcdefj***
      *
      * @var string

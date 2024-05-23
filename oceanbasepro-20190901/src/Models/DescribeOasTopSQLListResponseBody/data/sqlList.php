@@ -184,7 +184,7 @@ class sqlList extends Model
     public $execPs;
 
     /**
-     * @var float
+     * @var int
      */
     public $executions;
 

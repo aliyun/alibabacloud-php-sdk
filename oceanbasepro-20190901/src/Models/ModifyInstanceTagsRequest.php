@@ -11,6 +11,7 @@ class ModifyInstanceTagsRequest extends Model
     /**
      * @description The tags.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyInstanceTagsRequest extends Model
     /**
      * @description You can call this operation to modify the value of the cluster tags.
      *
+     * This parameter is required.
      * @example [{"Key": "xxx", "Value", "xxx"},{}]
      *
      * @var string

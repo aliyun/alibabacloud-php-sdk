@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSSLRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ob317v4uif****
      *
      * @var string

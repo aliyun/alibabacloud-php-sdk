@@ -11,6 +11,7 @@ class DescribeParametersRequest extends Model
     /**
      * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
      *
+     * This parameter is required.
      * @example TENANT
      *
      * @var string
@@ -29,6 +30,7 @@ class DescribeParametersRequest extends Model
     /**
      * @description 498529
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string

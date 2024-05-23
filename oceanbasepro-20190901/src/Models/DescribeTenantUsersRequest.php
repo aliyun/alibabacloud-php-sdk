@@ -38,6 +38,7 @@ class DescribeTenantUsersRequest extends Model
     /**
      * @description The return result of the request.
      *
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string

@@ -11,6 +11,7 @@ class KillProcessListRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,6 +21,7 @@ class KillProcessListRequest extends Model
     /**
      * @description The list of the sessions that need to be closed.
      *
+     * This parameter is required.
      * @example [{"ServerIp":"192.168.13.119","SessionId":"3221614618"}]
      *
      * @var string
@@ -29,6 +31,7 @@ class KillProcessListRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t4louaeei****
      *
      * @var string

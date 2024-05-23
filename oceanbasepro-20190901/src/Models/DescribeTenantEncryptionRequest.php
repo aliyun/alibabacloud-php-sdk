@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantEncryptionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ob317v4uif****
      *
      * @var string

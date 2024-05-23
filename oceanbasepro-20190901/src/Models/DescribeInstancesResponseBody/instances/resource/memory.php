@@ -13,7 +13,7 @@ class memory extends Model
      *
      * @example 72
      *
-     * @var int
+     * @var float
      */
     public $originalTotalMemory;
 
@@ -22,7 +22,7 @@ class memory extends Model
      *
      * @example 70
      *
-     * @var int
+     * @var float
      */
     public $totalMemory;
 

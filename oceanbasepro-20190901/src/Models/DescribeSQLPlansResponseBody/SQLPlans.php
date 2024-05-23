@@ -74,7 +74,7 @@ class SQLPlans extends Model
     /**
      * @description The outline data.
      *
-     * @example /*+ BEGIN_OUTLINE_DATA FULL(@\"SEL$1\" \"testdb1.bmsql_order_line\"@\"SEL$1\") END_OUTLINE_DATA*\/
+     * @example /*+ BEGIN_OUTLINE_DATA FULL(@\\"SEL$1\\" \\"testdb1.bmsql_order_line\\"@\\"SEL$1\\") END_OUTLINE_DATA*\/
      *
      * @var string
      */

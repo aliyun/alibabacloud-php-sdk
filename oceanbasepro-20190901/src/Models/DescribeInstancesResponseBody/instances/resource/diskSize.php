@@ -13,7 +13,7 @@ class diskSize extends Model
      *
      * @example 200
      *
-     * @var int
+     * @var float
      */
     public $originalTotalDiskSize;
 
@@ -22,7 +22,7 @@ class diskSize extends Model
      *
      * @example 200
      *
-     * @var int
+     * @var float
      */
     public $totalDiskSize;
 
@@ -31,7 +31,7 @@ class diskSize extends Model
      *
      * @example 200
      *
-     * @var int
+     * @var float
      */
     public $unitDiskSize;
 

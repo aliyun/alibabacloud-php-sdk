@@ -11,6 +11,7 @@ class DeleteTenantSecurityIpGroupRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,7 +21,7 @@ class DeleteTenantSecurityIpGroupRequest extends Model
     /**
      * @description The group name of the whitelist group of IP addresses.
      *
-     * It starts with lowercase letters and ends with lowercase letters or numbers. It can only contain lowercase letters, numbers, and underscores, and should be 2~32 characters in length.
+     * This parameter is required.
      * @example paytest
      *
      * @var string
@@ -30,6 +31,7 @@ class DeleteTenantSecurityIpGroupRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t4louaeei****
      *
      * @var string

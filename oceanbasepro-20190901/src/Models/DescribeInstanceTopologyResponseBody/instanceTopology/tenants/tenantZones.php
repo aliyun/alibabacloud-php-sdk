@@ -14,7 +14,7 @@ class tenantZones extends Model
      *
      * @example true
      *
-     * @var string
+     * @var bool
      */
     public $isPrimaryTenantZone;
 

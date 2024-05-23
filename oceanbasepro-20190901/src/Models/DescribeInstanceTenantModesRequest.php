@@ -11,6 +11,8 @@ class DescribeInstanceTenantModesRequest extends Model
     /**
      * @description The operation that you want to perform.
      * Set the value to **DescribeInstanceTenantModes**.
+     *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string

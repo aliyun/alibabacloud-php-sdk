@@ -20,6 +20,7 @@ class ModifyInstanceNodeNumRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -29,6 +30,7 @@ class ModifyInstanceNodeNumRequest extends Model
     /**
      * @description The number of nodes in the cluster. If the cluster is deployed in n-n-n mode, the number of nodes in the cluster equals n × 3.
      *
+     * This parameter is required.
      * @example 6
      *
      * @var string

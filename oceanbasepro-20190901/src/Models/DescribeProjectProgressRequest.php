@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeProjectProgressRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example np_4w3a****
      *
      * @var string

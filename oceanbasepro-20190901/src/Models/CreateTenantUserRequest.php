@@ -29,6 +29,7 @@ class CreateTenantUserRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -47,6 +48,7 @@ class CreateTenantUserRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string
@@ -56,6 +58,7 @@ class CreateTenantUserRequest extends Model
     /**
      * @description The name of the database account.  You cannot use reserved keywords, such as SYS and root.
      *
+     * This parameter is required.
      * @example pay_test
      *
      * @var string
@@ -63,8 +66,9 @@ class CreateTenantUserRequest extends Model
     public $userName;
 
     /**
-     * @description The password of the database account.  It must be 10 to 32 characters in length and contain three types of the following characters: uppercase letters, lowercase letters, digits, and special characters. The special characters are ! @ # $ % \ ^ \ & \ * ( ) _ + - =
+     * @description The password of the database account.  It must be 10 to 32 characters in length and contain three types of the following characters: uppercase letters, lowercase letters, digits, and special characters. The special characters are ! @ # $ % \\ ^ \\ & \\ * ( ) _ + - =
      *
+     * This parameter is required.
      * @example !Aliyun4Oceanbase
      *
      * @var string
@@ -74,6 +78,7 @@ class CreateTenantUserRequest extends Model
     /**
      * @description The type of the database account. Valid values: Admin: the super administrator account. Normal: a general account.
      *
+     * This parameter is required.
      * @example Normal
      *
      * @var string

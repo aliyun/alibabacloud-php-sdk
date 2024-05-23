@@ -11,6 +11,7 @@ class DescribeBackupSetDownloadLinkRequest extends Model
     /**
      * @description The ID of the download task corresponding to the target backup set.
      *
+     * This parameter is required.
      * @example 1000002
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeBackupSetDownloadLinkRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string

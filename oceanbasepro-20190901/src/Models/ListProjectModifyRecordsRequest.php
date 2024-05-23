@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProjectModifyRecordsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example np_598jmu****
      *
      * @var string

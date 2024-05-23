@@ -47,6 +47,7 @@ class ModifyInstanceSpecRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob3h8ytroxxxxx
      *
      * @var string

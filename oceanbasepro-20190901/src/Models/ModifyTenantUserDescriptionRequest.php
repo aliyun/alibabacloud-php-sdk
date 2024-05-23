@@ -11,6 +11,8 @@ class ModifyTenantUserDescriptionRequest extends Model
     /**
      * @description The operation that you want to perform.
      * Set the value to **ModifyTenantUserDescription**.
+     *
+     * This parameter is required.
      * @example this is a test database
      *
      * @var string
@@ -20,6 +22,7 @@ class ModifyTenantUserDescriptionRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -29,6 +32,7 @@ class ModifyTenantUserDescriptionRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string
@@ -38,6 +42,7 @@ class ModifyTenantUserDescriptionRequest extends Model
     /**
      * @description The description of the database.
      *
+     * This parameter is required.
      * @example pay_test
      *
      * @var string

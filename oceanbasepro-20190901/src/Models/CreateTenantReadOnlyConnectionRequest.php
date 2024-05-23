@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTenantReadOnlyConnectionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateTenantReadOnlyConnectionRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ob2mr3oae0****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateTenantReadOnlyConnectionRequest extends Model
     public $tenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example vsw-bp11k1aypnzu1l3whi****
      *
      * @var string
@@ -37,6 +43,8 @@ class CreateTenantReadOnlyConnectionRequest extends Model
     public $vpcId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou-i
      *
      * @var string

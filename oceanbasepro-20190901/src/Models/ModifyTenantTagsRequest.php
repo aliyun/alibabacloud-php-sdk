@@ -11,6 +11,7 @@ class ModifyTenantTagsRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyTenantTagsRequest extends Model
     /**
      * @description The tags.
      *
+     * This parameter is required.
      * @example [{"Key": "xxx", "Value", "xxx"},{}]
      *
      * @var string
@@ -29,6 +31,7 @@ class ModifyTenantTagsRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example xxx
      *
      * @var string

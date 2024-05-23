@@ -11,6 +11,7 @@ class ModifyTenantResourceRequest extends Model
     /**
      * @description The information about the CPU resources of the tenant.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -20,6 +21,7 @@ class ModifyTenantResourceRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -38,6 +40,7 @@ class ModifyTenantResourceRequest extends Model
     /**
      * @description The memory size of the tenant, in GB.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -49,6 +52,8 @@ class ModifyTenantResourceRequest extends Model
      *
      * @example cn-shanghai-g-ro,cn-shanghai-h-ro
      *
+     * @deprecated
+     *
      * @var string
      */
     public $readOnlyZoneList;
@@ -56,6 +61,7 @@ class ModifyTenantResourceRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string

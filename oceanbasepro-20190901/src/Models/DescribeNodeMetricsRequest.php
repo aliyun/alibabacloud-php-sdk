@@ -11,6 +11,7 @@ class DescribeNodeMetricsRequest extends Model
     /**
      * @description $.parameters[7].schema.description
      *
+     * This parameter is required.
      * @example 2021-09-13T15:40:43Z
      *
      * @var string
@@ -20,6 +21,7 @@ class DescribeNodeMetricsRequest extends Model
     /**
      * @description The list of nodes.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -29,6 +31,7 @@ class DescribeNodeMetricsRequest extends Model
     /**
      * @description $.parameters[7].schema.enumValueTitles
      *
+     * This parameter is required.
      * @example tps
      *
      * @var string
@@ -74,6 +77,7 @@ class DescribeNodeMetricsRequest extends Model
     /**
      * @description $.parameters[9].schema.example
      *
+     * This parameter is required.
      * @example 2021-06-13T15:40:43Z
      *
      * @var string

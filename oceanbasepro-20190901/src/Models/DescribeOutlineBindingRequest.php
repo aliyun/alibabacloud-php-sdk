@@ -11,6 +11,7 @@ class DescribeOutlineBindingRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example testdb
      *
      * @var string
@@ -38,6 +39,7 @@ class DescribeOutlineBindingRequest extends Model
     /**
      * @description SQLID.
      *
+     * This parameter is required.
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
      * @var string
@@ -46,7 +48,7 @@ class DescribeOutlineBindingRequest extends Model
 
     /**
      * @description The name of the tenant.
-     * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_). It cannot be set to SYS.
+     * This parameter is required.
      * @example pay_online
      *
      * @var string
@@ -56,6 +58,7 @@ class DescribeOutlineBindingRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t2mr3oae0****
      *
      * @var string

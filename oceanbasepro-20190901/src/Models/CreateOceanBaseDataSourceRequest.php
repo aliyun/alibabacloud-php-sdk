@@ -74,6 +74,8 @@ class CreateOceanBaseDataSourceRequest extends Model
     public $logProxyPort;
 
     /**
+     * @description This parameter is required.
+     *
      * @example source_name
      *
      * @var string
@@ -81,6 +83,8 @@ class CreateOceanBaseDataSourceRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pass_word
      *
      * @var string
@@ -95,6 +99,8 @@ class CreateOceanBaseDataSourceRequest extends Model
     public $port;
 
     /**
+     * @description This parameter is required.
+     *
      * @example tenant_name
      *
      * @var string
@@ -102,6 +108,8 @@ class CreateOceanBaseDataSourceRequest extends Model
     public $tenant;
 
     /**
+     * @description This parameter is required.
+     *
      * @example OB_MYSQL_VPC
      *
      * @var string
@@ -109,6 +117,8 @@ class CreateOceanBaseDataSourceRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user_name
      *
      * @var string

@@ -10,7 +10,7 @@ class DescribeSlowSQLHistoryListRequest extends Model
 {
     /**
      * @description The end time of the time range for querying the execution history of the slow SQL statement.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2021-12-14T08:34:49Z
      *
      * @var string
@@ -38,6 +38,7 @@ class DescribeSlowSQLHistoryListRequest extends Model
     /**
      * @description The SQL ID, which uniquely identifies an SQL statement.
      *
+     * This parameter is required.
      * @example 8D6E84735C0****1823D199E2CA1****
      *
      * @var string
@@ -46,7 +47,7 @@ class DescribeSlowSQLHistoryListRequest extends Model
 
     /**
      * @description The start time of the time range for querying the execution history of the slow SQL statement.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2021-12-14T02:34:49Z
      *
      * @var string
@@ -56,6 +57,7 @@ class DescribeSlowSQLHistoryListRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t384tolsj****
      *
      * @var string

@@ -10,7 +10,7 @@ class ModifyTenantUserRolesRequest extends Model
 {
     /**
      * @description The type of the privilege modification operation.
-     * delete: deletes a privilege.
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -29,6 +29,8 @@ class ModifyTenantUserRolesRequest extends Model
     /**
      * @description The operation that you want to perform.
      * Set the value to **ModifyTenantUserRoles**.
+     *
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string
@@ -38,6 +40,7 @@ class ModifyTenantUserRolesRequest extends Model
     /**
      * @description The role of the database account.
      *
+     * This parameter is required.
      * @example pay_test
      *
      * @var string
@@ -46,7 +49,7 @@ class ModifyTenantUserRolesRequest extends Model
 
     /**
      * @description The type of the account. Valid values:
-     * - Normal: a general account.
+     * This parameter is required.
      * @example [{"Database":"20210824160559","Role":"readwrite"}]
      *
      * @var string

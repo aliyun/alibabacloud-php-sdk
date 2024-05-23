@@ -16,6 +16,8 @@ class ModifyTenantEncryptionRequest extends Model
     public $encryptionKeyId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example EncryptionKey
      *
      * @var string
@@ -23,6 +25,8 @@ class ModifyTenantEncryptionRequest extends Model
     public $encryptionType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -30,6 +34,8 @@ class ModifyTenantEncryptionRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ob2mr3oae0****
      *
      * @var string

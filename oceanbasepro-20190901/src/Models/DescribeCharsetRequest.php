@@ -25,6 +25,7 @@ class DescribeCharsetRequest extends Model
     /**
      * @description The return result of the request.
      *
+     * This parameter is required.
      * @example Oracle
      *
      * @var string

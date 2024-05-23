@@ -11,6 +11,7 @@ class DescribeInstanceCreatableZoneRequest extends Model
     /**
      * @description The ID of the zone.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string

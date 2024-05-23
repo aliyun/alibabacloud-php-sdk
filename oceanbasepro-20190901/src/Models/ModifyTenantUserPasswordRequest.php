@@ -18,6 +18,8 @@ class ModifyTenantUserPasswordRequest extends Model
     public $encryptionType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ob317v4uif****
      *
      * @var string
@@ -30,7 +32,7 @@ class ModifyTenantUserPasswordRequest extends Model
      * &TenantId=ob2mr3oae0****
      * &UserPassword=!Aliyun4Oceanbase
      * &InstanceId=ob317v4uif****
-     * ```
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string
@@ -40,6 +42,7 @@ class ModifyTenantUserPasswordRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example pay_test
      *
      * @var string
@@ -49,6 +52,7 @@ class ModifyTenantUserPasswordRequest extends Model
     /**
      * @description You can call this operation to change the logon password of a specified account in a tenant.
      *
+     * This parameter is required.
      * @example !Aliyun4Oceanbase
      *
      * @var string

@@ -10,7 +10,7 @@ class DeleteSecurityIpGroupRequest extends Model
 {
     /**
      * @description The name of the IP address whitelist group.
-     * It must be 2 to 32 characters in length, start with a lowercase letter, end with a lowercase letter or digit, and contain only lowercase letters, digits, and underscores (_).
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,6 +20,7 @@ class DeleteSecurityIpGroupRequest extends Model
     /**
      * @description The information of the deleted IP whitelist group.
      *
+     * This parameter is required.
      * @example paytest
      *
      * @var string

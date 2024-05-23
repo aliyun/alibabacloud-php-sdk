@@ -11,6 +11,7 @@ class DescribeInstanceTopologyRequest extends Model
     /**
      * @description The status of the node.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string

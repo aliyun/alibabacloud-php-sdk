@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableZoneRequest extends Model
 {
     /**
+     * @example x86
+     *
+     * @var string
+     */
+    public $cpuArch;
+
+    /**
      * @example multiple
      *
      * @var string
@@ -16,6 +23,8 @@ class DescribeAvailableZoneRequest extends Model
     public $deployType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cluster
      *
      * @var string
@@ -43,6 +52,7 @@ class DescribeAvailableZoneRequest extends Model
      */
     public $spec;
     protected $_name = [
+        'cpuArch'      => 'CpuArch',
         'deployType'   => 'DeployType',
         'instanceType' => 'InstanceType',
         'obVersion'    => 'ObVersion',
@@ -57,6 +67,9 @@ class DescribeAvailableZoneRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cpuArch) {
+            $res['CpuArch'] = $this->cpuArch;
+        }
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
         }
@@ -84,6 +97,9 @@ class DescribeAvailableZoneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CpuArch'])) {
+            $model->cpuArch = $map['CpuArch'];
+        }
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];
         }

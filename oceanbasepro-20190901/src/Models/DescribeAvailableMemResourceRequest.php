@@ -11,6 +11,7 @@ class DescribeAvailableMemResourceRequest extends Model
     /**
      * @description The number of CPU cores.
      *
+     * This parameter is required.
      * @example 14
      *
      * @var int
@@ -20,6 +21,7 @@ class DescribeAvailableMemResourceRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -37,7 +39,7 @@ class DescribeAvailableMemResourceRequest extends Model
 
     /**
      * @description The number of resource distribution nodes in the tenant.
-     * The number is determined by the deployment mode of the cluster. If the cluster is deployed in 2-2-2 mode, the maximum number of resource distribution nodes is 2.
+     * This parameter is required.
      * @example 2
      *
      * @var int

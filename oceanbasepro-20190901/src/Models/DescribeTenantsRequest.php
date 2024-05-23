@@ -11,6 +11,7 @@ class DescribeTenantsRequest extends Model
     /**
      * @description The number of used disks of the tenant.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string

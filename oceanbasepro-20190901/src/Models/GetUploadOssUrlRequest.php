@@ -16,6 +16,8 @@ class GetUploadOssUrlRequest extends Model
     public $effectiveTimeMinutes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example CREATE_PROJECT
      *
      * @var string

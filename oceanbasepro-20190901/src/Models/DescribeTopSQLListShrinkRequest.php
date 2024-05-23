@@ -20,6 +20,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     /**
      * @description The SQL type.
      *
+     * This parameter is required.
      * @example 2021-09-13T15:40:43Z
      *
      * @var string
@@ -128,6 +129,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     /**
      * @description The maximum response time, in ms.
      *
+     * This parameter is required.
      * @example 2021-06-13T15:40:43Z
      *
      * @var string
@@ -137,6 +139,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     /**
      * @description The average CPU time, in ms.
      *
+     * This parameter is required.
      * @example t2mr3oae0****
      *
      * @var string

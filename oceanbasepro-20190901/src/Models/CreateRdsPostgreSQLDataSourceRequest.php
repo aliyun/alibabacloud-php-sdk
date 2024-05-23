@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRdsPostgreSQLDataSourceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example db_name
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateRdsPostgreSQLDataSourceRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example g_abcdefj***
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateRdsPostgreSQLDataSourceRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example data_name
      *
      * @var string
@@ -37,6 +43,8 @@ class CreateRdsPostgreSQLDataSourceRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example pass_word
      *
      * @var string
@@ -44,6 +52,8 @@ class CreateRdsPostgreSQLDataSourceRequest extends Model
     public $password;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user_name
      *
      * @var string

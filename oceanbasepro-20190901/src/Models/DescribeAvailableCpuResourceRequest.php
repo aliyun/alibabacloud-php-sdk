@@ -11,6 +11,7 @@ class DescribeAvailableCpuResourceRequest extends Model
     /**
      * @description The CPU resources available.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string

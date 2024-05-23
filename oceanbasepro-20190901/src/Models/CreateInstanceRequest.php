@@ -28,12 +28,19 @@ class CreateInstanceRequest extends Model
 
     /**
      * @description The billing method of the instance. Valid values:
-     * - PostPay: the pay-as-you-go billing method. This is the default value. By default, fees are charged on an hourly basis.
+     * This parameter is required.
      * @example PrePay
      *
      * @var string
      */
     public $chargeType;
+
+    /**
+     * @example x86
+     *
+     * @var string
+     */
+    public $cpuArch;
 
     /**
      * @description The size of the storage space,in GB.
@@ -64,7 +71,7 @@ class CreateInstanceRequest extends Model
 
     /**
      * @description The specifications of the cluster.
-     * - 62C400GB: indicates 62 CPU cores and 400 GB of memory.
+     * This parameter is required.
      * @example 14C70GB
      *
      * @var string
@@ -154,7 +161,7 @@ class CreateInstanceRequest extends Model
 
     /**
      * @description The series of the OceanBase cluster. Valid values:
-     * - history: History Database Cluster Edition.
+     * This parameter is required.
      * @example Normal
      *
      * @var string
@@ -163,7 +170,7 @@ class CreateInstanceRequest extends Model
 
     /**
      * @description The ID of the zone to which the instance belongs.
-     * For more information about how to obtain the list of zones, see [DescribeZones](~~25610~~).
+     * This parameter is required.
      * @example cn-hangzhou-h,cn-hangzhou-i,cn-hangzhou-j
      *
      * @var string
@@ -173,6 +180,7 @@ class CreateInstanceRequest extends Model
         'autoRenew'             => 'AutoRenew',
         'autoRenewPeriod'       => 'AutoRenewPeriod',
         'chargeType'            => 'ChargeType',
+        'cpuArch'               => 'CpuArch',
         'diskSize'              => 'DiskSize',
         'diskType'              => 'DiskType',
         'dryRun'                => 'DryRun',
@@ -205,6 +213,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->cpuArch) {
+            $res['CpuArch'] = $this->cpuArch;
         }
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
@@ -271,6 +282,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['CpuArch'])) {
+            $model->cpuArch = $map['CpuArch'];
         }
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];

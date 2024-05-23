@@ -11,6 +11,7 @@ class DeleteTenantsRequest extends Model
     /**
      * @description You can call this operation to delete one or more tenants from an OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -22,7 +23,7 @@ class DeleteTenantsRequest extends Model
      * http(s)://[Endpoint]/?Action=DeleteTenants
      * &TenantIds=["ob2mr3oae0****", "ob2mr3oae1****"]
      * &InstanceId=ob317v4uif****
-     * ```
+     * This parameter is required.
      * @example ["ob2mr3oae0****", "ob2mr3oae1****"]
      *
      * @var string

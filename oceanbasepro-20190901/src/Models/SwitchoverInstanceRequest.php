@@ -20,6 +20,7 @@ class SwitchoverInstanceRequest extends Model
     /**
      * @description The instance ID of the primary/standby instance. You can set the default value to the instance ID of the instance to be switched to the primary instance.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -29,6 +30,7 @@ class SwitchoverInstanceRequest extends Model
     /**
      * @description The instance ID of the instance to be switched to the primary instance.
      *
+     * This parameter is required.
      * @example ob4bv8o7sp****
      *
      * @var string

@@ -11,6 +11,7 @@ class CreateSecurityIpGroupRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateSecurityIpGroupRequest extends Model
     /**
      * @description The name of the whitelist group.
      *
+     * This parameter is required.
      * @example pay_online
      *
      * @var string
@@ -29,6 +31,7 @@ class CreateSecurityIpGroupRequest extends Model
     /**
      * @description The return result of the request.
      *
+     * This parameter is required.
      * @example {"192.168.1.1","192.168.0.0.1/8"}
      *
      * @var string

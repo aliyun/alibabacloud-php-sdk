@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeProjectStepMetricRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example AVG
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeProjectStepMetricRequest extends Model
     public $aggregator;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1689244696
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeProjectStepMetricRequest extends Model
     public $beginTimestamp;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1689254646
      *
      * @var int
@@ -37,6 +43,8 @@ class DescribeProjectStepMetricRequest extends Model
     public $maxPointNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @example RPS
      *
      * @var string
@@ -44,6 +52,8 @@ class DescribeProjectStepMetricRequest extends Model
     public $metricType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example np_dr****
      *
      * @var string
@@ -51,6 +61,8 @@ class DescribeProjectStepMetricRequest extends Model
     public $projectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FULL_TRANSFER
      *
      * @var string

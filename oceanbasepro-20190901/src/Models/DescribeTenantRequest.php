@@ -10,7 +10,7 @@ class DescribeTenantRequest extends Model
 {
     /**
      * @description The status of the Internet address for accessing the tenant. Valid values:
-     * - ONLINE: The address is in service.
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -20,6 +20,7 @@ class DescribeTenantRequest extends Model
     /**
      * @description Indicates whether to enable transaction splitting.
      *
+     * This parameter is required.
      * @example ob2mr3oae0****
      *
      * @var string

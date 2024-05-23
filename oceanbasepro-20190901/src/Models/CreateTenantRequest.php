@@ -10,7 +10,7 @@ class CreateTenantRequest extends Model
 {
     /**
      * @description The character set.
-     * For more information, see [DescribeCharset](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describecharset).
+     * This parameter is required.
      * @example utf8mb4
      *
      * @var string
@@ -20,12 +20,17 @@ class CreateTenantRequest extends Model
     /**
      * @description The number of CPU cores of the tenant.
      *
-     * > <br>The CPU specification of a single tenant cannot exceed that of the corresponding cluster. <br>For example, if the specification of the cluster is 14 CPU cores and 70 GB of memory, the CPU specification of the tenant cannot exceed 14 cores.
+     * This parameter is required.
      * @example 2
      *
      * @var int
      */
     public $cpu;
+
+    /**
+     * @var string[]
+     */
+    public $createParams;
 
     /**
      * @description The description of the database.
@@ -39,6 +44,7 @@ class CreateTenantRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -57,7 +63,7 @@ class CreateTenantRequest extends Model
     /**
      * @description The memory size of the tenant, in GB.
      *
-     * > <br>The memory size of a single tenant cannot exceed that of the corresponding cluster. <br>For example, if the specification of the cluster is 14 CPU cores and 70 GB of memory, the memory size of the tenant cannot exceed 70 GB.
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -66,7 +72,7 @@ class CreateTenantRequest extends Model
 
     /**
      * @description The primary zone of the tenant.
-     * It is one of the zones in which the cluster is deployed.
+     * This parameter is required.
      * @example cn-hangzhou-h
      *
      * @var string
@@ -75,7 +81,7 @@ class CreateTenantRequest extends Model
 
     /**
      * @description Specifies to create a read-only zone. Separate the names of multiple zones with commas (,).
-     * ><notice><br>At present, this parameter is unavailable.></notice>
+     * >Notice: <br>At present, this parameter is unavailable.
      * @example cn-shanghai-g-ro,cn-shanghai-h-ro
      *
      * @var string
@@ -84,7 +90,7 @@ class CreateTenantRequest extends Model
 
     /**
      * @description The tenant mode.
-     * For more information, see [DescribeInstanceTenantModes](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describeinstancetenantmodes).
+     * This parameter is required.
      * @example Oracle
      *
      * @var string
@@ -93,7 +99,7 @@ class CreateTenantRequest extends Model
 
     /**
      * @description The name of the tenant.
-     * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_).  It cannot be set to sys.
+     * This parameter is required.
      * @example pay_online
      *
      * @var string
@@ -103,6 +109,7 @@ class CreateTenantRequest extends Model
     /**
      * @description The time zone of the tenant. For more information, see [DescribeTimeZones](https://www.alibabacloud.com/help/en/apsaradb-for-oceanbase/latest/api-oceanbasepro-2019-09-01-describetimezones).
      *
+     * This parameter is required.
      * @example Asia/Shanghai
      *
      * @var string
@@ -120,7 +127,7 @@ class CreateTenantRequest extends Model
 
     /**
      * @description The ID of the vSwitch.
-     * For more information, see Use a vSwitch.
+     * This parameter is required.
      * @example vsw-bp11k1aypnzu1l3whi****
      *
      * @var string
@@ -129,15 +136,21 @@ class CreateTenantRequest extends Model
 
     /**
      * @description The ID of the VPC.
-     * For more information, see "What is a VPC".
+     * This parameter is required.
      * @example vpc-bp1d2q3mhg9i23ofi****
      *
      * @var string
      */
     public $userVpcId;
+
+    /**
+     * @var string
+     */
+    public $userVpcOwnerId;
     protected $_name = [
         'charset'          => 'Charset',
         'cpu'              => 'Cpu',
+        'createParams'     => 'CreateParams',
         'description'      => 'Description',
         'instanceId'       => 'InstanceId',
         'logDisk'          => 'LogDisk',
@@ -150,6 +163,7 @@ class CreateTenantRequest extends Model
         'unitNum'          => 'UnitNum',
         'userVSwitchId'    => 'UserVSwitchId',
         'userVpcId'        => 'UserVpcId',
+        'userVpcOwnerId'   => 'UserVpcOwnerId',
     ];
 
     public function validate()
@@ -164,6 +178,9 @@ class CreateTenantRequest extends Model
         }
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+        if (null !== $this->createParams) {
+            $res['CreateParams'] = $this->createParams;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -201,6 +218,9 @@ class CreateTenantRequest extends Model
         if (null !== $this->userVpcId) {
             $res['UserVpcId'] = $this->userVpcId;
         }
+        if (null !== $this->userVpcOwnerId) {
+            $res['UserVpcOwnerId'] = $this->userVpcOwnerId;
+        }
 
         return $res;
     }
@@ -218,6 +238,9 @@ class CreateTenantRequest extends Model
         }
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+        if (isset($map['CreateParams'])) {
+            $model->createParams = $map['CreateParams'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -254,6 +277,9 @@ class CreateTenantRequest extends Model
         }
         if (isset($map['UserVpcId'])) {
             $model->userVpcId = $map['UserVpcId'];
+        }
+        if (isset($map['UserVpcOwnerId'])) {
+            $model->userVpcOwnerId = $map['UserVpcOwnerId'];
         }
 
         return $model;

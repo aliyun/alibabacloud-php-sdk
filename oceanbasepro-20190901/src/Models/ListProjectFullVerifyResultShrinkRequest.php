@@ -26,6 +26,8 @@ class ListProjectFullVerifyResultShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example np_4w5abs****
      *
      * @var string

@@ -11,6 +11,7 @@ class DescribeSQLSamplesRequest extends Model
     /**
      * @description The database name.
      *
+     * This parameter is required.
      * @example test_db
      *
      * @var string
@@ -19,7 +20,7 @@ class DescribeSQLSamplesRequest extends Model
 
     /**
      * @description The end time of querying the slow query execution.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2023-04-12T05:38:38Z
      *
      * @var string
@@ -36,8 +37,14 @@ class DescribeSQLSamplesRequest extends Model
     public $instanceId;
 
     /**
+     * @var bool
+     */
+    public $returnSqlText;
+
+    /**
      * @description SQL ID.
      *
+     * This parameter is required.
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
      * @var string
@@ -46,7 +53,7 @@ class DescribeSQLSamplesRequest extends Model
 
     /**
      * @description The start time of querying the slow query execution.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2023-04-12T04:38:38Z
      *
      * @var string
@@ -62,12 +69,13 @@ class DescribeSQLSamplesRequest extends Model
      */
     public $tenantId;
     protected $_name = [
-        'dbName'     => 'DbName',
-        'endTime'    => 'EndTime',
-        'instanceId' => 'InstanceId',
-        'sqlId'      => 'SqlId',
-        'startTime'  => 'StartTime',
-        'tenantId'   => 'TenantId',
+        'dbName'        => 'DbName',
+        'endTime'       => 'EndTime',
+        'instanceId'    => 'InstanceId',
+        'returnSqlText' => 'ReturnSqlText',
+        'sqlId'         => 'SqlId',
+        'startTime'     => 'StartTime',
+        'tenantId'      => 'TenantId',
     ];
 
     public function validate()
@@ -85,6 +93,9 @@ class DescribeSQLSamplesRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->returnSqlText) {
+            $res['ReturnSqlText'] = $this->returnSqlText;
         }
         if (null !== $this->sqlId) {
             $res['SqlId'] = $this->sqlId;
@@ -115,6 +126,9 @@ class DescribeSQLSamplesRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ReturnSqlText'])) {
+            $model->returnSqlText = $map['ReturnSqlText'];
         }
         if (isset($map['SqlId'])) {
             $model->sqlId = $map['SqlId'];

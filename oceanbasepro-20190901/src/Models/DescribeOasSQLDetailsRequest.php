@@ -11,6 +11,7 @@ class DescribeOasSQLDetailsRequest extends Model
     /**
      * @description The name of the database.
      *
+     * This parameter is required.
      * @example test_db
      *
      * @var string
@@ -24,7 +25,7 @@ class DescribeOasSQLDetailsRequest extends Model
 
     /**
      * @description The end time of querying the SQL execution plan.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2023-04-12T05:38:38Z
      *
      * @var string
@@ -34,6 +35,7 @@ class DescribeOasSQLDetailsRequest extends Model
     /**
      * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -43,6 +45,7 @@ class DescribeOasSQLDetailsRequest extends Model
     /**
      * @description SQL ID.
      *
+     * This parameter is required.
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
      * @var string
@@ -51,7 +54,7 @@ class DescribeOasSQLDetailsRequest extends Model
 
     /**
      * @description The start time of querying the SQL execution plan.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * This parameter is required.
      * @example 2023-04-12T04:38:38Z
      *
      * @var string
@@ -61,6 +64,7 @@ class DescribeOasSQLDetailsRequest extends Model
     /**
      * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t4louaeei****
      *
      * @var string

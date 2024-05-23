@@ -60,6 +60,8 @@ class CreateProjectRequest extends Model
     public $fullTransferConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $id;
@@ -75,6 +77,8 @@ class CreateProjectRequest extends Model
     public $labelIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -94,6 +98,8 @@ class CreateProjectRequest extends Model
     public $reverseIncrTransferConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e_4j0cz****
      *
      * @var string
@@ -101,6 +107,8 @@ class CreateProjectRequest extends Model
     public $sinkEndpointId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e_4j0c12z****
      *
      * @var string
@@ -113,11 +121,15 @@ class CreateProjectRequest extends Model
     public $structTransferConfig;
 
     /**
+     * @description This parameter is required.
+     *
      * @var transferMapping
      */
     public $transferMapping;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MIGRATION
      *
      * @var string
@@ -132,6 +144,8 @@ class CreateProjectRequest extends Model
     public $useOss;
 
     /**
+     * @description This parameter is required.
+     *
      * @example g_abcdefj***
      *
      * @var string
