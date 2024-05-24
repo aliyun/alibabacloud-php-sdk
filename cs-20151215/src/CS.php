@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\CancelTaskResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CheckControlPlaneLogEnableResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CheckServiceRoleRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\CheckServiceRoleResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
@@ -721,6 +723,56 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @summary 检查是否授权指定服务角色
+     *  *
+     * @param CheckServiceRoleRequest $request CheckServiceRoleRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CheckServiceRoleResponse CheckServiceRoleResponse
+     */
+    public function checkServiceRoleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->roles)) {
+            $body['roles'] = $request->roles;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckServiceRole',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ram/check-service-role',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckServiceRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 检查是否授权指定服务角色
+     *  *
+     * @param CheckServiceRoleRequest $request CheckServiceRoleRequest
+     *
+     * @return CheckServiceRoleResponse CheckServiceRoleResponse
+     */
+    public function checkServiceRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkServiceRoleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary Creates a scaling configuration to allow the system to scale resources based on the given scaling rules. When you create a scaling configuration, you can specify the scaling metrics, thresholds, scaling order, and scaling interval.
      *  *
      * @param string                         $ClusterId
@@ -1148,7 +1200,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the CreateClusterNodePool operation to create a node pool for a Container Service for Kubernetes (ACK) cluster.
+     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
      *  *
      * @param string                       $ClusterId
      * @param CreateClusterNodePoolRequest $request   CreateClusterNodePoolRequest
@@ -1214,7 +1266,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the CreateClusterNodePool operation to create a node pool for a Container Service for Kubernetes (ACK) cluster.
+     * @summary Creates a node pool for a Container Service for Kubernetes (ACK) cluster. You can use node pools to facilitate node management. For example, you can schedule, configure, or maintain nodes by node pool, and enable auto scaling for a node pool. We recommend that you use a managed node pool, which can help automate specific O\\\\\\&M tasks for nodes, such as Common Vulnerabilities and Exposures (CVE) patching and node repair. This reduces your O\\\\\\&M workload.
      *  *
      * @param string                       $ClusterId
      * @param CreateClusterNodePoolRequest $request   CreateClusterNodePoolRequest
@@ -7173,9 +7225,8 @@ class CS extends OpenApiClient
     /**
      * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
      *  *
-     * @description **
-     * ****
-     * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+     * @description - You can call this operation only with an Alibaba Cloud account.
+     * - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
      *  *
      * @param string                                  $ClusterId
      * @param UpdateK8sClusterUserConfigExpireRequest $request   UpdateK8sClusterUserConfigExpireRequest
@@ -7216,9 +7267,8 @@ class CS extends OpenApiClient
     /**
      * @summary Sets the validity period of a kubeconfig file used by a Resource Access Management (RAM) user or RAM role to connect to a Container Service for Kubernetes (ACK) cluster. The validity period ranges from 1 to 876,000 hours. You can call this API operation when you customize configurations by using an Alibaba Cloud account. The default validity period of a kubeconfig file is three years.
      *  *
-     * @description **
-     * ****
-     * *   You can call this operation only with an Alibaba Cloud account. - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
+     * @description - You can call this operation only with an Alibaba Cloud account.
+     * - If the kubeconfig file used by your cluster is revoked, the custom validity period of the kubeconfig file is reset. In this case, you need to call this API operation to reconfigure the validity period of the kubeconfig file.
      *  *
      * @param string                                  $ClusterId
      * @param UpdateK8sClusterUserConfigExpireRequest $request   UpdateK8sClusterUserConfigExpireRequest

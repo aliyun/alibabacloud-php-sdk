@@ -46,10 +46,9 @@ class CreateClusterNodePoolRequest extends Model
     public $interconnectConfig;
 
     /**
-     * @description The network type of the edge node pool. This parameter takes effect only when you set the `type` parameter of the node pool to `edge`. Valid values:
+     * @description The network type of the edge node pool. This parameter takes effect only if you set the `type` parameter of the node pool to `edge`. Valid values:
      *
      *   `basic`: basic
-     *   `improved`: enhanced
      *   `private`: dedicated Only Kubernetes 1.22 and later support this parameter.
      *
      * @example basic
@@ -73,7 +72,7 @@ class CreateClusterNodePoolRequest extends Model
     public $management;
 
     /**
-     * @description The maximum number of nodes that can be created in the edge node pool. You must specify a value that is equal to or larger than 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value larger than 0 for edge node pools. This parameter is set to 0 for node pools of the ess type or default edge node pools.
+     * @description The maximum number of nodes that can be created in the edge node pool. The value of this parameter must be greater than or equal to 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value larger than 0 for edge node pools. This parameter is set to 0 for node pools whose types are ess or default edge node pools.
      *
      * @example 10
      *
@@ -84,6 +83,8 @@ class CreateClusterNodePoolRequest extends Model
     public $maxNodes;
 
     /**
+     * @description The node configuration.
+     *
      * @var nodeConfig
      */
     public $nodeConfig;

@@ -18,6 +18,10 @@ class CreateClusterNodePoolResponseBody extends Model
     public $nodepoolId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 0527ac9a-c899-4341-a21a-****
+     *
      * @var string
      */
     public $requestId;

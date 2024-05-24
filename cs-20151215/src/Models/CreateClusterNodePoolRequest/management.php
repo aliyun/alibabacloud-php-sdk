@@ -13,11 +13,12 @@ use AlibabaCloud\Tea\Model;
 class management extends Model
 {
     /**
-     * @description Specifies whether to enable auto repair. This parameter takes effect only when you specify `enable=true`. Valid values:
+     * @description Specifies whether to enable auto node repair. This parameter takes effect only if you set `enable` to true.
      *
-     *   `true`: enables auto repair.
-     *   `false`: disables auto repair.
+     *   `true`: enables auto node repair.
+     *   `false`: disables auto node repair.
      *
+     * When `enable` is set to true, the default value of this parameter is `true`. When `enable` is set to false, the default value of this parameter is `false`.
      * @example false
      *
      * @var bool
@@ -25,11 +26,19 @@ class management extends Model
     public $autoRepair;
 
     /**
+     * @description The auto node repair policy.
+     *
      * @var autoRepairPolicy
      */
     public $autoRepairPolicy;
 
     /**
+     * @description Specifies whether to enable auto node update. This parameter takes effect only if you set `enable` to true.
+     *
+     *   `true`: enables auto node update.
+     *   `false`: disables auto node update.
+     *
+     * When `enable` is set to true, the default value of this parameter is `true`. When `enable` is set to false, the default value of this parameter is `false`.
      * @example true
      *
      * @var bool
@@ -37,11 +46,19 @@ class management extends Model
     public $autoUpgrade;
 
     /**
+     * @description The auto node update policy.
+     *
      * @var autoUpgradePolicy
      */
     public $autoUpgradePolicy;
 
     /**
+     * @description Specifies whether to enable auto CVE patching. This parameter takes effect only if you set `enable` to true.
+     *
+     *   `true`: enables auto CVE patching.
+     *   `false`: disables auto CVE patching.
+     *
+     * When `enable` is set to true, the default value of this parameter is `true`. When `enable` is set to false, the default value of this parameter is `false`.
      * @example true
      *
      * @var bool
@@ -49,6 +66,8 @@ class management extends Model
     public $autoVulFix;
 
     /**
+     * @description The auto CVE patching policy.
+     *
      * @var autoVulFixPolicy
      */
     public $autoVulFixPolicy;
@@ -57,8 +76,9 @@ class management extends Model
      * @description Specifies whether to enable the managed node pool feature. Valid values:
      *
      *   `true`: enables the managed node pool feature.
-     *   `false`: disables the managed node pool feature. Other parameters in this section take effect only when you specify enable=true.
+     *   `false`: disables the managed node pool feature. Other parameters in this section take effect only if you set enable to true.
      *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -66,7 +86,7 @@ class management extends Model
     public $enable;
 
     /**
-     * @description The configuration of auto update. The configuration takes effect only when you specify `enable=true`.
+     * @description The configuration of auto update. The configuration takes effect only if you set `enable` to true.
      *
      * @deprecated
      *

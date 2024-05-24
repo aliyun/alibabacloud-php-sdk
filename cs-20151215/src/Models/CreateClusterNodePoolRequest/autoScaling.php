@@ -11,7 +11,10 @@ class autoScaling extends Model
     /**
      * @description This parameter is deprecated.
      *
-     * The maximum bandwidth of the EIP. Unit: Mbit/s.
+     **
+     *
+     **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
+     *
      * @example 5
      *
      * @deprecated
@@ -25,10 +28,13 @@ class autoScaling extends Model
      *
      * The metering method of the EIP. Valid values:
      *
-     *   `PayByBandwidth`: pay-by-bandwidth.
-     *   `PayByTraffic`: pay-by-data-transfer.
+     *   `PayByBandwidth`: pay-by-bandwidth
+     *   `PayByTraffic`: pay-by-data-transfer
      *
-     * Default value: `PayByBandwidth`.
+     **
+     *
+     **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
+     *
      * @example PayByBandwidth
      *
      * @deprecated
@@ -38,7 +44,7 @@ class autoScaling extends Model
     public $eipInternetChargeType;
 
     /**
-     * @description Specifies whether to enable auto scaling. Valid values:
+     * @description Specifies whether to enable auto scaling for the node pool. Valid values:
      *
      *   `true`: enables auto scaling.
      *   `false`: disables auto scaling. If you set this parameter to false, other parameters in the `auto_scaling` section do not take effect.
@@ -55,10 +61,13 @@ class autoScaling extends Model
      *
      * Specifies whether to associate an elastic IP address (EIP) with the node pool. Valid values:
      *
-     *   `true`: associates an EIP with the node pool
+     *   `true`: associates an EIP with the node pool.
      *   `false`: does not associate an EIP with the node pool.
      *
-     * Default value: `false`.
+     **
+     *
+     **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
+     *
      * @example true
      *
      * @deprecated
@@ -68,7 +77,7 @@ class autoScaling extends Model
     public $isBondEip;
 
     /**
-     * @description The maximum number of Elastic Compute Service (ECS) instances that can be created in a node pool.
+     * @description The maximum number of instances that can be automatically scaled. The number of nodes in the node pool cannot exceed this value. This parameter takes effect only if you set `enable` to true. Valid values: [min_instances, 2000]. Default value: 0.
      *
      * @example 10
      *
@@ -77,7 +86,7 @@ class autoScaling extends Model
     public $maxInstances;
 
     /**
-     * @description The minimum number of ECS instances that must be kept in a node pool.
+     * @description The minimum number of instances that can be automatically scaled. The number of nodes in the node pool cannot be lower than this value. This parameter takes effect only if you set `enable` to true. Valid values: [0, max_instances]. Default value: 0.
      *
      * @example 1
      *
@@ -86,14 +95,14 @@ class autoScaling extends Model
     public $minInstances;
 
     /**
-     * @description The instance types that can be used for the auto scaling of the node pool. Valid values:
+     * @description The type of instances that are automatically scaled. This parameter takes effect only if you set `enable` to true. Valid values:
      *
-     *   `cpu`: regular instance.
-     *   `gpu`: GPU-accelerated instance.
-     *   `gpushare`: shared GPU-accelerated instance.
+     *   `cpu`: regular instance
+     *   `gpu`: GPU-accelerated instance
+     *   `gpushare`: shared GPU-accelerated instance
      *   `spot`: preemptible instance
      *
-     * Default value: `cpu`.
+     * >  You cannot modify this parameter after the node pool is created.
      * @example cpu
      *
      * @var string

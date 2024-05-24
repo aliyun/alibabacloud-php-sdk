@@ -46,8 +46,9 @@ class DescribeUserQuotaResponseBody extends Model
     public $clusterQuota;
 
     /**
-     * @description The quota of enhanced edge node pools.
+     * @description This parameter is deprecated.
      *
+     * The quota of enhanced edge node pools.
      * @var edgeImprovedNodepoolQuota
      */
     public $edgeImprovedNodepoolQuota;
