@@ -6,26 +6,24 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class Member extends Model
+class LocalVariable extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example user: 181319557522****
+     * @example test
      *
      * @var string
      */
-    public $member;
+    public $name;
 
     /**
-     * @example VIEWER
+     * @example datagen
      *
      * @var string
      */
-    public $role;
+    public $value;
     protected $_name = [
-        'member' => 'member',
-        'role'   => 'role',
+        'name'  => 'name',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -35,11 +33,11 @@ class Member extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->member) {
-            $res['member'] = $this->member;
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
-        if (null !== $this->role) {
-            $res['role'] = $this->role;
+        if (null !== $this->value) {
+            $res['value'] = $this->value;
         }
 
         return $res;
@@ -48,16 +46,16 @@ class Member extends Model
     /**
      * @param array $map
      *
-     * @return Member
+     * @return LocalVariable
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['member'])) {
-            $model->member = $map['member'];
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
-        if (isset($map['role'])) {
-            $model->role = $map['role'];
+        if (isset($map['value'])) {
+            $model->value = $map['value'];
         }
 
         return $model;

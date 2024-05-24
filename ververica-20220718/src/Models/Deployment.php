@@ -19,6 +19,11 @@ class Deployment extends Model
     public $batchResourceSetting;
 
     /**
+     * @var string
+     */
+    public $createdAt;
+
+    /**
      * @example 27846363877456****
      *
      * @var string
@@ -85,9 +90,19 @@ class Deployment extends Model
     public $jobSummary;
 
     /**
+     * @var LocalVariable[]
+     */
+    public $localVariables;
+
+    /**
      * @var Logging
      */
     public $logging;
+
+    /**
+     * @var string
+     */
+    public $modifiedAt;
 
     /**
      * @example 27846363877456****
@@ -121,9 +136,17 @@ class Deployment extends Model
      * @var StreamingResourceSetting
      */
     public $streamingResourceSetting;
+
+    /**
+     * @example edcef******b4f
+     *
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'artifact'                 => 'artifact',
         'batchResourceSetting'     => 'batchResourceSetting',
+        'createdAt'                => 'createdAt',
         'creator'                  => 'creator',
         'creatorName'              => 'creatorName',
         'deploymentHasChanged'     => 'deploymentHasChanged',
@@ -134,12 +157,15 @@ class Deployment extends Model
         'executionMode'            => 'executionMode',
         'flinkConf'                => 'flinkConf',
         'jobSummary'               => 'jobSummary',
+        'localVariables'           => 'localVariables',
         'logging'                  => 'logging',
+        'modifiedAt'               => 'modifiedAt',
         'modifier'                 => 'modifier',
         'modifierName'             => 'modifierName',
         'name'                     => 'name',
         'namespace'                => 'namespace',
         'streamingResourceSetting' => 'streamingResourceSetting',
+        'workspace'                => 'workspace',
     ];
 
     public function validate()
@@ -154,6 +180,9 @@ class Deployment extends Model
         }
         if (null !== $this->batchResourceSetting) {
             $res['batchResourceSetting'] = null !== $this->batchResourceSetting ? $this->batchResourceSetting->toMap() : null;
+        }
+        if (null !== $this->createdAt) {
+            $res['createdAt'] = $this->createdAt;
         }
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
@@ -185,8 +214,20 @@ class Deployment extends Model
         if (null !== $this->jobSummary) {
             $res['jobSummary'] = null !== $this->jobSummary ? $this->jobSummary->toMap() : null;
         }
+        if (null !== $this->localVariables) {
+            $res['localVariables'] = [];
+            if (null !== $this->localVariables && \is_array($this->localVariables)) {
+                $n = 0;
+                foreach ($this->localVariables as $item) {
+                    $res['localVariables'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->logging) {
             $res['logging'] = null !== $this->logging ? $this->logging->toMap() : null;
+        }
+        if (null !== $this->modifiedAt) {
+            $res['modifiedAt'] = $this->modifiedAt;
         }
         if (null !== $this->modifier) {
             $res['modifier'] = $this->modifier;
@@ -202,6 +243,9 @@ class Deployment extends Model
         }
         if (null !== $this->streamingResourceSetting) {
             $res['streamingResourceSetting'] = null !== $this->streamingResourceSetting ? $this->streamingResourceSetting->toMap() : null;
+        }
+        if (null !== $this->workspace) {
+            $res['workspace'] = $this->workspace;
         }
 
         return $res;
@@ -220,6 +264,9 @@ class Deployment extends Model
         }
         if (isset($map['batchResourceSetting'])) {
             $model->batchResourceSetting = BatchResourceSetting::fromMap($map['batchResourceSetting']);
+        }
+        if (isset($map['createdAt'])) {
+            $model->createdAt = $map['createdAt'];
         }
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
@@ -251,8 +298,20 @@ class Deployment extends Model
         if (isset($map['jobSummary'])) {
             $model->jobSummary = JobSummary::fromMap($map['jobSummary']);
         }
+        if (isset($map['localVariables'])) {
+            if (!empty($map['localVariables'])) {
+                $model->localVariables = [];
+                $n                     = 0;
+                foreach ($map['localVariables'] as $item) {
+                    $model->localVariables[$n++] = null !== $item ? LocalVariable::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['logging'])) {
             $model->logging = Logging::fromMap($map['logging']);
+        }
+        if (isset($map['modifiedAt'])) {
+            $model->modifiedAt = $map['modifiedAt'];
         }
         if (isset($map['modifier'])) {
             $model->modifier = $map['modifier'];
@@ -268,6 +327,9 @@ class Deployment extends Model
         }
         if (isset($map['streamingResourceSetting'])) {
             $model->streamingResourceSetting = StreamingResourceSetting::fromMap($map['streamingResourceSetting']);
+        }
+        if (isset($map['workspace'])) {
+            $model->workspace = $map['workspace'];
         }
 
         return $model;

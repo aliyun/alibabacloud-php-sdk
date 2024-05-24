@@ -6,40 +6,40 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListJobsRequest extends Model
+class ListEditableNamespaceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 58718c99-3b29-4c5e-93bb-c9fc4ec6****
-     *
      * @var string
      */
-    public $deploymentId;
+    public $namespace;
 
     /**
-     * @example 1
-     *
-     * @var int
+     * @var string
      */
     public $pageIndex;
 
     /**
-     * @example 10
-     *
-     * @var int
+     * @var string
      */
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
-    public $sortName;
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
-        'deploymentId' => 'deploymentId',
-        'pageIndex'    => 'pageIndex',
-        'pageSize'     => 'pageSize',
-        'sortName'     => 'sortName',
+        'namespace'   => 'namespace',
+        'pageIndex'   => 'pageIndex',
+        'pageSize'    => 'pageSize',
+        'regionId'    => 'regionId',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -49,8 +49,8 @@ class ListJobsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deploymentId) {
-            $res['deploymentId'] = $this->deploymentId;
+        if (null !== $this->namespace) {
+            $res['namespace'] = $this->namespace;
         }
         if (null !== $this->pageIndex) {
             $res['pageIndex'] = $this->pageIndex;
@@ -58,8 +58,11 @@ class ListJobsRequest extends Model
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-        if (null !== $this->sortName) {
-            $res['sortName'] = $this->sortName;
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
+        }
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -68,13 +71,13 @@ class ListJobsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListJobsRequest
+     * @return ListEditableNamespaceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['deploymentId'])) {
-            $model->deploymentId = $map['deploymentId'];
+        if (isset($map['namespace'])) {
+            $model->namespace = $map['namespace'];
         }
         if (isset($map['pageIndex'])) {
             $model->pageIndex = $map['pageIndex'];
@@ -82,8 +85,11 @@ class ListJobsRequest extends Model
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-        if (isset($map['sortName'])) {
-            $model->sortName = $map['sortName'];
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
+        }
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

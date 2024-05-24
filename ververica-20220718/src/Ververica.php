@@ -50,6 +50,8 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\ListDeploymentsResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListDeploymentTargetsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListDeploymentTargetsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListDeploymentTargetsResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListEditableNamespaceRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ListEditableNamespaceResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListEngineVersionMetadataHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListEngineVersionMetadataResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ListJobsHeaders;
@@ -119,12 +121,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary create a deployment
+     *  *
      * @param string                  $namespace
-     * @param CreateDeploymentRequest $request
-     * @param CreateDeploymentHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @param CreateDeploymentRequest $request   CreateDeploymentRequest
+     * @param CreateDeploymentHeaders $headers   CreateDeploymentHeaders
+     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateDeploymentResponse
+     * @return CreateDeploymentResponse CreateDeploymentResponse
      */
     public function createDeploymentWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -156,10 +160,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary create a deployment
+     *  *
      * @param string                  $namespace
-     * @param CreateDeploymentRequest $request
+     * @param CreateDeploymentRequest $request   CreateDeploymentRequest
      *
-     * @return CreateDeploymentResponse
+     * @return CreateDeploymentResponse CreateDeploymentResponse
      */
     public function createDeployment($namespace, $request)
     {
@@ -170,12 +176,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用CreateMember创建成员。
+     *  *
      * @param string              $namespace
-     * @param CreateMemberRequest $request
-     * @param CreateMemberHeaders $headers
-     * @param RuntimeOptions      $runtime
+     * @param CreateMemberRequest $request   CreateMemberRequest
+     * @param CreateMemberHeaders $headers   CreateMemberHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateMemberResponse
+     * @return CreateMemberResponse CreateMemberResponse
      */
     public function createMemberWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -207,10 +215,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用CreateMember创建成员。
+     *  *
      * @param string              $namespace
-     * @param CreateMemberRequest $request
+     * @param CreateMemberRequest $request   CreateMemberRequest
      *
-     * @return CreateMemberResponse
+     * @return CreateMemberResponse CreateMemberResponse
      */
     public function createMember($namespace, $request)
     {
@@ -221,12 +231,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用CreateSavepoint触发一次savepoint。
+     *  *
      * @param string                 $namespace
-     * @param CreateSavepointRequest $request
-     * @param CreateSavepointHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @param CreateSavepointRequest $request   CreateSavepointRequest
+     * @param CreateSavepointHeaders $headers   CreateSavepointHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateSavepointResponse
+     * @return CreateSavepointResponse CreateSavepointResponse
      */
     public function createSavepointWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -268,10 +280,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用CreateSavepoint触发一次savepoint。
+     *  *
      * @param string                 $namespace
-     * @param CreateSavepointRequest $request
+     * @param CreateSavepointRequest $request   CreateSavepointRequest
      *
-     * @return CreateSavepointResponse
+     * @return CreateSavepointResponse CreateSavepointResponse
      */
     public function createSavepoint($namespace, $request)
     {
@@ -282,12 +296,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用CreateVariable创建变量。
+     *  *
      * @param string                $namespace
-     * @param CreateVariableRequest $request
-     * @param CreateVariableHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @param CreateVariableRequest $request   CreateVariableRequest
+     * @param CreateVariableHeaders $headers   CreateVariableHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return CreateVariableResponse
+     * @return CreateVariableResponse CreateVariableResponse
      */
     public function createVariableWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -319,10 +335,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用CreateVariable创建变量。
+     *  *
      * @param string                $namespace
-     * @param CreateVariableRequest $request
+     * @param CreateVariableRequest $request   CreateVariableRequest
      *
-     * @return CreateVariableResponse
+     * @return CreateVariableResponse CreateVariableResponse
      */
     public function createVariable($namespace, $request)
     {
@@ -333,12 +351,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary delete deployment
+     *  *
      * @param string                  $namespace
      * @param string                  $deploymentId
-     * @param DeleteDeploymentHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @param DeleteDeploymentHeaders $headers      DeleteDeploymentHeaders
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteDeploymentResponse
+     * @return DeleteDeploymentResponse DeleteDeploymentResponse
      */
     public function deleteDeploymentWithOptions($namespace, $deploymentId, $headers, $runtime)
     {
@@ -368,10 +388,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary delete deployment
+     *  *
      * @param string $namespace
      * @param string $deploymentId
      *
-     * @return DeleteDeploymentResponse
+     * @return DeleteDeploymentResponse DeleteDeploymentResponse
      */
     public function deleteDeployment($namespace, $deploymentId)
     {
@@ -382,12 +404,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary delete job
+     *  *
      * @param string           $namespace
      * @param string           $jobId
-     * @param DeleteJobHeaders $headers
-     * @param RuntimeOptions   $runtime
+     * @param DeleteJobHeaders $headers   DeleteJobHeaders
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteJobResponse
+     * @return DeleteJobResponse DeleteJobResponse
      */
     public function deleteJobWithOptions($namespace, $jobId, $headers, $runtime)
     {
@@ -417,10 +441,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary delete job
+     *  *
      * @param string $namespace
      * @param string $jobId
      *
-     * @return DeleteJobResponse
+     * @return DeleteJobResponse DeleteJobResponse
      */
     public function deleteJob($namespace, $jobId)
     {
@@ -431,12 +457,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用DeleteMember删除成员。
+     *  *
      * @param string              $namespace
      * @param string              $member
-     * @param DeleteMemberHeaders $headers
-     * @param RuntimeOptions      $runtime
+     * @param DeleteMemberHeaders $headers   DeleteMemberHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteMemberResponse
+     * @return DeleteMemberResponse DeleteMemberResponse
      */
     public function deleteMemberWithOptions($namespace, $member, $headers, $runtime)
     {
@@ -466,10 +494,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用DeleteMember删除成员。
+     *  *
      * @param string $namespace
      * @param string $member
      *
-     * @return DeleteMemberResponse
+     * @return DeleteMemberResponse DeleteMemberResponse
      */
     public function deleteMember($namespace, $member)
     {
@@ -480,12 +510,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用DeleteSavepoint删除savepoint。
+     *  *
      * @param string                 $namespace
      * @param string                 $savepointId
-     * @param DeleteSavepointHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeleteSavepointHeaders $headers     DeleteSavepointHeaders
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DeleteSavepointResponse
+     * @return DeleteSavepointResponse DeleteSavepointResponse
      */
     public function deleteSavepointWithOptions($namespace, $savepointId, $headers, $runtime)
     {
@@ -515,10 +547,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用DeleteSavepoint删除savepoint。
+     *  *
      * @param string $namespace
      * @param string $savepointId
      *
-     * @return DeleteSavepointResponse
+     * @return DeleteSavepointResponse DeleteSavepointResponse
      */
     public function deleteSavepoint($namespace, $savepointId)
     {
@@ -529,12 +563,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary deleta variable
+     *  *
      * @param string                $namespace
      * @param string                $name
-     * @param DeleteVariableHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @param DeleteVariableHeaders $headers   DeleteVariableHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteVariableResponse
+     * @return DeleteVariableResponse DeleteVariableResponse
      */
     public function deleteVariableWithOptions($namespace, $name, $headers, $runtime)
     {
@@ -564,10 +600,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary deleta variable
+     *  *
      * @param string $namespace
      * @param string $name
      *
-     * @return DeleteVariableResponse
+     * @return DeleteVariableResponse DeleteVariableResponse
      */
     public function deleteVariable($namespace, $name)
     {
@@ -578,11 +616,13 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param FlinkApiProxyRequest $request
-     * @param FlinkApiProxyHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 调用FlinkApiProxy代理Flink请求。
+     *  *
+     * @param FlinkApiProxyRequest $request FlinkApiProxyRequest
+     * @param FlinkApiProxyHeaders $headers FlinkApiProxyHeaders
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlinkApiProxyResponse
+     * @return FlinkApiProxyResponse FlinkApiProxyResponse
      */
     public function flinkApiProxyWithOptions($request, $headers, $runtime)
     {
@@ -627,9 +667,11 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param FlinkApiProxyRequest $request
+     * @summary 调用FlinkApiProxy代理Flink请求。
+     *  *
+     * @param FlinkApiProxyRequest $request FlinkApiProxyRequest
      *
-     * @return FlinkApiProxyResponse
+     * @return FlinkApiProxyResponse FlinkApiProxyResponse
      */
     public function flinkApiProxy($request)
     {
@@ -640,13 +682,15 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary generate resource plan with flink conf async.
+     *  *
      * @param string                                        $namespace
      * @param string                                        $deploymentId
-     * @param GenerateResourcePlanWithFlinkConfAsyncRequest $request
-     * @param GenerateResourcePlanWithFlinkConfAsyncHeaders $headers
-     * @param RuntimeOptions                                $runtime
+     * @param GenerateResourcePlanWithFlinkConfAsyncRequest $request      GenerateResourcePlanWithFlinkConfAsyncRequest
+     * @param GenerateResourcePlanWithFlinkConfAsyncHeaders $headers      GenerateResourcePlanWithFlinkConfAsyncHeaders
+     * @param RuntimeOptions                                $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GenerateResourcePlanWithFlinkConfAsyncResponse
+     * @return GenerateResourcePlanWithFlinkConfAsyncResponse GenerateResourcePlanWithFlinkConfAsyncResponse
      */
     public function generateResourcePlanWithFlinkConfAsyncWithOptions($namespace, $deploymentId, $request, $headers, $runtime)
     {
@@ -678,11 +722,13 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary generate resource plan with flink conf async.
+     *  *
      * @param string                                        $namespace
      * @param string                                        $deploymentId
-     * @param GenerateResourcePlanWithFlinkConfAsyncRequest $request
+     * @param GenerateResourcePlanWithFlinkConfAsyncRequest $request      GenerateResourcePlanWithFlinkConfAsyncRequest
      *
-     * @return GenerateResourcePlanWithFlinkConfAsyncResponse
+     * @return GenerateResourcePlanWithFlinkConfAsyncResponse GenerateResourcePlanWithFlinkConfAsyncResponse
      */
     public function generateResourcePlanWithFlinkConfAsync($namespace, $deploymentId, $request)
     {
@@ -693,12 +739,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary get a deployment
+     *  *
      * @param string               $namespace
      * @param string               $deploymentId
-     * @param GetDeploymentHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetDeploymentHeaders $headers      GetDeploymentHeaders
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetDeploymentResponse
+     * @return GetDeploymentResponse GetDeploymentResponse
      */
     public function getDeploymentWithOptions($namespace, $deploymentId, $headers, $runtime)
     {
@@ -728,10 +776,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary get a deployment
+     *  *
      * @param string $namespace
      * @param string $deploymentId
      *
-     * @return GetDeploymentResponse
+     * @return GetDeploymentResponse GetDeploymentResponse
      */
     public function getDeployment($namespace, $deploymentId)
     {
@@ -742,12 +792,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 获取生成ResourcePlan异步操作的结果。
+     *  *
      * @param string                               $namespace
      * @param string                               $ticketId
-     * @param GetGenerateResourcePlanResultHeaders $headers
-     * @param RuntimeOptions                       $runtime
+     * @param GetGenerateResourcePlanResultHeaders $headers   GetGenerateResourcePlanResultHeaders
+     * @param RuntimeOptions                       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetGenerateResourcePlanResultResponse
+     * @return GetGenerateResourcePlanResultResponse GetGenerateResourcePlanResultResponse
      */
     public function getGenerateResourcePlanResultWithOptions($namespace, $ticketId, $headers, $runtime)
     {
@@ -777,10 +829,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 获取生成ResourcePlan异步操作的结果。
+     *  *
      * @param string $namespace
      * @param string $ticketId
      *
-     * @return GetGenerateResourcePlanResultResponse
+     * @return GetGenerateResourcePlanResultResponse GetGenerateResourcePlanResultResponse
      */
     public function getGenerateResourcePlanResult($namespace, $ticketId)
     {
@@ -791,12 +845,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary get job
+     *  *
      * @param string         $namespace
      * @param string         $jobId
-     * @param GetJobHeaders  $headers
-     * @param RuntimeOptions $runtime
+     * @param GetJobHeaders  $headers   GetJobHeaders
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetJobResponse
+     * @return GetJobResponse GetJobResponse
      */
     public function getJobWithOptions($namespace, $jobId, $headers, $runtime)
     {
@@ -826,10 +882,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary get job
+     *  *
      * @param string $namespace
      * @param string $jobId
      *
-     * @return GetJobResponse
+     * @return GetJobResponse GetJobResponse
      */
     public function getJob($namespace, $jobId)
     {
@@ -840,12 +898,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用GetMember获取成员。
+     *  *
      * @param string           $namespace
      * @param string           $member
-     * @param GetMemberHeaders $headers
-     * @param RuntimeOptions   $runtime
+     * @param GetMemberHeaders $headers   GetMemberHeaders
+     * @param RuntimeOptions   $runtime   runtime options for this request RuntimeOptions
      *
-     * @return GetMemberResponse
+     * @return GetMemberResponse GetMemberResponse
      */
     public function getMemberWithOptions($namespace, $member, $headers, $runtime)
     {
@@ -875,10 +935,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用GetMember获取成员。
+     *  *
      * @param string $namespace
      * @param string $member
      *
-     * @return GetMemberResponse
+     * @return GetMemberResponse GetMemberResponse
      */
     public function getMember($namespace, $member)
     {
@@ -889,12 +951,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用GetSavepoint获取savepoint信息。
+     *  *
      * @param string              $namespace
      * @param string              $savepointId
-     * @param GetSavepointHeaders $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetSavepointHeaders $headers     GetSavepointHeaders
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetSavepointResponse
+     * @return GetSavepointResponse GetSavepointResponse
      */
     public function getSavepointWithOptions($namespace, $savepointId, $headers, $runtime)
     {
@@ -924,10 +988,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用GetSavepoint获取savepoint信息。
+     *  *
      * @param string $namespace
      * @param string $savepointId
      *
-     * @return GetSavepointResponse
+     * @return GetSavepointResponse GetSavepointResponse
      */
     public function getSavepoint($namespace, $savepointId)
     {
@@ -938,12 +1004,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary list deployment targets
+     *  *
      * @param string                       $namespace
-     * @param ListDeploymentTargetsRequest $request
-     * @param ListDeploymentTargetsHeaders $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListDeploymentTargetsRequest $request   ListDeploymentTargetsRequest
+     * @param ListDeploymentTargetsHeaders $headers   ListDeploymentTargetsHeaders
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListDeploymentTargetsResponse
+     * @return ListDeploymentTargetsResponse ListDeploymentTargetsResponse
      */
     public function listDeploymentTargetsWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -982,10 +1050,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary list deployment targets
+     *  *
      * @param string                       $namespace
-     * @param ListDeploymentTargetsRequest $request
+     * @param ListDeploymentTargetsRequest $request   ListDeploymentTargetsRequest
      *
-     * @return ListDeploymentTargetsResponse
+     * @return ListDeploymentTargetsResponse ListDeploymentTargetsResponse
      */
     public function listDeploymentTargets($namespace, $request)
     {
@@ -996,19 +1066,33 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary list deployments
+     *  *
      * @param string                 $namespace
-     * @param ListDeploymentsRequest $request
-     * @param ListDeploymentsHeaders $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListDeploymentsRequest $request   ListDeploymentsRequest
+     * @param ListDeploymentsHeaders $headers   ListDeploymentsHeaders
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListDeploymentsResponse
+     * @return ListDeploymentsResponse ListDeploymentsResponse
      */
     public function listDeploymentsWithOptions($namespace, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->creator)) {
+            $query['creator'] = $request->creator;
+        }
         if (!Utils::isUnset($request->executionMode)) {
             $query['executionMode'] = $request->executionMode;
+        }
+        if (!Utils::isUnset($request->labelKey)) {
+            $query['labelKey'] = $request->labelKey;
+        }
+        if (!Utils::isUnset($request->labelValueArray)) {
+            $query['labelValueArray'] = $request->labelValueArray;
+        }
+        if (!Utils::isUnset($request->modifier)) {
+            $query['modifier'] = $request->modifier;
         }
         if (!Utils::isUnset($request->name)) {
             $query['name'] = $request->name;
@@ -1018,6 +1102,9 @@ class Ververica extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['status'] = $request->status;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -1046,10 +1133,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary list deployments
+     *  *
      * @param string                 $namespace
-     * @param ListDeploymentsRequest $request
+     * @param ListDeploymentsRequest $request   ListDeploymentsRequest
      *
-     * @return ListDeploymentsResponse
+     * @return ListDeploymentsResponse ListDeploymentsResponse
      */
     public function listDeployments($namespace, $request)
     {
@@ -1060,10 +1149,74 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @param ListEngineVersionMetadataHeaders $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 列出有编辑权限的项目空间。
+     *  *
+     * @param ListEditableNamespaceRequest $request ListEditableNamespaceRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEngineVersionMetadataResponse
+     * @return ListEditableNamespaceResponse ListEditableNamespaceResponse
+     */
+    public function listEditableNamespaceWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['pageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEditableNamespace',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gateway/v2/namespaces/editable',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEditableNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列出有编辑权限的项目空间。
+     *  *
+     * @param ListEditableNamespaceRequest $request ListEditableNamespaceRequest
+     *
+     * @return ListEditableNamespaceResponse ListEditableNamespaceResponse
+     */
+    public function listEditableNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listEditableNamespaceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取系统支持的引擎版本信息。
+     *  *
+     * @param ListEngineVersionMetadataHeaders $headers ListEngineVersionMetadataHeaders
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListEngineVersionMetadataResponse ListEngineVersionMetadataResponse
      */
     public function listEngineVersionMetadataWithOptions($headers, $runtime)
     {
@@ -1093,7 +1246,9 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @return ListEngineVersionMetadataResponse
+     * @summary 获取系统支持的引擎版本信息。
+     *  *
+     * @return ListEngineVersionMetadataResponse ListEngineVersionMetadataResponse
      */
     public function listEngineVersionMetadata()
     {
@@ -1104,12 +1259,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary list jobs
+     *  *
      * @param string          $namespace
-     * @param ListJobsRequest $request
-     * @param ListJobsHeaders $headers
-     * @param RuntimeOptions  $runtime
+     * @param ListJobsRequest $request   ListJobsRequest
+     * @param ListJobsHeaders $headers   ListJobsHeaders
+     * @param RuntimeOptions  $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobsWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -1123,6 +1280,9 @@ class Ververica extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortName)) {
+            $query['sortName'] = $request->sortName;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -1151,10 +1311,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary list jobs
+     *  *
      * @param string          $namespace
-     * @param ListJobsRequest $request
+     * @param ListJobsRequest $request   ListJobsRequest
      *
-     * @return ListJobsResponse
+     * @return ListJobsResponse ListJobsResponse
      */
     public function listJobs($namespace, $request)
     {
@@ -1165,12 +1327,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用ListMembers接口获取成员列表。
+     *  *
      * @param string             $namespace
-     * @param ListMembersRequest $request
-     * @param ListMembersHeaders $headers
-     * @param RuntimeOptions     $runtime
+     * @param ListMembersRequest $request   ListMembersRequest
+     * @param ListMembersHeaders $headers   ListMembersHeaders
+     * @param RuntimeOptions     $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListMembersResponse
+     * @return ListMembersResponse ListMembersResponse
      */
     public function listMembersWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -1209,10 +1373,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用ListMembers接口获取成员列表。
+     *  *
      * @param string             $namespace
-     * @param ListMembersRequest $request
+     * @param ListMembersRequest $request   ListMembersRequest
      *
-     * @return ListMembersResponse
+     * @return ListMembersResponse ListMembersResponse
      */
     public function listMembers($namespace, $request)
     {
@@ -1223,12 +1389,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用ListSavepoints获取满足查询条件的savepoint列表。
+     *  *
      * @param string                $namespace
-     * @param ListSavepointsRequest $request
-     * @param ListSavepointsHeaders $headers
-     * @param RuntimeOptions        $runtime
+     * @param ListSavepointsRequest $request   ListSavepointsRequest
+     * @param ListSavepointsHeaders $headers   ListSavepointsHeaders
+     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListSavepointsResponse
+     * @return ListSavepointsResponse ListSavepointsResponse
      */
     public function listSavepointsWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -1273,10 +1441,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用ListSavepoints获取满足查询条件的savepoint列表。
+     *  *
      * @param string                $namespace
-     * @param ListSavepointsRequest $request
+     * @param ListSavepointsRequest $request   ListSavepointsRequest
      *
-     * @return ListSavepointsResponse
+     * @return ListSavepointsResponse ListSavepointsResponse
      */
     public function listSavepoints($namespace, $request)
     {
@@ -1287,12 +1457,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary list variables
+     *  *
      * @param string               $namespace
-     * @param ListVariablesRequest $request
-     * @param ListVariablesHeaders $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListVariablesRequest $request   ListVariablesRequest
+     * @param ListVariablesHeaders $headers   ListVariablesHeaders
+     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ListVariablesResponse
+     * @return ListVariablesResponse ListVariablesResponse
      */
     public function listVariablesWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -1331,10 +1503,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary list variables
+     *  *
      * @param string               $namespace
-     * @param ListVariablesRequest $request
+     * @param ListVariablesRequest $request   ListVariablesRequest
      *
-     * @return ListVariablesResponse
+     * @return ListVariablesResponse ListVariablesResponse
      */
     public function listVariables($namespace, $request)
     {
@@ -1345,8 +1519,10 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI StartJob is deprecated
+     *  *
+     * @summary start job
+     *  *
      * Deprecated
      *
      * @param string          $namespace
@@ -1386,8 +1562,10 @@ class Ververica extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
+     * @deprecated OpenAPI StartJob is deprecated
+     *  *
+     * @summary start job
+     *  *
      * Deprecated
      *
      * @param string          $namespace
@@ -1404,12 +1582,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 启动作业实例。
+     *  *
      * @param string                    $namespace
-     * @param StartJobWithParamsRequest $request
-     * @param StartJobWithParamsHeaders $headers
-     * @param RuntimeOptions            $runtime
+     * @param StartJobWithParamsRequest $request   StartJobWithParamsRequest
+     * @param StartJobWithParamsHeaders $headers   StartJobWithParamsHeaders
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StartJobWithParamsResponse
+     * @return StartJobWithParamsResponse StartJobWithParamsResponse
      */
     public function startJobWithParamsWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -1441,10 +1621,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 启动作业实例。
+     *  *
      * @param string                    $namespace
-     * @param StartJobWithParamsRequest $request
+     * @param StartJobWithParamsRequest $request   StartJobWithParamsRequest
      *
-     * @return StartJobWithParamsResponse
+     * @return StartJobWithParamsResponse StartJobWithParamsResponse
      */
     public function startJobWithParams($namespace, $request)
     {
@@ -1455,13 +1637,15 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用StopJob停止实例。
+     *  *
      * @param string         $namespace
      * @param string         $jobId
-     * @param StopJobRequest $request
-     * @param StopJobHeaders $headers
-     * @param RuntimeOptions $runtime
+     * @param StopJobRequest $request   StopJobRequest
+     * @param StopJobHeaders $headers   StopJobHeaders
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
      *
-     * @return StopJobResponse
+     * @return StopJobResponse StopJobResponse
      */
     public function stopJobWithOptions($namespace, $jobId, $request, $headers, $runtime)
     {
@@ -1493,11 +1677,13 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用StopJob停止实例。
+     *  *
      * @param string         $namespace
      * @param string         $jobId
-     * @param StopJobRequest $request
+     * @param StopJobRequest $request   StopJobRequest
      *
-     * @return StopJobResponse
+     * @return StopJobResponse StopJobResponse
      */
     public function stopJob($namespace, $jobId, $request)
     {
@@ -1508,13 +1694,15 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary update a deployment using patch
+     *  *
      * @param string                  $namespace
      * @param string                  $deploymentId
-     * @param UpdateDeploymentRequest $request
-     * @param UpdateDeploymentHeaders $headers
-     * @param RuntimeOptions          $runtime
+     * @param UpdateDeploymentRequest $request      UpdateDeploymentRequest
+     * @param UpdateDeploymentHeaders $headers      UpdateDeploymentHeaders
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateDeploymentResponse
+     * @return UpdateDeploymentResponse UpdateDeploymentResponse
      */
     public function updateDeploymentWithOptions($namespace, $deploymentId, $request, $headers, $runtime)
     {
@@ -1546,11 +1734,13 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary update a deployment using patch
+     *  *
      * @param string                  $namespace
      * @param string                  $deploymentId
-     * @param UpdateDeploymentRequest $request
+     * @param UpdateDeploymentRequest $request      UpdateDeploymentRequest
      *
-     * @return UpdateDeploymentResponse
+     * @return UpdateDeploymentResponse UpdateDeploymentResponse
      */
     public function updateDeployment($namespace, $deploymentId, $request)
     {
@@ -1561,12 +1751,14 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用UpdateMember更新成员。
+     *  *
      * @param string              $namespace
-     * @param UpdateMemberRequest $request
-     * @param UpdateMemberHeaders $headers
-     * @param RuntimeOptions      $runtime
+     * @param UpdateMemberRequest $request   UpdateMemberRequest
+     * @param UpdateMemberHeaders $headers   UpdateMemberHeaders
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
      *
-     * @return UpdateMemberResponse
+     * @return UpdateMemberResponse UpdateMemberResponse
      */
     public function updateMemberWithOptions($namespace, $request, $headers, $runtime)
     {
@@ -1598,10 +1790,12 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * @summary 调用UpdateMember更新成员。
+     *  *
      * @param string              $namespace
-     * @param UpdateMemberRequest $request
+     * @param UpdateMemberRequest $request   UpdateMemberRequest
      *
-     * @return UpdateMemberResponse
+     * @return UpdateMemberResponse UpdateMemberResponse
      */
     public function updateMember($namespace, $request)
     {

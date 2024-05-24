@@ -14,6 +14,11 @@ class JobStartParameters extends Model
     public $deploymentId;
 
     /**
+     * @var LocalVariable[]
+     */
+    public $localVariables;
+
+    /**
      * @example default-queue
      *
      * @var string
@@ -26,6 +31,7 @@ class JobStartParameters extends Model
     public $restoreStrategy;
     protected $_name = [
         'deploymentId'      => 'deploymentId',
+        'localVariables'    => 'localVariables',
         'resourceQueueName' => 'resourceQueueName',
         'restoreStrategy'   => 'restoreStrategy',
     ];
@@ -39,6 +45,15 @@ class JobStartParameters extends Model
         $res = [];
         if (null !== $this->deploymentId) {
             $res['deploymentId'] = $this->deploymentId;
+        }
+        if (null !== $this->localVariables) {
+            $res['localVariables'] = [];
+            if (null !== $this->localVariables && \is_array($this->localVariables)) {
+                $n = 0;
+                foreach ($this->localVariables as $item) {
+                    $res['localVariables'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->resourceQueueName) {
             $res['resourceQueueName'] = $this->resourceQueueName;
@@ -60,6 +75,15 @@ class JobStartParameters extends Model
         $model = new self();
         if (isset($map['deploymentId'])) {
             $model->deploymentId = $map['deploymentId'];
+        }
+        if (isset($map['localVariables'])) {
+            if (!empty($map['localVariables'])) {
+                $model->localVariables = [];
+                $n                     = 0;
+                foreach ($map['localVariables'] as $item) {
+                    $model->localVariables[$n++] = null !== $item ? LocalVariable::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['resourceQueueName'])) {
             $model->resourceQueueName = $map['resourceQueueName'];

@@ -11,6 +11,8 @@ class CreateVariableHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description This parameter is required.
+     *
      * @example a14bda1c4a****
      *
      * @var string

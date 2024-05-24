@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSavepointRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 58718c99-3b29-4c5e-93bb-c9fc4ec6****
      *
      * @var string

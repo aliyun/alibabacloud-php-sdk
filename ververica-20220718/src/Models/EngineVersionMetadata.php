@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EngineVersionMetadata extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example vvr-6.0.0-flink-1.15
      *
      * @var string
@@ -21,6 +23,8 @@ class EngineVersionMetadata extends Model
     public $features;
 
     /**
+     * @description This parameter is required.
+     *
      * @example STABLE
      *
      * @var string

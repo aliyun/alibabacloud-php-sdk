@@ -16,6 +16,8 @@ class Variable extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Plain
      *
      * @var string
@@ -23,6 +25,8 @@ class Variable extends Model
     public $kind;
 
     /**
+     * @description This parameter is required.
+     *
      * @example variableName
      *
      * @var string
@@ -30,6 +34,8 @@ class Variable extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example variableValue
      *
      * @var string

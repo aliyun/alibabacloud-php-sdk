@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Ververica\V20220718\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetGenerateResourcePlanResultResponse extends Model
+class ListEditableNamespaceResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetGenerateResourcePlanResultResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetGenerateResourcePlanResultResponseBody
+     * @var ListEditableNamespaceResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class GetGenerateResourcePlanResultResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetGenerateResourcePlanResultResponse
+     * @return ListEditableNamespaceResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class GetGenerateResourcePlanResultResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetGenerateResourcePlanResultResponseBody::fromMap($map['body']);
+            $model->body = ListEditableNamespaceResponseBody::fromMap($map['body']);
         }
 
         return $model;

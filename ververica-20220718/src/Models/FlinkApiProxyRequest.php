@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FlinkApiProxyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example /jobs/4df35f8e54554b23bf7dcd38a151****
      *
      * @var string
@@ -16,6 +18,8 @@ class FlinkApiProxyRequest extends Model
     public $flinkApiPath;
 
     /**
+     * @description This parameter is required.
+     *
      * @example default-namespace
      *
      * @var string
@@ -23,6 +27,8 @@ class FlinkApiProxyRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5a27a3aa-c5b9-4dc1-8c86-be57d2d6****
      *
      * @var string
@@ -30,6 +36,8 @@ class FlinkApiProxyRequest extends Model
     public $resourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example jobs
      *
      * @var string

@@ -19,6 +19,11 @@ class Job extends Model
     public $batchResourceSetting;
 
     /**
+     * @var string
+     */
+    public $createdAt;
+
+    /**
      * @example 27846363877456****
      *
      * @var string
@@ -80,6 +85,11 @@ class Job extends Model
     public $jobId;
 
     /**
+     * @var LocalVariable[]
+     */
+    public $localVariables;
+
+    /**
      * @var Logging
      */
     public $logging;
@@ -88,6 +98,11 @@ class Job extends Model
      * @var JobMetric
      */
     public $metric;
+
+    /**
+     * @var string
+     */
+    public $modifiedAt;
 
     /**
      * @example 27846363877456****
@@ -143,9 +158,17 @@ class Job extends Model
      * @var mixed[]
      */
     public $userFlinkConf;
+
+    /**
+     * @example edcef******b4f
+     *
+     * @var string
+     */
+    public $workspace;
     protected $_name = [
         'artifact'                 => 'artifact',
         'batchResourceSetting'     => 'batchResourceSetting',
+        'createdAt'                => 'createdAt',
         'creator'                  => 'creator',
         'creatorName'              => 'creatorName',
         'deploymentId'             => 'deploymentId',
@@ -155,8 +178,10 @@ class Job extends Model
         'executionMode'            => 'executionMode',
         'flinkConf'                => 'flinkConf',
         'jobId'                    => 'jobId',
+        'localVariables'           => 'localVariables',
         'logging'                  => 'logging',
         'metric'                   => 'metric',
+        'modifiedAt'               => 'modifiedAt',
         'modifier'                 => 'modifier',
         'modifierName'             => 'modifierName',
         'namespace'                => 'namespace',
@@ -166,6 +191,7 @@ class Job extends Model
         'status'                   => 'status',
         'streamingResourceSetting' => 'streamingResourceSetting',
         'userFlinkConf'            => 'userFlinkConf',
+        'workspace'                => 'workspace',
     ];
 
     public function validate()
@@ -180,6 +206,9 @@ class Job extends Model
         }
         if (null !== $this->batchResourceSetting) {
             $res['batchResourceSetting'] = null !== $this->batchResourceSetting ? $this->batchResourceSetting->toMap() : null;
+        }
+        if (null !== $this->createdAt) {
+            $res['createdAt'] = $this->createdAt;
         }
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
@@ -208,11 +237,23 @@ class Job extends Model
         if (null !== $this->jobId) {
             $res['jobId'] = $this->jobId;
         }
+        if (null !== $this->localVariables) {
+            $res['localVariables'] = [];
+            if (null !== $this->localVariables && \is_array($this->localVariables)) {
+                $n = 0;
+                foreach ($this->localVariables as $item) {
+                    $res['localVariables'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->logging) {
             $res['logging'] = null !== $this->logging ? $this->logging->toMap() : null;
         }
         if (null !== $this->metric) {
             $res['metric'] = null !== $this->metric ? $this->metric->toMap() : null;
+        }
+        if (null !== $this->modifiedAt) {
+            $res['modifiedAt'] = $this->modifiedAt;
         }
         if (null !== $this->modifier) {
             $res['modifier'] = $this->modifier;
@@ -241,6 +282,9 @@ class Job extends Model
         if (null !== $this->userFlinkConf) {
             $res['userFlinkConf'] = $this->userFlinkConf;
         }
+        if (null !== $this->workspace) {
+            $res['workspace'] = $this->workspace;
+        }
 
         return $res;
     }
@@ -258,6 +302,9 @@ class Job extends Model
         }
         if (isset($map['batchResourceSetting'])) {
             $model->batchResourceSetting = BatchResourceSetting::fromMap($map['batchResourceSetting']);
+        }
+        if (isset($map['createdAt'])) {
+            $model->createdAt = $map['createdAt'];
         }
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
@@ -286,11 +333,23 @@ class Job extends Model
         if (isset($map['jobId'])) {
             $model->jobId = $map['jobId'];
         }
+        if (isset($map['localVariables'])) {
+            if (!empty($map['localVariables'])) {
+                $model->localVariables = [];
+                $n                     = 0;
+                foreach ($map['localVariables'] as $item) {
+                    $model->localVariables[$n++] = null !== $item ? LocalVariable::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['logging'])) {
             $model->logging = Logging::fromMap($map['logging']);
         }
         if (isset($map['metric'])) {
             $model->metric = JobMetric::fromMap($map['metric']);
+        }
+        if (isset($map['modifiedAt'])) {
+            $model->modifiedAt = $map['modifiedAt'];
         }
         if (isset($map['modifier'])) {
             $model->modifier = $map['modifier'];
@@ -318,6 +377,9 @@ class Job extends Model
         }
         if (isset($map['userFlinkConf'])) {
             $model->userFlinkConf = $map['userFlinkConf'];
+        }
+        if (isset($map['workspace'])) {
+            $model->workspace = $map['workspace'];
         }
 
         return $model;

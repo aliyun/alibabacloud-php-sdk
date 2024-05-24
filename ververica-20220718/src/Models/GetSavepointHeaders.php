@@ -11,6 +11,8 @@ class GetSavepointHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description This parameter is required.
+     *
      * @example a14bd5d90a****
      *
      * @var string
