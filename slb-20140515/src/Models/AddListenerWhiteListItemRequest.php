@@ -11,6 +11,7 @@ class AddListenerWhiteListItemRequest extends Model
     /**
      * @description The frontend port that is used by the CLB instance.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -30,6 +31,7 @@ class AddListenerWhiteListItemRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1o94dp5i6ea*******
      *
      * @var string
@@ -49,7 +51,7 @@ class AddListenerWhiteListItemRequest extends Model
     /**
      * @description The ID of the region where the Classic Load Balancer (CLB) instance is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -73,7 +75,9 @@ class AddListenerWhiteListItemRequest extends Model
      *
      * Separate multiple IP addresses or CIDR blocks with commas (,).
      *
-     * You cannot enter **0.0.0.0** or **0.0.0.0/0**. To disable access control, you can call the [SetListenerAccessControlStatus](~~27599~~) operation to set the value of the **AccessControlStatus** parameter to **close**.
+     * You cannot enter **0.0.0.0** or **0.0.0.0/0**. To disable access control, you can call the [SetListenerAccessControlStatus](https://help.aliyun.com/document_detail/27599.html) operation to set the value of the **AccessControlStatus** parameter to **close**.
+     *
+     * This parameter is required.
      * @example 192.168.XX.XX
      *
      * @var string

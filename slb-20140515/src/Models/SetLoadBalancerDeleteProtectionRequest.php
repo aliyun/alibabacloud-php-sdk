@@ -12,6 +12,8 @@ class SetLoadBalancerDeleteProtectionRequest extends Model
      * @description Specify whether to enable or disable deletion protection for the SLB instance.
      *
      * Valid values: **on and off**.
+     *
+     * This parameter is required.
      * @example off
      *
      * @var string
@@ -21,6 +23,7 @@ class SetLoadBalancerDeleteProtectionRequest extends Model
     /**
      * @description The ID of the SLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1b6c719dfa08e*****
      *
      * @var string
@@ -40,7 +43,7 @@ class SetLoadBalancerDeleteProtectionRequest extends Model
     /**
      * @description The region where the SLB instance is deployed.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query region IDs.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

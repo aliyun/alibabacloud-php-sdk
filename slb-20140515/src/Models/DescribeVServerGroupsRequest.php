@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVServerGroupsRequest extends Model
 {
     /**
+     * @description The name of the vServer group.
+     *
      * @example Group3
      *
      * @var string
@@ -43,6 +45,7 @@ class DescribeVServerGroupsRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1o94dp5i6ea*******
      *
      * @var string
@@ -62,7 +65,7 @@ class DescribeVServerGroupsRequest extends Model
     /**
      * @description The region ID of the Classic Load Balancer (CLB) instance.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -12,6 +12,8 @@ class StopLoadBalancerListenerRequest extends Model
      * @description The frontend listening port used by the listener.
      *
      * Value range: **1 to 65535**
+     *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -31,6 +33,7 @@ class StopLoadBalancerListenerRequest extends Model
     /**
      * @description The ID of the SLB instance to which the listener belongs.
      *
+     * This parameter is required.
      * @example lb-bp13jaf5qli5xmgl1miup
      *
      * @var string
@@ -50,7 +53,7 @@ class StopLoadBalancerListenerRequest extends Model
     /**
      * @description The ID of the region to which the SLB instance belongs.
      *
-     * To query the region ID, refer to the list of [regions and zones](~~40654~~) or call [DescribeRegions](~~25609~~).
+     * To query the region ID, refer to the list of [regions and zones](https://help.aliyun.com/document_detail/40654.html) or call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html).
      * @example cn-hangzhou
      *
      * @var string

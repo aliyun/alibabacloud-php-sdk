@@ -24,6 +24,7 @@ class SetAccessLogsDownloadAttributeRequest extends Model
      *   **LogStore**: the name of the Logstore.
      *   **LoadBalancerId**: the ID of the CLB instance.
      *
+     * This parameter is required.
      * @example [{"logProject":"my-project", "LogStore":"my-log-store", "LoadBalancerId":"lb-uf68ps3rekbljmdb0****"}]
      *
      * @var string
@@ -43,7 +44,7 @@ class SetAccessLogsDownloadAttributeRequest extends Model
     /**
      * @description The ID of the region where the CLB instance is deployed.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

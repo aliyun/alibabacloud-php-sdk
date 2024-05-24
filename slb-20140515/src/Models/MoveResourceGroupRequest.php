@@ -11,6 +11,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The ID of the resource group to which you want to move the resource.
      *
+     * This parameter is required.
      * @example rg-aek2rpsek5h****
      *
      * @var string
@@ -30,6 +31,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The region ID of the Classic Load Balancer (CLB) instance.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -48,6 +50,7 @@ class MoveResourceGroupRequest extends Model
     /**
      * @description The resource ID.
      *
+     * This parameter is required.
      * @example lb-uf6ghek7ds2btzt65****
      *
      * @var string
@@ -71,6 +74,7 @@ class MoveResourceGroupRequest extends Model
      *   **certificate**: a certificate
      *   **acl**: an access control list (ACL)
      *
+     * This parameter is required.
      * @example loadbalancer
      *
      * @var string

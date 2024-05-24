@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
-     * @description The endpoint.
+     * @description The domain name.
      *
      * @example www.example.com
      *
@@ -36,7 +36,7 @@ class rule extends Model
     public $ruleName;
 
     /**
-     * @description The request path.
+     * @description The request URL.
      *
      * @example /example
      *
@@ -45,7 +45,7 @@ class rule extends Model
     public $url;
 
     /**
-     * @description The ID of the server group that is associated with the forwarding rule.
+     * @description The ID of the server group specified in the forwarding rule.
      *
      * @example 123
      *

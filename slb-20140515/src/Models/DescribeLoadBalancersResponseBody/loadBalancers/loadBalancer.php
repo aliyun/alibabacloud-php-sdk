@@ -168,7 +168,7 @@ class loadBalancer extends Model
     public $masterZoneId;
 
     /**
-     * @description The reason why the configuration read-only mode was enabled. The reason must be 1 to 80 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The reason must start with a letter.
+     * @description The reason why the configuration read-only mode was enabled. The reason must be 1 to 80 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
      *
      * > This parameter takes effect only when you set the `ModificationProtectionStatus` parameter to **ConsoleProtection**.
      * @example ManagedInstance

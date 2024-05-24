@@ -11,6 +11,7 @@ class DescribeMasterSlaveServerGroupAttributeRequest extends Model
     /**
      * @description The ID of the primary/secondary server group.
      *
+     * This parameter is required.
      * @example rsp-cige6j******
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeMasterSlaveServerGroupAttributeRequest extends Model
     /**
      * @description The region ID of the Classic Load Balancer (CLB) instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

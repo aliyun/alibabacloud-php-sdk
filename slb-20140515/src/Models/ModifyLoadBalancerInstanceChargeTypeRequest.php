@@ -22,6 +22,8 @@ class ModifyLoadBalancerInstanceChargeTypeRequest extends Model
      * @description The metering method of the instance after the change.
      *
      * Valid value: **PayByCLCU**. Only pay-by-LCU is supported.
+     *
+     * This parameter is required.
      * @example PayByCLCU
      *
      * @var string
@@ -44,6 +46,7 @@ class ModifyLoadBalancerInstanceChargeTypeRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1b3jus5hpenznuu****
      *
      * @var string
@@ -73,7 +76,7 @@ class ModifyLoadBalancerInstanceChargeTypeRequest extends Model
     /**
      * @description The region ID of the CLB instance.
      *
-     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

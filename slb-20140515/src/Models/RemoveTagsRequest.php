@@ -11,6 +11,7 @@ class RemoveTagsRequest extends Model
     /**
      * @description The ID of the SLB instance.
      *
+     * This parameter is required.
      * @example 139a00604ad-cn-east-hangzhou-01
      *
      * @var string
@@ -30,6 +31,7 @@ class RemoveTagsRequest extends Model
     /**
      * @description The ID of the region to which the SLB instance belongs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -49,6 +51,7 @@ class RemoveTagsRequest extends Model
     /**
      * @description A list of tags to be removed.
      *
+     * This parameter is required.
      * @example [{"TagKey":"Key1","TagValue":"Value1"},{"TagKey":"Key2","TagValue":"Value2"}]
      *
      * @var string

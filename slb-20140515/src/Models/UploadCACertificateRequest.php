@@ -13,6 +13,8 @@ class UploadCACertificateRequest extends Model
      * @description The name of this action.
      *
      * Value: **UploadCACertificate**
+     *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -22,7 +24,7 @@ class UploadCACertificateRequest extends Model
     /**
      * @description The ID of the region to which the CA certificate belongs.
      *
-     * To query the region ID, call [DescribeRegions](~~27584~~).
+     * To query the region ID, call [DescribeRegions](https://help.aliyun.com/document_detail/27584.html).
      * @example mycacert01
      *
      * @var string
@@ -42,6 +44,7 @@ class UploadCACertificateRequest extends Model
     /**
      * @description The region id.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -31,7 +31,7 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     public $aclId;
 
     /**
-     * @description The ACL name. The name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (\_). The name of each ACL must be unique within a region. Fuzzy match is supported.
+     * @description The ACL name. The name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (_). The name of each ACL must be unique within a region. Fuzzy match is supported.
      *
      * @example doctest
      *

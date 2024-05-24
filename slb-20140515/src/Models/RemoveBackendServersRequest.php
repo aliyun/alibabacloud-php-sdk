@@ -28,6 +28,7 @@ class RemoveBackendServersRequest extends Model
      *   Remove an ECS instance: `[{"ServerId":"i-bp1fq61enf4loa5i****", "Type": "ecs","Weight":"100"}]`
      *   Remove an ENI: `[{"ServerId":"eni-2ze1sdp5****","Type": "eni","Weight":"100"}]`
      *
+     * This parameter is required.
      * @example [{"ServerId":"i-bp1fq61enf4loa5i****", "Type": "ecs","Weight":"100"}]
      *
      * @var string
@@ -37,6 +38,7 @@ class RemoveBackendServersRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp15lbk8uja8rvm4a****
      *
      * @var string

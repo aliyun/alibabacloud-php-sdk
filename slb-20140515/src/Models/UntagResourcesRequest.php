@@ -31,7 +31,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The ID of the region where the Server Load Balancer (SLB) instance is created.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +41,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The ID of the resource. Valid values of N: 1 to 20.
      *
+     * This parameter is required.
      * @example lb-bp16qjewdsunr41m1****
      *
      * @var string[]
@@ -64,6 +65,7 @@ class UntagResourcesRequest extends Model
      *   **certificate**: a certificate
      *   **acl**: a network access control list (ACL)
      *
+     * This parameter is required.
      * @example instance
      *
      * @var string

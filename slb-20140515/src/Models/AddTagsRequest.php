@@ -12,6 +12,8 @@ class AddTagsRequest extends Model
      * @description The name of this action.
      *
      * Value: **AddTags**
+     *
+     * This parameter is required.
      * @example 139a00604ad-cn-east-hangzhou-
      *
      * @var string
@@ -31,6 +33,7 @@ class AddTagsRequest extends Model
     /**
      * @description The ID of the region to which the SLB instance belongs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +53,7 @@ class AddTagsRequest extends Model
     /**
      * @description The ID of the region to which the SLB instance belongs.
      *
+     * This parameter is required.
      * @example [{"TagKey":"Key1","TagValue":"Value1"},{"TagKey":"Key2","TagValue":"Value2"}]
      *
      * @var string

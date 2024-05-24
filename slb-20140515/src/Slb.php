@@ -277,10 +277,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
-     *   * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
-     *   * *   The maximum number of IP entries that each network ACL can contain: 300.
-     *   *
+     * @summary Adds IP entries to a network access control list (ACL).
+     *  *
+     * @description Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
+     * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
+     * *   The maximum number of IP entries that each network ACL can contain: 300
+     *  *
      * @param AddAccessControlListEntryRequest $request AddAccessControlListEntryRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -330,10 +332,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
-     *   * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
-     *   * *   The maximum number of IP entries that each network ACL can contain: 300.
-     *   *
+     * @summary Adds IP entries to a network access control list (ACL).
+     *  *
+     * @description Each network ACL can contain one or more IP addresses or CIDR blocks. Take note of the following limits on network ACLs:
+     * *   The number of IP entries that can be added to a network ACL with each Alibaba Cloud account at a time: 50
+     * *   The maximum number of IP entries that each network ACL can contain: 300
+     *  *
      * @param AddAccessControlListEntryRequest $request AddAccessControlListEntryRequest
      *
      * @return AddAccessControlListEntryResponse AddAccessControlListEntryResponse
@@ -346,8 +350,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
-     *   *
+     * @summary Adds backend servers.
+     *  *
+     * @description >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
+     *  *
      * @param AddBackendServersRequest $request AddBackendServersRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -397,8 +403,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
-     *   *
+     * @summary Adds backend servers.
+     *  *
+     * @description >  If multiple identical Elastic Compute Service (ECS) instances are specified in a request, only the first ECS instance is added. The other ECS instances are ignored. If the backend server that you add is the same as one of the existing backend servers that are already associated with the listener, an error message is returned.
+     *  *
      * @param AddBackendServersRequest $request AddBackendServersRequest
      *
      * @return AddBackendServersResponse AddBackendServersResponse
@@ -411,10 +419,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param AddListenerWhiteListItemRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Adds IP addresses to the whitelist of a listener.
+     *  *
+     * @param AddListenerWhiteListItemRequest $request AddListenerWhiteListItemRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddListenerWhiteListItemResponse
+     * @return AddListenerWhiteListItemResponse AddListenerWhiteListItemResponse
      */
     public function addListenerWhiteListItemWithOptions($request, $runtime)
     {
@@ -466,9 +476,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param AddListenerWhiteListItemRequest $request
+     * @summary Adds IP addresses to the whitelist of a listener.
+     *  *
+     * @param AddListenerWhiteListItemRequest $request AddListenerWhiteListItemRequest
      *
-     * @return AddListenerWhiteListItemResponse
+     * @return AddListenerWhiteListItemResponse AddListenerWhiteListItemResponse
      */
     public function addListenerWhiteListItem($request)
     {
@@ -478,13 +490,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * # Limits
-     *   * Before you call this API, note the following limits:
-     *   * *   You can add up to 10 tags to each SLB instance.
-     *   * *   You can add up to five pairs of tags at a time.
-     *   * *   All the tags and keys added to an SLB instance must be unique.
-     *   * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
-     *   *
+     * @description # Limits
+     * Before you call this API, note the following limits:
+     * *   You can add up to 10 tags to each SLB instance.
+     * *   You can add up to five pairs of tags at a time.
+     * *   All the tags and keys added to an SLB instance must be unique.
+     * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
+     *  *
      * @param AddTagsRequest $request AddTagsRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -534,13 +546,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * # Limits
-     *   * Before you call this API, note the following limits:
-     *   * *   You can add up to 10 tags to each SLB instance.
-     *   * *   You can add up to five pairs of tags at a time.
-     *   * *   All the tags and keys added to an SLB instance must be unique.
-     *   * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
-     *   *
+     * @description # Limits
+     * Before you call this API, note the following limits:
+     * *   You can add up to 10 tags to each SLB instance.
+     * *   You can add up to five pairs of tags at a time.
+     * *   All the tags and keys added to an SLB instance must be unique.
+     * *   If you add a tag of which the key is the same as that of an existing tag, but the value is different, the new tag overwrites the existing one.
+     *  *
      * @param AddTagsRequest $request AddTagsRequest
      *
      * @return AddTagsResponse AddTagsResponse
@@ -553,10 +565,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param AddVServerGroupBackendServersRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Adds backend servers to a specified server group.
+     *  *
+     * @param AddVServerGroupBackendServersRequest $request AddVServerGroupBackendServersRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddVServerGroupBackendServersResponse
+     * @return AddVServerGroupBackendServersResponse AddVServerGroupBackendServersResponse
      */
     public function addVServerGroupBackendServersWithOptions($request, $runtime)
     {
@@ -602,9 +616,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param AddVServerGroupBackendServersRequest $request
+     * @summary Adds backend servers to a specified server group.
+     *  *
+     * @param AddVServerGroupBackendServersRequest $request AddVServerGroupBackendServersRequest
      *
-     * @return AddVServerGroupBackendServersResponse
+     * @return AddVServerGroupBackendServersResponse AddVServerGroupBackendServersResponse
      */
     public function addVServerGroupBackendServers($request)
     {
@@ -614,11 +630,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
-     *   * *   An account can have a maximum of 50 ACLs in each region.
-     *   * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
-     *   * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
-     *   *
+     * @summary Creates an access control list (ACL).
+     *  *
+     * @description You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
+     * *   An account can have a maximum of 50 ACLs in each region.
+     * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
+     * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
+     *  *
      * @param CreateAccessControlListRequest $request CreateAccessControlListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -674,11 +692,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
-     *   * *   An account can have a maximum of 50 ACLs in each region.
-     *   * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
-     *   * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
-     *   *
+     * @summary Creates an access control list (ACL).
+     *  *
+     * @description You can create multiple ACLs. Each ACL can contain one or more IP addresses or CIDR blocks. Before you create an ACL, take note of the following limits:
+     * *   An account can have a maximum of 50 ACLs in each region.
+     * *   You can add a maximum of 50 IP addresses or CIDR blocks at a time within an account.
+     * *   Each ACL can contain a maximum of 300 IP addresses or CIDR blocks.
+     *  *
      * @param CreateAccessControlListRequest $request CreateAccessControlListRequest
      *
      * @return CreateAccessControlListResponse CreateAccessControlListResponse
@@ -691,10 +711,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainExtensionRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates a domain name extension.
+     *  *
+     * @param CreateDomainExtensionRequest $request CreateDomainExtensionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDomainExtensionResponse
+     * @return CreateDomainExtensionResponse CreateDomainExtensionResponse
      */
     public function createDomainExtensionWithOptions($request, $runtime)
     {
@@ -746,9 +768,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainExtensionRequest $request
+     * @summary Creates a domain name extension.
+     *  *
+     * @param CreateDomainExtensionRequest $request CreateDomainExtensionRequest
      *
-     * @return CreateDomainExtensionResponse
+     * @return CreateDomainExtensionResponse CreateDomainExtensionResponse
      */
     public function createDomainExtension($request)
     {
@@ -758,10 +782,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
-     *   * *   After a CLB instance is created, you are charged for using the CLB instance.
-     *   * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
-     *   *
+     * @summary Creates a Classic Load Balancer (CLB) instance.
+     *  *
+     * @description *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
+     * *   After a CLB instance is created, you are charged for using the CLB instance.
+     * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
+     *  *
      * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -871,10 +897,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
-     *   * *   After a CLB instance is created, you are charged for using the CLB instance.
-     *   * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
-     *   *
+     * @summary Creates a Classic Load Balancer (CLB) instance.
+     *  *
+     * @description *   Before you create a CLB instance, call the [DescribeAvailableResource](~~DescribeAvailableResource~~) operation to query the resources available for purchase in the region where you want to create the CLB instance.
+     * *   After a CLB instance is created, you are charged for using the CLB instance.
+     * *   The pay-as-you-go billing method supports the pay-by-specification and pay-by-LCU metering methods.
+     *  *
      * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
      *
      * @return CreateLoadBalancerResponse CreateLoadBalancerResponse
@@ -887,10 +915,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
-     *   * ## Prerequisites
-     *   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
-     *   *
+     * @summary Creates an HTTP listener for a Classic Load Balancer (CLB) instance.
+     *  *
+     * @description A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+     * ## Prerequisites
+     * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
+     *  *
      * @param CreateLoadBalancerHTTPListenerRequest $request CreateLoadBalancerHTTPListenerRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -1042,10 +1072,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
-     *   * ## Prerequisites
-     *   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
-     *   *
+     * @summary Creates an HTTP listener for a Classic Load Balancer (CLB) instance.
+     *  *
+     * @description A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~StartLoadBalancerListener~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+     * ## Prerequisites
+     * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~StartLoadBalancerListener~~).
+     *  *
      * @param CreateLoadBalancerHTTPListenerRequest $request CreateLoadBalancerHTTPListenerRequest
      *
      * @return CreateLoadBalancerHTTPListenerResponse CreateLoadBalancerHTTPListenerResponse
@@ -1058,10 +1090,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
-     *   * ## Prerequisites
-     *   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
-     *   *
+     * @summary Creates an HTTPS listener.
+     *  *
+     * @description A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+     * ## Prerequisites
+     * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
+     *  *
      * @param CreateLoadBalancerHTTPSListenerRequest $request CreateLoadBalancerHTTPSListenerRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -1219,10 +1253,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
-     *   * ## Prerequisites
-     *   * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
-     *   *
+     * @summary Creates an HTTPS listener.
+     *  *
+     * @description A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to start the listener. After the listener is started, the listener can forward traffic to backend servers.
+     * ## Prerequisites
+     * A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://www.alibabacloud.com/help/en/server-load-balancer/latest/createloadbalancer-2).
+     *  *
      * @param CreateLoadBalancerHTTPSListenerRequest $request CreateLoadBalancerHTTPSListenerRequest
      *
      * @return CreateLoadBalancerHTTPSListenerResponse CreateLoadBalancerHTTPSListenerResponse
@@ -1235,8 +1271,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
-     *   *
+     * @summary Creates a TCP listener.
+     *  *
+     * @description >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to enable the listener to forward traffic to backend servers.
+     *  *
      * @param CreateLoadBalancerTCPListenerRequest $request CreateLoadBalancerTCPListenerRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -1361,8 +1399,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
-     *   *
+     * @summary Creates a TCP listener.
+     *  *
+     * @description >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to enable the listener to forward traffic to backend servers.
+     *  *
      * @param CreateLoadBalancerTCPListenerRequest $request CreateLoadBalancerTCPListenerRequest
      *
      * @return CreateLoadBalancerTCPListenerResponse CreateLoadBalancerTCPListenerResponse
@@ -1375,9 +1415,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
-     *   * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
-     *   *
+     * @summary Creates a UDP listener.
+     *  *
+     * @description UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
+     * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to enable the listener to forward traffic to backend servers.
+     *  *
      * @param CreateLoadBalancerUDPListenerRequest $request CreateLoadBalancerUDPListenerRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -1484,9 +1526,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
-     *   * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](~~27597~~) operation to enable the listener to forward traffic to backend servers.
-     *   *
+     * @summary Creates a UDP listener.
+     *  *
+     * @description UDP listeners of Classic Load Balancer (CLB) instances in a classic network cannot pass client IP addresses to backend servers.
+     * >  A newly created listener is in the **stopped** state. After a listener is created, you can call the [StartLoadBalancerListener](https://help.aliyun.com/document_detail/27597.html) operation to enable the listener to forward traffic to backend servers.
+     *  *
      * @param CreateLoadBalancerUDPListenerRequest $request CreateLoadBalancerUDPListenerRequest
      *
      * @return CreateLoadBalancerUDPListenerResponse CreateLoadBalancerUDPListenerResponse
@@ -1499,10 +1543,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateMasterSlaveServerGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Creates a primary/secondary server group. A primary/secondary server group can contain only two Elastic Compute Service (ECS) instances. One of the ECS instances functions as the primary server and the other functions as the secondary server.
+     *  *
+     * @param CreateMasterSlaveServerGroupRequest $request CreateMasterSlaveServerGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMasterSlaveServerGroupResponse
+     * @return CreateMasterSlaveServerGroupResponse CreateMasterSlaveServerGroupResponse
      */
     public function createMasterSlaveServerGroupWithOptions($request, $runtime)
     {
@@ -1554,9 +1600,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateMasterSlaveServerGroupRequest $request
+     * @summary Creates a primary/secondary server group. A primary/secondary server group can contain only two Elastic Compute Service (ECS) instances. One of the ECS instances functions as the primary server and the other functions as the secondary server.
+     *  *
+     * @param CreateMasterSlaveServerGroupRequest $request CreateMasterSlaveServerGroupRequest
      *
-     * @return CreateMasterSlaveServerGroupResponse
+     * @return CreateMasterSlaveServerGroupResponse CreateMasterSlaveServerGroupResponse
      */
     public function createMasterSlaveServerGroup($request)
     {
@@ -1566,10 +1614,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateRulesRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates forwarding rules for an HTTP or HTTPS listener.
+     *  *
+     * @param CreateRulesRequest $request CreateRulesRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRulesResponse
+     * @return CreateRulesResponse CreateRulesResponse
      */
     public function createRulesWithOptions($request, $runtime)
     {
@@ -1621,9 +1671,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateRulesRequest $request
+     * @summary Creates forwarding rules for an HTTP or HTTPS listener.
+     *  *
+     * @param CreateRulesRequest $request CreateRulesRequest
      *
-     * @return CreateRulesResponse
+     * @return CreateRulesResponse CreateRulesResponse
      */
     public function createRules($request)
     {
@@ -1633,10 +1685,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateTLSCipherPolicyRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates a Transport Layer Security (TLS) policy.
+     *  *
+     * @param CreateTLSCipherPolicyRequest $request CreateTLSCipherPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTLSCipherPolicyResponse
+     * @return CreateTLSCipherPolicyResponse CreateTLSCipherPolicyResponse
      */
     public function createTLSCipherPolicyWithOptions($request, $runtime)
     {
@@ -1685,9 +1739,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateTLSCipherPolicyRequest $request
+     * @summary Creates a Transport Layer Security (TLS) policy.
+     *  *
+     * @param CreateTLSCipherPolicyRequest $request CreateTLSCipherPolicyRequest
      *
-     * @return CreateTLSCipherPolicyResponse
+     * @return CreateTLSCipherPolicyResponse CreateTLSCipherPolicyResponse
      */
     public function createTLSCipherPolicy($request)
     {
@@ -1697,10 +1753,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateVServerGroupRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Creates a vServer group and adds backend servers to the vServer group.
+     *  *
+     * @param CreateVServerGroupRequest $request CreateVServerGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVServerGroupResponse
+     * @return CreateVServerGroupResponse CreateVServerGroupResponse
      */
     public function createVServerGroupWithOptions($request, $runtime)
     {
@@ -1752,9 +1810,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param CreateVServerGroupRequest $request
+     * @summary Creates a vServer group and adds backend servers to the vServer group.
+     *  *
+     * @param CreateVServerGroupRequest $request CreateVServerGroupRequest
      *
-     * @return CreateVServerGroupResponse
+     * @return CreateVServerGroupResponse CreateVServerGroupResponse
      */
     public function createVServerGroup($request)
     {
@@ -1764,8 +1824,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * You can delete an ACL only if it is not associated with a listener.
-     *   *
+     * @summary Deletes an access control list (ACL).
+     *  *
+     * @description You can delete an ACL only if it is not associated with a listener.
+     *  *
      * @param DeleteAccessControlListRequest $request DeleteAccessControlListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -1812,8 +1874,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * You can delete an ACL only if it is not associated with a listener.
-     *   *
+     * @summary Deletes an access control list (ACL).
+     *  *
+     * @description You can delete an ACL only if it is not associated with a listener.
+     *  *
      * @param DeleteAccessControlListRequest $request DeleteAccessControlListRequest
      *
      * @return DeleteAccessControlListResponse DeleteAccessControlListResponse
@@ -1826,10 +1890,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessLogsDownloadAttributeRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Deletes the access log of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param DeleteAccessLogsDownloadAttributeRequest $request DeleteAccessLogsDownloadAttributeRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccessLogsDownloadAttributeResponse
+     * @return DeleteAccessLogsDownloadAttributeResponse DeleteAccessLogsDownloadAttributeResponse
      */
     public function deleteAccessLogsDownloadAttributeWithOptions($request, $runtime)
     {
@@ -1878,9 +1944,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessLogsDownloadAttributeRequest $request
+     * @summary Deletes the access log of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param DeleteAccessLogsDownloadAttributeRequest $request DeleteAccessLogsDownloadAttributeRequest
      *
-     * @return DeleteAccessLogsDownloadAttributeResponse
+     * @return DeleteAccessLogsDownloadAttributeResponse DeleteAccessLogsDownloadAttributeResponse
      */
     public function deleteAccessLogsDownloadAttribute($request)
     {
@@ -1890,8 +1958,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * You cannot delete a CA certificate that is in use.
-     *   *
+     * @summary Deletes a certificate authority (CA) certificate.
+     *  *
+     * @description You cannot delete a CA certificate that is in use.
+     *  *
      * @param DeleteCACertificateRequest $request DeleteCACertificateRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1938,8 +2008,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * You cannot delete a CA certificate that is in use.
-     *   *
+     * @summary Deletes a certificate authority (CA) certificate.
+     *  *
+     * @description You cannot delete a CA certificate that is in use.
+     *  *
      * @param DeleteCACertificateRequest $request DeleteCACertificateRequest
      *
      * @return DeleteCACertificateResponse DeleteCACertificateResponse
@@ -1952,10 +2024,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainExtensionRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes an additional domain name.
+     *  *
+     * @param DeleteDomainExtensionRequest $request DeleteDomainExtensionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainExtensionResponse
+     * @return DeleteDomainExtensionResponse DeleteDomainExtensionResponse
      */
     public function deleteDomainExtensionWithOptions($request, $runtime)
     {
@@ -1998,9 +2072,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainExtensionRequest $request
+     * @summary Deletes an additional domain name.
+     *  *
+     * @param DeleteDomainExtensionRequest $request DeleteDomainExtensionRequest
      *
-     * @return DeleteDomainExtensionResponse
+     * @return DeleteDomainExtensionResponse DeleteDomainExtensionResponse
      */
     public function deleteDomainExtension($request)
     {
@@ -2010,8 +2086,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * > The listeners and tags of the SLB instance are deleted along with the SLB instance.
-     *   *
+     * @summary Deletes a pay-as-you-go Server Load Balancer (SLB) instance.
+     *  *
+     * @description > The listeners and tags of the SLB instance are deleted along with the SLB instance.
+     *  *
      * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -2058,8 +2136,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * > The listeners and tags of the SLB instance are deleted along with the SLB instance.
-     *   *
+     * @summary Deletes a pay-as-you-go Server Load Balancer (SLB) instance.
+     *  *
+     * @description > The listeners and tags of the SLB instance are deleted along with the SLB instance.
+     *  *
      * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
      *
      * @return DeleteLoadBalancerResponse DeleteLoadBalancerResponse
@@ -2072,8 +2152,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  You can delete only listeners that are in the **stopped** or **running** state.
-     *   *
+     * @summary Deletes a listener.
+     *  *
+     * @description >  You can delete only listeners that are in the **stopped** or **running** state.
+     *  *
      * @param DeleteLoadBalancerListenerRequest $request DeleteLoadBalancerListenerRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -2126,8 +2208,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  You can delete only listeners that are in the **stopped** or **running** state.
-     *   *
+     * @summary Deletes a listener.
+     *  *
+     * @description >  You can delete only listeners that are in the **stopped** or **running** state.
+     *  *
      * @param DeleteLoadBalancerListenerRequest $request DeleteLoadBalancerListenerRequest
      *
      * @return DeleteLoadBalancerListenerResponse DeleteLoadBalancerListenerResponse
@@ -2140,10 +2224,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteMasterSlaveServerGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Deletes an active/standby server group.
+     *  *
+     * @param DeleteMasterSlaveServerGroupRequest $request DeleteMasterSlaveServerGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMasterSlaveServerGroupResponse
+     * @return DeleteMasterSlaveServerGroupResponse DeleteMasterSlaveServerGroupResponse
      */
     public function deleteMasterSlaveServerGroupWithOptions($request, $runtime)
     {
@@ -2186,9 +2272,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteMasterSlaveServerGroupRequest $request
+     * @summary Deletes an active/standby server group.
+     *  *
+     * @param DeleteMasterSlaveServerGroupRequest $request DeleteMasterSlaveServerGroupRequest
      *
-     * @return DeleteMasterSlaveServerGroupResponse
+     * @return DeleteMasterSlaveServerGroupResponse DeleteMasterSlaveServerGroupResponse
      */
     public function deleteMasterSlaveServerGroup($request)
     {
@@ -2198,9 +2286,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
-     *   *
+     * @summary Deletes forwarding rules.
+     *  *
+     * @description ## Limits
+     * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
+     *  *
      * @param DeleteRulesRequest $request DeleteRulesRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -2247,9 +2337,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
-     *   *
+     * @summary Deletes forwarding rules.
+     *  *
+     * @description ## Limits
+     * The RuleIds parameter is required. You can specify up to 10 forwarding rules in each request.
+     *  *
      * @param DeleteRulesRequest $request DeleteRulesRequest
      *
      * @return DeleteRulesResponse DeleteRulesResponse
@@ -2262,8 +2354,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  You cannot delete server certificates that are in use.
-     *   *
+     * @summary Deletes a server certificate.
+     *  *
+     * @description >  You cannot delete server certificates that are in use.
+     *  *
      * @param DeleteServerCertificateRequest $request DeleteServerCertificateRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -2310,8 +2404,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  You cannot delete server certificates that are in use.
-     *   *
+     * @summary Deletes a server certificate.
+     *  *
+     * @description >  You cannot delete server certificates that are in use.
+     *  *
      * @param DeleteServerCertificateRequest $request DeleteServerCertificateRequest
      *
      * @return DeleteServerCertificateResponse DeleteServerCertificateResponse
@@ -2324,9 +2420,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15).
-     *   *
+     * @summary Deletes a TLS policy.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15)
+     *  *
      * @param DeleteTLSCipherPolicyRequest $request DeleteTLSCipherPolicyRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2373,9 +2471,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * ## Debugging
-     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15).
-     *   *
+     * @summary Deletes a TLS policy.
+     *  *
+     * @description ## Debugging
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Slb\\&api=DeleteTLSCipherPolicy\\&type=RPC\\&version=2014-05-15)
+     *  *
      * @param DeleteTLSCipherPolicyRequest $request DeleteTLSCipherPolicyRequest
      *
      * @return DeleteTLSCipherPolicyResponse DeleteTLSCipherPolicyResponse
@@ -2388,10 +2488,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteVServerGroupRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a VServer group.
+     *  *
+     * @param DeleteVServerGroupRequest $request DeleteVServerGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVServerGroupResponse
+     * @return DeleteVServerGroupResponse DeleteVServerGroupResponse
      */
     public function deleteVServerGroupWithOptions($request, $runtime)
     {
@@ -2434,9 +2536,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DeleteVServerGroupRequest $request
+     * @summary Deletes a VServer group.
+     *  *
+     * @param DeleteVServerGroupRequest $request DeleteVServerGroupRequest
      *
-     * @return DeleteVServerGroupResponse
+     * @return DeleteVServerGroupResponse DeleteVServerGroupResponse
      */
     public function deleteVServerGroup($request)
     {
@@ -2446,10 +2550,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessControlListAttributeRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the configuration of an access control list (ACL).
+     *  *
+     * @param DescribeAccessControlListAttributeRequest $request DescribeAccessControlListAttributeRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccessControlListAttributeResponse
+     * @return DescribeAccessControlListAttributeResponse DescribeAccessControlListAttributeResponse
      */
     public function describeAccessControlListAttributeWithOptions($request, $runtime)
     {
@@ -2501,9 +2607,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessControlListAttributeRequest $request
+     * @summary Queries the configuration of an access control list (ACL).
+     *  *
+     * @param DescribeAccessControlListAttributeRequest $request DescribeAccessControlListAttributeRequest
      *
-     * @return DescribeAccessControlListAttributeResponse
+     * @return DescribeAccessControlListAttributeResponse DescribeAccessControlListAttributeResponse
      */
     public function describeAccessControlListAttribute($request)
     {
@@ -2513,10 +2621,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessControlListsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries access control lists (ACLs).
+     *  *
+     * @param DescribeAccessControlListsRequest $request DescribeAccessControlListsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccessControlListsResponse
+     * @return DescribeAccessControlListsResponse DescribeAccessControlListsResponse
      */
     public function describeAccessControlListsWithOptions($request, $runtime)
     {
@@ -2574,9 +2684,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessControlListsRequest $request
+     * @summary Queries access control lists (ACLs).
+     *  *
+     * @param DescribeAccessControlListsRequest $request DescribeAccessControlListsRequest
      *
-     * @return DescribeAccessControlListsResponse
+     * @return DescribeAccessControlListsResponse DescribeAccessControlListsResponse
      */
     public function describeAccessControlLists($request)
     {
@@ -2586,10 +2698,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessLogsDownloadAttributeRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Queries the access log of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param DescribeAccessLogsDownloadAttributeRequest $request DescribeAccessLogsDownloadAttributeRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccessLogsDownloadAttributeResponse
+     * @return DescribeAccessLogsDownloadAttributeResponse DescribeAccessLogsDownloadAttributeResponse
      */
     public function describeAccessLogsDownloadAttributeWithOptions($request, $runtime)
     {
@@ -2644,9 +2758,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccessLogsDownloadAttributeRequest $request
+     * @summary Queries the access log of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param DescribeAccessLogsDownloadAttributeRequest $request DescribeAccessLogsDownloadAttributeRequest
      *
-     * @return DescribeAccessLogsDownloadAttributeResponse
+     * @return DescribeAccessLogsDownloadAttributeResponse DescribeAccessLogsDownloadAttributeResponse
      */
     public function describeAccessLogsDownloadAttribute($request)
     {
@@ -2656,8 +2772,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * > Only the available resources and zones are returned.
-     *   *
+     * @summary Queries the available resources and resources that are available for purchase in the zones of a region.
+     *  *
+     * @description > Only the available resources and zones are returned.
+     *  *
      * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -2707,8 +2825,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * > Only the available resources and zones are returned.
-     *   *
+     * @summary Queries the available resources and resources that are available for purchase in the zones of a region.
+     *  *
+     * @description > Only the available resources and zones are returned.
+     *  *
      * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
      *
      * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
@@ -2721,8 +2841,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
-     *   *
+     * @summary Queries certificate authority (CA) certificates.
+     *  *
+     * @description > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
+     *  *
      * @param DescribeCACertificatesRequest $request DescribeCACertificatesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -2775,8 +2897,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
-     *   *
+     * @summary Queries certificate authority (CA) certificates.
+     *  *
+     * @description > To ensure data confidentiality, only the certificate fingerprint and name are returned. The certificate content is not returned.
+     *  *
      * @param DescribeCACertificatesRequest $request DescribeCACertificatesRequest
      *
      * @return DescribeCACertificatesResponse DescribeCACertificatesResponse
@@ -2789,10 +2913,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainExtensionAttributeRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the attributes of an additional certificate.
+     *  *
+     * @param DescribeDomainExtensionAttributeRequest $request DescribeDomainExtensionAttributeRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainExtensionAttributeResponse
+     * @return DescribeDomainExtensionAttributeResponse DescribeDomainExtensionAttributeResponse
      */
     public function describeDomainExtensionAttributeWithOptions($request, $runtime)
     {
@@ -2835,9 +2961,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainExtensionAttributeRequest $request
+     * @summary Queries the attributes of an additional certificate.
+     *  *
+     * @param DescribeDomainExtensionAttributeRequest $request DescribeDomainExtensionAttributeRequest
      *
-     * @return DescribeDomainExtensionAttributeResponse
+     * @return DescribeDomainExtensionAttributeResponse DescribeDomainExtensionAttributeResponse
      */
     public function describeDomainExtensionAttribute($request)
     {
@@ -2847,10 +2975,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainExtensionsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries additional certificates.
+     *  *
+     * @param DescribeDomainExtensionsRequest $request DescribeDomainExtensionsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainExtensionsResponse
+     * @return DescribeDomainExtensionsResponse DescribeDomainExtensionsResponse
      */
     public function describeDomainExtensionsWithOptions($request, $runtime)
     {
@@ -2899,9 +3029,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDomainExtensionsRequest $request
+     * @summary Queries additional certificates.
+     *  *
+     * @param DescribeDomainExtensionsRequest $request DescribeDomainExtensionsRequest
      *
-     * @return DescribeDomainExtensionsResponse
+     * @return DescribeDomainExtensionsResponse DescribeDomainExtensionsResponse
      */
     public function describeDomainExtensions($request)
     {
@@ -2911,10 +3043,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeHealthStatusRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the health status of backend servers.
+     *  *
+     * @param DescribeHealthStatusRequest $request DescribeHealthStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHealthStatusResponse
+     * @return DescribeHealthStatusResponse DescribeHealthStatusResponse
      */
     public function describeHealthStatusWithOptions($request, $runtime)
     {
@@ -2963,9 +3097,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeHealthStatusRequest $request
+     * @summary Queries the health status of backend servers.
+     *  *
+     * @param DescribeHealthStatusRequest $request DescribeHealthStatusRequest
      *
-     * @return DescribeHealthStatusResponse
+     * @return DescribeHealthStatusResponse DescribeHealthStatusResponse
      */
     public function describeHealthStatus($request)
     {
@@ -2975,10 +3111,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeHighDefinationMonitorRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries the configurations of fine-grained monitoring in a region.
+     *  *
+     * @param DescribeHighDefinationMonitorRequest $request DescribeHighDefinationMonitorRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHighDefinationMonitorResponse
+     * @return DescribeHighDefinationMonitorResponse DescribeHighDefinationMonitorResponse
      */
     public function describeHighDefinationMonitorWithOptions($request, $runtime)
     {
@@ -3021,9 +3159,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeHighDefinationMonitorRequest $request
+     * @summary Queries the configurations of fine-grained monitoring in a region.
+     *  *
+     * @param DescribeHighDefinationMonitorRequest $request DescribeHighDefinationMonitorRequest
      *
-     * @return DescribeHighDefinationMonitorResponse
+     * @return DescribeHighDefinationMonitorResponse DescribeHighDefinationMonitorResponse
      */
     public function describeHighDefinationMonitor($request)
     {
@@ -3033,10 +3173,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeListenerAccessControlAttributeRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary Queries the whitelist configurations of a listener.
+     *  *
+     * @param DescribeListenerAccessControlAttributeRequest $request DescribeListenerAccessControlAttributeRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeListenerAccessControlAttributeResponse
+     * @return DescribeListenerAccessControlAttributeResponse DescribeListenerAccessControlAttributeResponse
      */
     public function describeListenerAccessControlAttributeWithOptions($request, $runtime)
     {
@@ -3085,9 +3227,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeListenerAccessControlAttributeRequest $request
+     * @summary Queries the whitelist configurations of a listener.
+     *  *
+     * @param DescribeListenerAccessControlAttributeRequest $request DescribeListenerAccessControlAttributeRequest
      *
-     * @return DescribeListenerAccessControlAttributeResponse
+     * @return DescribeListenerAccessControlAttributeResponse DescribeListenerAccessControlAttributeResponse
      */
     public function describeListenerAccessControlAttribute($request)
     {
@@ -3097,8 +3241,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](~~35224~~) operation to query the backend servers.
-     *   *
+     * @summary Queries the detail of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @description >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](https://help.aliyun.com/document_detail/35224.html) operation to query the backend servers.
+     *  *
      * @param DescribeLoadBalancerAttributeRequest $request DescribeLoadBalancerAttributeRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -3145,8 +3291,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](~~35224~~) operation to query the backend servers.
-     *   *
+     * @summary Queries the detail of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @description >  If backend servers are deployed in a vServer group, you can call the [DescribeVServerGroupAttribute](https://help.aliyun.com/document_detail/35224.html) operation to query the backend servers.
+     *  *
      * @param DescribeLoadBalancerAttributeRequest $request DescribeLoadBalancerAttributeRequest
      *
      * @return DescribeLoadBalancerAttributeResponse DescribeLoadBalancerAttributeResponse
@@ -3159,9 +3307,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-     *   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
-     *   *
+     * @summary Queries the configurations of an HTTP listener.
+     *  *
+     * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+     * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](https://help.aliyun.com/document_detail/27592.html).
+     *  *
      * @param DescribeLoadBalancerHTTPListenerAttributeRequest $request DescribeLoadBalancerHTTPListenerAttributeRequest
      * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
@@ -3211,9 +3361,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-     *   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
-     *   *
+     * @summary Queries the configurations of an HTTP listener.
+     *  *
+     * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+     * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](https://help.aliyun.com/document_detail/27592.html).
+     *  *
      * @param DescribeLoadBalancerHTTPListenerAttributeRequest $request DescribeLoadBalancerHTTPListenerAttributeRequest
      *
      * @return DescribeLoadBalancerHTTPListenerAttributeResponse DescribeLoadBalancerHTTPListenerAttributeResponse
@@ -3226,9 +3378,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-     *   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
-     *   *
+     * @summary Queries the configurations of an HTTPS listener.
+     *  *
+     * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+     * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](https://help.aliyun.com/document_detail/27593.html).
+     *  *
      * @param DescribeLoadBalancerHTTPSListenerAttributeRequest $request DescribeLoadBalancerHTTPSListenerAttributeRequest
      * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
@@ -3278,9 +3432,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-     *   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
-     *   *
+     * @summary Queries the configurations of an HTTPS listener.
+     *  *
+     * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+     * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](https://help.aliyun.com/document_detail/27593.html).
+     *  *
      * @param DescribeLoadBalancerHTTPSListenerAttributeRequest $request DescribeLoadBalancerHTTPSListenerAttributeRequest
      *
      * @return DescribeLoadBalancerHTTPSListenerAttributeResponse DescribeLoadBalancerHTTPSListenerAttributeResponse
@@ -3293,13 +3449,15 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
-     *   * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
-     *   *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
-     *   *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
-     *   *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
-     *   *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~).
-     *   *
+     * @summary Queries the listeners of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @description *   A CLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/2401685.html).
+     * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
+     *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
+     *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
+     *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
+     *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~)
+     *  *
      * @param DescribeLoadBalancerListenersRequest $request DescribeLoadBalancerListenersRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -3364,13 +3522,15 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
-     *   * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
-     *   *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
-     *   *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
-     *   *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
-     *   *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~).
-     *   *
+     * @summary Queries the listeners of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @description *   A CLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/2401685.html).
+     * *   One or more listeners are added to the CLB instance. For more information, see the following topics:
+     *     *   [CreateLoadBalancerUDPListener](~~CreateLoadBalancerUDPListener~~)
+     *     *   [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~)
+     *     *   [CreateLoadBalancerHTTPListener](~~CreateLoadBalancerHTTPListener~~)
+     *     *   [CreateLoadBalancerHTTPSListener](~~CreateLoadBalancerHTTPSListener~~)
+     *  *
      * @param DescribeLoadBalancerListenersRequest $request DescribeLoadBalancerListenersRequest
      *
      * @return DescribeLoadBalancerListenersResponse DescribeLoadBalancerListenersResponse
@@ -3383,10 +3543,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerTCPListenerAttributeRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @summary Queries the configurations of a TCP listener of Classic Load Balancer (CLB).
+     *  *
+     * @param DescribeLoadBalancerTCPListenerAttributeRequest $request DescribeLoadBalancerTCPListenerAttributeRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLoadBalancerTCPListenerAttributeResponse
+     * @return DescribeLoadBalancerTCPListenerAttributeResponse DescribeLoadBalancerTCPListenerAttributeResponse
      */
     public function describeLoadBalancerTCPListenerAttributeWithOptions($request, $runtime)
     {
@@ -3432,9 +3594,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerTCPListenerAttributeRequest $request
+     * @summary Queries the configurations of a TCP listener of Classic Load Balancer (CLB).
+     *  *
+     * @param DescribeLoadBalancerTCPListenerAttributeRequest $request DescribeLoadBalancerTCPListenerAttributeRequest
      *
-     * @return DescribeLoadBalancerTCPListenerAttributeResponse
+     * @return DescribeLoadBalancerTCPListenerAttributeResponse DescribeLoadBalancerTCPListenerAttributeResponse
      */
     public function describeLoadBalancerTCPListenerAttribute($request)
     {
@@ -3444,10 +3608,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerUDPListenerAttributeRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @summary Queries the configurations of a UDP listener.
+     *  *
+     * @param DescribeLoadBalancerUDPListenerAttributeRequest $request DescribeLoadBalancerUDPListenerAttributeRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLoadBalancerUDPListenerAttributeResponse
+     * @return DescribeLoadBalancerUDPListenerAttributeResponse DescribeLoadBalancerUDPListenerAttributeResponse
      */
     public function describeLoadBalancerUDPListenerAttributeWithOptions($request, $runtime)
     {
@@ -3493,9 +3659,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancerUDPListenerAttributeRequest $request
+     * @summary Queries the configurations of a UDP listener.
+     *  *
+     * @param DescribeLoadBalancerUDPListenerAttributeRequest $request DescribeLoadBalancerUDPListenerAttributeRequest
      *
-     * @return DescribeLoadBalancerUDPListenerAttributeResponse
+     * @return DescribeLoadBalancerUDPListenerAttributeResponse DescribeLoadBalancerUDPListenerAttributeResponse
      */
     public function describeLoadBalancerUDPListenerAttribute($request)
     {
@@ -3505,10 +3673,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancersRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries Classic Load Balancer (CLB) instances.
+     *  *
+     * @param DescribeLoadBalancersRequest $request DescribeLoadBalancersRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLoadBalancersResponse
+     * @return DescribeLoadBalancersResponse DescribeLoadBalancersResponse
      */
     public function describeLoadBalancersWithOptions($request, $runtime)
     {
@@ -3608,9 +3778,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeLoadBalancersRequest $request
+     * @summary Queries Classic Load Balancer (CLB) instances.
+     *  *
+     * @param DescribeLoadBalancersRequest $request DescribeLoadBalancersRequest
      *
-     * @return DescribeLoadBalancersResponse
+     * @return DescribeLoadBalancersResponse DescribeLoadBalancersResponse
      */
     public function describeLoadBalancers($request)
     {
@@ -3620,10 +3792,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeMasterSlaveServerGroupAttributeRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary Queries the detailed information about a primary/secondary server group.
+     *  *
+     * @param DescribeMasterSlaveServerGroupAttributeRequest $request DescribeMasterSlaveServerGroupAttributeRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMasterSlaveServerGroupAttributeResponse
+     * @return DescribeMasterSlaveServerGroupAttributeResponse DescribeMasterSlaveServerGroupAttributeResponse
      */
     public function describeMasterSlaveServerGroupAttributeWithOptions($request, $runtime)
     {
@@ -3666,9 +3840,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeMasterSlaveServerGroupAttributeRequest $request
+     * @summary Queries the detailed information about a primary/secondary server group.
+     *  *
+     * @param DescribeMasterSlaveServerGroupAttributeRequest $request DescribeMasterSlaveServerGroupAttributeRequest
      *
-     * @return DescribeMasterSlaveServerGroupAttributeResponse
+     * @return DescribeMasterSlaveServerGroupAttributeResponse DescribeMasterSlaveServerGroupAttributeResponse
      */
     public function describeMasterSlaveServerGroupAttribute($request)
     {
@@ -3678,10 +3854,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeMasterSlaveServerGroupsRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries primary/secondary server groups.
+     *  *
+     * @param DescribeMasterSlaveServerGroupsRequest $request DescribeMasterSlaveServerGroupsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMasterSlaveServerGroupsResponse
+     * @return DescribeMasterSlaveServerGroupsResponse DescribeMasterSlaveServerGroupsResponse
      */
     public function describeMasterSlaveServerGroupsWithOptions($request, $runtime)
     {
@@ -3733,9 +3911,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeMasterSlaveServerGroupsRequest $request
+     * @summary Queries primary/secondary server groups.
+     *  *
+     * @param DescribeMasterSlaveServerGroupsRequest $request DescribeMasterSlaveServerGroupsRequest
      *
-     * @return DescribeMasterSlaveServerGroupsResponse
+     * @return DescribeMasterSlaveServerGroupsResponse DescribeMasterSlaveServerGroupsResponse
      */
     public function describeMasterSlaveServerGroups($request)
     {
@@ -3745,10 +3925,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Queries regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -3791,9 +3973,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -3803,10 +3987,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleAttributeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the configurations of a specified forwarding rule.
+     *  *
+     * @param DescribeRuleAttributeRequest $request DescribeRuleAttributeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRuleAttributeResponse
+     * @return DescribeRuleAttributeResponse DescribeRuleAttributeResponse
      */
     public function describeRuleAttributeWithOptions($request, $runtime)
     {
@@ -3849,9 +4035,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRuleAttributeRequest $request
+     * @summary Queries the configurations of a specified forwarding rule.
+     *  *
+     * @param DescribeRuleAttributeRequest $request DescribeRuleAttributeRequest
      *
-     * @return DescribeRuleAttributeResponse
+     * @return DescribeRuleAttributeResponse DescribeRuleAttributeResponse
      */
     public function describeRuleAttribute($request)
     {
@@ -3861,10 +4049,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRulesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the forwarding rules that are configured for a specified listener.
+     *  *
+     * @param DescribeRulesRequest $request DescribeRulesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRulesResponse
+     * @return DescribeRulesResponse DescribeRulesResponse
      */
     public function describeRulesWithOptions($request, $runtime)
     {
@@ -3913,9 +4103,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRulesRequest $request
+     * @summary Queries the forwarding rules that are configured for a specified listener.
+     *  *
+     * @param DescribeRulesRequest $request DescribeRulesRequest
      *
-     * @return DescribeRulesResponse
+     * @return DescribeRulesResponse DescribeRulesResponse
      */
     public function describeRules($request)
     {
@@ -3925,8 +4117,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
-     *   *
+     * @summary Queries server certificates of Classic Load Balancer (CLB) instances in a specified region.
+     *  *
+     * @description >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
+     *  *
      * @param DescribeServerCertificatesRequest $request DescribeServerCertificatesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -3979,8 +4173,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
-     *   *
+     * @summary Queries server certificates of Classic Load Balancer (CLB) instances in a specified region.
+     *  *
+     * @description >  For security reasons, only fingerprints and names of the server certificates are returned. The content of the server certificates and private keys is not returned.
+     *  *
      * @param DescribeServerCertificatesRequest $request DescribeServerCertificatesRequest
      *
      * @return DescribeServerCertificatesResponse DescribeServerCertificatesResponse
@@ -3993,13 +4189,15 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
-     *   * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
-     *   * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
-     *   * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
-     *   * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
-     *   *
+     * @summary Queries tags.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
+     * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
+     * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
+     * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
+     * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
+     *  *
      * @param DescribeTagsRequest $request DescribeTagsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -4058,13 +4256,15 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * When you call this operation, take note of the following items:
-     *   * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
-     *   * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
-     *   * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
-     *   * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
-     *   * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
-     *   *
+     * @summary Queries tags.
+     *  *
+     * @description When you call this operation, take note of the following items:
+     * *   You can query tags by instance ID, tag key, and tag value. If the operation is successful, the system returns all tags that match the specified conditions.
+     * *   The logical relationship among the specified conditions is AND. Only tags that match all the specified conditions are returned.
+     * *   If the Tagkey parameter is set and the Tagvalue parameter is not set, all tags that contain the specified tag key are returned.
+     * *   If you set the Tagvalue parameter in a request, you must also set the Tagkey parameter in the request.
+     * *   If you set both the Tagkey and Tagvalue parameters, only tags that contain the specified keys and values are returned.
+     *  *
      * @param DescribeTagsRequest $request DescribeTagsRequest
      *
      * @return DescribeTagsResponse DescribeTagsResponse
@@ -4077,10 +4277,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeVServerGroupAttributeRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries detailed information about a vServer group.
+     *  *
+     * @param DescribeVServerGroupAttributeRequest $request DescribeVServerGroupAttributeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVServerGroupAttributeResponse
+     * @return DescribeVServerGroupAttributeResponse DescribeVServerGroupAttributeResponse
      */
     public function describeVServerGroupAttributeWithOptions($request, $runtime)
     {
@@ -4123,9 +4325,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeVServerGroupAttributeRequest $request
+     * @summary Queries detailed information about a vServer group.
+     *  *
+     * @param DescribeVServerGroupAttributeRequest $request DescribeVServerGroupAttributeRequest
      *
-     * @return DescribeVServerGroupAttributeResponse
+     * @return DescribeVServerGroupAttributeResponse DescribeVServerGroupAttributeResponse
      */
     public function describeVServerGroupAttribute($request)
     {
@@ -4135,10 +4339,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeVServerGroupsRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries server groups.
+     *  *
+     * @param DescribeVServerGroupsRequest $request DescribeVServerGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVServerGroupsResponse
+     * @return DescribeVServerGroupsResponse DescribeVServerGroupsResponse
      */
     public function describeVServerGroupsWithOptions($request, $runtime)
     {
@@ -4193,9 +4399,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeVServerGroupsRequest $request
+     * @summary Queries server groups.
+     *  *
+     * @param DescribeVServerGroupsRequest $request DescribeVServerGroupsRequest
      *
-     * @return DescribeVServerGroupsResponse
+     * @return DescribeVServerGroupsResponse DescribeVServerGroupsResponse
      */
     public function describeVServerGroups($request)
     {
@@ -4205,10 +4413,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the zones in a region.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
@@ -4248,9 +4458,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
+     * @summary Queries the zones in a region.
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -4260,10 +4472,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param EnableHighDefinationMonitorRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Enables fine-grained monitoring for the current region.
+     *  *
+     * @param EnableHighDefinationMonitorRequest $request EnableHighDefinationMonitorRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableHighDefinationMonitorResponse
+     * @return EnableHighDefinationMonitorResponse EnableHighDefinationMonitorResponse
      */
     public function enableHighDefinationMonitorWithOptions($request, $runtime)
     {
@@ -4312,9 +4526,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param EnableHighDefinationMonitorRequest $request
+     * @summary Enables fine-grained monitoring for the current region.
+     *  *
+     * @param EnableHighDefinationMonitorRequest $request EnableHighDefinationMonitorRequest
      *
-     * @return EnableHighDefinationMonitorResponse
+     * @return EnableHighDefinationMonitorResponse EnableHighDefinationMonitorResponse
      */
     public function enableHighDefinationMonitor($request)
     {
@@ -4324,10 +4540,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ListTLSCipherPoliciesRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries Transport Layer Security (TLS) policies.
+     *  *
+     * @param ListTLSCipherPoliciesRequest $request ListTLSCipherPoliciesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTLSCipherPoliciesResponse
+     * @return ListTLSCipherPoliciesResponse ListTLSCipherPoliciesResponse
      */
     public function listTLSCipherPoliciesWithOptions($request, $runtime)
     {
@@ -4382,9 +4600,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ListTLSCipherPoliciesRequest $request
+     * @summary Queries Transport Layer Security (TLS) policies.
+     *  *
+     * @param ListTLSCipherPoliciesRequest $request ListTLSCipherPoliciesRequest
      *
-     * @return ListTLSCipherPoliciesResponse
+     * @return ListTLSCipherPoliciesResponse ListTLSCipherPoliciesResponse
      */
     public function listTLSCipherPolicies($request)
     {
@@ -4394,11 +4614,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
-     *   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
-     *   * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *   *
+     * @summary Queries tags that are added to one or more instances.
+     *  *
+     * @description *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
+     * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -4454,11 +4676,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
-     *   * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
-     *   * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-     *   * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
-     *   *
+     * @summary Queries tags that are added to one or more instances.
+     *  *
+     * @description *   Set **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object to be queried.
+     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you set only **Tag.N.Key**, all tag values that are associated with the specified tag key are returned. If you set only **Tag.N.Value**, an error message is returned.
+     * *   If you set **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
+     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
      * @return ListTagResourcesResponse ListTagResourcesResponse
@@ -4471,10 +4695,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyHighDefinationMonitorRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies the configuration of fine-grained monitoring in a specified region.
+     *  *
+     * @param ModifyHighDefinationMonitorRequest $request ModifyHighDefinationMonitorRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHighDefinationMonitorResponse
+     * @return ModifyHighDefinationMonitorResponse ModifyHighDefinationMonitorResponse
      */
     public function modifyHighDefinationMonitorWithOptions($request, $runtime)
     {
@@ -4520,9 +4746,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyHighDefinationMonitorRequest $request
+     * @summary Modifies the configuration of fine-grained monitoring in a specified region.
+     *  *
+     * @param ModifyHighDefinationMonitorRequest $request ModifyHighDefinationMonitorRequest
      *
-     * @return ModifyHighDefinationMonitorResponse
+     * @return ModifyHighDefinationMonitorResponse ModifyHighDefinationMonitorResponse
      */
     public function modifyHighDefinationMonitor($request)
     {
@@ -4532,9 +4760,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
-     *   * >*   This operation can change the metering method of only one instance at a time.
-     *   *
+     * @summary Changes the metering method of a pay-as-you-go Classic Load Balancer (CLB) instance.
+     *  *
+     * @description > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
+     * >*   This operation can change the metering method of only one instance at a time.
+     *  *
      * @param ModifyLoadBalancerInstanceChargeTypeRequest $request ModifyLoadBalancerInstanceChargeTypeRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -4593,9 +4823,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
-     *   * >*   This operation can change the metering method of only one instance at a time.
-     *   *
+     * @summary Changes the metering method of a pay-as-you-go Classic Load Balancer (CLB) instance.
+     *  *
+     * @description > *   For pay-as-you-go CLB instances, you can only change the metering method from pay-by-specification to pay-by-LCU. You cannot change the metering method from pay-by-LCU to pay-by-specification.
+     * >*   This operation can change the metering method of only one instance at a time.
+     *  *
      * @param ModifyLoadBalancerInstanceChargeTypeRequest $request ModifyLoadBalancerInstanceChargeTypeRequest
      *
      * @return ModifyLoadBalancerInstanceChargeTypeResponse ModifyLoadBalancerInstanceChargeTypeResponse
@@ -4608,10 +4840,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoadBalancerInstanceSpecRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Modifies the specification of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param ModifyLoadBalancerInstanceSpecRequest $request ModifyLoadBalancerInstanceSpecRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyLoadBalancerInstanceSpecResponse
+     * @return ModifyLoadBalancerInstanceSpecResponse ModifyLoadBalancerInstanceSpecResponse
      */
     public function modifyLoadBalancerInstanceSpecWithOptions($request, $runtime)
     {
@@ -4660,9 +4894,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoadBalancerInstanceSpecRequest $request
+     * @summary Modifies the specification of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param ModifyLoadBalancerInstanceSpecRequest $request ModifyLoadBalancerInstanceSpecRequest
      *
-     * @return ModifyLoadBalancerInstanceSpecResponse
+     * @return ModifyLoadBalancerInstanceSpecResponse ModifyLoadBalancerInstanceSpecResponse
      */
     public function modifyLoadBalancerInstanceSpec($request)
     {
@@ -4672,10 +4908,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
-     *   * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
-     *   *
+     * @summary Modifies the metering method of an Internet-facing Classic Load Balancer (CLB) instance.
+     *  *
+     * @description ## Description
+     * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
+     * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
+     *  *
      * @param ModifyLoadBalancerInternetSpecRequest $request ModifyLoadBalancerInternetSpecRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -4731,10 +4969,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
-     *   * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
-     *   *
+     * @summary Modifies the metering method of an Internet-facing Classic Load Balancer (CLB) instance.
+     *  *
+     * @description ## Description
+     * *   If you modify only the maximum bandwidth of a pay-by-bandwidth CLB instance, the new bandwidth immediately takes effect.
+     * *   If you modify the metering method (for example, switch from pay-by-bandwidth to pay-by-data-transfer), the new metering method and the other changes specified in the operation take effect at 00:00:00 the next day.
+     *  *
      * @param ModifyLoadBalancerInternetSpecRequest $request ModifyLoadBalancerInternetSpecRequest
      *
      * @return ModifyLoadBalancerInternetSpecResponse ModifyLoadBalancerInternetSpecResponse
@@ -4747,10 +4987,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoadBalancerPayTypeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Changes the billing method of a Classic Load Balancer (CLB) instance from pay-as-you-go to subscription.
+     *  *
+     * @param ModifyLoadBalancerPayTypeRequest $request ModifyLoadBalancerPayTypeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyLoadBalancerPayTypeResponse
+     * @return ModifyLoadBalancerPayTypeResponse ModifyLoadBalancerPayTypeResponse
      */
     public function modifyLoadBalancerPayTypeWithOptions($request, $runtime)
     {
@@ -4805,9 +5047,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param ModifyLoadBalancerPayTypeRequest $request
+     * @summary Changes the billing method of a Classic Load Balancer (CLB) instance from pay-as-you-go to subscription.
+     *  *
+     * @param ModifyLoadBalancerPayTypeRequest $request ModifyLoadBalancerPayTypeRequest
      *
-     * @return ModifyLoadBalancerPayTypeResponse
+     * @return ModifyLoadBalancerPayTypeResponse ModifyLoadBalancerPayTypeResponse
      */
     public function modifyLoadBalancerPayType($request)
     {
@@ -4817,8 +5061,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](~~35217~~) operation.
-     *   *
+     * @summary Replaces backend servers in a specified vServer group.
+     *  *
+     * @description You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](https://help.aliyun.com/document_detail/35217.html) operation.
+     *  *
      * @param ModifyVServerGroupBackendServersRequest $request ModifyVServerGroupBackendServersRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -4871,8 +5117,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](~~35217~~) operation.
-     *   *
+     * @summary Replaces backend servers in a specified vServer group.
+     *  *
+     * @description You can call this operation to replace the backend servers in a specified vServer group. To modify the configurations of the backend servers, such as their weights, you can call the [SetVServerGroupAttribute](https://help.aliyun.com/document_detail/35217.html) operation.
+     *  *
      * @param ModifyVServerGroupBackendServersRequest $request ModifyVServerGroupBackendServersRequest
      *
      * @return ModifyVServerGroupBackendServersResponse ModifyVServerGroupBackendServersResponse
@@ -4885,10 +5133,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Moves a resource to another resource group.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
@@ -4943,9 +5193,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param MoveResourceGroupRequest $request
+     * @summary Moves a resource to another resource group.
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      *
-     * @return MoveResourceGroupResponse
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -4955,10 +5207,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param RemoveAccessControlListEntryRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Removes IP entries from the network access control list (ACL) of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param RemoveAccessControlListEntryRequest $request RemoveAccessControlListEntryRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveAccessControlListEntryResponse
+     * @return RemoveAccessControlListEntryResponse RemoveAccessControlListEntryResponse
      */
     public function removeAccessControlListEntryWithOptions($request, $runtime)
     {
@@ -5004,9 +5258,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param RemoveAccessControlListEntryRequest $request
+     * @summary Removes IP entries from the network access control list (ACL) of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param RemoveAccessControlListEntryRequest $request RemoveAccessControlListEntryRequest
      *
-     * @return RemoveAccessControlListEntryResponse
+     * @return RemoveAccessControlListEntryResponse RemoveAccessControlListEntryResponse
      */
     public function removeAccessControlListEntry($request)
     {
@@ -5016,8 +5272,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
-     *   *
+     * @summary Removes backend servers.
+     *  *
+     * @description >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
+     *  *
      * @param RemoveBackendServersRequest $request RemoveBackendServersRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5067,8 +5325,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
-     *   *
+     * @summary Removes backend servers.
+     *  *
+     * @description >  If the backend servers that you want to remove are not in the server list of the Classic Load Balancer (CLB) instance, the request fails. However, the system does not report an error.
+     *  *
      * @param RemoveBackendServersRequest $request RemoveBackendServersRequest
      *
      * @return RemoveBackendServersResponse RemoveBackendServersResponse
@@ -5081,10 +5341,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param RemoveListenerWhiteListItemRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Removes IP addresses or CIDR blocks from the whitelist of a listener.
+     *  *
+     * @param RemoveListenerWhiteListItemRequest $request RemoveListenerWhiteListItemRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveListenerWhiteListItemResponse
+     * @return RemoveListenerWhiteListItemResponse RemoveListenerWhiteListItemResponse
      */
     public function removeListenerWhiteListItemWithOptions($request, $runtime)
     {
@@ -5136,9 +5398,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param RemoveListenerWhiteListItemRequest $request
+     * @summary Removes IP addresses or CIDR blocks from the whitelist of a listener.
+     *  *
+     * @param RemoveListenerWhiteListItemRequest $request RemoveListenerWhiteListItemRequest
      *
-     * @return RemoveListenerWhiteListItemResponse
+     * @return RemoveListenerWhiteListItemResponse RemoveListenerWhiteListItemResponse
      */
     public function removeListenerWhiteListItem($request)
     {
@@ -5148,10 +5412,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param RemoveTagsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @param RemoveTagsRequest $request RemoveTagsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveTagsResponse
+     * @return RemoveTagsResponse RemoveTagsResponse
      */
     public function removeTagsWithOptions($request, $runtime)
     {
@@ -5197,9 +5461,9 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param RemoveTagsRequest $request
+     * @param RemoveTagsRequest $request RemoveTagsRequest
      *
-     * @return RemoveTagsResponse
+     * @return RemoveTagsResponse RemoveTagsResponse
      */
     public function removeTags($request)
     {
@@ -5209,8 +5473,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
-     *   *
+     * @summary Removes one or more backend servers from a specified vServer group.
+     *  *
+     * @description >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
+     *  *
      * @param RemoveVServerGroupBackendServersRequest $request RemoveVServerGroupBackendServersRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -5260,8 +5526,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
-     *   *
+     * @summary Removes one or more backend servers from a specified vServer group.
+     *  *
+     * @description >  If one or more backend servers specified by the **BackendServers** parameter do not exist in the specified vServer group, these backend servers are ignored and no error message is returned.
+     *  *
      * @param RemoveVServerGroupBackendServersRequest $request RemoveVServerGroupBackendServersRequest
      *
      * @return RemoveVServerGroupBackendServersResponse RemoveVServerGroupBackendServersResponse
@@ -5274,10 +5542,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetAccessControlListAttributeRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Modifies the name of a network access control list (ACL).
+     *  *
+     * @param SetAccessControlListAttributeRequest $request SetAccessControlListAttributeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetAccessControlListAttributeResponse
+     * @return SetAccessControlListAttributeResponse SetAccessControlListAttributeResponse
      */
     public function setAccessControlListAttributeWithOptions($request, $runtime)
     {
@@ -5323,9 +5593,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetAccessControlListAttributeRequest $request
+     * @summary Modifies the name of a network access control list (ACL).
+     *  *
+     * @param SetAccessControlListAttributeRequest $request SetAccessControlListAttributeRequest
      *
-     * @return SetAccessControlListAttributeResponse
+     * @return SetAccessControlListAttributeResponse SetAccessControlListAttributeResponse
      */
     public function setAccessControlListAttribute($request)
     {
@@ -5335,10 +5607,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetAccessLogsDownloadAttributeRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Adds an access log forwarding rule for a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param SetAccessLogsDownloadAttributeRequest $request SetAccessLogsDownloadAttributeRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetAccessLogsDownloadAttributeResponse
+     * @return SetAccessLogsDownloadAttributeResponse SetAccessLogsDownloadAttributeResponse
      */
     public function setAccessLogsDownloadAttributeWithOptions($request, $runtime)
     {
@@ -5387,9 +5661,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetAccessLogsDownloadAttributeRequest $request
+     * @summary Adds an access log forwarding rule for a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param SetAccessLogsDownloadAttributeRequest $request SetAccessLogsDownloadAttributeRequest
      *
-     * @return SetAccessLogsDownloadAttributeResponse
+     * @return SetAccessLogsDownloadAttributeResponse SetAccessLogsDownloadAttributeResponse
      */
     public function setAccessLogsDownloadAttribute($request)
     {
@@ -5399,10 +5675,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetBackendServersRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Sets the weights of backend servers.
+     *  *
+     * @param SetBackendServersRequest $request SetBackendServersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetBackendServersResponse
+     * @return SetBackendServersResponse SetBackendServersResponse
      */
     public function setBackendServersWithOptions($request, $runtime)
     {
@@ -5448,9 +5726,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetBackendServersRequest $request
+     * @summary Sets the weights of backend servers.
+     *  *
+     * @param SetBackendServersRequest $request SetBackendServersRequest
      *
-     * @return SetBackendServersResponse
+     * @return SetBackendServersResponse SetBackendServersResponse
      */
     public function setBackendServers($request)
     {
@@ -5460,10 +5740,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetCACertificateNameRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Sets the name of a CA Certificate.
+     *  *
+     * @param SetCACertificateNameRequest $request SetCACertificateNameRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetCACertificateNameResponse
+     * @return SetCACertificateNameResponse SetCACertificateNameResponse
      */
     public function setCACertificateNameWithOptions($request, $runtime)
     {
@@ -5509,9 +5791,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetCACertificateNameRequest $request
+     * @summary Sets the name of a CA Certificate.
+     *  *
+     * @param SetCACertificateNameRequest $request SetCACertificateNameRequest
      *
-     * @return SetCACertificateNameResponse
+     * @return SetCACertificateNameResponse SetCACertificateNameResponse
      */
     public function setCACertificateName($request)
     {
@@ -5521,8 +5805,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
-     *   *
+     * @summary Replaces an additional certificate.
+     *  *
+     * @description >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
+     *  *
      * @param SetDomainExtensionAttributeRequest $request SetDomainExtensionAttributeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -5572,8 +5858,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
-     *   *
+     * @summary Replaces an additional certificate.
+     *  *
+     * @description >  You cannot replace an additional certificate for a listener that is added to a shared-resource Server Load Balancer (SLB) instance.
+     *  *
      * @param SetDomainExtensionAttributeRequest $request SetDomainExtensionAttributeRequest
      *
      * @return SetDomainExtensionAttributeResponse SetDomainExtensionAttributeResponse
@@ -5586,10 +5874,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetListenerAccessControlStatusRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Enables or disables the whitelist of a specified listener.
+     *  *
+     * @param SetListenerAccessControlStatusRequest $request SetListenerAccessControlStatusRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetListenerAccessControlStatusResponse
+     * @return SetListenerAccessControlStatusResponse SetListenerAccessControlStatusResponse
      */
     public function setListenerAccessControlStatusWithOptions($request, $runtime)
     {
@@ -5641,9 +5931,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetListenerAccessControlStatusRequest $request
+     * @summary Enables or disables the whitelist of a specified listener.
+     *  *
+     * @param SetListenerAccessControlStatusRequest $request SetListenerAccessControlStatusRequest
      *
-     * @return SetListenerAccessControlStatusResponse
+     * @return SetListenerAccessControlStatusResponse SetListenerAccessControlStatusResponse
      */
     public function setListenerAccessControlStatus($request)
     {
@@ -5653,10 +5945,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerDeleteProtectionRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Enables or disables deletion protection for an SLB instance.
+     *  *
+     * @param SetLoadBalancerDeleteProtectionRequest $request SetLoadBalancerDeleteProtectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetLoadBalancerDeleteProtectionResponse
+     * @return SetLoadBalancerDeleteProtectionResponse SetLoadBalancerDeleteProtectionResponse
      */
     public function setLoadBalancerDeleteProtectionWithOptions($request, $runtime)
     {
@@ -5702,9 +5996,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerDeleteProtectionRequest $request
+     * @summary Enables or disables deletion protection for an SLB instance.
+     *  *
+     * @param SetLoadBalancerDeleteProtectionRequest $request SetLoadBalancerDeleteProtectionRequest
      *
-     * @return SetLoadBalancerDeleteProtectionResponse
+     * @return SetLoadBalancerDeleteProtectionResponse SetLoadBalancerDeleteProtectionResponse
      */
     public function setLoadBalancerDeleteProtection($request)
     {
@@ -5714,10 +6010,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * ### Prerequisites
-     *   * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-     *   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
-     *   *
+     * @summary Modifies the configurations of an HTTP listener.
+     *  *
+     * @description ### Prerequisites
+     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+     * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](https://help.aliyun.com/document_detail/27592.html).
+     *  *
      * @param SetLoadBalancerHTTPListenerAttributeRequest $request SetLoadBalancerHTTPListenerAttributeRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
@@ -5860,10 +6158,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * ### Prerequisites
-     *   * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-     *   * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](~~27592~~).
-     *   *
+     * @summary Modifies the configurations of an HTTP listener.
+     *  *
+     * @description ### Prerequisites
+     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+     * *   An HTTP listener is created. For more information about how to create an HTTP listener, see [CreateLoadBalancerHTTPListener](https://help.aliyun.com/document_detail/27592.html).
+     *  *
      * @param SetLoadBalancerHTTPListenerAttributeRequest $request SetLoadBalancerHTTPListenerAttributeRequest
      *
      * @return SetLoadBalancerHTTPListenerAttributeResponse SetLoadBalancerHTTPListenerAttributeResponse
@@ -5876,9 +6176,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-     *   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
-     *   *
+     * @summary Modifies the configurations of an HTTPS listener.
+     *  *
+     * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+     * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](https://help.aliyun.com/document_detail/27593.html).
+     *  *
      * @param SetLoadBalancerHTTPSListenerAttributeRequest $request SetLoadBalancerHTTPSListenerAttributeRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
@@ -6033,9 +6335,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-     *   * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](~~27593~~).
-     *   *
+     * @summary Modifies the configurations of an HTTPS listener.
+     *  *
+     * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+     * *   An HTTPS listener is created. For more information about how to create an HTTPS listener, see [CreateLoadBalancerHTTPSListener](https://help.aliyun.com/document_detail/27593.html).
+     *  *
      * @param SetLoadBalancerHTTPSListenerAttributeRequest $request SetLoadBalancerHTTPSListenerAttributeRequest
      *
      * @return SetLoadBalancerHTTPSListenerAttributeResponse SetLoadBalancerHTTPSListenerAttributeResponse
@@ -6048,10 +6352,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerModificationProtectionRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Modifies the configuration of the configuration read-only mode for a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param SetLoadBalancerModificationProtectionRequest $request SetLoadBalancerModificationProtectionRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetLoadBalancerModificationProtectionResponse
+     * @return SetLoadBalancerModificationProtectionResponse SetLoadBalancerModificationProtectionResponse
      */
     public function setLoadBalancerModificationProtectionWithOptions($request, $runtime)
     {
@@ -6100,9 +6406,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerModificationProtectionRequest $request
+     * @summary Modifies the configuration of the configuration read-only mode for a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param SetLoadBalancerModificationProtectionRequest $request SetLoadBalancerModificationProtectionRequest
      *
-     * @return SetLoadBalancerModificationProtectionResponse
+     * @return SetLoadBalancerModificationProtectionResponse SetLoadBalancerModificationProtectionResponse
      */
     public function setLoadBalancerModificationProtection($request)
     {
@@ -6112,10 +6420,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerNameRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the name of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param SetLoadBalancerNameRequest $request SetLoadBalancerNameRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetLoadBalancerNameResponse
+     * @return SetLoadBalancerNameResponse SetLoadBalancerNameResponse
      */
     public function setLoadBalancerNameWithOptions($request, $runtime)
     {
@@ -6161,9 +6471,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerNameRequest $request
+     * @summary Modifies the name of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param SetLoadBalancerNameRequest $request SetLoadBalancerNameRequest
      *
-     * @return SetLoadBalancerNameResponse
+     * @return SetLoadBalancerNameResponse SetLoadBalancerNameResponse
      */
     public function setLoadBalancerName($request)
     {
@@ -6173,10 +6485,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies the state of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param SetLoadBalancerStatusRequest $request SetLoadBalancerStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetLoadBalancerStatusResponse
+     * @return SetLoadBalancerStatusResponse SetLoadBalancerStatusResponse
      */
     public function setLoadBalancerStatusWithOptions($request, $runtime)
     {
@@ -6222,9 +6536,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetLoadBalancerStatusRequest $request
+     * @summary Modifies the state of a Classic Load Balancer (CLB) instance.
+     *  *
+     * @param SetLoadBalancerStatusRequest $request SetLoadBalancerStatusRequest
      *
-     * @return SetLoadBalancerStatusResponse
+     * @return SetLoadBalancerStatusResponse SetLoadBalancerStatusResponse
      */
     public function setLoadBalancerStatus($request)
     {
@@ -6234,9 +6550,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
-     *   * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
-     *   *
+     * @summary Modifies the configurations of a TCP listener of Classic Load Balancer (CLB).
+     *  *
+     * @description *   A CLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/2401685.html).
+     * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
+     *  *
      * @param SetLoadBalancerTCPListenerAttributeRequest $request SetLoadBalancerTCPListenerAttributeRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -6364,9 +6682,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A CLB instance is created. For more information, see [CreateLoadBalancer](~~2401685~~).
-     *   * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
-     *   *
+     * @summary Modifies the configurations of a TCP listener of Classic Load Balancer (CLB).
+     *  *
+     * @description *   A CLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/2401685.html).
+     * *   A TCP listener is created. For more information, see [CreateLoadBalancerTCPListener](~~CreateLoadBalancerTCPListener~~).
+     *  *
      * @param SetLoadBalancerTCPListenerAttributeRequest $request SetLoadBalancerTCPListenerAttributeRequest
      *
      * @return SetLoadBalancerTCPListenerAttributeResponse SetLoadBalancerTCPListenerAttributeResponse
@@ -6379,9 +6699,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-     *   * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](~~27595~~).
-     *   *
+     * @summary Modifies the configurations of a UDP listener.
+     *  *
+     * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+     * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](https://help.aliyun.com/document_detail/27595.html).
+     *  *
      * @param SetLoadBalancerUDPListenerAttributeRequest $request SetLoadBalancerUDPListenerAttributeRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
@@ -6488,9 +6810,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](~~27577~~).
-     *   * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](~~27595~~).
-     *   *
+     * @summary Modifies the configurations of a UDP listener.
+     *  *
+     * @description *   A Classic Load Balancer (CLB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/27577.html).
+     * *   A UDP listener is created. For more information, see [CreateLoadBalancerUDPListener](https://help.aliyun.com/document_detail/27595.html).
+     *  *
      * @param SetLoadBalancerUDPListenerAttributeRequest $request SetLoadBalancerUDPListenerAttributeRequest
      *
      * @return SetLoadBalancerUDPListenerAttributeResponse SetLoadBalancerUDPListenerAttributeResponse
@@ -6503,10 +6827,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetRuleRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Modifies a forwarding rule that is associated with a vServer group.
+     *  *
+     * @param SetRuleRequest $request SetRuleRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetRuleResponse
+     * @return SetRuleResponse SetRuleResponse
      */
     public function setRuleWithOptions($request, $runtime)
     {
@@ -6600,9 +6926,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetRuleRequest $request
+     * @summary Modifies a forwarding rule that is associated with a vServer group.
+     *  *
+     * @param SetRuleRequest $request SetRuleRequest
      *
-     * @return SetRuleResponse
+     * @return SetRuleResponse SetRuleResponse
      */
     public function setRule($request)
     {
@@ -6612,10 +6940,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetServerCertificateNameRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Sets a name for a server certificate.
+     *  *
+     * @param SetServerCertificateNameRequest $request SetServerCertificateNameRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetServerCertificateNameResponse
+     * @return SetServerCertificateNameResponse SetServerCertificateNameResponse
      */
     public function setServerCertificateNameWithOptions($request, $runtime)
     {
@@ -6661,9 +6991,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetServerCertificateNameRequest $request
+     * @summary Sets a name for a server certificate.
+     *  *
+     * @param SetServerCertificateNameRequest $request SetServerCertificateNameRequest
      *
-     * @return SetServerCertificateNameResponse
+     * @return SetServerCertificateNameResponse SetServerCertificateNameResponse
      */
     public function setServerCertificateName($request)
     {
@@ -6673,10 +7005,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetTLSCipherPolicyAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Configures a Transport Layer Security (TLS) policy.
+     *  *
+     * @param SetTLSCipherPolicyAttributeRequest $request SetTLSCipherPolicyAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetTLSCipherPolicyAttributeResponse
+     * @return SetTLSCipherPolicyAttributeResponse SetTLSCipherPolicyAttributeResponse
      */
     public function setTLSCipherPolicyAttributeWithOptions($request, $runtime)
     {
@@ -6728,9 +7062,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param SetTLSCipherPolicyAttributeRequest $request
+     * @summary Configures a Transport Layer Security (TLS) policy.
+     *  *
+     * @param SetTLSCipherPolicyAttributeRequest $request SetTLSCipherPolicyAttributeRequest
      *
-     * @return SetTLSCipherPolicyAttributeResponse
+     * @return SetTLSCipherPolicyAttributeResponse SetTLSCipherPolicyAttributeResponse
      */
     public function setTLSCipherPolicyAttribute($request)
     {
@@ -6740,10 +7076,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
-     *   * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](~~35220~~) operation.
-     *   * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](~~35218~~) operation.
-     *   *
+     * @summary Modifies the configurations of a vServer group.
+     *  *
+     * @description This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
+     * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](https://help.aliyun.com/document_detail/35220.html) operation.
+     * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](https://help.aliyun.com/document_detail/35218.html) operation.
+     *  *
      * @param SetVServerGroupAttributeRequest $request SetVServerGroupAttributeRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -6796,10 +7134,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
-     *   * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](~~35220~~) operation.
-     *   * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](~~35218~~) operation.
-     *   *
+     * @summary Modifies the configurations of a vServer group.
+     *  *
+     * @description This operation allows you to modify only the name of a vServer group and the weights of the backend servers in the vServer group.
+     * *   If you want to modify backend servers in a specified vServer group, call the [ModifyVServerGroupBackendServers](https://help.aliyun.com/document_detail/35220.html) operation.
+     * *   If you want to add backend servers to a specified vServer group, call the [AddVServerGroupBackendServers](https://help.aliyun.com/document_detail/35218.html) operation.
+     *  *
      * @param SetVServerGroupAttributeRequest $request SetVServerGroupAttributeRequest
      *
      * @return SetVServerGroupAttributeResponse SetVServerGroupAttributeResponse
@@ -6812,11 +7152,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * When you call this operation, note the following items:
-     *   * *   You can call the operation only when the listener is in the Stopped state.
-     *   * *   After the operation is called, the status of the listener changes to Starting.
-     *   * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
-     *   *
+     * @summary You can call this operation to start a listener.
+     *  *
+     * @description When you call this operation, note the following items:
+     * *   You can call the operation only when the listener is in the Stopped state.
+     * *   After the operation is called, the status of the listener changes to Starting.
+     * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
+     *  *
      * @param StartLoadBalancerListenerRequest $request StartLoadBalancerListenerRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -6869,11 +7211,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * When you call this operation, note the following items:
-     *   * *   You can call the operation only when the listener is in the Stopped state.
-     *   * *   After the operation is called, the status of the listener changes to Starting.
-     *   * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
-     *   *
+     * @summary You can call this operation to start a listener.
+     *  *
+     * @description When you call this operation, note the following items:
+     * *   You can call the operation only when the listener is in the Stopped state.
+     * *   After the operation is called, the status of the listener changes to Starting.
+     * *   You cannot call this operation when the SLB instance to which the listener is bound is in the Locked state.
+     *  *
      * @param StartLoadBalancerListenerRequest $request StartLoadBalancerListenerRequest
      *
      * @return StartLoadBalancerListenerResponse StartLoadBalancerListenerResponse
@@ -6886,11 +7230,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * Before you make this API call, note the following:
-     *   * *   After the API call is successfully made, the listener enters the stopped state.
-     *   * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
-     *   * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
-     *   *
+     * @summary Stops a listener.
+     *  *
+     * @description Before you make this API call, note the following:
+     * *   After the API call is successfully made, the listener enters the stopped state.
+     * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
+     * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
+     *  *
      * @param StopLoadBalancerListenerRequest $request StopLoadBalancerListenerRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -6943,11 +7289,13 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * Before you make this API call, note the following:
-     *   * *   After the API call is successfully made, the listener enters the stopped state.
-     *   * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
-     *   * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
-     *   *
+     * @summary Stops a listener.
+     *  *
+     * @description Before you make this API call, note the following:
+     * *   After the API call is successfully made, the listener enters the stopped state.
+     * *   If the Server Load Balancer (SLB) instance to which the listener to be stopped belongs is in the locked state, this API call cannot be made.
+     * >  If you stop the listener, your services will be disrupted. Exercise caution when you perform this action.
+     *  *
      * @param StopLoadBalancerListenerRequest $request StopLoadBalancerListenerRequest
      *
      * @return StopLoadBalancerListenerResponse StopLoadBalancerListenerResponse
@@ -6960,8 +7308,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
-     *   *
+     * @summary Creates tags and adds the tags to resources.
+     *  *
+     * @description >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -7014,8 +7364,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
-     *   *
+     * @summary Creates tags and adds the tags to resources.
+     *  *
+     * @description >  You can add at most 20 tags to each instance. Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number is reached, an error message is returned.
+     *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
      * @return TagResourcesResponse TagResourcesResponse
@@ -7028,10 +7380,12 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from specified resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -7083,9 +7437,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from specified resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -7095,8 +7451,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
-     *   *
+     * @summary Uploads a CA certificate.
+     *  *
+     * @description You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
+     *  *
      * @param UploadCACertificateRequest $request UploadCACertificateRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -7152,8 +7510,10 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
-     *   *
+     * @summary Uploads a CA certificate.
+     *  *
+     * @description You can upload only one CA certificate at a time. After a CA certificate is uploaded, the certificate ID, name, and fingerprint are returned.
+     *  *
      * @param UploadCACertificateRequest $request UploadCACertificateRequest
      *
      * @return UploadCACertificateResponse UploadCACertificateResponse
@@ -7166,9 +7526,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   You can upload only one server certificate and its private key in each call.
-     *   * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
-     *   *
+     * @summary Uploads a server certificate.
+     *  *
+     * @description *   You can upload only one server certificate and its private key in each call.
+     * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
+     *  *
      * @param UploadServerCertificateRequest $request UploadServerCertificateRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -7236,9 +7598,11 @@ class Slb extends OpenApiClient
     }
 
     /**
-     * *   You can upload only one server certificate and its private key in each call.
-     *   * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
-     *   *
+     * @summary Uploads a server certificate.
+     *  *
+     * @description *   You can upload only one server certificate and its private key in each call.
+     * *   After a server certificate and its private key are uploaded, the fingerprints of all server certificates that belong to your Alibaba Cloud account are returned.
+     *  *
      * @param UploadServerCertificateRequest $request UploadServerCertificateRequest
      *
      * @return UploadServerCertificateResponse UploadServerCertificateResponse

@@ -11,6 +11,7 @@ class SetAccessControlListAttributeRequest extends Model
     /**
      * @description The ID of the network ACL.
      *
+     * This parameter is required.
      * @example acl-bp1l0kk4gxce43kzet04s
      *
      * @var string
@@ -18,8 +19,9 @@ class SetAccessControlListAttributeRequest extends Model
     public $aclId;
 
     /**
-     * @description The new name of the network ACL. The name must be 1 to 80 characters in length, and can contain only letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (\_). The name of the network ACL must be unique within each region.
+     * @description The new name of the network ACL. The name must be 1 to 80 characters in length, and can contain only letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (_). The name of the network ACL must be unique within each region.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string
@@ -39,7 +41,7 @@ class SetAccessControlListAttributeRequest extends Model
     /**
      * @description The ID of the region where the network ACL is created.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

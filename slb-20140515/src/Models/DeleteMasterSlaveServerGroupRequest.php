@@ -11,7 +11,7 @@ class DeleteMasterSlaveServerGroupRequest extends Model
     /**
      * @description The ID of the active/standby server group to be deleted.
      *
-     * >  An active/standby server group in use cannot be deleted.
+     * This parameter is required.
      * @example rsp-cige6j5e7p
      *
      * @var string
@@ -31,6 +31,7 @@ class DeleteMasterSlaveServerGroupRequest extends Model
     /**
      * @description The ID of the region to which the associated Server Load Balancer (SLB) instance belongs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

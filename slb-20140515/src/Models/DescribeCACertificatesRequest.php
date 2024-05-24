@@ -31,7 +31,7 @@ class DescribeCACertificatesRequest extends Model
     /**
      * @description The region of the CA certificates.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

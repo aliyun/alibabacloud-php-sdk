@@ -11,7 +11,7 @@ class DescribeAccessControlListAttributeRequest extends Model
     /**
      * @description The remarks of the ACL entry.
      *
-     * It must be 2 to 100 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * It must be 2 to 100 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example test
      *
      * @var string
@@ -21,6 +21,7 @@ class DescribeAccessControlListAttributeRequest extends Model
     /**
      * @description The ID of the ACL.
      *
+     * This parameter is required.
      * @example acl-bp1l0k********kzet04s
      *
      * @var string
@@ -58,6 +59,7 @@ class DescribeAccessControlListAttributeRequest extends Model
     /**
      * @description The time when the network ACL was created. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

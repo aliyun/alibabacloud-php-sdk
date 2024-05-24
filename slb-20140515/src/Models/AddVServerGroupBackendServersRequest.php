@@ -24,7 +24,7 @@ class AddVServerGroupBackendServersRequest extends Model
      *   **ecs**: an ECS instance. This is the default value.
      *   **eni**: an ENI.
      *
-     *   **Description**: Optional. The description of the backend server. This parameter is of the STRING type. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_).
+     *   **Description**: Optional. The description of the backend server. This parameter is of the STRING type. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_).
      *
      *   **ServerIp**: The IP address of the ECS instance or ENI.
      *
@@ -34,7 +34,8 @@ class AddVServerGroupBackendServersRequest extends Model
      *   ENI:`  [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168. **. **", "Port":"80","Description":"test-112" }] `
      *   ENI with multiple IP addresses:`  [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168. **. **", "Port":"80","Description":"test-112" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "172.166. **. **", "Port":"80","Description":"test-113" }] `
      *
-     * @example [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.**.**", "Port":"80","Description":"test-112" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "172.166.**.**", "Port":"80","Description":"test-113" }]
+     * This parameter is required.
+     * @example [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.\*\*.**", "Port":"80","Description":"test-112" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "172.166.\*\*.**", "Port":"80","Description":"test-113" }]
      *
      * @var string
      */
@@ -53,6 +54,7 @@ class AddVServerGroupBackendServersRequest extends Model
     /**
      * @description The ID of the region where the Classic Load Balancer (CLB) instance is created.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -72,6 +74,7 @@ class AddVServerGroupBackendServersRequest extends Model
     /**
      * @description The ID of the server group.
      *
+     * This parameter is required.
      * @example rsp-cige6******
      *
      * @var string

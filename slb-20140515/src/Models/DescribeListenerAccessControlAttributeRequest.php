@@ -12,6 +12,8 @@ class DescribeListenerAccessControlAttributeRequest extends Model
      * @description The frontend port that is used by the CLB instance.
      *
      * Valid values: **1 to 65535**.
+     *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -31,6 +33,7 @@ class DescribeListenerAccessControlAttributeRequest extends Model
     /**
      * @description The CLB instance ID.
      *
+     * This parameter is required.
      * @example lb-8vb86hxixo8lvsja8****
      *
      * @var string
@@ -50,7 +53,7 @@ class DescribeListenerAccessControlAttributeRequest extends Model
     /**
      * @description The region where the Classic Load Balancer (CLB) instance is created.
      *
-     * You can query the region ID from the [Regions and zones](~~40654~~) list or by calling the [DescribeRegions](~~25609~~) operation.
+     * You can query the region ID from the [Regions and zones](https://help.aliyun.com/document_detail/40654.html) list or by calling the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation.
      * @example cn-hangzhou
      *
      * @var string

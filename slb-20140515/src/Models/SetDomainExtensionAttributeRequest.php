@@ -11,6 +11,7 @@ class SetDomainExtensionAttributeRequest extends Model
     /**
      * @description The ID of the domain name that is associated with the additional certificate to be replaced.
      *
+     * This parameter is required.
      * @example de-bp1rp7ta*****
      *
      * @var string
@@ -30,6 +31,7 @@ class SetDomainExtensionAttributeRequest extends Model
     /**
      * @description The ID of the region where the SLB instance is created.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

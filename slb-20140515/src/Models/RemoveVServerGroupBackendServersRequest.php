@@ -19,7 +19,7 @@ class RemoveVServerGroupBackendServersRequest extends Model
      *
      *   **Weight**: the weight of the backend server. Valid values: **0 to 100**.
      *
-     *   **Description**: the description of the backend server. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.),and underscores (\_).
+     *   **Description**: the description of the backend server. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.),and underscores (_).
      *
      *   **Type**: the type of backend server. Valid values:
      *
@@ -28,7 +28,8 @@ class RemoveVServerGroupBackendServersRequest extends Model
      *
      *   **ServerIp**: the IP address of the ECS instance or ENI.
      *
-     * @example [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.**.**", "Port":"80","Description":"test-112" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "172.166.**.**", "Port":"80","Description":"test-113" }]
+     * This parameter is required.
+     * @example [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.\*\*.**", "Port":"80","Description":"test-112" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "172.166.\*\*.**", "Port":"80","Description":"test-113" }]
      *
      * @var string
      */
@@ -47,6 +48,7 @@ class RemoveVServerGroupBackendServersRequest extends Model
     /**
      * @description The ID of the region where the Classic Load Balancer (CLB) instance is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -66,6 +68,7 @@ class RemoveVServerGroupBackendServersRequest extends Model
     /**
      * @description The ID of the vServer group.
      *
+     * This parameter is required.
      * @example rsp-cige6****
      *
      * @var string

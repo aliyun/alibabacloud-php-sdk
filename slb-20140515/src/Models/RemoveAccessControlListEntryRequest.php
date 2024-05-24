@@ -23,6 +23,7 @@ class RemoveAccessControlListEntryRequest extends Model
     /**
      * @description The ID of the network ACL.
      *
+     * This parameter is required.
      * @example acl-bp1l0kk4gxce43k******
      *
      * @var string
@@ -42,7 +43,7 @@ class RemoveAccessControlListEntryRequest extends Model
     /**
      * @description The ID of the region where the network ACL is created.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

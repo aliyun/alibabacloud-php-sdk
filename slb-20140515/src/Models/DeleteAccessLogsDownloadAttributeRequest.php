@@ -24,6 +24,7 @@ class DeleteAccessLogsDownloadAttributeRequest extends Model
      *   **LogStore**: the name of the Logstore of Log Service.
      *   **LoadBalancerId**: the ID of the CLB instance.
      *
+     * This parameter is required.
      * @example [{"logProject":"my-project", "LogStore":"my-log-store", "LoadBalancerId":"lb-uf68ps3rekbljmdb0****"}]
      *
      * @var string
@@ -43,6 +44,7 @@ class DeleteAccessLogsDownloadAttributeRequest extends Model
     /**
      * @description The region ID of the CLB instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class DeleteDomainExtensionRequest extends Model
     /**
      * @description The ID of the additional domain name that you want to delete.
      *
+     * This parameter is required.
      * @example de-bp1rp7ta191dv
      *
      * @var string
@@ -30,6 +31,7 @@ class DeleteDomainExtensionRequest extends Model
     /**
      * @description The region ID of the Server Load Balancer (SLB) instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class DeleteAccessControlListRequest extends Model
     /**
      * @description The ACL ID.
      *
+     * This parameter is required.
      * @example acl-bp1l0kk4gxce43kz******
      *
      * @var string
@@ -30,7 +31,7 @@ class DeleteAccessControlListRequest extends Model
     /**
      * @description The region ID of the ACL.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

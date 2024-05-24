@@ -56,7 +56,7 @@ class SetRuleRequest extends Model
     /**
      * @description The domain name that is used for health checks. Valid values:
      *
-     *   **$\_ip**: the private IP address of a backend server. If you do not set this parameter or set the parameter to $\_ip, the SLB instance uses the private IP address of each backend server for health checks.
+     *   **$_ip**: the private IP address of a backend server. If you do not set this parameter or set the parameter to $_ip, the SLB instance uses the private IP address of each backend server for health checks.
      *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
      *
      * >  This parameter takes effect if the **HealthCheck** parameter is set to **on**.
@@ -69,7 +69,7 @@ class SetRuleRequest extends Model
     /**
      * @description The HTTP status code for a successful health check. Multiple HTTP status codes are separated by commas (,).
      *
-     * Valid values: **http\_2xx**, **http\_3xx**, **http\_4xx**, and **http\_5xx**.
+     * Valid values: **http_2xx**, **http_3xx**, **http_4xx**, and **http_5xx**.
      *
      * >  This parameter is required and takes effect if the **HealthCheck** parameter is set to **on**.
      * @example http_2xx
@@ -145,7 +145,7 @@ class SetRuleRequest extends Model
     /**
      * @description The ID of the region where the Classic Load Balancer (CLB) instance is deployed.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -165,6 +165,7 @@ class SetRuleRequest extends Model
     /**
      * @description The ID of the forwarding rule.
      *
+     * This parameter is required.
      * @example rule-3ejhkt****
      *
      * @var string
@@ -172,7 +173,7 @@ class SetRuleRequest extends Model
     public $ruleId;
 
     /**
-     * @description The name of the forwarding rule. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_).
+     * @description The name of the forwarding rule. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_).
      *
      * >  Forwarding rule names must be unique within the same listener.
      * @example doctest

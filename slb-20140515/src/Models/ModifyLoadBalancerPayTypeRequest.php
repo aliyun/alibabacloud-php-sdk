@@ -37,6 +37,7 @@ class ModifyLoadBalancerPayTypeRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1b6c719dfa08ex*****
      *
      * @var string
@@ -80,7 +81,7 @@ class ModifyLoadBalancerPayTypeRequest extends Model
     /**
      * @description The ID of the region where the CLB instance is deployed.
      *
-     * You can query the region ID from the [Regions and zones](~~40654~~) list or by calling the [DescribeRegions](~~25609~~) operation.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

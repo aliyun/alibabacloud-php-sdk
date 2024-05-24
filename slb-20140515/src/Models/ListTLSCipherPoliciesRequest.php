@@ -30,7 +30,7 @@ class ListTLSCipherPoliciesRequest extends Model
     public $maxItems;
 
     /**
-     * @description The name of the TLS policy. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @description The name of the TLS policy. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      *
      * @example TLSPolicy-test****
      *
@@ -63,7 +63,7 @@ class ListTLSCipherPoliciesRequest extends Model
     /**
      * @description The ID of the region where the Classic Load Balancer (CLB) instance is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

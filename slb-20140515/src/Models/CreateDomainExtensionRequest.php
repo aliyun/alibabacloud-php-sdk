@@ -11,6 +11,7 @@ class CreateDomainExtensionRequest extends Model
     /**
      * @description The domain name to be created.
      *
+     * This parameter is required.
      * @example *.example1.com
      *
      * @var string
@@ -21,6 +22,8 @@ class CreateDomainExtensionRequest extends Model
      * @description The frontend port of the HTTPS listener.
      *
      * Value range:** 1 to 65535**
+     *
+     * This parameter is required.
      * @example 443
      *
      * @var int
@@ -30,6 +33,7 @@ class CreateDomainExtensionRequest extends Model
     /**
      * @description The ID of the SLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1o94dp5i6earrxxxxxx
      *
      * @var string
@@ -49,6 +53,7 @@ class CreateDomainExtensionRequest extends Model
     /**
      * @description The ID of the region to which the SLB instance belongs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

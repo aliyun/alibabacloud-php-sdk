@@ -12,6 +12,7 @@ class CreateMasterSlaveServerGroupRequest extends Model
     /**
      * @description The ID of the SLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1hv944r69al4j******
      *
      * @var string
@@ -29,7 +30,7 @@ class CreateMasterSlaveServerGroupRequest extends Model
      *
      *   **Weight**: Required. Specify the weight of the backend server. The value must be of the INTEGER type. Valid values: **0** to **100**.
      *
-     *   \*\*Description \*\*: Optional. The description of the backend server. The value must be of the STRING type. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_).
+     *   \\*\\*Description \\*\\*: Optional. The description of the backend server. The value must be of the STRING type. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_).
      *
      *   **ServerType**: the type of the backend server. The value must be of the STRING type. Valid values:
      *
@@ -52,11 +53,11 @@ class CreateMasterSlaveServerGroupRequest extends Model
      *
      *   ENIs:
      *
-     * `[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "Port":"80","ServerType":"Master","Description":"test-112" }, { "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.**.**", "Port":"80","ServerType":"Slave","Description":"test-112" }]`
+     * `[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "Port":"80","ServerType":"Master","Description":"test-112" }, { "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.\*\*.**", "Port":"80","ServerType":"Slave","Description":"test-112" }]`
      *
      *   IP addresses of ENIs:
      *
-     * `[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni","ServerIp": "192.168.**.**", "Port":"80","ServerType":"Master","Description":"test-112" }, { "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni","ServerIp": "192.168.**.**", "Port":"80","ServerType":"Slave","Description":"test-112" }]`
+     * `[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni","ServerIp": "192.168.\*\*.**", "Port":"80","ServerType":"Master","Description":"test-112" }, { "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni","ServerIp": "192.168.\*\*.**", "Port":"80","ServerType":"Slave","Description":"test-112" }]`
      * @example [{ "ServerId": "i-xxxxxxxxx", "Weight": "100", "Type": "ecs",  "Port":"82","ServerType":"Master","Description":"test-112" },  { "ServerId": "i-xxxxxxxxx", "Weight": "100", "Type": "ecs",  "Port":"84","ServerType":"Slave","Description":"test-112" }]
      *
      * @var string
@@ -85,6 +86,7 @@ class CreateMasterSlaveServerGroupRequest extends Model
     /**
      * @description The ID of the region where the Server Load Balancer (SLB) instance is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

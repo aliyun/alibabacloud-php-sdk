@@ -12,6 +12,8 @@ class DescribeLoadBalancerTCPListenerAttributeRequest extends Model
      * @description The frontend port used by the CLB instance.
      *
      * Valid values: **1** to **65535**.
+     *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -21,6 +23,7 @@ class DescribeLoadBalancerTCPListenerAttributeRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1ygod3yctvg1y****
      *
      * @var string
@@ -40,7 +43,7 @@ class DescribeLoadBalancerTCPListenerAttributeRequest extends Model
     /**
      * @description The region ID of the CLB instance.
      *
-     * You can query the region ID from the [Regions and zones](~~40654~~) list or by calling the [DescribeRegions](~~25609~~) operation.
+     * You can query the region ID from the [Regions and zones](https://help.aliyun.com/document_detail/40654.html) list or by calling the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation.
      * @example cn-hangzhou
      *
      * @var string

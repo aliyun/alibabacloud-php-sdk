@@ -19,9 +19,9 @@ class SetServerCertificateNameRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the Server Load Balancer (SLB) instance belongs.
+     * @description The region ID of the Classic Load Balancer (CLB) instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2401682.html) operation to query the most recent region list.
      *
-     * To query the region ID, call [DescribeRegions](~~27584~~).
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +41,7 @@ class SetServerCertificateNameRequest extends Model
     /**
      * @description The ID of the server certificate.
      *
+     * This parameter is required.
      * @example 139a00604ad-cn-east-hangzhou-01
      *
      * @var string
@@ -48,9 +49,9 @@ class SetServerCertificateNameRequest extends Model
     public $serverCertificateId;
 
     /**
-     * @description The name of the server certificate.
+     * @description The name of the third-party server certificate that you want to upload. The name must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), underscores (_), and asterisks (\\*).
      *
-     * The name must be 1 to 80 characters in length. It must start with an English letter. It can contain letters, numbers, periods (.), underscores (\_), and hyphens (-).
+     * This parameter is required.
      * @example abc
      *
      * @var string

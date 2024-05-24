@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessControlListsRequest extends Model
 {
     /**
-     * @description The ACL name. The ACL name. The name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (\_). The name of each ACL must be unique within a region. Fuzzy match is supported.
+     * @description The ACL name. The ACL name. The name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (_). The name of each ACL must be unique within a region. Fuzzy match is supported.
      *
      * @example rule1
      *
@@ -61,7 +61,7 @@ class DescribeAccessControlListsRequest extends Model
     /**
      * @description The region ID of the ACL.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

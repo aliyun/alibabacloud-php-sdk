@@ -175,7 +175,7 @@ class CreateLoadBalancerRequest extends Model
     public $masterZoneId;
 
     /**
-     * @description The reason for enabling the configuration read-only mode. The reason must be 1 to 80 characters in length. It must start with a letter and can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     * @description The reason for enabling the configuration read-only mode. The reason must be 1 to 80 characters in length. It must start with a letter and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
      *
      * >  This parameter takes effect only when **ModificationProtectionStatus** is set to **ConsoleProtection**.
      * @example Managed instance
@@ -234,7 +234,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The region ID of the CLB instance.
      *
-     * You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

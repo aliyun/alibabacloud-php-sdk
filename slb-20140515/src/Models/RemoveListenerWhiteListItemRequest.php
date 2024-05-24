@@ -11,6 +11,7 @@ class RemoveListenerWhiteListItemRequest extends Model
     /**
      * @description The listening port.
      *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -30,6 +31,7 @@ class RemoveListenerWhiteListItemRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-8vb86hxixo8lvsja8****
      *
      * @var string
@@ -49,7 +51,7 @@ class RemoveListenerWhiteListItemRequest extends Model
     /**
      * @description The region where the Classic Load Balancer (CLB) instance is created.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/27584.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -69,7 +71,7 @@ class RemoveListenerWhiteListItemRequest extends Model
     /**
      * @description The list of IP addresses or CIDR blocks that you want to remove from the whitelist. Separate multiple IP addresses or CIDR blocks with commas (,).
      *
-     * >  If all IP addresses are removed from the whitelist, the listener does not forward requests.
+     * This parameter is required.
      * @example 192.168.XX.XX
      *
      * @var string

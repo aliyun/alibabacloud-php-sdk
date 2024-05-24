@@ -24,6 +24,7 @@ class ModifyLoadBalancerInstanceSpecRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1b6c719df*********
      *
      * @var string
@@ -40,7 +41,7 @@ class ModifyLoadBalancerInstanceSpecRequest extends Model
      *   **slb.s3.medium**
      *   **slb.s3.large**
      *
-     * > When you switch a shared-resource CLB instance to a high-performance CLB instance, your service may be interrupted for 10 to 30 seconds. We recommend that you modify the specification during off-peak hours or use Alibaba Cloud DNS to schedule your workloads to another CLB instance before you modify the specification.
+     * This parameter is required.
      * @example slb.s2.small
      *
      * @var string
@@ -60,7 +61,7 @@ class ModifyLoadBalancerInstanceSpecRequest extends Model
     /**
      * @description The region ID of the CLB instance.
      *
-     * You can query the region ID from the [Regions and zones](~~40654~~) list or by calling the [DescribeRegions](~~27584~~) operation.
+     * You can query the region ID from the [Regions and zones](https://help.aliyun.com/document_detail/40654.html) list or by calling the [DescribeRegions](https://help.aliyun.com/document_detail/27584.html) operation.
      * @example cn-hangzhou
      *
      * @var string

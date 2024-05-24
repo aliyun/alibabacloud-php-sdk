@@ -207,7 +207,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     public $masterZoneId;
 
     /**
-     * @description The reason why the configuration read-only mode is enabled. The value is 1 to 80 characters in length. It starts with a letter and can contain digits, periods (.), underscores (\_), and hyphens (-).
+     * @description The reason why the configuration read-only mode is enabled. The value is 1 to 80 characters in length. It starts with a letter and can contain digits, periods (.), underscores (_), and hyphens (-).
      *
      * >  This parameter is valid only when **ModificationProtectionStatus** is set to **ConsoleProtection**.
      * @example Managed instance

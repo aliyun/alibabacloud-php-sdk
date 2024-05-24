@@ -14,7 +14,7 @@ class SetListenerAccessControlStatusRequest extends Model
      *   **open_white_list**: enables the whitelist.
      *   **close**: disables the whitelist.
      *
-     * >  After the whitelist is enabled, if no IP address is added to the whitelist, the CLB instance does not distribute network traffic.
+     * This parameter is required.
      * @example open_white_list
      *
      * @var string
@@ -25,6 +25,8 @@ class SetListenerAccessControlStatusRequest extends Model
      * @description The frontend port that is used by the CLB instance.
      *
      * Valid values: **1 to 65535**.
+     *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -44,6 +46,7 @@ class SetListenerAccessControlStatusRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-8vb86hxixo8lvsja8****
      *
      * @var string
@@ -63,7 +66,7 @@ class SetListenerAccessControlStatusRequest extends Model
     /**
      * @description The region where the Classic Load Balancer (CLB) instance is created.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/27584.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

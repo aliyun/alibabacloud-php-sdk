@@ -42,12 +42,13 @@ class SetTLSCipherPolicyAttributeRequest extends Model
      *
      * TLS 1.3 supports the following cipher suites:
      *
-     *   TLS_AES\_128\_GCM_SHA256
-     *   TLS_AES\_256\_GCM_SHA384
-     *   TLS_CHACHA20\_POLY1305\_SHA256
-     *   TLS_AES\_128\_CCM_SHA256
-     *   TLS_AES\_128\_CCM\_8\_SHA256
+     *   TLS_AES_128_GCM_SHA256
+     *   TLS_AES_256_GCM_SHA384
+     *   TLS_CHACHA20_POLY1305_SHA256
+     *   TLS_AES_128_CCM_SHA256
+     *   TLS_AES_128_CCM_8_SHA256
      *
+     * This parameter is required.
      * @example DES-CBC3-SHA
      *
      * @var string[]
@@ -55,8 +56,9 @@ class SetTLSCipherPolicyAttributeRequest extends Model
     public $ciphers;
 
     /**
-     * @description The name of the TLS policy. The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @description The name of the TLS policy. The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
      *
+     * This parameter is required.
      * @example tls-policy*****-test
      *
      * @var string
@@ -76,7 +78,7 @@ class SetTLSCipherPolicyAttributeRequest extends Model
     /**
      * @description The ID of the region where the Server Load Balancer (SLB) instance is deployed.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -96,6 +98,7 @@ class SetTLSCipherPolicyAttributeRequest extends Model
     /**
      * @description The ID of the TLS policy.
      *
+     * This parameter is required.
      * @example tls-bp1lp2076qx4e******bridp
      *
      * @var string
@@ -105,6 +108,7 @@ class SetTLSCipherPolicyAttributeRequest extends Model
     /**
      * @description The version of the TLS protocol. Valid values: **TLSv1.0**, **TLSv1.1**, **TLSv1.2**, and **TLSv1.3**.
      *
+     * This parameter is required.
      * @example TLSv1.0
      *
      * @var string[]

@@ -34,7 +34,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The ID of the region where the Server Load Balancer (SLB) instance is created.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -67,6 +67,7 @@ class ListTagResourcesRequest extends Model
      *   **certificate**: a certificate
      *   **acl**: a network access control list (ACL)
      *
+     * This parameter is required.
      * @example instance
      *
      * @var string

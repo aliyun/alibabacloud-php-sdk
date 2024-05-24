@@ -33,6 +33,7 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
     /**
      * @description The CLB instance ID.
      *
+     * This parameter is required.
      * @example lb-bp14zi0n66zpg6o******
      *
      * @var string
@@ -52,6 +53,7 @@ class DescribeMasterSlaveServerGroupsRequest extends Model
     /**
      * @description The region ID of the CLB instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

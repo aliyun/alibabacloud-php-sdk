@@ -15,7 +15,7 @@ class AddAccessControlListEntryRequest extends Model
      *   **comment**: the comment on the network ACL.
      *
      * > You can add at most 50 IP entries to a network ACL in each call. If the IP entry that you want to add to a network ACL already exists, the IP entry is not added. The IP entries that you add must be CIDR blocks.
-     * @example [{"entry":"10.0.**.**\/24","comment":"privaterule1"},{"entry":"192.168.**.**\/16","comment":"privaterule2"}]
+     * @example [{"entry":"10.0.\*\*.**\/24","comment":"privaterule1"},{"entry":"192.168.\*\*.**\/16","comment":"privaterule2"}]
      *
      * @var string
      */
@@ -43,6 +43,7 @@ class AddAccessControlListEntryRequest extends Model
     /**
      * @description The region ID of the network ACL.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

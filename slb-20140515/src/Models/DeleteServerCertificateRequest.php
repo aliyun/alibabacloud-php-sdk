@@ -21,7 +21,7 @@ class DeleteServerCertificateRequest extends Model
     /**
      * @description The region where the Server Load Balancer (SLB) instance is created.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query region IDs.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/27584.html) operation to query region IDs.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +41,7 @@ class DeleteServerCertificateRequest extends Model
     /**
      * @description The ID of the server certificate.
      *
+     * This parameter is required.
      * @example 123157xxxxxxx_166f8204689_1714763408_709981430
      *
      * @var string

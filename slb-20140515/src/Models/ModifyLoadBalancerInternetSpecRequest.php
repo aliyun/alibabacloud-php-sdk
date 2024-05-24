@@ -47,6 +47,7 @@ class ModifyLoadBalancerInternetSpecRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1b6c719dfa08ex******
      *
      * @var string
@@ -66,7 +67,7 @@ class ModifyLoadBalancerInternetSpecRequest extends Model
     /**
      * @description The ID of the region where the CLB instance is deployed.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/27584.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

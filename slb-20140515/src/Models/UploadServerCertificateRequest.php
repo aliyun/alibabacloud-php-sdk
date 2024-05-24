@@ -58,7 +58,7 @@ class UploadServerCertificateRequest extends Model
     /**
      * @description The region ID of the CLB instance.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -96,7 +96,7 @@ class UploadServerCertificateRequest extends Model
     /**
      * @description The name of the server certificate.
      *
-     * The name must be 1 to 80 characters in length. It must start with an English letter. It can contain letters, numbers, periods (.), underscores (\_), and hyphens (-).
+     * The name must be 1 to 80 characters in length. It must start with an English letter. It can contain letters, numbers, periods (.), underscores (_), and hyphens (-).
      * @example mycert01
      *
      * @var string

@@ -12,6 +12,8 @@ class StartLoadBalancerListenerRequest extends Model
      * @description The listener port of the SLB instance.
      *
      * Valid values: **1 to 65535**.
+     *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -31,6 +33,7 @@ class StartLoadBalancerListenerRequest extends Model
     /**
      * @description The ID of the SLB instance.
      *
+     * This parameter is required.
      * @example lb-bp13jaf5qli5*********
      *
      * @var string
@@ -50,7 +53,7 @@ class StartLoadBalancerListenerRequest extends Model
     /**
      * @description The region where the SLB instance is deployed.
      *
-     * You can retrieve the region ID by calling the [DescribeRegions](~~27584~~) operation.
+     * You can retrieve the region ID by calling the [DescribeRegions](https://help.aliyun.com/document_detail/27584.html) operation.
      * @example cn-hangzhou
      *
      * @var string

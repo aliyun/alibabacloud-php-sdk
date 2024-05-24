@@ -21,6 +21,7 @@ class DescribeVServerGroupAttributeRequest extends Model
     /**
      * @description The region ID of the Classic Load Balancer (CLB) instance.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -40,6 +41,7 @@ class DescribeVServerGroupAttributeRequest extends Model
     /**
      * @description The ID of the vServer group.
      *
+     * This parameter is required.
      * @example rsp-cige6****
      *
      * @var string

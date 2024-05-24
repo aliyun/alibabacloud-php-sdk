@@ -281,7 +281,7 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
      * @description The routing algorithm. Valid values:
      *
      *   **wrr**: Backend servers that have higher weights receive more requests than backend servers that have lower weights.
-     *   \*\* rr\*\*: Requests are sequentially distributed to backend servers.
+     *   \\*\\* rr\\*\\*: Requests are sequentially distributed to backend servers.
      *
      * @example wrr
      *
@@ -383,6 +383,13 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public $XForwardedFor;
 
     /**
+     * @description Indicates whether the `XForwardedFor_ClientSrcPort` header is used to retrieve the client port. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
+     * @example off
+     *
      * @var string
      */
     public $XForwardedFor_ClientSrcPort;
@@ -412,6 +419,13 @@ class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends Model
     public $XForwardedFor_SLBIP;
 
     /**
+     * @description Indicates whether the `XForwardedFor_SLBPORT` header is used to retrieve the listener port of the CLB instance. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
+     * @example off
+     *
      * @var string
      */
     public $XForwardedFor_SLBPORT;

@@ -12,6 +12,8 @@ class DescribeLoadBalancerHTTPSListenerAttributeRequest extends Model
      * @description The frontend port that is used by the CLB instance.
      *
      * Valid values: **1** to **65535**.
+     *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -21,6 +23,7 @@ class DescribeLoadBalancerHTTPSListenerAttributeRequest extends Model
     /**
      * @description The CLB instance ID.
      *
+     * This parameter is required.
      * @example lb-bp1mxu5r8lau****
      *
      * @var string

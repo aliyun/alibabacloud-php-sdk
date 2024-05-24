@@ -11,6 +11,7 @@ class DeleteLoadBalancerRequest extends Model
     /**
      * @description The SLB instance ID.
      *
+     * This parameter is required.
      * @example lb-bp1h66tp5uat8********
      *
      * @var string
@@ -30,7 +31,7 @@ class DeleteLoadBalancerRequest extends Model
     /**
      * @description The region ID of the SLB instance.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/27584.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

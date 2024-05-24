@@ -11,6 +11,7 @@ class DescribeLoadBalancerAttributeRequest extends Model
     /**
      * @description The CLB instance ID.
      *
+     * This parameter is required.
      * @example lb-bp1b6c719dfa08ex****
      *
      * @var string
@@ -30,7 +31,7 @@ class DescribeLoadBalancerAttributeRequest extends Model
     /**
      * @description The region ID of the CLB instance.
      *
-     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

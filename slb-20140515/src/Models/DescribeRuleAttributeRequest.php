@@ -21,7 +21,7 @@ class DescribeRuleAttributeRequest extends Model
     /**
      * @description The ID of the region where the Server Load Balancer (SLB) instance is deployed.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +41,7 @@ class DescribeRuleAttributeRequest extends Model
     /**
      * @description The ID of the forwarding rule.
      *
+     * This parameter is required.
      * @example rule-bp1efemp9****
      *
      * @var string

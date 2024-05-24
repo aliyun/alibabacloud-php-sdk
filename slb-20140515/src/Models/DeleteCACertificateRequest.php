@@ -11,6 +11,7 @@ class DeleteCACertificateRequest extends Model
     /**
      * @description The CA certificate ID.
      *
+     * This parameter is required.
      * @example 123157908xxxxxxx_15c73d77203_-986300114_-2110544xxx
      *
      * @var string
@@ -30,7 +31,7 @@ class DeleteCACertificateRequest extends Model
     /**
      * @description The region of the CA certificates.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -11,6 +11,7 @@ class SetLoadBalancerNameRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1b6c719dfa08e******
      *
      * @var string
@@ -20,7 +21,7 @@ class SetLoadBalancerNameRequest extends Model
     /**
      * @description The new name of the CLB instance.
      *
-     * The name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     * This parameter is required.
      * @example test1
      *
      * @var string
@@ -40,7 +41,7 @@ class SetLoadBalancerNameRequest extends Model
     /**
      * @description The ID of the region where the CLB instance is deployed.
      *
-     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

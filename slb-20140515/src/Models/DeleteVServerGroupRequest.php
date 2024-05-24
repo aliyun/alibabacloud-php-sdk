@@ -21,6 +21,7 @@ class DeleteVServerGroupRequest extends Model
     /**
      * @description The ID of the region to which the associated Server Load Balancer (SLB) instance belongs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -40,7 +41,7 @@ class DeleteVServerGroupRequest extends Model
     /**
      * @description The ID of the VServer group to be deleted.
      *
-     * >  If the VServer group is in use, it cannot be deleted.
+     * This parameter is required.
      * @example rsp-cige6j*****
      *
      * @var string

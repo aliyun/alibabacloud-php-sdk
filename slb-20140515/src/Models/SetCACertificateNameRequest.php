@@ -11,6 +11,7 @@ class SetCACertificateNameRequest extends Model
     /**
      * @description The ID of the CA certificate.
      *
+     * This parameter is required.
      * @example 139a00604ad-cn-east-hangzhou-01
      *
      * @var string
@@ -20,7 +21,7 @@ class SetCACertificateNameRequest extends Model
     /**
      * @description The name of the CA certificate.
      *
-     * The name must be 1 to 80 characters in length and start with an English letter or a Chinese character. It can contain numbers, underscores (\_), periods (.), and hyphens (-).
+     * This parameter is required.
      * @example mycacert02
      *
      * @var string
@@ -40,7 +41,7 @@ class SetCACertificateNameRequest extends Model
     /**
      * @description The region to which the CA certificate belongs.
      *
-     * To query the region ID, call [DescribeRegions](~~27584~~).
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

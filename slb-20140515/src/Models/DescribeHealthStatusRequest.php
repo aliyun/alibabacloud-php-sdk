@@ -32,6 +32,7 @@ class DescribeHealthStatusRequest extends Model
     /**
      * @description The ID of the Classic Load Balancer (CLB) instance.
      *
+     * This parameter is required.
      * @example lb-bp1qjwo61pqz3ah****
      *
      * @var string

@@ -20,7 +20,7 @@ class tags extends Model
     /**
      * @description The tag value.
      *
-     * For more information about how to obtain a tag value, see [DescribeTagKeyList](~~145557~~).
+     * For more information about how to obtain a tag value, see [DescribeTagKeyList](https://help.aliyun.com/document_detail/145557.html).
      * @example TestValue
      *
      * @var string

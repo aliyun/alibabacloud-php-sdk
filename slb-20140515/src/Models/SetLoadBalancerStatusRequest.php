@@ -11,6 +11,7 @@ class SetLoadBalancerStatusRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1b6c719dfa08e******
      *
      * @var string
@@ -31,6 +32,8 @@ class SetLoadBalancerStatusRequest extends Model
      * If a CLB instance is in the **inactive** state, listeners of the CLB instance do not forward traffic.
      *
      * >  If all listeners of a CLB instance are deleted, the CLB instance automatically switches to the **inactive** state.
+     *
+     * This parameter is required.
      * @example active
      *
      * @var string
@@ -50,7 +53,7 @@ class SetLoadBalancerStatusRequest extends Model
     /**
      * @description The ID of the region where the CLB instance is deployed.
      *
-     * You can query region IDs from the [Regions and zones](~~40654~~) list or by calling the [DescribeRegions](~~25609~~) operation.
+     * You can query region IDs from the [Regions and zones](https://help.aliyun.com/document_detail/40654.html) list or by calling the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation.
      * @example cn-hangzhou
      *
      * @var string

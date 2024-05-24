@@ -94,7 +94,7 @@ class UploadServerCertificateResponseBody extends Model
     /**
      * @description The ID of the region where the Classic Load Balancer (CLB) instance is deployed.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/27584.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -131,7 +131,7 @@ class UploadServerCertificateResponseBody extends Model
     /**
      * @description The name of the server certificate.
      *
-     * The name must be 1 to 80 characters in length. It must start with an English letter. It can contain letters, numbers, periods (.), underscores (\_), and hyphens (-).
+     * The name must be 1 to 80 characters in length. It must start with an English letter. It can contain letters, numbers, periods (.), underscores (_), and hyphens (-).
      * @example mycert01
      *
      * @var string

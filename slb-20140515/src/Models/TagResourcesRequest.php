@@ -22,7 +22,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The ID of the region where the Server Load Balancer (SLB) instance is created.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -32,7 +32,9 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource ID. You can specify up to 20 IDs.
      *
-     * >  The value of **ResourceId** of a **listener** is **LoadBalancerId\_ Listener protocol_Port**, where LoadBalancerId is the SLB instance ID and port is the listener port. Example: lb-bp1snb10sbml4mqty_http\_80.
+     * >  The value of **ResourceId** of a **listener** is **LoadBalancerId_ Listener protocol_Port**, where LoadBalancerId is the SLB instance ID and port is the listener port. Example: lb-bp1snb10sbml4mqty_http_80.
+     *
+     * This parameter is required.
      * @example lb-bp16qjewdsunr41m1****
      *
      * @var string[]
@@ -59,6 +61,7 @@ class TagResourcesRequest extends Model
      *   **vservergroup**: a vServer group
      *   **masterslaveservergroup**: a primary/secondary server group
      *
+     * This parameter is required.
      * @example instance
      *
      * @var string
@@ -68,6 +71,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

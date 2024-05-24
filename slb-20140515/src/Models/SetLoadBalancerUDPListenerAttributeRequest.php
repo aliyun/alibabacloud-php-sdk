@@ -63,7 +63,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     /**
      * @description The name of the listener.
      *
-     * The name must be 1 to 256 characters in length and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_).
+     * The name must be 1 to 256 characters in length and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_).
      * @example udp_80
      *
      * @var string
@@ -128,6 +128,8 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
      * @description The frontend port used by the CLB instance.
      *
      * Valid values: **1** to **65535**.
+     *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -137,6 +139,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1rtfnodmywb43ecu4sf-c****
      *
      * @var string
@@ -191,7 +194,7 @@ class SetLoadBalancerUDPListenerAttributeRequest extends Model
     /**
      * @description The region ID of the CLB instance.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

@@ -21,7 +21,7 @@ class DeleteTLSCipherPolicyRequest extends Model
     /**
      * @description The ID of the region where the Classic Load Balancer (CLB) instance is created.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +41,7 @@ class DeleteTLSCipherPolicyRequest extends Model
     /**
      * @description The ID of the TLS policy.
      *
+     * This parameter is required.
      * @example tls-bp1lp2076qx4ebridp******
      *
      * @var string

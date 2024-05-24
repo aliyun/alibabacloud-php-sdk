@@ -21,7 +21,7 @@ class DescribeHighDefinationMonitorRequest extends Model
     /**
      * @description The ID of the region where you want to query the configuration of fine-grained monitoring.
      *
-     * You can call the [DescribeRegions](~~27584~~) operation to query the most recent region list.
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -66,6 +66,7 @@ class CreateLoadBalancerUDPListenerRequest extends Model
      *
      **-1**: For a pay-by-data-transfer Internet-facing CLB instance, you can set this parameter to **-1**. This way, the bandwidth of the listener is unlimited.
      *
+     * This parameter is required.
      * @example -1
      *
      * @var int
@@ -75,7 +76,7 @@ class CreateLoadBalancerUDPListenerRequest extends Model
     /**
      * @description The name of the listener.
      *
-     * The name must be 1 to 256 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_).
+     * The name must be 1 to 256 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_).
      * @example udp_80
      *
      * @var string
@@ -132,6 +133,8 @@ class CreateLoadBalancerUDPListenerRequest extends Model
      * @description The frontend port used by the CLB instance.
      *
      * Valid values: **1** to **65535**.
+     *
+     * This parameter is required.
      * @example 80
      *
      * @var int
@@ -141,6 +144,7 @@ class CreateLoadBalancerUDPListenerRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
+     * This parameter is required.
      * @example lb-bp1ygod3yctvg1y7****
      *
      * @var string

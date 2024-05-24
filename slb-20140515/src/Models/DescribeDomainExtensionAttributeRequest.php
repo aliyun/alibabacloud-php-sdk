@@ -11,6 +11,7 @@ class DescribeDomainExtensionAttributeRequest extends Model
     /**
      * @description The ID of the additional certificate.
      *
+     * This parameter is required.
      * @example de-bp1rp7ta191dv
      *
      * @var string
@@ -30,6 +31,7 @@ class DescribeDomainExtensionAttributeRequest extends Model
     /**
      * @description The ID of the region where the Server Load Balancer (SLB) instance is deployed.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
