@@ -81,6 +81,11 @@ class applications extends Model
     public $mseEnabled;
 
     /**
+     * @var string
+     */
+    public $mseNamespaceId;
+
+    /**
      * @description demo-app
      *
      * @example cn-beijing:demo
@@ -129,6 +134,7 @@ class applications extends Model
         'instances'           => 'Instances',
         'mem'                 => 'Mem',
         'mseEnabled'          => 'MseEnabled',
+        'mseNamespaceId'      => 'MseNamespaceId',
         'namespaceId'         => 'NamespaceId',
         'programmingLanguage' => 'ProgrammingLanguage',
         'regionId'            => 'RegionId',
@@ -178,6 +184,9 @@ class applications extends Model
         }
         if (null !== $this->mseEnabled) {
             $res['MseEnabled'] = $this->mseEnabled;
+        }
+        if (null !== $this->mseNamespaceId) {
+            $res['MseNamespaceId'] = $this->mseNamespaceId;
         }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
@@ -247,6 +256,9 @@ class applications extends Model
         }
         if (isset($map['MseEnabled'])) {
             $model->mseEnabled = $map['MseEnabled'];
+        }
+        if (isset($map['MseNamespaceId'])) {
+            $model->mseNamespaceId = $map['MseNamespaceId'];
         }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
