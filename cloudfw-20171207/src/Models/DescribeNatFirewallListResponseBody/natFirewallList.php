@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallListResponseBody;
 
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallListResponseBody\natFirewallList\natRouteEntryList;
 use AlibabaCloud\Tea\Model;
 
 class natFirewallList extends Model
@@ -38,6 +39,11 @@ class natFirewallList extends Model
      * @var string
      */
     public $natGatewayName;
+
+    /**
+     * @var natRouteEntryList[]
+     */
+    public $natRouteEntryList;
 
     /**
      * @example proxy-nat30******
@@ -84,18 +90,19 @@ class natFirewallList extends Model
      */
     public $vpcName;
     protected $_name = [
-        'aliUid'         => 'AliUid',
-        'errorDetail'    => 'ErrorDetail',
-        'memberUid'      => 'MemberUid',
-        'natGatewayId'   => 'NatGatewayId',
-        'natGatewayName' => 'NatGatewayName',
-        'proxyId'        => 'ProxyId',
-        'proxyName'      => 'ProxyName',
-        'proxyStatus'    => 'ProxyStatus',
-        'regionId'       => 'RegionId',
-        'strictMode'     => 'StrictMode',
-        'vpcId'          => 'VpcId',
-        'vpcName'        => 'VpcName',
+        'aliUid'            => 'AliUid',
+        'errorDetail'       => 'ErrorDetail',
+        'memberUid'         => 'MemberUid',
+        'natGatewayId'      => 'NatGatewayId',
+        'natGatewayName'    => 'NatGatewayName',
+        'natRouteEntryList' => 'NatRouteEntryList',
+        'proxyId'           => 'ProxyId',
+        'proxyName'         => 'ProxyName',
+        'proxyStatus'       => 'ProxyStatus',
+        'regionId'          => 'RegionId',
+        'strictMode'        => 'StrictMode',
+        'vpcId'             => 'VpcId',
+        'vpcName'           => 'VpcName',
     ];
 
     public function validate()
@@ -119,6 +126,15 @@ class natFirewallList extends Model
         }
         if (null !== $this->natGatewayName) {
             $res['NatGatewayName'] = $this->natGatewayName;
+        }
+        if (null !== $this->natRouteEntryList) {
+            $res['NatRouteEntryList'] = [];
+            if (null !== $this->natRouteEntryList && \is_array($this->natRouteEntryList)) {
+                $n = 0;
+                foreach ($this->natRouteEntryList as $item) {
+                    $res['NatRouteEntryList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->proxyId) {
             $res['ProxyId'] = $this->proxyId;
@@ -167,6 +183,15 @@ class natFirewallList extends Model
         }
         if (isset($map['NatGatewayName'])) {
             $model->natGatewayName = $map['NatGatewayName'];
+        }
+        if (isset($map['NatRouteEntryList'])) {
+            if (!empty($map['NatRouteEntryList'])) {
+                $model->natRouteEntryList = [];
+                $n                        = 0;
+                foreach ($map['NatRouteEntryList'] as $item) {
+                    $model->natRouteEntryList[$n++] = null !== $item ? natRouteEntryList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ProxyId'])) {
             $model->proxyId = $map['ProxyId'];

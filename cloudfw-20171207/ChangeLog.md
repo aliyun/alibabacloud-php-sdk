@@ -1,3 +1,7 @@
+2024-05-27 Version: 2.5.2
+- Update API DescribeNatFirewallList: update response param.
+
+
 2024-05-16 Version: 2.5.1
 - Update API DescribeInternetTrafficTrend: update response param.
 
