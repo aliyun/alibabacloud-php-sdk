@@ -28,6 +28,11 @@ class requestConfig extends Model
     public $bodyModel;
 
     /**
+     * @var bool
+     */
+    public $escapePathParam;
+
+    /**
      * @description The description of the request body.
      *
      * @example fwefwef
@@ -74,6 +79,7 @@ class requestConfig extends Model
     protected $_name = [
         'bodyFormat'          => 'BodyFormat',
         'bodyModel'           => 'BodyModel',
+        'escapePathParam'     => 'EscapePathParam',
         'postBodyDescription' => 'PostBodyDescription',
         'requestHttpMethod'   => 'RequestHttpMethod',
         'requestMode'         => 'RequestMode',
@@ -93,6 +99,9 @@ class requestConfig extends Model
         }
         if (null !== $this->bodyModel) {
             $res['BodyModel'] = $this->bodyModel;
+        }
+        if (null !== $this->escapePathParam) {
+            $res['EscapePathParam'] = $this->escapePathParam;
         }
         if (null !== $this->postBodyDescription) {
             $res['PostBodyDescription'] = $this->postBodyDescription;
@@ -126,6 +135,9 @@ class requestConfig extends Model
         }
         if (isset($map['BodyModel'])) {
             $model->bodyModel = $map['BodyModel'];
+        }
+        if (isset($map['EscapePathParam'])) {
+            $model->escapePathParam = $map['EscapePathParam'];
         }
         if (isset($map['PostBodyDescription'])) {
             $model->postBodyDescription = $map['PostBodyDescription'];
