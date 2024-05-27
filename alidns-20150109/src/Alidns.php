@@ -70,6 +70,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultCountRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultCountResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultDetailRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultDetailResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmAddressPoolRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmAddressPoolResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLineRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLineResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLinesRequest;
@@ -2227,6 +2229,55 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBatchResultDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCloudGtmAddressPoolRequest $request DescribeCloudGtmAddressPoolRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudGtmAddressPoolResponse DescribeCloudGtmAddressPoolResponse
+     */
+    public function describeCloudGtmAddressPoolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudGtmAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudGtmAddressPoolRequest $request DescribeCloudGtmAddressPoolRequest
+     *
+     * @return DescribeCloudGtmAddressPoolResponse DescribeCloudGtmAddressPoolResponse
+     */
+    public function describeCloudGtmAddressPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudGtmAddressPoolWithOptions($request, $runtime);
     }
 
     /**
