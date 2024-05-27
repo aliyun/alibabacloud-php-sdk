@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListTopicRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListTopicRequest extends Model
@@ -23,6 +24,11 @@ class ListTopicRequest extends Model
     public $pageSize;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @example test
      *
      * @var string
@@ -31,6 +37,7 @@ class ListTopicRequest extends Model
     protected $_name = [
         'pageNum'   => 'PageNum',
         'pageSize'  => 'PageSize',
+        'tag'       => 'Tag',
         'topicName' => 'TopicName',
     ];
 
@@ -46,6 +53,15 @@ class ListTopicRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
@@ -67,6 +83,15 @@ class ListTopicRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];

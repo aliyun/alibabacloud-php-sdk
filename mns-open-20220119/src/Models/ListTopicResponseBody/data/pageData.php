@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListTopicResponseBody\data;
 
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListTopicResponseBody\data\pageData\tags;
 use AlibabaCloud\Tea\Model;
 
 class pageData extends Model
@@ -51,6 +52,11 @@ class pageData extends Model
     public $messageRetentionPeriod;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $topicInnerUrl;
@@ -73,6 +79,7 @@ class pageData extends Model
         'maxMessageSize'         => 'MaxMessageSize',
         'messageCount'           => 'MessageCount',
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
+        'tags'                   => 'Tags',
         'topicInnerUrl'          => 'TopicInnerUrl',
         'topicName'              => 'TopicName',
         'topicUrl'               => 'TopicUrl',
@@ -102,6 +109,15 @@ class pageData extends Model
         }
         if (null !== $this->messageRetentionPeriod) {
             $res['MessageRetentionPeriod'] = $this->messageRetentionPeriod;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->topicInnerUrl) {
             $res['TopicInnerUrl'] = $this->topicInnerUrl;
@@ -141,6 +157,15 @@ class pageData extends Model
         }
         if (isset($map['MessageRetentionPeriod'])) {
             $model->messageRetentionPeriod = $map['MessageRetentionPeriod'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TopicInnerUrl'])) {
             $model->topicInnerUrl = $map['TopicInnerUrl'];

@@ -16,7 +16,7 @@ class SubscribeResponseBody extends Model
     public $code;
 
     /**
-     * @example {\"Code\": 200, \"Success\": True}
+     * @example {\\"Code\\": 200, \\"Success\\": True}
      *
      * @var string
      */

@@ -30,6 +30,8 @@ class ListSubscriptionByTopicRequest extends Model
     public $subscriptionName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListQueueResponseBody\data;
 
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListQueueResponseBody\data\pageData\tags;
 use AlibabaCloud\Tea\Model;
 
 class pageData extends Model
@@ -86,6 +87,11 @@ class pageData extends Model
     public $queueName;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @example 60
      *
      * @var int
@@ -103,6 +109,7 @@ class pageData extends Model
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
         'pollingWaitSeconds'     => 'PollingWaitSeconds',
         'queueName'              => 'QueueName',
+        'tags'                   => 'Tags',
         'visibilityTimeout'      => 'VisibilityTimeout',
     ];
 
@@ -145,6 +152,15 @@ class pageData extends Model
         }
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->visibilityTimeout) {
             $res['VisibilityTimeout'] = $this->visibilityTimeout;
@@ -193,6 +209,15 @@ class pageData extends Model
         }
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VisibilityTimeout'])) {
             $model->visibilityTimeout = $map['VisibilityTimeout'];

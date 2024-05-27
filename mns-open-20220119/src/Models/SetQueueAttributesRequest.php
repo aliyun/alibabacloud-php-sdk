@@ -44,6 +44,8 @@ class SetQueueAttributesRequest extends Model
     public $pollingWaitSeconds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testqueue
      *
      * @var string

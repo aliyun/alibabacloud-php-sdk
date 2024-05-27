@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetTopicAttributesResponseBody;
 
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetTopicAttributesResponseBody\data\tags;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -51,6 +52,11 @@ class data extends Model
     public $messageRetentionPeriod;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @example demo-topic
      *
      * @var string
@@ -63,6 +69,7 @@ class data extends Model
         'maxMessageSize'         => 'MaxMessageSize',
         'messageCount'           => 'MessageCount',
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
+        'tags'                   => 'Tags',
         'topicName'              => 'TopicName',
     ];
 
@@ -90,6 +97,15 @@ class data extends Model
         }
         if (null !== $this->messageRetentionPeriod) {
             $res['MessageRetentionPeriod'] = $this->messageRetentionPeriod;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
@@ -123,6 +139,15 @@ class data extends Model
         }
         if (isset($map['MessageRetentionPeriod'])) {
             $model->messageRetentionPeriod = $map['MessageRetentionPeriod'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];

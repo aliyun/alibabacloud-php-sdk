@@ -23,6 +23,8 @@ class SetTopicAttributesRequest extends Model
     public $maxMessageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string

@@ -76,10 +76,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param CreateQueueRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary CreateQueue
+     *  *
+     * @param CreateQueueRequest $request CreateQueueRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateQueueResponse
+     * @return CreateQueueResponse CreateQueueResponse
      */
     public function createQueueWithOptions($request, $runtime)
     {
@@ -103,6 +105,9 @@ class Mnsopen extends OpenApiClient
         if (!Utils::isUnset($request->queueName)) {
             $query['QueueName'] = $request->queueName;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->visibilityTimeout)) {
             $query['VisibilityTimeout'] = $request->visibilityTimeout;
         }
@@ -125,9 +130,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param CreateQueueRequest $request
+     * @summary CreateQueue
+     *  *
+     * @param CreateQueueRequest $request CreateQueueRequest
      *
-     * @return CreateQueueResponse
+     * @return CreateQueueResponse CreateQueueResponse
      */
     public function createQueue($request)
     {
@@ -137,14 +144,20 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param CreateTopicRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary CreateTopic
+     *  *
+     * @param CreateTopicRequest $request CreateTopicRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTopicResponse
+     * @return CreateTopicResponse CreateTopicResponse
      */
     public function createTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $body = [];
         if (!Utils::isUnset($request->enableLogging)) {
             $body['EnableLogging'] = $request->enableLogging;
@@ -156,7 +169,8 @@ class Mnsopen extends OpenApiClient
             $body['TopicName'] = $request->topicName;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateTopic',
@@ -174,9 +188,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param CreateTopicRequest $request
+     * @summary CreateTopic
+     *  *
+     * @param CreateTopicRequest $request CreateTopicRequest
      *
-     * @return CreateTopicResponse
+     * @return CreateTopicResponse CreateTopicResponse
      */
     public function createTopic($request)
     {
@@ -186,10 +202,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteQueueRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary DeleteQueue
+     *  *
+     * @param DeleteQueueRequest $request DeleteQueueRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteQueueResponse
+     * @return DeleteQueueResponse DeleteQueueResponse
      */
     public function deleteQueueWithOptions($request, $runtime)
     {
@@ -217,9 +235,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteQueueRequest $request
+     * @summary DeleteQueue
+     *  *
+     * @param DeleteQueueRequest $request DeleteQueueRequest
      *
-     * @return DeleteQueueResponse
+     * @return DeleteQueueResponse DeleteQueueResponse
      */
     public function deleteQueue($request)
     {
@@ -229,10 +249,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteTopicRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 删除订阅主题
+     *  *
+     * @param DeleteTopicRequest $request DeleteTopicRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTopicResponse
+     * @return DeleteTopicResponse DeleteTopicResponse
      */
     public function deleteTopicWithOptions($request, $runtime)
     {
@@ -260,9 +282,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param DeleteTopicRequest $request
+     * @summary 删除订阅主题
+     *  *
+     * @param DeleteTopicRequest $request DeleteTopicRequest
      *
-     * @return DeleteTopicResponse
+     * @return DeleteTopicResponse DeleteTopicResponse
      */
     public function deleteTopic($request)
     {
@@ -272,10 +296,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param GetQueueAttributesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary GetQueueAttributes
+     *  *
+     * @param GetQueueAttributesRequest $request GetQueueAttributesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetQueueAttributesResponse
+     * @return GetQueueAttributesResponse GetQueueAttributesResponse
      */
     public function getQueueAttributesWithOptions($request, $runtime)
     {
@@ -283,6 +309,9 @@ class Mnsopen extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->queueName)) {
             $query['QueueName'] = $request->queueName;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -303,9 +332,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param GetQueueAttributesRequest $request
+     * @summary GetQueueAttributes
+     *  *
+     * @param GetQueueAttributesRequest $request GetQueueAttributesRequest
      *
-     * @return GetQueueAttributesResponse
+     * @return GetQueueAttributesResponse GetQueueAttributesResponse
      */
     public function getQueueAttributes($request)
     {
@@ -315,10 +346,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param GetSubscriptionAttributesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary GetSubscription
+     *  *
+     * @param GetSubscriptionAttributesRequest $request GetSubscriptionAttributesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSubscriptionAttributesResponse
+     * @return GetSubscriptionAttributesResponse GetSubscriptionAttributesResponse
      */
     public function getSubscriptionAttributesWithOptions($request, $runtime)
     {
@@ -349,9 +382,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param GetSubscriptionAttributesRequest $request
+     * @summary GetSubscription
+     *  *
+     * @param GetSubscriptionAttributesRequest $request GetSubscriptionAttributesRequest
      *
-     * @return GetSubscriptionAttributesResponse
+     * @return GetSubscriptionAttributesResponse GetSubscriptionAttributesResponse
      */
     public function getSubscriptionAttributes($request)
     {
@@ -361,15 +396,20 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param GetTopicAttributesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询主题
+     *  *
+     * @param GetTopicAttributesRequest $request GetTopicAttributesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTopicAttributesResponse
+     * @return GetTopicAttributesResponse GetTopicAttributesResponse
      */
     public function getTopicAttributesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->topicName)) {
             $query['TopicName'] = $request->topicName;
         }
@@ -392,9 +432,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param GetTopicAttributesRequest $request
+     * @summary 查询主题
+     *  *
+     * @param GetTopicAttributesRequest $request GetTopicAttributesRequest
      *
-     * @return GetTopicAttributesResponse
+     * @return GetTopicAttributesResponse GetTopicAttributesResponse
      */
     public function getTopicAttributes($request)
     {
@@ -404,10 +446,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param ListQueueRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary ListQueue
+     *  *
+     * @param ListQueueRequest $request ListQueueRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListQueueResponse
+     * @return ListQueueResponse ListQueueResponse
      */
     public function listQueueWithOptions($request, $runtime)
     {
@@ -421,6 +465,9 @@ class Mnsopen extends OpenApiClient
         }
         if (!Utils::isUnset($request->queueName)) {
             $query['QueueName'] = $request->queueName;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -441,9 +488,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param ListQueueRequest $request
+     * @summary ListQueue
+     *  *
+     * @param ListQueueRequest $request ListQueueRequest
      *
-     * @return ListQueueResponse
+     * @return ListQueueResponse ListQueueResponse
      */
     public function listQueue($request)
     {
@@ -453,10 +502,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param ListSubscriptionByTopicRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary ListSubscription
+     *  *
+     * @param ListSubscriptionByTopicRequest $request ListSubscriptionByTopicRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSubscriptionByTopicResponse
+     * @return ListSubscriptionByTopicResponse ListSubscriptionByTopicResponse
      */
     public function listSubscriptionByTopicWithOptions($request, $runtime)
     {
@@ -493,9 +544,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param ListSubscriptionByTopicRequest $request
+     * @summary ListSubscription
+     *  *
+     * @param ListSubscriptionByTopicRequest $request ListSubscriptionByTopicRequest
      *
-     * @return ListSubscriptionByTopicResponse
+     * @return ListSubscriptionByTopicResponse ListSubscriptionByTopicResponse
      */
     public function listSubscriptionByTopic($request)
     {
@@ -505,10 +558,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param ListTopicRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary ListTopic
+     *  *
+     * @param ListTopicRequest $request ListTopicRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTopicResponse
+     * @return ListTopicResponse ListTopicResponse
      */
     public function listTopicWithOptions($request, $runtime)
     {
@@ -519,6 +574,9 @@ class Mnsopen extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->topicName)) {
             $query['TopicName'] = $request->topicName;
@@ -542,9 +600,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param ListTopicRequest $request
+     * @summary ListTopic
+     *  *
+     * @param ListTopicRequest $request ListTopicRequest
      *
-     * @return ListTopicResponse
+     * @return ListTopicResponse ListTopicResponse
      */
     public function listTopic($request)
     {
@@ -554,10 +614,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param SetQueueAttributesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary SetQueueAttributes
+     *  *
+     * @param SetQueueAttributesRequest $request SetQueueAttributesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetQueueAttributesResponse
+     * @return SetQueueAttributesResponse SetQueueAttributesResponse
      */
     public function setQueueAttributesWithOptions($request, $runtime)
     {
@@ -603,9 +665,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param SetQueueAttributesRequest $request
+     * @summary SetQueueAttributes
+     *  *
+     * @param SetQueueAttributesRequest $request SetQueueAttributesRequest
      *
-     * @return SetQueueAttributesResponse
+     * @return SetQueueAttributesResponse SetQueueAttributesResponse
      */
     public function setQueueAttributes($request)
     {
@@ -615,10 +679,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param SetSubscriptionAttributesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary ModifySubscription
+     *  *
+     * @param SetSubscriptionAttributesRequest $request SetSubscriptionAttributesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetSubscriptionAttributesResponse
+     * @return SetSubscriptionAttributesResponse SetSubscriptionAttributesResponse
      */
     public function setSubscriptionAttributesWithOptions($request, $runtime)
     {
@@ -652,9 +718,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param SetSubscriptionAttributesRequest $request
+     * @summary ModifySubscription
+     *  *
+     * @param SetSubscriptionAttributesRequest $request SetSubscriptionAttributesRequest
      *
-     * @return SetSubscriptionAttributesResponse
+     * @return SetSubscriptionAttributesResponse SetSubscriptionAttributesResponse
      */
     public function setSubscriptionAttributes($request)
     {
@@ -664,10 +732,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param SetTopicAttributesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 编辑订阅主题
+     *  *
+     * @param SetTopicAttributesRequest $request SetTopicAttributesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetTopicAttributesResponse
+     * @return SetTopicAttributesResponse SetTopicAttributesResponse
      */
     public function setTopicAttributesWithOptions($request, $runtime)
     {
@@ -701,9 +771,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param SetTopicAttributesRequest $request
+     * @summary 编辑订阅主题
+     *  *
+     * @param SetTopicAttributesRequest $request SetTopicAttributesRequest
      *
-     * @return SetTopicAttributesResponse
+     * @return SetTopicAttributesResponse SetTopicAttributesResponse
      */
     public function setTopicAttributes($request)
     {
@@ -713,10 +785,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param SubscribeRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary CreateSubscription
+     *  *
+     * @param SubscribeRequest $request SubscribeRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SubscribeResponse
+     * @return SubscribeResponse SubscribeResponse
      */
     public function subscribeWithOptions($request, $runtime)
     {
@@ -762,9 +836,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param SubscribeRequest $request
+     * @summary CreateSubscription
+     *  *
+     * @param SubscribeRequest $request SubscribeRequest
      *
-     * @return SubscribeResponse
+     * @return SubscribeResponse SubscribeResponse
      */
     public function subscribe($request)
     {
@@ -774,10 +850,12 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param UnsubscribeRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary DeleteSubscription
+     *  *
+     * @param UnsubscribeRequest $request UnsubscribeRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnsubscribeResponse
+     * @return UnsubscribeResponse UnsubscribeResponse
      */
     public function unsubscribeWithOptions($request, $runtime)
     {
@@ -808,9 +886,11 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @param UnsubscribeRequest $request
+     * @summary DeleteSubscription
+     *  *
+     * @param UnsubscribeRequest $request UnsubscribeRequest
      *
-     * @return UnsubscribeResponse
+     * @return UnsubscribeResponse UnsubscribeResponse
      */
     public function unsubscribe($request)
     {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubscribeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example http://example.com
      *
      * @var string
@@ -37,6 +39,8 @@ class SubscribeRequest extends Model
     public $notifyStrategy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example queue
      *
      * @var string
@@ -44,6 +48,8 @@ class SubscribeRequest extends Model
     public $pushType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testSubscription
      *
      * @var string
@@ -51,6 +57,8 @@ class SubscribeRequest extends Model
     public $subscriptionName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string

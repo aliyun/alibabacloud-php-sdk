@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mnsopen\V20220119\Models;
 
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListQueueRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListQueueRequest extends Model
@@ -28,10 +29,16 @@ class ListQueueRequest extends Model
      * @var string
      */
     public $queueName;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'pageNum'   => 'PageNum',
         'pageSize'  => 'PageSize',
         'queueName' => 'QueueName',
+        'tag'       => 'Tag',
     ];
 
     public function validate()
@@ -49,6 +56,15 @@ class ListQueueRequest extends Model
         }
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -70,6 +86,15 @@ class ListQueueRequest extends Model
         }
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

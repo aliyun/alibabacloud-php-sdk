@@ -16,6 +16,8 @@ class SetSubscriptionAttributesRequest extends Model
     public $notifyStrategy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example MySubscription
      *
      * @var string
@@ -23,6 +25,8 @@ class SetSubscriptionAttributesRequest extends Model
     public $subscriptionName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
