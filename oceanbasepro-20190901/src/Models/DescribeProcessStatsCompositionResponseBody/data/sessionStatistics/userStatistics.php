@@ -9,37 +9,21 @@ use AlibabaCloud\Tea\Model;
 class userStatistics extends Model
 {
     /**
-     * @description The number of active sessions.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $activeCount;
 
     /**
-     * @description The value of the user metric.
-     *
-     * @example admin
-     *
      * @var string
      */
     public $metricValue;
 
     /**
-     * @description The total number of sessions.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description The type of the user.
-     *
-     * @example user
-     *
      * @var string
      */
     public $type;

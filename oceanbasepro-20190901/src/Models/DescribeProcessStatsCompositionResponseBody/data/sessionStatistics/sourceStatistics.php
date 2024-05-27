@@ -9,37 +9,21 @@ use AlibabaCloud\Tea\Model;
 class sourceStatistics extends Model
 {
     /**
-     * @description The number of active sessions.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $activeCount;
 
     /**
-     * @description The value of the data source metric.
-     *
-     * @example 127.*.*.*
-     *
      * @var string
      */
     public $metricValue;
 
     /**
-     * @description The total number of sessions.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description The type of the data source.
-     *
-     * @example client
-     *
      * @var string
      */
     public $type;
