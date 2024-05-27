@@ -14,8 +14,20 @@ class advice extends Model
      * @var string
      */
     public $answer;
+
+    /**
+     * @var string
+     */
+    public $hitLabel;
+
+    /**
+     * @var string
+     */
+    public $hitLibName;
     protected $_name = [
-        'answer' => 'Answer',
+        'answer'     => 'Answer',
+        'hitLabel'   => 'HitLabel',
+        'hitLibName' => 'HitLibName',
     ];
 
     public function validate()
@@ -27,6 +39,12 @@ class advice extends Model
         $res = [];
         if (null !== $this->answer) {
             $res['Answer'] = $this->answer;
+        }
+        if (null !== $this->hitLabel) {
+            $res['HitLabel'] = $this->hitLabel;
+        }
+        if (null !== $this->hitLibName) {
+            $res['HitLibName'] = $this->hitLibName;
         }
 
         return $res;
@@ -42,6 +60,12 @@ class advice extends Model
         $model = new self();
         if (isset($map['Answer'])) {
             $model->answer = $map['Answer'];
+        }
+        if (isset($map['HitLabel'])) {
+            $model->hitLabel = $map['HitLabel'];
+        }
+        if (isset($map['HitLibName'])) {
+            $model->hitLibName = $map['HitLibName'];
         }
 
         return $model;
