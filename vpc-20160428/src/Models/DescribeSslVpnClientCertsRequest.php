@@ -58,7 +58,7 @@ class DescribeSslVpnClientCertsRequest extends Model
     /**
      * @description The ID of the resource group to which the SSL client certificate belongs.
      *
-     * You can call the [DescribeSslVpnServers](https://help.aliyun.com/document_detail/2526933.html) operation to query the ID of the resource group to which the SSL server belongs.
+     * You can call the [DescribeSslVpnServers](https://help.aliyun.com/document_detail/2794078.html) operation to query the ID of the resource group to which the SSL server belongs.
      * @example rg-acfmzs372yg****
      *
      * @var string

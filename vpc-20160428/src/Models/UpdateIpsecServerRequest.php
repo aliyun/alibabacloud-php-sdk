@@ -43,10 +43,10 @@ class UpdateIpsecServerRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether to delete the current IPsec tunnel and initiate negotiations again. Valid values:
+     * @description Specifies whether to delete the negotiated IPsec tunnel and initiate the negotiation again. Valid values:
      *
      *   **true**: immediately initiates negotiations after the configuration is complete.
-     *   **false**: initiates negotiations when inbound traffic is detected. This is the default value.
+     *   **false**: initiates negotiations when inbound traffic is detected.
      *
      * @example false
      *
@@ -55,16 +55,16 @@ class UpdateIpsecServerRequest extends Model
     public $effectImmediately;
 
     /**
-     * @description The configuration of Phase 1 negotiation. Valid values:
+     * @description The configuration of Phase 1 negotiations. Valid values:
      *
-     *   **IkeVersion**: the IKE version. Valid values: **ikev1** and **ikev2**. Default value: **ikev2**.
-     *   **IkeMode**: the IKE negotiation mode. Default value: **main**.
+     *   **IkeVersion**: The IKE version. Valid values: **ikev1** and **ikev2**.
+     *   **IkeMode**: The IKE negotiation mode. Default value: **main**.
      *   **IkeEncAlg**: the encryption algorithm that is used in Phase 1 negotiation. Default value: **aes**.
      *   **IkeAuthAlg**: the authentication algorithm that is used in Phase 1 negotiation. Default value: **sha1**.
-     *   **IkePfs**: the Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiation. Default value: **group2**.
-     *   **IkeLifetime**: the security association (SA) lifetime determined by Phase 1 negotiation. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
-     *   **LocalId**: the identifier of the IPsec server. The value can be a fully qualified domain name (FQDN) or an IP address. The default value is the public IP address of the VPN gateway.
-     *   **RemoteId**: the peer identifier. The value can be an FQDN or an IP address. The default value is empty.
+     *   **IkePfs**: The Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiations. Default value: **group2**.
+     *   **IkeLifetime**: The SA lifetime determined by Phase 1 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
+     *   **LocalId**: The identifier of the IPsec server. Only FQDN and IP address formats are supported.
+     *   **RemoteId**: the peer identifier. Only FQDN and IP address formats are supported.
      *
      * @example {"IkeVersion":"ikev2","IkeMode":"main","IkeEncAlg":"aes","IkeAuthAlg":"sha1","IkePfs":"group2","IkeLifetime":86400}
      *
@@ -97,9 +97,9 @@ class UpdateIpsecServerRequest extends Model
     public $ipsecServerId;
 
     /**
-     * @description The IPsec server name.
+     * @description The name of the IPsec server.
      *
-     * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
+     * It must be 1 to 100 characters in length.
      * @example test
      *
      * @var string
@@ -119,7 +119,7 @@ class UpdateIpsecServerRequest extends Model
     /**
      * @description The pre-shared key.
      *
-     * >  The pre-shared key of the IPsec server must be the same as the client key. Otherwise, the IPsec server cannot be connected to the client.
+     * >  The pre-shared key of the IPsec server key must be the same as that of the client. Otherwise, the connection between the IPsec server and the client cannot be established.
      * @example Cfd123****
      *
      * @var string

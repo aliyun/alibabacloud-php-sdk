@@ -22,6 +22,11 @@ class publicIpAddressPoolList extends Model
     public $bizType;
 
     /**
+     * @var string
+     */
+    public $businessStatus;
+
+    /**
      * @description The time when the IP address pool was created. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2022-05-10T01:37:38Z
@@ -198,6 +203,7 @@ class publicIpAddressPoolList extends Model
     public $zones;
     protected $_name = [
         'bizType'                 => 'BizType',
+        'businessStatus'          => 'BusinessStatus',
         'creationTime'            => 'CreationTime',
         'description'             => 'Description',
         'ipAddressRemaining'      => 'IpAddressRemaining',
@@ -226,6 +232,9 @@ class publicIpAddressPoolList extends Model
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
+        }
+        if (null !== $this->businessStatus) {
+            $res['BusinessStatus'] = $this->businessStatus;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
@@ -298,6 +307,9 @@ class publicIpAddressPoolList extends Model
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
+        }
+        if (isset($map['BusinessStatus'])) {
+            $model->businessStatus = $map['BusinessStatus'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
