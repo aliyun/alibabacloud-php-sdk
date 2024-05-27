@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeProcessStatsCompositionResponseBody extends Model
 {
     /**
+     * @description The return result.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
      * @example EE205C00-30E4-****-****-87E3A8A2AA0C
      *
      * @var string

@@ -2,22 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\BatchKillProcessListResponseBody;
+namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class DeleteTagRequest extends Model
 {
     /**
-     * @description Indicates whether the calling is successful.
+     * @description The name of the tag group.
      *
-     * @example true
+     * This parameter is required.
+     * @example Tag group 2
      *
-     * @var bool
+     * @var string
      */
-    public $success;
+    public $key;
     protected $_name = [
-        'success' => 'Success',
+        'key' => 'Key',
     ];
 
     public function validate()
@@ -27,8 +28,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
         }
 
         return $res;
@@ -37,13 +38,13 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return DeleteTagRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
 
         return $model;

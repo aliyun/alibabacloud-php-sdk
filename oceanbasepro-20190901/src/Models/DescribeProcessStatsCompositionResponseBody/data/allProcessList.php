@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class allProcessList extends Model
 {
     /**
+     * @description The IP address of the client.
+     *
      * @example 127.*.*.*
      *
      * @var string
@@ -16,6 +18,8 @@ class allProcessList extends Model
     public $clientIp;
 
     /**
+     * @description The type of command executed on the current session.
+     *
      * @example Sleep
      *
      * @var string
@@ -23,6 +27,8 @@ class allProcessList extends Model
     public $command;
 
     /**
+     * @description The CPU time.
+     *
      * @example 257.943
      *
      * @var int
@@ -30,6 +36,8 @@ class allProcessList extends Model
     public $cpuTime;
 
     /**
+     * @description The name of the database.
+     *
      * @example database1
      *
      * @var string
@@ -37,6 +45,8 @@ class allProcessList extends Model
     public $database;
 
     /**
+     * @description The execution time.
+     *
      * @example 18.23
      *
      * @var int
@@ -44,6 +54,8 @@ class allProcessList extends Model
     public $executeTime;
 
     /**
+     * @description The ID of the plan.
+     *
      * @example af621fe01e064743bd37e7c9a41aa139
      *
      * @var string
@@ -51,6 +63,8 @@ class allProcessList extends Model
     public $planId;
 
     /**
+     * @description The ID of the proxy session.
+     *
      * @example ab***-********-90ab-c***-***********b
      *
      * @var string
@@ -58,6 +72,8 @@ class allProcessList extends Model
     public $proxySessId;
 
     /**
+     * @description The IP address of the server.
+     *
      * @example 127.*.*.*
      *
      * @var string
@@ -65,6 +81,8 @@ class allProcessList extends Model
     public $serverIp;
 
     /**
+     * @description The ID of the session.
+     *
      * @example 1***************90L
      *
      * @var int
@@ -72,7 +90,7 @@ class allProcessList extends Model
     public $sessionId;
 
     /**
-     * @description SQL ID。
+     * @description The ID of the SQL statement.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -81,6 +99,8 @@ class allProcessList extends Model
     public $sqlId;
 
     /**
+     * @description The SQL statement.
+     *
      * @example SELECT * FROM table_name;
      *
      * @var string
@@ -88,13 +108,17 @@ class allProcessList extends Model
     public $sqlText;
 
     /**
-     * @example RUNNING
+     * @description The state of the session.
+     *
+     * @example ACTIVE
      *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example t33h8y08k****
      *
      * @var string
@@ -102,6 +126,8 @@ class allProcessList extends Model
     public $tenantId;
 
     /**
+     * @description The ID of the trace.
+     *
      * @example 3c6e****-cb**-11**-a5**-4201ac1****f
      *
      * @var string
@@ -109,6 +135,8 @@ class allProcessList extends Model
     public $traceId;
 
     /**
+     * @description The username that you use to log in to the database.
+     *
      * @example test1
      *
      * @var string

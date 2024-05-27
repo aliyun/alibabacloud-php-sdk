@@ -34,6 +34,10 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateRdsPostgreSQLDataSource
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateRdsPostgreSQLDataSourceResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateSecurityIpGroupRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateSecurityIpGroupResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTagRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTagResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTagValueRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTagValueResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantReadOnlyConnectionRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantReadOnlyConnectionResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantRequest;
@@ -53,6 +57,10 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteSecurityIpGroupRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteSecurityIpGroupResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTagRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTagResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTagValueRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTagValueResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTenantSecurityIpGroupRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTenantSecurityIpGroupResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTenantsRequest;
@@ -147,6 +155,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLPlansRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLPlansResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLSamplesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLSamplesResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTagValuesRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTagValuesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantEncryptionRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantEncryptionResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantMetricsRequest;
@@ -210,6 +220,10 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyParametersRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyParametersResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifySecurityIpsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTagNameRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTagNameResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTagValueNameRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTagValueNameResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantEncryptionRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantEncryptionResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantPrimaryZoneRequest;
@@ -291,7 +305,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary BatchKillProcessList
+     * @summary You can call this operation to close sessions in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeProcessStatsComposition.
      *  *
      * @param BatchKillProcessListRequest $request BatchKillProcessListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -330,7 +344,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary BatchKillProcessList
+     * @summary You can call this operation to close sessions in batches. Please note that this operation is executed asynchronously. After calling this operation, you need to verify it by calling DescribeProcessStatsComposition.
      *  *
      * @param BatchKillProcessListRequest $request BatchKillProcessListRequest
      *
@@ -1201,6 +1215,105 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @summary You can call this operation to create a tag group.
+     *  *
+     * @param CreateTagRequest $request CreateTagRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateTagResponse CreateTagResponse
+     */
+    public function createTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $body['Key'] = $request->key;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTag',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary You can call this operation to create a tag group.
+     *  *
+     * @param CreateTagRequest $request CreateTagRequest
+     *
+     * @return CreateTagResponse CreateTagResponse
+     */
+    public function createTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateTagValueRequest $request CreateTagValueRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateTagValueResponse CreateTagValueResponse
+     */
+    public function createTagValueWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->key)) {
+            $body['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $body['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTagValue',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTagValueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTagValueRequest $request CreateTagValueRequest
+     *
+     * @return CreateTagValueResponse CreateTagValueResponse
+     */
+    public function createTagValue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTagValueWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary You can call this operation to create a tenant.
      *  *
      * @param CreateTenantRequest $tmpReq  CreateTenantRequest
@@ -1736,6 +1849,103 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSecurityIpGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary You can call this operation to delete a tag group.
+     *  *
+     * @param DeleteTagRequest $request DeleteTagRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteTagResponse DeleteTagResponse
+     */
+    public function deleteTagWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->key)) {
+            $body['Key'] = $request->key;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTag',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary You can call this operation to delete a tag group.
+     *  *
+     * @param DeleteTagRequest $request DeleteTagRequest
+     *
+     * @return DeleteTagResponse DeleteTagResponse
+     */
+    public function deleteTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary You can call this operation to delete a tag from a tag group.
+     *  *
+     * @param DeleteTagValueRequest $request DeleteTagValueRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteTagValueResponse DeleteTagValueResponse
+     */
+    public function deleteTagValueWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->key)) {
+            $body['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $body['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTagValue',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTagValueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary You can call this operation to delete a tag from a tag group.
+     *  *
+     * @param DeleteTagValueRequest $request DeleteTagValueRequest
+     *
+     * @return DeleteTagValueResponse DeleteTagValueResponse
+     */
+    public function deleteTagValue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTagValueWithOptions($request, $runtime);
     }
 
     /**
@@ -2646,7 +2856,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary The tag of the resource.
+     * @summary You can call this operation to query the tags of clusters.
      *  *
      * @param DescribeInstanceTagsRequest $request DescribeInstanceTagsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -2682,7 +2892,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary The tag of the resource.
+     * @summary You can call this operation to query the tags of clusters.
      *  *
      * @param DescribeInstanceTagsRequest $request DescribeInstanceTagsRequest
      *
@@ -3671,7 +3881,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary DescribeProcessStatsComposition
+     * @summary You can call this operation to query session information.
      *  *
      * @param DescribeProcessStatsCompositionRequest $request DescribeProcessStatsCompositionRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -3725,7 +3935,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * @summary DescribeProcessStatsComposition
+     * @summary You can call this operation to query session information.
      *  *
      * @param DescribeProcessStatsCompositionRequest $request DescribeProcessStatsCompositionRequest
      *
@@ -4544,6 +4754,53 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSlowSQLListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary You can call this operation to query tags.
+     *  *
+     * @param DescribeTagValuesRequest $request DescribeTagValuesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeTagValuesResponse DescribeTagValuesResponse
+     */
+    public function describeTagValuesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTagValues',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary You can call this operation to query tags.
+     *  *
+     * @param DescribeTagValuesRequest $request DescribeTagValuesRequest
+     *
+     * @return DescribeTagValuesResponse DescribeTagValuesResponse
+     */
+    public function describeTagValues($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTagValuesWithOptions($request, $runtime);
     }
 
     /**
@@ -6259,6 +6516,105 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySecurityIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyTagNameRequest $request ModifyTagNameRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyTagNameResponse ModifyTagNameResponse
+     */
+    public function modifyTagNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->key)) {
+            $body['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->newKey)) {
+            $body['NewKey'] = $request->newKey;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTagName',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTagNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyTagNameRequest $request ModifyTagNameRequest
+     *
+     * @return ModifyTagNameResponse ModifyTagNameResponse
+     */
+    public function modifyTagName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTagNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary You can call this operation to rename a tag.
+     *  *
+     * @param ModifyTagValueNameRequest $request ModifyTagValueNameRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyTagValueNameResponse ModifyTagValueNameResponse
+     */
+    public function modifyTagValueNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->key)) {
+            $body['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->newValue)) {
+            $body['NewValue'] = $request->newValue;
+        }
+        if (!Utils::isUnset($request->value)) {
+            $body['Value'] = $request->value;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTagValueName',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTagValueNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary You can call this operation to rename a tag.
+     *  *
+     * @param ModifyTagValueNameRequest $request ModifyTagValueNameRequest
+     *
+     * @return ModifyTagValueNameResponse ModifyTagValueNameResponse
+     */
+    public function modifyTagValueName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTagValueNameWithOptions($request, $runtime);
     }
 
     /**

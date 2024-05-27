@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataBaseStatistics extends Model
 {
     /**
+     * @description The number of active sessions.
+     *
      * @example 1
      *
      * @var int
@@ -16,13 +18,17 @@ class dataBaseStatistics extends Model
     public $activeCount;
 
     /**
-     * @example online
+     * @description The value of the database metric.
+     *
+     * @example test_database
      *
      * @var string
      */
     public $metricValue;
 
     /**
+     * @description The total number of sessions.
+     *
      * @example 9
      *
      * @var int
@@ -30,7 +36,9 @@ class dataBaseStatistics extends Model
     public $totalCount;
 
     /**
-     * @example sys
+     * @description The type of the database statistics.
+     *
+     * @example database
      *
      * @var string
      */

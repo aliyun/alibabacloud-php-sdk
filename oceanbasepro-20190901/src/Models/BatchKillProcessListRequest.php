@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BatchKillProcessListRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -18,8 +19,9 @@ class BatchKillProcessListRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The list of sessions to close.
      *
+     * This parameter is required.
      * @example [{"ProxySessId":"752113700739156671","SessionId":3221555062,"ServerIp":"10.***.**.***"}]
      *
      * @var string
@@ -27,8 +29,9 @@ class BatchKillProcessListRequest extends Model
     public $sessionList;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the tenant.
      *
+     * This parameter is required.
      * @example t33h8y08k****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeProcessStatsCompositionRequest extends Model
 {
     /**
+     * @description The IP address of the client.
+     *
      * @example 127.*.*.*
      *
      * @var string
@@ -16,8 +18,9 @@ class DescribeProcessStatsCompositionRequest extends Model
     public $clientIp;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the OceanBase cluster.
      *
+     * This parameter is required.
      * @example ob317v4uif****
      *
      * @var string
@@ -25,6 +28,8 @@ class DescribeProcessStatsCompositionRequest extends Model
     public $instanceId;
 
     /**
+     * @description The IP address of the server.
+     *
      * @example 127.*.*.*
      *
      * @var string
@@ -32,6 +37,8 @@ class DescribeProcessStatsCompositionRequest extends Model
     public $serverIp;
 
     /**
+     * @description The SQL statement. It supports LIKE clauses, and you may specify only part of the clauses in the SQL statement.
+     *
      * @example SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
      *
      * @var string
@@ -39,13 +46,17 @@ class DescribeProcessStatsCompositionRequest extends Model
     public $sqlText;
 
     /**
-     * @example RUNNING
+     * @description The state of the session.
+     *
+     * @example ACTIVE
      *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the tenant.
+     *
      * @example t33h8y08k****
      *
      * @var string
@@ -53,6 +64,8 @@ class DescribeProcessStatsCompositionRequest extends Model
     public $tenantId;
 
     /**
+     * @description The user identifier (UID) of OceanBase Database.
+     *
      * @example 139*************
      *
      * @var string
@@ -60,6 +73,8 @@ class DescribeProcessStatsCompositionRequest extends Model
     public $UId;
 
     /**
+     * @description The username that you use to log in to the database.
+     *
      * @example test1
      *
      * @var string
