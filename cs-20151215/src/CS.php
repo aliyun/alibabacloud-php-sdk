@@ -6124,6 +6124,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->nodes)) {
             $body['nodes'] = $request->nodes;
         }
+        if (!Utils::isUnset($request->operations)) {
+            $body['operations'] = $request->operations;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),

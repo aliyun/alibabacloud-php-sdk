@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\RepairClusterNodePoolRequest\operations;
 use AlibabaCloud\Tea\Model;
 
 class RepairClusterNodePoolRequest extends Model
@@ -21,9 +22,15 @@ class RepairClusterNodePoolRequest extends Model
      * @var string[]
      */
     public $nodes;
+
+    /**
+     * @var operations[]
+     */
+    public $operations;
     protected $_name = [
         'autoRestart' => 'auto_restart',
         'nodes'       => 'nodes',
+        'operations'  => 'operations',
     ];
 
     public function validate()
@@ -38,6 +45,15 @@ class RepairClusterNodePoolRequest extends Model
         }
         if (null !== $this->nodes) {
             $res['nodes'] = $this->nodes;
+        }
+        if (null !== $this->operations) {
+            $res['operations'] = [];
+            if (null !== $this->operations && \is_array($this->operations)) {
+                $n = 0;
+                foreach ($this->operations as $item) {
+                    $res['operations'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -57,6 +73,15 @@ class RepairClusterNodePoolRequest extends Model
         if (isset($map['nodes'])) {
             if (!empty($map['nodes'])) {
                 $model->nodes = $map['nodes'];
+            }
+        }
+        if (isset($map['operations'])) {
+            if (!empty($map['operations'])) {
+                $model->operations = [];
+                $n                 = 0;
+                foreach ($map['operations'] as $item) {
+                    $model->operations[$n++] = null !== $item ? operations::fromMap($item) : $item;
+                }
             }
         }
 
