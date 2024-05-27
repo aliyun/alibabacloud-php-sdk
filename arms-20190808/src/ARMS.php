@@ -2852,6 +2852,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->state)) {
+            $body['State'] = $request->state;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);

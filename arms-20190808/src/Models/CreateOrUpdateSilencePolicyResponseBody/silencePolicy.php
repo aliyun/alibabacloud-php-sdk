@@ -33,10 +33,18 @@ class silencePolicy extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @example enable
+     *
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'id'            => 'Id',
         'matchingRules' => 'MatchingRules',
         'name'          => 'Name',
+        'state'         => 'State',
     ];
 
     public function validate()
@@ -60,6 +68,9 @@ class silencePolicy extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -87,6 +98,9 @@ class silencePolicy extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

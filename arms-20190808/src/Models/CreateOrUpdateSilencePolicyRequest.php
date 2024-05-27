@@ -48,11 +48,19 @@ class CreateOrUpdateSilencePolicyRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @example enable
+     *
+     * @var string
+     */
+    public $state;
     protected $_name = [
         'id'            => 'Id',
         'matchingRules' => 'MatchingRules',
         'name'          => 'Name',
         'regionId'      => 'RegionId',
+        'state'         => 'State',
     ];
 
     public function validate()
@@ -73,6 +81,9 @@ class CreateOrUpdateSilencePolicyRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->state) {
+            $res['State'] = $this->state;
         }
 
         return $res;
@@ -97,6 +108,9 @@ class CreateOrUpdateSilencePolicyRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['State'])) {
+            $model->state = $map['State'];
         }
 
         return $model;

@@ -117,6 +117,11 @@ class data extends Model
     public $pushGatewayIntraUrl;
 
     /**
+     * @var bool
+     */
+    public $readOnly;
+
+    /**
      * @description The region ID.
      *
      * @example cn-beijing
@@ -251,6 +256,7 @@ class data extends Model
         'paymentType'         => 'PaymentType',
         'pushGatewayInterUrl' => 'PushGatewayInterUrl',
         'pushGatewayIntraUrl' => 'PushGatewayIntraUrl',
+        'readOnly'            => 'ReadOnly',
         'regionId'            => 'RegionId',
         'remoteReadInterUrl'  => 'RemoteReadInterUrl',
         'remoteReadIntraUrl'  => 'RemoteReadIntraUrl',
@@ -306,6 +312,9 @@ class data extends Model
         }
         if (null !== $this->pushGatewayIntraUrl) {
             $res['PushGatewayIntraUrl'] = $this->pushGatewayIntraUrl;
+        }
+        if (null !== $this->readOnly) {
+            $res['ReadOnly'] = $this->readOnly;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -399,6 +408,9 @@ class data extends Model
         }
         if (isset($map['PushGatewayIntraUrl'])) {
             $model->pushGatewayIntraUrl = $map['PushGatewayIntraUrl'];
+        }
+        if (isset($map['ReadOnly'])) {
+            $model->readOnly = $map['ReadOnly'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
