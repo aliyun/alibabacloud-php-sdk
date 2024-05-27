@@ -90,6 +90,8 @@ class DescribeRulesRequest extends Model
     public $riskLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1012
      *
      * @var int

@@ -1044,6 +1044,9 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @description ## Usage notes
+     * You can call the DescribeInstanceInfo operation to query the information about the WAF instance within your Alibaba Cloud account. The information includes the ID, version, status, and expiration time of the instance.
+     *  *
      * @param DescribeInstanceInfoRequest $request DescribeInstanceInfoRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1081,6 +1084,9 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * @description ## Usage notes
+     * You can call the DescribeInstanceInfo operation to query the information about the WAF instance within your Alibaba Cloud account. The information includes the ID, version, status, and expiration time of the instance.
+     *  *
      * @param DescribeInstanceInfoRequest $request DescribeInstanceInfoRequest
      *
      * @return DescribeInstanceInfoResponse DescribeInstanceInfoResponse
