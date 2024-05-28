@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Slb\V20140515\Models;
 
+use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerUDPListenerAttributeResponseBody\aclIds;
 use AlibabaCloud\SDK\Slb\V20140515\Models\DescribeLoadBalancerUDPListenerAttributeResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -17,6 +18,11 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
      * @var string
      */
     public $aclId;
+
+    /**
+     * @var aclIds
+     */
+    public $aclIds;
 
     /**
      * @description Indicates whether access control is enabled. Valid values: **on** and **off**. Default value: off.
@@ -239,6 +245,7 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $VServerGroupId;
     protected $_name = [
         'aclId'                     => 'AclId',
+        'aclIds'                    => 'AclIds',
         'aclStatus'                 => 'AclStatus',
         'aclType'                   => 'AclType',
         'backendServerPort'         => 'BackendServerPort',
@@ -272,6 +279,9 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
+        }
+        if (null !== $this->aclIds) {
+            $res['AclIds'] = null !== $this->aclIds ? $this->aclIds->toMap() : null;
         }
         if (null !== $this->aclStatus) {
             $res['AclStatus'] = $this->aclStatus;
@@ -353,6 +363,9 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
+        }
+        if (isset($map['AclIds'])) {
+            $model->aclIds = aclIds::fromMap($map['AclIds']);
         }
         if (isset($map['AclStatus'])) {
             $model->aclStatus = $map['AclStatus'];

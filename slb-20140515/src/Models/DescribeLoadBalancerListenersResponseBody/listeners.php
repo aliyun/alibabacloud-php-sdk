@@ -23,6 +23,11 @@ class listeners extends Model
     public $aclId;
 
     /**
+     * @var string[]
+     */
+    public $aclIds;
+
+    /**
      * @description Indicates whether access control is enabled. Valid values:
      *
      *   **on**: yes
@@ -177,6 +182,7 @@ class listeners extends Model
     public $VServerGroupId;
     protected $_name = [
         'aclId'               => 'AclId',
+        'aclIds'              => 'AclIds',
         'aclStatus'           => 'AclStatus',
         'aclType'             => 'AclType',
         'backendServerPort'   => 'BackendServerPort',
@@ -204,6 +210,9 @@ class listeners extends Model
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
+        }
+        if (null !== $this->aclIds) {
+            $res['AclIds'] = $this->aclIds;
         }
         if (null !== $this->aclStatus) {
             $res['AclStatus'] = $this->aclStatus;
@@ -273,6 +282,11 @@ class listeners extends Model
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
+        }
+        if (isset($map['AclIds'])) {
+            if (!empty($map['AclIds'])) {
+                $model->aclIds = $map['AclIds'];
+            }
         }
         if (isset($map['AclStatus'])) {
             $model->aclStatus = $map['AclStatus'];
