@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRealTimeRiskInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Ab63aqUKx9TmYRhPV7LnRLybLRQOEG6GQsr-oGlT8bo6-_z_oYxTqqutBz6R0dBognMN1DBvZImDadsKb8k_Hfcj8A8nrXtxch_nKVg5xARkRmMU2SU=
      *
      * @var string
@@ -16,6 +18,8 @@ class GetRealTimeRiskInfoRequest extends Model
     public $atoken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 62c792d188ccdf4b7ec1aa38
      *
      * @var string

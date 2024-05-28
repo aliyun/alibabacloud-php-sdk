@@ -56,11 +56,13 @@ class Antirisk extends OpenApiClient
     }
 
     /**
-     * @param GetRealTimeRiskInfoRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 获取实时反作弊信息
+     *  *
+     * @param GetRealTimeRiskInfoRequest $request GetRealTimeRiskInfoRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRealTimeRiskInfoResponse
+     * @return GetRealTimeRiskInfoResponse GetRealTimeRiskInfoResponse
      */
     public function getRealTimeRiskInfoWithOptions($request, $headers, $runtime)
     {
@@ -95,9 +97,11 @@ class Antirisk extends OpenApiClient
     }
 
     /**
-     * @param GetRealTimeRiskInfoRequest $request
+     * @summary 获取实时反作弊信息
+     *  *
+     * @param GetRealTimeRiskInfoRequest $request GetRealTimeRiskInfoRequest
      *
-     * @return GetRealTimeRiskInfoResponse
+     * @return GetRealTimeRiskInfoResponse GetRealTimeRiskInfoResponse
      */
     public function getRealTimeRiskInfo($request)
     {
@@ -108,11 +112,13 @@ class Antirisk extends OpenApiClient
     }
 
     /**
-     * @param GetZidTagByAtokenRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary atoken换zid+tags
+     *  *
+     * @param GetZidTagByAtokenRequest $request GetZidTagByAtokenRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetZidTagByAtokenResponse
+     * @return GetZidTagByAtokenResponse GetZidTagByAtokenResponse
      */
     public function getZidTagByAtokenWithOptions($request, $headers, $runtime)
     {
@@ -144,9 +150,11 @@ class Antirisk extends OpenApiClient
     }
 
     /**
-     * @param GetZidTagByAtokenRequest $request
+     * @summary atoken换zid+tags
+     *  *
+     * @param GetZidTagByAtokenRequest $request GetZidTagByAtokenRequest
      *
-     * @return GetZidTagByAtokenResponse
+     * @return GetZidTagByAtokenResponse GetZidTagByAtokenResponse
      */
     public function getZidTagByAtoken($request)
     {
@@ -157,11 +165,13 @@ class Antirisk extends OpenApiClient
     }
 
     /**
-     * @param GetZidTagScoreByAtokenRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary atoken换zid+tags+风险分
+     *  *
+     * @param GetZidTagScoreByAtokenRequest $request GetZidTagScoreByAtokenRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetZidTagScoreByAtokenResponse
+     * @return GetZidTagScoreByAtokenResponse GetZidTagScoreByAtokenResponse
      */
     public function getZidTagScoreByAtokenWithOptions($request, $headers, $runtime)
     {
@@ -193,9 +203,11 @@ class Antirisk extends OpenApiClient
     }
 
     /**
-     * @param GetZidTagScoreByAtokenRequest $request
+     * @summary atoken换zid+tags+风险分
+     *  *
+     * @param GetZidTagScoreByAtokenRequest $request GetZidTagScoreByAtokenRequest
      *
-     * @return GetZidTagScoreByAtokenResponse
+     * @return GetZidTagScoreByAtokenResponse GetZidTagScoreByAtokenResponse
      */
     public function getZidTagScoreByAtoken($request)
     {
@@ -206,11 +218,13 @@ class Antirisk extends OpenApiClient
     }
 
     /**
-     * @param ListChannelRiskDetailsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary  渠道风险明细
+     *  *
+     * @param ListChannelRiskDetailsRequest $request ListChannelRiskDetailsRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListChannelRiskDetailsResponse
+     * @return ListChannelRiskDetailsResponse ListChannelRiskDetailsResponse
      */
     public function listChannelRiskDetailsWithOptions($request, $headers, $runtime)
     {
@@ -251,9 +265,11 @@ class Antirisk extends OpenApiClient
     }
 
     /**
-     * @param ListChannelRiskDetailsRequest $request
+     * @summary  渠道风险明细
+     *  *
+     * @param ListChannelRiskDetailsRequest $request ListChannelRiskDetailsRequest
      *
-     * @return ListChannelRiskDetailsResponse
+     * @return ListChannelRiskDetailsResponse ListChannelRiskDetailsResponse
      */
     public function listChannelRiskDetails($request)
     {
@@ -264,11 +280,13 @@ class Antirisk extends OpenApiClient
     }
 
     /**
-     * @param ListUninstallDetailRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary 卸载明细列表
+     *  *
+     * @param ListUninstallDetailRequest $request ListUninstallDetailRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUninstallDetailResponse
+     * @return ListUninstallDetailResponse ListUninstallDetailResponse
      */
     public function listUninstallDetailWithOptions($request, $headers, $runtime)
     {
@@ -303,9 +321,11 @@ class Antirisk extends OpenApiClient
     }
 
     /**
-     * @param ListUninstallDetailRequest $request
+     * @summary 卸载明细列表
+     *  *
+     * @param ListUninstallDetailRequest $request ListUninstallDetailRequest
      *
-     * @return ListUninstallDetailResponse
+     * @return ListUninstallDetailResponse ListUninstallDetailResponse
      */
     public function listUninstallDetail($request)
     {

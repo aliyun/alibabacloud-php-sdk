@@ -11,6 +11,7 @@ class GetZidTagByAtokenRequest extends Model
     /**
      * @description atoken
      *
+     * This parameter is required.
      * @example AcNh1pZFEJ9wEO1RkqK2S9Qt0DHxZR6riGmx4CpGrxCpf3_LxvQNQQGaLjGWRg_-Un1yC47qfEiwRysoCJgQrBSa7b274rzhuIW4QDer7J41X18PiHI=
      *
      * @var string
@@ -18,6 +19,8 @@ class GetZidTagByAtokenRequest extends Model
     public $atoken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 59892ebcaed179694b000104
      *
      * @var string

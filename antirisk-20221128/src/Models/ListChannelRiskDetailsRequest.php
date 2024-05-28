@@ -16,6 +16,8 @@ class ListChannelRiskDetailsRequest extends Model
     public $channel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 59892ebcaed179694b000104
      *
      * @var string
@@ -23,6 +25,8 @@ class ListChannelRiskDetailsRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20230418
      *
      * @var string
@@ -37,6 +41,8 @@ class ListChannelRiskDetailsRequest extends Model
     public $isAllChannel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20230418
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUninstallDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 62c792d188ccdf4b7ec1aa38
      *
      * @var string
@@ -16,6 +18,8 @@ class ListUninstallDetailRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20231120
      *
      * @var string
@@ -23,6 +27,8 @@ class ListUninstallDetailRequest extends Model
     public $endDs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20231120
      *
      * @var string
