@@ -40,10 +40,28 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\ChangeDomainOfDnsProductRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ChangeDomainOfDnsProductResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CopyGtmConfigRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CopyGtmConfigResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmAddressPoolRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmAddressPoolResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmAddressRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmAddressResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmAddressShrinkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmInstanceConfigRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmInstanceConfigResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmMonitorTemplateRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmMonitorTemplateResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmMonitorTemplateShrinkRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsAppKeyRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsAppKeyResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsUdpIpSegmentRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsUdpIpSegmentResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCloudGtmAddressPoolRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCloudGtmAddressPoolResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCloudGtmAddressRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCloudGtmAddressResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCloudGtmInstanceConfigRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCloudGtmInstanceConfigResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCloudGtmMonitorTemplateRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCloudGtmMonitorTemplateResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCustomLinesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCustomLinesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteDnsCacheDomainRequest;
@@ -70,8 +88,25 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultCountRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultCountResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultDetailRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultDetailResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmAddressPoolReferenceRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmAddressPoolReferenceResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmAddressPoolRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmAddressPoolResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmAddressReferenceRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmAddressReferenceResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmAddressRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmAddressResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmGlobalAlertRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmGlobalAlertResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmInstanceConfigAlertRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmInstanceConfigAlertResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmInstanceConfigFullInfoRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmInstanceConfigFullInfoResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmMonitorTemplateRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmMonitorTemplateResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmSummaryRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmSummaryResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCloudGtmSystemLinesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLineRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLineResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeCustomLinesRequest;
@@ -236,6 +271,22 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\GetMainDomainNameRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\GetMainDomainNameResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\GetTxtRecordForVerifyRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\GetTxtRecordForVerifyResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAddressesRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAddressesResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAddressPoolsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAddressPoolsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAlertLogsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAlertLogsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAvailableAlertGroupsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAvailableAlertGroupsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmInstanceConfigsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmInstanceConfigsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmInstancesRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmInstancesResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmMonitorNodesRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmMonitorNodesResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmMonitorTemplatesRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmMonitorTemplatesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ModifyHichinaDomainDNSRequest;
@@ -254,12 +305,28 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsAppKeyRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsAppKeyResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsUdpIpSegmentRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RemovePdnsUdpIpSegmentResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ReplaceCloudGtmAddressPoolAddressRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ReplaceCloudGtmAddressPoolAddressResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ReplaceCloudGtmAddressPoolAddressShrinkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ReplaceCloudGtmInstanceConfigAddressPoolRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ReplaceCloudGtmInstanceConfigAddressPoolResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ReplaceCloudGtmInstanceConfigAddressPoolShrinkRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ResumePdnsServiceRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ResumePdnsServiceResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RetrieveDomainRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RetrieveDomainResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RollbackGtmRecoveryPlanRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RollbackGtmRecoveryPlanResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmAddressesRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmAddressesResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmAddressPoolsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmAddressPoolsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmInstanceConfigsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmInstanceConfigsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmInstancesRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmInstancesResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmMonitorTemplatesRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmMonitorTemplatesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetDnsGtmAccessModeRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetDnsGtmAccessModeResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetDnsGtmMonitorStatusRequest;
@@ -288,6 +355,44 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAppKeyStateRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAppKeyStateResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressEnableStatusRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressEnableStatusResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressManualAvailableStatusRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressManualAvailableStatusResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressPoolBasicConfigRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressPoolBasicConfigResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressPoolEnableStatusRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressPoolEnableStatusResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressPoolLbStrategyRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressPoolLbStrategyResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressPoolRemarkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressPoolRemarkResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressRemarkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressRemarkResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressShrinkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmGlobalAlertRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmGlobalAlertResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmGlobalAlertShrinkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceConfigAlertRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceConfigAlertResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceConfigAlertShrinkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceConfigBasicRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceConfigBasicResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceConfigEnableStatusRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceConfigEnableStatusResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceConfigLbStrategyRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceConfigLbStrategyResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceConfigRemarkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceConfigRemarkResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceNameRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmInstanceNameResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmMonitorTemplateRemarkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmMonitorTemplateRemarkResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmMonitorTemplateRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmMonitorTemplateResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmMonitorTemplateShrinkRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCustomLineRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCustomLineResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateDnsCacheDomainRemarkRequest;
@@ -1475,6 +1580,296 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param CreateCloudGtmAddressRequest $tmpReq  CreateCloudGtmAddressRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateCloudGtmAddressResponse CreateCloudGtmAddressResponse
+     */
+    public function createCloudGtmAddressWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCloudGtmAddressShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->healthTasks)) {
+            $request->healthTasksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->healthTasks, 'HealthTasks', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->attributeInfo)) {
+            $query['AttributeInfo'] = $request->attributeInfo;
+        }
+        if (!Utils::isUnset($request->availableMode)) {
+            $query['AvailableMode'] = $request->availableMode;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        if (!Utils::isUnset($request->healthJudgement)) {
+            $query['HealthJudgement'] = $request->healthJudgement;
+        }
+        if (!Utils::isUnset($request->healthTasksShrink)) {
+            $query['HealthTasks'] = $request->healthTasksShrink;
+        }
+        if (!Utils::isUnset($request->manualAvailableStatus)) {
+            $query['ManualAvailableStatus'] = $request->manualAvailableStatus;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCloudGtmAddress',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCloudGtmAddressRequest $request CreateCloudGtmAddressRequest
+     *
+     * @return CreateCloudGtmAddressResponse CreateCloudGtmAddressResponse
+     */
+    public function createCloudGtmAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudGtmAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCloudGtmAddressPoolRequest $request CreateCloudGtmAddressPoolRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateCloudGtmAddressPoolResponse CreateCloudGtmAddressPoolResponse
+     */
+    public function createCloudGtmAddressPoolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolName)) {
+            $query['AddressPoolName'] = $request->addressPoolName;
+        }
+        if (!Utils::isUnset($request->addressPoolType)) {
+            $query['AddressPoolType'] = $request->addressPoolType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        if (!Utils::isUnset($request->healthJudgement)) {
+            $query['HealthJudgement'] = $request->healthJudgement;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCloudGtmAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCloudGtmAddressPoolRequest $request CreateCloudGtmAddressPoolRequest
+     *
+     * @return CreateCloudGtmAddressPoolResponse CreateCloudGtmAddressPoolResponse
+     */
+    public function createCloudGtmAddressPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudGtmAddressPoolWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCloudGtmInstanceConfigRequest $request CreateCloudGtmInstanceConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateCloudGtmInstanceConfigResponse CreateCloudGtmInstanceConfigResponse
+     */
+    public function createCloudGtmInstanceConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->scheduleHostname)) {
+            $query['ScheduleHostname'] = $request->scheduleHostname;
+        }
+        if (!Utils::isUnset($request->scheduleRrType)) {
+            $query['ScheduleRrType'] = $request->scheduleRrType;
+        }
+        if (!Utils::isUnset($request->scheduleZoneMode)) {
+            $query['ScheduleZoneMode'] = $request->scheduleZoneMode;
+        }
+        if (!Utils::isUnset($request->scheduleZoneName)) {
+            $query['ScheduleZoneName'] = $request->scheduleZoneName;
+        }
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCloudGtmInstanceConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCloudGtmInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCloudGtmInstanceConfigRequest $request CreateCloudGtmInstanceConfigRequest
+     *
+     * @return CreateCloudGtmInstanceConfigResponse CreateCloudGtmInstanceConfigResponse
+     */
+    public function createCloudGtmInstanceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudGtmInstanceConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCloudGtmMonitorTemplateRequest $tmpReq  CreateCloudGtmMonitorTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateCloudGtmMonitorTemplateResponse CreateCloudGtmMonitorTemplateResponse
+     */
+    public function createCloudGtmMonitorTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateCloudGtmMonitorTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ispCityNodes)) {
+            $request->ispCityNodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ispCityNodes, 'IspCityNodes', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
+        }
+        if (!Utils::isUnset($request->extendInfo)) {
+            $query['ExtendInfo'] = $request->extendInfo;
+        }
+        if (!Utils::isUnset($request->failureRate)) {
+            $query['FailureRate'] = $request->failureRate;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->ispCityNodesShrink)) {
+            $query['IspCityNodes'] = $request->ispCityNodesShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCloudGtmMonitorTemplate',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCloudGtmMonitorTemplateRequest $request CreateCloudGtmMonitorTemplateRequest
+     *
+     * @return CreateCloudGtmMonitorTemplateResponse CreateCloudGtmMonitorTemplateResponse
+     */
+    public function createCloudGtmMonitorTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloudGtmMonitorTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 创建公共DNS AppKey
      *  *
      * @param CreatePdnsAppKeyRequest $request CreatePdnsAppKeyRequest
@@ -1572,6 +1967,205 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPdnsUdpIpSegmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCloudGtmAddressRequest $request DeleteCloudGtmAddressRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCloudGtmAddressResponse DeleteCloudGtmAddressResponse
+     */
+    public function deleteCloudGtmAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCloudGtmAddress',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCloudGtmAddressRequest $request DeleteCloudGtmAddressRequest
+     *
+     * @return DeleteCloudGtmAddressResponse DeleteCloudGtmAddressResponse
+     */
+    public function deleteCloudGtmAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudGtmAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCloudGtmAddressPoolRequest $request DeleteCloudGtmAddressPoolRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCloudGtmAddressPoolResponse DeleteCloudGtmAddressPoolResponse
+     */
+    public function deleteCloudGtmAddressPoolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCloudGtmAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCloudGtmAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCloudGtmAddressPoolRequest $request DeleteCloudGtmAddressPoolRequest
+     *
+     * @return DeleteCloudGtmAddressPoolResponse DeleteCloudGtmAddressPoolResponse
+     */
+    public function deleteCloudGtmAddressPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudGtmAddressPoolWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCloudGtmInstanceConfigRequest $request DeleteCloudGtmInstanceConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCloudGtmInstanceConfigResponse DeleteCloudGtmInstanceConfigResponse
+     */
+    public function deleteCloudGtmInstanceConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCloudGtmInstanceConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCloudGtmInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCloudGtmInstanceConfigRequest $request DeleteCloudGtmInstanceConfigRequest
+     *
+     * @return DeleteCloudGtmInstanceConfigResponse DeleteCloudGtmInstanceConfigResponse
+     */
+    public function deleteCloudGtmInstanceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudGtmInstanceConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCloudGtmMonitorTemplateRequest $request DeleteCloudGtmMonitorTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCloudGtmMonitorTemplateResponse DeleteCloudGtmMonitorTemplateResponse
+     */
+    public function deleteCloudGtmMonitorTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCloudGtmMonitorTemplate',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCloudGtmMonitorTemplateRequest $request DeleteCloudGtmMonitorTemplateRequest
+     *
+     * @return DeleteCloudGtmMonitorTemplateResponse DeleteCloudGtmMonitorTemplateResponse
+     */
+    public function deleteCloudGtmMonitorTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCloudGtmMonitorTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -2232,6 +2826,55 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param DescribeCloudGtmAddressRequest $request DescribeCloudGtmAddressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudGtmAddressResponse DescribeCloudGtmAddressResponse
+     */
+    public function describeCloudGtmAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudGtmAddress',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudGtmAddressRequest $request DescribeCloudGtmAddressRequest
+     *
+     * @return DescribeCloudGtmAddressResponse DescribeCloudGtmAddressResponse
+     */
+    public function describeCloudGtmAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudGtmAddressWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCloudGtmAddressPoolRequest $request DescribeCloudGtmAddressPoolRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -2278,6 +2921,376 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudGtmAddressPoolWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCloudGtmAddressPoolReferenceRequest $request DescribeCloudGtmAddressPoolReferenceRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudGtmAddressPoolReferenceResponse DescribeCloudGtmAddressPoolReferenceResponse
+     */
+    public function describeCloudGtmAddressPoolReferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudGtmAddressPoolReference',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudGtmAddressPoolReferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudGtmAddressPoolReferenceRequest $request DescribeCloudGtmAddressPoolReferenceRequest
+     *
+     * @return DescribeCloudGtmAddressPoolReferenceResponse DescribeCloudGtmAddressPoolReferenceResponse
+     */
+    public function describeCloudGtmAddressPoolReference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudGtmAddressPoolReferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCloudGtmAddressReferenceRequest $request DescribeCloudGtmAddressReferenceRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudGtmAddressReferenceResponse DescribeCloudGtmAddressReferenceResponse
+     */
+    public function describeCloudGtmAddressReferenceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudGtmAddressReference',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudGtmAddressReferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudGtmAddressReferenceRequest $request DescribeCloudGtmAddressReferenceRequest
+     *
+     * @return DescribeCloudGtmAddressReferenceResponse DescribeCloudGtmAddressReferenceResponse
+     */
+    public function describeCloudGtmAddressReference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudGtmAddressReferenceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCloudGtmGlobalAlertRequest $request DescribeCloudGtmGlobalAlertRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudGtmGlobalAlertResponse DescribeCloudGtmGlobalAlertResponse
+     */
+    public function describeCloudGtmGlobalAlertWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudGtmGlobalAlert',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudGtmGlobalAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudGtmGlobalAlertRequest $request DescribeCloudGtmGlobalAlertRequest
+     *
+     * @return DescribeCloudGtmGlobalAlertResponse DescribeCloudGtmGlobalAlertResponse
+     */
+    public function describeCloudGtmGlobalAlert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudGtmGlobalAlertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCloudGtmInstanceConfigAlertRequest $request DescribeCloudGtmInstanceConfigAlertRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudGtmInstanceConfigAlertResponse DescribeCloudGtmInstanceConfigAlertResponse
+     */
+    public function describeCloudGtmInstanceConfigAlertWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudGtmInstanceConfigAlert',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudGtmInstanceConfigAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudGtmInstanceConfigAlertRequest $request DescribeCloudGtmInstanceConfigAlertRequest
+     *
+     * @return DescribeCloudGtmInstanceConfigAlertResponse DescribeCloudGtmInstanceConfigAlertResponse
+     */
+    public function describeCloudGtmInstanceConfigAlert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudGtmInstanceConfigAlertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCloudGtmInstanceConfigFullInfoRequest $request DescribeCloudGtmInstanceConfigFullInfoRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudGtmInstanceConfigFullInfoResponse DescribeCloudGtmInstanceConfigFullInfoResponse
+     */
+    public function describeCloudGtmInstanceConfigFullInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudGtmInstanceConfigFullInfo',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudGtmInstanceConfigFullInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudGtmInstanceConfigFullInfoRequest $request DescribeCloudGtmInstanceConfigFullInfoRequest
+     *
+     * @return DescribeCloudGtmInstanceConfigFullInfoResponse DescribeCloudGtmInstanceConfigFullInfoResponse
+     */
+    public function describeCloudGtmInstanceConfigFullInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudGtmInstanceConfigFullInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCloudGtmMonitorTemplateRequest $request DescribeCloudGtmMonitorTemplateRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudGtmMonitorTemplateResponse DescribeCloudGtmMonitorTemplateResponse
+     */
+    public function describeCloudGtmMonitorTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudGtmMonitorTemplate',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudGtmMonitorTemplateRequest $request DescribeCloudGtmMonitorTemplateRequest
+     *
+     * @return DescribeCloudGtmMonitorTemplateResponse DescribeCloudGtmMonitorTemplateResponse
+     */
+    public function describeCloudGtmMonitorTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudGtmMonitorTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCloudGtmSummaryRequest $request DescribeCloudGtmSummaryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudGtmSummaryResponse DescribeCloudGtmSummaryResponse
+     */
+    public function describeCloudGtmSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudGtmSummary',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudGtmSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCloudGtmSummaryRequest $request DescribeCloudGtmSummaryRequest
+     *
+     * @return DescribeCloudGtmSummaryResponse DescribeCloudGtmSummaryResponse
+     */
+    public function describeCloudGtmSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudGtmSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudGtmSystemLinesResponse DescribeCloudGtmSystemLinesResponse
+     */
+    public function describeCloudGtmSystemLinesWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeCloudGtmSystemLines',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudGtmSystemLinesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeCloudGtmSystemLinesResponse DescribeCloudGtmSystemLinesResponse
+     */
+    public function describeCloudGtmSystemLines()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudGtmSystemLinesWithOptions($runtime);
     }
 
     /**
@@ -6975,6 +7988,476 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param ListCloudGtmAddressPoolsRequest $request ListCloudGtmAddressPoolsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCloudGtmAddressPoolsResponse ListCloudGtmAddressPoolsResponse
+     */
+    public function listCloudGtmAddressPoolsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolName)) {
+            $query['AddressPoolName'] = $request->addressPoolName;
+        }
+        if (!Utils::isUnset($request->addressPoolType)) {
+            $query['AddressPoolType'] = $request->addressPoolType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudGtmAddressPools',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCloudGtmAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCloudGtmAddressPoolsRequest $request ListCloudGtmAddressPoolsRequest
+     *
+     * @return ListCloudGtmAddressPoolsResponse ListCloudGtmAddressPoolsResponse
+     */
+    public function listCloudGtmAddressPools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudGtmAddressPoolsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCloudGtmAddressesRequest $request ListCloudGtmAddressesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCloudGtmAddressesResponse ListCloudGtmAddressesResponse
+     */
+    public function listCloudGtmAddressesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        if (!Utils::isUnset($request->healthStatus)) {
+            $query['HealthStatus'] = $request->healthStatus;
+        }
+        if (!Utils::isUnset($request->monitorTemplateId)) {
+            $query['MonitorTemplateId'] = $request->monitorTemplateId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudGtmAddresses',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCloudGtmAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCloudGtmAddressesRequest $request ListCloudGtmAddressesRequest
+     *
+     * @return ListCloudGtmAddressesResponse ListCloudGtmAddressesResponse
+     */
+    public function listCloudGtmAddresses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudGtmAddressesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCloudGtmAlertLogsRequest $request ListCloudGtmAlertLogsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCloudGtmAlertLogsResponse ListCloudGtmAlertLogsResponse
+     */
+    public function listCloudGtmAlertLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionType)) {
+            $query['ActionType'] = $request->actionType;
+        }
+        if (!Utils::isUnset($request->endTimestamp)) {
+            $query['EndTimestamp'] = $request->endTimestamp;
+        }
+        if (!Utils::isUnset($request->entityType)) {
+            $query['EntityType'] = $request->entityType;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTimestamp)) {
+            $query['StartTimestamp'] = $request->startTimestamp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudGtmAlertLogs',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCloudGtmAlertLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCloudGtmAlertLogsRequest $request ListCloudGtmAlertLogsRequest
+     *
+     * @return ListCloudGtmAlertLogsResponse ListCloudGtmAlertLogsResponse
+     */
+    public function listCloudGtmAlertLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudGtmAlertLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCloudGtmAvailableAlertGroupsRequest $request ListCloudGtmAvailableAlertGroupsRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCloudGtmAvailableAlertGroupsResponse ListCloudGtmAvailableAlertGroupsResponse
+     */
+    public function listCloudGtmAvailableAlertGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudGtmAvailableAlertGroups',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCloudGtmAvailableAlertGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCloudGtmAvailableAlertGroupsRequest $request ListCloudGtmAvailableAlertGroupsRequest
+     *
+     * @return ListCloudGtmAvailableAlertGroupsResponse ListCloudGtmAvailableAlertGroupsResponse
+     */
+    public function listCloudGtmAvailableAlertGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudGtmAvailableAlertGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCloudGtmInstanceConfigsRequest $request ListCloudGtmInstanceConfigsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCloudGtmInstanceConfigsResponse ListCloudGtmInstanceConfigsResponse
+     */
+    public function listCloudGtmInstanceConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->scheduleDomainName)) {
+            $query['ScheduleDomainName'] = $request->scheduleDomainName;
+        }
+        if (!Utils::isUnset($request->scheduleZoneName)) {
+            $query['ScheduleZoneName'] = $request->scheduleZoneName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudGtmInstanceConfigs',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCloudGtmInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCloudGtmInstanceConfigsRequest $request ListCloudGtmInstanceConfigsRequest
+     *
+     * @return ListCloudGtmInstanceConfigsResponse ListCloudGtmInstanceConfigsResponse
+     */
+    public function listCloudGtmInstanceConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudGtmInstanceConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCloudGtmInstancesRequest $request ListCloudGtmInstancesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCloudGtmInstancesResponse ListCloudGtmInstancesResponse
+     */
+    public function listCloudGtmInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudGtmInstances',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCloudGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCloudGtmInstancesRequest $request ListCloudGtmInstancesRequest
+     *
+     * @return ListCloudGtmInstancesResponse ListCloudGtmInstancesResponse
+     */
+    public function listCloudGtmInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudGtmInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCloudGtmMonitorNodesRequest $request ListCloudGtmMonitorNodesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCloudGtmMonitorNodesResponse ListCloudGtmMonitorNodesResponse
+     */
+    public function listCloudGtmMonitorNodesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudGtmMonitorNodes',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCloudGtmMonitorNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCloudGtmMonitorNodesRequest $request ListCloudGtmMonitorNodesRequest
+     *
+     * @return ListCloudGtmMonitorNodesResponse ListCloudGtmMonitorNodesResponse
+     */
+    public function listCloudGtmMonitorNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudGtmMonitorNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCloudGtmMonitorTemplatesRequest $request ListCloudGtmMonitorTemplatesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCloudGtmMonitorTemplatesResponse ListCloudGtmMonitorTemplatesResponse
+     */
+    public function listCloudGtmMonitorTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudGtmMonitorTemplates',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCloudGtmMonitorTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCloudGtmMonitorTemplatesRequest $request ListCloudGtmMonitorTemplatesRequest
+     *
+     * @return ListCloudGtmMonitorTemplatesResponse ListCloudGtmMonitorTemplatesResponse
+     */
+    public function listCloudGtmMonitorTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudGtmMonitorTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the tags that are added to a specified resource.
      *  *
      * @description *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
@@ -7468,6 +8951,123 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * @param ReplaceCloudGtmAddressPoolAddressRequest $tmpReq  ReplaceCloudGtmAddressPoolAddressRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ReplaceCloudGtmAddressPoolAddressResponse ReplaceCloudGtmAddressPoolAddressResponse
+     */
+    public function replaceCloudGtmAddressPoolAddressWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ReplaceCloudGtmAddressPoolAddressShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->addresses)) {
+            $request->addressesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addresses, 'Addresses', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
+        }
+        if (!Utils::isUnset($request->addressesShrink)) {
+            $query['Addresses'] = $request->addressesShrink;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReplaceCloudGtmAddressPoolAddress',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReplaceCloudGtmAddressPoolAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReplaceCloudGtmAddressPoolAddressRequest $request ReplaceCloudGtmAddressPoolAddressRequest
+     *
+     * @return ReplaceCloudGtmAddressPoolAddressResponse ReplaceCloudGtmAddressPoolAddressResponse
+     */
+    public function replaceCloudGtmAddressPoolAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->replaceCloudGtmAddressPoolAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReplaceCloudGtmInstanceConfigAddressPoolRequest $tmpReq  ReplaceCloudGtmInstanceConfigAddressPoolRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse ReplaceCloudGtmInstanceConfigAddressPoolResponse
+     */
+    public function replaceCloudGtmInstanceConfigAddressPoolWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ReplaceCloudGtmInstanceConfigAddressPoolShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->addressPools)) {
+            $request->addressPoolsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addressPools, 'AddressPools', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolsShrink)) {
+            $query['AddressPools'] = $request->addressPoolsShrink;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReplaceCloudGtmInstanceConfigAddressPool',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReplaceCloudGtmInstanceConfigAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReplaceCloudGtmInstanceConfigAddressPoolRequest $request ReplaceCloudGtmInstanceConfigAddressPoolRequest
+     *
+     * @return ReplaceCloudGtmInstanceConfigAddressPoolResponse ReplaceCloudGtmInstanceConfigAddressPoolResponse
+     */
+    public function replaceCloudGtmInstanceConfigAddressPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->replaceCloudGtmInstanceConfigAddressPoolWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 恢复公共DNS服务
      *  *
      * @param ResumePdnsServiceRequest $request ResumePdnsServiceRequest
@@ -7615,6 +9215,347 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rollbackGtmRecoveryPlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchCloudGtmAddressPoolsRequest $request SearchCloudGtmAddressPoolsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SearchCloudGtmAddressPoolsResponse SearchCloudGtmAddressPoolsResponse
+     */
+    public function searchCloudGtmAddressPoolsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolName)) {
+            $query['AddressPoolName'] = $request->addressPoolName;
+        }
+        if (!Utils::isUnset($request->addressPoolType)) {
+            $query['AddressPoolType'] = $request->addressPoolType;
+        }
+        if (!Utils::isUnset($request->availableStatus)) {
+            $query['AvailableStatus'] = $request->availableStatus;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        if (!Utils::isUnset($request->healthStatus)) {
+            $query['HealthStatus'] = $request->healthStatus;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchCloudGtmAddressPools',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchCloudGtmAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchCloudGtmAddressPoolsRequest $request SearchCloudGtmAddressPoolsRequest
+     *
+     * @return SearchCloudGtmAddressPoolsResponse SearchCloudGtmAddressPoolsResponse
+     */
+    public function searchCloudGtmAddressPools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchCloudGtmAddressPoolsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchCloudGtmAddressesRequest $request SearchCloudGtmAddressesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SearchCloudGtmAddressesResponse SearchCloudGtmAddressesResponse
+     */
+    public function searchCloudGtmAddressesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
+        }
+        if (!Utils::isUnset($request->availableStatus)) {
+            $query['AvailableStatus'] = $request->availableStatus;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        if (!Utils::isUnset($request->healthStatus)) {
+            $query['HealthStatus'] = $request->healthStatus;
+        }
+        if (!Utils::isUnset($request->monitorTemplateName)) {
+            $query['MonitorTemplateName'] = $request->monitorTemplateName;
+        }
+        if (!Utils::isUnset($request->nameSearchCondition)) {
+            $query['NameSearchCondition'] = $request->nameSearchCondition;
+        }
+        if (!Utils::isUnset($request->names)) {
+            $query['Names'] = $request->names;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remarkSearchCondition)) {
+            $query['RemarkSearchCondition'] = $request->remarkSearchCondition;
+        }
+        if (!Utils::isUnset($request->remarks)) {
+            $query['Remarks'] = $request->remarks;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchCloudGtmAddresses',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchCloudGtmAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchCloudGtmAddressesRequest $request SearchCloudGtmAddressesRequest
+     *
+     * @return SearchCloudGtmAddressesResponse SearchCloudGtmAddressesResponse
+     */
+    public function searchCloudGtmAddresses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchCloudGtmAddressesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchCloudGtmInstanceConfigsRequest $request SearchCloudGtmInstanceConfigsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SearchCloudGtmInstanceConfigsResponse SearchCloudGtmInstanceConfigsResponse
+     */
+    public function searchCloudGtmInstanceConfigsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->availableStatus)) {
+            $query['AvailableStatus'] = $request->availableStatus;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        if (!Utils::isUnset($request->healthStatus)) {
+            $query['HealthStatus'] = $request->healthStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->scheduleDomainName)) {
+            $query['ScheduleDomainName'] = $request->scheduleDomainName;
+        }
+        if (!Utils::isUnset($request->scheduleZoneName)) {
+            $query['ScheduleZoneName'] = $request->scheduleZoneName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchCloudGtmInstanceConfigs',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchCloudGtmInstanceConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchCloudGtmInstanceConfigsRequest $request SearchCloudGtmInstanceConfigsRequest
+     *
+     * @return SearchCloudGtmInstanceConfigsResponse SearchCloudGtmInstanceConfigsResponse
+     */
+    public function searchCloudGtmInstanceConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchCloudGtmInstanceConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchCloudGtmInstancesRequest $request SearchCloudGtmInstancesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SearchCloudGtmInstancesResponse SearchCloudGtmInstancesResponse
+     */
+    public function searchCloudGtmInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchCloudGtmInstances',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchCloudGtmInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchCloudGtmInstancesRequest $request SearchCloudGtmInstancesRequest
+     *
+     * @return SearchCloudGtmInstancesResponse SearchCloudGtmInstancesResponse
+     */
+    public function searchCloudGtmInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchCloudGtmInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SearchCloudGtmMonitorTemplatesRequest $request SearchCloudGtmMonitorTemplatesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SearchCloudGtmMonitorTemplatesResponse SearchCloudGtmMonitorTemplatesResponse
+     */
+    public function searchCloudGtmMonitorTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchCloudGtmMonitorTemplates',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchCloudGtmMonitorTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchCloudGtmMonitorTemplatesRequest $request SearchCloudGtmMonitorTemplatesRequest
+     *
+     * @return SearchCloudGtmMonitorTemplatesResponse SearchCloudGtmMonitorTemplatesResponse
+     */
+    public function searchCloudGtmMonitorTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchCloudGtmMonitorTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -8385,6 +10326,985 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAppKeyStateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressRequest $tmpReq  UpdateCloudGtmAddressRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmAddressResponse UpdateCloudGtmAddressResponse
+     */
+    public function updateCloudGtmAddressWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateCloudGtmAddressShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->healthTasks)) {
+            $request->healthTasksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->healthTasks, 'HealthTasks', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->address)) {
+            $query['Address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
+        }
+        if (!Utils::isUnset($request->attributeInfo)) {
+            $query['AttributeInfo'] = $request->attributeInfo;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->healthJudgement)) {
+            $query['HealthJudgement'] = $request->healthJudgement;
+        }
+        if (!Utils::isUnset($request->healthTasksShrink)) {
+            $query['HealthTasks'] = $request->healthTasksShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmAddress',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressRequest $request UpdateCloudGtmAddressRequest
+     *
+     * @return UpdateCloudGtmAddressResponse UpdateCloudGtmAddressResponse
+     */
+    public function updateCloudGtmAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressEnableStatusRequest $request UpdateCloudGtmAddressEnableStatusRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmAddressEnableStatusResponse UpdateCloudGtmAddressEnableStatusResponse
+     */
+    public function updateCloudGtmAddressEnableStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmAddressEnableStatus',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmAddressEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressEnableStatusRequest $request UpdateCloudGtmAddressEnableStatusRequest
+     *
+     * @return UpdateCloudGtmAddressEnableStatusResponse UpdateCloudGtmAddressEnableStatusResponse
+     */
+    public function updateCloudGtmAddressEnableStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmAddressEnableStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressManualAvailableStatusRequest $request UpdateCloudGtmAddressManualAvailableStatusRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmAddressManualAvailableStatusResponse UpdateCloudGtmAddressManualAvailableStatusResponse
+     */
+    public function updateCloudGtmAddressManualAvailableStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
+        }
+        if (!Utils::isUnset($request->availableMode)) {
+            $query['AvailableMode'] = $request->availableMode;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->manualAvailableStatus)) {
+            $query['ManualAvailableStatus'] = $request->manualAvailableStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmAddressManualAvailableStatus',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmAddressManualAvailableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressManualAvailableStatusRequest $request UpdateCloudGtmAddressManualAvailableStatusRequest
+     *
+     * @return UpdateCloudGtmAddressManualAvailableStatusResponse UpdateCloudGtmAddressManualAvailableStatusResponse
+     */
+    public function updateCloudGtmAddressManualAvailableStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmAddressManualAvailableStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressPoolBasicConfigRequest $request UpdateCloudGtmAddressPoolBasicConfigRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmAddressPoolBasicConfigResponse UpdateCloudGtmAddressPoolBasicConfigResponse
+     */
+    public function updateCloudGtmAddressPoolBasicConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
+        }
+        if (!Utils::isUnset($request->addressPoolName)) {
+            $query['AddressPoolName'] = $request->addressPoolName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->healthJudgement)) {
+            $query['HealthJudgement'] = $request->healthJudgement;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmAddressPoolBasicConfig',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmAddressPoolBasicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressPoolBasicConfigRequest $request UpdateCloudGtmAddressPoolBasicConfigRequest
+     *
+     * @return UpdateCloudGtmAddressPoolBasicConfigResponse UpdateCloudGtmAddressPoolBasicConfigResponse
+     */
+    public function updateCloudGtmAddressPoolBasicConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmAddressPoolBasicConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressPoolEnableStatusRequest $request UpdateCloudGtmAddressPoolEnableStatusRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmAddressPoolEnableStatusResponse UpdateCloudGtmAddressPoolEnableStatusResponse
+     */
+    public function updateCloudGtmAddressPoolEnableStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmAddressPoolEnableStatus',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmAddressPoolEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressPoolEnableStatusRequest $request UpdateCloudGtmAddressPoolEnableStatusRequest
+     *
+     * @return UpdateCloudGtmAddressPoolEnableStatusResponse UpdateCloudGtmAddressPoolEnableStatusResponse
+     */
+    public function updateCloudGtmAddressPoolEnableStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmAddressPoolEnableStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressPoolLbStrategyRequest $request UpdateCloudGtmAddressPoolLbStrategyRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmAddressPoolLbStrategyResponse UpdateCloudGtmAddressPoolLbStrategyResponse
+     */
+    public function updateCloudGtmAddressPoolLbStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressLbStrategy)) {
+            $query['AddressLbStrategy'] = $request->addressLbStrategy;
+        }
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->sequenceLbStrategyMode)) {
+            $query['SequenceLbStrategyMode'] = $request->sequenceLbStrategyMode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmAddressPoolLbStrategy',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmAddressPoolLbStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressPoolLbStrategyRequest $request UpdateCloudGtmAddressPoolLbStrategyRequest
+     *
+     * @return UpdateCloudGtmAddressPoolLbStrategyResponse UpdateCloudGtmAddressPoolLbStrategyResponse
+     */
+    public function updateCloudGtmAddressPoolLbStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmAddressPoolLbStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressPoolRemarkRequest $request UpdateCloudGtmAddressPoolRemarkRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmAddressPoolRemarkResponse UpdateCloudGtmAddressPoolRemarkResponse
+     */
+    public function updateCloudGtmAddressPoolRemarkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolId)) {
+            $query['AddressPoolId'] = $request->addressPoolId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmAddressPoolRemark',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmAddressPoolRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressPoolRemarkRequest $request UpdateCloudGtmAddressPoolRemarkRequest
+     *
+     * @return UpdateCloudGtmAddressPoolRemarkResponse UpdateCloudGtmAddressPoolRemarkResponse
+     */
+    public function updateCloudGtmAddressPoolRemark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmAddressPoolRemarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressRemarkRequest $request UpdateCloudGtmAddressRemarkRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmAddressRemarkResponse UpdateCloudGtmAddressRemarkResponse
+     */
+    public function updateCloudGtmAddressRemarkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressId)) {
+            $query['AddressId'] = $request->addressId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmAddressRemark',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmAddressRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmAddressRemarkRequest $request UpdateCloudGtmAddressRemarkRequest
+     *
+     * @return UpdateCloudGtmAddressRemarkResponse UpdateCloudGtmAddressRemarkResponse
+     */
+    public function updateCloudGtmAddressRemark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmAddressRemarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmGlobalAlertRequest $tmpReq  UpdateCloudGtmGlobalAlertRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmGlobalAlertResponse UpdateCloudGtmGlobalAlertResponse
+     */
+    public function updateCloudGtmGlobalAlertWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateCloudGtmGlobalAlertShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->alertConfig)) {
+            $request->alertConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alertConfig, 'AlertConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->alertGroup)) {
+            $request->alertGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alertGroup, 'AlertGroup', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->alertConfigShrink)) {
+            $query['AlertConfig'] = $request->alertConfigShrink;
+        }
+        if (!Utils::isUnset($request->alertGroupShrink)) {
+            $query['AlertGroup'] = $request->alertGroupShrink;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmGlobalAlert',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmGlobalAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmGlobalAlertRequest $request UpdateCloudGtmGlobalAlertRequest
+     *
+     * @return UpdateCloudGtmGlobalAlertResponse UpdateCloudGtmGlobalAlertResponse
+     */
+    public function updateCloudGtmGlobalAlert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmGlobalAlertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceConfigAlertRequest $tmpReq  UpdateCloudGtmInstanceConfigAlertRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmInstanceConfigAlertResponse UpdateCloudGtmInstanceConfigAlertResponse
+     */
+    public function updateCloudGtmInstanceConfigAlertWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateCloudGtmInstanceConfigAlertShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->alertConfig)) {
+            $request->alertConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alertConfig, 'AlertConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->alertGroup)) {
+            $request->alertGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alertGroup, 'AlertGroup', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->alertConfigShrink)) {
+            $query['AlertConfig'] = $request->alertConfigShrink;
+        }
+        if (!Utils::isUnset($request->alertGroupShrink)) {
+            $query['AlertGroup'] = $request->alertGroupShrink;
+        }
+        if (!Utils::isUnset($request->alertMode)) {
+            $query['AlertMode'] = $request->alertMode;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmInstanceConfigAlert',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmInstanceConfigAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceConfigAlertRequest $request UpdateCloudGtmInstanceConfigAlertRequest
+     *
+     * @return UpdateCloudGtmInstanceConfigAlertResponse UpdateCloudGtmInstanceConfigAlertResponse
+     */
+    public function updateCloudGtmInstanceConfigAlert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmInstanceConfigAlertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceConfigBasicRequest $request UpdateCloudGtmInstanceConfigBasicRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmInstanceConfigBasicResponse UpdateCloudGtmInstanceConfigBasicResponse
+     */
+    public function updateCloudGtmInstanceConfigBasicWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->scheduleHostname)) {
+            $query['ScheduleHostname'] = $request->scheduleHostname;
+        }
+        if (!Utils::isUnset($request->scheduleZoneName)) {
+            $query['ScheduleZoneName'] = $request->scheduleZoneName;
+        }
+        if (!Utils::isUnset($request->ttl)) {
+            $query['Ttl'] = $request->ttl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmInstanceConfigBasic',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmInstanceConfigBasicResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceConfigBasicRequest $request UpdateCloudGtmInstanceConfigBasicRequest
+     *
+     * @return UpdateCloudGtmInstanceConfigBasicResponse UpdateCloudGtmInstanceConfigBasicResponse
+     */
+    public function updateCloudGtmInstanceConfigBasic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmInstanceConfigBasicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceConfigEnableStatusRequest $request UpdateCloudGtmInstanceConfigEnableStatusRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmInstanceConfigEnableStatusResponse UpdateCloudGtmInstanceConfigEnableStatusResponse
+     */
+    public function updateCloudGtmInstanceConfigEnableStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->enableStatus)) {
+            $query['EnableStatus'] = $request->enableStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmInstanceConfigEnableStatus',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmInstanceConfigEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceConfigEnableStatusRequest $request UpdateCloudGtmInstanceConfigEnableStatusRequest
+     *
+     * @return UpdateCloudGtmInstanceConfigEnableStatusResponse UpdateCloudGtmInstanceConfigEnableStatusResponse
+     */
+    public function updateCloudGtmInstanceConfigEnableStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmInstanceConfigEnableStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceConfigLbStrategyRequest $request UpdateCloudGtmInstanceConfigLbStrategyRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmInstanceConfigLbStrategyResponse UpdateCloudGtmInstanceConfigLbStrategyResponse
+     */
+    public function updateCloudGtmInstanceConfigLbStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->addressPoolLbStrategy)) {
+            $query['AddressPoolLbStrategy'] = $request->addressPoolLbStrategy;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sequenceLbStrategyMode)) {
+            $query['SequenceLbStrategyMode'] = $request->sequenceLbStrategyMode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmInstanceConfigLbStrategy',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmInstanceConfigLbStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceConfigLbStrategyRequest $request UpdateCloudGtmInstanceConfigLbStrategyRequest
+     *
+     * @return UpdateCloudGtmInstanceConfigLbStrategyResponse UpdateCloudGtmInstanceConfigLbStrategyResponse
+     */
+    public function updateCloudGtmInstanceConfigLbStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmInstanceConfigLbStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceConfigRemarkRequest $request UpdateCloudGtmInstanceConfigRemarkRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmInstanceConfigRemarkResponse UpdateCloudGtmInstanceConfigRemarkResponse
+     */
+    public function updateCloudGtmInstanceConfigRemarkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configId)) {
+            $query['ConfigId'] = $request->configId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmInstanceConfigRemark',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmInstanceConfigRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceConfigRemarkRequest $request UpdateCloudGtmInstanceConfigRemarkRequest
+     *
+     * @return UpdateCloudGtmInstanceConfigRemarkResponse UpdateCloudGtmInstanceConfigRemarkResponse
+     */
+    public function updateCloudGtmInstanceConfigRemark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmInstanceConfigRemarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceNameRequest $request UpdateCloudGtmInstanceNameRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmInstanceNameResponse UpdateCloudGtmInstanceNameResponse
+     */
+    public function updateCloudGtmInstanceNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmInstanceName',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmInstanceNameRequest $request UpdateCloudGtmInstanceNameRequest
+     *
+     * @return UpdateCloudGtmInstanceNameResponse UpdateCloudGtmInstanceNameResponse
+     */
+    public function updateCloudGtmInstanceName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmInstanceNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmMonitorTemplateRequest $tmpReq  UpdateCloudGtmMonitorTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmMonitorTemplateResponse UpdateCloudGtmMonitorTemplateResponse
+     */
+    public function updateCloudGtmMonitorTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateCloudGtmMonitorTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ispCityNodes)) {
+            $request->ispCityNodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ispCityNodes, 'IspCityNodes', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->evaluationCount)) {
+            $query['EvaluationCount'] = $request->evaluationCount;
+        }
+        if (!Utils::isUnset($request->extendInfo)) {
+            $query['ExtendInfo'] = $request->extendInfo;
+        }
+        if (!Utils::isUnset($request->failureRate)) {
+            $query['FailureRate'] = $request->failureRate;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->ispCityNodesShrink)) {
+            $query['IspCityNodes'] = $request->ispCityNodesShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmMonitorTemplate',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmMonitorTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmMonitorTemplateRequest $request UpdateCloudGtmMonitorTemplateRequest
+     *
+     * @return UpdateCloudGtmMonitorTemplateResponse UpdateCloudGtmMonitorTemplateResponse
+     */
+    public function updateCloudGtmMonitorTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmMonitorTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCloudGtmMonitorTemplateRemarkRequest $request UpdateCloudGtmMonitorTemplateRemarkRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateCloudGtmMonitorTemplateRemarkResponse UpdateCloudGtmMonitorTemplateRemarkResponse
+     */
+    public function updateCloudGtmMonitorTemplateRemarkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCloudGtmMonitorTemplateRemark',
+            'version'     => '2015-01-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCloudGtmMonitorTemplateRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCloudGtmMonitorTemplateRemarkRequest $request UpdateCloudGtmMonitorTemplateRemarkRequest
+     *
+     * @return UpdateCloudGtmMonitorTemplateRemarkResponse UpdateCloudGtmMonitorTemplateRemarkResponse
+     */
+    public function updateCloudGtmMonitorTemplateRemark($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCloudGtmMonitorTemplateRemarkWithOptions($request, $runtime);
     }
 
     /**
