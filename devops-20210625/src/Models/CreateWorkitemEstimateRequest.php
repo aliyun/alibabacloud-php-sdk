@@ -14,6 +14,8 @@ class CreateWorkitemEstimateRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1316458xxxxx41068
      *
      * @var string
@@ -21,6 +23,8 @@ class CreateWorkitemEstimateRequest extends Model
     public $recordUserIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 21
      *
      * @var string
@@ -28,6 +32,8 @@ class CreateWorkitemEstimateRequest extends Model
     public $spentTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9144ef6b72d8exxxxx9e61a4d0
      *
      * @var string
@@ -35,6 +41,8 @@ class CreateWorkitemEstimateRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1e9903d8b3f1xxxxxf9286ef5
      *
      * @var string

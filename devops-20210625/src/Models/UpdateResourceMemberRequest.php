@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example admin
      *
      * @var string

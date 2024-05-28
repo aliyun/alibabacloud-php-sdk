@@ -16,6 +16,8 @@ class UpdateGroupMemberRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1789095186553536
      *
      * @var string
@@ -23,6 +25,8 @@ class UpdateGroupMemberRequest extends Model
     public $aliyunPk;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30
      *
      * @var int
@@ -37,6 +41,8 @@ class UpdateGroupMemberRequest extends Model
     public $memberType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 632bbfdf419338aaa2b1360a
      *
      * @var string

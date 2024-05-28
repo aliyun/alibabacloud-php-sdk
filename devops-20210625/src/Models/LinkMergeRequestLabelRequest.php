@@ -16,11 +16,15 @@ class LinkMergeRequestLabelRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $labelIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +32,8 @@ class LinkMergeRequestLabelRequest extends Model
     public $localId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -35,6 +41,8 @@ class LinkMergeRequestLabelRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $repositoryIdentity;

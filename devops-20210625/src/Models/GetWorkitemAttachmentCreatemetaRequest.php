@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetWorkitemAttachmentCreatemetaRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example application.jar
      *
      * @var string

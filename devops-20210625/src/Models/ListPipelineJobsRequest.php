@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineJobsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example DEPLOY
      *
      * @var string

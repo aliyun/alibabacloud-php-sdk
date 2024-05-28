@@ -16,6 +16,8 @@ class CreateMergeRequestRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example WEB
      *
      * @var string
@@ -33,6 +35,8 @@ class CreateMergeRequestRequest extends Model
     public $reviewerIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sourceBranch
      *
      * @var string
@@ -40,6 +44,8 @@ class CreateMergeRequestRequest extends Model
     public $sourceBranch;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2369234
      *
      * @var int
@@ -47,6 +53,8 @@ class CreateMergeRequestRequest extends Model
     public $sourceProjectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example targetBranch
      *
      * @var string
@@ -54,6 +62,8 @@ class CreateMergeRequestRequest extends Model
     public $targetBranch;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2369234
      *
      * @var int
@@ -61,6 +71,8 @@ class CreateMergeRequestRequest extends Model
     public $targetProjectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $title;
@@ -73,6 +85,8 @@ class CreateMergeRequestRequest extends Model
     public $workItemIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6270e731cfea268afc21ccac
      *
      * @var string

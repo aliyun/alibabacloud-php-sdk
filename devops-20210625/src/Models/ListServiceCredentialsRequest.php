@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceCredentialsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example username_password
      *
      * @var string

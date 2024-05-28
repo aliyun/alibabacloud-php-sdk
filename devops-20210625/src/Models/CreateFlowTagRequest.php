@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowTagRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example #1F9AEF
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateFlowTagRequest extends Model
     public $color;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 111
      *
      * @var int
@@ -23,6 +27,8 @@ class CreateFlowTagRequest extends Model
     public $flowTagGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

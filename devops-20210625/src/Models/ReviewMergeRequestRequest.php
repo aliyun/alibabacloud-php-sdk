@@ -26,6 +26,8 @@ class ReviewMergeRequestRequest extends Model
     public $reviewComment;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PASS
      *
      * @var string
@@ -33,6 +35,8 @@ class ReviewMergeRequestRequest extends Model
     public $reviewOpinion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string

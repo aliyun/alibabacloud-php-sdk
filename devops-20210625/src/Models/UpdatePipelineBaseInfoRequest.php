@@ -16,6 +16,8 @@ class UpdatePipelineBaseInfoRequest extends Model
     public $envId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $pipelineName;

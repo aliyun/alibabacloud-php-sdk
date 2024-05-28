@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkitemCommentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @example RICHTEXT/MARKDOWN
      *
      * @var string
@@ -28,6 +32,8 @@ class CreateWorkitemCommentRequest extends Model
     public $parentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1e9903d8b3f12xxxxxf9286ef5
      *
      * @var string

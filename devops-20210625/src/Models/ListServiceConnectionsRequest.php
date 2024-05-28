@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceConnectionsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example codeup
      *
      * @var string

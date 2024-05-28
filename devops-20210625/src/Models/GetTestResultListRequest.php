@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTestResultListRequest extends Model
 {
     /**
-     * @example {\"conditionGroups\": [[{\"fieldIdentifier\": \"gmtModified\", \"operator\": \"MORE_THAN_AND_EQUAL\", \"value\": [\"2023-04-20 18:03:12.442140\"], \"className\": \"dateTime\", \"format\": \"input\"}]]}
+     * @example {\\"conditionGroups\\": [[{\\"fieldIdentifier\\": \\"gmtModified\\", \\"operator\\": \\"MORE_THAN_AND_EQUAL\\", \\"value\\": [\\"2023-04-20 18:03:12.442140\\"], \\"className\\": \\"dateTime\\", \\"format\\": \\"input\\"}]]}
      *
      * @var string
      */
     public $conditions;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e27b8eace6501ce51cf5d56784
      *
      * @var string

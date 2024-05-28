@@ -16,11 +16,15 @@ class TransferRepositoryRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -28,6 +32,8 @@ class TransferRepositoryRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $repositoryId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSearchCodePreviewRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 60d54f3daccf2bbd6659f3ad/gitlabhq/master/config/environments/test.rb
      *
      * @var string
@@ -23,6 +25,8 @@ class GetSearchCodePreviewRequest extends Model
     public $isDsl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +34,8 @@ class GetSearchCodePreviewRequest extends Model
     public $keyword;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 627475075b46541dd2ff01bc
      *
      * @var string

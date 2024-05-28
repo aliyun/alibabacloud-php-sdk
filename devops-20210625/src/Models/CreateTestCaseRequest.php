@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTestCaseRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 19xxxx31947xxxx
      *
      * @var string
@@ -18,6 +20,8 @@ class CreateTestCaseRequest extends Model
     public $assignedTo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example fdd395xxxxx9q9845xxxxx23
      *
      * @var string
@@ -37,6 +41,8 @@ class CreateTestCaseRequest extends Model
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
      * @example asd345xxxxx9q9845xxxxx34
      *
      * @var string
@@ -44,6 +50,8 @@ class CreateTestCaseRequest extends Model
     public $spaceIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $subject;

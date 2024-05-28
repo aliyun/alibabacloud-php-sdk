@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProjectMembersRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Space
      *
      * @var string

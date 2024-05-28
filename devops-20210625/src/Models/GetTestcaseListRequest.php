@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTestcaseListRequest extends Model
 {
     /**
-     * @example {\"conditionGroups\":[[{\"fieldIdentifier\":\"status\",\"operator\":\"CONTAINS\",\"value\":[\"cc961a18adf770c6e423ccc5\"],\"toValue\":null,,\"className\":\"status\",\"format\":\"list\"}]]}
+     * @example {\\"conditionGroups\\":[[{\\"fieldIdentifier\\":\\"status\\",\\"operator\\":\\"CONTAINS\\",\\"value\\":[\\"cc961a18adf770c6e423ccc5\\"],\\"toValue\\":null,,\\"className\\":\\"status\\",\\"format\\":\\"list\\"}]]}
      *
      * @var string
      */
@@ -37,6 +37,8 @@ class GetTestcaseListRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6d5984c7d92b23fa53d4743c37
      *
      * @var string

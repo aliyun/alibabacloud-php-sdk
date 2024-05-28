@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCustomFieldOptionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example e8bxxxxxxxxxxxxxxxx23
      *
      * @var string
@@ -16,6 +18,8 @@ class GetCustomFieldOptionRequest extends Model
     public $spaceIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Project
      *
      * @var string
@@ -23,6 +27,8 @@ class GetCustomFieldOptionRequest extends Model
     public $spaceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9uyxxxx1re573f561dxxxxx
      *
      * @var string

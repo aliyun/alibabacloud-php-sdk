@@ -16,6 +16,8 @@ class CreateVariableGroupRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 变量组
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateVariableGroupRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [{"isEncrypted":true,"name":"name1","value":"vaue1"}]
      *
      * @var string

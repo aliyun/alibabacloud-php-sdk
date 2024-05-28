@@ -18,6 +18,8 @@ class CreateProtectdBranchRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $allowMergeRoles;
@@ -38,6 +40,8 @@ class CreateProtectdBranchRequest extends Model
     public $allowPushUserIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example protectBranch
      *
      * @var string
@@ -62,6 +66,8 @@ class CreateProtectdBranchRequest extends Model
     public $testSettingDTO;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string

@@ -28,7 +28,7 @@ class result extends Model
     public $deletedFile;
 
     /**
-     * @example --- /dev/null\n+++ b/src/test/java/com/aliyun/codeupdemo/CodeupDemoApplicationTests.java\n@@ -0,0 +1,13 @@\n+package com.aliyun.codeupdemo;\n+\n+import org.junit.jupiter.api.Test;\n+import org.springframework.boot.test.context.SpringBootTest;\n+\n+@SpringBootTest\n+class CodeupDemoApplicationTest {\n+\n+ @Test\n+ void contextLoads() {\n+ }\n+\n+}\n
+     * @example --- /dev/null\\n+++ b/src/test/java/com/aliyun/codeupdemo/CodeupDemoApplicationTests.java\\n@@ -0,0 +1,13 @@\\n+package com.aliyun.codeupdemo;\\n+\\n+import org.junit.jupiter.api.Test;\\n+import org.springframework.boot.test.context.SpringBootTest;\\n+\\n+@SpringBootTest\\n+class CodeupDemoApplicationTest {\\n+\\n+ @Test\\n+ void contextLoads() {\\n+ }\\n+\\n+}\\n
      *
      * @var string
      */

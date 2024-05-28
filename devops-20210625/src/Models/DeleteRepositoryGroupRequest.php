@@ -16,11 +16,15 @@ class DeleteRepositoryGroupRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 624666bd54d036291ae13a36
      *
      * @var string

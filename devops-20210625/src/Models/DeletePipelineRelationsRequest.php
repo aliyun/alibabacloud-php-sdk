@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePipelineRelationsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11
      *
      * @var string
@@ -16,6 +18,8 @@ class DeletePipelineRelationsRequest extends Model
     public $relObjectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VARIABLE_GROUP
      *
      * @var string

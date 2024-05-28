@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCompareDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example c9fb781f3d66ef6ee60bdd5c414f5106454b1426
      *
      * @var string
@@ -37,6 +39,8 @@ class GetCompareDetailRequest extends Model
     public $mergeBase;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -44,6 +48,8 @@ class GetCompareDetailRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example b8f6f28520b1936aafe2e638373e19ccafa42b02
      *
      * @var string

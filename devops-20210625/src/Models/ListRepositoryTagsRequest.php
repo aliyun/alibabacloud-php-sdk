@@ -16,6 +16,8 @@ class ListRepositoryTagsRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 611b75680fc7bf0dbe1dce55
      *
      * @var string

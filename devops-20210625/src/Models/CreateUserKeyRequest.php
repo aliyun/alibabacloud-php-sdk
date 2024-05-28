@@ -23,6 +23,8 @@ class CreateUserKeyRequest extends Model
     public $expireTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ALL
      *
      * @var string
@@ -30,6 +32,8 @@ class CreateUserKeyRequest extends Model
     public $keyScope;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xxx
      *
      * @var string
@@ -37,6 +41,8 @@ class CreateUserKeyRequest extends Model
     public $publicKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SSH Title
      *
      * @var string
@@ -44,6 +50,8 @@ class CreateUserKeyRequest extends Model
     public $title;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string

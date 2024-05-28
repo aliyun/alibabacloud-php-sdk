@@ -16,6 +16,8 @@ class GetGroupDetailRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 36612
      *
      * @var int
@@ -23,6 +25,8 @@ class GetGroupDetailRequest extends Model
     public $groupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6218766746d4d2ca636d0497
      *
      * @var string

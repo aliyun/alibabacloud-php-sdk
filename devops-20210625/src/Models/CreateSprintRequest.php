@@ -16,6 +16,8 @@ class CreateSprintRequest extends Model
     public $endDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xxx
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateSprintRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example asd345xxxxx9q9845xxxxx34
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateSprintRequest extends Model
     public $spaceIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $staffIds;

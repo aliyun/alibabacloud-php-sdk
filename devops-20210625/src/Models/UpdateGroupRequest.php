@@ -28,6 +28,8 @@ class UpdateGroupRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example codeup_group
      *
      * @var string
@@ -35,6 +37,8 @@ class UpdateGroupRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example codeup_group
      *
      * @var string
@@ -42,6 +46,8 @@ class UpdateGroupRequest extends Model
     public $path;
 
     /**
+     * @description This parameter is required.
+     *
      * @example org/group/subgroup/here
      *
      * @var string
@@ -56,6 +62,8 @@ class UpdateGroupRequest extends Model
     public $visibilityLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1e9903d8b3f1xxxxxf9286ef5
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTestCaseFieldsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example e8bxxxxxxxxxxxxxxxx23
      *
      * @var string

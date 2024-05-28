@@ -134,6 +134,30 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\EnableDeployKeyRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\EnableDeployKeyResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightCustomValueRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightCustomValueResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightExpectedWorkTimeRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightExpectedWorkTimeResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightFieldRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightFieldResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightSpaceRefRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightSpaceRefResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightSpaceRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightSpaceResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightSprintRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightSprintResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightTagRefRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightTagRefResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightWorkitemStatusRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightWorkitemStatusResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightWorkitemVersionRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightWorkitemVersionResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightWorkTimeRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightWorkTimeResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportWorkitemActivityRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ExportWorkitemActivityResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\FrozenWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetApplicationResponse;
@@ -448,12 +472,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加组成员
+     *  *
      * @param string                $groupId
-     * @param AddGroupMemberRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param AddGroupMemberRequest $request AddGroupMemberRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGroupMemberResponse
+     * @return AddGroupMemberResponse AddGroupMemberResponse
      */
     public function addGroupMemberWithOptions($groupId, $request, $headers, $runtime)
     {
@@ -493,10 +519,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加组成员
+     *  *
      * @param string                $groupId
-     * @param AddGroupMemberRequest $request
+     * @param AddGroupMemberRequest $request AddGroupMemberRequest
      *
-     * @return AddGroupMemberResponse
+     * @return AddGroupMemberResponse AddGroupMemberResponse
      */
     public function addGroupMember($groupId, $request)
     {
@@ -507,13 +535,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加流水线关联
+     *  *
      * @param string                      $organizationId
      * @param string                      $pipelineId
-     * @param AddPipelineRelationsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param AddPipelineRelationsRequest $request        AddPipelineRelationsRequest
+     * @param string[]                    $headers        map
+     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
      *
-     * @return AddPipelineRelationsResponse
+     * @return AddPipelineRelationsResponse AddPipelineRelationsResponse
      */
     public function addPipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
@@ -545,11 +575,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加流水线关联
+     *  *
      * @param string                      $organizationId
      * @param string                      $pipelineId
-     * @param AddPipelineRelationsRequest $request
+     * @param AddPipelineRelationsRequest $request        AddPipelineRelationsRequest
      *
-     * @return AddPipelineRelationsResponse
+     * @return AddPipelineRelationsResponse AddPipelineRelationsResponse
      */
     public function addPipelineRelations($organizationId, $pipelineId, $request)
     {
@@ -560,12 +592,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加代码库成员
+     *  *
      * @param string                     $repositoryId
-     * @param AddRepositoryMemberRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param AddRepositoryMemberRequest $request      AddRepositoryMemberRequest
+     * @param string[]                   $headers      map
+     * @param RuntimeOptions             $runtime      runtime options for this request RuntimeOptions
      *
-     * @return AddRepositoryMemberResponse
+     * @return AddRepositoryMemberResponse AddRepositoryMemberResponse
      */
     public function addRepositoryMemberWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -605,10 +639,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加代码库成员
+     *  *
      * @param string                     $repositoryId
-     * @param AddRepositoryMemberRequest $request
+     * @param AddRepositoryMemberRequest $request      AddRepositoryMemberRequest
      *
-     * @return AddRepositoryMemberResponse
+     * @return AddRepositoryMemberResponse AddRepositoryMemberResponse
      */
     public function addRepositoryMember($repositoryId, $request)
     {
@@ -619,12 +655,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加代码库Webhook
+     *  *
      * @param string            $repositoryId
-     * @param AddWebhookRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param AddWebhookRequest $request      AddWebhookRequest
+     * @param string[]          $headers      map
+     * @param RuntimeOptions    $runtime      runtime options for this request RuntimeOptions
      *
-     * @return AddWebhookResponse
+     * @return AddWebhookResponse AddWebhookResponse
      */
     public function addWebhookWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -682,10 +720,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加代码库Webhook
+     *  *
      * @param string            $repositoryId
-     * @param AddWebhookRequest $request
+     * @param AddWebhookRequest $request      AddWebhookRequest
      *
-     * @return AddWebhookResponse
+     * @return AddWebhookResponse AddWebhookResponse
      */
     public function addWebhook($repositoryId, $request)
     {
@@ -696,13 +736,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 关闭代码评审
+     *  *
      * @param string                   $repositoryId
      * @param string                   $localId
-     * @param CloseMergeRequestRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param CloseMergeRequestRequest $request      CloseMergeRequestRequest
+     * @param string[]                 $headers      map
+     * @param RuntimeOptions           $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CloseMergeRequestResponse
+     * @return CloseMergeRequestResponse CloseMergeRequestResponse
      */
     public function closeMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
@@ -734,11 +776,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 关闭代码评审
+     *  *
      * @param string                   $repositoryId
      * @param string                   $localId
-     * @param CloseMergeRequestRequest $request
+     * @param CloseMergeRequestRequest $request      CloseMergeRequestRequest
      *
-     * @return CloseMergeRequestResponse
+     * @return CloseMergeRequestResponse CloseMergeRequestResponse
      */
     public function closeMergeRequest($repositoryId, $localId, $request)
     {
@@ -749,12 +793,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加应用成员
+     *  *
      * @param string                  $appName
-     * @param CreateAppMembersRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param CreateAppMembersRequest $request CreateAppMembersRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppMembersResponse
+     * @return CreateAppMembersResponse CreateAppMembersResponse
      */
     public function createAppMembersWithOptions($appName, $request, $headers, $runtime)
     {
@@ -791,10 +837,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加应用成员
+     *  *
      * @param string                  $appName
-     * @param CreateAppMembersRequest $request
+     * @param CreateAppMembersRequest $request CreateAppMembersRequest
      *
-     * @return CreateAppMembersResponse
+     * @return CreateAppMembersResponse CreateAppMembersResponse
      */
     public function createAppMembers($appName, $request)
     {
@@ -805,12 +853,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建分支
+     *  *
      * @param string              $repositoryId
-     * @param CreateBranchRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param CreateBranchRequest $request      CreateBranchRequest
+     * @param string[]            $headers      map
+     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CreateBranchResponse
+     * @return CreateBranchResponse CreateBranchResponse
      */
     public function createBranchWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -850,10 +900,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建分支
+     *  *
      * @param string              $repositoryId
-     * @param CreateBranchRequest $request
+     * @param CreateBranchRequest $request      CreateBranchRequest
      *
-     * @return CreateBranchResponse
+     * @return CreateBranchResponse CreateBranchResponse
      */
     public function createBranch($repositoryId, $request)
     {
@@ -864,11 +916,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateCheckRunRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 添加检查运行记录
+     *  *
+     * @param CreateCheckRunRequest $request CreateCheckRunRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCheckRunResponse
+     * @return CreateCheckRunResponse CreateCheckRunResponse
      */
     public function createCheckRunWithOptions($request, $headers, $runtime)
     {
@@ -935,9 +989,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateCheckRunRequest $request
+     * @summary 添加检查运行记录
+     *  *
+     * @param CreateCheckRunRequest $request CreateCheckRunRequest
      *
-     * @return CreateCheckRunResponse
+     * @return CreateCheckRunResponse CreateCheckRunResponse
      */
     public function createCheckRun($request)
     {
@@ -948,11 +1004,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateCommentRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 创建评论
+     *  *
+     * @param CreateCommentRequest $request CreateCommentRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCommentResponse
+     * @return CreateCommentResponse CreateCommentResponse
      */
     public function createCommentWithOptions($request, $headers, $runtime)
     {
@@ -1016,9 +1074,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateCommentRequest $request
+     * @summary 创建评论
+     *  *
+     * @param CreateCommentRequest $request CreateCommentRequest
      *
-     * @return CreateCommentResponse
+     * @return CreateCommentResponse CreateCommentResponse
      */
     public function createComment($request)
     {
@@ -1029,11 +1089,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateCommitStatusRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 创建提交状态记录
+     *  *
+     * @param CreateCommitStatusRequest $request CreateCommitStatusRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCommitStatusResponse
+     * @return CreateCommitStatusResponse CreateCommitStatusResponse
      */
     public function createCommitStatusWithOptions($request, $headers, $runtime)
     {
@@ -1085,9 +1147,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateCommitStatusRequest $request
+     * @summary 创建提交状态记录
+     *  *
+     * @param CreateCommitStatusRequest $request CreateCommitStatusRequest
      *
-     * @return CreateCommitStatusResponse
+     * @return CreateCommitStatusResponse CreateCommitStatusResponse
      */
     public function createCommitStatus($request)
     {
@@ -1098,11 +1162,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateCommitWithMultipleFilesRequest $request
-     * @param string[]                             $headers
-     * @param RuntimeOptions                       $runtime
+     * @summary 单提交变更多个文件
+     *  *
+     * @param CreateCommitWithMultipleFilesRequest $request CreateCommitWithMultipleFilesRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCommitWithMultipleFilesResponse
+     * @return CreateCommitWithMultipleFilesResponse CreateCommitWithMultipleFilesResponse
      */
     public function createCommitWithMultipleFilesWithOptions($request, $headers, $runtime)
     {
@@ -1148,9 +1214,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateCommitWithMultipleFilesRequest $request
+     * @summary 单提交变更多个文件
+     *  *
+     * @param CreateCommitWithMultipleFilesRequest $request CreateCommitWithMultipleFilesRequest
      *
-     * @return CreateCommitWithMultipleFilesResponse
+     * @return CreateCommitWithMultipleFilesResponse CreateCommitWithMultipleFilesResponse
      */
     public function createCommitWithMultipleFiles($request)
     {
@@ -1161,12 +1229,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建部署密钥
+     *  *
      * @param string                 $repositoryId
-     * @param CreateDeployKeyRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param CreateDeployKeyRequest $request      CreateDeployKeyRequest
+     * @param string[]               $headers      map
+     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CreateDeployKeyResponse
+     * @return CreateDeployKeyResponse CreateDeployKeyResponse
      */
     public function createDeployKeyWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -1206,10 +1276,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建部署密钥
+     *  *
      * @param string                 $repositoryId
-     * @param CreateDeployKeyRequest $request
+     * @param CreateDeployKeyRequest $request      CreateDeployKeyRequest
      *
-     * @return CreateDeployKeyResponse
+     * @return CreateDeployKeyResponse CreateDeployKeyResponse
      */
     public function createDeployKey($repositoryId, $request)
     {
@@ -1220,12 +1292,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建文件
+     *  *
      * @param string            $repositoryId
-     * @param CreateFileRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param CreateFileRequest $request      CreateFileRequest
+     * @param string[]          $headers      map
+     * @param RuntimeOptions    $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CreateFileResponse
+     * @return CreateFileResponse CreateFileResponse
      */
     public function createFileWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -1274,10 +1348,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建文件
+     *  *
      * @param string            $repositoryId
-     * @param CreateFileRequest $request
+     * @param CreateFileRequest $request      CreateFileRequest
      *
-     * @return CreateFileResponse
+     * @return CreateFileResponse CreateFileResponse
      */
     public function createFile($repositoryId, $request)
     {
@@ -1288,12 +1364,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建标签
+     *  *
      * @param string               $organizationId
-     * @param CreateFlowTagRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param CreateFlowTagRequest $request        CreateFlowTagRequest
+     * @param string[]             $headers        map
+     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateFlowTagResponse
+     * @return CreateFlowTagResponse CreateFlowTagResponse
      */
     public function createFlowTagWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -1328,10 +1406,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建标签
+     *  *
      * @param string               $organizationId
-     * @param CreateFlowTagRequest $request
+     * @param CreateFlowTagRequest $request        CreateFlowTagRequest
      *
-     * @return CreateFlowTagResponse
+     * @return CreateFlowTagResponse CreateFlowTagResponse
      */
     public function createFlowTag($organizationId, $request)
     {
@@ -1342,12 +1422,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建标签分类
+     *  *
      * @param string                    $organizationId
-     * @param CreateFlowTagGroupRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param CreateFlowTagGroupRequest $request        CreateFlowTagGroupRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateFlowTagGroupResponse
+     * @return CreateFlowTagGroupResponse CreateFlowTagGroupResponse
      */
     public function createFlowTagGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -1376,10 +1458,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建标签分类
+     *  *
      * @param string                    $organizationId
-     * @param CreateFlowTagGroupRequest $request
+     * @param CreateFlowTagGroupRequest $request        CreateFlowTagGroupRequest
      *
-     * @return CreateFlowTagGroupResponse
+     * @return CreateFlowTagGroupResponse CreateFlowTagGroupResponse
      */
     public function createFlowTagGroup($organizationId, $request)
     {
@@ -1390,12 +1474,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建主机组
+     *  *
      * @param string                 $organizationId
-     * @param CreateHostGroupRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param CreateHostGroupRequest $request        CreateHostGroupRequest
+     * @param string[]               $headers        map
+     * @param RuntimeOptions         $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateHostGroupResponse
+     * @return CreateHostGroupResponse CreateHostGroupResponse
      */
     public function createHostGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -1451,10 +1537,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建主机组
+     *  *
      * @param string                 $organizationId
-     * @param CreateHostGroupRequest $request
+     * @param CreateHostGroupRequest $request        CreateHostGroupRequest
      *
-     * @return CreateHostGroupResponse
+     * @return CreateHostGroupResponse CreateHostGroupResponse
      */
     public function createHostGroup($organizationId, $request)
     {
@@ -1465,12 +1553,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建代码评审
+     *  *
      * @param string                    $repositoryId
-     * @param CreateMergeRequestRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param CreateMergeRequestRequest $request      CreateMergeRequestRequest
+     * @param string[]                  $headers      map
+     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CreateMergeRequestResponse
+     * @return CreateMergeRequestResponse CreateMergeRequestResponse
      */
     public function createMergeRequestWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -1531,10 +1621,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建代码评审
+     *  *
      * @param string                    $repositoryId
-     * @param CreateMergeRequestRequest $request
+     * @param CreateMergeRequestRequest $request      CreateMergeRequestRequest
      *
-     * @return CreateMergeRequestResponse
+     * @return CreateMergeRequestResponse CreateMergeRequestResponse
      */
     public function createMergeRequest($repositoryId, $request)
     {
@@ -1545,11 +1637,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateOAuthTokenRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 创建OAuth令牌
+     *  *
+     * @param CreateOAuthTokenRequest $request CreateOAuthTokenRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOAuthTokenResponse
+     * @return CreateOAuthTokenResponse CreateOAuthTokenResponse
      */
     public function createOAuthTokenWithOptions($request, $headers, $runtime)
     {
@@ -1593,9 +1687,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateOAuthTokenRequest $request
+     * @summary 创建OAuth令牌
+     *  *
+     * @param CreateOAuthTokenRequest $request CreateOAuthTokenRequest
      *
-     * @return CreateOAuthTokenResponse
+     * @return CreateOAuthTokenResponse CreateOAuthTokenResponse
      */
     public function createOAuthToken($request)
     {
@@ -1606,12 +1702,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建流水线。
+     *  *
      * @param string                $organizationId
-     * @param CreatePipelineRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param CreatePipelineRequest $request        CreatePipelineRequest
+     * @param string[]              $headers        map
+     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreatePipelineResponse
+     * @return CreatePipelineResponse CreatePipelineResponse
      */
     public function createPipelineWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -1643,10 +1741,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建流水线。
+     *  *
      * @param string                $organizationId
-     * @param CreatePipelineRequest $request
+     * @param CreatePipelineRequest $request        CreatePipelineRequest
      *
-     * @return CreatePipelineResponse
+     * @return CreatePipelineResponse CreatePipelineResponse
      */
     public function createPipeline($organizationId, $request)
     {
@@ -1657,12 +1757,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建流水线分组
+     *  *
      * @param string                     $organizationId
-     * @param CreatePipelineGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param CreatePipelineGroupRequest $request        CreatePipelineGroupRequest
+     * @param string[]                   $headers        map
+     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreatePipelineGroupResponse
+     * @return CreatePipelineGroupResponse CreatePipelineGroupResponse
      */
     public function createPipelineGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -1691,10 +1793,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建流水线分组
+     *  *
      * @param string                     $organizationId
-     * @param CreatePipelineGroupRequest $request
+     * @param CreatePipelineGroupRequest $request        CreatePipelineGroupRequest
      *
-     * @return CreatePipelineGroupResponse
+     * @return CreatePipelineGroupResponse CreatePipelineGroupResponse
      */
     public function createPipelineGroup($organizationId, $request)
     {
@@ -1705,12 +1809,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建项目
+     *  *
      * @param string               $organizationId
-     * @param CreateProjectRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param CreateProjectRequest $request        CreateProjectRequest
+     * @param string[]             $headers        map
+     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProjectWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -1748,10 +1854,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建项目
+     *  *
      * @param string               $organizationId
-     * @param CreateProjectRequest $request
+     * @param CreateProjectRequest $request        CreateProjectRequest
      *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProject($organizationId, $request)
     {
@@ -1762,11 +1870,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectLabelRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 创建代码库Label
+     *  *
+     * @param CreateProjectLabelRequest $request CreateProjectLabelRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProjectLabelResponse
+     * @return CreateProjectLabelResponse CreateProjectLabelResponse
      */
     public function createProjectLabelWithOptions($request, $headers, $runtime)
     {
@@ -1812,9 +1922,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateProjectLabelRequest $request
+     * @summary 创建代码库Label
+     *  *
+     * @param CreateProjectLabelRequest $request CreateProjectLabelRequest
      *
-     * @return CreateProjectLabelResponse
+     * @return CreateProjectLabelResponse CreateProjectLabelResponse
      */
     public function createProjectLabel($request)
     {
@@ -1825,12 +1937,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建保护分支
+     *  *
      * @param string                      $repositoryId
-     * @param CreateProtectdBranchRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param CreateProtectdBranchRequest $request      CreateProtectdBranchRequest
+     * @param string[]                    $headers      map
+     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CreateProtectdBranchResponse
+     * @return CreateProtectdBranchResponse CreateProtectdBranchResponse
      */
     public function createProtectdBranchWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -1888,10 +2002,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建保护分支
+     *  *
      * @param string                      $repositoryId
-     * @param CreateProtectdBranchRequest $request
+     * @param CreateProtectdBranchRequest $request      CreateProtectdBranchRequest
      *
-     * @return CreateProtectdBranchResponse
+     * @return CreateProtectdBranchResponse CreateProtectdBranchResponse
      */
     public function createProtectdBranch($repositoryId, $request)
     {
@@ -1902,12 +2018,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建推送规则
+     *  *
      * @param string                $repositoryId
-     * @param CreatePushRuleRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param CreatePushRuleRequest $request      CreatePushRuleRequest
+     * @param string[]              $headers      map
+     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CreatePushRuleResponse
+     * @return CreatePushRuleResponse CreatePushRuleResponse
      */
     public function createPushRuleWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -1944,10 +2062,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建推送规则
+     *  *
      * @param string                $repositoryId
-     * @param CreatePushRuleRequest $request
+     * @param CreatePushRuleRequest $request      CreatePushRuleRequest
      *
-     * @return CreatePushRuleResponse
+     * @return CreatePushRuleResponse CreatePushRuleResponse
      */
     public function createPushRule($repositoryId, $request)
     {
@@ -1958,11 +2078,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateRepositoryRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 创建(导入)代码库
+     *  *
+     * @param CreateRepositoryRequest $request CreateRepositoryRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRepositoryResponse
+     * @return CreateRepositoryResponse CreateRepositoryResponse
      */
     public function createRepositoryWithOptions($request, $headers, $runtime)
     {
@@ -2053,9 +2175,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateRepositoryRequest $request
+     * @summary 创建(导入)代码库
+     *  *
+     * @param CreateRepositoryRequest $request CreateRepositoryRequest
      *
-     * @return CreateRepositoryResponse
+     * @return CreateRepositoryResponse CreateRepositoryResponse
      */
     public function createRepository($request)
     {
@@ -2066,11 +2190,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateRepositoryGroupRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 创建代码组
+     *  *
+     * @param CreateRepositoryGroupRequest $request CreateRepositoryGroupRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRepositoryGroupResponse
+     * @return CreateRepositoryGroupResponse CreateRepositoryGroupResponse
      */
     public function createRepositoryGroupWithOptions($request, $headers, $runtime)
     {
@@ -2122,9 +2248,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateRepositoryGroupRequest $request
+     * @summary 创建代码组
+     *  *
+     * @param CreateRepositoryGroupRequest $request CreateRepositoryGroupRequest
      *
-     * @return CreateRepositoryGroupResponse
+     * @return CreateRepositoryGroupResponse CreateRepositoryGroupResponse
      */
     public function createRepositoryGroup($request)
     {
@@ -2135,14 +2263,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 插入资源成员
+     *  *
      * @param string                      $organizationId
      * @param string                      $resourceType
      * @param string                      $resourceId
-     * @param CreateResourceMemberRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param CreateResourceMemberRequest $request        CreateResourceMemberRequest
+     * @param string[]                    $headers        map
+     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceMemberResponse
+     * @return CreateResourceMemberResponse CreateResourceMemberResponse
      */
     public function createResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $request, $headers, $runtime)
     {
@@ -2174,12 +2304,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 插入资源成员
+     *  *
      * @param string                      $organizationId
      * @param string                      $resourceType
      * @param string                      $resourceId
-     * @param CreateResourceMemberRequest $request
+     * @param CreateResourceMemberRequest $request        CreateResourceMemberRequest
      *
-     * @return CreateResourceMemberResponse
+     * @return CreateResourceMemberResponse CreateResourceMemberResponse
      */
     public function createResourceMember($organizationId, $resourceType, $resourceId, $request)
     {
@@ -2190,12 +2322,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建服务授权
+     *  *
      * @param string                   $organizationId
-     * @param CreateServiceAuthRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param CreateServiceAuthRequest $request        CreateServiceAuthRequest
+     * @param string[]                 $headers        map
+     * @param RuntimeOptions           $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceAuthResponse
+     * @return CreateServiceAuthResponse CreateServiceAuthResponse
      */
     public function createServiceAuthWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -2224,10 +2358,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建服务授权
+     *  *
      * @param string                   $organizationId
-     * @param CreateServiceAuthRequest $request
+     * @param CreateServiceAuthRequest $request        CreateServiceAuthRequest
      *
-     * @return CreateServiceAuthResponse
+     * @return CreateServiceAuthResponse CreateServiceAuthResponse
      */
     public function createServiceAuth($organizationId, $request)
     {
@@ -2238,12 +2374,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建服务连接
+     *  *
      * @param string                         $organizationId
-     * @param CreateServiceConnectionRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param CreateServiceConnectionRequest $request        CreateServiceConnectionRequest
+     * @param string[]                       $headers        map
+     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceConnectionResponse
+     * @return CreateServiceConnectionResponse CreateServiceConnectionResponse
      */
     public function createServiceConnectionWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -2284,10 +2422,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建服务连接
+     *  *
      * @param string                         $organizationId
-     * @param CreateServiceConnectionRequest $request
+     * @param CreateServiceConnectionRequest $request        CreateServiceConnectionRequest
      *
-     * @return CreateServiceConnectionResponse
+     * @return CreateServiceConnectionResponse CreateServiceConnectionResponse
      */
     public function createServiceConnection($organizationId, $request)
     {
@@ -2298,12 +2438,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建用户名密码类型的证书
+     *  *
      * @param string                         $organizationId
-     * @param CreateServiceCredentialRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param CreateServiceCredentialRequest $request        CreateServiceCredentialRequest
+     * @param string[]                       $headers        map
+     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceCredentialResponse
+     * @return CreateServiceCredentialResponse CreateServiceCredentialResponse
      */
     public function createServiceCredentialWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -2344,10 +2486,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建用户名密码类型的证书
+     *  *
      * @param string                         $organizationId
-     * @param CreateServiceCredentialRequest $request
+     * @param CreateServiceCredentialRequest $request        CreateServiceCredentialRequest
      *
-     * @return CreateServiceCredentialResponse
+     * @return CreateServiceCredentialResponse CreateServiceCredentialResponse
      */
     public function createServiceCredential($organizationId, $request)
     {
@@ -2358,12 +2502,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建迭代
+     *  *
      * @param string              $organizationId
-     * @param CreateSprintRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param CreateSprintRequest $request        CreateSprintRequest
+     * @param string[]            $headers        map
+     * @param RuntimeOptions      $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateSprintResponse
+     * @return CreateSprintResponse CreateSprintResponse
      */
     public function createSprintWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -2404,10 +2550,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建迭代
+     *  *
      * @param string              $organizationId
-     * @param CreateSprintRequest $request
+     * @param CreateSprintRequest $request        CreateSprintRequest
      *
-     * @return CreateSprintResponse
+     * @return CreateSprintResponse CreateSprintResponse
      */
     public function createSprint($organizationId, $request)
     {
@@ -2418,11 +2566,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建企业公钥
+     *  *
      * @param string         $organizationId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateSshKeyResponse
+     * @return CreateSshKeyResponse CreateSshKeyResponse
      */
     public function createSshKeyWithOptions($organizationId, $headers, $runtime)
     {
@@ -2445,9 +2595,11 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建企业公钥
+     *  *
      * @param string $organizationId
      *
-     * @return CreateSshKeyResponse
+     * @return CreateSshKeyResponse CreateSshKeyResponse
      */
     public function createSshKey($organizationId)
     {
@@ -2458,12 +2610,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建标签Tag
+     *  *
      * @param string           $repositoryId
-     * @param CreateTagRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param CreateTagRequest $request      CreateTagRequest
+     * @param string[]         $headers      map
+     * @param RuntimeOptions   $runtime      runtime options for this request RuntimeOptions
      *
-     * @return CreateTagResponse
+     * @return CreateTagResponse CreateTagResponse
      */
     public function createTagWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -2506,10 +2660,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建标签Tag
+     *  *
      * @param string           $repositoryId
-     * @param CreateTagRequest $request
+     * @param CreateTagRequest $request      CreateTagRequest
      *
-     * @return CreateTagResponse
+     * @return CreateTagResponse CreateTagResponse
      */
     public function createTag($repositoryId, $request)
     {
@@ -2520,12 +2676,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建测试用例
+     *  *
      * @param string                $organizationId
-     * @param CreateTestCaseRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param CreateTestCaseRequest $request        CreateTestCaseRequest
+     * @param string[]              $headers        map
+     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateTestCaseResponse
+     * @return CreateTestCaseResponse CreateTestCaseResponse
      */
     public function createTestCaseWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -2575,10 +2733,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建测试用例
+     *  *
      * @param string                $organizationId
-     * @param CreateTestCaseRequest $request
+     * @param CreateTestCaseRequest $request        CreateTestCaseRequest
      *
-     * @return CreateTestCaseResponse
+     * @return CreateTestCaseResponse CreateTestCaseResponse
      */
     public function createTestCase($organizationId, $request)
     {
@@ -2589,11 +2749,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateUserKeyRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 创建SSH Key密钥
+     *  *
+     * @param CreateUserKeyRequest $request CreateUserKeyRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserKeyResponse
+     * @return CreateUserKeyResponse CreateUserKeyResponse
      */
     public function createUserKeyWithOptions($request, $headers, $runtime)
     {
@@ -2639,9 +2801,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateUserKeyRequest $request
+     * @summary 创建SSH Key密钥
+     *  *
+     * @param CreateUserKeyRequest $request CreateUserKeyRequest
      *
-     * @return CreateUserKeyResponse
+     * @return CreateUserKeyResponse CreateUserKeyResponse
      */
     public function createUserKey($request)
     {
@@ -2652,12 +2816,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建变量组
+     *  *
      * @param string                     $organizationId
-     * @param CreateVariableGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param CreateVariableGroupRequest $request        CreateVariableGroupRequest
+     * @param string[]                   $headers        map
+     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateVariableGroupResponse
+     * @return CreateVariableGroupResponse CreateVariableGroupResponse
      */
     public function createVariableGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -2692,10 +2858,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建变量组
+     *  *
      * @param string                     $organizationId
-     * @param CreateVariableGroupRequest $request
+     * @param CreateVariableGroupRequest $request        CreateVariableGroupRequest
      *
-     * @return CreateVariableGroupResponse
+     * @return CreateVariableGroupResponse CreateVariableGroupResponse
      */
     public function createVariableGroup($organizationId, $request)
     {
@@ -2706,12 +2874,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 新建工作项
+     *  *
      * @param string                $organizationId
-     * @param CreateWorkitemRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param CreateWorkitemRequest $request        CreateWorkitemRequest
+     * @param string[]              $headers        map
+     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkitemResponse
+     * @return CreateWorkitemResponse CreateWorkitemResponse
      */
     public function createWorkitemWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -2782,10 +2952,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 新建工作项
+     *  *
      * @param string                $organizationId
-     * @param CreateWorkitemRequest $request
+     * @param CreateWorkitemRequest $request        CreateWorkitemRequest
      *
-     * @return CreateWorkitemResponse
+     * @return CreateWorkitemResponse CreateWorkitemResponse
      */
     public function createWorkitem($organizationId, $request)
     {
@@ -2796,12 +2968,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建一个评论
+     *  *
      * @param string                       $organizationId
-     * @param CreateWorkitemCommentRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param CreateWorkitemCommentRequest $request        CreateWorkitemCommentRequest
+     * @param string[]                     $headers        map
+     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkitemCommentResponse
+     * @return CreateWorkitemCommentResponse CreateWorkitemCommentResponse
      */
     public function createWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -2839,10 +3013,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建一个评论
+     *  *
      * @param string                       $organizationId
-     * @param CreateWorkitemCommentRequest $request
+     * @param CreateWorkitemCommentRequest $request        CreateWorkitemCommentRequest
      *
-     * @return CreateWorkitemCommentResponse
+     * @return CreateWorkitemCommentResponse CreateWorkitemCommentResponse
      */
     public function createWorkitemComment($organizationId, $request)
     {
@@ -2853,12 +3029,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 登记预计工时
+     *  *
      * @param string                        $organizationId
-     * @param CreateWorkitemEstimateRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateWorkitemEstimateRequest $request        CreateWorkitemEstimateRequest
+     * @param string[]                      $headers        map
+     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkitemEstimateResponse
+     * @return CreateWorkitemEstimateResponse CreateWorkitemEstimateResponse
      */
     public function createWorkitemEstimateWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -2899,10 +3077,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 登记预计工时
+     *  *
      * @param string                        $organizationId
-     * @param CreateWorkitemEstimateRequest $request
+     * @param CreateWorkitemEstimateRequest $request        CreateWorkitemEstimateRequest
      *
-     * @return CreateWorkitemEstimateResponse
+     * @return CreateWorkitemEstimateResponse CreateWorkitemEstimateResponse
      */
     public function createWorkitemEstimate($organizationId, $request)
     {
@@ -2913,12 +3093,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 登记实际工时
+     *  *
      * @param string                      $organizationId
-     * @param CreateWorkitemRecordRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param CreateWorkitemRecordRequest $request        CreateWorkitemRecordRequest
+     * @param string[]                    $headers        map
+     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkitemRecordResponse
+     * @return CreateWorkitemRecordResponse CreateWorkitemRecordResponse
      */
     public function createWorkitemRecordWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -2965,10 +3147,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 登记实际工时
+     *  *
      * @param string                      $organizationId
-     * @param CreateWorkitemRecordRequest $request
+     * @param CreateWorkitemRecordRequest $request        CreateWorkitemRecordRequest
      *
-     * @return CreateWorkitemRecordResponse
+     * @return CreateWorkitemRecordResponse CreateWorkitemRecordResponse
      */
     public function createWorkitemRecord($organizationId, $request)
     {
@@ -2979,12 +3163,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建工作项
+     *  *
      * @param string                  $organizationId
-     * @param CreateWorkitemV2Request $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param CreateWorkitemV2Request $request        CreateWorkitemV2Request
+     * @param string[]                $headers        map
+     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkitemV2Response
+     * @return CreateWorkitemV2Response CreateWorkitemV2Response
      */
     public function createWorkitemV2WithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -3052,10 +3238,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 创建工作项
+     *  *
      * @param string                  $organizationId
-     * @param CreateWorkitemV2Request $request
+     * @param CreateWorkitemV2Request $request        CreateWorkitemV2Request
      *
-     * @return CreateWorkitemV2Response
+     * @return CreateWorkitemV2Response CreateWorkitemV2Response
      */
     public function createWorkitemV2($organizationId, $request)
     {
@@ -3066,11 +3254,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkspaceRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary 创建工作空间
+     *  *
+     * @param CreateWorkspaceRequest $request CreateWorkspaceRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateWorkspaceResponse
+     * @return CreateWorkspaceResponse CreateWorkspaceResponse
      */
     public function createWorkspaceWithOptions($request, $headers, $runtime)
     {
@@ -3120,9 +3310,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param CreateWorkspaceRequest $request
+     * @summary 创建工作空间
+     *  *
+     * @param CreateWorkspaceRequest $request CreateWorkspaceRequest
      *
-     * @return CreateWorkspaceResponse
+     * @return CreateWorkspaceResponse CreateWorkspaceResponse
      */
     public function createWorkspace($request)
     {
@@ -3133,12 +3325,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除应用成员
+     *  *
      * @param string                 $appName
-     * @param DeleteAppMemberRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeleteAppMemberRequest $request DeleteAppMemberRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAppMemberResponse
+     * @return DeleteAppMemberResponse DeleteAppMemberResponse
      */
     public function deleteAppMemberWithOptions($appName, $request, $headers, $runtime)
     {
@@ -3173,10 +3367,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除应用成员
+     *  *
      * @param string                 $appName
-     * @param DeleteAppMemberRequest $request
+     * @param DeleteAppMemberRequest $request DeleteAppMemberRequest
      *
-     * @return DeleteAppMemberResponse
+     * @return DeleteAppMemberResponse DeleteAppMemberResponse
      */
     public function deleteAppMember($appName, $request)
     {
@@ -3187,12 +3383,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除分支
+     *  *
      * @param string              $repositoryId
-     * @param DeleteBranchRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param DeleteBranchRequest $request      DeleteBranchRequest
+     * @param string[]            $headers      map
+     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteBranchResponse
+     * @return DeleteBranchResponse DeleteBranchResponse
      */
     public function deleteBranchWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -3227,10 +3425,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除分支
+     *  *
      * @param string              $repositoryId
-     * @param DeleteBranchRequest $request
+     * @param DeleteBranchRequest $request      DeleteBranchRequest
      *
-     * @return DeleteBranchResponse
+     * @return DeleteBranchResponse DeleteBranchResponse
      */
     public function deleteBranch($repositoryId, $request)
     {
@@ -3241,12 +3441,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除文件
+     *  *
      * @param string            $repositoryId
-     * @param DeleteFileRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param DeleteFileRequest $request      DeleteFileRequest
+     * @param string[]          $headers      map
+     * @param RuntimeOptions    $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteFileResponse
+     * @return DeleteFileResponse DeleteFileResponse
      */
     public function deleteFileWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -3287,10 +3489,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除文件
+     *  *
      * @param string            $repositoryId
-     * @param DeleteFileRequest $request
+     * @param DeleteFileRequest $request      DeleteFileRequest
      *
-     * @return DeleteFileResponse
+     * @return DeleteFileResponse DeleteFileResponse
      */
     public function deleteFile($repositoryId, $request)
     {
@@ -3301,12 +3505,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除标签
+     *  *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteFlowTagResponse
+     * @return DeleteFlowTagResponse DeleteFlowTagResponse
      */
     public function deleteFlowTagWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -3329,10 +3535,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除标签
+     *  *
      * @param string $organizationId
      * @param string $id
      *
-     * @return DeleteFlowTagResponse
+     * @return DeleteFlowTagResponse DeleteFlowTagResponse
      */
     public function deleteFlowTag($organizationId, $id)
     {
@@ -3343,12 +3551,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除标签分类
+     *  *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteFlowTagGroupResponse
+     * @return DeleteFlowTagGroupResponse DeleteFlowTagGroupResponse
      */
     public function deleteFlowTagGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -3371,10 +3581,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除标签分类
+     *  *
      * @param string $organizationId
      * @param string $id
      *
-     * @return DeleteFlowTagGroupResponse
+     * @return DeleteFlowTagGroupResponse DeleteFlowTagGroupResponse
      */
     public function deleteFlowTagGroup($organizationId, $id)
     {
@@ -3385,12 +3597,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除组成员
+     *  *
      * @param string                   $groupId
-     * @param DeleteGroupMemberRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param DeleteGroupMemberRequest $request DeleteGroupMemberRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGroupMemberResponse
+     * @return DeleteGroupMemberResponse DeleteGroupMemberResponse
      */
     public function deleteGroupMemberWithOptions($groupId, $request, $headers, $runtime)
     {
@@ -3430,10 +3644,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除组成员
+     *  *
      * @param string                   $groupId
-     * @param DeleteGroupMemberRequest $request
+     * @param DeleteGroupMemberRequest $request DeleteGroupMemberRequest
      *
-     * @return DeleteGroupMemberResponse
+     * @return DeleteGroupMemberResponse DeleteGroupMemberResponse
      */
     public function deleteGroupMember($groupId, $request)
     {
@@ -3444,12 +3660,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除主机组
+     *  *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteHostGroupResponse
+     * @return DeleteHostGroupResponse DeleteHostGroupResponse
      */
     public function deleteHostGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -3472,10 +3690,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除主机组
+     *  *
      * @param string $organizationId
      * @param string $id
      *
-     * @return DeleteHostGroupResponse
+     * @return DeleteHostGroupResponse DeleteHostGroupResponse
      */
     public function deleteHostGroup($organizationId, $id)
     {
@@ -3486,12 +3706,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除流水线
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeletePipelineResponse
+     * @return DeletePipelineResponse DeletePipelineResponse
      */
     public function deletePipelineWithOptions($organizationId, $pipelineId, $headers, $runtime)
     {
@@ -3514,10 +3736,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除流水线
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      *
-     * @return DeletePipelineResponse
+     * @return DeletePipelineResponse DeletePipelineResponse
      */
     public function deletePipeline($organizationId, $pipelineId)
     {
@@ -3528,12 +3752,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除流水线分组
+     *  *
      * @param string         $organizationId
      * @param string         $groupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeletePipelineGroupResponse
+     * @return DeletePipelineGroupResponse DeletePipelineGroupResponse
      */
     public function deletePipelineGroupWithOptions($organizationId, $groupId, $headers, $runtime)
     {
@@ -3556,10 +3782,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除流水线分组
+     *  *
      * @param string $organizationId
      * @param string $groupId
      *
-     * @return DeletePipelineGroupResponse
+     * @return DeletePipelineGroupResponse DeletePipelineGroupResponse
      */
     public function deletePipelineGroup($organizationId, $groupId)
     {
@@ -3570,13 +3798,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除流水线关联
+     *  *
      * @param string                         $organizationId
      * @param string                         $pipelineId
-     * @param DeletePipelineRelationsRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param DeletePipelineRelationsRequest $request        DeletePipelineRelationsRequest
+     * @param string[]                       $headers        map
+     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeletePipelineRelationsResponse
+     * @return DeletePipelineRelationsResponse DeletePipelineRelationsResponse
      */
     public function deletePipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
@@ -3608,11 +3838,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除流水线关联
+     *  *
      * @param string                         $organizationId
      * @param string                         $pipelineId
-     * @param DeletePipelineRelationsRequest $request
+     * @param DeletePipelineRelationsRequest $request        DeletePipelineRelationsRequest
      *
-     * @return DeletePipelineRelationsResponse
+     * @return DeletePipelineRelationsResponse DeletePipelineRelationsResponse
      */
     public function deletePipelineRelations($organizationId, $pipelineId, $request)
     {
@@ -3623,12 +3855,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除项目
+     *  *
      * @param string               $organizationId
-     * @param DeleteProjectRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param DeleteProjectRequest $request        DeleteProjectRequest
+     * @param string[]             $headers        map
+     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteProjectResponse
+     * @return DeleteProjectResponse DeleteProjectResponse
      */
     public function deleteProjectWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -3657,10 +3891,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除项目
+     *  *
      * @param string               $organizationId
-     * @param DeleteProjectRequest $request
+     * @param DeleteProjectRequest $request        DeleteProjectRequest
      *
-     * @return DeleteProjectResponse
+     * @return DeleteProjectResponse DeleteProjectResponse
      */
     public function deleteProject($organizationId, $request)
     {
@@ -3671,12 +3907,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除代码库Label
+     *  *
      * @param string                    $labelId
-     * @param DeleteProjectLabelRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param DeleteProjectLabelRequest $request DeleteProjectLabelRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProjectLabelResponse
+     * @return DeleteProjectLabelResponse DeleteProjectLabelResponse
      */
     public function deleteProjectLabelWithOptions($labelId, $request, $headers, $runtime)
     {
@@ -3711,10 +3949,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除代码库Label
+     *  *
      * @param string                    $labelId
-     * @param DeleteProjectLabelRequest $request
+     * @param DeleteProjectLabelRequest $request DeleteProjectLabelRequest
      *
-     * @return DeleteProjectLabelResponse
+     * @return DeleteProjectLabelResponse DeleteProjectLabelResponse
      */
     public function deleteProjectLabel($labelId, $request)
     {
@@ -3725,13 +3965,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除保护分支
+     *  *
      * @param string                       $repositoryId
      * @param string                       $protectedBranchId
-     * @param DeleteProtectedBranchRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DeleteProtectedBranchRequest $request           DeleteProtectedBranchRequest
+     * @param string[]                     $headers           map
+     * @param RuntimeOptions               $runtime           runtime options for this request RuntimeOptions
      *
-     * @return DeleteProtectedBranchResponse
+     * @return DeleteProtectedBranchResponse DeleteProtectedBranchResponse
      */
     public function deleteProtectedBranchWithOptions($repositoryId, $protectedBranchId, $request, $headers, $runtime)
     {
@@ -3763,11 +4005,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除保护分支
+     *  *
      * @param string                       $repositoryId
      * @param string                       $protectedBranchId
-     * @param DeleteProtectedBranchRequest $request
+     * @param DeleteProtectedBranchRequest $request           DeleteProtectedBranchRequest
      *
-     * @return DeleteProtectedBranchResponse
+     * @return DeleteProtectedBranchResponse DeleteProtectedBranchResponse
      */
     public function deleteProtectedBranch($repositoryId, $protectedBranchId, $request)
     {
@@ -3778,13 +4022,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除推送规则
+     *  *
      * @param string                $repositoryId
      * @param string                $pushRuleId
-     * @param DeletePushRuleRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param DeletePushRuleRequest $request      DeletePushRuleRequest
+     * @param string[]              $headers      map
+     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeletePushRuleResponse
+     * @return DeletePushRuleResponse DeletePushRuleResponse
      */
     public function deletePushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime)
     {
@@ -3816,11 +4062,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除推送规则
+     *  *
      * @param string                $repositoryId
      * @param string                $pushRuleId
-     * @param DeletePushRuleRequest $request
+     * @param DeletePushRuleRequest $request      DeletePushRuleRequest
      *
-     * @return DeletePushRuleResponse
+     * @return DeletePushRuleResponse DeletePushRuleResponse
      */
     public function deletePushRule($repositoryId, $pushRuleId, $request)
     {
@@ -3831,12 +4079,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除代码库
+     *  *
      * @param string                  $repositoryId
-     * @param DeleteRepositoryRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param DeleteRepositoryRequest $request      DeleteRepositoryRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteRepositoryResponse
+     * @return DeleteRepositoryResponse DeleteRepositoryResponse
      */
     public function deleteRepositoryWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -3873,10 +4123,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除代码库
+     *  *
      * @param string                  $repositoryId
-     * @param DeleteRepositoryRequest $request
+     * @param DeleteRepositoryRequest $request      DeleteRepositoryRequest
      *
-     * @return DeleteRepositoryResponse
+     * @return DeleteRepositoryResponse DeleteRepositoryResponse
      */
     public function deleteRepository($repositoryId, $request)
     {
@@ -3887,12 +4139,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除代码组
+     *  *
      * @param string                       $groupId
-     * @param DeleteRepositoryGroupRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DeleteRepositoryGroupRequest $request DeleteRepositoryGroupRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRepositoryGroupResponse
+     * @return DeleteRepositoryGroupResponse DeleteRepositoryGroupResponse
      */
     public function deleteRepositoryGroupWithOptions($groupId, $request, $headers, $runtime)
     {
@@ -3929,10 +4183,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除代码组
+     *  *
      * @param string                       $groupId
-     * @param DeleteRepositoryGroupRequest $request
+     * @param DeleteRepositoryGroupRequest $request DeleteRepositoryGroupRequest
      *
-     * @return DeleteRepositoryGroupResponse
+     * @return DeleteRepositoryGroupResponse DeleteRepositoryGroupResponse
      */
     public function deleteRepositoryGroup($groupId, $request)
     {
@@ -3943,13 +4199,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除代码库成员
+     *  *
      * @param string                        $repositoryId
      * @param string                        $aliyunPk
-     * @param DeleteRepositoryMemberRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param DeleteRepositoryMemberRequest $request      DeleteRepositoryMemberRequest
+     * @param string[]                      $headers      map
+     * @param RuntimeOptions                $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteRepositoryMemberResponse
+     * @return DeleteRepositoryMemberResponse DeleteRepositoryMemberResponse
      */
     public function deleteRepositoryMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime)
     {
@@ -3986,11 +4244,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除代码库成员
+     *  *
      * @param string                        $repositoryId
      * @param string                        $aliyunPk
-     * @param DeleteRepositoryMemberRequest $request
+     * @param DeleteRepositoryMemberRequest $request      DeleteRepositoryMemberRequest
      *
-     * @return DeleteRepositoryMemberResponse
+     * @return DeleteRepositoryMemberResponse DeleteRepositoryMemberResponse
      */
     public function deleteRepositoryMember($repositoryId, $aliyunPk, $request)
     {
@@ -4001,13 +4261,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除代码库Webhook
+     *  *
      * @param string                         $repositoryId
      * @param string                         $hookId
-     * @param DeleteRepositoryWebhookRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param DeleteRepositoryWebhookRequest $request      DeleteRepositoryWebhookRequest
+     * @param string[]                       $headers      map
+     * @param RuntimeOptions                 $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteRepositoryWebhookResponse
+     * @return DeleteRepositoryWebhookResponse DeleteRepositoryWebhookResponse
      */
     public function deleteRepositoryWebhookWithOptions($repositoryId, $hookId, $request, $headers, $runtime)
     {
@@ -4039,11 +4301,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除代码库Webhook
+     *  *
      * @param string                         $repositoryId
      * @param string                         $hookId
-     * @param DeleteRepositoryWebhookRequest $request
+     * @param DeleteRepositoryWebhookRequest $request      DeleteRepositoryWebhookRequest
      *
-     * @return DeleteRepositoryWebhookResponse
+     * @return DeleteRepositoryWebhookResponse DeleteRepositoryWebhookResponse
      */
     public function deleteRepositoryWebhook($repositoryId, $hookId, $request)
     {
@@ -4054,14 +4318,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除资源成员
+     *  *
      * @param string         $organizationId
      * @param string         $resourceType
      * @param string         $resourceId
      * @param string         $accountId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceMemberResponse
+     * @return DeleteResourceMemberResponse DeleteResourceMemberResponse
      */
     public function deleteResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $headers, $runtime)
     {
@@ -4084,12 +4350,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除资源成员
+     *  *
      * @param string $organizationId
      * @param string $resourceType
      * @param string $resourceId
      * @param string $accountId
      *
-     * @return DeleteResourceMemberResponse
+     * @return DeleteResourceMemberResponse DeleteResourceMemberResponse
      */
     public function deleteResourceMember($organizationId, $resourceType, $resourceId, $accountId)
     {
@@ -4100,12 +4368,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除标签
+     *  *
      * @param string           $repositoryId
-     * @param DeleteTagRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param DeleteTagRequest $request      DeleteTagRequest
+     * @param string[]         $headers      map
+     * @param RuntimeOptions   $runtime      runtime options for this request RuntimeOptions
      *
-     * @return DeleteTagResponse
+     * @return DeleteTagResponse DeleteTagResponse
      */
     public function deleteTagWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -4140,10 +4410,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除标签
+     *  *
      * @param string           $repositoryId
-     * @param DeleteTagRequest $request
+     * @param DeleteTagRequest $request      DeleteTagRequest
      *
-     * @return DeleteTagResponse
+     * @return DeleteTagResponse DeleteTagResponse
      */
     public function deleteTag($repositoryId, $request)
     {
@@ -4154,12 +4426,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除用户的SSH Key
+     *  *
      * @param string               $keyId
-     * @param DeleteUserKeyRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param DeleteUserKeyRequest $request DeleteUserKeyRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserKeyResponse
+     * @return DeleteUserKeyResponse DeleteUserKeyResponse
      */
     public function deleteUserKeyWithOptions($keyId, $request, $headers, $runtime)
     {
@@ -4191,10 +4465,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除用户的SSH Key
+     *  *
      * @param string               $keyId
-     * @param DeleteUserKeyRequest $request
+     * @param DeleteUserKeyRequest $request DeleteUserKeyRequest
      *
-     * @return DeleteUserKeyResponse
+     * @return DeleteUserKeyResponse DeleteUserKeyResponse
      */
     public function deleteUserKey($keyId, $request)
     {
@@ -4205,12 +4481,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除变量组
+     *  *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteVariableGroupResponse
+     * @return DeleteVariableGroupResponse DeleteVariableGroupResponse
      */
     public function deleteVariableGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -4233,10 +4511,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除变量组
+     *  *
      * @param string $organizationId
      * @param string $id
      *
-     * @return DeleteVariableGroupResponse
+     * @return DeleteVariableGroupResponse DeleteVariableGroupResponse
      */
     public function deleteVariableGroup($organizationId, $id)
     {
@@ -4247,12 +4527,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除工作项
+     *  *
      * @param string                $organizationId
-     * @param DeleteWorkitemRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param DeleteWorkitemRequest $request        DeleteWorkitemRequest
+     * @param string[]              $headers        map
+     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteWorkitemResponse
+     * @return DeleteWorkitemResponse DeleteWorkitemResponse
      */
     public function deleteWorkitemWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -4281,10 +4563,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除工作项
+     *  *
      * @param string                $organizationId
-     * @param DeleteWorkitemRequest $request
+     * @param DeleteWorkitemRequest $request        DeleteWorkitemRequest
      *
-     * @return DeleteWorkitemResponse
+     * @return DeleteWorkitemResponse DeleteWorkitemResponse
      */
     public function deleteWorkitem($organizationId, $request)
     {
@@ -4295,12 +4579,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除所有评论
+     *  *
      * @param string                          $organizationId
-     * @param DeleteWorkitemAllCommentRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param DeleteWorkitemAllCommentRequest $request        DeleteWorkitemAllCommentRequest
+     * @param string[]                        $headers        map
+     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteWorkitemAllCommentResponse
+     * @return DeleteWorkitemAllCommentResponse DeleteWorkitemAllCommentResponse
      */
     public function deleteWorkitemAllCommentWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -4329,10 +4615,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除所有评论
+     *  *
      * @param string                          $organizationId
-     * @param DeleteWorkitemAllCommentRequest $request
+     * @param DeleteWorkitemAllCommentRequest $request        DeleteWorkitemAllCommentRequest
      *
-     * @return DeleteWorkitemAllCommentResponse
+     * @return DeleteWorkitemAllCommentResponse DeleteWorkitemAllCommentResponse
      */
     public function deleteWorkitemAllComment($organizationId, $request)
     {
@@ -4343,12 +4631,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除单条评论
+     *  *
      * @param string                       $organizationId
-     * @param DeleteWorkitemCommentRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DeleteWorkitemCommentRequest $request        DeleteWorkitemCommentRequest
+     * @param string[]                     $headers        map
+     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
      *
-     * @return DeleteWorkitemCommentResponse
+     * @return DeleteWorkitemCommentResponse DeleteWorkitemCommentResponse
      */
     public function deleteWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -4380,10 +4670,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除单条评论
+     *  *
      * @param string                       $organizationId
-     * @param DeleteWorkitemCommentRequest $request
+     * @param DeleteWorkitemCommentRequest $request        DeleteWorkitemCommentRequest
      *
-     * @return DeleteWorkitemCommentResponse
+     * @return DeleteWorkitemCommentResponse DeleteWorkitemCommentResponse
      */
     public function deleteWorkitemComment($organizationId, $request)
     {
@@ -4394,13 +4686,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 启用部署密钥
+     *  *
      * @param string                 $repositoryId
      * @param string                 $keyId
-     * @param EnableDeployKeyRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param EnableDeployKeyRequest $request      EnableDeployKeyRequest
+     * @param string[]               $headers      map
+     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
      *
-     * @return EnableDeployKeyResponse
+     * @return EnableDeployKeyResponse EnableDeployKeyResponse
      */
     public function enableDeployKeyWithOptions($repositoryId, $keyId, $request, $headers, $runtime)
     {
@@ -4432,11 +4726,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 启用部署密钥
+     *  *
      * @param string                 $repositoryId
      * @param string                 $keyId
-     * @param EnableDeployKeyRequest $request
+     * @param EnableDeployKeyRequest $request      EnableDeployKeyRequest
      *
-     * @return EnableDeployKeyResponse
+     * @return EnableDeployKeyResponse EnableDeployKeyResponse
      */
     public function enableDeployKey($repositoryId, $keyId, $request)
     {
@@ -4447,11 +4743,745 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string         $workspaceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 导出Insight custom_value表
+     *  *
+     * @param string                          $organizationId
+     * @param ExportInsightCustomValueRequest $request        ExportInsightCustomValueRequest
+     * @param string[]                        $headers        map
+     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
      *
-     * @return FrozenWorkspaceResponse
+     * @return ExportInsightCustomValueResponse ExportInsightCustomValueResponse
+     */
+    public function exportInsightCustomValueWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportInsightCustomValue',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/customValues',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportInsightCustomValueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight custom_value表
+     *  *
+     * @param string                          $organizationId
+     * @param ExportInsightCustomValueRequest $request        ExportInsightCustomValueRequest
+     *
+     * @return ExportInsightCustomValueResponse ExportInsightCustomValueResponse
+     */
+    public function exportInsightCustomValue($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportInsightCustomValueWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出Insight expected_work_time表数据
+     *  *
+     * @param string                               $organizationId
+     * @param ExportInsightExpectedWorkTimeRequest $request        ExportInsightExpectedWorkTimeRequest
+     * @param string[]                             $headers        map
+     * @param RuntimeOptions                       $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExportInsightExpectedWorkTimeResponse ExportInsightExpectedWorkTimeResponse
+     */
+    public function exportInsightExpectedWorkTimeWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportInsightExpectedWorkTime',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/expectedWorkTimes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportInsightExpectedWorkTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight expected_work_time表数据
+     *  *
+     * @param string                               $organizationId
+     * @param ExportInsightExpectedWorkTimeRequest $request        ExportInsightExpectedWorkTimeRequest
+     *
+     * @return ExportInsightExpectedWorkTimeResponse ExportInsightExpectedWorkTimeResponse
+     */
+    public function exportInsightExpectedWorkTime($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportInsightExpectedWorkTimeWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出Insight field表
+     *  *
+     * @param string                    $organizationId
+     * @param ExportInsightFieldRequest $request        ExportInsightFieldRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExportInsightFieldResponse ExportInsightFieldResponse
+     */
+    public function exportInsightFieldWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportInsightField',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/fields',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportInsightFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight field表
+     *  *
+     * @param string                    $organizationId
+     * @param ExportInsightFieldRequest $request        ExportInsightFieldRequest
+     *
+     * @return ExportInsightFieldResponse ExportInsightFieldResponse
+     */
+    public function exportInsightField($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportInsightFieldWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出Insight space表数据
+     *  *
+     * @param string                    $organizationId
+     * @param ExportInsightSpaceRequest $request        ExportInsightSpaceRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExportInsightSpaceResponse ExportInsightSpaceResponse
+     */
+    public function exportInsightSpaceWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportInsightSpace',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/spaces',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportInsightSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight space表数据
+     *  *
+     * @param string                    $organizationId
+     * @param ExportInsightSpaceRequest $request        ExportInsightSpaceRequest
+     *
+     * @return ExportInsightSpaceResponse ExportInsightSpaceResponse
+     */
+    public function exportInsightSpace($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportInsightSpaceWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出Insight space_ref表数据
+     *  *
+     * @param string                       $organizationId
+     * @param ExportInsightSpaceRefRequest $request        ExportInsightSpaceRefRequest
+     * @param string[]                     $headers        map
+     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExportInsightSpaceRefResponse ExportInsightSpaceRefResponse
+     */
+    public function exportInsightSpaceRefWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportInsightSpaceRef',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/spaceRefs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportInsightSpaceRefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight space_ref表数据
+     *  *
+     * @param string                       $organizationId
+     * @param ExportInsightSpaceRefRequest $request        ExportInsightSpaceRefRequest
+     *
+     * @return ExportInsightSpaceRefResponse ExportInsightSpaceRefResponse
+     */
+    public function exportInsightSpaceRef($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportInsightSpaceRefWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出Insight sprint表数据
+     *  *
+     * @param string                     $organizationId
+     * @param ExportInsightSprintRequest $request        ExportInsightSprintRequest
+     * @param string[]                   $headers        map
+     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExportInsightSprintResponse ExportInsightSprintResponse
+     */
+    public function exportInsightSprintWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportInsightSprint',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/sprints',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportInsightSprintResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight sprint表数据
+     *  *
+     * @param string                     $organizationId
+     * @param ExportInsightSprintRequest $request        ExportInsightSprintRequest
+     *
+     * @return ExportInsightSprintResponse ExportInsightSprintResponse
+     */
+    public function exportInsightSprint($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportInsightSprintWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出Insight tag_ref表数据
+     *  *
+     * @param string                     $organizationId
+     * @param ExportInsightTagRefRequest $request        ExportInsightTagRefRequest
+     * @param string[]                   $headers        map
+     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExportInsightTagRefResponse ExportInsightTagRefResponse
+     */
+    public function exportInsightTagRefWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportInsightTagRef',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/tagRefs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportInsightTagRefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight tag_ref表数据
+     *  *
+     * @param string                     $organizationId
+     * @param ExportInsightTagRefRequest $request        ExportInsightTagRefRequest
+     *
+     * @return ExportInsightTagRefResponse ExportInsightTagRefResponse
+     */
+    public function exportInsightTagRef($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportInsightTagRefWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出Insight work_time表数据
+     *  *
+     * @param string                       $organizationId
+     * @param ExportInsightWorkTimeRequest $request        ExportInsightWorkTimeRequest
+     * @param string[]                     $headers        map
+     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExportInsightWorkTimeResponse ExportInsightWorkTimeResponse
+     */
+    public function exportInsightWorkTimeWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportInsightWorkTime',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/workTimes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportInsightWorkTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight work_time表数据
+     *  *
+     * @param string                       $organizationId
+     * @param ExportInsightWorkTimeRequest $request        ExportInsightWorkTimeRequest
+     *
+     * @return ExportInsightWorkTimeResponse ExportInsightWorkTimeResponse
+     */
+    public function exportInsightWorkTime($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportInsightWorkTimeWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出Insight workitem_stauts表数据
+     *  *
+     * @param string                             $organizationId
+     * @param ExportInsightWorkitemStatusRequest $request        ExportInsightWorkitemStatusRequest
+     * @param string[]                           $headers        map
+     * @param RuntimeOptions                     $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExportInsightWorkitemStatusResponse ExportInsightWorkitemStatusResponse
+     */
+    public function exportInsightWorkitemStatusWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportInsightWorkitemStatus',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/workitemStatuses',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportInsightWorkitemStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight workitem_stauts表数据
+     *  *
+     * @param string                             $organizationId
+     * @param ExportInsightWorkitemStatusRequest $request        ExportInsightWorkitemStatusRequest
+     *
+     * @return ExportInsightWorkitemStatusResponse ExportInsightWorkitemStatusResponse
+     */
+    public function exportInsightWorkitemStatus($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportInsightWorkitemStatusWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出Insight workitem_stauts表 join workitem_defect_extra表表数据
+     *  *
+     * @param string                                                    $organizationId
+     * @param ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest $request        ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest
+     * @param string[]                                                  $headers        map
+     * @param RuntimeOptions                                            $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse
+     */
+    public function exportInsightWorkitemStatusJoinWorkitemDefectExtraWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportInsightWorkitemStatusJoinWorkitemDefectExtra',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/workitemStatusJoinWorkitemDefectExtras',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight workitem_stauts表 join workitem_defect_extra表表数据
+     *  *
+     * @param string                                                    $organizationId
+     * @param ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest $request        ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest
+     *
+     * @return ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse
+     */
+    public function exportInsightWorkitemStatusJoinWorkitemDefectExtra($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportInsightWorkitemStatusJoinWorkitemDefectExtraWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出Insight workitem_version表数据
+     *  *
+     * @param string                              $organizationId
+     * @param ExportInsightWorkitemVersionRequest $request        ExportInsightWorkitemVersionRequest
+     * @param string[]                            $headers        map
+     * @param RuntimeOptions                      $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExportInsightWorkitemVersionResponse ExportInsightWorkitemVersionResponse
+     */
+    public function exportInsightWorkitemVersionWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportInsightWorkitemVersion',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/workitemVersions',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportInsightWorkitemVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight workitem_version表数据
+     *  *
+     * @param string                              $organizationId
+     * @param ExportInsightWorkitemVersionRequest $request        ExportInsightWorkitemVersionRequest
+     *
+     * @return ExportInsightWorkitemVersionResponse ExportInsightWorkitemVersionResponse
+     */
+    public function exportInsightWorkitemVersion($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportInsightWorkitemVersionWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 导出Insight workitem_activity表数据
+     *  *
+     * @param string                        $organizationId
+     * @param ExportWorkitemActivityRequest $request        ExportWorkitemActivityRequest
+     * @param string[]                      $headers        map
+     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return ExportWorkitemActivityResponse ExportWorkitemActivityResponse
+     */
+    public function exportWorkitemActivityWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportWorkitemActivity',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/workitemActivities',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportWorkitemActivityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出Insight workitem_activity表数据
+     *  *
+     * @param string                        $organizationId
+     * @param ExportWorkitemActivityRequest $request        ExportWorkitemActivityRequest
+     *
+     * @return ExportWorkitemActivityResponse ExportWorkitemActivityResponse
+     */
+    public function exportWorkitemActivity($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->exportWorkitemActivityWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 冻结工作空间
+     *  *
+     * @param string         $workspaceId
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return FrozenWorkspaceResponse FrozenWorkspaceResponse
      */
     public function frozenWorkspaceWithOptions($workspaceId, $headers, $runtime)
     {
@@ -4474,9 +5504,11 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 冻结工作空间
+     *  *
      * @param string $workspaceId
      *
-     * @return FrozenWorkspaceResponse
+     * @return FrozenWorkspaceResponse FrozenWorkspaceResponse
      */
     public function frozenWorkspace($workspaceId)
     {
@@ -4487,12 +5519,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查找应用详情
+     *  *
      * @param string                $appName
-     * @param GetApplicationRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param GetApplicationRequest $request GetApplicationRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplicationWithOptions($appName, $request, $headers, $runtime)
     {
@@ -4521,10 +5555,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查找应用详情
+     *  *
      * @param string                $appName
-     * @param GetApplicationRequest $request
+     * @param GetApplicationRequest $request GetApplicationRequest
      *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplication($appName, $request)
     {
@@ -4535,12 +5571,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询单个分支
+     *  *
      * @param string               $repositoryId
-     * @param GetBranchInfoRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetBranchInfoRequest $request      GetBranchInfoRequest
+     * @param string[]             $headers      map
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetBranchInfoResponse
+     * @return GetBranchInfoResponse GetBranchInfoResponse
      */
     public function getBranchInfoWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -4575,10 +5613,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询单个分支
+     *  *
      * @param string               $repositoryId
-     * @param GetBranchInfoRequest $request
+     * @param GetBranchInfoRequest $request      GetBranchInfoRequest
      *
-     * @return GetBranchInfoResponse
+     * @return GetBranchInfoResponse GetBranchInfoResponse
      */
     public function getBranchInfo($repositoryId, $request)
     {
@@ -4589,11 +5629,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetCheckRunRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 查询检查运行
+     *  *
+     * @param GetCheckRunRequest $request GetCheckRunRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCheckRunResponse
+     * @return GetCheckRunResponse GetCheckRunResponse
      */
     public function getCheckRunWithOptions($request, $headers, $runtime)
     {
@@ -4631,9 +5673,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetCheckRunRequest $request
+     * @summary 查询检查运行
+     *  *
+     * @param GetCheckRunRequest $request GetCheckRunRequest
      *
-     * @return GetCheckRunResponse
+     * @return GetCheckRunResponse GetCheckRunResponse
      */
     public function getCheckRun($request)
     {
@@ -4644,12 +5688,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取企业信息
+     *  *
      * @param string                       $identity
-     * @param GetCodeupOrganizationRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param GetCodeupOrganizationRequest $request  GetCodeupOrganizationRequest
+     * @param string[]                     $headers  map
+     * @param RuntimeOptions               $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetCodeupOrganizationResponse
+     * @return GetCodeupOrganizationResponse GetCodeupOrganizationResponse
      */
     public function getCodeupOrganizationWithOptions($identity, $request, $headers, $runtime)
     {
@@ -4678,10 +5724,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取企业信息
+     *  *
      * @param string                       $identity
-     * @param GetCodeupOrganizationRequest $request
+     * @param GetCodeupOrganizationRequest $request  GetCodeupOrganizationRequest
      *
-     * @return GetCodeupOrganizationResponse
+     * @return GetCodeupOrganizationResponse GetCodeupOrganizationResponse
      */
     public function getCodeupOrganization($identity, $request)
     {
@@ -4692,12 +5740,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取比较详情
+     *  *
      * @param string                  $repositoryId
-     * @param GetCompareDetailRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GetCompareDetailRequest $request      GetCompareDetailRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetCompareDetailResponse
+     * @return GetCompareDetailResponse GetCompareDetailResponse
      */
     public function getCompareDetailWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -4741,10 +5791,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取比较详情
+     *  *
      * @param string                  $repositoryId
-     * @param GetCompareDetailRequest $request
+     * @param GetCompareDetailRequest $request      GetCompareDetailRequest
      *
-     * @return GetCompareDetailResponse
+     * @return GetCompareDetailResponse GetCompareDetailResponse
      */
     public function getCompareDetail($repositoryId, $request)
     {
@@ -4755,13 +5807,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取自定义字段的选项值
+     *  *
      * @param string                      $organizationId
      * @param string                      $fieldId
-     * @param GetCustomFieldOptionRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param GetCustomFieldOptionRequest $request        GetCustomFieldOptionRequest
+     * @param string[]                    $headers        map
+     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetCustomFieldOptionResponse
+     * @return GetCustomFieldOptionResponse GetCustomFieldOptionResponse
      */
     public function getCustomFieldOptionWithOptions($organizationId, $fieldId, $request, $headers, $runtime)
     {
@@ -4796,11 +5850,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取自定义字段的选项值
+     *  *
      * @param string                      $organizationId
      * @param string                      $fieldId
-     * @param GetCustomFieldOptionRequest $request
+     * @param GetCustomFieldOptionRequest $request        GetCustomFieldOptionRequest
      *
-     * @return GetCustomFieldOptionResponse
+     * @return GetCustomFieldOptionResponse GetCustomFieldOptionResponse
      */
     public function getCustomFieldOption($organizationId, $fieldId, $request)
     {
@@ -4811,12 +5867,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询文件
+     *  *
      * @param string              $repositoryId
-     * @param GetFileBlobsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetFileBlobsRequest $request      GetFileBlobsRequest
+     * @param string[]            $headers      map
+     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetFileBlobsResponse
+     * @return GetFileBlobsResponse GetFileBlobsResponse
      */
     public function getFileBlobsWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -4860,10 +5918,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询文件
+     *  *
      * @param string              $repositoryId
-     * @param GetFileBlobsRequest $request
+     * @param GetFileBlobsRequest $request      GetFileBlobsRequest
      *
-     * @return GetFileBlobsResponse
+     * @return GetFileBlobsResponse GetFileBlobsResponse
      */
     public function getFileBlobs($repositoryId, $request)
     {
@@ -4874,12 +5934,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取文件上一次提交信息
+     *  *
      * @param string                   $repositoryId
-     * @param GetFileLastCommitRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param GetFileLastCommitRequest $request      GetFileLastCommitRequest
+     * @param string[]                 $headers      map
+     * @param RuntimeOptions           $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetFileLastCommitResponse
+     * @return GetFileLastCommitResponse GetFileLastCommitResponse
      */
     public function getFileLastCommitWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -4920,10 +5982,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取文件上一次提交信息
+     *  *
      * @param string                   $repositoryId
-     * @param GetFileLastCommitRequest $request
+     * @param GetFileLastCommitRequest $request      GetFileLastCommitRequest
      *
-     * @return GetFileLastCommitResponse
+     * @return GetFileLastCommitResponse GetFileLastCommitResponse
      */
     public function getFileLastCommit($repositoryId, $request)
     {
@@ -4934,12 +5998,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取标签分类
+     *  *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetFlowTagGroupResponse
+     * @return GetFlowTagGroupResponse GetFlowTagGroupResponse
      */
     public function getFlowTagGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -4962,10 +6028,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取标签分类
+     *  *
      * @param string $organizationId
      * @param string $id
      *
-     * @return GetFlowTagGroupResponse
+     * @return GetFlowTagGroupResponse GetFlowTagGroupResponse
      */
     public function getFlowTagGroup($organizationId, $id)
     {
@@ -4976,11 +6044,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetGroupByPathRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 根据路径查询代码组
+     *  *
+     * @param GetGroupByPathRequest $request GetGroupByPathRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGroupByPathResponse
+     * @return GetGroupByPathResponse GetGroupByPathResponse
      */
     public function getGroupByPathWithOptions($request, $headers, $runtime)
     {
@@ -5012,9 +6082,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetGroupByPathRequest $request
+     * @summary 根据路径查询代码组
+     *  *
+     * @param GetGroupByPathRequest $request GetGroupByPathRequest
      *
-     * @return GetGroupByPathResponse
+     * @return GetGroupByPathResponse GetGroupByPathResponse
      */
     public function getGroupByPath($request)
     {
@@ -5025,11 +6097,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetGroupDetailRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 查询代码组信息
+     *  *
+     * @param GetGroupDetailRequest $request GetGroupDetailRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGroupDetailResponse
+     * @return GetGroupDetailResponse GetGroupDetailResponse
      */
     public function getGroupDetailWithOptions($request, $headers, $runtime)
     {
@@ -5064,9 +6138,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetGroupDetailRequest $request
+     * @summary 查询代码组信息
+     *  *
+     * @param GetGroupDetailRequest $request GetGroupDetailRequest
      *
-     * @return GetGroupDetailResponse
+     * @return GetGroupDetailResponse GetGroupDetailResponse
      */
     public function getGroupDetail($request)
     {
@@ -5077,12 +6153,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取主机组信息
+     *  *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetHostGroupResponse
+     * @return GetHostGroupResponse GetHostGroupResponse
      */
     public function getHostGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -5105,10 +6183,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取主机组信息
+     *  *
      * @param string $organizationId
      * @param string $id
      *
-     * @return GetHostGroupResponse
+     * @return GetHostGroupResponse GetHostGroupResponse
      */
     public function getHostGroup($organizationId, $id)
     {
@@ -5119,13 +6199,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询合并请求详情
+     *  *
      * @param string                 $repositoryId
      * @param string                 $localId
-     * @param GetMergeRequestRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param GetMergeRequestRequest $request      GetMergeRequestRequest
+     * @param string[]               $headers      map
+     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetMergeRequestResponse
+     * @return GetMergeRequestResponse GetMergeRequestResponse
      */
     public function getMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
@@ -5157,11 +6239,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询合并请求详情
+     *  *
      * @param string                 $repositoryId
      * @param string                 $localId
-     * @param GetMergeRequestRequest $request
+     * @param GetMergeRequestRequest $request      GetMergeRequestRequest
      *
-     * @return GetMergeRequestResponse
+     * @return GetMergeRequestResponse GetMergeRequestResponse
      */
     public function getMergeRequest($repositoryId, $localId, $request)
     {
@@ -5172,11 +6256,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetMergeRequestChangeTreeRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询合并请求的变更信息
+     *  *
+     * @param GetMergeRequestChangeTreeRequest $request GetMergeRequestChangeTreeRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMergeRequestChangeTreeResponse
+     * @return GetMergeRequestChangeTreeResponse GetMergeRequestChangeTreeResponse
      */
     public function getMergeRequestChangeTreeWithOptions($request, $headers, $runtime)
     {
@@ -5220,9 +6306,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetMergeRequestChangeTreeRequest $request
+     * @summary 查询合并请求的变更信息
+     *  *
+     * @param GetMergeRequestChangeTreeRequest $request GetMergeRequestChangeTreeRequest
      *
-     * @return GetMergeRequestChangeTreeResponse
+     * @return GetMergeRequestChangeTreeResponse GetMergeRequestChangeTreeResponse
      */
     public function getMergeRequestChangeTree($request)
     {
@@ -5233,12 +6321,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取企业成员
+     *  *
      * @param string         $organizationId
      * @param string         $accountId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetOrganizationMemberResponse
+     * @return GetOrganizationMemberResponse GetOrganizationMemberResponse
      */
     public function getOrganizationMemberWithOptions($organizationId, $accountId, $headers, $runtime)
     {
@@ -5261,10 +6351,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取企业成员
+     *  *
      * @param string $organizationId
      * @param string $accountId
      *
-     * @return GetOrganizationMemberResponse
+     * @return GetOrganizationMemberResponse GetOrganizationMemberResponse
      */
     public function getOrganizationMember($organizationId, $accountId)
     {
@@ -5275,12 +6367,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetPipelineResponse
+     * @return GetPipelineResponse GetPipelineResponse
      */
     public function getPipelineWithOptions($organizationId, $pipelineId, $headers, $runtime)
     {
@@ -5303,10 +6397,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      *
-     * @return GetPipelineResponse
+     * @return GetPipelineResponse GetPipelineResponse
      */
     public function getPipeline($organizationId, $pipelineId)
     {
@@ -5317,12 +6413,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取构建物下载链接
+     *  *
      * @param string                        $organizationId
-     * @param GetPipelineArtifactUrlRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param GetPipelineArtifactUrlRequest $request        GetPipelineArtifactUrlRequest
+     * @param string[]                      $headers        map
+     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetPipelineArtifactUrlResponse
+     * @return GetPipelineArtifactUrlResponse GetPipelineArtifactUrlResponse
      */
     public function getPipelineArtifactUrlWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -5354,10 +6452,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取构建物下载链接
+     *  *
      * @param string                        $organizationId
-     * @param GetPipelineArtifactUrlRequest $request
+     * @param GetPipelineArtifactUrlRequest $request        GetPipelineArtifactUrlRequest
      *
-     * @return GetPipelineArtifactUrlResponse
+     * @return GetPipelineArtifactUrlResponse GetPipelineArtifactUrlResponse
      */
     public function getPipelineArtifactUrl($organizationId, $request)
     {
@@ -5368,16 +6468,18 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取emase构建物下载链接
+     *  *
      * @param string                            $organizationId
      * @param string                            $emasJobInstanceId
      * @param string                            $md5
      * @param string                            $pipelineId
      * @param string                            $pipelineRunId
-     * @param GetPipelineEmasArtifactUrlRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param GetPipelineEmasArtifactUrlRequest $request           GetPipelineEmasArtifactUrlRequest
+     * @param string[]                          $headers           map
+     * @param RuntimeOptions                    $runtime           runtime options for this request RuntimeOptions
      *
-     * @return GetPipelineEmasArtifactUrlResponse
+     * @return GetPipelineEmasArtifactUrlResponse GetPipelineEmasArtifactUrlResponse
      */
     public function getPipelineEmasArtifactUrlWithOptions($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request, $headers, $runtime)
     {
@@ -5406,14 +6508,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取emase构建物下载链接
+     *  *
      * @param string                            $organizationId
      * @param string                            $emasJobInstanceId
      * @param string                            $md5
      * @param string                            $pipelineId
      * @param string                            $pipelineRunId
-     * @param GetPipelineEmasArtifactUrlRequest $request
+     * @param GetPipelineEmasArtifactUrlRequest $request           GetPipelineEmasArtifactUrlRequest
      *
-     * @return GetPipelineEmasArtifactUrlResponse
+     * @return GetPipelineEmasArtifactUrlResponse GetPipelineEmasArtifactUrlResponse
      */
     public function getPipelineEmasArtifactUrl($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request)
     {
@@ -5424,12 +6528,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线分组
+     *  *
      * @param string         $organizationId
      * @param string         $groupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetPipelineGroupResponse
+     * @return GetPipelineGroupResponse GetPipelineGroupResponse
      */
     public function getPipelineGroupWithOptions($organizationId, $groupId, $headers, $runtime)
     {
@@ -5452,10 +6558,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线分组
+     *  *
      * @param string $organizationId
      * @param string $groupId
      *
-     * @return GetPipelineGroupResponse
+     * @return GetPipelineGroupResponse GetPipelineGroupResponse
      */
     public function getPipelineGroup($organizationId, $groupId)
     {
@@ -5466,13 +6574,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线运行信息
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetPipelineRunResponse
+     * @return GetPipelineRunResponse GetPipelineRunResponse
      */
     public function getPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime)
     {
@@ -5495,11 +6605,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线运行信息
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      *
-     * @return GetPipelineRunResponse
+     * @return GetPipelineRunResponse GetPipelineRunResponse
      */
     public function getPipelineRun($organizationId, $pipelineId, $pipelineRunId)
     {
@@ -5510,12 +6622,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取扫描报告下载链接
+     *  *
      * @param string                          $organizationId
-     * @param GetPipelineScanReportUrlRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param GetPipelineScanReportUrlRequest $request        GetPipelineScanReportUrlRequest
+     * @param string[]                        $headers        map
+     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetPipelineScanReportUrlResponse
+     * @return GetPipelineScanReportUrlResponse GetPipelineScanReportUrlResponse
      */
     public function getPipelineScanReportUrlWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -5544,10 +6658,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取扫描报告下载链接
+     *  *
      * @param string                          $organizationId
-     * @param GetPipelineScanReportUrlRequest $request
+     * @param GetPipelineScanReportUrlRequest $request        GetPipelineScanReportUrlRequest
      *
-     * @return GetPipelineScanReportUrlResponse
+     * @return GetPipelineScanReportUrlResponse GetPipelineScanReportUrlResponse
      */
     public function getPipelineScanReportUrl($organizationId, $request)
     {
@@ -5558,12 +6674,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 根据id获取项目详情-Projex
+     *  *
      * @param string         $organizationId
      * @param string         $projectId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetProjectInfoResponse
+     * @return GetProjectInfoResponse GetProjectInfoResponse
      */
     public function getProjectInfoWithOptions($organizationId, $projectId, $headers, $runtime)
     {
@@ -5586,10 +6704,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 根据id获取项目详情-Projex
+     *  *
      * @param string $organizationId
      * @param string $projectId
      *
-     * @return GetProjectInfoResponse
+     * @return GetProjectInfoResponse GetProjectInfoResponse
      */
     public function getProjectInfo($organizationId, $projectId)
     {
@@ -5600,13 +6720,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库成员
+     *  *
      * @param string                  $repositoryId
      * @param string                  $aliyunPk
-     * @param GetProjectMemberRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GetProjectMemberRequest $request      GetProjectMemberRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetProjectMemberResponse
+     * @return GetProjectMemberResponse GetProjectMemberResponse
      */
     public function getProjectMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime)
     {
@@ -5638,11 +6760,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库成员
+     *  *
      * @param string                  $repositoryId
      * @param string                  $aliyunPk
-     * @param GetProjectMemberRequest $request
+     * @param GetProjectMemberRequest $request      GetProjectMemberRequest
      *
-     * @return GetProjectMemberResponse
+     * @return GetProjectMemberResponse GetProjectMemberResponse
      */
     public function getProjectMember($repositoryId, $aliyunPk, $request)
     {
@@ -5653,13 +6777,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询推送规则
+     *  *
      * @param string             $repositoryId
      * @param string             $pushRuleId
-     * @param GetPushRuleRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param GetPushRuleRequest $request      GetPushRuleRequest
+     * @param string[]           $headers      map
+     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetPushRuleResponse
+     * @return GetPushRuleResponse GetPushRuleResponse
      */
     public function getPushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime)
     {
@@ -5691,11 +6817,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询推送规则
+     *  *
      * @param string             $repositoryId
      * @param string             $pushRuleId
-     * @param GetPushRuleRequest $request
+     * @param GetPushRuleRequest $request      GetPushRuleRequest
      *
-     * @return GetPushRuleResponse
+     * @return GetPushRuleResponse GetPushRuleResponse
      */
     public function getPushRule($repositoryId, $pushRuleId, $request)
     {
@@ -5706,11 +6834,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetRepositoryRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 使用代码库ID或路径查询代码库信息
+     *  *
+     * @param GetRepositoryRequest $request GetRepositoryRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRepositoryResponse
+     * @return GetRepositoryResponse GetRepositoryResponse
      */
     public function getRepositoryWithOptions($request, $headers, $runtime)
     {
@@ -5745,9 +6875,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetRepositoryRequest $request
+     * @summary 使用代码库ID或路径查询代码库信息
+     *  *
+     * @param GetRepositoryRequest $request GetRepositoryRequest
      *
-     * @return GetRepositoryResponse
+     * @return GetRepositoryResponse GetRepositoryResponse
      */
     public function getRepository($request)
     {
@@ -5758,13 +6890,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库提交信息
+     *  *
      * @param string                     $repositoryId
      * @param string                     $sha
-     * @param GetRepositoryCommitRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param GetRepositoryCommitRequest $request      GetRepositoryCommitRequest
+     * @param string[]                   $headers      map
+     * @param RuntimeOptions             $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetRepositoryCommitResponse
+     * @return GetRepositoryCommitResponse GetRepositoryCommitResponse
      */
     public function getRepositoryCommitWithOptions($repositoryId, $sha, $request, $headers, $runtime)
     {
@@ -5799,11 +6933,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库提交信息
+     *  *
      * @param string                     $repositoryId
      * @param string                     $sha
-     * @param GetRepositoryCommitRequest $request
+     * @param GetRepositoryCommitRequest $request      GetRepositoryCommitRequest
      *
-     * @return GetRepositoryCommitResponse
+     * @return GetRepositoryCommitResponse GetRepositoryCommitResponse
      */
     public function getRepositoryCommit($repositoryId, $sha, $request)
     {
@@ -5814,12 +6950,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询单个标签
+     *  *
      * @param string                  $repositoryId
-     * @param GetRepositoryTagRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GetRepositoryTagRequest $request      GetRepositoryTagRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return GetRepositoryTagResponse
+     * @return GetRepositoryTagResponse GetRepositoryTagResponse
      */
     public function getRepositoryTagWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -5854,10 +6992,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询单个标签
+     *  *
      * @param string                  $repositoryId
-     * @param GetRepositoryTagRequest $request
+     * @param GetRepositoryTagRequest $request      GetRepositoryTagRequest
      *
-     * @return GetRepositoryTagResponse
+     * @return GetRepositoryTagResponse GetRepositoryTagResponse
      */
     public function getRepositoryTag($repositoryId, $request)
     {
@@ -5868,11 +7008,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetSearchCodePreviewRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 预览代码片段
+     *  *
+     * @param GetSearchCodePreviewRequest $request GetSearchCodePreviewRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSearchCodePreviewResponse
+     * @return GetSearchCodePreviewResponse GetSearchCodePreviewResponse
      */
     public function getSearchCodePreviewWithOptions($request, $headers, $runtime)
     {
@@ -5910,9 +7052,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetSearchCodePreviewRequest $request
+     * @summary 预览代码片段
+     *  *
+     * @param GetSearchCodePreviewRequest $request GetSearchCodePreviewRequest
      *
-     * @return GetSearchCodePreviewResponse
+     * @return GetSearchCodePreviewResponse GetSearchCodePreviewResponse
      */
     public function getSearchCodePreview($request)
     {
@@ -5923,12 +7067,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取迭代详情
+     *  *
      * @param string         $organizationId
      * @param string         $sprintId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetSprintInfoResponse
+     * @return GetSprintInfoResponse GetSprintInfoResponse
      */
     public function getSprintInfoWithOptions($organizationId, $sprintId, $headers, $runtime)
     {
@@ -5951,10 +7097,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取迭代详情
+     *  *
      * @param string $organizationId
      * @param string $sprintId
      *
-     * @return GetSprintInfoResponse
+     * @return GetSprintInfoResponse GetSprintInfoResponse
      */
     public function getSprintInfo($organizationId, $sprintId)
     {
@@ -5965,13 +7113,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取测试计划中的测试用例列表
+     *  *
      * @param string                   $organizationId
      * @param string                   $testPlanIdentifier
-     * @param GetTestResultListRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param GetTestResultListRequest $request            GetTestResultListRequest
+     * @param string[]                 $headers            map
+     * @param RuntimeOptions           $runtime            runtime options for this request RuntimeOptions
      *
-     * @return GetTestResultListResponse
+     * @return GetTestResultListResponse GetTestResultListResponse
      */
     public function getTestResultListWithOptions($organizationId, $testPlanIdentifier, $request, $headers, $runtime)
     {
@@ -6003,11 +7153,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取测试计划中的测试用例列表
+     *  *
      * @param string                   $organizationId
      * @param string                   $testPlanIdentifier
-     * @param GetTestResultListRequest $request
+     * @param GetTestResultListRequest $request            GetTestResultListRequest
      *
-     * @return GetTestResultListResponse
+     * @return GetTestResultListResponse GetTestResultListResponse
      */
     public function getTestResultList($organizationId, $testPlanIdentifier, $request)
     {
@@ -6018,12 +7170,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取测试用例列表
+     *  *
      * @param string                 $organizationId
-     * @param GetTestcaseListRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param GetTestcaseListRequest $request        GetTestcaseListRequest
+     * @param string[]               $headers        map
+     * @param RuntimeOptions         $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetTestcaseListResponse
+     * @return GetTestcaseListResponse GetTestcaseListResponse
      */
     public function getTestcaseListWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -6064,10 +7218,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取测试用例列表
+     *  *
      * @param string                 $organizationId
-     * @param GetTestcaseListRequest $request
+     * @param GetTestcaseListRequest $request        GetTestcaseListRequest
      *
-     * @return GetTestcaseListResponse
+     * @return GetTestcaseListResponse GetTestcaseListResponse
      */
     public function getTestcaseList($organizationId, $request)
     {
@@ -6078,11 +7234,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetUserInfoRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 查询当前用户信息
+     *  *
+     * @param GetUserInfoRequest $request GetUserInfoRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserInfoResponse
+     * @return GetUserInfoResponse GetUserInfoResponse
      */
     public function getUserInfoWithOptions($request, $headers, $runtime)
     {
@@ -6111,9 +7269,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param GetUserInfoRequest $request
+     * @summary 查询当前用户信息
+     *  *
+     * @param GetUserInfoRequest $request GetUserInfoRequest
      *
-     * @return GetUserInfoResponse
+     * @return GetUserInfoResponse GetUserInfoResponse
      */
     public function getUserInfo($request)
     {
@@ -6124,13 +7284,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取部署单信息
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetVMDeployOrderResponse
+     * @return GetVMDeployOrderResponse GetVMDeployOrderResponse
      */
     public function getVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
     {
@@ -6153,11 +7315,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取部署单信息
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      *
-     * @return GetVMDeployOrderResponse
+     * @return GetVMDeployOrderResponse GetVMDeployOrderResponse
      */
     public function getVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
     {
@@ -6168,12 +7332,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取变量组
+     *  *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetVariableGroupResponse
+     * @return GetVariableGroupResponse GetVariableGroupResponse
      */
     public function getVariableGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -6196,10 +7362,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取变量组
+     *  *
      * @param string $organizationId
      * @param string $id
      *
-     * @return GetVariableGroupResponse
+     * @return GetVariableGroupResponse GetVariableGroupResponse
      */
     public function getVariableGroup($organizationId, $id)
     {
@@ -6210,12 +7378,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项动态
+     *  *
      * @param string         $organizationId
      * @param string         $workitemId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetWorkItemActivityResponse
+     * @return GetWorkItemActivityResponse GetWorkItemActivityResponse
      */
     public function getWorkItemActivityWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
@@ -6238,10 +7408,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项动态
+     *  *
      * @param string $organizationId
      * @param string $workitemId
      *
-     * @return GetWorkItemActivityResponse
+     * @return GetWorkItemActivityResponse GetWorkItemActivityResponse
      */
     public function getWorkItemActivity($organizationId, $workitemId)
     {
@@ -6252,12 +7424,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 根据id获取工作项详情
+     *  *
      * @param string         $organizationId
      * @param string         $workitemId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetWorkItemInfoResponse
+     * @return GetWorkItemInfoResponse GetWorkItemInfoResponse
      */
     public function getWorkItemInfoWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
@@ -6280,10 +7454,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 根据id获取工作项详情
+     *  *
      * @param string $organizationId
      * @param string $workitemId
      *
-     * @return GetWorkItemInfoResponse
+     * @return GetWorkItemInfoResponse GetWorkItemInfoResponse
      */
     public function getWorkItemInfo($organizationId, $workitemId)
     {
@@ -6294,13 +7470,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项工作流信息
+     *  *
      * @param string                         $organizationId
      * @param string                         $workitemId
-     * @param GetWorkItemWorkFlowInfoRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param GetWorkItemWorkFlowInfoRequest $request        GetWorkItemWorkFlowInfoRequest
+     * @param string[]                       $headers        map
+     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetWorkItemWorkFlowInfoResponse
+     * @return GetWorkItemWorkFlowInfoResponse GetWorkItemWorkFlowInfoResponse
      */
     public function getWorkItemWorkFlowInfoWithOptions($organizationId, $workitemId, $request, $headers, $runtime)
     {
@@ -6329,11 +7507,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项工作流信息
+     *  *
      * @param string                         $organizationId
      * @param string                         $workitemId
-     * @param GetWorkItemWorkFlowInfoRequest $request
+     * @param GetWorkItemWorkFlowInfoRequest $request        GetWorkItemWorkFlowInfoRequest
      *
-     * @return GetWorkItemWorkFlowInfoResponse
+     * @return GetWorkItemWorkFlowInfoResponse GetWorkItemWorkFlowInfoResponse
      */
     public function getWorkItemWorkFlowInfo($organizationId, $workitemId, $request)
     {
@@ -6344,13 +7524,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取附件上传的元信息
+     *  *
      * @param string                                 $organizationId
      * @param string                                 $workitemIdentifier
-     * @param GetWorkitemAttachmentCreatemetaRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @param GetWorkitemAttachmentCreatemetaRequest $request            GetWorkitemAttachmentCreatemetaRequest
+     * @param string[]                               $headers            map
+     * @param RuntimeOptions                         $runtime            runtime options for this request RuntimeOptions
      *
-     * @return GetWorkitemAttachmentCreatemetaResponse
+     * @return GetWorkitemAttachmentCreatemetaResponse GetWorkitemAttachmentCreatemetaResponse
      */
     public function getWorkitemAttachmentCreatemetaWithOptions($organizationId, $workitemIdentifier, $request, $headers, $runtime)
     {
@@ -6379,11 +7561,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取附件上传的元信息
+     *  *
      * @param string                                 $organizationId
      * @param string                                 $workitemIdentifier
-     * @param GetWorkitemAttachmentCreatemetaRequest $request
+     * @param GetWorkitemAttachmentCreatemetaRequest $request            GetWorkitemAttachmentCreatemetaRequest
      *
-     * @return GetWorkitemAttachmentCreatemetaResponse
+     * @return GetWorkitemAttachmentCreatemetaResponse GetWorkitemAttachmentCreatemetaResponse
      */
     public function getWorkitemAttachmentCreatemeta($organizationId, $workitemIdentifier, $request)
     {
@@ -6394,12 +7578,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获得所有评论
+     *  *
      * @param string         $organizationId
      * @param string         $workitemId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetWorkitemCommentListResponse
+     * @return GetWorkitemCommentListResponse GetWorkitemCommentListResponse
      */
     public function getWorkitemCommentListWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
@@ -6422,10 +7608,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获得所有评论
+     *  *
      * @param string $organizationId
      * @param string $workitemId
      *
-     * @return GetWorkitemCommentListResponse
+     * @return GetWorkitemCommentListResponse GetWorkitemCommentListResponse
      */
     public function getWorkitemCommentList($organizationId, $workitemId)
     {
@@ -6436,13 +7624,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项文件信息
+     *  *
      * @param string         $organizationId
      * @param string         $workitemIdentifier
      * @param string         $fileIdentifier
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers            map
+     * @param RuntimeOptions $runtime            runtime options for this request RuntimeOptions
      *
-     * @return GetWorkitemFileResponse
+     * @return GetWorkitemFileResponse GetWorkitemFileResponse
      */
     public function getWorkitemFileWithOptions($organizationId, $workitemIdentifier, $fileIdentifier, $headers, $runtime)
     {
@@ -6465,11 +7655,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项文件信息
+     *  *
      * @param string $organizationId
      * @param string $workitemIdentifier
      * @param string $fileIdentifier
      *
-     * @return GetWorkitemFileResponse
+     * @return GetWorkitemFileResponse GetWorkitemFileResponse
      */
     public function getWorkitemFile($organizationId, $workitemIdentifier, $fileIdentifier)
     {
@@ -6480,13 +7672,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获得一个工作项的指定关联项
+     *  *
      * @param string                      $organizationId
      * @param string                      $workitemId
-     * @param GetWorkitemRelationsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param GetWorkitemRelationsRequest $request        GetWorkitemRelationsRequest
+     * @param string[]                    $headers        map
+     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetWorkitemRelationsResponse
+     * @return GetWorkitemRelationsResponse GetWorkitemRelationsResponse
      */
     public function getWorkitemRelationsWithOptions($organizationId, $workitemId, $request, $headers, $runtime)
     {
@@ -6515,11 +7709,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获得一个工作项的指定关联项
+     *  *
      * @param string                      $organizationId
      * @param string                      $workitemId
-     * @param GetWorkitemRelationsRequest $request
+     * @param GetWorkitemRelationsRequest $request        GetWorkitemRelationsRequest
      *
-     * @return GetWorkitemRelationsResponse
+     * @return GetWorkitemRelationsResponse GetWorkitemRelationsResponse
      */
     public function getWorkitemRelations($organizationId, $workitemId, $request)
     {
@@ -6530,11 +7726,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获得一个企业下所有工时类型
+     *  *
      * @param string         $organizationId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return GetWorkitemTimeTypeListResponse
+     * @return GetWorkitemTimeTypeListResponse GetWorkitemTimeTypeListResponse
      */
     public function getWorkitemTimeTypeListWithOptions($organizationId, $headers, $runtime)
     {
@@ -6557,9 +7755,11 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获得一个企业下所有工时类型
+     *  *
      * @param string $organizationId
      *
-     * @return GetWorkitemTimeTypeListResponse
+     * @return GetWorkitemTimeTypeListResponse GetWorkitemTimeTypeListResponse
      */
     public function getWorkitemTimeTypeList($organizationId)
     {
@@ -6570,11 +7770,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询工作空间详情
+     *  *
      * @param string         $workspaceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetWorkspaceResponse
+     * @return GetWorkspaceResponse GetWorkspaceResponse
      */
     public function getWorkspaceWithOptions($workspaceId, $headers, $runtime)
     {
@@ -6597,9 +7799,11 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询工作空间详情
+     *  *
      * @param string $workspaceId
      *
-     * @return GetWorkspaceResponse
+     * @return GetWorkspaceResponse GetWorkspaceResponse
      */
     public function getWorkspace($workspaceId)
     {
@@ -6610,12 +7814,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 加入流水线分组
+     *  *
      * @param string                   $organizationId
-     * @param JoinPipelineGroupRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param JoinPipelineGroupRequest $request        JoinPipelineGroupRequest
+     * @param string[]                 $headers        map
+     * @param RuntimeOptions           $runtime        runtime options for this request RuntimeOptions
      *
-     * @return JoinPipelineGroupResponse
+     * @return JoinPipelineGroupResponse JoinPipelineGroupResponse
      */
     public function joinPipelineGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -6647,10 +7853,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 加入流水线分组
+     *  *
      * @param string                   $organizationId
-     * @param JoinPipelineGroupRequest $request
+     * @param JoinPipelineGroupRequest $request        JoinPipelineGroupRequest
      *
-     * @return JoinPipelineGroupResponse
+     * @return JoinPipelineGroupResponse JoinPipelineGroupResponse
      */
     public function joinPipelineGroup($organizationId, $request)
     {
@@ -6661,11 +7869,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param LinkMergeRequestLabelRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @summary 关联合并请求Label
+     *  *
+     * @param LinkMergeRequestLabelRequest $request LinkMergeRequestLabelRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return LinkMergeRequestLabelResponse
+     * @return LinkMergeRequestLabelResponse LinkMergeRequestLabelResponse
      */
     public function linkMergeRequestLabelWithOptions($request, $headers, $runtime)
     {
@@ -6708,9 +7918,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param LinkMergeRequestLabelRequest $request
+     * @summary 关联合并请求Label
+     *  *
+     * @param LinkMergeRequestLabelRequest $request LinkMergeRequestLabelRequest
      *
-     * @return LinkMergeRequestLabelResponse
+     * @return LinkMergeRequestLabelResponse LinkMergeRequestLabelResponse
      */
     public function linkMergeRequestLabel($request)
     {
@@ -6721,12 +7933,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查找应用成员列表
+     *  *
      * @param string                        $appName
-     * @param ListApplicationMembersRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param ListApplicationMembersRequest $request ListApplicationMembersRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationMembersResponse
+     * @return ListApplicationMembersResponse ListApplicationMembersResponse
      */
     public function listApplicationMembersWithOptions($appName, $request, $headers, $runtime)
     {
@@ -6755,10 +7969,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查找应用成员列表
+     *  *
      * @param string                        $appName
-     * @param ListApplicationMembersRequest $request
+     * @param ListApplicationMembersRequest $request ListApplicationMembersRequest
      *
-     * @return ListApplicationMembersResponse
+     * @return ListApplicationMembersResponse ListApplicationMembersResponse
      */
     public function listApplicationMembers($appName, $request)
     {
@@ -6769,11 +7985,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 分页查找应用详情
+     *  *
+     * @param ListApplicationsRequest $request ListApplicationsRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplicationsWithOptions($request, $headers, $runtime)
     {
@@ -6817,9 +8035,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $request
+     * @summary 分页查找应用详情
+     *  *
+     * @param ListApplicationsRequest $request ListApplicationsRequest
      *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplications($request)
     {
@@ -6830,11 +8050,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListCheckRunsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary 查询检查运行列表
+     *  *
+     * @param ListCheckRunsRequest $request ListCheckRunsRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCheckRunsResponse
+     * @return ListCheckRunsResponse ListCheckRunsResponse
      */
     public function listCheckRunsWithOptions($request, $headers, $runtime)
     {
@@ -6878,9 +8100,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListCheckRunsRequest $request
+     * @summary 查询检查运行列表
+     *  *
+     * @param ListCheckRunsRequest $request ListCheckRunsRequest
      *
-     * @return ListCheckRunsResponse
+     * @return ListCheckRunsResponse ListCheckRunsResponse
      */
     public function listCheckRuns($request)
     {
@@ -6891,11 +8115,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListCommitStatusesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 查询提交状态列表
+     *  *
+     * @param ListCommitStatusesRequest $request ListCommitStatusesRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCommitStatusesResponse
+     * @return ListCommitStatusesResponse ListCommitStatusesResponse
      */
     public function listCommitStatusesWithOptions($request, $headers, $runtime)
     {
@@ -6939,9 +8165,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListCommitStatusesRequest $request
+     * @summary 查询提交状态列表
+     *  *
+     * @param ListCommitStatusesRequest $request ListCommitStatusesRequest
      *
-     * @return ListCommitStatusesResponse
+     * @return ListCommitStatusesResponse ListCommitStatusesResponse
      */
     public function listCommitStatuses($request)
     {
@@ -6952,11 +8180,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取标签分类列表
+     *  *
      * @param string         $organizationId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListFlowTagGroupsResponse
+     * @return ListFlowTagGroupsResponse ListFlowTagGroupsResponse
      */
     public function listFlowTagGroupsWithOptions($organizationId, $headers, $runtime)
     {
@@ -6979,9 +8209,11 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取标签分类列表
+     *  *
      * @param string $organizationId
      *
-     * @return ListFlowTagGroupsResponse
+     * @return ListFlowTagGroupsResponse ListFlowTagGroupsResponse
      */
     public function listFlowTagGroups($organizationId)
     {
@@ -6992,12 +8224,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询组成员列表
+     *  *
      * @param string                 $groupId
-     * @param ListGroupMemberRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListGroupMemberRequest $request ListGroupMemberRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupMemberResponse
+     * @return ListGroupMemberResponse ListGroupMemberResponse
      */
     public function listGroupMemberWithOptions($groupId, $request, $headers, $runtime)
     {
@@ -7029,10 +8263,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询组成员列表
+     *  *
      * @param string                 $groupId
-     * @param ListGroupMemberRequest $request
+     * @param ListGroupMemberRequest $request ListGroupMemberRequest
      *
-     * @return ListGroupMemberResponse
+     * @return ListGroupMemberResponse ListGroupMemberResponse
      */
     public function listGroupMember($groupId, $request)
     {
@@ -7043,12 +8279,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码组下的库列表
+     *  *
      * @param string                       $groupId
-     * @param ListGroupRepositoriesRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListGroupRepositoriesRequest $request ListGroupRepositoriesRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupRepositoriesResponse
+     * @return ListGroupRepositoriesResponse ListGroupRepositoriesResponse
      */
     public function listGroupRepositoriesWithOptions($groupId, $request, $headers, $runtime)
     {
@@ -7089,10 +8327,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码组下的库列表
+     *  *
      * @param string                       $groupId
-     * @param ListGroupRepositoriesRequest $request
+     * @param ListGroupRepositoriesRequest $request ListGroupRepositoriesRequest
      *
-     * @return ListGroupRepositoriesResponse
+     * @return ListGroupRepositoriesResponse ListGroupRepositoriesResponse
      */
     public function listGroupRepositories($groupId, $request)
     {
@@ -7103,12 +8343,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取主机组列表
+     *  *
      * @param string                $organizationId
-     * @param ListHostGroupsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param ListHostGroupsRequest $request        ListHostGroupsRequest
+     * @param string[]              $headers        map
+     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListHostGroupsResponse
+     * @return ListHostGroupsResponse ListHostGroupsResponse
      */
     public function listHostGroupsWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -7161,10 +8403,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取主机组列表
+     *  *
      * @param string                $organizationId
-     * @param ListHostGroupsRequest $request
+     * @param ListHostGroupsRequest $request        ListHostGroupsRequest
      *
-     * @return ListHostGroupsResponse
+     * @return ListHostGroupsResponse ListHostGroupsResponse
      */
     public function listHostGroups($organizationId, $request)
     {
@@ -7175,10 +8419,12 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 当前用户加入的企业列表
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListJoinedOrganizationsResponse
+     * @return ListJoinedOrganizationsResponse ListJoinedOrganizationsResponse
      */
     public function listJoinedOrganizationsWithOptions($headers, $runtime)
     {
@@ -7201,7 +8447,9 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @return ListJoinedOrganizationsResponse
+     * @summary 当前用户加入的企业列表
+     *  *
+     * @return ListJoinedOrganizationsResponse ListJoinedOrganizationsResponse
      */
     public function listJoinedOrganizations()
     {
@@ -7212,11 +8460,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListMergeRequestCommentsRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询合并请求评论列表
+     *  *
+     * @param ListMergeRequestCommentsRequest $request ListMergeRequestCommentsRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMergeRequestCommentsResponse
+     * @return ListMergeRequestCommentsResponse ListMergeRequestCommentsResponse
      */
     public function listMergeRequestCommentsWithOptions($request, $headers, $runtime)
     {
@@ -7271,9 +8521,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListMergeRequestCommentsRequest $request
+     * @summary 查询合并请求评论列表
+     *  *
+     * @param ListMergeRequestCommentsRequest $request ListMergeRequestCommentsRequest
      *
-     * @return ListMergeRequestCommentsResponse
+     * @return ListMergeRequestCommentsResponse ListMergeRequestCommentsResponse
      */
     public function listMergeRequestComments($request)
     {
@@ -7284,11 +8536,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListMergeRequestFilesReadsRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @summary 查询合并请求文件已读列表
+     *  *
+     * @param ListMergeRequestFilesReadsRequest $request ListMergeRequestFilesReadsRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMergeRequestFilesReadsResponse
+     * @return ListMergeRequestFilesReadsResponse ListMergeRequestFilesReadsResponse
      */
     public function listMergeRequestFilesReadsWithOptions($request, $headers, $runtime)
     {
@@ -7332,9 +8586,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListMergeRequestFilesReadsRequest $request
+     * @summary 查询合并请求文件已读列表
+     *  *
+     * @param ListMergeRequestFilesReadsRequest $request ListMergeRequestFilesReadsRequest
      *
-     * @return ListMergeRequestFilesReadsResponse
+     * @return ListMergeRequestFilesReadsResponse ListMergeRequestFilesReadsResponse
      */
     public function listMergeRequestFilesReads($request)
     {
@@ -7345,11 +8601,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListMergeRequestLabelsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 查询合并请求Label列表
+     *  *
+     * @param ListMergeRequestLabelsRequest $request ListMergeRequestLabelsRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMergeRequestLabelsResponse
+     * @return ListMergeRequestLabelsResponse ListMergeRequestLabelsResponse
      */
     public function listMergeRequestLabelsWithOptions($request, $headers, $runtime)
     {
@@ -7387,9 +8645,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListMergeRequestLabelsRequest $request
+     * @summary 查询合并请求Label列表
+     *  *
+     * @param ListMergeRequestLabelsRequest $request ListMergeRequestLabelsRequest
      *
-     * @return ListMergeRequestLabelsResponse
+     * @return ListMergeRequestLabelsResponse ListMergeRequestLabelsResponse
      */
     public function listMergeRequestLabels($request)
     {
@@ -7400,11 +8660,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListMergeRequestPatchSetsRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @summary 查询合并请求的版本列表
+     *  *
+     * @param ListMergeRequestPatchSetsRequest $request ListMergeRequestPatchSetsRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMergeRequestPatchSetsResponse
+     * @return ListMergeRequestPatchSetsResponse ListMergeRequestPatchSetsResponse
      */
     public function listMergeRequestPatchSetsWithOptions($request, $headers, $runtime)
     {
@@ -7442,9 +8704,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListMergeRequestPatchSetsRequest $request
+     * @summary 查询合并请求的版本列表
+     *  *
+     * @param ListMergeRequestPatchSetsRequest $request ListMergeRequestPatchSetsRequest
      *
-     * @return ListMergeRequestPatchSetsResponse
+     * @return ListMergeRequestPatchSetsResponse ListMergeRequestPatchSetsResponse
      */
     public function listMergeRequestPatchSets($request)
     {
@@ -7455,11 +8719,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListMergeRequestsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 查询代码评审列表
+     *  *
+     * @param ListMergeRequestsRequest $request ListMergeRequestsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMergeRequestsResponse
+     * @return ListMergeRequestsResponse ListMergeRequestsResponse
      */
     public function listMergeRequestsWithOptions($request, $headers, $runtime)
     {
@@ -7533,9 +8799,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListMergeRequestsRequest $request
+     * @summary 查询代码评审列表
+     *  *
+     * @param ListMergeRequestsRequest $request ListMergeRequestsRequest
      *
-     * @return ListMergeRequestsResponse
+     * @return ListMergeRequestsResponse ListMergeRequestsResponse
      */
     public function listMergeRequests($request)
     {
@@ -7546,12 +8814,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取企业成员列表
+     *  *
      * @param string                         $organizationId
-     * @param ListOrganizationMembersRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param ListOrganizationMembersRequest $request        ListOrganizationMembersRequest
+     * @param string[]                       $headers        map
+     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListOrganizationMembersResponse
+     * @return ListOrganizationMembersResponse ListOrganizationMembersResponse
      */
     public function listOrganizationMembersWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -7604,10 +8874,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取企业成员列表
+     *  *
      * @param string                         $organizationId
-     * @param ListOrganizationMembersRequest $request
+     * @param ListOrganizationMembersRequest $request        ListOrganizationMembersRequest
      *
-     * @return ListOrganizationMembersResponse
+     * @return ListOrganizationMembersResponse ListOrganizationMembersResponse
      */
     public function listOrganizationMembers($organizationId, $request)
     {
@@ -7618,11 +8890,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListOrganizationsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 查询用户企业列表
+     *  *
+     * @param ListOrganizationsRequest $request ListOrganizationsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOrganizationsResponse
+     * @return ListOrganizationsResponse ListOrganizationsResponse
      */
     public function listOrganizationsWithOptions($request, $headers, $runtime)
     {
@@ -7657,9 +8931,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListOrganizationsRequest $request
+     * @summary 查询用户企业列表
+     *  *
+     * @param ListOrganizationsRequest $request ListOrganizationsRequest
      *
-     * @return ListOrganizationsResponse
+     * @return ListOrganizationsResponse ListOrganizationsResponse
      */
     public function listOrganizations($request)
     {
@@ -7670,13 +8946,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线分组下流水线列表列表
+     *  *
      * @param string                            $organizationId
      * @param string                            $groupId
-     * @param ListPipelineGroupPipelinesRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param ListPipelineGroupPipelinesRequest $request        ListPipelineGroupPipelinesRequest
+     * @param string[]                          $headers        map
+     * @param RuntimeOptions                    $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListPipelineGroupPipelinesResponse
+     * @return ListPipelineGroupPipelinesResponse ListPipelineGroupPipelinesResponse
      */
     public function listPipelineGroupPipelinesWithOptions($organizationId, $groupId, $request, $headers, $runtime)
     {
@@ -7726,11 +9004,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线分组下流水线列表列表
+     *  *
      * @param string                            $organizationId
      * @param string                            $groupId
-     * @param ListPipelineGroupPipelinesRequest $request
+     * @param ListPipelineGroupPipelinesRequest $request        ListPipelineGroupPipelinesRequest
      *
-     * @return ListPipelineGroupPipelinesResponse
+     * @return ListPipelineGroupPipelinesResponse ListPipelineGroupPipelinesResponse
      */
     public function listPipelineGroupPipelines($organizationId, $groupId, $request)
     {
@@ -7741,12 +9021,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线分组列表
+     *  *
      * @param string                    $organizationId
-     * @param ListPipelineGroupsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ListPipelineGroupsRequest $request        ListPipelineGroupsRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListPipelineGroupsResponse
+     * @return ListPipelineGroupsResponse ListPipelineGroupsResponse
      */
     public function listPipelineGroupsWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -7778,10 +9060,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线分组列表
+     *  *
      * @param string                    $organizationId
-     * @param ListPipelineGroupsRequest $request
+     * @param ListPipelineGroupsRequest $request        ListPipelineGroupsRequest
      *
-     * @return ListPipelineGroupsResponse
+     * @return ListPipelineGroupsResponse ListPipelineGroupsResponse
      */
     public function listPipelineGroups($organizationId, $request)
     {
@@ -7792,13 +9076,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线运行过的任务历史
+     *  *
      * @param string                         $organizationId
      * @param string                         $pipelineId
-     * @param ListPipelineJobHistorysRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param ListPipelineJobHistorysRequest $request        ListPipelineJobHistorysRequest
+     * @param string[]                       $headers        map
+     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListPipelineJobHistorysResponse
+     * @return ListPipelineJobHistorysResponse ListPipelineJobHistorysResponse
      */
     public function listPipelineJobHistorysWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
@@ -7836,11 +9122,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线运行过的任务历史
+     *  *
      * @param string                         $organizationId
      * @param string                         $pipelineId
-     * @param ListPipelineJobHistorysRequest $request
+     * @param ListPipelineJobHistorysRequest $request        ListPipelineJobHistorysRequest
      *
-     * @return ListPipelineJobHistorysResponse
+     * @return ListPipelineJobHistorysResponse ListPipelineJobHistorysResponse
      */
     public function listPipelineJobHistorys($organizationId, $pipelineId, $request)
     {
@@ -7851,13 +9139,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线运行过的任务
+     *  *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param ListPipelineJobsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param ListPipelineJobsRequest $request        ListPipelineJobsRequest
+     * @param string[]                $headers        map
+     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListPipelineJobsResponse
+     * @return ListPipelineJobsResponse ListPipelineJobsResponse
      */
     public function listPipelineJobsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
@@ -7886,11 +9176,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线运行过的任务
+     *  *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param ListPipelineJobsRequest $request
+     * @param ListPipelineJobsRequest $request        ListPipelineJobsRequest
      *
-     * @return ListPipelineJobsResponse
+     * @return ListPipelineJobsResponse ListPipelineJobsResponse
      */
     public function listPipelineJobs($organizationId, $pipelineId, $request)
     {
@@ -7901,13 +9193,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线关联列表
+     *  *
      * @param string                       $organizationId
      * @param string                       $pipelineId
-     * @param ListPipelineRelationsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListPipelineRelationsRequest $request        ListPipelineRelationsRequest
+     * @param string[]                     $headers        map
+     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListPipelineRelationsResponse
+     * @return ListPipelineRelationsResponse ListPipelineRelationsResponse
      */
     public function listPipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
@@ -7936,11 +9230,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线关联列表
+     *  *
      * @param string                       $organizationId
      * @param string                       $pipelineId
-     * @param ListPipelineRelationsRequest $request
+     * @param ListPipelineRelationsRequest $request        ListPipelineRelationsRequest
      *
-     * @return ListPipelineRelationsResponse
+     * @return ListPipelineRelationsResponse ListPipelineRelationsResponse
      */
     public function listPipelineRelations($organizationId, $pipelineId, $request)
     {
@@ -7951,13 +9247,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线运行历史
+     *  *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param ListPipelineRunsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param ListPipelineRunsRequest $request        ListPipelineRunsRequest
+     * @param string[]                $headers        map
+     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListPipelineRunsResponse
+     * @return ListPipelineRunsResponse ListPipelineRunsResponse
      */
     public function listPipelineRunsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
@@ -8001,11 +9299,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线运行历史
+     *  *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param ListPipelineRunsRequest $request
+     * @param ListPipelineRunsRequest $request        ListPipelineRunsRequest
      *
-     * @return ListPipelineRunsResponse
+     * @return ListPipelineRunsResponse ListPipelineRunsResponse
      */
     public function listPipelineRuns($organizationId, $pipelineId, $request)
     {
@@ -8016,12 +9316,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线列表
+     *  *
      * @param string               $organizationId
-     * @param ListPipelinesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListPipelinesRequest $request        ListPipelinesRequest
+     * @param string[]             $headers        map
+     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListPipelinesResponse
+     * @return ListPipelinesResponse ListPipelinesResponse
      */
     public function listPipelinesWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -8077,10 +9379,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线列表
+     *  *
      * @param string               $organizationId
-     * @param ListPipelinesRequest $request
+     * @param ListPipelinesRequest $request        ListPipelinesRequest
      *
-     * @return ListPipelinesResponse
+     * @return ListPipelinesResponse ListPipelinesResponse
      */
     public function listPipelines($organizationId, $request)
     {
@@ -8091,11 +9395,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListProjectLabelsRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 查询代码库Label列表
+     *  *
+     * @param ListProjectLabelsRequest $request ListProjectLabelsRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListProjectLabelsResponse
+     * @return ListProjectLabelsResponse ListProjectLabelsResponse
      */
     public function listProjectLabelsWithOptions($request, $headers, $runtime)
     {
@@ -8148,9 +9454,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListProjectLabelsRequest $request
+     * @summary 查询代码库Label列表
+     *  *
+     * @param ListProjectLabelsRequest $request ListProjectLabelsRequest
      *
-     * @return ListProjectLabelsResponse
+     * @return ListProjectLabelsResponse ListProjectLabelsResponse
      */
     public function listProjectLabels($request)
     {
@@ -8161,13 +9469,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 根据项目id获取项目所以成员
+     *  *
      * @param string                    $organizationId
      * @param string                    $projectId
-     * @param ListProjectMembersRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ListProjectMembersRequest $request        ListProjectMembersRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListProjectMembersResponse
+     * @return ListProjectMembersResponse ListProjectMembersResponse
      */
     public function listProjectMembersWithOptions($organizationId, $projectId, $request, $headers, $runtime)
     {
@@ -8196,11 +9506,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 根据项目id获取项目所以成员
+     *  *
      * @param string                    $organizationId
      * @param string                    $projectId
-     * @param ListProjectMembersRequest $request
+     * @param ListProjectMembersRequest $request        ListProjectMembersRequest
      *
-     * @return ListProjectMembersResponse
+     * @return ListProjectMembersResponse ListProjectMembersResponse
      */
     public function listProjectMembers($organizationId, $projectId, $request)
     {
@@ -8211,12 +9523,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目模板列表
+     *  *
      * @param string                      $organizationId
-     * @param ListProjectTemplatesRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param ListProjectTemplatesRequest $request        ListProjectTemplatesRequest
+     * @param string[]                    $headers        map
+     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListProjectTemplatesResponse
+     * @return ListProjectTemplatesResponse ListProjectTemplatesResponse
      */
     public function listProjectTemplatesWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -8245,10 +9559,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目模板列表
+     *  *
      * @param string                      $organizationId
-     * @param ListProjectTemplatesRequest $request
+     * @param ListProjectTemplatesRequest $request        ListProjectTemplatesRequest
      *
-     * @return ListProjectTemplatesResponse
+     * @return ListProjectTemplatesResponse ListProjectTemplatesResponse
      */
     public function listProjectTemplates($organizationId, $request)
     {
@@ -8259,13 +9575,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下开启的工作项类型
+     *  *
      * @param string                          $organizationId
      * @param string                          $projectId
-     * @param ListProjectWorkitemTypesRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param ListProjectWorkitemTypesRequest $request        ListProjectWorkitemTypesRequest
+     * @param string[]                        $headers        map
+     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListProjectWorkitemTypesResponse
+     * @return ListProjectWorkitemTypesResponse ListProjectWorkitemTypesResponse
      */
     public function listProjectWorkitemTypesWithOptions($organizationId, $projectId, $request, $headers, $runtime)
     {
@@ -8297,11 +9615,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下开启的工作项类型
+     *  *
      * @param string                          $organizationId
      * @param string                          $projectId
-     * @param ListProjectWorkitemTypesRequest $request
+     * @param ListProjectWorkitemTypesRequest $request        ListProjectWorkitemTypesRequest
      *
-     * @return ListProjectWorkitemTypesResponse
+     * @return ListProjectWorkitemTypesResponse ListProjectWorkitemTypesResponse
      */
     public function listProjectWorkitemTypes($organizationId, $projectId, $request)
     {
@@ -8312,12 +9632,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目列表
+     *  *
      * @param string              $organizationId
-     * @param ListProjectsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param ListProjectsRequest $request        ListProjectsRequest
+     * @param string[]            $headers        map
+     * @param RuntimeOptions      $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjectsWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -8361,10 +9683,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目列表
+     *  *
      * @param string              $organizationId
-     * @param ListProjectsRequest $request
+     * @param ListProjectsRequest $request        ListProjectsRequest
      *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjects($organizationId, $request)
     {
@@ -8375,12 +9699,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询保护分支列表
+     *  *
      * @param string                       $repositoryId
-     * @param ListProtectedBranchesRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListProtectedBranchesRequest $request      ListProtectedBranchesRequest
+     * @param string[]                     $headers      map
+     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListProtectedBranchesResponse
+     * @return ListProtectedBranchesResponse ListProtectedBranchesResponse
      */
     public function listProtectedBranchesWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -8412,10 +9738,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询保护分支列表
+     *  *
      * @param string                       $repositoryId
-     * @param ListProtectedBranchesRequest $request
+     * @param ListProtectedBranchesRequest $request      ListProtectedBranchesRequest
      *
-     * @return ListProtectedBranchesResponse
+     * @return ListProtectedBranchesResponse ListProtectedBranchesResponse
      */
     public function listProtectedBranches($repositoryId, $request)
     {
@@ -8426,12 +9754,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询推送规则列表
+     *  *
      * @param string               $repositoryId
-     * @param ListPushRulesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListPushRulesRequest $request      ListPushRulesRequest
+     * @param string[]             $headers      map
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListPushRulesResponse
+     * @return ListPushRulesResponse ListPushRulesResponse
      */
     public function listPushRulesWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -8463,10 +9793,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询推送规则列表
+     *  *
      * @param string               $repositoryId
-     * @param ListPushRulesRequest $request
+     * @param ListPushRulesRequest $request      ListPushRulesRequest
      *
-     * @return ListPushRulesResponse
+     * @return ListPushRulesResponse ListPushRulesResponse
      */
     public function listPushRules($repositoryId, $request)
     {
@@ -8477,11 +9809,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListRepositoriesRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 查询代码库列表
+     *  *
+     * @param ListRepositoriesRequest $request ListRepositoriesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRepositoriesResponse
+     * @return ListRepositoriesResponse ListRepositoriesResponse
      */
     public function listRepositoriesWithOptions($request, $headers, $runtime)
     {
@@ -8534,9 +9868,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListRepositoriesRequest $request
+     * @summary 查询代码库列表
+     *  *
+     * @param ListRepositoriesRequest $request ListRepositoriesRequest
      *
-     * @return ListRepositoriesResponse
+     * @return ListRepositoriesResponse ListRepositoriesResponse
      */
     public function listRepositories($request)
     {
@@ -8547,12 +9883,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询分支列表
+     *  *
      * @param string                        $repositoryId
-     * @param ListRepositoryBranchesRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param ListRepositoryBranchesRequest $request      ListRepositoryBranchesRequest
+     * @param string[]                      $headers      map
+     * @param RuntimeOptions                $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListRepositoryBranchesResponse
+     * @return ListRepositoryBranchesResponse ListRepositoryBranchesResponse
      */
     public function listRepositoryBranchesWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -8596,10 +9934,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询分支列表
+     *  *
      * @param string                        $repositoryId
-     * @param ListRepositoryBranchesRequest $request
+     * @param ListRepositoryBranchesRequest $request      ListRepositoryBranchesRequest
      *
-     * @return ListRepositoryBranchesResponse
+     * @return ListRepositoryBranchesResponse ListRepositoryBranchesResponse
      */
     public function listRepositoryBranches($repositoryId, $request)
     {
@@ -8610,13 +9950,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库单个提交（Commit）的提交内容
+     *  *
      * @param string                          $repositoryId
      * @param string                          $sha
-     * @param ListRepositoryCommitDiffRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param ListRepositoryCommitDiffRequest $request      ListRepositoryCommitDiffRequest
+     * @param string[]                        $headers      map
+     * @param RuntimeOptions                  $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListRepositoryCommitDiffResponse
+     * @return ListRepositoryCommitDiffResponse ListRepositoryCommitDiffResponse
      */
     public function listRepositoryCommitDiffWithOptions($repositoryId, $sha, $request, $headers, $runtime)
     {
@@ -8651,11 +9993,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库单个提交（Commit）的提交内容
+     *  *
      * @param string                          $repositoryId
      * @param string                          $sha
-     * @param ListRepositoryCommitDiffRequest $request
+     * @param ListRepositoryCommitDiffRequest $request      ListRepositoryCommitDiffRequest
      *
-     * @return ListRepositoryCommitDiffResponse
+     * @return ListRepositoryCommitDiffResponse ListRepositoryCommitDiffResponse
      */
     public function listRepositoryCommitDiff($repositoryId, $sha, $request)
     {
@@ -8666,12 +10010,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库提交历史
+     *  *
      * @param string                       $repositoryId
-     * @param ListRepositoryCommitsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListRepositoryCommitsRequest $request      ListRepositoryCommitsRequest
+     * @param string[]                     $headers      map
+     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListRepositoryCommitsResponse
+     * @return ListRepositoryCommitsResponse ListRepositoryCommitsResponse
      */
     public function listRepositoryCommitsWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -8730,10 +10076,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库提交历史
+     *  *
      * @param string                       $repositoryId
-     * @param ListRepositoryCommitsRequest $request
+     * @param ListRepositoryCommitsRequest $request      ListRepositoryCommitsRequest
      *
-     * @return ListRepositoryCommitsResponse
+     * @return ListRepositoryCommitsResponse ListRepositoryCommitsResponse
      */
     public function listRepositoryCommits($repositoryId, $request)
     {
@@ -8744,11 +10092,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListRepositoryGroupsRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 查询代码组列表
+     *  *
+     * @param ListRepositoryGroupsRequest $request ListRepositoryGroupsRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRepositoryGroupsResponse
+     * @return ListRepositoryGroupsResponse ListRepositoryGroupsResponse
      */
     public function listRepositoryGroupsWithOptions($request, $headers, $runtime)
     {
@@ -8801,9 +10151,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListRepositoryGroupsRequest $request
+     * @summary 查询代码组列表
+     *  *
+     * @param ListRepositoryGroupsRequest $request ListRepositoryGroupsRequest
      *
-     * @return ListRepositoryGroupsResponse
+     * @return ListRepositoryGroupsResponse ListRepositoryGroupsResponse
      */
     public function listRepositoryGroups($request)
     {
@@ -8814,12 +10166,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库成员列表
+     *  *
      * @param string                                   $repositoryId
-     * @param ListRepositoryMemberWithInheritedRequest $request
-     * @param string[]                                 $headers
-     * @param RuntimeOptions                           $runtime
+     * @param ListRepositoryMemberWithInheritedRequest $request      ListRepositoryMemberWithInheritedRequest
+     * @param string[]                                 $headers      map
+     * @param RuntimeOptions                           $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListRepositoryMemberWithInheritedResponse
+     * @return ListRepositoryMemberWithInheritedResponse ListRepositoryMemberWithInheritedResponse
      */
     public function listRepositoryMemberWithInheritedWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -8851,10 +10205,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库成员列表
+     *  *
      * @param string                                   $repositoryId
-     * @param ListRepositoryMemberWithInheritedRequest $request
+     * @param ListRepositoryMemberWithInheritedRequest $request      ListRepositoryMemberWithInheritedRequest
      *
-     * @return ListRepositoryMemberWithInheritedResponse
+     * @return ListRepositoryMemberWithInheritedResponse ListRepositoryMemberWithInheritedResponse
      */
     public function listRepositoryMemberWithInherited($repositoryId, $request)
     {
@@ -8865,12 +10221,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询标签列表
+     *  *
      * @param string                    $repositoryId
-     * @param ListRepositoryTagsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ListRepositoryTagsRequest $request      ListRepositoryTagsRequest
+     * @param string[]                  $headers      map
+     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListRepositoryTagsResponse
+     * @return ListRepositoryTagsResponse ListRepositoryTagsResponse
      */
     public function listRepositoryTagsWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -8914,10 +10272,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询标签列表
+     *  *
      * @param string                    $repositoryId
-     * @param ListRepositoryTagsRequest $request
+     * @param ListRepositoryTagsRequest $request      ListRepositoryTagsRequest
      *
-     * @return ListRepositoryTagsResponse
+     * @return ListRepositoryTagsResponse ListRepositoryTagsResponse
      */
     public function listRepositoryTags($repositoryId, $request)
     {
@@ -8928,12 +10288,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库文件树
+     *  *
      * @param string                    $repositoryId
-     * @param ListRepositoryTreeRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ListRepositoryTreeRequest $request      ListRepositoryTreeRequest
+     * @param string[]                  $headers      map
+     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListRepositoryTreeResponse
+     * @return ListRepositoryTreeResponse ListRepositoryTreeResponse
      */
     public function listRepositoryTreeWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -8974,10 +10336,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库文件树
+     *  *
      * @param string                    $repositoryId
-     * @param ListRepositoryTreeRequest $request
+     * @param ListRepositoryTreeRequest $request      ListRepositoryTreeRequest
      *
-     * @return ListRepositoryTreeResponse
+     * @return ListRepositoryTreeResponse ListRepositoryTreeResponse
      */
     public function listRepositoryTree($repositoryId, $request)
     {
@@ -8988,12 +10352,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库Webhook列表
+     *  *
      * @param string                       $repositoryId
-     * @param ListRepositoryWebhookRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListRepositoryWebhookRequest $request      ListRepositoryWebhookRequest
+     * @param string[]                     $headers      map
+     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ListRepositoryWebhookResponse
+     * @return ListRepositoryWebhookResponse ListRepositoryWebhookResponse
      */
     public function listRepositoryWebhookWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -9031,10 +10397,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询代码库Webhook列表
+     *  *
      * @param string                       $repositoryId
-     * @param ListRepositoryWebhookRequest $request
+     * @param ListRepositoryWebhookRequest $request      ListRepositoryWebhookRequest
      *
-     * @return ListRepositoryWebhookResponse
+     * @return ListRepositoryWebhookResponse ListRepositoryWebhookResponse
      */
     public function listRepositoryWebhook($repositoryId, $request)
     {
@@ -9045,13 +10413,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取资源成员列表
+     *  *
      * @param string         $organizationId
      * @param string         $resourceType
      * @param string         $resourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListResourceMembersResponse
+     * @return ListResourceMembersResponse ListResourceMembersResponse
      */
     public function listResourceMembersWithOptions($organizationId, $resourceType, $resourceId, $headers, $runtime)
     {
@@ -9074,11 +10444,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取资源成员列表
+     *  *
      * @param string $organizationId
      * @param string $resourceType
      * @param string $resourceId
      *
-     * @return ListResourceMembersResponse
+     * @return ListResourceMembersResponse ListResourceMembersResponse
      */
     public function listResourceMembers($organizationId, $resourceType, $resourceId)
     {
@@ -9089,11 +10461,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListSearchCommitRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary 搜索代码提交数据
+     *  *
+     * @param ListSearchCommitRequest $request ListSearchCommitRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSearchCommitResponse
+     * @return ListSearchCommitResponse ListSearchCommitResponse
      */
     public function listSearchCommitWithOptions($request, $headers, $runtime)
     {
@@ -9145,9 +10519,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListSearchCommitRequest $request
+     * @summary 搜索代码提交数据
+     *  *
+     * @param ListSearchCommitRequest $request ListSearchCommitRequest
      *
-     * @return ListSearchCommitResponse
+     * @return ListSearchCommitResponse ListSearchCommitResponse
      */
     public function listSearchCommit($request)
     {
@@ -9158,11 +10534,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListSearchRepositoryRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 搜索代码仓库数据
+     *  *
+     * @param ListSearchRepositoryRequest $request ListSearchRepositoryRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSearchRepositoryResponse
+     * @return ListSearchRepositoryResponse ListSearchRepositoryResponse
      */
     public function listSearchRepositoryWithOptions($request, $headers, $runtime)
     {
@@ -9220,9 +10598,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListSearchRepositoryRequest $request
+     * @summary 搜索代码仓库数据
+     *  *
+     * @param ListSearchRepositoryRequest $request ListSearchRepositoryRequest
      *
-     * @return ListSearchRepositoryResponse
+     * @return ListSearchRepositoryResponse ListSearchRepositoryResponse
      */
     public function listSearchRepository($request)
     {
@@ -9233,11 +10613,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListSearchSourceCodeRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @summary 搜索代码片段
+     *  *
+     * @param ListSearchSourceCodeRequest $request ListSearchSourceCodeRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSearchSourceCodeResponse
+     * @return ListSearchSourceCodeResponse ListSearchSourceCodeResponse
      */
     public function listSearchSourceCodeWithOptions($request, $headers, $runtime)
     {
@@ -9298,9 +10680,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListSearchSourceCodeRequest $request
+     * @summary 搜索代码片段
+     *  *
+     * @param ListSearchSourceCodeRequest $request ListSearchSourceCodeRequest
      *
-     * @return ListSearchSourceCodeResponse
+     * @return ListSearchSourceCodeResponse ListSearchSourceCodeResponse
      */
     public function listSearchSourceCode($request)
     {
@@ -9311,12 +10695,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取服务授权列表
+     *  *
      * @param string                  $organizationId
-     * @param ListServiceAuthsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param ListServiceAuthsRequest $request        ListServiceAuthsRequest
+     * @param string[]                $headers        map
+     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListServiceAuthsResponse
+     * @return ListServiceAuthsResponse ListServiceAuthsResponse
      */
     public function listServiceAuthsWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -9345,10 +10731,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取服务授权列表
+     *  *
      * @param string                  $organizationId
-     * @param ListServiceAuthsRequest $request
+     * @param ListServiceAuthsRequest $request        ListServiceAuthsRequest
      *
-     * @return ListServiceAuthsResponse
+     * @return ListServiceAuthsResponse ListServiceAuthsResponse
      */
     public function listServiceAuths($organizationId, $request)
     {
@@ -9359,12 +10747,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取服务连接列表
+     *  *
      * @param string                        $organizationId
-     * @param ListServiceConnectionsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param ListServiceConnectionsRequest $request        ListServiceConnectionsRequest
+     * @param string[]                      $headers        map
+     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListServiceConnectionsResponse
+     * @return ListServiceConnectionsResponse ListServiceConnectionsResponse
      */
     public function listServiceConnectionsWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -9393,10 +10783,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取服务连接列表
+     *  *
      * @param string                        $organizationId
-     * @param ListServiceConnectionsRequest $request
+     * @param ListServiceConnectionsRequest $request        ListServiceConnectionsRequest
      *
-     * @return ListServiceConnectionsResponse
+     * @return ListServiceConnectionsResponse ListServiceConnectionsResponse
      */
     public function listServiceConnections($organizationId, $request)
     {
@@ -9407,12 +10799,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取服务证书列表
+     *  *
      * @param string                        $organizationId
-     * @param ListServiceCredentialsRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param ListServiceCredentialsRequest $request        ListServiceCredentialsRequest
+     * @param string[]                      $headers        map
+     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListServiceCredentialsResponse
+     * @return ListServiceCredentialsResponse ListServiceCredentialsResponse
      */
     public function listServiceCredentialsWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -9441,10 +10835,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取服务证书列表
+     *  *
      * @param string                        $organizationId
-     * @param ListServiceCredentialsRequest $request
+     * @param ListServiceCredentialsRequest $request        ListServiceCredentialsRequest
      *
-     * @return ListServiceCredentialsResponse
+     * @return ListServiceCredentialsResponse ListServiceCredentialsResponse
      */
     public function listServiceCredentials($organizationId, $request)
     {
@@ -9455,12 +10851,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取迭代列表
+     *  *
      * @param string             $organizationId
-     * @param ListSprintsRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param ListSprintsRequest $request        ListSprintsRequest
+     * @param string[]           $headers        map
+     * @param RuntimeOptions     $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListSprintsResponse
+     * @return ListSprintsResponse ListSprintsResponse
      */
     public function listSprintsWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -9498,10 +10896,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取迭代列表
+     *  *
      * @param string             $organizationId
-     * @param ListSprintsRequest $request
+     * @param ListSprintsRequest $request        ListSprintsRequest
      *
-     * @return ListSprintsResponse
+     * @return ListSprintsResponse ListSprintsResponse
      */
     public function listSprints($organizationId, $request)
     {
@@ -9512,12 +10912,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取测试用例全部字段
+     *  *
      * @param string                    $organizationId
-     * @param ListTestCaseFieldsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ListTestCaseFieldsRequest $request        ListTestCaseFieldsRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListTestCaseFieldsResponse
+     * @return ListTestCaseFieldsResponse ListTestCaseFieldsResponse
      */
     public function listTestCaseFieldsWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -9546,10 +10948,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取测试用例全部字段
+     *  *
      * @param string                    $organizationId
-     * @param ListTestCaseFieldsRequest $request
+     * @param ListTestCaseFieldsRequest $request        ListTestCaseFieldsRequest
      *
-     * @return ListTestCaseFieldsResponse
+     * @return ListTestCaseFieldsResponse ListTestCaseFieldsResponse
      */
     public function listTestCaseFields($organizationId, $request)
     {
@@ -9560,11 +10964,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListUserDrawRecordByPkRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @summary 测试DrawService
+     *  *
+     * @param ListUserDrawRecordByPkRequest $request ListUserDrawRecordByPkRequest
+     * @param string[]                      $headers map
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserDrawRecordByPkResponse
+     * @return ListUserDrawRecordByPkResponse ListUserDrawRecordByPkResponse
      */
     public function listUserDrawRecordByPkWithOptions($request, $headers, $runtime)
     {
@@ -9599,9 +11005,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListUserDrawRecordByPkRequest $request
+     * @summary 测试DrawService
+     *  *
+     * @param ListUserDrawRecordByPkRequest $request ListUserDrawRecordByPkRequest
      *
-     * @return ListUserDrawRecordByPkResponse
+     * @return ListUserDrawRecordByPkResponse ListUserDrawRecordByPkResponse
      */
     public function listUserDrawRecordByPk($request)
     {
@@ -9612,11 +11020,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListUserKeysRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary 查询当前用户的SSH Key列表
+     *  *
+     * @param ListUserKeysRequest $request ListUserKeysRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserKeysResponse
+     * @return ListUserKeysResponse ListUserKeysResponse
      */
     public function listUserKeysWithOptions($request, $headers, $runtime)
     {
@@ -9660,9 +11070,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListUserKeysRequest $request
+     * @summary 查询当前用户的SSH Key列表
+     *  *
+     * @param ListUserKeysRequest $request ListUserKeysRequest
      *
-     * @return ListUserKeysResponse
+     * @return ListUserKeysResponse ListUserKeysResponse
      */
     public function listUserKeys($request)
     {
@@ -9673,11 +11085,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListUserResourcesRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @summary 查询用户有权限的资源（代码库、组）
+     *  *
+     * @param ListUserResourcesRequest $request ListUserResourcesRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserResourcesResponse
+     * @return ListUserResourcesResponse ListUserResourcesResponse
      */
     public function listUserResourcesWithOptions($request, $headers, $runtime)
     {
@@ -9718,9 +11132,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListUserResourcesRequest $request
+     * @summary 查询用户有权限的资源（代码库、组）
+     *  *
+     * @param ListUserResourcesRequest $request ListUserResourcesRequest
      *
-     * @return ListUserResourcesResponse
+     * @return ListUserResourcesResponse ListUserResourcesResponse
      */
     public function listUserResources($request)
     {
@@ -9731,12 +11147,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取变量组列表
+     *  *
      * @param string                    $organizationId
-     * @param ListVariableGroupsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ListVariableGroupsRequest $request        ListVariableGroupsRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListVariableGroupsResponse
+     * @return ListVariableGroupsResponse ListVariableGroupsResponse
      */
     public function listVariableGroupsWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -9774,10 +11192,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取变量组列表
+     *  *
      * @param string                    $organizationId
-     * @param ListVariableGroupsRequest $request
+     * @param ListVariableGroupsRequest $request        ListVariableGroupsRequest
      *
-     * @return ListVariableGroupsResponse
+     * @return ListVariableGroupsResponse ListVariableGroupsResponse
      */
     public function listVariableGroups($organizationId, $request)
     {
@@ -9788,12 +11208,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下工作项的所有字段
+     *  *
      * @param string                       $organizationId
-     * @param ListWorkItemAllFieldsRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListWorkItemAllFieldsRequest $request        ListWorkItemAllFieldsRequest
+     * @param string[]                     $headers        map
+     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListWorkItemAllFieldsResponse
+     * @return ListWorkItemAllFieldsResponse ListWorkItemAllFieldsResponse
      */
     public function listWorkItemAllFieldsWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -9828,10 +11250,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取项目下工作项的所有字段
+     *  *
      * @param string                       $organizationId
-     * @param ListWorkItemAllFieldsRequest $request
+     * @param ListWorkItemAllFieldsRequest $request        ListWorkItemAllFieldsRequest
      *
-     * @return ListWorkItemAllFieldsResponse
+     * @return ListWorkItemAllFieldsResponse ListWorkItemAllFieldsResponse
      */
     public function listWorkItemAllFields($organizationId, $request)
     {
@@ -9842,12 +11266,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询工作项工作流的所有状态
+     *  *
      * @param string                            $organizationId
-     * @param ListWorkItemWorkFlowStatusRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param ListWorkItemWorkFlowStatusRequest $request        ListWorkItemWorkFlowStatusRequest
+     * @param string[]                          $headers        map
+     * @param RuntimeOptions                    $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListWorkItemWorkFlowStatusResponse
+     * @return ListWorkItemWorkFlowStatusResponse ListWorkItemWorkFlowStatusResponse
      */
     public function listWorkItemWorkFlowStatusWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -9885,10 +11311,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 查询工作项工作流的所有状态
+     *  *
      * @param string                            $organizationId
-     * @param ListWorkItemWorkFlowStatusRequest $request
+     * @param ListWorkItemWorkFlowStatusRequest $request        ListWorkItemWorkFlowStatusRequest
      *
-     * @return ListWorkItemWorkFlowStatusResponse
+     * @return ListWorkItemWorkFlowStatusResponse ListWorkItemWorkFlowStatusResponse
      */
     public function listWorkItemWorkFlowStatus($organizationId, $request)
     {
@@ -9899,12 +11327,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项的附件列表
+     *  *
      * @param string         $organizationId
      * @param string         $workitemIdentifier
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers            map
+     * @param RuntimeOptions $runtime            runtime options for this request RuntimeOptions
      *
-     * @return ListWorkitemAttachmentsResponse
+     * @return ListWorkitemAttachmentsResponse ListWorkitemAttachmentsResponse
      */
     public function listWorkitemAttachmentsWithOptions($organizationId, $workitemIdentifier, $headers, $runtime)
     {
@@ -9927,10 +11357,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项的附件列表
+     *  *
      * @param string $organizationId
      * @param string $workitemIdentifier
      *
-     * @return ListWorkitemAttachmentsResponse
+     * @return ListWorkitemAttachmentsResponse ListWorkitemAttachmentsResponse
      */
     public function listWorkitemAttachments($organizationId, $workitemIdentifier)
     {
@@ -9941,12 +11373,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项预计工时明细列表
+     *  *
      * @param string         $organizationId
      * @param string         $workitemId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListWorkitemEstimateResponse
+     * @return ListWorkitemEstimateResponse ListWorkitemEstimateResponse
      */
     public function listWorkitemEstimateWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
@@ -9969,10 +11403,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项预计工时明细列表
+     *  *
      * @param string $organizationId
      * @param string $workitemId
      *
-     * @return ListWorkitemEstimateResponse
+     * @return ListWorkitemEstimateResponse ListWorkitemEstimateResponse
      */
     public function listWorkitemEstimate($organizationId, $workitemId)
     {
@@ -9983,12 +11419,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项工时明细列表
+     *  *
      * @param string         $organizationId
      * @param string         $workitemId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListWorkitemTimeResponse
+     * @return ListWorkitemTimeResponse ListWorkitemTimeResponse
      */
     public function listWorkitemTimeWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
@@ -10011,10 +11449,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项工时明细列表
+     *  *
      * @param string $organizationId
      * @param string $workitemId
      *
-     * @return ListWorkitemTimeResponse
+     * @return ListWorkitemTimeResponse ListWorkitemTimeResponse
      */
     public function listWorkitemTime($organizationId, $workitemId)
     {
@@ -10025,12 +11465,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项列表
+     *  *
      * @param string               $organizationId
-     * @param ListWorkitemsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListWorkitemsRequest $request        ListWorkitemsRequest
+     * @param string[]             $headers        map
+     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ListWorkitemsResponse
+     * @return ListWorkitemsResponse ListWorkitemsResponse
      */
     public function listWorkitemsWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -10086,10 +11528,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取工作项列表
+     *  *
      * @param string               $organizationId
-     * @param ListWorkitemsRequest $request
+     * @param ListWorkitemsRequest $request        ListWorkitemsRequest
      *
-     * @return ListWorkitemsResponse
+     * @return ListWorkitemsResponse ListWorkitemsResponse
      */
     public function listWorkitems($organizationId, $request)
     {
@@ -10100,11 +11544,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspacesRequest $tmpReq
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 查询工作空间列表
+     *  *
+     * @param ListWorkspacesRequest $tmpReq  ListWorkspacesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListWorkspacesResponse
+     * @return ListWorkspacesResponse ListWorkspacesResponse
      */
     public function listWorkspacesWithOptions($tmpReq, $headers, $runtime)
     {
@@ -10150,9 +11596,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param ListWorkspacesRequest $request
+     * @summary 查询工作空间列表
+     *  *
+     * @param ListWorkspacesRequest $request ListWorkspacesRequest
      *
-     * @return ListWorkspacesResponse
+     * @return ListWorkspacesResponse ListWorkspacesResponse
      */
     public function listWorkspaces($request)
     {
@@ -10163,14 +11611,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线运行任务日志
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $jobId
      * @param string         $pipelineRunId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return LogPipelineJobRunResponse
+     * @return LogPipelineJobRunResponse LogPipelineJobRunResponse
      */
     public function logPipelineJobRunWithOptions($organizationId, $pipelineId, $jobId, $pipelineRunId, $headers, $runtime)
     {
@@ -10193,12 +11643,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取流水线运行任务日志
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $jobId
      * @param string $pipelineRunId
      *
-     * @return LogPipelineJobRunResponse
+     * @return LogPipelineJobRunResponse LogPipelineJobRunResponse
      */
     public function logPipelineJobRun($organizationId, $pipelineId, $jobId, $pipelineRunId)
     {
@@ -10209,14 +11661,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取机器部署日志
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
      * @param string         $machineSn
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return LogVMDeployMachineResponse
+     * @return LogVMDeployMachineResponse LogVMDeployMachineResponse
      */
     public function logVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
     {
@@ -10239,12 +11693,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 获取机器部署日志
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      * @param string $machineSn
      *
-     * @return LogVMDeployMachineResponse
+     * @return LogVMDeployMachineResponse LogVMDeployMachineResponse
      */
     public function logVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
     {
@@ -10255,13 +11711,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 合并代码评审
+     *  *
      * @param string                   $repositoryId
      * @param string                   $localId
-     * @param MergeMergeRequestRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param MergeMergeRequestRequest $request      MergeMergeRequestRequest
+     * @param string[]                 $headers      map
+     * @param RuntimeOptions           $runtime      runtime options for this request RuntimeOptions
      *
-     * @return MergeMergeRequestResponse
+     * @return MergeMergeRequestResponse MergeMergeRequestResponse
      */
     public function mergeMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
@@ -10304,11 +11762,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 合并代码评审
+     *  *
      * @param string                   $repositoryId
      * @param string                   $localId
-     * @param MergeMergeRequestRequest $request
+     * @param MergeMergeRequestRequest $request      MergeMergeRequestRequest
      *
-     * @return MergeMergeRequestResponse
+     * @return MergeMergeRequestResponse MergeMergeRequestResponse
      */
     public function mergeMergeRequest($repositoryId, $localId, $request)
     {
@@ -10319,14 +11779,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 通过人工卡点
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
      * @param string         $jobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return PassPipelineValidateResponse
+     * @return PassPipelineValidateResponse PassPipelineValidateResponse
      */
     public function passPipelineValidateWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
@@ -10349,12 +11811,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 通过人工卡点
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      * @param string $jobId
      *
-     * @return PassPipelineValidateResponse
+     * @return PassPipelineValidateResponse PassPipelineValidateResponse
      */
     public function passPipelineValidate($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
@@ -10365,14 +11829,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 拒绝人工卡点
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
      * @param string         $jobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return RefusePipelineValidateResponse
+     * @return RefusePipelineValidateResponse RefusePipelineValidateResponse
      */
     public function refusePipelineValidateWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
@@ -10395,12 +11861,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 拒绝人工卡点
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      * @param string $jobId
      *
-     * @return RefusePipelineValidateResponse
+     * @return RefusePipelineValidateResponse RefusePipelineValidateResponse
      */
     public function refusePipelineValidate($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
@@ -10411,11 +11879,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 释放工作空间
+     *  *
      * @param string         $workspaceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ReleaseWorkspaceResponse
+     * @return ReleaseWorkspaceResponse ReleaseWorkspaceResponse
      */
     public function releaseWorkspaceWithOptions($workspaceId, $headers, $runtime)
     {
@@ -10438,9 +11908,11 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 释放工作空间
+     *  *
      * @param string $workspaceId
      *
-     * @return ReleaseWorkspaceResponse
+     * @return ReleaseWorkspaceResponse ReleaseWorkspaceResponse
      */
     public function releaseWorkspace($workspaceId)
     {
@@ -10451,13 +11923,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 重新打开代码评审
+     *  *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param ReopenMergeRequestRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ReopenMergeRequestRequest $request      ReopenMergeRequestRequest
+     * @param string[]                  $headers      map
+     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ReopenMergeRequestResponse
+     * @return ReopenMergeRequestResponse ReopenMergeRequestResponse
      */
     public function reopenMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
@@ -10489,11 +11963,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 重新打开代码评审
+     *  *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param ReopenMergeRequestRequest $request
+     * @param ReopenMergeRequestRequest $request      ReopenMergeRequestRequest
      *
-     * @return ReopenMergeRequestResponse
+     * @return ReopenMergeRequestResponse ReopenMergeRequestResponse
      */
     public function reopenMergeRequest($repositoryId, $localId, $request)
     {
@@ -10504,11 +11980,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 重置企业公钥
+     *  *
      * @param string         $organizationId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ResetSshKeyResponse
+     * @return ResetSshKeyResponse ResetSshKeyResponse
      */
     public function resetSshKeyWithOptions($organizationId, $headers, $runtime)
     {
@@ -10531,9 +12009,11 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 重置企业公钥
+     *  *
      * @param string $organizationId
      *
-     * @return ResetSshKeyResponse
+     * @return ResetSshKeyResponse ResetSshKeyResponse
      */
     public function resetSshKey($organizationId)
     {
@@ -10544,13 +12024,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 继续部署
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return ResumeVMDeployOrderResponse
+     * @return ResumeVMDeployOrderResponse ResumeVMDeployOrderResponse
      */
     public function resumeVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
     {
@@ -10573,11 +12055,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 继续部署
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      *
-     * @return ResumeVMDeployOrderResponse
+     * @return ResumeVMDeployOrderResponse ResumeVMDeployOrderResponse
      */
     public function resumeVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
     {
@@ -10588,14 +12072,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 重试流水线运行
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
      * @param string         $jobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return RetryPipelineJobRunResponse
+     * @return RetryPipelineJobRunResponse RetryPipelineJobRunResponse
      */
     public function retryPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
@@ -10618,12 +12104,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 重试流水线运行
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      * @param string $jobId
      *
-     * @return RetryPipelineJobRunResponse
+     * @return RetryPipelineJobRunResponse RetryPipelineJobRunResponse
      */
     public function retryPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
@@ -10634,14 +12122,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 重试机器部署
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
      * @param string         $machineSn
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return RetryVMDeployMachineResponse
+     * @return RetryVMDeployMachineResponse RetryVMDeployMachineResponse
      */
     public function retryVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
     {
@@ -10664,12 +12154,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 重试机器部署
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      * @param string $machineSn
      *
-     * @return RetryVMDeployMachineResponse
+     * @return RetryVMDeployMachineResponse RetryVMDeployMachineResponse
      */
     public function retryVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
     {
@@ -10680,13 +12172,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 提交变更请求的评审意见
+     *  *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param ReviewMergeRequestRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ReviewMergeRequestRequest $request      ReviewMergeRequestRequest
+     * @param string[]                  $headers      map
+     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
      *
-     * @return ReviewMergeRequestResponse
+     * @return ReviewMergeRequestResponse ReviewMergeRequestResponse
      */
     public function reviewMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
@@ -10729,11 +12223,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 提交变更请求的评审意见
+     *  *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param ReviewMergeRequestRequest $request
+     * @param ReviewMergeRequestRequest $request      ReviewMergeRequestRequest
      *
-     * @return ReviewMergeRequestResponse
+     * @return ReviewMergeRequestResponse ReviewMergeRequestResponse
      */
     public function reviewMergeRequest($repositoryId, $localId, $request)
     {
@@ -10744,14 +12240,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 跳过流水线任务运行
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
      * @param string         $jobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return SkipPipelineJobRunResponse
+     * @return SkipPipelineJobRunResponse SkipPipelineJobRunResponse
      */
     public function skipPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
@@ -10774,12 +12272,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 跳过流水线任务运行
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      * @param string $jobId
      *
-     * @return SkipPipelineJobRunResponse
+     * @return SkipPipelineJobRunResponse SkipPipelineJobRunResponse
      */
     public function skipPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
@@ -10790,14 +12290,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 跳过机器部署
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
      * @param string         $machineSn
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return SkipVMDeployMachineResponse
+     * @return SkipVMDeployMachineResponse SkipVMDeployMachineResponse
      */
     public function skipVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
     {
@@ -10820,12 +12322,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 跳过机器部署
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      * @param string $machineSn
      *
-     * @return SkipVMDeployMachineResponse
+     * @return SkipVMDeployMachineResponse SkipVMDeployMachineResponse
      */
     public function skipVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
     {
@@ -10836,13 +12340,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 运行流水线
+     *  *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param StartPipelineRunRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param StartPipelineRunRequest $request        StartPipelineRunRequest
+     * @param string[]                $headers        map
+     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
      *
-     * @return StartPipelineRunResponse
+     * @return StartPipelineRunResponse StartPipelineRunResponse
      */
     public function startPipelineRunWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
@@ -10871,11 +12377,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 运行流水线
+     *  *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param StartPipelineRunRequest $request
+     * @param StartPipelineRunRequest $request        StartPipelineRunRequest
      *
-     * @return StartPipelineRunResponse
+     * @return StartPipelineRunResponse StartPipelineRunResponse
      */
     public function startPipelineRun($organizationId, $pipelineId, $request)
     {
@@ -10886,14 +12394,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 终止流水线任务运行
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
      * @param string         $jobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return StopPipelineJobRunResponse
+     * @return StopPipelineJobRunResponse StopPipelineJobRunResponse
      */
     public function stopPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
@@ -10916,12 +12426,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 终止流水线任务运行
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      * @param string $jobId
      *
-     * @return StopPipelineJobRunResponse
+     * @return StopPipelineJobRunResponse StopPipelineJobRunResponse
      */
     public function stopPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
@@ -10932,13 +12444,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 终止流水线运行
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return StopPipelineRunResponse
+     * @return StopPipelineRunResponse StopPipelineRunResponse
      */
     public function stopPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime)
     {
@@ -10961,11 +12475,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 终止流水线运行
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      *
-     * @return StopPipelineRunResponse
+     * @return StopPipelineRunResponse StopPipelineRunResponse
      */
     public function stopPipelineRun($organizationId, $pipelineId, $pipelineRunId)
     {
@@ -10976,13 +12492,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 取消部署单
+     *  *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers        map
+     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
      *
-     * @return StopVMDeployOrderResponse
+     * @return StopVMDeployOrderResponse StopVMDeployOrderResponse
      */
     public function stopVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
     {
@@ -11005,11 +12523,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 取消部署单
+     *  *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      *
-     * @return StopVMDeployOrderResponse
+     * @return StopVMDeployOrderResponse StopVMDeployOrderResponse
      */
     public function stopVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
     {
@@ -11020,11 +12540,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param TransferRepositoryRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @summary 转移代码库
+     *  *
+     * @param TransferRepositoryRequest $request TransferRepositoryRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransferRepositoryResponse
+     * @return TransferRepositoryResponse TransferRepositoryResponse
      */
     public function transferRepositoryWithOptions($request, $headers, $runtime)
     {
@@ -11062,9 +12584,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param TransferRepositoryRequest $request
+     * @summary 转移代码库
+     *  *
+     * @param TransferRepositoryRequest $request TransferRepositoryRequest
      *
-     * @return TransferRepositoryResponse
+     * @return TransferRepositoryResponse TransferRepositoryResponse
      */
     public function transferRepository($request)
     {
@@ -11075,12 +12599,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 触发仓库同步
+     *  *
      * @param string                             $repositoryId
-     * @param TriggerRepositoryMirrorSyncRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param TriggerRepositoryMirrorSyncRequest $request      TriggerRepositoryMirrorSyncRequest
+     * @param string[]                           $headers      map
+     * @param RuntimeOptions                     $runtime      runtime options for this request RuntimeOptions
      *
-     * @return TriggerRepositoryMirrorSyncResponse
+     * @return TriggerRepositoryMirrorSyncResponse TriggerRepositoryMirrorSyncResponse
      */
     public function triggerRepositoryMirrorSyncWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -11118,10 +12644,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 触发仓库同步
+     *  *
      * @param string                             $repositoryId
-     * @param TriggerRepositoryMirrorSyncRequest $request
+     * @param TriggerRepositoryMirrorSyncRequest $request      TriggerRepositoryMirrorSyncRequest
      *
-     * @return TriggerRepositoryMirrorSyncResponse
+     * @return TriggerRepositoryMirrorSyncResponse TriggerRepositoryMirrorSyncResponse
      */
     public function triggerRepositoryMirrorSync($repositoryId, $request)
     {
@@ -11132,12 +12660,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新应用成员
+     *  *
      * @param string                 $appName
-     * @param UpdateAppMemberRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateAppMemberRequest $request UpdateAppMemberRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAppMemberResponse
+     * @return UpdateAppMemberResponse UpdateAppMemberResponse
      */
     public function updateAppMemberWithOptions($appName, $request, $headers, $runtime)
     {
@@ -11174,10 +12704,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新应用成员
+     *  *
      * @param string                 $appName
-     * @param UpdateAppMemberRequest $request
+     * @param UpdateAppMemberRequest $request UpdateAppMemberRequest
      *
-     * @return UpdateAppMemberResponse
+     * @return UpdateAppMemberResponse UpdateAppMemberResponse
      */
     public function updateAppMember($appName, $request)
     {
@@ -11188,12 +12720,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新应用
+     *  *
      * @param string                   $appName
-     * @param UpdateApplicationRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param UpdateApplicationRequest $request UpdateApplicationRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationResponse
+     * @return UpdateApplicationResponse UpdateApplicationResponse
      */
     public function updateApplicationWithOptions($appName, $request, $headers, $runtime)
     {
@@ -11227,10 +12761,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新应用
+     *  *
      * @param string                   $appName
-     * @param UpdateApplicationRequest $request
+     * @param UpdateApplicationRequest $request UpdateApplicationRequest
      *
-     * @return UpdateApplicationResponse
+     * @return UpdateApplicationResponse UpdateApplicationResponse
      */
     public function updateApplication($appName, $request)
     {
@@ -11241,11 +12777,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param UpdateCheckRunRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary 更新检查运行记录
+     *  *
+     * @param UpdateCheckRunRequest $request UpdateCheckRunRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCheckRunResponse
+     * @return UpdateCheckRunResponse UpdateCheckRunResponse
      */
     public function updateCheckRunWithOptions($request, $headers, $runtime)
     {
@@ -11312,9 +12850,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param UpdateCheckRunRequest $request
+     * @summary 更新检查运行记录
+     *  *
+     * @param UpdateCheckRunRequest $request UpdateCheckRunRequest
      *
-     * @return UpdateCheckRunResponse
+     * @return UpdateCheckRunResponse UpdateCheckRunResponse
      */
     public function updateCheckRun($request)
     {
@@ -11325,12 +12865,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新代码库文件
+     *  *
      * @param string            $repositoryId
-     * @param UpdateFileRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param UpdateFileRequest $request      UpdateFileRequest
+     * @param string[]          $headers      map
+     * @param RuntimeOptions    $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateFileResponse
+     * @return UpdateFileResponse UpdateFileResponse
      */
     public function updateFileWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -11382,10 +12924,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新代码库文件
+     *  *
      * @param string            $repositoryId
-     * @param UpdateFileRequest $request
+     * @param UpdateFileRequest $request      UpdateFileRequest
      *
-     * @return UpdateFileResponse
+     * @return UpdateFileResponse UpdateFileResponse
      */
     public function updateFile($repositoryId, $request)
     {
@@ -11396,13 +12940,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新标签
+     *  *
      * @param string               $organizationId
      * @param string               $id
-     * @param UpdateFlowTagRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdateFlowTagRequest $request        UpdateFlowTagRequest
+     * @param string[]             $headers        map
+     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateFlowTagResponse
+     * @return UpdateFlowTagResponse UpdateFlowTagResponse
      */
     public function updateFlowTagWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
@@ -11437,11 +12983,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新标签
+     *  *
      * @param string               $organizationId
      * @param string               $id
-     * @param UpdateFlowTagRequest $request
+     * @param UpdateFlowTagRequest $request        UpdateFlowTagRequest
      *
-     * @return UpdateFlowTagResponse
+     * @return UpdateFlowTagResponse UpdateFlowTagResponse
      */
     public function updateFlowTag($organizationId, $id, $request)
     {
@@ -11452,13 +13000,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 标签分类
+     *  *
      * @param string                    $organizationId
      * @param string                    $id
-     * @param UpdateFlowTagGroupRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateFlowTagGroupRequest $request        UpdateFlowTagGroupRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateFlowTagGroupResponse
+     * @return UpdateFlowTagGroupResponse UpdateFlowTagGroupResponse
      */
     public function updateFlowTagGroupWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
@@ -11487,11 +13037,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 标签分类
+     *  *
      * @param string                    $organizationId
      * @param string                    $id
-     * @param UpdateFlowTagGroupRequest $request
+     * @param UpdateFlowTagGroupRequest $request        UpdateFlowTagGroupRequest
      *
-     * @return UpdateFlowTagGroupResponse
+     * @return UpdateFlowTagGroupResponse UpdateFlowTagGroupResponse
      */
     public function updateFlowTagGroup($organizationId, $id, $request)
     {
@@ -11502,11 +13054,13 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary 更新单个代码组信息
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroupWithOptions($request, $headers, $runtime)
     {
@@ -11558,9 +13112,11 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
+     * @summary 更新单个代码组信息
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroup($request)
     {
@@ -11571,12 +13127,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 修改组成员
+     *  *
      * @param string                   $groupId
-     * @param UpdateGroupMemberRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param UpdateGroupMemberRequest $request UpdateGroupMemberRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGroupMemberResponse
+     * @return UpdateGroupMemberResponse UpdateGroupMemberResponse
      */
     public function updateGroupMemberWithOptions($groupId, $request, $headers, $runtime)
     {
@@ -11619,10 +13177,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 修改组成员
+     *  *
      * @param string                   $groupId
-     * @param UpdateGroupMemberRequest $request
+     * @param UpdateGroupMemberRequest $request UpdateGroupMemberRequest
      *
-     * @return UpdateGroupMemberResponse
+     * @return UpdateGroupMemberResponse UpdateGroupMemberResponse
      */
     public function updateGroupMember($groupId, $request)
     {
@@ -11633,13 +13193,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新主机组
+     *  *
      * @param string                 $organizationId
      * @param string                 $id
-     * @param UpdateHostGroupRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateHostGroupRequest $request        UpdateHostGroupRequest
+     * @param string[]               $headers        map
+     * @param RuntimeOptions         $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateHostGroupResponse
+     * @return UpdateHostGroupResponse UpdateHostGroupResponse
      */
     public function updateHostGroupWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
@@ -11695,11 +13257,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新主机组
+     *  *
      * @param string                 $organizationId
      * @param string                 $id
-     * @param UpdateHostGroupRequest $request
+     * @param UpdateHostGroupRequest $request        UpdateHostGroupRequest
      *
-     * @return UpdateHostGroupResponse
+     * @return UpdateHostGroupResponse UpdateHostGroupResponse
      */
     public function updateHostGroup($organizationId, $id, $request)
     {
@@ -11710,13 +13274,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新代码评审的标题和描述
+     *  *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param UpdateMergeRequestRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateMergeRequestRequest $request      UpdateMergeRequestRequest
+     * @param string[]                  $headers      map
+     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateMergeRequestResponse
+     * @return UpdateMergeRequestResponse UpdateMergeRequestResponse
      */
     public function updateMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
@@ -11756,11 +13322,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新代码评审的标题和描述
+     *  *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param UpdateMergeRequestRequest $request
+     * @param UpdateMergeRequestRequest $request      UpdateMergeRequestRequest
      *
-     * @return UpdateMergeRequestResponse
+     * @return UpdateMergeRequestResponse UpdateMergeRequestResponse
      */
     public function updateMergeRequest($repositoryId, $localId, $request)
     {
@@ -11771,14 +13339,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新代码评审的干系人
+     *  *
      * @param string                             $repositoryId
      * @param string                             $localId
      * @param string                             $personType
-     * @param UpdateMergeRequestPersonnelRequest $request
-     * @param string[]                           $headers
-     * @param RuntimeOptions                     $runtime
+     * @param UpdateMergeRequestPersonnelRequest $request      UpdateMergeRequestPersonnelRequest
+     * @param string[]                           $headers      map
+     * @param RuntimeOptions                     $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateMergeRequestPersonnelResponse
+     * @return UpdateMergeRequestPersonnelResponse UpdateMergeRequestPersonnelResponse
      */
     public function updateMergeRequestPersonnelWithOptions($repositoryId, $localId, $personType, $request, $headers, $runtime)
     {
@@ -11815,12 +13385,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新代码评审的干系人
+     *  *
      * @param string                             $repositoryId
      * @param string                             $localId
      * @param string                             $personType
-     * @param UpdateMergeRequestPersonnelRequest $request
+     * @param UpdateMergeRequestPersonnelRequest $request      UpdateMergeRequestPersonnelRequest
      *
-     * @return UpdateMergeRequestPersonnelResponse
+     * @return UpdateMergeRequestPersonnelResponse UpdateMergeRequestPersonnelResponse
      */
     public function updateMergeRequestPersonnel($repositoryId, $localId, $personType, $request)
     {
@@ -11831,12 +13403,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新流水线。
+     *  *
      * @param string                $organizationId
-     * @param UpdatePipelineRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdatePipelineRequest $request        UpdatePipelineRequest
+     * @param string[]              $headers        map
+     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdatePipelineResponse
+     * @return UpdatePipelineResponse UpdatePipelineResponse
      */
     public function updatePipelineWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -11871,10 +13445,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新流水线。
+     *  *
      * @param string                $organizationId
-     * @param UpdatePipelineRequest $request
+     * @param UpdatePipelineRequest $request        UpdatePipelineRequest
      *
-     * @return UpdatePipelineResponse
+     * @return UpdatePipelineResponse UpdatePipelineResponse
      */
     public function updatePipeline($organizationId, $request)
     {
@@ -11885,13 +13461,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除标签
+     *  *
      * @param string                        $organizationId
      * @param string                        $pipelineId
-     * @param UpdatePipelineBaseInfoRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdatePipelineBaseInfoRequest $request        UpdatePipelineBaseInfoRequest
+     * @param string[]                      $headers        map
+     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdatePipelineBaseInfoResponse
+     * @return UpdatePipelineBaseInfoResponse UpdatePipelineBaseInfoResponse
      */
     public function updatePipelineBaseInfoWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
@@ -11926,11 +13504,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 删除标签
+     *  *
      * @param string                        $organizationId
      * @param string                        $pipelineId
-     * @param UpdatePipelineBaseInfoRequest $request
+     * @param UpdatePipelineBaseInfoRequest $request        UpdatePipelineBaseInfoRequest
      *
-     * @return UpdatePipelineBaseInfoResponse
+     * @return UpdatePipelineBaseInfoResponse UpdatePipelineBaseInfoResponse
      */
     public function updatePipelineBaseInfo($organizationId, $pipelineId, $request)
     {
@@ -11941,13 +13521,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新流水线分组
+     *  *
      * @param string                     $organizationId
      * @param string                     $groupId
-     * @param UpdatePipelineGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdatePipelineGroupRequest $request        UpdatePipelineGroupRequest
+     * @param string[]                   $headers        map
+     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdatePipelineGroupResponse
+     * @return UpdatePipelineGroupResponse UpdatePipelineGroupResponse
      */
     public function updatePipelineGroupWithOptions($organizationId, $groupId, $request, $headers, $runtime)
     {
@@ -11976,11 +13558,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新流水线分组
+     *  *
      * @param string                     $organizationId
      * @param string                     $groupId
-     * @param UpdatePipelineGroupRequest $request
+     * @param UpdatePipelineGroupRequest $request        UpdatePipelineGroupRequest
      *
-     * @return UpdatePipelineGroupResponse
+     * @return UpdatePipelineGroupResponse UpdatePipelineGroupResponse
      */
     public function updatePipelineGroup($organizationId, $groupId, $request)
     {
@@ -11991,13 +13575,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新项目属性与字段
+     *  *
      * @param string                    $organizationId
      * @param string                    $identifier
-     * @param UpdateProjectFieldRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateProjectFieldRequest $request        UpdateProjectFieldRequest
+     * @param string[]                  $headers        map
+     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectFieldResponse
+     * @return UpdateProjectFieldResponse UpdateProjectFieldResponse
      */
     public function updateProjectFieldWithOptions($organizationId, $identifier, $request, $headers, $runtime)
     {
@@ -12032,11 +13618,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新项目属性与字段
+     *  *
      * @param string                    $organizationId
      * @param string                    $identifier
-     * @param UpdateProjectFieldRequest $request
+     * @param UpdateProjectFieldRequest $request        UpdateProjectFieldRequest
      *
-     * @return UpdateProjectFieldResponse
+     * @return UpdateProjectFieldResponse UpdateProjectFieldResponse
      */
     public function updateProjectField($organizationId, $identifier, $request)
     {
@@ -12047,12 +13635,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新代码库Label
+     *  *
      * @param string                    $labelId
-     * @param UpdateProjectLabelRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param UpdateProjectLabelRequest $request UpdateProjectLabelRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectLabelResponse
+     * @return UpdateProjectLabelResponse UpdateProjectLabelResponse
      */
     public function updateProjectLabelWithOptions($labelId, $request, $headers, $runtime)
     {
@@ -12098,10 +13688,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新代码库Label
+     *  *
      * @param string                    $labelId
-     * @param UpdateProjectLabelRequest $request
+     * @param UpdateProjectLabelRequest $request UpdateProjectLabelRequest
      *
-     * @return UpdateProjectLabelResponse
+     * @return UpdateProjectLabelResponse UpdateProjectLabelResponse
      */
     public function updateProjectLabel($labelId, $request)
     {
@@ -12112,13 +13704,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加项目成员
+     *  *
      * @param string                     $organizationId
      * @param string                     $projectId
-     * @param UpdateProjectMemberRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateProjectMemberRequest $request        UpdateProjectMemberRequest
+     * @param string[]                   $headers        map
+     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectMemberResponse
+     * @return UpdateProjectMemberResponse UpdateProjectMemberResponse
      */
     public function updateProjectMemberWithOptions($organizationId, $projectId, $request, $headers, $runtime)
     {
@@ -12159,11 +13753,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 添加项目成员
+     *  *
      * @param string                     $organizationId
      * @param string                     $projectId
-     * @param UpdateProjectMemberRequest $request
+     * @param UpdateProjectMemberRequest $request        UpdateProjectMemberRequest
      *
-     * @return UpdateProjectMemberResponse
+     * @return UpdateProjectMemberResponse UpdateProjectMemberResponse
      */
     public function updateProjectMember($organizationId, $projectId, $request)
     {
@@ -12174,13 +13770,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更改保护分支设置
+     *  *
      * @param string                         $repositoryId
      * @param string                         $id
-     * @param UpdateProtectedBranchesRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param UpdateProtectedBranchesRequest $request      UpdateProtectedBranchesRequest
+     * @param string[]                       $headers      map
+     * @param RuntimeOptions                 $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateProtectedBranchesResponse
+     * @return UpdateProtectedBranchesResponse UpdateProtectedBranchesResponse
      */
     public function updateProtectedBranchesWithOptions($repositoryId, $id, $request, $headers, $runtime)
     {
@@ -12238,11 +13836,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更改保护分支设置
+     *  *
      * @param string                         $repositoryId
      * @param string                         $id
-     * @param UpdateProtectedBranchesRequest $request
+     * @param UpdateProtectedBranchesRequest $request      UpdateProtectedBranchesRequest
      *
-     * @return UpdateProtectedBranchesResponse
+     * @return UpdateProtectedBranchesResponse UpdateProtectedBranchesResponse
      */
     public function updateProtectedBranches($repositoryId, $id, $request)
     {
@@ -12253,12 +13853,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 推送评审模式开关
+     *  *
      * @param string                       $repositoryId
-     * @param UpdatePushReviewOnOffRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdatePushReviewOnOffRequest $request      UpdatePushReviewOnOffRequest
+     * @param string[]                     $headers      map
+     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdatePushReviewOnOffResponse
+     * @return UpdatePushReviewOnOffResponse UpdatePushReviewOnOffResponse
      */
     public function updatePushReviewOnOffWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -12290,10 +13892,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 推送评审模式开关
+     *  *
      * @param string                       $repositoryId
-     * @param UpdatePushReviewOnOffRequest $request
+     * @param UpdatePushReviewOnOffRequest $request      UpdatePushReviewOnOffRequest
      *
-     * @return UpdatePushReviewOnOffResponse
+     * @return UpdatePushReviewOnOffResponse UpdatePushReviewOnOffResponse
      */
     public function updatePushReviewOnOff($repositoryId, $request)
     {
@@ -12304,13 +13908,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新推送规则
+     *  *
      * @param string                $repositoryId
      * @param string                $pushRuleId
-     * @param UpdatePushRuleRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdatePushRuleRequest $request      UpdatePushRuleRequest
+     * @param string[]              $headers      map
+     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdatePushRuleResponse
+     * @return UpdatePushRuleResponse UpdatePushRuleResponse
      */
     public function updatePushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime)
     {
@@ -12347,11 +13953,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新推送规则
+     *  *
      * @param string                $repositoryId
      * @param string                $pushRuleId
-     * @param UpdatePushRuleRequest $request
+     * @param UpdatePushRuleRequest $request      UpdatePushRuleRequest
      *
-     * @return UpdatePushRuleResponse
+     * @return UpdatePushRuleResponse UpdatePushRuleResponse
      */
     public function updatePushRule($repositoryId, $pushRuleId, $request)
     {
@@ -12362,12 +13970,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新代码库名称、路径、描述、默认分支等设置
+     *  *
      * @param string                  $repositoryId
-     * @param UpdateRepositoryRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param UpdateRepositoryRequest $request      UpdateRepositoryRequest
+     * @param string[]                $headers      map
+     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateRepositoryResponse
+     * @return UpdateRepositoryResponse UpdateRepositoryResponse
      */
     public function updateRepositoryWithOptions($repositoryId, $request, $headers, $runtime)
     {
@@ -12452,10 +14062,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新代码库名称、路径、描述、默认分支等设置
+     *  *
      * @param string                  $repositoryId
-     * @param UpdateRepositoryRequest $request
+     * @param UpdateRepositoryRequest $request      UpdateRepositoryRequest
      *
-     * @return UpdateRepositoryResponse
+     * @return UpdateRepositoryResponse UpdateRepositoryResponse
      */
     public function updateRepository($repositoryId, $request)
     {
@@ -12466,13 +14078,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 修改代码库成员的权限（角色）
+     *  *
      * @param string                        $repositoryId
      * @param string                        $aliyunPk
-     * @param UpdateRepositoryMemberRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateRepositoryMemberRequest $request      UpdateRepositoryMemberRequest
+     * @param string[]                      $headers      map
+     * @param RuntimeOptions                $runtime      runtime options for this request RuntimeOptions
      *
-     * @return UpdateRepositoryMemberResponse
+     * @return UpdateRepositoryMemberResponse UpdateRepositoryMemberResponse
      */
     public function updateRepositoryMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime)
     {
@@ -12521,11 +14135,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 修改代码库成员的权限（角色）
+     *  *
      * @param string                        $repositoryId
      * @param string                        $aliyunPk
-     * @param UpdateRepositoryMemberRequest $request
+     * @param UpdateRepositoryMemberRequest $request      UpdateRepositoryMemberRequest
      *
-     * @return UpdateRepositoryMemberResponse
+     * @return UpdateRepositoryMemberResponse UpdateRepositoryMemberResponse
      */
     public function updateRepositoryMember($repositoryId, $aliyunPk, $request)
     {
@@ -12536,15 +14152,17 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新资源成员
+     *  *
      * @param string                      $organizationId
      * @param string                      $resourceType
      * @param string                      $resourceId
      * @param string                      $accountId
-     * @param UpdateResourceMemberRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
+     * @param UpdateResourceMemberRequest $request        UpdateResourceMemberRequest
+     * @param string[]                    $headers        map
+     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceMemberResponse
+     * @return UpdateResourceMemberResponse UpdateResourceMemberResponse
      */
     public function updateResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $request, $headers, $runtime)
     {
@@ -12573,13 +14191,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新资源成员
+     *  *
      * @param string                      $organizationId
      * @param string                      $resourceType
      * @param string                      $resourceId
      * @param string                      $accountId
-     * @param UpdateResourceMemberRequest $request
+     * @param UpdateResourceMemberRequest $request        UpdateResourceMemberRequest
      *
-     * @return UpdateResourceMemberResponse
+     * @return UpdateResourceMemberResponse UpdateResourceMemberResponse
      */
     public function updateResourceMember($organizationId, $resourceType, $resourceId, $accountId, $request)
     {
@@ -12590,13 +14210,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新测试用例字段
+     *  *
      * @param string                $organizationId
      * @param string                $testcaseIdentifier
-     * @param UpdateTestCaseRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateTestCaseRequest $request            UpdateTestCaseRequest
+     * @param string[]              $headers            map
+     * @param RuntimeOptions        $runtime            runtime options for this request RuntimeOptions
      *
-     * @return UpdateTestCaseResponse
+     * @return UpdateTestCaseResponse UpdateTestCaseResponse
      */
     public function updateTestCaseWithOptions($organizationId, $testcaseIdentifier, $request, $headers, $runtime)
     {
@@ -12625,11 +14247,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新测试用例字段
+     *  *
      * @param string                $organizationId
      * @param string                $testcaseIdentifier
-     * @param UpdateTestCaseRequest $request
+     * @param UpdateTestCaseRequest $request            UpdateTestCaseRequest
      *
-     * @return UpdateTestCaseResponse
+     * @return UpdateTestCaseResponse UpdateTestCaseResponse
      */
     public function updateTestCase($organizationId, $testcaseIdentifier, $request)
     {
@@ -12640,14 +14264,16 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新了测试计划中测试用例的执行人与状态
+     *  *
      * @param string                  $organizationId
      * @param string                  $testPlanIdentifier
      * @param string                  $testcaseIdentifier
-     * @param UpdateTestResultRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param UpdateTestResultRequest $request            UpdateTestResultRequest
+     * @param string[]                $headers            map
+     * @param RuntimeOptions          $runtime            runtime options for this request RuntimeOptions
      *
-     * @return UpdateTestResultResponse
+     * @return UpdateTestResultResponse UpdateTestResultResponse
      */
     public function updateTestResultWithOptions($organizationId, $testPlanIdentifier, $testcaseIdentifier, $request, $headers, $runtime)
     {
@@ -12679,12 +14305,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新了测试计划中测试用例的执行人与状态
+     *  *
      * @param string                  $organizationId
      * @param string                  $testPlanIdentifier
      * @param string                  $testcaseIdentifier
-     * @param UpdateTestResultRequest $request
+     * @param UpdateTestResultRequest $request            UpdateTestResultRequest
      *
-     * @return UpdateTestResultResponse
+     * @return UpdateTestResultResponse UpdateTestResultResponse
      */
     public function updateTestResult($organizationId, $testPlanIdentifier, $testcaseIdentifier, $request)
     {
@@ -12695,13 +14323,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新变量组
+     *  *
      * @param string                     $organizationId
      * @param string                     $id
-     * @param UpdateVariableGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateVariableGroupRequest $request        UpdateVariableGroupRequest
+     * @param string[]                   $headers        map
+     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateVariableGroupResponse
+     * @return UpdateVariableGroupResponse UpdateVariableGroupResponse
      */
     public function updateVariableGroupWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
@@ -12736,11 +14366,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新变量组
+     *  *
      * @param string                     $organizationId
      * @param string                     $id
-     * @param UpdateVariableGroupRequest $request
+     * @param UpdateVariableGroupRequest $request        UpdateVariableGroupRequest
      *
-     * @return UpdateVariableGroupResponse
+     * @return UpdateVariableGroupResponse UpdateVariableGroupResponse
      */
     public function updateVariableGroup($organizationId, $id, $request)
     {
@@ -12751,12 +14383,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新工作项信息
+     *  *
      * @param string                $organizationId
-     * @param UpdateWorkItemRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateWorkItemRequest $request        UpdateWorkItemRequest
+     * @param string[]              $headers        map
+     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkItemResponse
+     * @return UpdateWorkItemResponse UpdateWorkItemResponse
      */
     public function updateWorkItemWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -12794,10 +14428,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新工作项信息
+     *  *
      * @param string                $organizationId
-     * @param UpdateWorkItemRequest $request
+     * @param UpdateWorkItemRequest $request        UpdateWorkItemRequest
      *
-     * @return UpdateWorkItemResponse
+     * @return UpdateWorkItemResponse UpdateWorkItemResponse
      */
     public function updateWorkItem($organizationId, $request)
     {
@@ -12808,12 +14444,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新工作项评论
+     *  *
      * @param string                       $organizationId
-     * @param UpdateWorkitemCommentRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateWorkitemCommentRequest $request        UpdateWorkitemCommentRequest
+     * @param string[]                     $headers        map
+     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkitemCommentResponse
+     * @return UpdateWorkitemCommentResponse UpdateWorkitemCommentResponse
      */
     public function updateWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -12851,10 +14489,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 更新工作项评论
+     *  *
      * @param string                       $organizationId
-     * @param UpdateWorkitemCommentRequest $request
+     * @param UpdateWorkitemCommentRequest $request        UpdateWorkitemCommentRequest
      *
-     * @return UpdateWorkitemCommentResponse
+     * @return UpdateWorkitemCommentResponse UpdateWorkitemCommentResponse
      */
     public function updateWorkitemComment($organizationId, $request)
     {
@@ -12865,12 +14505,14 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 批量更新工作项字段信息
+     *  *
      * @param string                     $organizationId
-     * @param UpdateWorkitemFieldRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateWorkitemFieldRequest $request        UpdateWorkitemFieldRequest
+     * @param string[]                   $headers        map
+     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
      *
-     * @return UpdateWorkitemFieldResponse
+     * @return UpdateWorkitemFieldResponse UpdateWorkitemFieldResponse
      */
     public function updateWorkitemFieldWithOptions($organizationId, $request, $headers, $runtime)
     {
@@ -12902,10 +14544,12 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 批量更新工作项字段信息
+     *  *
      * @param string                     $organizationId
-     * @param UpdateWorkitemFieldRequest $request
+     * @param UpdateWorkitemFieldRequest $request        UpdateWorkitemFieldRequest
      *
-     * @return UpdateWorkitemFieldResponse
+     * @return UpdateWorkitemFieldResponse UpdateWorkitemFieldResponse
      */
     public function updateWorkitemField($organizationId, $request)
     {
@@ -12916,13 +14560,15 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 工作项附件创建
+     *  *
      * @param string                          $organizationId
      * @param string                          $workitemIdentifier
-     * @param WorkitemAttachmentCreateRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param WorkitemAttachmentCreateRequest $request            WorkitemAttachmentCreateRequest
+     * @param string[]                        $headers            map
+     * @param RuntimeOptions                  $runtime            runtime options for this request RuntimeOptions
      *
-     * @return WorkitemAttachmentCreateResponse
+     * @return WorkitemAttachmentCreateResponse WorkitemAttachmentCreateResponse
      */
     public function workitemAttachmentCreateWithOptions($organizationId, $workitemIdentifier, $request, $headers, $runtime)
     {
@@ -12954,11 +14600,13 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @summary 工作项附件创建
+     *  *
      * @param string                          $organizationId
      * @param string                          $workitemIdentifier
-     * @param WorkitemAttachmentCreateRequest $request
+     * @param WorkitemAttachmentCreateRequest $request            WorkitemAttachmentCreateRequest
      *
-     * @return WorkitemAttachmentCreateResponse
+     * @return WorkitemAttachmentCreateResponse WorkitemAttachmentCreateResponse
      */
     public function workitemAttachmentCreate($organizationId, $workitemIdentifier, $request)
     {

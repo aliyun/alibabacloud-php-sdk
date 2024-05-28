@@ -23,6 +23,8 @@ class MergeMergeRequestRequest extends Model
     public $mergeMessage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example no-fast-forward
      *
      * @var string
@@ -37,6 +39,8 @@ class MergeMergeRequestRequest extends Model
     public $removeSourceBranch;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string

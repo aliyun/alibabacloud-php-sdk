@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkitemRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 19xxxx31947xxxx
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateWorkitemRequest extends Model
     public $assignedTo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Req
      *
      * @var string
@@ -55,6 +59,8 @@ class CreateWorkitemRequest extends Model
     public $participant;
 
     /**
+     * @description This parameter is required.
+     *
      * @example asd345xxxxx9q9845xxxxx34
      *
      * @var string
@@ -62,6 +68,8 @@ class CreateWorkitemRequest extends Model
     public $space;
 
     /**
+     * @description This parameter is required.
+     *
      * @example asd345xxxxx9q9845xxxxx34
      *
      * @var string
@@ -69,6 +77,8 @@ class CreateWorkitemRequest extends Model
     public $spaceIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Project
      *
      * @var string
@@ -81,6 +91,8 @@ class CreateWorkitemRequest extends Model
     public $sprint;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 测试工作项
      *
      * @var string
@@ -98,6 +110,8 @@ class CreateWorkitemRequest extends Model
     public $verifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9uyxxxxxre573f561dxxn40
      *
      * @var string

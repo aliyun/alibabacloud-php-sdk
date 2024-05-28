@@ -16,6 +16,8 @@ class ListGroupMemberRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 632bbfdf419338aaa2b1360a
      *
      * @var string

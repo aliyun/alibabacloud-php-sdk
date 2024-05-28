@@ -16,7 +16,7 @@ class StopPipelineJobRunResponseBody extends Model
     public $errorCode;
 
     /**
-     * @example "\"
+     * @example "\\"
      *
      * @var string
      */

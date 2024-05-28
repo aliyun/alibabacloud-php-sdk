@@ -16,6 +16,8 @@ class CreateCommentRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example GLOBAL_COMMENT
      *
      * @var string
@@ -23,6 +25,8 @@ class CreateCommentRequest extends Model
     public $commentType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
@@ -70,6 +74,8 @@ class CreateCommentRequest extends Model
     public $resolved;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -77,6 +83,8 @@ class CreateCommentRequest extends Model
     public $localId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -84,6 +92,8 @@ class CreateCommentRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $repositoryIdentity;

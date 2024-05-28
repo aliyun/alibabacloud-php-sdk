@@ -16,6 +16,8 @@ class DeleteTagRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 609633ffd40eb063bac8165a
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteTagRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v1.0
      *
      * @var string

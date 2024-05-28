@@ -17,11 +17,15 @@ class CreateCommitWithMultipleFilesRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var actions[]
      */
     public $actions;
 
     /**
+     * @description This parameter is required.
+     *
      * @example master
      *
      * @var string
@@ -36,6 +40,8 @@ class CreateCommitWithMultipleFilesRequest extends Model
     public $commitMessage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -43,6 +49,8 @@ class CreateCommitWithMultipleFilesRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $repositoryIdentity;

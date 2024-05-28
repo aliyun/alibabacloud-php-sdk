@@ -16,6 +16,8 @@ class GetRepositoryRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var string
@@ -23,6 +25,8 @@ class GetRepositoryRequest extends Model
     public $identity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string

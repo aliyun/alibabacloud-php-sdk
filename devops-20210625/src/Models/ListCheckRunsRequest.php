@@ -16,6 +16,8 @@ class ListCheckRunsRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -37,6 +39,8 @@ class ListCheckRunsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 40f4ccfe019cdd4a62d4acb0c57130106fc7e1be
      *
      * @var string
@@ -44,6 +48,8 @@ class ListCheckRunsRequest extends Model
     public $ref;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $repositoryIdentity;

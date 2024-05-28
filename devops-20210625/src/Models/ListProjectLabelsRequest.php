@@ -23,6 +23,8 @@ class ListProjectLabelsRequest extends Model
     public $orderBy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -44,6 +46,8 @@ class ListProjectLabelsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $repositoryIdentity;

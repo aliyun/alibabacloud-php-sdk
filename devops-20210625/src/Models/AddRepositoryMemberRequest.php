@@ -16,6 +16,8 @@ class AddRepositoryMemberRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30
      *
      * @var int
@@ -23,6 +25,8 @@ class AddRepositoryMemberRequest extends Model
     public $accessLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 18745637472884
      *
      * @var string
@@ -30,6 +34,8 @@ class AddRepositoryMemberRequest extends Model
     public $aliyunPks;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string

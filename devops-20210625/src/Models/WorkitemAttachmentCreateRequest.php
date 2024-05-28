@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class WorkitemAttachmentCreateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1106473328927498/1106473328927498/5ec071g0e5ij85fche8cddchje.xlsx
      *
      * @var string
@@ -16,6 +18,8 @@ class WorkitemAttachmentCreateRequest extends Model
     public $fileKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xxx.tgz
      *
      * @var string

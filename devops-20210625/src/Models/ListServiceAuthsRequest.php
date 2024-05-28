@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceAuthsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example RAM
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddPipelineRelationsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 11,22
      *
      * @var string
@@ -16,6 +18,8 @@ class AddPipelineRelationsRequest extends Model
     public $relObjectIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example VARIABLE_GROUP
      *
      * @var string

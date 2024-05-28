@@ -16,6 +16,8 @@ class UpdateFileRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example master
      *
      * @var string
@@ -23,11 +25,15 @@ class UpdateFileRequest extends Model
     public $branchName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $commitMessage;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
@@ -40,6 +46,8 @@ class UpdateFileRequest extends Model
     public $encoding;
 
     /**
+     * @description This parameter is required.
+     *
      * @example src/main/update.txt
      *
      * @var string
@@ -47,6 +55,8 @@ class UpdateFileRequest extends Model
     public $newPath;
 
     /**
+     * @description This parameter is required.
+     *
      * @example src/main/update.txt
      *
      * @var string
@@ -54,6 +64,8 @@ class UpdateFileRequest extends Model
     public $oldPath;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string

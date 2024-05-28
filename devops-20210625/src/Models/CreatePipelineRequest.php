@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreatePipelineRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

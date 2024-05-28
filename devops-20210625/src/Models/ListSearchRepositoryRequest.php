@@ -17,6 +17,8 @@ class ListSearchRepositoryRequest extends Model
     public $aliyunPk;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -71,6 +73,8 @@ class ListSearchRepositoryRequest extends Model
     public $visibilityLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 61e54b0e0bb300d827e1ae27
      *
      * @var string

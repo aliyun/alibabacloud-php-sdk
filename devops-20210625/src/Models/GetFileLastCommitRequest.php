@@ -16,6 +16,8 @@ class GetFileLastCommitRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example src/main/test.java
      *
      * @var string
@@ -23,6 +25,8 @@ class GetFileLastCommitRequest extends Model
     public $filePath;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string
@@ -30,6 +34,8 @@ class GetFileLastCommitRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example master
      *
      * @var string

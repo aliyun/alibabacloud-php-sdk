@@ -16,6 +16,8 @@ class GetBranchInfoRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example master
      *
      * @var string
@@ -23,6 +25,8 @@ class GetBranchInfoRequest extends Model
     public $branchName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5fbe3118672533690be72b12
      *
      * @var string

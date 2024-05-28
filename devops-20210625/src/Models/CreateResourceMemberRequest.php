@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1111111111111
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateResourceMemberRequest extends Model
     public $accountId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example admin
      *
      * @var string

@@ -16,6 +16,8 @@ class DeleteBranchRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example deleteBranch
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteBranchRequest extends Model
     public $branchName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 619b80042f595dbd1b9b0de2
      *
      * @var string

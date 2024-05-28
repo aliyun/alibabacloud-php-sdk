@@ -30,6 +30,8 @@ class ListRepositoryGroupsRequest extends Model
     public $orderBy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string
@@ -51,6 +53,8 @@ class ListRepositoryGroupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 26842
      *
      * @var int

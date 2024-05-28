@@ -11,6 +11,7 @@ class CreateOAuthTokenRequest extends Model
     /**
      * @description clientId
      *
+     * This parameter is required.
      * @example dc7e0b3c00a3e58f46
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateOAuthTokenRequest extends Model
     /**
      * @description client_secret
      *
+     * This parameter is required.
      * @example a433294edea39cae7e7870
      *
      * @var string
@@ -34,6 +36,8 @@ class CreateOAuthTokenRequest extends Model
     public $code;
 
     /**
+     * @description This parameter is required.
+     *
      * @example code
      *
      * @var string
@@ -48,6 +52,8 @@ class CreateOAuthTokenRequest extends Model
     public $login;
 
     /**
+     * @description This parameter is required.
+     *
      * @example read:repo
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListWorkitemsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Req
      *
      * @var string
@@ -65,6 +67,8 @@ class ListWorkitemsRequest extends Model
     public $searchType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8fb83debd69a6c7c6626......
      *
      * @var string
@@ -72,6 +76,8 @@ class ListWorkitemsRequest extends Model
     public $spaceIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Project
      *
      * @var string

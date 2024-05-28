@@ -23,6 +23,8 @@ class ListSprintsRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e8bxxxxxxxxxxxxxxxx23
      *
      * @var string
@@ -30,6 +32,8 @@ class ListSprintsRequest extends Model
     public $spaceIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Project
      *
      * @var string

@@ -15,6 +15,8 @@ class output extends Model
     public $images;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $summary;
@@ -25,6 +27,8 @@ class output extends Model
     public $text;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Mighty Readme report
      *
      * @var string

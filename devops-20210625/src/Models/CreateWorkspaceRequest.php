@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkspaceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example git@codeup.aliyun.com:demo/Codeup-Demo.git
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateWorkspaceRequest extends Model
     public $codeUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example master
      *
      * @var string
@@ -58,6 +62,8 @@ class CreateWorkspaceRequest extends Model
     public $reuse;
 
     /**
+     * @description This parameter is required.
+     *
      * @example all-in-one
      *
      * @var string

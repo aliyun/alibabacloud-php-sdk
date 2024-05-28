@@ -33,6 +33,8 @@ class ListRepositoriesRequest extends Model
     public $orderBy;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProjectWorkitemTypesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example Req
      *
      * @var string
@@ -16,6 +18,8 @@ class ListProjectWorkitemTypesRequest extends Model
     public $category;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Project
      *
      * @var string

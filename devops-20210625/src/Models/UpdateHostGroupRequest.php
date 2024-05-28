@@ -51,11 +51,15 @@ class UpdateHostGroupRequest extends Model
     public $machineInfos;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -70,6 +74,8 @@ class UpdateHostGroupRequest extends Model
     public $tagIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ECS
      *
      * @var string

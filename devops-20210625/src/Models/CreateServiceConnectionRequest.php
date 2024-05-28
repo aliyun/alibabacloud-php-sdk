@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceConnectionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example CREDENTIAL
      *
      * @var string
@@ -16,11 +18,15 @@ class CreateServiceConnectionRequest extends Model
     public $authType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $connectionName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ecs
      *
      * @var string
@@ -28,6 +34,8 @@ class CreateServiceConnectionRequest extends Model
     public $connectionType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PERSON
      *
      * @var string
@@ -35,6 +43,8 @@ class CreateServiceConnectionRequest extends Model
     public $scope;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 111
      *
      * @var int

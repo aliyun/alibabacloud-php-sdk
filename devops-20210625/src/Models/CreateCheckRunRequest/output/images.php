@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test-image-alt
      *
      * @var string
@@ -23,6 +25,8 @@ class images extends Model
     public $caption;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xxx
      *
      * @var string

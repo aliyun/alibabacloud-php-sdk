@@ -16,6 +16,8 @@ class ListRepositoryMemberWithInheritedRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $organizationId;

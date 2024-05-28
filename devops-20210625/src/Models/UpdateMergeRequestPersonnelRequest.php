@@ -21,6 +21,8 @@ class UpdateMergeRequestPersonnelRequest extends Model
     public $newUserIdList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string

@@ -16,6 +16,8 @@ class GetProjectMemberRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5eb53bb338076f00011bcfd5
      *
      * @var string

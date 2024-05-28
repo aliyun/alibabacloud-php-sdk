@@ -16,6 +16,8 @@ class ListMergeRequestFilesReadsRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5e733626d53f4b04a6aa0e23d4ff72b8
      *
      * @var string
@@ -23,6 +25,8 @@ class ListMergeRequestFilesReadsRequest extends Model
     public $fromPatchSetBizId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5
      *
      * @var int
@@ -30,6 +34,8 @@ class ListMergeRequestFilesReadsRequest extends Model
     public $localId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string
@@ -37,11 +43,15 @@ class ListMergeRequestFilesReadsRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $repositoryIdentity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 513fcfd81a9142d2bb0db4f72c0aa15b
      *
      * @var string

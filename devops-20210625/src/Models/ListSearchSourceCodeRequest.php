@@ -23,6 +23,8 @@ class ListSearchSourceCodeRequest extends Model
     public $isCodeBlock;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -77,6 +79,8 @@ class ListSearchSourceCodeRequest extends Model
     public $sort;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 66c0c9fffeb86b450c199fcd
      *
      * @var string

@@ -16,6 +16,8 @@ class ListCommitStatusesRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -37,11 +39,15 @@ class ListCommitStatusesRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $repositoryIdentity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 61cc69557962d29f737a91730b3e86f497f083a3
      *
      * @var string

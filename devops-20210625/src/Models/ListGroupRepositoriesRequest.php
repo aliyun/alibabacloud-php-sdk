@@ -16,6 +16,8 @@ class ListGroupRepositoriesRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60ee8a814690c27532d412f8
      *
      * @var string

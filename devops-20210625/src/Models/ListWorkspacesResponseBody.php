@@ -31,6 +31,8 @@ class ListWorkspacesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description This parameter is required.
+     *
      * @example beb1eff55bf03a13cf321a395dxxxxxx
      *
      * @var string

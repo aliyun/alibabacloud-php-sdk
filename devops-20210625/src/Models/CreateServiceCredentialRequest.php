@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceCredentialRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 张三的Git证书
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateServiceCredentialRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zhangsan
      *
      * @var string
@@ -30,6 +34,8 @@ class CreateServiceCredentialRequest extends Model
     public $scope;
 
     /**
+     * @description This parameter is required.
+     *
      * @example USERNAME_PASSWORD
      *
      * @var string
@@ -37,6 +43,8 @@ class CreateServiceCredentialRequest extends Model
     public $type;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zhangsan
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSearchCommitRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -57,6 +59,8 @@ class ListSearchCommitRequest extends Model
     public $sort;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60d54f3daccf2bbd6659f3ad
      *
      * @var string

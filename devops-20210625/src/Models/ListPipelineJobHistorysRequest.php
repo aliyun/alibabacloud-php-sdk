@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPipelineJobHistorysRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example DEPLOY
      *
      * @var string
@@ -16,6 +18,8 @@ class ListPipelineJobHistorysRequest extends Model
     public $category;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10_ssasasa
      *
      * @var string
@@ -23,6 +27,8 @@ class ListPipelineJobHistorysRequest extends Model
     public $identifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

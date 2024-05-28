@@ -28,6 +28,8 @@ class CreateCommitStatusRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example success
      *
      * @var string
@@ -42,6 +44,8 @@ class CreateCommitStatusRequest extends Model
     public $targetUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -49,6 +53,8 @@ class CreateCommitStatusRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2080972
      *
      * @var string
@@ -56,6 +62,8 @@ class CreateCommitStatusRequest extends Model
     public $repositoryIdentity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example e0c1a1299a2656bfc155650bbd2df5e628fa1f4c
      *
      * @var string

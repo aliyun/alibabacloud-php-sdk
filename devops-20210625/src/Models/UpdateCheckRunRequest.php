@@ -77,6 +77,8 @@ class UpdateCheckRunRequest extends Model
     public $status;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -84,6 +86,8 @@ class UpdateCheckRunRequest extends Model
     public $checkRunId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string
@@ -91,6 +95,8 @@ class UpdateCheckRunRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $repositoryIdentity;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetGroupByPathRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957/test-group
      *
      * @var string
@@ -16,6 +18,8 @@ class GetGroupByPathRequest extends Model
     public $identity;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string

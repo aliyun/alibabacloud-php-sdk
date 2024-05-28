@@ -16,6 +16,8 @@ class GetFileBlobsRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example src/Test.java
      *
      * @var string
@@ -30,6 +32,8 @@ class GetFileBlobsRequest extends Model
     public $from;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string
@@ -37,6 +41,8 @@ class GetFileBlobsRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example master  / tag1.0 /  ecykhdd
      *
      * @var string

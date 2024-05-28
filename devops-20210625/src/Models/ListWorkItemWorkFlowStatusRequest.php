@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListWorkItemWorkFlowStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 例：5e70xxxxxxcd000xxxxe96
      *
      * @var string
@@ -16,6 +18,8 @@ class ListWorkItemWorkFlowStatusRequest extends Model
     public $spaceIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Project
      *
      * @var string
@@ -23,6 +27,8 @@ class ListWorkItemWorkFlowStatusRequest extends Model
     public $spaceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Req
      *
      * @var string

@@ -16,6 +16,8 @@ class DeleteGroupMemberRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1789095186553536
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteGroupMemberRequest extends Model
     public $aliyunPk;
 
     /**
+     * @description This parameter is required.
+     *
      * @example USERS
      *
      * @var string
@@ -30,6 +34,8 @@ class DeleteGroupMemberRequest extends Model
     public $memberType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6082a9b0c7972588ac363793
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectMemberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example project.admin
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateProjectMemberRequest extends Model
     public $roleIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5e70xxxxxxcd000xxxxe96
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateProjectMemberRequest extends Model
     public $targetIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Space
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateProjectMemberRequest extends Model
     public $targetType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 19xx7043xxxxxxx914
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdateProjectMemberRequest extends Model
     public $userIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @example user
      *
      * @var string

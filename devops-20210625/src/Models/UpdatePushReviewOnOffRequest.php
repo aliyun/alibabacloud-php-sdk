@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePushReviewOnOffRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdatePushReviewOnOffRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

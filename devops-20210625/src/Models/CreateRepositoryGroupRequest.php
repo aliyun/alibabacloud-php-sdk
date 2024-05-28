@@ -28,6 +28,8 @@ class CreateRepositoryGroupRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-create-group
      *
      * @var string
@@ -35,6 +37,8 @@ class CreateRepositoryGroupRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 26842
      *
      * @var int
@@ -42,6 +46,8 @@ class CreateRepositoryGroupRequest extends Model
     public $parentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test-create-group
      *
      * @var string
@@ -49,6 +55,8 @@ class CreateRepositoryGroupRequest extends Model
     public $path;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -56,6 +64,8 @@ class CreateRepositoryGroupRequest extends Model
     public $visibilityLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string

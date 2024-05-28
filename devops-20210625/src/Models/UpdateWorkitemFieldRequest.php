@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkitemFieldRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var updateWorkitemPropertyRequest[]
      */
     public $updateWorkitemPropertyRequest;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9144ef6b72d8exxxxx9e61a4d0
      *
      * @var string

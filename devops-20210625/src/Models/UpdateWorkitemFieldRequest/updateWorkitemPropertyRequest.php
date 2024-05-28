@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class updateWorkitemPropertyRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example tag
      *
      * @var string
@@ -16,6 +18,8 @@ class updateWorkitemPropertyRequest extends Model
     public $fieldIdentifier;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $fieldValue;

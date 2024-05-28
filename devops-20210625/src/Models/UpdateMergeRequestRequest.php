@@ -26,6 +26,8 @@ class UpdateMergeRequestRequest extends Model
     public $title;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string

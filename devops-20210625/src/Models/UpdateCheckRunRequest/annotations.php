@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class annotations extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example failure
      *
      * @var string
@@ -23,6 +25,8 @@ class annotations extends Model
     public $endColumn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -30,11 +34,15 @@ class annotations extends Model
     public $endLine;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description This parameter is required.
+     *
      * @example demo/test.txt
      *
      * @var string
@@ -54,6 +62,8 @@ class annotations extends Model
     public $startColumn;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

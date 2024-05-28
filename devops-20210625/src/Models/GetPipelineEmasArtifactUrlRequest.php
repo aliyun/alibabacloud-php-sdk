@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPipelineEmasArtifactUrlRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 122
      *
      * @var int

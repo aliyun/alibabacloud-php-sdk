@@ -16,6 +16,8 @@ class CreateProjectLabelRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example #006AD4
      *
      * @var string
@@ -28,11 +30,15 @@ class CreateProjectLabelRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -40,6 +46,8 @@ class CreateProjectLabelRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $repositoryIdentity;

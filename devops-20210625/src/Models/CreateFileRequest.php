@@ -16,6 +16,8 @@ class CreateFileRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example master
      *
      * @var string
@@ -23,11 +25,15 @@ class CreateFileRequest extends Model
     public $branchName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $commitMessage;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $content;
@@ -40,6 +46,8 @@ class CreateFileRequest extends Model
     public $encoding;
 
     /**
+     * @description This parameter is required.
+     *
      * @example /src/main/test.java
      *
      * @var string
@@ -47,6 +55,8 @@ class CreateFileRequest extends Model
     public $filePath;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string

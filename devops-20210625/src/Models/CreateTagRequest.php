@@ -21,6 +21,8 @@ class CreateTagRequest extends Model
     public $message;
 
     /**
+     * @description This parameter is required.
+     *
      * @example master
      *
      * @var string
@@ -28,6 +30,8 @@ class CreateTagRequest extends Model
     public $ref;
 
     /**
+     * @description This parameter is required.
+     *
      * @example v1.0
      *
      * @var string
@@ -35,6 +39,8 @@ class CreateTagRequest extends Model
     public $tagName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string

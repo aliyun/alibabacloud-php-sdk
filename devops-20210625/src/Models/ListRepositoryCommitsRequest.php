@@ -23,6 +23,8 @@ class ListRepositoryCommitsRequest extends Model
     public $end;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string
@@ -51,6 +53,8 @@ class ListRepositoryCommitsRequest extends Model
     public $path;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $refName;

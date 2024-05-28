@@ -33,6 +33,8 @@ class UpdateProjectLabelRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 5ebbc0228123212b59xxxxx
      *
      * @var string
@@ -40,6 +42,8 @@ class UpdateProjectLabelRequest extends Model
     public $organizationId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $repositoryIdentity;

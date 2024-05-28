@@ -16,6 +16,8 @@ class DeletePushRuleRequest extends Model
     public $accessToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60d54f3daccf2bbd6659f3ad
      *
      * @var string

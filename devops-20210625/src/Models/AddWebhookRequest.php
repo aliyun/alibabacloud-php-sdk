@@ -63,6 +63,8 @@ class AddWebhookRequest extends Model
     public $tagPushEvents;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://xxxxx
      *
      * @var string
@@ -70,6 +72,8 @@ class AddWebhookRequest extends Model
     public $url;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 60de7a6852743a5162b5f957
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteWorkitemRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 3ef2ef6018d254d660e65f87a6
      *
      * @var string
