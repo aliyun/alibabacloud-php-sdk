@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\BindDBResourceGroupWithRoleRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\BindDBResourceGroupWithRoleResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\BindDBResourceGroupWithRoleShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUploadDocumentJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUploadDocumentJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CancelUpsertCollectionDataJobRequest;
@@ -28,6 +31,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBResourceGroupRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDocumentCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDocumentCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateExtensionsRequest;
@@ -61,6 +66,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBResourceGroupRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDocumentCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDocumentCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDocumentRequest;
@@ -132,6 +139,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSSLResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSupportMaxPerformanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSupportMaxPerformanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBResourceGroupRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBResourceManagementModeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBResourceManagementModeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBVersionInfosRequest;
@@ -178,6 +187,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVSwitchsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVSwitchsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRolesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRolesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSampleDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSampleDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogCountRequest;
@@ -202,10 +213,14 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLInfoRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLInfoResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DisableDBResourceGroupRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DisableDBResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\EnableDBResourceGroupRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\EnableDBResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUpsertCollectionDataJobRequest;
@@ -254,6 +269,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceResourceGroupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceSSLResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBResourceGroupRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBResourceGroupResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBResourceGroupShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyExternalDataServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyExternalDataServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyHadoopDataSourceRequest;
@@ -277,6 +295,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyVectorConfigurationRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyVectorConfigurationResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseDataRedistributeRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseDataRedistributeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataRequest;
@@ -296,6 +316,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetIMVMonitorDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetIMVMonitorDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartDBInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeDataRedistributeRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeDataRedistributeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetDataShareInstanceRequest;
@@ -307,6 +329,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\SwitchDBInstanceNetTypeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SwitchDBInstanceNetTypeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnbindDBResourceGroupWithRoleRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnbindDBResourceGroupWithRoleResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnbindDBResourceGroupWithRoleShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnloadSampleDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnloadSampleDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagResourcesRequest;
@@ -468,6 +493,67 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateInstancePublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 将资源组与数据库角色进行绑定
+     *  *
+     * @param BindDBResourceGroupWithRoleRequest $tmpReq  BindDBResourceGroupWithRoleRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BindDBResourceGroupWithRoleResponse BindDBResourceGroupWithRoleResponse
+     */
+    public function bindDBResourceGroupWithRoleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BindDBResourceGroupWithRoleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roleList)) {
+            $request->roleListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleList, 'RoleList', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+        if (!Utils::isUnset($request->roleListShrink)) {
+            $query['RoleList'] = $request->roleListShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindDBResourceGroupWithRole',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindDBResourceGroupWithRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 将资源组与数据库角色进行绑定
+     *  *
+     * @param BindDBResourceGroupWithRoleRequest $request BindDBResourceGroupWithRoleRequest
+     *
+     * @return BindDBResourceGroupWithRoleResponse BindDBResourceGroupWithRoleResponse
+     */
+    public function bindDBResourceGroupWithRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindDBResourceGroupWithRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -1228,6 +1314,62 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDBInstancePlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建资源组
+     *  *
+     * @param CreateDBResourceGroupRequest $request CreateDBResourceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDBResourceGroupResponse CreateDBResourceGroupResponse
+     */
+    public function createDBResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupConfig)) {
+            $query['ResourceGroupConfig'] = $request->resourceGroupConfig;
+        }
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDBResourceGroup',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建资源组
+     *  *
+     * @param CreateDBResourceGroupRequest $request CreateDBResourceGroupRequest
+     *
+     * @return CreateDBResourceGroupResponse CreateDBResourceGroupResponse
+     */
+    public function createDBResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDBResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -2351,6 +2493,59 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDBInstancePlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除资源组
+     *  *
+     * @param DeleteDBResourceGroupRequest $request DeleteDBResourceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDBResourceGroupResponse DeleteDBResourceGroupResponse
+     */
+    public function deleteDBResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDBResourceGroup',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除资源组
+     *  *
+     * @param DeleteDBResourceGroupRequest $request DeleteDBResourceGroupRequest
+     *
+     * @return DeleteDBResourceGroupResponse DeleteDBResourceGroupResponse
+     */
+    public function deleteDBResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDBResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -4256,6 +4451,59 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 获取资源组信息
+     *  *
+     * @param DescribeDBResourceGroupRequest $request DescribeDBResourceGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDBResourceGroupResponse DescribeDBResourceGroupResponse
+     */
+    public function describeDBResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBResourceGroup',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取资源组信息
+     *  *
+     * @param DescribeDBResourceGroupRequest $request DescribeDBResourceGroupRequest
+     *
+     * @return DescribeDBResourceGroupResponse DescribeDBResourceGroupResponse
+     */
+    public function describeDBResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取资源管理模式
      *  *
      * @param DescribeDBResourceManagementModeRequest $request DescribeDBResourceManagementModeRequest
@@ -5866,6 +6114,56 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 获取角色列表
+     *  *
+     * @param DescribeRolesRequest $request DescribeRolesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRolesResponse DescribeRolesResponse
+     */
+    public function describeRolesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRoles',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取角色列表
+     *  *
+     * @param DescribeRolesRequest $request DescribeRolesRequest
+     *
+     * @return DescribeRolesResponse DescribeRolesResponse
+     */
+    public function describeRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRolesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the number of audit logs for an AnalyticDB for PostgreSQL instance.
      *  *
      * @description This operation is not available for instances in reserved storage mode.
@@ -6673,6 +6971,56 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 关闭资源组
+     *  *
+     * @param DisableDBResourceGroupRequest $request DisableDBResourceGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DisableDBResourceGroupResponse DisableDBResourceGroupResponse
+     */
+    public function disableDBResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableDBResourceGroup',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 关闭资源组
+     *  *
+     * @param DisableDBResourceGroupRequest $request DisableDBResourceGroupRequest
+     *
+     * @return DisableDBResourceGroupResponse DisableDBResourceGroupResponse
+     */
+    public function disableDBResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDBResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Downloads the query diagnostic information of an AnalyticDB for PostgreSQL instance.
      *  *
      * @description You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](https://help.aliyun.com/document_detail/447712.html) operation to query download records and download URLs.
@@ -6840,6 +7188,56 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->downloadSQLLogsRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 开启资源组
+     *  *
+     * @param EnableDBResourceGroupRequest $request EnableDBResourceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnableDBResourceGroupResponse EnableDBResourceGroupResponse
+     */
+    public function enableDBResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableDBResourceGroup',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开启资源组
+     *  *
+     * @param EnableDBResourceGroupRequest $request EnableDBResourceGroupRequest
+     *
+     * @return EnableDBResourceGroupResponse EnableDBResourceGroupResponse
+     */
+    public function enableDBResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableDBResourceGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -8289,6 +8687,64 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 修改资源组
+     *  *
+     * @param ModifyDBResourceGroupRequest $tmpReq  ModifyDBResourceGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBResourceGroupResponse ModifyDBResourceGroupResponse
+     */
+    public function modifyDBResourceGroupWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyDBResourceGroupShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceGroupItems)) {
+            $request->resourceGroupItemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceGroupItems, 'ResourceGroupItems', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupItemsShrink)) {
+            $query['ResourceGroupItems'] = $request->resourceGroupItemsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBResourceGroup',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改资源组
+     *  *
+     * @param ModifyDBResourceGroupRequest $request ModifyDBResourceGroupRequest
+     *
+     * @return ModifyDBResourceGroupResponse ModifyDBResourceGroupResponse
+     */
+    public function modifyDBResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 修改外部数据服务
      *  *
      * @param ModifyExternalDataServiceRequest $request ModifyExternalDataServiceRequest
@@ -9025,6 +9481,56 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 暂停数据重分布
+     *  *
+     * @param PauseDataRedistributeRequest $request PauseDataRedistributeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PauseDataRedistributeResponse PauseDataRedistributeResponse
+     */
+    public function pauseDataRedistributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PauseDataRedistribute',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PauseDataRedistributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 暂停数据重分布
+     *  *
+     * @param PauseDataRedistributeRequest $request PauseDataRedistributeRequest
+     *
+     * @return PauseDataRedistributeResponse PauseDataRedistributeResponse
+     */
+    public function pauseDataRedistribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pauseDataRedistributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Pauses an AnalyticDB for PostgreSQL instance.
      *  *
      * @description You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
@@ -9312,7 +9818,7 @@ class Gpdb extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -9334,12 +9840,13 @@ class Gpdb extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -9638,6 +10145,56 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 恢复数据重分布
+     *  *
+     * @param ResumeDataRedistributeRequest $request ResumeDataRedistributeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ResumeDataRedistributeResponse ResumeDataRedistributeResponse
+     */
+    public function resumeDataRedistributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResumeDataRedistribute',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResumeDataRedistributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 恢复数据重分布
+     *  *
+     * @param ResumeDataRedistributeRequest $request ResumeDataRedistributeRequest
+     *
+     * @return ResumeDataRedistributeResponse ResumeDataRedistributeResponse
+     */
+    public function resumeDataRedistribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeDataRedistributeWithOptions($request, $runtime);
     }
 
     /**
@@ -9954,6 +10511,67 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 将资源组与数据库角色进行解绑
+     *  *
+     * @param UnbindDBResourceGroupWithRoleRequest $tmpReq  UnbindDBResourceGroupWithRoleRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnbindDBResourceGroupWithRoleResponse UnbindDBResourceGroupWithRoleResponse
+     */
+    public function unbindDBResourceGroupWithRoleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UnbindDBResourceGroupWithRoleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->roleList)) {
+            $request->roleListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->roleList, 'RoleList', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $query['ResourceGroupName'] = $request->resourceGroupName;
+        }
+        if (!Utils::isUnset($request->roleListShrink)) {
+            $query['RoleList'] = $request->roleListShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindDBResourceGroupWithRole',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindDBResourceGroupWithRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 将资源组与数据库角色进行解绑
+     *  *
+     * @param UnbindDBResourceGroupWithRoleRequest $request UnbindDBResourceGroupWithRoleRequest
+     *
+     * @return UnbindDBResourceGroupWithRoleResponse UnbindDBResourceGroupWithRoleResponse
+     */
+    public function unbindDBResourceGroupWithRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindDBResourceGroupWithRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -10566,7 +11184,7 @@ class Gpdb extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -10588,12 +11206,13 @@ class Gpdb extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -10858,7 +11477,7 @@ class Gpdb extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -10880,12 +11499,13 @@ class Gpdb extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
