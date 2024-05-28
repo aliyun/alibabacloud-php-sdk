@@ -86,6 +86,21 @@ class inbound extends Model
     public $callsOffered;
 
     /**
+     * @var string
+     */
+    public $callsQueuingCanceled;
+
+    /**
+     * @var string
+     */
+    public $callsQueuingFailure;
+
+    /**
+     * @var string
+     */
+    public $callsQueuingRerouted;
+
+    /**
      * @var int
      */
     public $callsQueuingTimeout;
@@ -239,6 +254,9 @@ class inbound extends Model
         'callsBlindTransferOut'                     => 'CallsBlindTransferOut',
         'callsHandled'                              => 'CallsHandled',
         'callsOffered'                              => 'CallsOffered',
+        'callsQueuingCanceled'                      => 'CallsQueuingCanceled',
+        'callsQueuingFailure'                       => 'CallsQueuingFailure',
+        'callsQueuingRerouted'                      => 'CallsQueuingRerouted',
         'callsQueuingTimeout'                       => 'CallsQueuingTimeout',
         'callsServiceLevel10'                       => 'CallsServiceLevel10',
         'callsServiceLevel20'                       => 'CallsServiceLevel20',
@@ -301,6 +319,15 @@ class inbound extends Model
         }
         if (null !== $this->callsOffered) {
             $res['CallsOffered'] = $this->callsOffered;
+        }
+        if (null !== $this->callsQueuingCanceled) {
+            $res['CallsQueuingCanceled'] = $this->callsQueuingCanceled;
+        }
+        if (null !== $this->callsQueuingFailure) {
+            $res['CallsQueuingFailure'] = $this->callsQueuingFailure;
+        }
+        if (null !== $this->callsQueuingRerouted) {
+            $res['CallsQueuingRerouted'] = $this->callsQueuingRerouted;
         }
         if (null !== $this->callsQueuingTimeout) {
             $res['CallsQueuingTimeout'] = $this->callsQueuingTimeout;
@@ -409,6 +436,15 @@ class inbound extends Model
         }
         if (isset($map['CallsOffered'])) {
             $model->callsOffered = $map['CallsOffered'];
+        }
+        if (isset($map['CallsQueuingCanceled'])) {
+            $model->callsQueuingCanceled = $map['CallsQueuingCanceled'];
+        }
+        if (isset($map['CallsQueuingFailure'])) {
+            $model->callsQueuingFailure = $map['CallsQueuingFailure'];
+        }
+        if (isset($map['CallsQueuingRerouted'])) {
+            $model->callsQueuingRerouted = $map['CallsQueuingRerouted'];
         }
         if (isset($map['CallsQueuingTimeout'])) {
             $model->callsQueuingTimeout = $map['CallsQueuingTimeout'];
