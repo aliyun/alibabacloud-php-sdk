@@ -174,6 +174,8 @@ use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\HoldCallResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportAdminsRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportAdminsResponse;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCorpNumbersRequest;
+use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCorpNumbersResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCustomCallTaggingRequest;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportCustomCallTaggingResponse;
 use AlibabaCloud\SDK\CCC\V20200701\Models\ImportDocumentsRequest;
@@ -4686,6 +4688,64 @@ class CCC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importAdminsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ImportCorpNumbersRequest $request ImportCorpNumbersRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ImportCorpNumbersResponse ImportCorpNumbersResponse
+     */
+    public function importCorpNumbersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->city)) {
+            $query['City'] = $request->city;
+        }
+        if (!Utils::isUnset($request->corpName)) {
+            $query['CorpName'] = $request->corpName;
+        }
+        if (!Utils::isUnset($request->numberList)) {
+            $query['NumberList'] = $request->numberList;
+        }
+        if (!Utils::isUnset($request->provider)) {
+            $query['Provider'] = $request->provider;
+        }
+        if (!Utils::isUnset($request->province)) {
+            $query['Province'] = $request->province;
+        }
+        if (!Utils::isUnset($request->tagList)) {
+            $query['TagList'] = $request->tagList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImportCorpNumbers',
+            'version'     => '2020-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImportCorpNumbersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ImportCorpNumbersRequest $request ImportCorpNumbersRequest
+     *
+     * @return ImportCorpNumbersResponse ImportCorpNumbersResponse
+     */
+    public function importCorpNumbers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importCorpNumbersWithOptions($request, $runtime);
     }
 
     /**
