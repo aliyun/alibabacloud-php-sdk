@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GetGenerateResourcePlanResultHea
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetGenerateResourcePlanResultResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetJobHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetJobResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetLatestJobStartLogHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetLatestJobStartLogResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetMemberHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetMemberResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSavepointHeaders;
@@ -81,6 +83,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateMemberResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateSqlStatementHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateSqlStatementRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\ValidateSqlStatementResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -895,6 +900,59 @@ class Ververica extends OpenApiClient
         $headers = new GetJobHeaders([]);
 
         return $this->getJobWithOptions($namespace, $jobId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取已部署作业的最新启动日志
+     *  *
+     * @param string                      $namespace
+     * @param string                      $deploymentId
+     * @param GetLatestJobStartLogHeaders $headers      GetLatestJobStartLogHeaders
+     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return GetLatestJobStartLogResponse GetLatestJobStartLogResponse
+     */
+    public function getLatestJobStartLogWithOptions($namespace, $deploymentId, $headers, $runtime)
+    {
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action'      => 'GetLatestJobStartLog',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/deployments/' . OpenApiUtilClient::getEncodeParam($deploymentId) . '/latest_jobmanager_start_log',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLatestJobStartLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取已部署作业的最新启动日志
+     *  *
+     * @param string $namespace
+     * @param string $deploymentId
+     *
+     * @return GetLatestJobStartLogResponse GetLatestJobStartLogResponse
+     */
+    public function getLatestJobStartLog($namespace, $deploymentId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetLatestJobStartLogHeaders([]);
+
+        return $this->getLatestJobStartLogWithOptions($namespace, $deploymentId, $headers, $runtime);
     }
 
     /**
@@ -1803,5 +1861,60 @@ class Ververica extends OpenApiClient
         $headers = new UpdateMemberHeaders([]);
 
         return $this->updateMemberWithOptions($namespace, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 校验sql作业代码
+     *  *
+     * @param string                      $namespace
+     * @param ValidateSqlStatementRequest $request   ValidateSqlStatementRequest
+     * @param ValidateSqlStatementHeaders $headers   ValidateSqlStatementHeaders
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ValidateSqlStatementResponse ValidateSqlStatementResponse
+     */
+    public function validateSqlStatementWithOptions($namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->workspace)) {
+            $realHeaders['workspace'] = Utils::toJSONString($headers->workspace);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidateSqlStatement',
+            'version'     => '2022-07-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/sql-statement/validate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ValidateSqlStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 校验sql作业代码
+     *  *
+     * @param string                      $namespace
+     * @param ValidateSqlStatementRequest $request   ValidateSqlStatementRequest
+     *
+     * @return ValidateSqlStatementResponse ValidateSqlStatementResponse
+     */
+    public function validateSqlStatement($namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ValidateSqlStatementHeaders([]);
+
+        return $this->validateSqlStatementWithOptions($namespace, $request, $headers, $runtime);
     }
 }

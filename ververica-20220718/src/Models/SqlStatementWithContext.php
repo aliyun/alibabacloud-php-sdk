@@ -21,16 +21,6 @@ class SqlStatementWithContext extends Model
     public $batchMode;
 
     /**
-     * @var string
-     */
-    public $catalog;
-
-    /**
-     * @var string
-     */
-    public $database;
-
-    /**
      * @var mixed[]
      */
     public $flinkConfiguration;
@@ -49,8 +39,6 @@ class SqlStatementWithContext extends Model
     protected $_name = [
         'additionalDependencies' => 'additionalDependencies',
         'batchMode'              => 'batchMode',
-        'catalog'                => 'catalog',
-        'database'               => 'database',
         'flinkConfiguration'     => 'flinkConfiguration',
         'statement'              => 'statement',
         'versionName'            => 'versionName',
@@ -68,12 +56,6 @@ class SqlStatementWithContext extends Model
         }
         if (null !== $this->batchMode) {
             $res['batchMode'] = $this->batchMode;
-        }
-        if (null !== $this->catalog) {
-            $res['catalog'] = $this->catalog;
-        }
-        if (null !== $this->database) {
-            $res['database'] = $this->database;
         }
         if (null !== $this->flinkConfiguration) {
             $res['flinkConfiguration'] = $this->flinkConfiguration;
@@ -103,12 +85,6 @@ class SqlStatementWithContext extends Model
         }
         if (isset($map['batchMode'])) {
             $model->batchMode = $map['batchMode'];
-        }
-        if (isset($map['catalog'])) {
-            $model->catalog = $map['catalog'];
-        }
-        if (isset($map['database'])) {
-            $model->database = $map['database'];
         }
         if (isset($map['flinkConfiguration'])) {
             $model->flinkConfiguration = $map['flinkConfiguration'];
