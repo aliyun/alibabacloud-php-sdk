@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class aclInfo extends Model
 {
     /**
+     * @description The authentication type of the instance.
+     *
      * @var string[]
      */
     public $aclTypes;
 
     /**
+     * @description Indicates whether the authentication-free in VPCs feature is enabled.
+     * - false
      * @var bool
      */
     public $defaultVpcAuthFree;

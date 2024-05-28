@@ -16,7 +16,7 @@ class productInfo extends Model
      *   true: enable
      *   false: disable
      *
-     * >  The elastic TPS feature is supported only by instances of specific editions. For more information, see [Instance editions](~~444715~~).
+     * >  The elastic TPS feature is supported only by instances of specific editions. For more information, see [Instance editions](https://help.aliyun.com/document_detail/444715.html).
      * @example true
      *
      * @var bool
@@ -49,7 +49,7 @@ class productInfo extends Model
     /**
      * @description The retention period of messages. Unit: hours.
      *
-     * ApsaraMQ for RocketMQ supports serverless scaling of message storage. You are charged storage fees based on your actual storage usage. You can change the retention period of messages to manage storage capacity. For more information, see [Storage fees](~~427238~~).
+     * ApsaraMQ for RocketMQ supports serverless scaling of message storage. You are charged storage fees based on your actual storage usage. You can change the retention period of messages to manage storage capacity. For more information, see [Storage fees](https://help.aliyun.com/document_detail/427238.html).
      * @example 72
      *
      * @var int
@@ -57,8 +57,9 @@ class productInfo extends Model
     public $messageRetentionTime;
 
     /**
-     * @description The computing specification that specifies the messaging transactions per second (TPS) of the instance. For information about computing specification limits, see [Instance specifications](~~444715~~).
+     * @description The computing specification that specifies the messaging transactions per second (TPS) of the instance. For information about computing specification limits, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
      *
+     * This parameter is required.
      * @example rmq.s2.2xlarge
      *
      * @var string

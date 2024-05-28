@@ -13,6 +13,7 @@ class networkInfo extends Model
     /**
      * @description The Internet-related configurations.
      *
+     * This parameter is required.
      * @var internetInfo
      */
     public $internetInfo;
@@ -20,6 +21,7 @@ class networkInfo extends Model
     /**
      * @description The virtual private cloud (VPC)-related configurations.
      *
+     * This parameter is required.
      * @var vpcInfo
      */
     public $vpcInfo;

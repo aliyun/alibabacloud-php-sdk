@@ -60,6 +60,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The network configurations.
      *
+     * This parameter is required.
      * @var networkInfo
      */
     public $networkInfo;
@@ -72,7 +73,7 @@ class CreateInstanceRequest extends Model
      *   PayAsYouGo: This billing method allows you to use resources before you pay for the resources.
      *   Subscription: This billing method allows you to use resources after you pay for the resources.
      *
-     * For more information, see [Billing methods](~~427234~~).
+     * This parameter is required.
      * @example Subscription
      *
      * @var string
@@ -133,7 +134,7 @@ class CreateInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The primary edition of the instance. For information about the differences between primary edition instances, see [Instance selection](~~444722~~).
+     * @description The primary edition of the instance. For information about the differences between primary edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
      *
      * Valid values:
      *
@@ -141,7 +142,7 @@ class CreateInstanceRequest extends Model
      *   ultimate: Enterprise Platinum Edition
      *   professional: Professional Edition
      *
-     * >  After an instance is created, you can only upgrade the primary edition of the instance. The following editions are sorted in ascending order: Standard Edition, Professional Edition, Enterprise Platinum Edition. For example, you can upgrade an instance of Standard Edition to Professional Edition, but cannot downgrade an instance of Professional Edition to Standard Edition.
+     * This parameter is required.
      * @example standard
      *
      * @var string
@@ -151,6 +152,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The code of the service to which the instance belongs. The service code of ApsaraMQ for RocketMQ is rmq.
      *
+     * This parameter is required.
      * @example rmq
      *
      * @var string
@@ -158,14 +160,15 @@ class CreateInstanceRequest extends Model
     public $serviceCode;
 
     /**
-     * @description The sub-category edition of the instance. For information about the differences between sub-category edition instances, see [Instance selection](~~444722~~).
+     * @description The sub-category edition of the instance. For information about the differences between sub-category edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
      *
      * Valid values:
      *
      *   cluster_ha: High-availability Cluster Edition
      *   single_node: Standalone Edition
+     *   serverless: Serverless Edition
      *
-     * >  After an instance is created, you cannot change the sub-category edition of the instance.
+     * This parameter is required.
      * @example cluster_ha
      *
      * @var string

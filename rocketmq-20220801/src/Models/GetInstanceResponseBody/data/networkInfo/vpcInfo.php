@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\networkInfo;
 
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\networkInfo\vpcInfo\vSwitches;
 use AlibabaCloud\Tea\Model;
 
 class vpcInfo extends Model
 {
     /**
-     * @description The ID of the security group with which the instance is associated.
+     * @description The security group ID.
      *
      * @example sg-hp35r2hc3a3sv8q2sb16
      *
@@ -22,9 +23,16 @@ class vpcInfo extends Model
      *
      * @example vsw-uf6gwtbn6etadpvz7****
      *
+     * @deprecated
+     *
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @var vSwitches[]
+     */
+    public $vSwitches;
 
     /**
      * @description The ID of the VPC with which the instance is associated.
@@ -37,6 +45,7 @@ class vpcInfo extends Model
     protected $_name = [
         'securityGroupIds' => 'securityGroupIds',
         'vSwitchId'        => 'vSwitchId',
+        'vSwitches'        => 'vSwitches',
         'vpcId'            => 'vpcId',
     ];
 
@@ -52,6 +61,15 @@ class vpcInfo extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['vSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vSwitches) {
+            $res['vSwitches'] = [];
+            if (null !== $this->vSwitches && \is_array($this->vSwitches)) {
+                $n = 0;
+                foreach ($this->vSwitches as $item) {
+                    $res['vSwitches'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vpcId) {
             $res['vpcId'] = $this->vpcId;
@@ -73,6 +91,15 @@ class vpcInfo extends Model
         }
         if (isset($map['vSwitchId'])) {
             $model->vSwitchId = $map['vSwitchId'];
+        }
+        if (isset($map['vSwitches'])) {
+            if (!empty($map['vSwitches'])) {
+                $model->vSwitches = [];
+                $n                = 0;
+                foreach ($map['vSwitches'] as $item) {
+                    $model->vSwitches[$n++] = null !== $item ? vSwitches::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['vpcId'])) {
             $model->vpcId = $map['vpcId'];

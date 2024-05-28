@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $consistency;
+
+    /**
      * @example CID-TEST
      *
      * @var string
@@ -50,6 +55,7 @@ class data extends Model
      */
     public $topicName;
     protected $_name = [
+        'consistency'          => 'consistency',
         'consumerGroupId'      => 'consumerGroupId',
         'filterExpression'     => 'filterExpression',
         'filterExpressionType' => 'filterExpressionType',
@@ -65,6 +71,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->consistency) {
+            $res['consistency'] = $this->consistency;
+        }
         if (null !== $this->consumerGroupId) {
             $res['consumerGroupId'] = $this->consumerGroupId;
         }
@@ -95,6 +104,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['consistency'])) {
+            $model->consistency = $map['consistency'];
+        }
         if (isset($map['consumerGroupId'])) {
             $model->consumerGroupId = $map['consumerGroupId'];
         }

@@ -68,7 +68,7 @@ class extConfig extends Model
      *   enable
      *   disable
      *
-     * By default, ApsaraMQ for RocketMQ instances are accessed in virtual private clouds (VPCs). If you enable the Internet access feature, you are charged for Internet outbound bandwidth. For more information, see [Internet access fee](~~427240~~).
+     * By default, ApsaraMQ for RocketMQ instances are accessed in virtual private clouds (VPCs). If you enable the Internet access feature, you are charged for Internet outbound bandwidth. For more information, see [Internet access fee](https://help.aliyun.com/document_detail/427240.html).
      * @example enable
      *
      * @var string
@@ -78,7 +78,7 @@ class extConfig extends Model
     /**
      * @description The retention period of messages. Unit: hours.
      *
-     * The storage of messages in ApsaraMQ for RocketMQ is serverless and scalable. You are charged for message storage based on your actual usage. You can change the retention period of messages to adjust storage capacity. For more information, see [Storage fee](~~427238~~).
+     * The storage of messages in ApsaraMQ for RocketMQ is serverless and scalable. You are charged for message storage based on your actual usage. You can change the retention period of messages to adjust storage capacity. For more information, see [Storage fee](https://help.aliyun.com/document_detail/427238.html).
      * @example 72
      *
      * @var int
@@ -86,7 +86,7 @@ class extConfig extends Model
     public $messageRetentionTime;
 
     /**
-     * @description The computing specification that is used to send and receive messages. For information about the upper limit of TPS, see [Instance specifications](~~444715~~).
+     * @description The computing specification that is used to send and receive messages. For information about the upper limit of TPS, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
      *
      * @example rmq.s2.2xlarge
      *
@@ -111,7 +111,7 @@ class extConfig extends Model
      *   true: enable
      *   false: disable
      *
-     * > The elastic TPS feature is supported only by specific instance editions. For more information, see [Instance specifications](~~444715~~).
+     * > The elastic TPS feature is supported only by specific instance editions. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
      * @example true
      *
      * @var bool

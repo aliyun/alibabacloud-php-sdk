@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](~~440356~~).
+     * @description The consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
      *
      * @var consumeRetryPolicy
      */

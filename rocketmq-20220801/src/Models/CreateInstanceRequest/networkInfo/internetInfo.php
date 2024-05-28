@@ -24,8 +24,10 @@ class internetInfo extends Model
      * Valid values:
      *
      *   payByBandwidth: pay-by-bandwidth. If Internet access is enabled for an instance, specify this value for the parameter.
+     *   payByTraffic: pay-by-traffic. If Internet access is enabled for an instance, specify this value for the parameter.
      *   uninvolved: No billing method is involved. If Internet access is disabled for an instance, specify this value for the parameter.
      *
+     * This parameter is required.
      * @example uninvolved
      *
      * @var string
@@ -40,7 +42,7 @@ class internetInfo extends Model
      *   enable
      *   disable
      *
-     * By default, ApsaraMQ for RocketMQ allows you to access instances in VPCs. If you enable Internet access for an instance, you can access the instance over the Internet. After you enable this feature, you are charged for outbound Internet traffic. For more information, see [Internet access fee](~~427240~~).
+     * This parameter is required.
      * @example disable
      *
      * @var string

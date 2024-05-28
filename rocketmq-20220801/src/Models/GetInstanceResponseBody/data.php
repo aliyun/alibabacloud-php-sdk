@@ -67,7 +67,7 @@ class data extends Model
     public $expireTime;
 
     /**
-     * @description The extended configurations. We recommend you configure the productInfo, internetInfo, or aclInfo parameter instead of this parameter.
+     * @description The extended configurations. We recommend you configure productInfo, internetInfo, or aclInfo instead of this parameter.
      *
      * @deprecated
      *
@@ -103,7 +103,7 @@ class data extends Model
     public $instanceName;
 
     /**
-     * @description The quotas in the instance.
+     * @description The instance quotas.
      *
      * @var instanceQuotas[]
      */
@@ -174,7 +174,7 @@ class data extends Model
     public $resourceGroupId;
 
     /**
-     * @description The primary edition of the instance. For information about the differences between primary edition instances, see [Instance selection](~~444722~~).
+     * @description The primary edition of the instance. For information about the differences between primary edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
      *
      * Valid values:
      *
@@ -231,7 +231,7 @@ class data extends Model
     public $status;
 
     /**
-     * @description The sub-category edition of the instance. For information about the differences between sub-category edition instances, see [Instance selection](~~444722~~).
+     * @description The sub-category edition of the instance. For information about the differences between sub-category edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
      *
      * Valid values:
      *

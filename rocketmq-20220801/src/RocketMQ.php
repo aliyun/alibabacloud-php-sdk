@@ -80,11 +80,13 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $headers, $runtime)
     {
@@ -122,9 +124,11 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -135,8 +139,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Creates a consumer group.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string                     $instanceId
      * @param string                     $consumerGroupId
      * @param CreateConsumerGroupRequest $request         CreateConsumerGroupRequest
@@ -178,8 +184,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Creates a consumer group.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string                     $instanceId
      * @param string                     $consumerGroupId
      * @param CreateConsumerGroupRequest $request         CreateConsumerGroupRequest
@@ -195,8 +203,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Creates an ApsaraMQ for RocketMQ 5.x instance.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      * @param string[]              $headers map
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -274,8 +284,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Creates an ApsaraMQ for RocketMQ 5.x instance.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
      *
      * @return CreateInstanceResponse CreateInstanceResponse
@@ -289,13 +301,15 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Creates a topic.
+     *  *
      * @param string             $instanceId
      * @param string             $topicName
-     * @param CreateTopicRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param CreateTopicRequest $request    CreateTopicRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return CreateTopicResponse
+     * @return CreateTopicResponse CreateTopicResponse
      */
     public function createTopicWithOptions($instanceId, $topicName, $request, $headers, $runtime)
     {
@@ -327,11 +341,13 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Creates a topic.
+     *  *
      * @param string             $instanceId
      * @param string             $topicName
-     * @param CreateTopicRequest $request
+     * @param CreateTopicRequest $request    CreateTopicRequest
      *
-     * @return CreateTopicResponse
+     * @return CreateTopicResponse CreateTopicResponse
      */
     public function createTopic($instanceId, $topicName, $request)
     {
@@ -342,9 +358,11 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
-     *   *
+     * @summary Deletes a specified consumer group.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
+     *  *
      * @param string         $instanceId
      * @param string         $consumerGroupId
      * @param string[]       $headers         map
@@ -373,9 +391,11 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
-     *   *
+     * @summary Deletes a specified consumer group.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * After you delete a consumer group, the consumer client associated with the consumer group cannot consume messages. Exercise caution when you call this operation.
+     *  *
      * @param string $instanceId
      * @param string $consumerGroupId
      *
@@ -390,10 +410,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
-     *   * *   This operation is used to delete a pay-as-you-go instance. A subscription instance is automatically released after it expires. You do not need to manually delete a subscription instance.
-     *   *
+     * @summary Deletes a ApsaraMQ for RocketMQ instance.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
+     * *   This operation is used to delete a pay-as-you-go instance. A subscription instance is automatically released after it expires. You do not need to manually delete a subscription instance.
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -421,10 +443,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
-     *   * *   This operation is used to delete a pay-as-you-go instance. A subscription instance is automatically released after it expires. You do not need to manually delete a subscription instance.
-     *   *
+     * @summary Deletes a ApsaraMQ for RocketMQ instance.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     * *   After an instance is deleted, the instance cannot be restored. Exercise caution when you call this operation.
+     * *   This operation is used to delete a pay-as-you-go instance. A subscription instance is automatically released after it expires. You do not need to manually delete a subscription instance.
+     *  *
      * @param string $instanceId
      *
      * @return DeleteInstanceResponse DeleteInstanceResponse
@@ -438,8 +462,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
-     *   *
+     * @summary Deletes a specified topic.
+     *  *
+     * @description If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
+     *  *
      * @param string         $instanceId
      * @param string         $topicName
      * @param string[]       $headers    map
@@ -468,8 +494,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
-     *   *
+     * @summary Deletes a specified topic.
+     *  *
+     * @description If you delete the topic, the publishing and subscription relationships that are established based on the topic are cleared. Exercise caution when you call this operation.
+     *  *
      * @param string $instanceId
      * @param string $topicName
      *
@@ -484,8 +512,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Queries the details of a specified consumer group.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string         $instanceId
      * @param string         $consumerGroupId
      * @param string[]       $headers         map
@@ -514,8 +544,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Queries the details of a specified consumer group.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string $instanceId
      * @param string $consumerGroupId
      *
@@ -530,8 +562,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Queries the detailed information about an instance.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
      * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
@@ -559,8 +593,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Queries the detailed information about an instance.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string $instanceId
      *
      * @return GetInstanceResponse GetInstanceResponse
@@ -574,12 +610,14 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a specified topic.
+     *  *
      * @param string         $instanceId
      * @param string         $topicName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetTopicResponse
+     * @return GetTopicResponse GetTopicResponse
      */
     public function getTopicWithOptions($instanceId, $topicName, $headers, $runtime)
     {
@@ -602,10 +640,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details of a specified topic.
+     *  *
      * @param string $instanceId
      * @param string $topicName
      *
-     * @return GetTopicResponse
+     * @return GetTopicResponse GetTopicResponse
      */
     public function getTopic($instanceId, $topicName)
     {
@@ -616,10 +656,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 查询支持的可用区
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAvailableZonesResponse
+     * @return ListAvailableZonesResponse ListAvailableZonesResponse
      */
     public function listAvailableZonesWithOptions($headers, $runtime)
     {
@@ -642,7 +684,9 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @return ListAvailableZonesResponse
+     * @summary 查询支持的可用区
+     *  *
+     * @return ListAvailableZonesResponse ListAvailableZonesResponse
      */
     public function listAvailableZones()
     {
@@ -653,12 +697,14 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary 查询消费者客户端连接信息
+     *  *
      * @param string         $instanceId
      * @param string         $consumerGroupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
      *
-     * @return ListConsumerConnectionsResponse
+     * @return ListConsumerConnectionsResponse ListConsumerConnectionsResponse
      */
     public function listConsumerConnectionsWithOptions($instanceId, $consumerGroupId, $headers, $runtime)
     {
@@ -681,10 +727,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary 查询消费者客户端连接信息
+     *  *
      * @param string $instanceId
      * @param string $consumerGroupId
      *
-     * @return ListConsumerConnectionsResponse
+     * @return ListConsumerConnectionsResponse ListConsumerConnectionsResponse
      */
     public function listConsumerConnections($instanceId, $consumerGroupId)
     {
@@ -695,12 +743,14 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Queries the subscriptions of a consumer group.
+     *  *
      * @param string         $instanceId
      * @param string         $consumerGroupId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers         map
+     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
      *
-     * @return ListConsumerGroupSubscriptionsResponse
+     * @return ListConsumerGroupSubscriptionsResponse ListConsumerGroupSubscriptionsResponse
      */
     public function listConsumerGroupSubscriptionsWithOptions($instanceId, $consumerGroupId, $headers, $runtime)
     {
@@ -723,10 +773,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Queries the subscriptions of a consumer group.
+     *  *
      * @param string $instanceId
      * @param string $consumerGroupId
      *
-     * @return ListConsumerGroupSubscriptionsResponse
+     * @return ListConsumerGroupSubscriptionsResponse ListConsumerGroupSubscriptionsResponse
      */
     public function listConsumerGroupSubscriptions($instanceId, $consumerGroupId)
     {
@@ -737,8 +789,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Queries the consumer groups in a specified instance.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string                    $instanceId
      * @param ListConsumerGroupsRequest $request    ListConsumerGroupsRequest
      * @param string[]                  $headers    map
@@ -779,8 +833,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Queries the consumer groups in a specified instance.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string                    $instanceId
      * @param ListConsumerGroupsRequest $request    ListConsumerGroupsRequest
      *
@@ -795,8 +851,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Queries instances.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param ListInstancesRequest $request ListInstancesRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -842,8 +900,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Queries instances.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param ListInstancesRequest $request ListInstancesRequest
      *
      * @return ListInstancesResponse ListInstancesResponse
@@ -857,10 +917,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @summary 查询region列表
+     *  *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegionsWithOptions($headers, $runtime)
     {
@@ -883,7 +945,9 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @return ListRegionsResponse
+     * @summary 查询region列表
+     *  *
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegions()
     {
@@ -894,12 +958,14 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary 查询主题订阅关系列表
+     *  *
      * @param string         $instanceId
      * @param string         $topicName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListTopicSubscriptionsResponse
+     * @return ListTopicSubscriptionsResponse ListTopicSubscriptionsResponse
      */
     public function listTopicSubscriptionsWithOptions($instanceId, $topicName, $headers, $runtime)
     {
@@ -922,10 +988,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary 查询主题订阅关系列表
+     *  *
      * @param string $instanceId
      * @param string $topicName
      *
-     * @return ListTopicSubscriptionsResponse
+     * @return ListTopicSubscriptionsResponse ListTopicSubscriptionsResponse
      */
     public function listTopicSubscriptions($instanceId, $topicName)
     {
@@ -936,12 +1004,14 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Queries the topics in a specified instance.
+     *  *
      * @param string            $instanceId
-     * @param ListTopicsRequest $tmpReq
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param ListTopicsRequest $tmpReq     ListTopicsRequest
+     * @param string[]          $headers    map
+     * @param RuntimeOptions    $runtime    runtime options for this request RuntimeOptions
      *
-     * @return ListTopicsResponse
+     * @return ListTopicsResponse ListTopicsResponse
      */
     public function listTopicsWithOptions($instanceId, $tmpReq, $headers, $runtime)
     {
@@ -984,10 +1054,12 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Queries the topics in a specified instance.
+     *  *
      * @param string            $instanceId
-     * @param ListTopicsRequest $request
+     * @param ListTopicsRequest $request    ListTopicsRequest
      *
-     * @return ListTopicsResponse
+     * @return ListTopicsResponse ListTopicsResponse
      */
     public function listTopics($instanceId, $request)
     {
@@ -998,14 +1070,16 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Resets the consumer offset of a consumer group.
+     *  *
      * @param string                    $instanceId
      * @param string                    $consumerGroupId
      * @param string                    $topicName
-     * @param ResetConsumeOffsetRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ResetConsumeOffsetRequest $request         ResetConsumeOffsetRequest
+     * @param string[]                  $headers         map
+     * @param RuntimeOptions            $runtime         runtime options for this request RuntimeOptions
      *
-     * @return ResetConsumeOffsetResponse
+     * @return ResetConsumeOffsetResponse ResetConsumeOffsetResponse
      */
     public function resetConsumeOffsetWithOptions($instanceId, $consumerGroupId, $topicName, $request, $headers, $runtime)
     {
@@ -1037,12 +1111,14 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Resets the consumer offset of a consumer group.
+     *  *
      * @param string                    $instanceId
      * @param string                    $consumerGroupId
      * @param string                    $topicName
-     * @param ResetConsumeOffsetRequest $request
+     * @param ResetConsumeOffsetRequest $request         ResetConsumeOffsetRequest
      *
-     * @return ResetConsumeOffsetResponse
+     * @return ResetConsumeOffsetResponse ResetConsumeOffsetResponse
      */
     public function resetConsumeOffset($instanceId, $consumerGroupId, $topicName, $request)
     {
@@ -1053,8 +1129,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Updates the basic information about and the consumption retry policy of a consumer group.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string                     $instanceId
      * @param string                     $consumerGroupId
      * @param UpdateConsumerGroupRequest $request         UpdateConsumerGroupRequest
@@ -1096,8 +1174,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Updates the basic information about and the consumption retry policy of a consumer group.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string                     $instanceId
      * @param string                     $consumerGroupId
      * @param UpdateConsumerGroupRequest $request         UpdateConsumerGroupRequest
@@ -1113,8 +1193,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Updates the basic information and specifications of an ApsaraMQ for RocketMQ instance.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string                $instanceId
      * @param UpdateInstanceRequest $request    UpdateInstanceRequest
      * @param string[]              $headers    map
@@ -1161,8 +1243,10 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
-     *   *
+     * @summary Updates the basic information and specifications of an ApsaraMQ for RocketMQ instance.
+     *  *
+     * @description > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
+     *  *
      * @param string                $instanceId
      * @param UpdateInstanceRequest $request    UpdateInstanceRequest
      *
@@ -1177,13 +1261,15 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Updates the basic information about a topic.
+     *  *
      * @param string             $instanceId
      * @param string             $topicName
-     * @param UpdateTopicRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param UpdateTopicRequest $request    UpdateTopicRequest
+     * @param string[]           $headers    map
+     * @param RuntimeOptions     $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpdateTopicResponse
+     * @return UpdateTopicResponse UpdateTopicResponse
      */
     public function updateTopicWithOptions($instanceId, $topicName, $request, $headers, $runtime)
     {
@@ -1212,11 +1298,13 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary Updates the basic information about a topic.
+     *  *
      * @param string             $instanceId
      * @param string             $topicName
-     * @param UpdateTopicRequest $request
+     * @param UpdateTopicRequest $request    UpdateTopicRequest
      *
-     * @return UpdateTopicResponse
+     * @return UpdateTopicResponse UpdateTopicResponse
      */
     public function updateTopic($instanceId, $topicName, $request)
     {

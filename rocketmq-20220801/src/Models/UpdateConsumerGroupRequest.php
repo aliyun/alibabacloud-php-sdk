@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateConsumerGroupRequest extends Model
 {
     /**
-     * @description The new consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](~~440356~~).
+     * @description The new consumption retry policy that you want to configure for the consumer group. For more information, see [Consumption retry](https://help.aliyun.com/document_detail/440356.html).
      *
+     * This parameter is required.
      * @var consumeRetryPolicy
      */
     public $consumeRetryPolicy;
@@ -24,6 +25,7 @@ class UpdateConsumerGroupRequest extends Model
      *   Concurrently: concurrent delivery
      *   Orderly: ordered delivery
      *
+     * This parameter is required.
      * @example Concurrently
      *
      * @var string

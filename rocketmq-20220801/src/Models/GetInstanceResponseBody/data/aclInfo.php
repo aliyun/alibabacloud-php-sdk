@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class aclInfo extends Model
 {
     /**
-     * @description The authentication types of the instance. Deprecated, it is recommended to use the aclTypes field.
+     * @description The authentication type of the instance. This parameter is no longer in use. We recommend that you configure aclTypes.
      *
-     * apache_acl: apache acl authentication
+     * - default: intelligent identity authentication
+     *
+     * - apache_acl:access control list (ACL) identity authentication**
      * @example default
      *
      * @deprecated
@@ -23,14 +25,22 @@ class aclInfo extends Model
     /**
      * @description The authentication types of the instance.
      *
-     * apache_acl: apache acl authentication
      * @var string[]
      */
     public $aclTypes;
 
     /**
-     * @description No need for authentication in intranet.
+     * @description Indicates whether the authentication-free in VPCs feature is enabled.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool

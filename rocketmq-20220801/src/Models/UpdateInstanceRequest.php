@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceRequest extends Model
 {
     /**
+     * @description The access control list for the instance.
+     *
      * @var aclInfo
      */
     public $aclInfo;

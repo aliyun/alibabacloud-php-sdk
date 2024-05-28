@@ -26,7 +26,7 @@ class networkInfo extends Model
     public $internetInfo;
 
     /**
-     * @description The information about the VPC.
+     * @description The virtual private cloud (VPC) information.
      *
      * @var vpcInfo
      */
