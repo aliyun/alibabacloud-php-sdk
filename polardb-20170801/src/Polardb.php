@@ -10572,6 +10572,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->targetDBRevisionVersionCode)) {
             $query['TargetDBRevisionVersionCode'] = $request->targetDBRevisionVersionCode;
         }
+        if (!Utils::isUnset($request->targetProxyRevisionVersionCode)) {
+            $query['TargetProxyRevisionVersionCode'] = $request->targetProxyRevisionVersionCode;
+        }
         if (!Utils::isUnset($request->upgradeLabel)) {
             $query['UpgradeLabel'] = $request->upgradeLabel;
         }

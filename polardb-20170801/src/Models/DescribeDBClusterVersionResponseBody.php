@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterVersionResponseBody\DBRevisionVersionList;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterVersionResponseBody\proxyRevisionVersionList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDBClusterVersionResponseBody extends Model
@@ -114,6 +115,11 @@ class DescribeDBClusterVersionResponseBody extends Model
     public $proxyRevisionVersion;
 
     /**
+     * @var proxyRevisionVersionList[]
+     */
+    public $proxyRevisionVersionList;
+
+    /**
      * @description The status of PolarProxy. Valid values:
      *
      * - Beta: The minor version is a beta version.
@@ -132,19 +138,20 @@ class DescribeDBClusterVersionResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'DBClusterId'           => 'DBClusterId',
-        'DBLatestVersion'       => 'DBLatestVersion',
-        'DBMinorVersion'        => 'DBMinorVersion',
-        'DBRevisionVersion'     => 'DBRevisionVersion',
-        'DBRevisionVersionList' => 'DBRevisionVersionList',
-        'DBVersion'             => 'DBVersion',
-        'DBVersionStatus'       => 'DBVersionStatus',
-        'isLatestVersion'       => 'IsLatestVersion',
-        'isProxyLatestVersion'  => 'IsProxyLatestVersion',
-        'proxyLatestVersion'    => 'ProxyLatestVersion',
-        'proxyRevisionVersion'  => 'ProxyRevisionVersion',
-        'proxyVersionStatus'    => 'ProxyVersionStatus',
-        'requestId'             => 'RequestId',
+        'DBClusterId'              => 'DBClusterId',
+        'DBLatestVersion'          => 'DBLatestVersion',
+        'DBMinorVersion'           => 'DBMinorVersion',
+        'DBRevisionVersion'        => 'DBRevisionVersion',
+        'DBRevisionVersionList'    => 'DBRevisionVersionList',
+        'DBVersion'                => 'DBVersion',
+        'DBVersionStatus'          => 'DBVersionStatus',
+        'isLatestVersion'          => 'IsLatestVersion',
+        'isProxyLatestVersion'     => 'IsProxyLatestVersion',
+        'proxyLatestVersion'       => 'ProxyLatestVersion',
+        'proxyRevisionVersion'     => 'ProxyRevisionVersion',
+        'proxyRevisionVersionList' => 'ProxyRevisionVersionList',
+        'proxyVersionStatus'       => 'ProxyVersionStatus',
+        'requestId'                => 'RequestId',
     ];
 
     public function validate()
@@ -192,6 +199,15 @@ class DescribeDBClusterVersionResponseBody extends Model
         }
         if (null !== $this->proxyRevisionVersion) {
             $res['ProxyRevisionVersion'] = $this->proxyRevisionVersion;
+        }
+        if (null !== $this->proxyRevisionVersionList) {
+            $res['ProxyRevisionVersionList'] = [];
+            if (null !== $this->proxyRevisionVersionList && \is_array($this->proxyRevisionVersionList)) {
+                $n = 0;
+                foreach ($this->proxyRevisionVersionList as $item) {
+                    $res['ProxyRevisionVersionList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->proxyVersionStatus) {
             $res['ProxyVersionStatus'] = $this->proxyVersionStatus;
@@ -249,6 +265,15 @@ class DescribeDBClusterVersionResponseBody extends Model
         }
         if (isset($map['ProxyRevisionVersion'])) {
             $model->proxyRevisionVersion = $map['ProxyRevisionVersion'];
+        }
+        if (isset($map['ProxyRevisionVersionList'])) {
+            if (!empty($map['ProxyRevisionVersionList'])) {
+                $model->proxyRevisionVersionList = [];
+                $n                               = 0;
+                foreach ($map['ProxyRevisionVersionList'] as $item) {
+                    $model->proxyRevisionVersionList[$n++] = null !== $item ? proxyRevisionVersionList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ProxyVersionStatus'])) {
             $model->proxyVersionStatus = $map['ProxyVersionStatus'];

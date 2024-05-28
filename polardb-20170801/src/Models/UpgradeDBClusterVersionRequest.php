@@ -83,6 +83,11 @@ class UpgradeDBClusterVersionRequest extends Model
     public $targetDBRevisionVersionCode;
 
     /**
+     * @var string
+     */
+    public $targetProxyRevisionVersionCode;
+
+    /**
      * @description The upgrade tag. The value is fixed as **INNOVATE**.
      *
      * > *   This parameter is applicable only when you upgrade PolarDB for MySQL 8.0.1 to PolarDB for MySQL 8.0.2.
@@ -118,18 +123,19 @@ class UpgradeDBClusterVersionRequest extends Model
      */
     public $upgradeType;
     protected $_name = [
-        'DBClusterId'                 => 'DBClusterId',
-        'fromTimeService'             => 'FromTimeService',
-        'ownerAccount'                => 'OwnerAccount',
-        'ownerId'                     => 'OwnerId',
-        'plannedEndTime'              => 'PlannedEndTime',
-        'plannedStartTime'            => 'PlannedStartTime',
-        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
-        'resourceOwnerId'             => 'ResourceOwnerId',
-        'targetDBRevisionVersionCode' => 'TargetDBRevisionVersionCode',
-        'upgradeLabel'                => 'UpgradeLabel',
-        'upgradePolicy'               => 'UpgradePolicy',
-        'upgradeType'                 => 'UpgradeType',
+        'DBClusterId'                    => 'DBClusterId',
+        'fromTimeService'                => 'FromTimeService',
+        'ownerAccount'                   => 'OwnerAccount',
+        'ownerId'                        => 'OwnerId',
+        'plannedEndTime'                 => 'PlannedEndTime',
+        'plannedStartTime'               => 'PlannedStartTime',
+        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
+        'resourceOwnerId'                => 'ResourceOwnerId',
+        'targetDBRevisionVersionCode'    => 'TargetDBRevisionVersionCode',
+        'targetProxyRevisionVersionCode' => 'TargetProxyRevisionVersionCode',
+        'upgradeLabel'                   => 'UpgradeLabel',
+        'upgradePolicy'                  => 'UpgradePolicy',
+        'upgradeType'                    => 'UpgradeType',
     ];
 
     public function validate()
@@ -165,6 +171,9 @@ class UpgradeDBClusterVersionRequest extends Model
         }
         if (null !== $this->targetDBRevisionVersionCode) {
             $res['TargetDBRevisionVersionCode'] = $this->targetDBRevisionVersionCode;
+        }
+        if (null !== $this->targetProxyRevisionVersionCode) {
+            $res['TargetProxyRevisionVersionCode'] = $this->targetProxyRevisionVersionCode;
         }
         if (null !== $this->upgradeLabel) {
             $res['UpgradeLabel'] = $this->upgradeLabel;
@@ -213,6 +222,9 @@ class UpgradeDBClusterVersionRequest extends Model
         }
         if (isset($map['TargetDBRevisionVersionCode'])) {
             $model->targetDBRevisionVersionCode = $map['TargetDBRevisionVersionCode'];
+        }
+        if (isset($map['TargetProxyRevisionVersionCode'])) {
+            $model->targetProxyRevisionVersionCode = $map['TargetProxyRevisionVersionCode'];
         }
         if (isset($map['UpgradeLabel'])) {
             $model->upgradeLabel = $map['UpgradeLabel'];
