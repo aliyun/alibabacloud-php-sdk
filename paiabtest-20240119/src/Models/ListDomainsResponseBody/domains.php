@@ -16,6 +16,11 @@ class domains extends Model
     /**
      * @var string
      */
+    public $buckets;
+
+    /**
+     * @var string
+     */
     public $condition;
 
     /**
@@ -89,6 +94,7 @@ class domains extends Model
     public $workspaceId;
     protected $_name = [
         'bucketType'      => 'BucketType',
+        'buckets'         => 'Buckets',
         'condition'       => 'Condition',
         'crowdIds'        => 'CrowdIds',
         'debugUsers'      => 'DebugUsers',
@@ -115,6 +121,9 @@ class domains extends Model
         $res = [];
         if (null !== $this->bucketType) {
             $res['BucketType'] = $this->bucketType;
+        }
+        if (null !== $this->buckets) {
+            $res['Buckets'] = $this->buckets;
         }
         if (null !== $this->condition) {
             $res['Condition'] = $this->condition;
@@ -175,6 +184,9 @@ class domains extends Model
         $model = new self();
         if (isset($map['BucketType'])) {
             $model->bucketType = $map['BucketType'];
+        }
+        if (isset($map['Buckets'])) {
+            $model->buckets = $map['Buckets'];
         }
         if (isset($map['Condition'])) {
             $model->condition = $map['Condition'];
