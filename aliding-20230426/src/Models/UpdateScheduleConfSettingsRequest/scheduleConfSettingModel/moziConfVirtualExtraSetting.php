@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class moziConfVirtualExtraSetting extends Model
 {
     /**
+     * @var string
+     */
+    public $cloudRecordOwnerUserId;
+
+    /**
      * @example 1
      *
      * @var int
@@ -42,17 +47,42 @@ class moziConfVirtualExtraSetting extends Model
     public $lockNick;
 
     /**
+     * @var string
+     */
+    public $minutesOwnerUserId;
+
+    /**
+     * @var bool
+     */
+    public $pushAllMeetingRecords;
+
+    /**
+     * @var bool
+     */
+    public $pushCloudRecordCard;
+
+    /**
+     * @var bool
+     */
+    public $pushMinutesCard;
+
+    /**
      * @example 1
      *
      * @var int
      */
     public $waitingRoom;
     protected $_name = [
+        'cloudRecordOwnerUserId' => 'CloudRecordOwnerUserId',
         'enableChat'             => 'EnableChat',
         'enableWebAnonymousJoin' => 'EnableWebAnonymousJoin',
         'joinBeforeHost'         => 'JoinBeforeHost',
         'lockMediaStatusMicMute' => 'LockMediaStatusMicMute',
         'lockNick'               => 'LockNick',
+        'minutesOwnerUserId'     => 'MinutesOwnerUserId',
+        'pushAllMeetingRecords'  => 'PushAllMeetingRecords',
+        'pushCloudRecordCard'    => 'PushCloudRecordCard',
+        'pushMinutesCard'        => 'PushMinutesCard',
         'waitingRoom'            => 'WaitingRoom',
     ];
 
@@ -63,6 +93,9 @@ class moziConfVirtualExtraSetting extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cloudRecordOwnerUserId) {
+            $res['CloudRecordOwnerUserId'] = $this->cloudRecordOwnerUserId;
+        }
         if (null !== $this->enableChat) {
             $res['EnableChat'] = $this->enableChat;
         }
@@ -77,6 +110,18 @@ class moziConfVirtualExtraSetting extends Model
         }
         if (null !== $this->lockNick) {
             $res['LockNick'] = $this->lockNick;
+        }
+        if (null !== $this->minutesOwnerUserId) {
+            $res['MinutesOwnerUserId'] = $this->minutesOwnerUserId;
+        }
+        if (null !== $this->pushAllMeetingRecords) {
+            $res['PushAllMeetingRecords'] = $this->pushAllMeetingRecords;
+        }
+        if (null !== $this->pushCloudRecordCard) {
+            $res['PushCloudRecordCard'] = $this->pushCloudRecordCard;
+        }
+        if (null !== $this->pushMinutesCard) {
+            $res['PushMinutesCard'] = $this->pushMinutesCard;
         }
         if (null !== $this->waitingRoom) {
             $res['WaitingRoom'] = $this->waitingRoom;
@@ -93,6 +138,9 @@ class moziConfVirtualExtraSetting extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CloudRecordOwnerUserId'])) {
+            $model->cloudRecordOwnerUserId = $map['CloudRecordOwnerUserId'];
+        }
         if (isset($map['EnableChat'])) {
             $model->enableChat = $map['EnableChat'];
         }
@@ -107,6 +155,18 @@ class moziConfVirtualExtraSetting extends Model
         }
         if (isset($map['LockNick'])) {
             $model->lockNick = $map['LockNick'];
+        }
+        if (isset($map['MinutesOwnerUserId'])) {
+            $model->minutesOwnerUserId = $map['MinutesOwnerUserId'];
+        }
+        if (isset($map['PushAllMeetingRecords'])) {
+            $model->pushAllMeetingRecords = $map['PushAllMeetingRecords'];
+        }
+        if (isset($map['PushCloudRecordCard'])) {
+            $model->pushCloudRecordCard = $map['PushCloudRecordCard'];
+        }
+        if (isset($map['PushMinutesCard'])) {
+            $model->pushMinutesCard = $map['PushMinutesCard'];
         }
         if (isset($map['WaitingRoom'])) {
             $model->waitingRoom = $map['WaitingRoom'];

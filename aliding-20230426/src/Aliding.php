@@ -632,6 +632,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceInfoHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceInfoRequest;
@@ -11321,6 +11326,76 @@ class Aliding extends OpenApiClient
         $headers = new QueryOrgTodoTasksHeaders([]);
 
         return $this->queryOrgTodoTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取日志详情
+     *  *
+     * @param QueryReportDetailRequest $tmpReq    QueryReportDetailRequest
+     * @param QueryReportDetailHeaders $tmpHeader QueryReportDetailHeaders
+     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return QueryReportDetailResponse QueryReportDetailResponse
+     */
+    public function queryReportDetailWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryReportDetailShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new QueryReportDetailShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->reportId)) {
+            $body['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryReportDetail',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/log/queryReportDetail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryReportDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取日志详情
+     *  *
+     * @param QueryReportDetailRequest $request QueryReportDetailRequest
+     *
+     * @return QueryReportDetailResponse QueryReportDetailResponse
+     */
+    public function queryReportDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryReportDetailHeaders([]);
+
+        return $this->queryReportDetailWithOptions($request, $headers, $runtime);
     }
 
     /**
