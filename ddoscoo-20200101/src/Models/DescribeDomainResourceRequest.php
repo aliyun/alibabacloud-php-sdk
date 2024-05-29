@@ -36,6 +36,7 @@ class DescribeDomainResourceRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

@@ -11,7 +11,7 @@ class DescribeWebPreciseAccessRuleRequest extends Model
     /**
      * @description An array that consists of the domain names of websites.
      *
-     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string[]

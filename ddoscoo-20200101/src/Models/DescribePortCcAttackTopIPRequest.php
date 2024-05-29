@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePortCcAttackTopIPRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 203.107.XX.XX
      *
      * @var string
@@ -23,6 +25,8 @@ class DescribePortCcAttackTopIPRequest extends Model
     public $limit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 6663
      *
      * @var string
@@ -30,6 +34,8 @@ class DescribePortCcAttackTopIPRequest extends Model
     public $port;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1678017453
      *
      * @var int

@@ -11,7 +11,7 @@ class DescribeInstanceStatisticsRequest extends Model
     /**
      * @description The ID of the instance that you want to query.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string[]

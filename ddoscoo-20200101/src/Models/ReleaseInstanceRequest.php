@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string

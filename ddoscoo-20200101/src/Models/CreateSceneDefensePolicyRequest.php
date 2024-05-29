@@ -11,6 +11,7 @@ class CreateSceneDefensePolicyRequest extends Model
     /**
      * @description The end time of the policy. This value is a UNIX timestamp. Units: milliseconds.
      *
+     * This parameter is required.
      * @example 1586016000000
      *
      * @var int
@@ -20,6 +21,7 @@ class CreateSceneDefensePolicyRequest extends Model
     /**
      * @description The name of the policy.
      *
+     * This parameter is required.
      * @example testpolicy
      *
      * @var string
@@ -29,6 +31,7 @@ class CreateSceneDefensePolicyRequest extends Model
     /**
      * @description The start time of the policy. This value is a UNIX timestamp. Units: milliseconds.
      *
+     * This parameter is required.
      * @example 1585670400000
      *
      * @var int
@@ -41,6 +44,7 @@ class CreateSceneDefensePolicyRequest extends Model
      *   **promotion**: important activity
      *   **bypass**: all traffic forwarded
      *
+     * This parameter is required.
      * @example promotion
      *
      * @var string

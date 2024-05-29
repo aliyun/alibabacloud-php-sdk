@@ -11,6 +11,7 @@ class DescribeDDosAllEventListRequest extends Model
     /**
      * @description The end of the time range to query. The DDoS attack events occur before **EndTime** are queried. This value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1640966399
      *
      * @var int
@@ -35,6 +36,7 @@ class DescribeDDosAllEventListRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -44,6 +46,7 @@ class DescribeDDosAllEventListRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -53,6 +56,7 @@ class DescribeDDosAllEventListRequest extends Model
     /**
      * @description The beginning of the time range to query. The DDoS attack events occur after **StartTime** are queried. This value is a UNIX timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1609430400
      *
      * @var int

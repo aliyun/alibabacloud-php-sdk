@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticQpsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1684339200
      *
      * @var int
@@ -30,6 +32,8 @@ class DescribeElasticQpsRequest extends Model
     public $ip;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn
      *
      * @var string
@@ -37,6 +41,8 @@ class DescribeElasticQpsRequest extends Model
     public $region;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1684252800
      *
      * @var int

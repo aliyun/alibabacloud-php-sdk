@@ -11,7 +11,7 @@ class ModifyWebPreciseAccessRuleRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example example.aliyundoc.com
      *
      * @var string
@@ -65,6 +65,7 @@ class ModifyWebPreciseAccessRuleRequest extends Model
      *
      *   **header_name**: the HTTP header. This parameter is optional and must be of the string type. This parameter takes effect only when **field** is **header**.
      *
+     * This parameter is required.
      * @example [{"action":"block","name":"testrule","condition":[{"field":"uri","match_method":"contain","content":"/test/123"}]}]
      *
      * @var string

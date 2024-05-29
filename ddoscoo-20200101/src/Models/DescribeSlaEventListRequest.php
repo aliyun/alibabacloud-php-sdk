@@ -11,7 +11,7 @@ class DescribeSlaEventListRequest extends Model
     /**
      * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
-     * >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * This parameter is required.
      * @example 3289457398
      *
      * @var int
@@ -51,6 +51,7 @@ class DescribeSlaEventListRequest extends Model
      *   **cn**: Anti-DDoS Pro
      *   **cn-hongkong**: Anti-DDoS Premium
      *
+     * This parameter is required.
      * @example cn
      *
      * @var string
@@ -60,7 +61,7 @@ class DescribeSlaEventListRequest extends Model
     /**
      * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
-     * >  This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * This parameter is required.
      * @example 3289457398
      *
      * @var int

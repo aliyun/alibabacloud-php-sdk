@@ -13,6 +13,7 @@ class ModifyNetworkRuleAttributeRequest extends Model
      *
      *   **PersistenceTimeout**: The timeout period of session persistence. This field is required and must be of the integer type. Valid values: **30** to **3600**. Unit: seconds. Default value: **0**. A value of 0 indicates that session persistence is disabled.
      *
+     * This parameter is required.
      * @example {"PersistenceTimeout":900}
      *
      * @var string
@@ -25,6 +26,7 @@ class ModifyNetworkRuleAttributeRequest extends Model
      *   **tcp**
      *   **udp**
      *
+     * This parameter is required.
      * @example tcp
      *
      * @var string
@@ -34,6 +36,7 @@ class ModifyNetworkRuleAttributeRequest extends Model
     /**
      * @description The forwarding port.
      *
+     * This parameter is required.
      * @example 8080
      *
      * @var int
@@ -43,7 +46,7 @@ class ModifyNetworkRuleAttributeRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string

@@ -13,6 +13,7 @@ class DeleteAutoCcBlacklistRequest extends Model
      *
      *   **src**: the IP address. This field is required and must be of the STRING type.
      *
+     * This parameter is required.
      * @example [{"src":"198.51.XX.XX"},{"src":"198.52.XX.XX"}]
      *
      * @var string
@@ -22,7 +23,7 @@ class DeleteAutoCcBlacklistRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string

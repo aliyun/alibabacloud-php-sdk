@@ -11,7 +11,7 @@ class ModifyOcspStatusRequest extends Model
     /**
      * @description The domain name for which you want to configure the Static Page Caching policy.
      *
-     * > You can call the [DescribeDomains](~~91724~~) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+     * This parameter is required.
      * @example click.linktech.cn
      *
      * @var string
@@ -24,6 +24,7 @@ class ModifyOcspStatusRequest extends Model
      *   **1**: yes
      *   **0**: no
      *
+     * This parameter is required.
      * @var int
      */
     public $enable;

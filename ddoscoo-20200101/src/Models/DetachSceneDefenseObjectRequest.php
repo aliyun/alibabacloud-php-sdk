@@ -20,6 +20,7 @@ class DetachSceneDefenseObjectRequest extends Model
     /**
      * @description The protection asset that you want to remove from a policy. Separate multiple protection assets with commas (,).
      *
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string
@@ -29,7 +30,7 @@ class DetachSceneDefenseObjectRequest extends Model
     /**
      * @description The ID of the policy.
      *
-     * > You can call the [DescribeSceneDefensePolicies](~~159382~~) operation to query the IDs of all policies.
+     * This parameter is required.
      * @example 321a-fd31-df51-****
      *
      * @var string

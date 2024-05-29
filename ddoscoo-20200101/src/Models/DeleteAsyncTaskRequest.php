@@ -20,7 +20,7 @@ class DeleteAsyncTaskRequest extends Model
     /**
      * @description The ID of the task that you want to delete.
      *
-     * > You can call the [DescribeAsyncTasks](~~159405~~) operation to query the IDs of all asynchronous export tasks.
+     * This parameter is required.
      * @example 1
      *
      * @var int

@@ -11,7 +11,7 @@ class DescribeTotalAttackMaxFlowRequest extends Model
     /**
      * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
-     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * This parameter is required.
      * @example 1659697200
      *
      * @var int
@@ -21,6 +21,7 @@ class DescribeTotalAttackMaxFlowRequest extends Model
     /**
      * @description The IDs of the instances. Separate multiple instance IDs with commas (,). Example: InstanceIds.1, InstanceIds.2, InstanceIds.3.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $instanceIds;
@@ -37,7 +38,7 @@ class DescribeTotalAttackMaxFlowRequest extends Model
     /**
      * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
-     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * This parameter is required.
      * @example 1669240800
      *
      * @var int

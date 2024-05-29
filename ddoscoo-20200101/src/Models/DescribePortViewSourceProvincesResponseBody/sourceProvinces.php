@@ -21,7 +21,7 @@ class sourceProvinces extends Model
     /**
      * @description The ID of the administrative region in China from which the requests are sent. For example, **110000** indicates Beijing, and **120000** indicates Tianjin.
      *
-     * > For more information, see [Location parameters](~~167926~~).
+     * > For more information, see [Location parameters](https://help.aliyun.com/document_detail/167926.html).
      * @example 440000
      *
      * @var string

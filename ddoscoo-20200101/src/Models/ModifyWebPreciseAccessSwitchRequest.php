@@ -16,6 +16,7 @@ class ModifyWebPreciseAccessSwitchRequest extends Model
      *   **0**: disables the policy.
      *   **1**: enables the policy.
      *
+     * This parameter is required.
      * @example {"PreciseRuleEnable":0}
      *
      * @var string
@@ -25,7 +26,7 @@ class ModifyWebPreciseAccessSwitchRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string

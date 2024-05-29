@@ -11,7 +11,7 @@ class DescribePortViewSourceIspsRequest extends Model
     /**
      * @description The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
      *
-     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * This parameter is required.
      * @example 1583683200
      *
      * @var int
@@ -21,6 +21,7 @@ class DescribePortViewSourceIspsRequest extends Model
     /**
      * @description An array that consists of the IDs of instances to query.
      *
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string[]
@@ -40,7 +41,7 @@ class DescribePortViewSourceIspsRequest extends Model
     /**
      * @description The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
      *
-     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * This parameter is required.
      * @example 1582992000
      *
      * @var int

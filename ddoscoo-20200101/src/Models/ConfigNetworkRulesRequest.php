@@ -18,6 +18,8 @@ class ConfigNetworkRulesRequest extends Model
      *   **RealServers**: the IP addresses of the origin server. This field is required and must be a JSON array. You can specify up to 20 IP addresses.
      *
      * > You can modify only the value of **RealServers** when you modify a port forwarding rule.
+     *
+     * This parameter is required.
      * @example [{"InstanceId":"ddoscoo-cn-mp91j1ao****","Protocol":"tcp","FrontendPort":8080,"BackendPort":8080,"RealServers":["1.1.1.1","2.2.2.2","3.3.3.3"]}]
      *
      * @var string

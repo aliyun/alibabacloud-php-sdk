@@ -11,7 +11,7 @@ class ModifyWebCacheCustomRuleRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for the domain name, and the domain name must be associated with an instance that uses the Enhanced function plan. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string
@@ -42,6 +42,7 @@ class ModifyWebCacheCustomRuleRequest extends Model
      *
      *   **CacheTtl**: the expiration time of the page cache. This field is required and must be of the INTEGER type. Unit: seconds.
      *
+     * This parameter is required.
      * @example [{"Name": "test","Uri": "/a","Mode": "standard","CacheTtl": 3600}]
      *
      * @var string

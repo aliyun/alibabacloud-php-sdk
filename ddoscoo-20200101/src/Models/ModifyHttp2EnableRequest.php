@@ -11,7 +11,7 @@ class ModifyHttp2EnableRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for the domain name, and the domain name must be associated with an instance that uses the Enhanced function plan. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string
@@ -24,6 +24,7 @@ class ModifyHttp2EnableRequest extends Model
      *   **0**: disables HTTP/2.
      *   **1**: enables HTTP/2.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

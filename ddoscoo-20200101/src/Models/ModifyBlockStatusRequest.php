@@ -21,7 +21,7 @@ class ModifyBlockStatusRequest extends Model
     /**
      * @description The ID of the Anti-DDoS Pro instance to manage.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string
@@ -31,6 +31,7 @@ class ModifyBlockStatusRequest extends Model
     /**
      * @description An array consisting of the Internet service provider (ISP) lines from which traffic is blocked.
      *
+     * This parameter is required.
      * @example ct
      *
      * @var string[]
@@ -43,6 +44,7 @@ class ModifyBlockStatusRequest extends Model
      *   **do**: enables the policy.
      *   **undo**: disables the policy.
      *
+     * This parameter is required.
      * @example do
      *
      * @var string

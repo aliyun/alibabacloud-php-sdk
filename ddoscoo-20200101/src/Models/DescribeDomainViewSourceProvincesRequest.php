@@ -11,7 +11,7 @@ class DescribeDomainViewSourceProvincesRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
      * @example www.aliyun.com
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeDomainViewSourceProvincesRequest extends Model
     /**
      * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
-     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * This parameter is required.
      * @example 1583683200
      *
      * @var int
@@ -40,7 +40,7 @@ class DescribeDomainViewSourceProvincesRequest extends Model
     /**
      * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
-     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * This parameter is required.
      * @example 1582992000
      *
      * @var int

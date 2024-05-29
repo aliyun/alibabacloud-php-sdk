@@ -22,6 +22,7 @@ class ModifyWebAIProtectModeRequest extends Model
      *   **watch**: the Warning mode
      *   **defense**: the Defense mode
      *
+     * This parameter is required.
      * @example {"AiTemplate":"level60","AiMode":"defense"}
      *
      * @var string
@@ -31,7 +32,7 @@ class ModifyWebAIProtectModeRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string

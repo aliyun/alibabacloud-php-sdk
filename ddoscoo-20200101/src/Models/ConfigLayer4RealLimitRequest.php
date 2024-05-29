@@ -11,7 +11,7 @@ class ConfigLayer4RealLimitRequest extends Model
     /**
      * @description The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-XXXXX
      *
      * @var string
@@ -21,6 +21,7 @@ class ConfigLayer4RealLimitRequest extends Model
     /**
      * @description Specifies the threshold of the clean bandwidth. Valid values: 0 to 15360. The value 0 indicates that rate limiting is never triggered. Unit: Mbit/s
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

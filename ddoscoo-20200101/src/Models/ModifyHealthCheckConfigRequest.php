@@ -14,6 +14,7 @@ class ModifyHealthCheckConfigRequest extends Model
      *   **tcp**
      *   **udp**
      *
+     * This parameter is required.
      * @example tcp
      *
      * @var string
@@ -23,6 +24,7 @@ class ModifyHealthCheckConfigRequest extends Model
     /**
      * @description The forwarding port.
      *
+     * This parameter is required.
      * @example 8080
      *
      * @var int
@@ -56,6 +58,7 @@ class ModifyHealthCheckConfigRequest extends Model
      *
      *   **Down**: the number of consecutive failed health checks that must occur before declaring a port unhealthy, which must be of the INTEGER type. Valid values: **1** to **10**.
      *
+     * This parameter is required.
      * @example {"Type":"tcp","Timeout":10,"Port":8080,"Interval":10,"Up":10,"Down":40}
      *
      * @var string
@@ -65,7 +68,7 @@ class ModifyHealthCheckConfigRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string

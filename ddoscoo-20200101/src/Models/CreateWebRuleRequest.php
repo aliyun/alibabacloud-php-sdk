@@ -23,6 +23,7 @@ class CreateWebRuleRequest extends Model
     /**
      * @description The domain name of the website that you want to add to the instance.
      *
+     * This parameter is required.
      * @example example.aliyundoc.com
      *
      * @var string
@@ -61,7 +62,7 @@ class CreateWebRuleRequest extends Model
     /**
      * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
      *
-     * For more information about resource groups, see [Create a resource group](~~94485~~).
+     * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
      * @example rg-acfm2pz25js****
      *
      * @var string
@@ -74,6 +75,7 @@ class CreateWebRuleRequest extends Model
      *   **0**: IP address
      *   **1**: domain name The domain name of the origin server is returned if you deploy proxies, such as Web Application Firewall (WAF), between the origin server and the instance. In this case, the address of the proxy, such as the CNAME provided by WAF, is returned.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -90,6 +92,7 @@ class CreateWebRuleRequest extends Model
      *
      *   **ProxyType**: the protocol type. This field is required and must be a string. Valid values: **http**, **https**, **websocket**, and **websockets**.
      *
+     * This parameter is required.
      * @example [{"ProxyRules":[{"ProxyPort":443,"RealServers":["192.1.XX.XX"]}],"ProxyType":"https"}]
      *
      * @var string

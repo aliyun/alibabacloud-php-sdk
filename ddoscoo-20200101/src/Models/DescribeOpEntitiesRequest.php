@@ -11,7 +11,7 @@ class DescribeOpEntitiesRequest extends Model
     /**
      * @description The end of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
      *
-     * > The time must be in the latest 30 days.
+     * This parameter is required.
      * @example 1583683200000
      *
      * @var int
@@ -44,6 +44,7 @@ class DescribeOpEntitiesRequest extends Model
     /**
      * @description The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -53,6 +54,7 @@ class DescribeOpEntitiesRequest extends Model
     /**
      * @description The number of entries to return on each page. Maximum value: **50**.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -71,7 +73,7 @@ class DescribeOpEntitiesRequest extends Model
     /**
      * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: milliseconds.
      *
-     * > The time must be in the latest 30 days.
+     * This parameter is required.
      * @example 1582992000000
      *
      * @var int

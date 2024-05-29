@@ -21,7 +21,7 @@ class AddAutoCcWhitelistRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string
@@ -33,6 +33,7 @@ class AddAutoCcWhitelistRequest extends Model
      *
      *   **src**: the IP address that you want to add. This parameter is required. Data type: string.
      *
+     * This parameter is required.
      * @example [{"src":"192.XX.XX.1"},{"src":"192.XX.XX.2"}]
      *
      * @var string

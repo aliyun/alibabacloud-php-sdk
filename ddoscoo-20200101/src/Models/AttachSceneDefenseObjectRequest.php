@@ -11,6 +11,7 @@ class AttachSceneDefenseObjectRequest extends Model
     /**
      * @description The type of the object. Set the value to **Domain**, which indicates a domain name.
      *
+     * This parameter is required.
      * @example Domain
      *
      * @var string
@@ -20,6 +21,7 @@ class AttachSceneDefenseObjectRequest extends Model
     /**
      * @description The object that you want to add to the policy. Separate multiple objects with commas (,).
      *
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string
@@ -29,7 +31,7 @@ class AttachSceneDefenseObjectRequest extends Model
     /**
      * @description The ID of the policy.
      *
-     * > You can call the [DescribeSceneDefensePolicies](~~159382~~) operation to query the IDs of all policies.
+     * This parameter is required.
      * @example 321a-fd31-df51-****
      *
      * @var string

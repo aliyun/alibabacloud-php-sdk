@@ -15,6 +15,7 @@ class ModifyWebAccessModeRequest extends Model
      *   **1**: anti-DDoS mode
      *   **2**: origin redundancy mode
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -24,7 +25,7 @@ class ModifyWebAccessModeRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string

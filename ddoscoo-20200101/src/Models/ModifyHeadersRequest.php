@@ -16,8 +16,8 @@ class ModifyHeadersRequest extends Model
      *   Do not use X-Forwarded-ClientSrcPort as a custom header.
      *   Do not use a standard HTTP header such as User-Agent. If you use a standard HTTP header, the original header may be overwritten.
      *
-     * > If you set Key to X-Forwarded-ClientSrcPort, the actual source port of the client that accesses Anti-DDoS Pro or Anti-DDoS Premium (a Layer 7 proxy) is obtained. In this case, the Value is "".
-     * @example {\"X-Forwarded-ClientSrcPort\":\"\"}
+     * This parameter is required.
+     * @example {\\"X-Forwarded-ClientSrcPort\\":\\"\\"}
      *
      * @var string
      */
@@ -26,7 +26,7 @@ class ModifyHeadersRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example example.aliyundoc.com
      *
      * @var string
@@ -38,9 +38,9 @@ class ModifyHeadersRequest extends Model
      *
      * >
      *
-     *   You can query resource group IDs in the Anti-DDoS Pro or Anti-DDoS Premium console or by calling the [ListResourceGroups](~~158855~~) operation. For more information, see [View basic information of a resource group](~~151181~~).
+     *   You can query resource group IDs in the Anti-DDoS Pro or Anti-DDoS Premium console or by calling the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation. For more information, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
      *
-     *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](~~158866~~) operation to view the current resource group of the instance.
+     *   Before you modify the resource group to which an instance belongs, you can call the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the current resource group of the instance.
      *
      * @example rg-acfmz6jbof5****
      *

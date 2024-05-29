@@ -30,7 +30,8 @@ class ConfigUdpReflectRequest extends Model
      *   UDP 3389: RDP reflection attacks
      *   UDP 11211: memcached reflection attacks
      *
-     * @example {\"UdpSports\":[17,19]}
+     * This parameter is required.
+     * @example {\\"UdpSports\\":[17,19]}
      *
      * @var string
      */
@@ -39,7 +40,7 @@ class ConfigUdpReflectRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-i7m25564****
      *
      * @var string

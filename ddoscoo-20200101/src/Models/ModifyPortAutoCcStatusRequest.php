@@ -11,7 +11,7 @@ class ModifyPortAutoCcStatusRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string
@@ -25,6 +25,7 @@ class ModifyPortAutoCcStatusRequest extends Model
      *   **loose**
      *   **strict**
      *
+     * This parameter is required.
      * @example normal
      *
      * @var string
@@ -37,6 +38,7 @@ class ModifyPortAutoCcStatusRequest extends Model
      *   **on**: enables the policy.
      *   **off**: disables the policy.
      *
+     * This parameter is required.
      * @example on
      *
      * @var string

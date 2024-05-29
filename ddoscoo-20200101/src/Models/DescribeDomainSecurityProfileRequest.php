@@ -11,7 +11,7 @@ class DescribeDomainSecurityProfileRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example example.aliyundoc.com
      *
      * @var string

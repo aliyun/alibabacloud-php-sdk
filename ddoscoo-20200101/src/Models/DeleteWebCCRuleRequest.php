@@ -11,7 +11,7 @@ class DeleteWebCCRuleRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for a domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string
@@ -21,6 +21,7 @@ class DeleteWebCCRuleRequest extends Model
     /**
      * @description The name of the custom frequency control rule that you want to delete.
      *
+     * This parameter is required.
      * @example wq
      *
      * @var string

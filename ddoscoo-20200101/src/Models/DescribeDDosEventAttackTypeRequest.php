@@ -14,6 +14,7 @@ class DescribeDDosEventAttackTypeRequest extends Model
      *   **defense**: attack events that trigger traffic scrubbing
      *   **blackhole**: attack events that trigger blackhole filtering
      *
+     * This parameter is required.
      * @example defense
      *
      * @var string
@@ -23,6 +24,7 @@ class DescribeDDosEventAttackTypeRequest extends Model
     /**
      * @description The IP address of the attacked Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
+     * This parameter is required.
      * @example 203.***.***.199
      *
      * @var string
@@ -32,7 +34,7 @@ class DescribeDDosEventAttackTypeRequest extends Model
     /**
      * @description The UNIX timestamp when the query starts. Unit: seconds.
      *
-     * > You can call the [DescribeDDosAllEventList](~~188604~~) operation to query the beginning time of all attack events.
+     * This parameter is required.
      * @example 1598948471
      *
      * @var int

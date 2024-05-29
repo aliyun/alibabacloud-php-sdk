@@ -15,6 +15,7 @@ class DescribePortFlowListRequest extends Model
      *
      **This UNIX timestamp must indicate a point in time that is accurate to the minute.
      *
+     * This parameter is required.
      * @example 1583683200
      *
      * @var int
@@ -24,6 +25,7 @@ class DescribePortFlowListRequest extends Model
     /**
      * @description An array that consists of the IDs of instances.
      *
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string[]
@@ -40,6 +42,7 @@ class DescribePortFlowListRequest extends Model
      *   If the time range to query is greater than 7 days but no greater than 15 days, we recommend that you specify the interval from 14,400 seconds to the time range to query.
      *   If the time range to query is greater than 15 days, we recommend that you specify the interval from 43,200 seconds to the time range to query.
      *
+     * This parameter is required.
      * @example 1000
      *
      * @var int
@@ -49,7 +52,7 @@ class DescribePortFlowListRequest extends Model
     /**
      * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
      *
-     * For more information about resource groups, see [Create a resource group](~~94485~~).
+     * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
      * @example rg-acfm2pz25js****
      *
      * @var string
@@ -63,6 +66,7 @@ class DescribePortFlowListRequest extends Model
      *
      **This UNIX timestamp must indicate a point in time that is accurate to the minute.
      *
+     * This parameter is required.
      * @example 1582992000
      *
      * @var int

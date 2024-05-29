@@ -11,6 +11,7 @@ class ModifyPortRequest extends Model
     /**
      * @description The port of the origin server. Valid values: **0** to **65535**.
      *
+     * This parameter is required.
      * @example 55
      *
      * @var string
@@ -20,6 +21,7 @@ class ModifyPortRequest extends Model
     /**
      * @description The forwarding port. Valid values: **0** to **65535**.
      *
+     * This parameter is required.
      * @example 55
      *
      * @var string
@@ -32,6 +34,7 @@ class ModifyPortRequest extends Model
      *   **tcp**
      *   **udp**
      *
+     * This parameter is required.
      * @example tcp
      *
      * @var string
@@ -41,7 +44,7 @@ class ModifyPortRequest extends Model
     /**
      * @description The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance to which the port forwarding rule belongs.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-st21zbyq****
      *
      * @var string
@@ -51,6 +54,7 @@ class ModifyPortRequest extends Model
     /**
      * @description An array that consists of the IP addresses of origin servers.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $realServers;

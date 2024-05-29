@@ -28,6 +28,7 @@ class CreateAsyncTaskRequest extends Model
      *
      *   **domain**: the domain name of the website, which must be of the STRING type. If you do not specify this field, the forwarding rules of all websites are exported.
      *
+     * This parameter is required.
      * @example {"instanceId": "ddoscoo-cn-mp91j1ao****"}
      *
      * @var string
@@ -44,6 +45,7 @@ class CreateAsyncTaskRequest extends Model
      *   **5**: the task to download the blacklist for destination IP addresses of an instance
      *   **6**: the task to download the whitelist for destination IP addresses of an instance
      *
+     * This parameter is required.
      * @example 5
      *
      * @var int

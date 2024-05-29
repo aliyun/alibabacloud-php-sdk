@@ -38,7 +38,8 @@ class ConfigLayer4RulePolicyRequest extends Model
      *   **1**: the primary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the primary origin server.
      *   **2**: the secondary origin server, which indicates that Anti-DDoS Pro or Anti-DDoS Premium forwards service traffic to the IP addresses of the secondary origin server.
      *
-     * @example [{\"InstanceId\":\"ddosDip-sg-4hr2b3l****\",\"Protocol\":\"udp\",\"FrontendPort\":2020,\"BackendPort\":2022,\"PriRealServers\":[{\"RealServer\":\"192.0.2.1\"},{\"RealServer\":\"192.0.2.2\"}],\"SecRealServers\":[{\"RealServer\":\"192.0.2.3\"},{\"RealServer\":\"192.0.2.4\"}],\"CurrentRsIndex\":1}]
+     * This parameter is required.
+     * @example [{\\"InstanceId\\":\\"ddosDip-sg-4hr2b3l****\\",\\"Protocol\\":\\"udp\\",\\"FrontendPort\\":2020,\\"BackendPort\\":2022,\\"PriRealServers\\":[{\\"RealServer\\":\\"192.0.2.1\\"},{\\"RealServer\\":\\"192.0.2.2\\"}],\\"SecRealServers\\":[{\\"RealServer\\":\\"192.0.2.3\\"},{\\"RealServer\\":\\"192.0.2.4\\"}],\\"CurrentRsIndex\\":1}]
      *
      * @var string
      */

@@ -21,7 +21,7 @@ class DescribeDDoSEventsRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string[]
@@ -31,6 +31,7 @@ class DescribeDDoSEventsRequest extends Model
     /**
      * @description The number of the page to return. For example, to query the returned results on the first page, set the value to **1**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -40,6 +41,7 @@ class DescribeDDoSEventsRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -58,7 +60,7 @@ class DescribeDDoSEventsRequest extends Model
     /**
      * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
      *
-     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * This parameter is required.
      * @example 1582992000
      *
      * @var int

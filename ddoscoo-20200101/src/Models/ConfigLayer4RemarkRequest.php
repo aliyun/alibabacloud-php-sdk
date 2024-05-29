@@ -18,7 +18,8 @@ class ConfigLayer4RemarkRequest extends Model
      *   **FrontendPort**: the forwarding port. This field is required and must be of the INTEGER type.
      *   **Remark**: the remarks of the port forwarding rule. This field is required and must be of the STRING type. The value can contain letters, digits, and some special characters, such as `, . + - * / _`. The value can be up to 200 characters in length.
      *
-     * @example [{\"InstanceId\":\"ddosDip-sg-4hr2b3l****\",\"FrontendPort\":2020,\"Protocol\":\"udp\",\"Remark\":\"test\"}]
+     * This parameter is required.
+     * @example [{\\"InstanceId\\":\\"ddosDip-sg-4hr2b3l****\\",\\"FrontendPort\\":2020,\\"Protocol\\":\\"udp\\",\\"Remark\\":\\"test\\"}]
      *
      * @var string
      */

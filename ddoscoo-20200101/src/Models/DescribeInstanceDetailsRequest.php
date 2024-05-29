@@ -11,6 +11,7 @@ class DescribeInstanceDetailsRequest extends Model
     /**
      * @description An array that consists of the IDs of instances to query.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $instanceIds;

@@ -38,6 +38,7 @@ class CreateSchedulerRuleRequest extends Model
     /**
      * @description The name of the rule.
      *
+     * This parameter is required.
      * @example testrule
      *
      * @var string
@@ -52,6 +53,7 @@ class CreateSchedulerRuleRequest extends Model
      *   **5**: CDN interaction
      *   **6**: cloud service interaction
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -80,6 +82,7 @@ class CreateSchedulerRuleRequest extends Model
      *
      *   **RegionId**: the region where the interaction resource is deployed. This parameter must be specified when **ValueType** is set to **2**. The value must be of the string type.
      *
+     * This parameter is required.
      * @example [{"Type":"A", "Value":"1.1.XX.XX", "Priority":80,"ValueType":2, "RegionId":"cn-hangzhou" },{"Type":"A", "Value":"203.199.XX.XX", "Priority":80,"ValueType":1}]
      *
      * @var string

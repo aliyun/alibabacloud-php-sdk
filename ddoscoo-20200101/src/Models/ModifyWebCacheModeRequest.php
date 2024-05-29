@@ -11,7 +11,7 @@ class ModifyWebCacheModeRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for the domain name, and the domain name must be associated with an instance that uses the Enhanced function plan. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string
@@ -25,6 +25,7 @@ class ModifyWebCacheModeRequest extends Model
      *   **aggressive**: uses the enhanced cache mode.
      *   **bypass**: caches no data.
      *
+     * This parameter is required.
      * @example standard
      *
      * @var string

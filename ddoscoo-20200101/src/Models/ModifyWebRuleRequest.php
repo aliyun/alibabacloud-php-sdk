@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example www.aliyun.com
      *
      * @var string
@@ -30,6 +32,8 @@ class ModifyWebRuleRequest extends Model
     public $instanceIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [{"ProxyType":"https","ProxyPorts":[443]}]
      *
      * @var string
@@ -37,6 +41,8 @@ class ModifyWebRuleRequest extends Model
     public $proxyTypes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1.xxx.xxx.1
      *
      * @var string[]
@@ -51,6 +57,8 @@ class ModifyWebRuleRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int

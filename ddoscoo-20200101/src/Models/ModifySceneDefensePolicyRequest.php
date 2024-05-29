@@ -11,6 +11,7 @@ class ModifySceneDefensePolicyRequest extends Model
     /**
      * @description The end time of the policy. The value is a UNIX timestamp. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1586016000000
      *
      * @var int
@@ -20,6 +21,7 @@ class ModifySceneDefensePolicyRequest extends Model
     /**
      * @description The name of the policy.
      *
+     * This parameter is required.
      * @example testpolicy
      *
      * @var string
@@ -29,7 +31,7 @@ class ModifySceneDefensePolicyRequest extends Model
     /**
      * @description The ID of the policy that you want to modify.
      *
-     * > You can call the [DescribeSceneDefensePolicies](~~159382~~) operation to query the IDs of all policies.
+     * This parameter is required.
      * @example 321a-fd31-df51-****
      *
      * @var string
@@ -39,6 +41,7 @@ class ModifySceneDefensePolicyRequest extends Model
     /**
      * @description The start time of the policy. The value is a UNIX timestamp. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1585670400000
      *
      * @var int
@@ -51,6 +54,7 @@ class ModifySceneDefensePolicyRequest extends Model
      *   **promotion**: important activity
      *   **bypass**: all traffic forwarded
      *
+     * This parameter is required.
      * @example promotion
      *
      * @var string

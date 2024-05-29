@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebCCRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example close
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyWebCCRuleRequest extends Model
     public $act;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var int
@@ -23,6 +27,8 @@ class ModifyWebCCRuleRequest extends Model
     public $count;
 
     /**
+     * @description This parameter is required.
+     *
      * @example www.aliyun.com
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyWebCCRuleRequest extends Model
     public $domain;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 30
      *
      * @var int
@@ -37,6 +45,8 @@ class ModifyWebCCRuleRequest extends Model
     public $interval;
 
     /**
+     * @description This parameter is required.
+     *
      * @example prefix
      *
      * @var string
@@ -44,6 +54,8 @@ class ModifyWebCCRuleRequest extends Model
     public $mode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example testrule
      *
      * @var string
@@ -58,11 +70,15 @@ class ModifyWebCCRuleRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $ttl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example /abc
      *
      * @var string

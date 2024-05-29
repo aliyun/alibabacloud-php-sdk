@@ -20,6 +20,7 @@ class DeleteSchedulerRuleRequest extends Model
     /**
      * @description The name of the scheduling rule that you want to delete.
      *
+     * This parameter is required.
      * @example testrule
      *
      * @var string

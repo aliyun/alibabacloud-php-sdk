@@ -11,7 +11,7 @@ class DescribeDomainStatusCodeListRequest extends Model
     /**
      * @description The domain name of the website. If you do not specify this parameter, the statistics on response status codes of all domain names are queried.
      *
-     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
      * @example www.aliyun.com
      *
      * @var string
@@ -31,6 +31,7 @@ class DescribeDomainStatusCodeListRequest extends Model
     /**
      * @description The interval for returning data. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1000
      *
      * @var int
@@ -43,6 +44,7 @@ class DescribeDomainStatusCodeListRequest extends Model
      *   **gf**: Anti-DDoS Pro or Anti-DDoS Premium
      *   **upstrem**: origin server
      *
+     * This parameter is required.
      * @example gf
      *
      * @var string
@@ -61,7 +63,7 @@ class DescribeDomainStatusCodeListRequest extends Model
     /**
      * @description The start time of the event. The value is a UNIX timestamp. Unit: seconds.
      *
-     * > This UNIX timestamp must indicate a point in time that is accurate to the minute.
+     * This parameter is required.
      * @example 1582992000
      *
      * @var int

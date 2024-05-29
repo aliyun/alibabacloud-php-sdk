@@ -11,7 +11,7 @@ class SwitchSchedulerRuleRequest extends Model
     /**
      * @description The name of the scheduling rule to manage.
      *
-     * > You can call the [DescribeSchedulerRules](~~157481~~) operation to query the names of all scheduling rules.
+     * This parameter is required.
      * @example testrule
      *
      * @var string
@@ -26,6 +26,7 @@ class SwitchSchedulerRuleRequest extends Model
      *   **5**: Alibaba Cloud CDN (CDN) interaction rule
      *   **6**: cloud service interaction rule
      *
+     * This parameter is required.
      * @example 6
      *
      * @var int
@@ -44,9 +45,10 @@ class SwitchSchedulerRuleRequest extends Model
      *
      *   **Interval**: optional. The waiting time that is required before the service traffic is switched back. Unit: minutes. Data type: integer. Usage notes:
      *
-     *   If the **State** parameter is set to **0**, you must set this parameter to \*\*-1\*\*. Otherwise, the call fails.
+     *   If the **State** parameter is set to **0**, you must set this parameter to \\*\\*-1\\*\\*. Otherwise, the call fails.
      *   If the **State** parameter is set to **1**, you do not need to set this parameter.
      *
+     * This parameter is required.
      * @example [{"Value":"39.104.XX.XX","State":0,"Interval":-1}]
      *
      * @var string

@@ -24,6 +24,7 @@ class ModifyTlsConfigRequest extends Model
      *   **strong**: strong cipher suites
      *   **default**: default cipher suites, which include only strong cipher suites
      *
+     * This parameter is required.
      * @example {"ssl_protocols":"tls1.0","ssl_ciphers":"all"}
      *
      * @var string
@@ -33,7 +34,7 @@ class ModifyTlsConfigRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example example.aliyundoc.com
      *
      * @var string

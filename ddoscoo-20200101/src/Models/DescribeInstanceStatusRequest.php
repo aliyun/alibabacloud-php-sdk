@@ -11,7 +11,7 @@ class DescribeInstanceStatusRequest extends Model
     /**
      * @description The ID of the instance to query.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all Anti-DDoS Pro or Anti-DDoS Premium instances.
+     * This parameter is required.
      * @example ddoscoo-cn-6ja1y6p5****
      *
      * @var string
@@ -24,6 +24,7 @@ class DescribeInstanceStatusRequest extends Model
      *   **1**: an Anti-DDoS Pro instance
      *   **2**: an Anti-DDoS Premium instance
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

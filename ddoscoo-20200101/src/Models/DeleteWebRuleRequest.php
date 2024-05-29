@@ -11,7 +11,7 @@ class DeleteWebRuleRequest extends Model
     /**
      * @description The domain name of the website from which you want to delete the forwarding rule.
      *
-     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query the domain names for which forwarding rules are configured.
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string
@@ -21,7 +21,7 @@ class DeleteWebRuleRequest extends Model
     /**
      * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
      *
-     * For more information about resource groups, see [Create a resource group](~~94485~~).
+     * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
      * @example rg-acfm2pz25js****
      *
      * @var string

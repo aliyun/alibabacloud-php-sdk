@@ -11,7 +11,7 @@ class ModifyBizBandWidthModeRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-zvp2ay9b****
      *
      * @var string
@@ -24,6 +24,7 @@ class ModifyBizBandWidthModeRequest extends Model
      *   **month**: the metering method of monthly 95th percentile
      *   **day**: the metering method of daily 95th percentile
      *
+     * This parameter is required.
      * @example month
      *
      * @var string

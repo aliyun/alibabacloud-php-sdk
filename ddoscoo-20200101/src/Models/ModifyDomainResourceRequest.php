@@ -12,6 +12,7 @@ class ModifyDomainResourceRequest extends Model
     /**
      * @description The domain name that is added to the Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string
@@ -41,6 +42,7 @@ class ModifyDomainResourceRequest extends Model
     /**
      * @description An array consisting of the IDs of instances that you want to associate.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $instanceIds;
@@ -48,6 +50,7 @@ class ModifyDomainResourceRequest extends Model
     /**
      * @description An array that consists of the details of the protocol type and port number.
      *
+     * This parameter is required.
      * @var proxyTypes[]
      */
     public $proxyTypes;
@@ -55,6 +58,7 @@ class ModifyDomainResourceRequest extends Model
     /**
      * @description An array that consists of the addresses of origin servers.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $realServers;
@@ -66,7 +70,7 @@ class ModifyDomainResourceRequest extends Model
      *
      *   **1**: domain name
      *
-     * If you deploy proxies, such as a Web Application Firewall (WAF) instance, between the origin server and the Anti-DDoS Pro or Anti-DDoS Premium instance, set the value to 1. If you use the domain name, you must enter the address of the proxy, such as the CNAME of WAF.
+     * This parameter is required.
      * @example 0
      *
      * @var int

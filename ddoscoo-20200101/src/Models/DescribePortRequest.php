@@ -32,7 +32,7 @@ class DescribePortRequest extends Model
     /**
      * @description The ID of the instance to query.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-7e225i41****
      *
      * @var string
@@ -42,6 +42,7 @@ class DescribePortRequest extends Model
     /**
      * @description The number of the page to return. For example, if you want to obtain results on the first page, set the value to **1**.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -51,6 +52,7 @@ class DescribePortRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

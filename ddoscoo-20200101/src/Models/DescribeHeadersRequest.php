@@ -11,7 +11,7 @@ class DescribeHeadersRequest extends Model
     /**
      * @description The domain name that you want to query.
      *
-     * > You can call the [DescribeDomains](~~91724~~) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+     * This parameter is required.
      * @example example.aliyundoc.com
      *
      * @var string

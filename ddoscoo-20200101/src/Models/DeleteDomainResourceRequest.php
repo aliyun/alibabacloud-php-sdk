@@ -11,6 +11,7 @@ class DeleteDomainResourceRequest extends Model
     /**
      * @description The domain name for which the forwarding rule is configured.
      *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string

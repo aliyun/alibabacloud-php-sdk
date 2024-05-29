@@ -11,6 +11,7 @@ class DescribeWebCacheConfigsRequest extends Model
     /**
      * @description An array consisting of domain names for which you want to query the Static Page Caching configurations.
      *
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string[]

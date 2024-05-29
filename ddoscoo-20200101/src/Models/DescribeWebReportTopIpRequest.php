@@ -16,6 +16,8 @@ class DescribeWebReportTopIpRequest extends Model
     public $domain;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1687228200
      *
      * @var int
@@ -23,6 +25,8 @@ class DescribeWebReportTopIpRequest extends Model
     public $endTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 300
      *
      * @var int
@@ -30,6 +34,8 @@ class DescribeWebReportTopIpRequest extends Model
     public $interval;
 
     /**
+     * @description This parameter is required.
+     *
      * @example block
      *
      * @var string
@@ -37,6 +43,8 @@ class DescribeWebReportTopIpRequest extends Model
     public $queryType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1680424200
      *
      * @var int

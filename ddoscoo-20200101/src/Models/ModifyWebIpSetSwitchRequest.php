@@ -16,6 +16,7 @@ class ModifyWebIpSetSwitchRequest extends Model
      *   **0**: disabled
      *   **1**: enabled
      *
+     * This parameter is required.
      * @example {"BwlistEnable":1}
      *
      * @var string
@@ -25,7 +26,7 @@ class ModifyWebIpSetSwitchRequest extends Model
     /**
      * @description The domain name of the website.
      *
-     * > A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](~~91724~~) operation to query all domain names.
+     * This parameter is required.
      * @example www.aliyun.com
      *
      * @var string

@@ -11,7 +11,7 @@ class DescribeSceneDefenseObjectsRequest extends Model
     /**
      * @description The ID of the policy that you want to query.
      *
-     * > You can call the [DescribeSceneDefensePolicies](~~159382~~) operation to query the IDs of all policies.
+     * This parameter is required.
      * @example 47e07ebd-0ba5-4afc-957b-59d15b90****
      *
      * @var string

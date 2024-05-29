@@ -16,6 +16,7 @@ class ModifyWebAreaBlockSwitchRequest extends Model
      *   **1**: enables the policy.
      *   **0**: disables the policy.
      *
+     * This parameter is required.
      * @example {"RegionblockEnable": 1}
      *
      * @var string
@@ -25,7 +26,7 @@ class ModifyWebAreaBlockSwitchRequest extends Model
     /**
      * @description The domain name for which you want to enable or disable the Location Blacklist policy.
      *
-     * > You can call the [DescribeDomains](~~91724~~) operation to query all the domain names that are added to Anti-DDoS Pro or Anti-DDoS Premium.
+     * This parameter is required.
      * @example www.aliyundoc.com
      *
      * @var string

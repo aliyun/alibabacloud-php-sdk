@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddAutoCcBlacklistRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example [{"src":"198.51.XX.XX"},{"src":"198.52.XX.XX"}]
      *
      * @var string
@@ -16,6 +18,8 @@ class AddAutoCcBlacklistRequest extends Model
     public $blacklist;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 300
      *
      * @var int
@@ -23,6 +27,8 @@ class AddAutoCcBlacklistRequest extends Model
     public $expireTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string

@@ -11,6 +11,7 @@ class proxyTypes extends Model
     /**
      * @description An array that consists of port numbers.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $proxyPorts;

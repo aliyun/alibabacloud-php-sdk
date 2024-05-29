@@ -15,7 +15,7 @@ class tags extends Model
      *
      *   You must specify at least one of the **ResourceIds.N** and **Tags.N.Key** parameters.
      *
-     *   You can call the [DescribeTagKeys](~~159785~~) operation to query all tag keys.
+     *   You can call the [DescribeTagKeys](https://help.aliyun.com/document_detail/159785.html) operation to query all tag keys.
      *
      * @example testkey
      *

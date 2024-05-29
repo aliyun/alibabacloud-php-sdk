@@ -11,6 +11,7 @@ class ModifyBlackholeStatusRequest extends Model
     /**
      * @description The action that you want to perform on the instance. Set the value to **undo**, which indicates that you want to deactivate blackhole filtering.
      *
+     * This parameter is required.
      * @example undo
      *
      * @var string
@@ -20,7 +21,7 @@ class ModifyBlackholeStatusRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * > You can call the [DescribeInstanceIds](~~157459~~) operation to query the IDs of all instances.
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string

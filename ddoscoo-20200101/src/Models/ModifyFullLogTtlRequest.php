@@ -20,6 +20,7 @@ class ModifyFullLogTtlRequest extends Model
     /**
      * @description The log storage duration of a website. Valid values: **30** to **180**. Unit: days.
      *
+     * This parameter is required.
      * @example 30
      *
      * @var int

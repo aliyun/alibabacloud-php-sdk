@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCnameReusesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example www.aliyun.com
      *
      * @var string[]

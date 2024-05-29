@@ -12,6 +12,7 @@ class CreateTagResourcesRequest extends Model
     /**
      * @description The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Pro instance in the Chinese mainland.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -31,6 +32,7 @@ class CreateTagResourcesRequest extends Model
     /**
      * @description An array consisting of the IDs of the Anti-DDoS Pro instances to which you want to add the tag.
      *
+     * This parameter is required.
      * @example ddoscoo-cn-mp91j1ao****
      *
      * @var string[]
@@ -40,6 +42,7 @@ class CreateTagResourcesRequest extends Model
     /**
      * @description The type of the resource to which the tag belongs. Set the value to **INSTANCE**, which indicates an Anti-DDoS Pro instance.
      *
+     * This parameter is required.
      * @example INSTANCE
      *
      * @var string
