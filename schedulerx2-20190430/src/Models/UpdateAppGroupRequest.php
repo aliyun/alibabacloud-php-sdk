@@ -48,12 +48,20 @@ class UpdateAppGroupRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $version;
     protected $_name = [
         'description'    => 'Description',
         'groupId'        => 'GroupId',
         'maxConcurrency' => 'MaxConcurrency',
         'namespace'      => 'Namespace',
         'regionId'       => 'RegionId',
+        'version'        => 'Version',
     ];
 
     public function validate()
@@ -77,6 +85,9 @@ class UpdateAppGroupRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -104,6 +115,9 @@ class UpdateAppGroupRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

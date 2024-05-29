@@ -138,6 +138,13 @@ class CreateAppGroupRequest extends Model
      * @var bool
      */
     public $scheduleBusyWorkers;
+
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $version;
     protected $_name = [
         'appKey'              => 'AppKey',
         'appName'             => 'AppName',
@@ -153,6 +160,7 @@ class CreateAppGroupRequest extends Model
         'namespaceSource'     => 'NamespaceSource',
         'regionId'            => 'RegionId',
         'scheduleBusyWorkers' => 'ScheduleBusyWorkers',
+        'version'             => 'Version',
     ];
 
     public function validate()
@@ -203,6 +211,9 @@ class CreateAppGroupRequest extends Model
         }
         if (null !== $this->scheduleBusyWorkers) {
             $res['ScheduleBusyWorkers'] = $this->scheduleBusyWorkers;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -257,6 +268,9 @@ class CreateAppGroupRequest extends Model
         }
         if (isset($map['ScheduleBusyWorkers'])) {
             $model->scheduleBusyWorkers = $map['ScheduleBusyWorkers'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;
