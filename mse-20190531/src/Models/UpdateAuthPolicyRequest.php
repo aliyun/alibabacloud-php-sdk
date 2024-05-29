@@ -29,7 +29,7 @@ class UpdateAuthPolicyRequest extends Model
     /**
      * @description The content of the service authentication rule.
      *
-     * @example [{\"all\":true,\"appIds\":[\"f6xqzbao96@4adfaf3c92c947a\"],\"black\":false}]
+     * @example [{\\"all\\":true,\\"appIds\\":[\\"f6xqzbao96@4adfaf3c92c947a\\"],\\"black\\":false}]
      *
      * @var string
      */
@@ -47,6 +47,7 @@ class UpdateAuthPolicyRequest extends Model
     /**
      * @description The rule ID.
      *
+     * This parameter is required.
      * @example 432
      *
      * @var string

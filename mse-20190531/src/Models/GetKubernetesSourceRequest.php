@@ -23,6 +23,7 @@ class GetKubernetesSourceRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-c5d1aadb7df646cfb7065fbf75c1****
      *
      * @var string

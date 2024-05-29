@@ -85,6 +85,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     /**
      * @description The name of the lane.
      *
+     * This parameter is required.
      * @example Test lane
      *
      * @var string
@@ -97,6 +98,11 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
      * @var string
      */
     public $namespace;
+
+    /**
+     * @var bool
+     */
+    public $pathIndependentPercentageEnable;
 
     /**
      * @description The ID of the region.
@@ -116,18 +122,19 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'acceptLanguage'               => 'AcceptLanguage',
-        'enable'                       => 'Enable',
-        'enableRules'                  => 'EnableRules',
-        'entryRule'                    => 'EntryRule',
-        'entryRules'                   => 'EntryRules',
-        'gatewaySwimmingLaneRouteJson' => 'GatewaySwimmingLaneRouteJson',
-        'groupId'                      => 'GroupId',
-        'id'                           => 'Id',
-        'name'                         => 'Name',
-        'namespace'                    => 'Namespace',
-        'regionId'                     => 'RegionId',
-        'tag'                          => 'Tag',
+        'acceptLanguage'                  => 'AcceptLanguage',
+        'enable'                          => 'Enable',
+        'enableRules'                     => 'EnableRules',
+        'entryRule'                       => 'EntryRule',
+        'entryRules'                      => 'EntryRules',
+        'gatewaySwimmingLaneRouteJson'    => 'GatewaySwimmingLaneRouteJson',
+        'groupId'                         => 'GroupId',
+        'id'                              => 'Id',
+        'name'                            => 'Name',
+        'namespace'                       => 'Namespace',
+        'pathIndependentPercentageEnable' => 'PathIndependentPercentageEnable',
+        'regionId'                        => 'RegionId',
+        'tag'                             => 'Tag',
     ];
 
     public function validate()
@@ -172,6 +179,9 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->pathIndependentPercentageEnable) {
+            $res['PathIndependentPercentageEnable'] = $this->pathIndependentPercentageEnable;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -226,6 +236,9 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['PathIndependentPercentageEnable'])) {
+            $model->pathIndependentPercentageEnable = $map['PathIndependentPercentageEnable'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

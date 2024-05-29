@@ -23,6 +23,7 @@ class CreateApplicationRequest extends Model
     /**
      * @description The name of the application.
      *
+     * This parameter is required.
      * @example spring-cloud-a
      *
      * @var string
@@ -50,6 +51,7 @@ class CreateApplicationRequest extends Model
     /**
      * @description The region to which the application belongs.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -23,6 +23,7 @@ class DeleteNacosServiceRequest extends Model
     /**
      * @description The name of the group.
      *
+     * This parameter is required.
      * @example DEFAULT_GROUP
      *
      * @var string
@@ -32,6 +33,7 @@ class DeleteNacosServiceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-cn-123456
      *
      * @var string
@@ -50,6 +52,7 @@ class DeleteNacosServiceRequest extends Model
     /**
      * @description The name of the service.
      *
+     * This parameter is required.
      * @example hello_service
      *
      * @var string

@@ -21,6 +21,7 @@ class GetPluginConfigRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-ubuwqygbq4783gqb2y3f87q****
      *
      * @var string
@@ -30,6 +31,7 @@ class GetPluginConfigRequest extends Model
     /**
      * @description The ID of the gateway plug-in.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var int

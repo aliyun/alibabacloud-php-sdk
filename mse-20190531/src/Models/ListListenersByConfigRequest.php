@@ -23,6 +23,7 @@ class ListListenersByConfigRequest extends Model
     /**
      * @description The ID of the data.
      *
+     * This parameter is required.
      * @example zeekr-clueboss.yml
      *
      * @var string
@@ -32,6 +33,7 @@ class ListListenersByConfigRequest extends Model
     /**
      * @description The name of the group.
      *
+     * This parameter is required.
      * @example prod
      *
      * @var string
@@ -41,6 +43,7 @@ class ListListenersByConfigRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-cn-m7r1yurp00e
      *
      * @var string
@@ -59,7 +62,7 @@ class ListListenersByConfigRequest extends Model
     /**
      * @description The extended request parameters in the JSON format.
      *
-     * @example {\\"appGroup\\":\\"emas-zfive_prehost\\",\\"appName\\":\\"emas-zfive\\",\\"appStage\\":\\"PRE_PUBLISH\\",\\"appUnit\\":\\"\\",\\"bucId\\":\\"225902\\",\\"bucName\\":\\"Wireless\\",\\"provider\\":\\"aliyun\\"}
+     * @example {\\\\"appGroup\\\\":\\\\"emas-zfive_prehost\\\\",\\\\"appName\\\\":\\\\"emas-zfive\\\\",\\\\"appStage\\\\":\\\\"PRE_PUBLISH\\\\",\\\\"appUnit\\\\":\\\\"\\\\",\\\\"bucId\\\\":\\\\"225902\\\\",\\\\"bucName\\\\":\\\\"Wireless\\\\",\\\\"provider\\\\":\\\\"aliyun\\\\"}
      *
      * @var string
      */

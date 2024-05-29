@@ -170,7 +170,7 @@ class data extends Model
     /**
      * @description The matching rule.
      *
-     * @example {\"PathPredicates\":{\"Path\":\"/metas\",\"Type\":\"PRE\",\"IgnoreCase\":false}}
+     * @example {\\"PathPredicates\\":{\\"Path\\":\\"/metas\\",\\"Type\\":\\"PRE\\",\\"IgnoreCase\\":false}}
      *
      * @var string
      */
@@ -216,7 +216,7 @@ class data extends Model
     /**
      * @description The information about services.
      *
-     * @example [{\"Percent\":100,\"ServiceId\":126}]
+     * @example [{\\"Percent\\":100,\\"ServiceId\\":126}]
      *
      * @var string
      */

@@ -24,6 +24,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +45,7 @@ class TagResourcesRequest extends Model
      *   CLUSTER: Microservices Engine (MSE) instance
      *   GATEWAY: cloud-native gateway
      *
+     * This parameter is required.
      * @example CLUSTER
      *
      * @var string
@@ -53,6 +55,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The list of tags. You can specify a maximum of 20 tags.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

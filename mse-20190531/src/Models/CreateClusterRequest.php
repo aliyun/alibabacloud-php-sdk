@@ -34,7 +34,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The engine specifications. Valid values:
      *
-     * \[Professional Edition]
+     * [Professional Edition]
      *
      *   `MSE_SC_2_4_60_c`: 2 vCPUs and 4 GB of memory
      *   `MSE_SC_1_2_60_c`: 1 vCPU and 2 GB of memory
@@ -42,12 +42,12 @@ class CreateClusterRequest extends Model
      *   `MSE_SC_8_16_60_c`: 8 vCPUs and 16 GB of memory
      *   `MSE_SC_16_32_60_c`: 16 vCPUs and 32 GB of memory
      *
-     * \[Developer Edition]
+     * [Developer Edition]
      *
      *   `MSE_SC_1_2_60_c`: 1 vCPU and 2 GB of memory
      *   `MSE_SC_2_4_60_c`: 2 vCPUs and 4 GB of memory
      *
-     * Ignore this parameter or set this parameter to `MSE_SC_SERVERLESS`.
+     * This parameter is required.
      * @example MSE_SC_2_4_60_c
      *
      * @var string
@@ -57,6 +57,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The type of the instance. Valid values: ZooKeeper and Nacos-Ans.
      *
+     * This parameter is required.
      * @example Nacos-Ans
      *
      * @var string
@@ -66,21 +67,22 @@ class CreateClusterRequest extends Model
     /**
      * @description The engine version of the instance. Valid values:
      *
-     * \[Professional Edition]
+     * [Professional Edition]
      *
      *   `NACOS_2_0_0`
      *   `ZooKeeper_3_8_0`
      *
-     * \[Developer Edition]
+     * [Developer Edition]
      *
      *   `NACOS_2_0_0`
      *   `ZooKeeper_3_8_0`
      *
-     * \[Serverless Edition]
+     * [Serverless Edition]
      *
      *   `NACOS_2_0_0`
      *   `ZooKeeper_3_8_0`
      *
+     * This parameter is required.
      * @example NACOS_2_0_0
      *
      * @var string
@@ -126,15 +128,15 @@ class CreateClusterRequest extends Model
     /**
      * @description The number of nodes in the instance. Valid values: 1 to 9.
      *
-     * \[Professional Edition]
+     * [Professional Edition]
      *
      *   The value must be greater than or equal to 3 and must be an odd number.
      *
-     * \[Developer Edition]
+     * [Developer Edition]
      *
      *   The value must be 1.
      *
-     * Ignore this parameter.
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -169,6 +171,7 @@ class CreateClusterRequest extends Model
      *   `privatenet`: VPC
      *   `pubnet`: Internet
      *
+     * This parameter is required.
      * @example privatenet
      *
      * @var string
@@ -232,7 +235,7 @@ class CreateClusterRequest extends Model
     public $requestPars;
 
     /**
-     * @description The ID of the resource group. For the details of resource groups, see [View basic information of a resource group](~~457230~~).
+     * @description The ID of the resource group. For the details of resource groups, see [View basic information of a resource group](https://help.aliyun.com/document_detail/457230.html).
      *
      * @example rg-aekzcqmoay3dlyq
      *

@@ -77,6 +77,7 @@ class ListAnsServicesRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -86,6 +87,7 @@ class ListAnsServicesRequest extends Model
     /**
      * @description The number of entries returned per page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

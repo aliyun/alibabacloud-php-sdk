@@ -26,7 +26,7 @@ class GetGatewayOptionResponseBody extends Model
      *   **DisableHttp2Alpn**: indicates whether the HTTP/2 protocol is disabled.
      *   **EnableWaf**: indicates whether Web Application Firewall (WAF) is enabled.
      *
-     * @example {\"LogConfigDetails\": {\"LogEnabled\": False}, \"TraceDetails\": {\"TraceEnabled\": False}}
+     * @example {\\"LogConfigDetails\\": {\\"LogEnabled\\": False}, \\"TraceDetails\\": {\\"TraceEnabled\\": False}}
      *
      * @var GatewayOption
      */

@@ -38,7 +38,7 @@ class data extends Model
     /**
      * @description The additional information.
      *
-     * @example {\"rpcTypes\":[\"dubbo\",\"springCloud\"]}
+     * @example {\\"rpcTypes\\":[\\"dubbo\\",\\"springCloud\\"]}
      *
      * @var string
      */
@@ -83,8 +83,8 @@ class data extends Model
     /**
      * @description The service where the application is deployed. Valid values:
      *
-     *   \- ACK: Container Service for Kubernetes
-     *   \- Normal: another service
+     *   \\- ACK: Container Service for Kubernetes
+     *   \\- Normal: another service
      *
      * @example ACK
      *

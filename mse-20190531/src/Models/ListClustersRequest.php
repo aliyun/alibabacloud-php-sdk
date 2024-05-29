@@ -38,6 +38,7 @@ class ListClustersRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -47,6 +48,7 @@ class ListClustersRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -56,6 +58,7 @@ class ListClustersRequest extends Model
     /**
      * @description The ID of the region in which the instance resides. The region is supported by MSE.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

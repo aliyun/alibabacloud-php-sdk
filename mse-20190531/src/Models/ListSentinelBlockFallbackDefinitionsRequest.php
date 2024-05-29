@@ -16,6 +16,8 @@ class ListSentinelBlockFallbackDefinitionsRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -28,6 +30,8 @@ class ListSentinelBlockFallbackDefinitionsRequest extends Model
     public $classificationSet;
 
     /**
+     * @description This parameter is required.
+     *
      * @example default
      *
      * @var string

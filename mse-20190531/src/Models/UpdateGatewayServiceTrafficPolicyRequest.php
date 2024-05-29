@@ -32,6 +32,7 @@ class UpdateGatewayServiceTrafficPolicyRequest extends Model
     /**
      * @description The traffic policy of the gateway.
      *
+     * This parameter is required.
      * @var TrafficPolicy
      */
     public $gatewayTrafficPolicy;

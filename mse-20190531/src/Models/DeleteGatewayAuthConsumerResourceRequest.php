@@ -23,6 +23,7 @@ class DeleteGatewayAuthConsumerResourceRequest extends Model
     /**
      * @description The consumer ID.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -32,6 +33,7 @@ class DeleteGatewayAuthConsumerResourceRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-ubuwqygbq4783gqb2y3f87q****
      *
      * @var string
@@ -41,6 +43,7 @@ class DeleteGatewayAuthConsumerResourceRequest extends Model
     /**
      * @description The IDs of the authorized resources that you want to delete.
      *
+     * This parameter is required.
      * @example 1,2,3,4
      *
      * @var string

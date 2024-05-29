@@ -16,6 +16,8 @@ class UpdateGatewayIsolationRuleRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +32,8 @@ class UpdateGatewayIsolationRuleRequest extends Model
     public $bodyEncoding;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +48,8 @@ class UpdateGatewayIsolationRuleRequest extends Model
     public $gatewayId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gw-e2d226bba4b2445c9e29fa7f8216****
      *
      * @var string
@@ -51,6 +57,8 @@ class UpdateGatewayIsolationRuleRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 358
      *
      * @var int
@@ -58,6 +66,8 @@ class UpdateGatewayIsolationRuleRequest extends Model
     public $id;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -86,6 +96,8 @@ class UpdateGatewayIsolationRuleRequest extends Model
     public $responseStatusCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 52853
      *
      * @var int
@@ -93,6 +105,8 @@ class UpdateGatewayIsolationRuleRequest extends Model
     public $routeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example routeName
      *
      * @var string

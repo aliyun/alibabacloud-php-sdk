@@ -61,6 +61,11 @@ class data extends Model
     /**
      * @var bool
      */
+    public $pathIndependentPercentageEnable;
+
+    /**
+     * @var bool
+     */
     public $recordCanaryDetail;
 
     /**
@@ -97,21 +102,22 @@ class data extends Model
      */
     public $gmtModified;
     protected $_name = [
-        'entryRules'               => 'EntryRules',
-        'gatewaySwimmingLaneRoute' => 'GatewaySwimmingLaneRoute',
-        'groupId'                  => 'GroupId',
-        'id'                       => 'Id',
-        'messageQueueFilterSide'   => 'MessageQueueFilterSide',
-        'messageQueueGrayEnable'   => 'MessageQueueGrayEnable',
-        'name'                     => 'Name',
-        'namespace'                => 'Namespace',
-        'recordCanaryDetail'       => 'RecordCanaryDetail',
-        'regionId'                 => 'RegionId',
-        'tag'                      => 'Tag',
-        'userId'                   => 'UserId',
-        'enableRules'              => 'enableRules',
-        'gmtCreate'                => 'gmtCreate',
-        'gmtModified'              => 'gmtModified',
+        'entryRules'                      => 'EntryRules',
+        'gatewaySwimmingLaneRoute'        => 'GatewaySwimmingLaneRoute',
+        'groupId'                         => 'GroupId',
+        'id'                              => 'Id',
+        'messageQueueFilterSide'          => 'MessageQueueFilterSide',
+        'messageQueueGrayEnable'          => 'MessageQueueGrayEnable',
+        'name'                            => 'Name',
+        'namespace'                       => 'Namespace',
+        'pathIndependentPercentageEnable' => 'PathIndependentPercentageEnable',
+        'recordCanaryDetail'              => 'RecordCanaryDetail',
+        'regionId'                        => 'RegionId',
+        'tag'                             => 'Tag',
+        'userId'                          => 'UserId',
+        'enableRules'                     => 'enableRules',
+        'gmtCreate'                       => 'gmtCreate',
+        'gmtModified'                     => 'gmtModified',
     ];
 
     public function validate()
@@ -150,6 +156,9 @@ class data extends Model
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->pathIndependentPercentageEnable) {
+            $res['PathIndependentPercentageEnable'] = $this->pathIndependentPercentageEnable;
         }
         if (null !== $this->recordCanaryDetail) {
             $res['RecordCanaryDetail'] = $this->recordCanaryDetail;
@@ -213,6 +222,9 @@ class data extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['PathIndependentPercentageEnable'])) {
+            $model->pathIndependentPercentageEnable = $map['PathIndependentPercentageEnable'];
         }
         if (isset($map['RecordCanaryDetail'])) {
             $model->recordCanaryDetail = $map['RecordCanaryDetail'];

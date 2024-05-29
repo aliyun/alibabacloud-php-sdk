@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The ID of the gateway.
+     * @description The gateway ID.
      *
      * @example 1
      *
@@ -55,7 +55,7 @@ class result extends Model
     public $gmtModified;
 
     /**
-     * @description The name of the group.
+     * @description The group.
      *
      * @example test
      *
@@ -115,7 +115,7 @@ class result extends Model
     public $id;
 
     /**
-     * @description The IP addresses.
+     * @description The list of IP addresses.
      *
      * @var string[]
      */
@@ -170,7 +170,7 @@ class result extends Model
     public $serviceNameInRegistry;
 
     /**
-     * @description The service port.
+     * @description The service port number.
      *
      * @example 80
      *
@@ -197,7 +197,7 @@ class result extends Model
     public $sourceId;
 
     /**
-     * @description The type of the service source.
+     * @description The source type.
      *
      * @example MSE
      *
@@ -206,14 +206,14 @@ class result extends Model
     public $sourceType;
 
     /**
-     * @description The array of unhealthy endpoints.
+     * @description The array of endpoints of unhealthy instances.
      *
      * @var string[]
      */
     public $unhealthyEndpoints;
 
     /**
-     * @description The version of the service.
+     * @description The service version.
      *
      * @var versions[]
      */

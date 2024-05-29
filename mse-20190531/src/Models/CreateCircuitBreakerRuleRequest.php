@@ -32,6 +32,7 @@ class CreateCircuitBreakerRuleRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example spring-cloud-a
      *
      * @var string
@@ -49,7 +50,7 @@ class CreateCircuitBreakerRuleRequest extends Model
      *
      *   false
      *
-     * <!-- -->
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -95,6 +96,7 @@ class CreateCircuitBreakerRuleRequest extends Model
     /**
      * @description The microservice namespace to which the application belongs.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string
@@ -113,6 +115,7 @@ class CreateCircuitBreakerRuleRequest extends Model
     /**
      * @description The name of the interface to which the rule applies. The interface name must be the same as the name on the interface details page in the console.
      *
+     * This parameter is required.
      * @example /a
      *
      * @var string
@@ -153,7 +156,7 @@ class CreateCircuitBreakerRuleRequest extends Model
      *
      *   1
      *
-     * <!-- -->
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -163,6 +166,7 @@ class CreateCircuitBreakerRuleRequest extends Model
     /**
      * @description A percentage threshold for triggering circuit breaking. Valid values: 0-1. These values represent 0% to 100%.
      *
+     * This parameter is required.
      * @example 0.8
      *
      * @var float

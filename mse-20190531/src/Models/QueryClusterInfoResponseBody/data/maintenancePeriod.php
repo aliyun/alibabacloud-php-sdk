@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class maintenancePeriod extends Model
 {
     /**
-     * @description The start time of the O\&M time window.
+     * @description The start time of the O\\&M time window.
      *
      * @example 02:00
      *
@@ -18,7 +18,7 @@ class maintenancePeriod extends Model
     public $endTime;
 
     /**
-     * @description The end time of the O\&M time window.
+     * @description The end time of the O\\&M time window.
      *
      * @example 06:00
      *

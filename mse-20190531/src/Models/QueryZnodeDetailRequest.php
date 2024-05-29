@@ -41,6 +41,7 @@ class QueryZnodeDetailRequest extends Model
     /**
      * @description The path of the node.
      *
+     * This parameter is required.
      * @example /zookeeper
      *
      * @var string

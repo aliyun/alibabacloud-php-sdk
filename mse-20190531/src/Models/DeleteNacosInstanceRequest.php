@@ -35,6 +35,7 @@ class DeleteNacosInstanceRequest extends Model
      *   `true`: yes
      *   `false`: no
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -44,6 +45,7 @@ class DeleteNacosInstanceRequest extends Model
     /**
      * @description The name of the group.
      *
+     * This parameter is required.
      * @example DEFAULT_GROUP
      *
      * @var string
@@ -53,6 +55,7 @@ class DeleteNacosInstanceRequest extends Model
     /**
      * @description The ID of the Nacos instance.
      *
+     * This parameter is required.
      * @example mse-cn-st21v5****
      *
      * @var string
@@ -62,6 +65,7 @@ class DeleteNacosInstanceRequest extends Model
     /**
      * @description The IP address of the Nacos instance.
      *
+     * This parameter is required.
      * @example 10.237.1.32
      *
      * @var string
@@ -80,6 +84,7 @@ class DeleteNacosInstanceRequest extends Model
     /**
      * @description The port of the Nacos instance.
      *
+     * This parameter is required.
      * @example 8080
      *
      * @var int
@@ -89,6 +94,7 @@ class DeleteNacosInstanceRequest extends Model
     /**
      * @description The name of the service.
      *
+     * This parameter is required.
      * @example hello_service
      *
      * @var string

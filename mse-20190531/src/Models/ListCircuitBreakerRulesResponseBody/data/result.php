@@ -38,7 +38,7 @@ class result extends Model
     /**
      * @description The behavior that was bound to the rule.
      *
-     * @example "{\"appName\":\"spring-cloud-a\",\"fallbackBehavior\":{\"webFallbackMode\":0,\"webRespContentType\":0,\"webRespMessage\":\"Blocked\",\"webRespStatusCode\":429},\"id\":977,\"name\":\"Fallback\",\"namespace\":\"default\",\"resourceClassification\":1}"
+     * @example "{\\"appName\\":\\"spring-cloud-a\\",\\"fallbackBehavior\\":{\\"webFallbackMode\\":0,\\"webRespContentType\\":0,\\"webRespMessage\\":\\"Blocked\\",\\"webRespStatusCode\\":429},\\"id\\":977,\\"name\\":\\"Fallback\\",\\"namespace\\":\\"default\\",\\"resourceClassification\\":1}"
      *
      * @var string
      */

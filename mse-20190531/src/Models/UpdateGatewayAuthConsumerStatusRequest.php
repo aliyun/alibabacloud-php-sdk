@@ -26,6 +26,7 @@ class UpdateGatewayAuthConsumerStatusRequest extends Model
      *   true: The consumer is enabled.
      *   false: The consumer is disabled.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -35,6 +36,7 @@ class UpdateGatewayAuthConsumerStatusRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-685f661467b54f48b7b7a76605ce****
      *
      * @var string
@@ -44,6 +46,7 @@ class UpdateGatewayAuthConsumerStatusRequest extends Model
     /**
      * @description The consumer ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

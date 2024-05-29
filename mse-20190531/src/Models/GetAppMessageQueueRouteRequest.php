@@ -23,6 +23,7 @@ class GetAppMessageQueueRouteRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example hkhon1po62@c3df23522baa898
      *
      * @var string
@@ -56,6 +57,7 @@ class GetAppMessageQueueRouteRequest extends Model
      *   `cn-zhangjiakou`: China (Zhangjiakou)
      *   `cn-shenzhen`: China (Shenzhen)
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

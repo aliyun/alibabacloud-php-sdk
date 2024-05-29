@@ -20,7 +20,7 @@ class UpdateGatewayOptionResponseBody extends Model
     /**
      * @description The data returned.
      *
-     * @example {\"LogConfigDetails\": {\"LogEnabled\": True}, \"TraceDetails\": {\"Sample\": 17, \"TraceEnabled\": True}}
+     * @example {\\"LogConfigDetails\\": {\\"LogEnabled\\": True}, \\"TraceDetails\\": {\\"Sample\\": 17, \\"TraceEnabled\\": True}}
      *
      * @var GatewayOption
      */

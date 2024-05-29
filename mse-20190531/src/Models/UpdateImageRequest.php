@@ -23,6 +23,7 @@ class UpdateImageRequest extends Model
     /**
      * @description The ID of the destination cluster.
      *
+     * This parameter is required.
      * @example mse-8e8e9060
      *
      * @var string
@@ -32,7 +33,7 @@ class UpdateImageRequest extends Model
     /**
      * @description The destination version number.
      *
-     * > You must call the GetImage operation to obtain the maximum destination version number that corresponds to MaxVersionCode.
+     * This parameter is required.
      * @example ZooKeeper_3_5_5
      *
      * @var string

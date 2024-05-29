@@ -59,7 +59,7 @@ class AddGatewayRequest extends Model
     public $enableSls;
 
     /**
-     * @description The sampling rate of Tracing Analysis. Valid values: \[1,100].
+     * @description The sampling rate of Tracing Analysis. Valid values: [1,100].
      *
      * @example false
      *
@@ -129,6 +129,7 @@ class AddGatewayRequest extends Model
      *   slb.s3.medium
      *   slb.s3.large
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -184,10 +185,10 @@ class AddGatewayRequest extends Model
     /**
      * @description The node specifications. Valid values:
      *
-     *   MSE_GTW\_16\_32\_200\_c(16C32G)
-     *   MSE_GTW\_2\_4\_200\_c(2C4G)
-     *   MSE_GTW\_4\_8\_200\_c(4C8G)
-     *   MSE_GTW\_8\_16\_200\_c(8C16G)
+     *   MSE_GTW_16_32_200_c(16C32G)
+     *   MSE_GTW_2_4_200_c(2C4G)
+     *   MSE_GTW_4_8_200_c(4C8G)
+     *   MSE_GTW_8_16_200_c(8C16G)
      *
      * @example MSE_GTW_2_4_200_c
      *
@@ -223,6 +224,7 @@ class AddGatewayRequest extends Model
     /**
      * @description The ID of the primary vSwitch.
      *
+     * This parameter is required.
      * @example vpc-bp15mncnrtm83uauxd1xb
      *
      * @var string

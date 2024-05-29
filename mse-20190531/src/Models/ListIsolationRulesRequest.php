@@ -23,6 +23,8 @@ class ListIsolationRulesRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -30,6 +32,8 @@ class ListIsolationRulesRequest extends Model
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example default
      *
      * @var string

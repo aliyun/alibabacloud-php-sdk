@@ -23,6 +23,7 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example hkhon1po62@c3df23522baa898
      *
      * @var string
@@ -67,6 +68,7 @@ class UpdateMessageQueueRouteShrinkRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

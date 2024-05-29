@@ -32,6 +32,7 @@ class GetImportFileUrlRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse_prepaid_public_cn-7pp2b****
      *
      * @var string

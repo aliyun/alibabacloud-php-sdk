@@ -32,6 +32,7 @@ class DeleteNacosConfigRequest extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example user-ds.yml
      *
      * @var string
@@ -41,6 +42,7 @@ class DeleteNacosConfigRequest extends Model
     /**
      * @description The message returned.
      *
+     * This parameter is required.
      * @example HALVIE_MICRO_GROUP
      *
      * @var string
@@ -50,6 +52,7 @@ class DeleteNacosConfigRequest extends Model
     /**
      * @description The HTTP status code.
      *
+     * This parameter is required.
      * @example mse_prepaid_public_cn-tl32epfyu18
      *
      * @var string

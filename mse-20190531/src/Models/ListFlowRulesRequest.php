@@ -32,6 +32,7 @@ class ListFlowRulesRequest extends Model
     /**
      * @description The name of the application.
      *
+     * This parameter is required.
      * @example xx-demo
      *
      * @var string
@@ -41,6 +42,7 @@ class ListFlowRulesRequest extends Model
     /**
      * @description The namespace.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string

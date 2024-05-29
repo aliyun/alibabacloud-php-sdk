@@ -20,6 +20,7 @@ class DeleteCircuitBreakerRulesRequest extends Model
     /**
      * @description The name of the application.
      *
+     * This parameter is required.
      * @example spring-cloud-a
      *
      * @var string
@@ -36,6 +37,7 @@ class DeleteCircuitBreakerRulesRequest extends Model
     /**
      * @description The microservice namespace to which the application belongs.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string

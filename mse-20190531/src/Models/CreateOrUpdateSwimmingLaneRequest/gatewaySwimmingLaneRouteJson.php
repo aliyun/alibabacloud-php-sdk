@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest;
 
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest\gatewaySwimmingLaneRouteJson\conditions;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneRequest\gatewaySwimmingLaneRouteJson\routeIndependentPercentageList;
 use AlibabaCloud\Tea\Model;
 
 class gatewaySwimmingLaneRouteJson extends Model
@@ -54,13 +55,25 @@ class gatewaySwimmingLaneRouteJson extends Model
      * @var int[]
      */
     public $routeIdList;
+
+    /**
+     * @var bool
+     */
+    public $routeIndependentPercentageEnable;
+
+    /**
+     * @var routeIndependentPercentageList[]
+     */
+    public $routeIndependentPercentageList;
     protected $_name = [
-        'canaryModel'     => 'CanaryModel',
-        'conditions'      => 'Conditions',
-        'gatewayId'       => 'GatewayId',
-        'gatewayUniqueId' => 'GatewayUniqueId',
-        'percentage'      => 'Percentage',
-        'routeIdList'     => 'RouteIdList',
+        'canaryModel'                      => 'CanaryModel',
+        'conditions'                       => 'Conditions',
+        'gatewayId'                        => 'GatewayId',
+        'gatewayUniqueId'                  => 'GatewayUniqueId',
+        'percentage'                       => 'Percentage',
+        'routeIdList'                      => 'RouteIdList',
+        'routeIndependentPercentageEnable' => 'RouteIndependentPercentageEnable',
+        'routeIndependentPercentageList'   => 'RouteIndependentPercentageList',
     ];
 
     public function validate()
@@ -93,6 +106,18 @@ class gatewaySwimmingLaneRouteJson extends Model
         }
         if (null !== $this->routeIdList) {
             $res['RouteIdList'] = $this->routeIdList;
+        }
+        if (null !== $this->routeIndependentPercentageEnable) {
+            $res['RouteIndependentPercentageEnable'] = $this->routeIndependentPercentageEnable;
+        }
+        if (null !== $this->routeIndependentPercentageList) {
+            $res['RouteIndependentPercentageList'] = [];
+            if (null !== $this->routeIndependentPercentageList && \is_array($this->routeIndependentPercentageList)) {
+                $n = 0;
+                foreach ($this->routeIndependentPercentageList as $item) {
+                    $res['RouteIndependentPercentageList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -130,6 +155,18 @@ class gatewaySwimmingLaneRouteJson extends Model
         if (isset($map['RouteIdList'])) {
             if (!empty($map['RouteIdList'])) {
                 $model->routeIdList = $map['RouteIdList'];
+            }
+        }
+        if (isset($map['RouteIndependentPercentageEnable'])) {
+            $model->routeIndependentPercentageEnable = $map['RouteIndependentPercentageEnable'];
+        }
+        if (isset($map['RouteIndependentPercentageList'])) {
+            if (!empty($map['RouteIndependentPercentageList'])) {
+                $model->routeIndependentPercentageList = [];
+                $n                                     = 0;
+                foreach ($map['RouteIndependentPercentageList'] as $item) {
+                    $model->routeIndependentPercentageList[$n++] = null !== $item ? routeIndependentPercentageList::fromMap($item) : $item;
+                }
             }
         }
 

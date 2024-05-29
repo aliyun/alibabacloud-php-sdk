@@ -23,6 +23,7 @@ class DeleteGatewayAuthConsumerRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-c70622ff52fe49beb29bea9a6f52****
      *
      * @var string
@@ -32,6 +33,7 @@ class DeleteGatewayAuthConsumerRequest extends Model
     /**
      * @description The ID of the consumer on which the gateway performs authentication operations.
      *
+     * This parameter is required.
      * @example 33ff74b6-d21e-4f9b-91a8-bc1ea4ef****
      *
      * @var int

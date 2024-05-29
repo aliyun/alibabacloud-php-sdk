@@ -172,7 +172,7 @@ class data extends Model
     public $MCPSupported;
 
     /**
-     * @description The number of connections between a client and a server. This parameter is valid for ZooKeeper instances.\
+     * @description The number of connections between a client and a server. This parameter is valid for ZooKeeper instances.\\
      * If this parameter is set to 0, no limits are imposed on the number of connections.
      * @example 0
      *

@@ -38,7 +38,7 @@ class GetMseFeatureSwitchResponseBody extends Model
     /**
      * @description The returned result.
      *
-     * @example {\"nacos_config_encrypt\": False}
+     * @example {\\"nacos_config_encrypt\\": False}
      *
      * @var mixed[]
      */

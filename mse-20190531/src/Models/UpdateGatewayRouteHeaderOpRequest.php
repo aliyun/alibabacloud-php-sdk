@@ -41,7 +41,7 @@ class UpdateGatewayRouteHeaderOpRequest extends Model
     /**
      * @description The description of user header settings.
      *
-     * @example {\"status\":\"on\",\"headerOpItems\":[{\"directionType\":\"Request\",\"opType\":\"Update\",\"key\":\"hosts\",\"value\":\"test.com\"}]}
+     * @example {\\"status\\":\\"on\\",\\"headerOpItems\\":[{\\"directionType\\":\\"Request\\",\\"opType\\":\\"Update\\",\\"key\\":\\"hosts\\",\\"value\\":\\"test.com\\"}]}
      *
      * @var string
      */

@@ -28,7 +28,7 @@ class versionDetails extends Model
     public $endpointNumPercent;
 
     /**
-     * @description The version of the service.
+     * @description The service version.
      *
      * @var serviceVersion
      */

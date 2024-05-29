@@ -23,6 +23,8 @@ class AddAuthPolicyRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example [{"all":true,"black":false,"appIds":["dez4qt7weh@***"]}]
      *
      * @var string
@@ -37,6 +39,8 @@ class AddAuthPolicyRequest extends Model
     public $authType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var string
@@ -51,6 +55,8 @@ class AddAuthPolicyRequest extends Model
     public $k8sNamespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test
      *
      * @var string
@@ -65,6 +71,8 @@ class AddAuthPolicyRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SPRING_CLOUD
      *
      * @var string
@@ -72,6 +80,8 @@ class AddAuthPolicyRequest extends Model
     public $protocol;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -79,6 +89,8 @@ class AddAuthPolicyRequest extends Model
     public $region;
 
     /**
+     * @description This parameter is required.
+     *
      * @example edasmsc
      *
      * @var string

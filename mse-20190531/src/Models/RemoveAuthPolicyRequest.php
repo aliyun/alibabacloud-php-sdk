@@ -16,6 +16,8 @@ class RemoveAuthPolicyRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 259
      *
      * @var string

@@ -198,7 +198,7 @@ class data extends Model
     public $versionDetails;
 
     /**
-     * @description The version of the service.
+     * @description The service version. This parameter is deprecated.
      *
      * @var versions[]
      */

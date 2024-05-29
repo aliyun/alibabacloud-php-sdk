@@ -11,7 +11,7 @@ class riskList extends Model
     /**
      * @description The description.
      *
-     * @example {\\"desc\\":\\"The engine version is outdated and a large number of features are not supported. Upgrade the engine to the latest version at the earliest opportunity. \\"}
+     * @example {\\\\"desc\\\\":\\\\"The engine version is outdated and a large number of features are not supported. Upgrade the engine to the latest version at the earliest opportunity. \\\\"}
      *
      * @var string
      */
@@ -108,7 +108,7 @@ class riskList extends Model
     /**
      * @description The situation.
      *
-     * @example {\\"desc\\":\\"The engine version is outdated and a large number of features are not supported.\\",\\"links\\":\[{\\"type\\":\\"url\\",\\"value\\":\\"https://xxxx"\\",\\"desc\\":\\"Release notes\\"}]}
+     * @example {\\\\"desc\\\\":\\\\"The engine version is outdated and a large number of features are not supported.\\\\",\\\\"links\\\\":[{\\\\"type\\\\":\\\\"url\\\\",\\\\"value\\\\":\\\\"https://xxxx"\\\\",\\\\"desc\\\\":\\\\"Release notes\\\\"}]}
      *
      * @var string
      */
@@ -117,7 +117,7 @@ class riskList extends Model
     /**
      * @description The suggestion.
      *
-     * @example {"desc": "Upgrade to the latest version at the earliest opportunity.", "links":\[{"type": "upgrade", "desc": "Click to upgrade"}]}
+     * @example {"desc": "Upgrade to the latest version at the earliest opportunity.", "links":[{"type": "upgrade", "desc": "Click to upgrade"}]}
      *
      * @var string
      */

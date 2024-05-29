@@ -16,6 +16,8 @@ class UpdateGatewayCircuitBreakerRuleRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +32,8 @@ class UpdateGatewayCircuitBreakerRuleRequest extends Model
     public $bodyEncoding;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +48,8 @@ class UpdateGatewayCircuitBreakerRuleRequest extends Model
     public $gatewayId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gw-c9bc5afd61014165bd58f621b491****
      *
      * @var string
@@ -51,6 +57,8 @@ class UpdateGatewayCircuitBreakerRuleRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 369
      *
      * @var int
@@ -65,6 +73,8 @@ class UpdateGatewayCircuitBreakerRuleRequest extends Model
     public $maxAllowedMs;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -72,6 +82,8 @@ class UpdateGatewayCircuitBreakerRuleRequest extends Model
     public $minRequestAmount;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 12
      *
      * @var int
@@ -100,6 +112,8 @@ class UpdateGatewayCircuitBreakerRuleRequest extends Model
     public $responseStatusCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 645
      *
      * @var int
@@ -107,6 +121,8 @@ class UpdateGatewayCircuitBreakerRuleRequest extends Model
     public $routeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example routeName
      *
      * @var string
@@ -114,6 +130,8 @@ class UpdateGatewayCircuitBreakerRuleRequest extends Model
     public $routeName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 11
      *
      * @var int
@@ -121,6 +139,8 @@ class UpdateGatewayCircuitBreakerRuleRequest extends Model
     public $statDurationSec;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -128,6 +148,8 @@ class UpdateGatewayCircuitBreakerRuleRequest extends Model
     public $strategy;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

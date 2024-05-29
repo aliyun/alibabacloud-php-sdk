@@ -23,6 +23,7 @@ class GetGatewayAuthConsumerDetailRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-1a4ab101d5924b6f92c5ec98a84*****
      *
      * @var string
@@ -32,6 +33,7 @@ class GetGatewayAuthConsumerDetailRequest extends Model
     /**
      * @description The ID of the consumer.
      *
+     * This parameter is required.
      * @example 120
      *
      * @var int

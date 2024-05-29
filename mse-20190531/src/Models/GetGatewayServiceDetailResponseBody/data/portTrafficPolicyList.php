@@ -19,7 +19,7 @@ class portTrafficPolicyList extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The time when the service was created.
+     * @description The creation time.
      *
      * @example 1667460287386
      *
@@ -28,7 +28,7 @@ class portTrafficPolicyList extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the service was modified.
+     * @description The modification time.
      *
      * @example 1667460287386
      *
@@ -37,7 +37,7 @@ class portTrafficPolicyList extends Model
     public $gmtModified;
 
     /**
-     * @description The ID of the port configuration.
+     * @description The port ID.
      *
      * @example 1
      *

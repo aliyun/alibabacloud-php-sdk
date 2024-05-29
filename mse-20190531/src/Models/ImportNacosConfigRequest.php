@@ -26,6 +26,7 @@ class ImportNacosConfigRequest extends Model
      *   zh: Chinese
      *   en: English
      *
+     * This parameter is required.
      * @example http://mse-shared.oss-xxx.aliyuncs.com/cfg/import/xxxx/2021/01/11/xxxx.zip
      *
      * @var string
@@ -35,6 +36,7 @@ class ImportNacosConfigRequest extends Model
     /**
      * @description The ID of the namespace.
      *
+     * This parameter is required.
      * @example mse_prepaid_public_cn-****
      *
      * @var string

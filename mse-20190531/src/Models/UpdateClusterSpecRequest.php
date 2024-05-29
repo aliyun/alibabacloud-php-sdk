@@ -55,6 +55,7 @@ class UpdateClusterSpecRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-cn-st21ri2****
      *
      * @var string

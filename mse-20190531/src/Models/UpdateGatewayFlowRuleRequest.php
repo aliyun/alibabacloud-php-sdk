@@ -16,6 +16,8 @@ class UpdateGatewayFlowRuleRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +32,8 @@ class UpdateGatewayFlowRuleRequest extends Model
     public $bodyEncoding;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +48,8 @@ class UpdateGatewayFlowRuleRequest extends Model
     public $gatewayId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gw-e2d226bba4b2445c9e29fa7f8216****
      *
      * @var string
@@ -51,6 +57,8 @@ class UpdateGatewayFlowRuleRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 549
      *
      * @var int
@@ -79,6 +87,8 @@ class UpdateGatewayFlowRuleRequest extends Model
     public $responseStatusCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 48811
      *
      * @var int
@@ -86,6 +96,8 @@ class UpdateGatewayFlowRuleRequest extends Model
     public $routeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example routeA
      *
      * @var string
@@ -93,6 +105,8 @@ class UpdateGatewayFlowRuleRequest extends Model
     public $routeName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

@@ -212,7 +212,7 @@ class data extends Model
      * @description The routing policy in a JSON string.
      *
      * @example {
-     * "CORS": "{\"allowMethods\":\"GET,POST,PUT,DELETE,HEAD,OPTIONS,PATCH\",\"allowHeaders\":\"*\",\"exposeHeaders\":\"*\",\"unitNum\":12,\"allowCredentials\":true,\"status\":\"off\",\"allowOrigins\":\"*\",\"timeUnit\":\"h\"}",
+     * "CORS": "{\\"allowMethods\\":\\"GET,POST,PUT,DELETE,HEAD,OPTIONS,PATCH\\",\\"allowHeaders\\":\\"*\\",\\"exposeHeaders\\":\\"*\\",\\"unitNum\\":12,\\"allowCredentials\\":true,\\"status\\":\\"off\\",\\"allowOrigins\\":\\"*\\",\\"timeUnit\\":\\"h\\"}",
      * }
      * @var string
      */
@@ -267,7 +267,7 @@ class data extends Model
     /**
      * @description The configurations of services.
      *
-     * @example [{\"Percent\":100,\"ServiceId\":126}]
+     * @example [{\\"Percent\\":100,\\"ServiceId\\":126}]
      *
      * @var string
      */

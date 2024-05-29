@@ -41,6 +41,7 @@ class ListNacosHistoryConfigsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-cn-2r42e3bk20n
      *
      * @var string
@@ -59,6 +60,7 @@ class ListNacosHistoryConfigsRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -68,6 +70,7 @@ class ListNacosHistoryConfigsRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -86,7 +89,7 @@ class ListNacosHistoryConfigsRequest extends Model
     /**
      * @description The extended request parameters in the JSON format.
      *
-     * @example {\\"appGroup\\":\\"aliyun-phecda-service-staging\\",\\"appName\\":\\"aliyun-phecda-service\\",\\"appStage\\":\\"DAILY\\",\\"appUnit\\":\\"center\\",\\"bucId\\":\\"250858\\",\\"bucName\\":\\"Alibaba Cloud\\",\\"provider\\":\\"aliyun\\"}
+     * @example {\\\\"appGroup\\\\":\\\\"aliyun-phecda-service-staging\\\\",\\\\"appName\\\\":\\\\"aliyun-phecda-service\\\\",\\\\"appStage\\\\":\\\\"DAILY\\\\",\\\\"appUnit\\\\":\\\\"center\\\\",\\\\"bucId\\\\":\\\\"250858\\\\",\\\\"bucName\\\\":\\\\"Alibaba Cloud\\\\",\\\\"provider\\\\":\\\\"aliyun\\\\"}
      *
      * @var string
      */

@@ -41,7 +41,7 @@ class UpdateNacosConfigRequest extends Model
     /**
      * @description The content of the configuration.
      *
-     * @example attribute1=1221111\r\nattribute2=Chinese\r\nattribute3=abc11\r\nattribute4=1.00111
+     * @example attribute1=1221111\\r\\nattribute2=Chinese\\r\\nattribute3=abc11\\r\\nattribute4=1.00111
      *
      * @var string
      */
@@ -50,6 +50,7 @@ class UpdateNacosConfigRequest extends Model
     /**
      * @description The ID of the configuration.
      *
+     * This parameter is required.
      * @example ky-check-****.yml
      *
      * @var string
@@ -77,6 +78,7 @@ class UpdateNacosConfigRequest extends Model
     /**
      * @description The name of the group.
      *
+     * This parameter is required.
      * @example resource
      *
      * @var string
@@ -86,6 +88,7 @@ class UpdateNacosConfigRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-cn-7pp2a****
      *
      * @var string

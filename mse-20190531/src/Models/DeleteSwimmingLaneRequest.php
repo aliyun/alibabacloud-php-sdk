@@ -23,6 +23,7 @@ class DeleteSwimmingLaneRequest extends Model
     /**
      * @description The ID of the lane.
      *
+     * This parameter is required.
      * @example 229
      *
      * @var int

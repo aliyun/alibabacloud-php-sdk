@@ -60,6 +60,11 @@ class data extends Model
     public $name;
 
     /**
+     * @var bool
+     */
+    public $pathIndependentPercentageEnable;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -74,19 +79,20 @@ class data extends Model
      */
     public $tag;
     protected $_name = [
-        'enable'                       => 'enable',
-        'enableRules'                  => 'enableRules',
-        'entryRule'                    => 'entryRule',
-        'entryRules'                   => 'entryRules',
-        'gatewaySwimmingLaneRouteJson' => 'gatewaySwimmingLaneRouteJson',
-        'gmtCreate'                    => 'gmtCreate',
-        'gmtModified'                  => 'gmtModified',
-        'groupId'                      => 'groupId',
-        'id'                           => 'id',
-        'name'                         => 'name',
-        'regionId'                     => 'regionId',
-        'status'                       => 'status',
-        'tag'                          => 'tag',
+        'enable'                          => 'enable',
+        'enableRules'                     => 'enableRules',
+        'entryRule'                       => 'entryRule',
+        'entryRules'                      => 'entryRules',
+        'gatewaySwimmingLaneRouteJson'    => 'gatewaySwimmingLaneRouteJson',
+        'gmtCreate'                       => 'gmtCreate',
+        'gmtModified'                     => 'gmtModified',
+        'groupId'                         => 'groupId',
+        'id'                              => 'id',
+        'name'                            => 'name',
+        'pathIndependentPercentageEnable' => 'pathIndependentPercentageEnable',
+        'regionId'                        => 'regionId',
+        'status'                          => 'status',
+        'tag'                             => 'tag',
     ];
 
     public function validate()
@@ -131,6 +137,9 @@ class data extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->pathIndependentPercentageEnable) {
+            $res['pathIndependentPercentageEnable'] = $this->pathIndependentPercentageEnable;
         }
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
@@ -188,6 +197,9 @@ class data extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['pathIndependentPercentageEnable'])) {
+            $model->pathIndependentPercentageEnable = $map['pathIndependentPercentageEnable'];
         }
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];

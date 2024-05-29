@@ -65,7 +65,7 @@ class result extends Model
     /**
      * @description The throttling behavior.
      *
-     * @example "{\"appName\":\"spring-cloud-a\",\"fallbackBehavior\":{\"webFallbackMode\":0,\"webRespContentType\":0,\"webRespMessage\":\"Blocked\",\"webRespStatusCode\":429},\"id\":977,\"name\":\"Fallback\",\"namespace\":\"default\",\"resourceClassification\":1}"
+     * @example "{\\"appName\\":\\"spring-cloud-a\\",\\"fallbackBehavior\\":{\\"webFallbackMode\\":0,\\"webRespContentType\\":0,\\"webRespMessage\\":\\"Blocked\\",\\"webRespStatusCode\\":429},\\"id\\":977,\\"name\\":\\"Fallback\\",\\"namespace\\":\\"default\\",\\"resourceClassification\\":1}"
      *
      * @var string
      */
@@ -142,7 +142,7 @@ class result extends Model
     /**
      * @description A reserved parameter.
      *
-     * @example {\"origin\":\"default\"}
+     * @example {\\"origin\\":\\"default\\"}
      *
      * @var mixed[]
      */

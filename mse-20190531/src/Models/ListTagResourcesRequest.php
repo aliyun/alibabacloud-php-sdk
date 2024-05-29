@@ -33,6 +33,7 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -52,6 +53,7 @@ class ListTagResourcesRequest extends Model
      *   CLUSTER: MSE instance
      *   GATEWAY: cloud-native gateway
      *
+     * This parameter is required.
      * @example CLUSTER
      *
      * @var string

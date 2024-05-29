@@ -50,6 +50,7 @@ class ListNacosConfigsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-cn-7mz2fj****
      *
      * @var string
@@ -68,6 +69,7 @@ class ListNacosConfigsRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 5
      *
      * @var int
@@ -77,6 +79,7 @@ class ListNacosConfigsRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 200
      *
      * @var int
@@ -95,7 +98,7 @@ class ListNacosConfigsRequest extends Model
     /**
      * @description The extended request parameters. The JSON format is supported.
      *
-     * @example {\\"appGroup\\":\\"sm_zk_asi_na610\\",\\"appName\\":\\"sm-zk\\",\\"appStage\\":\\"PUBLISH\\",\\"appUnit\\":\\"center\\",\\"bucId\\":\\"193554\\",\\"bucName\\":\\"Alibaba Mobile Business Group-UC\\",\\"provider\\":\\"aliyun\\"}
+     * @example {\\\\"appGroup\\\\":\\\\"sm_zk_asi_na610\\\\",\\\\"appName\\\\":\\\\"sm-zk\\\\",\\\\"appStage\\\\":\\\\"PUBLISH\\\\",\\\\"appUnit\\\\":\\\\"center\\\\",\\\\"bucId\\\\":\\\\"193554\\\\",\\\\"bucName\\\\":\\\\"Alibaba Mobile Business Group-UC\\\\",\\\\"provider\\\\":\\\\"aliyun\\\\"}
      *
      * @var string
      */

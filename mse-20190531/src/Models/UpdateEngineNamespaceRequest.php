@@ -41,6 +41,7 @@ class UpdateEngineNamespaceRequest extends Model
     /**
      * @description The ID of the namespace.
      *
+     * This parameter is required.
      * @example 33ff74b6-d21e-4f9b-91a8-bc1ea4ef****
      *
      * @var string
@@ -59,6 +60,7 @@ class UpdateEngineNamespaceRequest extends Model
     /**
      * @description The name of the cluster.
      *
+     * This parameter is required.
      * @example name
      *
      * @var string

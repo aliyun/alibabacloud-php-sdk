@@ -23,6 +23,7 @@ class UpgradeClusterRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-cn-nif1w51wi0c
      *
      * @var string
@@ -41,6 +42,7 @@ class UpgradeClusterRequest extends Model
     /**
      * @description The destination version.
      *
+     * This parameter is required.
      * @example 1.2.1
      *
      * @var string

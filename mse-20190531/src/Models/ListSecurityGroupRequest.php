@@ -23,6 +23,7 @@ class ListSecurityGroupRequest extends Model
     /**
      * @description The ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-e98e40675aaf49bda082137d158e1585
      *
      * @var string

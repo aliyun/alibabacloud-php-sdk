@@ -18,7 +18,7 @@ class data extends Model
     public $app;
 
     /**
-     * @description The timeout period of the instance.\
+     * @description The timeout period of the instance.\\
      * After the specified timeout period expires, the service is unavailable by default and is deleted.
      * @example 90
      *
@@ -99,7 +99,7 @@ class data extends Model
     public $port;
 
     /**
-     * @description The maximum interval between two heartbeat checks after a heartbeat check times out.\
+     * @description The maximum interval between two heartbeat checks after a heartbeat check times out.\\
      * Default value: 10.
      * @example 10
      *

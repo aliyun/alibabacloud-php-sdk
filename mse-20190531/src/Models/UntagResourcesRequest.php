@@ -36,6 +36,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -45,6 +46,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource IDs. A maximum of 50 resource IDs can be specified.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -55,6 +57,7 @@ class UntagResourcesRequest extends Model
      *   CLUSTER: MSE instance
      *   GATEWAY: cloud-native gateway
      *
+     * This parameter is required.
      * @example CLUSTER
      *
      * @var string

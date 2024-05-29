@@ -16,6 +16,8 @@ class DeleteGatewayCircuitBreakerRuleRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gw-1cef5440bf2d484db419fb264d4f****
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteGatewayCircuitBreakerRuleRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 11151
      *
      * @var int
@@ -30,6 +34,8 @@ class DeleteGatewayCircuitBreakerRuleRequest extends Model
     public $routeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

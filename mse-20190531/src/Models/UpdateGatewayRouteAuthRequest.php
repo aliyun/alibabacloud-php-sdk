@@ -24,6 +24,7 @@ class UpdateGatewayRouteAuthRequest extends Model
     /**
      * @description The authentication configurations.
      *
+     * This parameter is required.
      * @var authJSON
      */
     public $authJSON;
@@ -40,6 +41,7 @@ class UpdateGatewayRouteAuthRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-0adf3ad751284cc69fcf9669fba*****
      *
      * @var string
@@ -49,6 +51,7 @@ class UpdateGatewayRouteAuthRequest extends Model
     /**
      * @description The route ID.
      *
+     * This parameter is required.
      * @example 109
      *
      * @var int

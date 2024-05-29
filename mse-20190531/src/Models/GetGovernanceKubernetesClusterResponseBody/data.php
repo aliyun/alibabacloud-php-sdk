@@ -39,7 +39,7 @@ class data extends Model
     /**
      * @description The information of the namespace.
      *
-     * @example [{\"Name\":\"ack-onepilot\",\"Tags\":null},{\"Name\":\"default\",\"Tags\":{\"mse-enable\":\"enabled\"}},{\"Name\":\"kube-node-lease\",\"Tags\":null},{\"Name\":\"kube-public\",\"Tags\":null},{\"Name\":\"kube-system\",\"Tags\":null}]
+     * @example [{\\"Name\\":\\"ack-onepilot\\",\\"Tags\\":null},{\\"Name\\":\\"default\\",\\"Tags\\":{\\"mse-enable\\":\\"enabled\\"}},{\\"Name\\":\\"kube-node-lease\\",\\"Tags\\":null},{\\"Name\\":\\"kube-public\\",\\"Tags\\":null},{\\"Name\\":\\"kube-system\\",\\"Tags\\":null}]
      *
      * @var string
      */

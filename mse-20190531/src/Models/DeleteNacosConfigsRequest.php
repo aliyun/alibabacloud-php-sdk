@@ -23,6 +23,7 @@ class DeleteNacosConfigsRequest extends Model
     /**
      * @description The IDs of configurations.
      *
+     * This parameter is required.
      * @example 20024,20025,20026,20027,20034,20104,20394
      *
      * @var string
@@ -32,6 +33,7 @@ class DeleteNacosConfigsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse_prepaid_public_cn-i7m2e32pd0n
      *
      * @var string
@@ -41,6 +43,7 @@ class DeleteNacosConfigsRequest extends Model
     /**
      * @description The ID of the namespace.
      *
+     * This parameter is required.
      * @example 1ef93a21-3487-4367-a859-857d8****
      *
      * @var string

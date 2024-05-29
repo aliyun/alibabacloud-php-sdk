@@ -16,6 +16,8 @@ class BindSentinelBlockFallbackDefinitionRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -23,6 +25,8 @@ class BindSentinelBlockFallbackDefinitionRequest extends Model
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 21
      *
      * @var int
@@ -30,6 +34,8 @@ class BindSentinelBlockFallbackDefinitionRequest extends Model
     public $fallbackId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example prod
      *
      * @var string
@@ -37,6 +43,8 @@ class BindSentinelBlockFallbackDefinitionRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example /a
      *
      * @var string
@@ -44,6 +52,8 @@ class BindSentinelBlockFallbackDefinitionRequest extends Model
     public $resource;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string

@@ -21,7 +21,7 @@ class UpdatePluginConfigRequest extends Model
     /**
      * @description The plug-in configuration. Configurations of WebAssembly plug-ins are in the YAML format, and configurations of Lua plug-ins are in the Lua code.
      *
-     * @example \# Configure a check for the required fields of the plug-in, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
+     * @example \\# Configure a check for the required fields of the plug-in, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
      *
      * @var string
      */
@@ -61,6 +61,7 @@ class UpdatePluginConfigRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-ubuwqygbq4783gqb2y3f87q****
      *
      * @var string
@@ -97,6 +98,7 @@ class UpdatePluginConfigRequest extends Model
     /**
      * @description The ID of the gateway plug-in.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int

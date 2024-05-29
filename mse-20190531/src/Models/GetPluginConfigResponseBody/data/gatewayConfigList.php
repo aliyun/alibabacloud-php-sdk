@@ -11,7 +11,7 @@ class gatewayConfigList extends Model
     /**
      * @description The plug-in configuration.
      *
-     * @example \# Configure a check for the required fields of the plug-in, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
+     * @example \\# Configure a check for the required fields of the plug-in, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
      *
      * @var string
      */

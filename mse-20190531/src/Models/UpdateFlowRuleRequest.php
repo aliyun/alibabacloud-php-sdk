@@ -32,6 +32,7 @@ class UpdateFlowRuleRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example spring-cloud-a
      *
      * @var string
@@ -86,6 +87,7 @@ class UpdateFlowRuleRequest extends Model
     /**
      * @description The namespace.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string
@@ -95,6 +97,7 @@ class UpdateFlowRuleRequest extends Model
     /**
      * @description The rule ID.
      *
+     * This parameter is required.
      * @example 13
      *
      * @var int

@@ -12,6 +12,11 @@ class data extends Model
     /**
      * @var bool
      */
+    public $pathIndependentPercentageEnable;
+
+    /**
+     * @var bool
+     */
     public $enable;
 
     /**
@@ -74,19 +79,20 @@ class data extends Model
      */
     public $tag;
     protected $_name = [
-        'enable'                       => 'enable',
-        'enableRules'                  => 'enableRules',
-        'entryRule'                    => 'entryRule',
-        'entryRules'                   => 'entryRules',
-        'gatewaySwimmingLaneRouteJson' => 'gatewaySwimmingLaneRouteJson',
-        'gmtCreate'                    => 'gmtCreate',
-        'gmtModified'                  => 'gmtModified',
-        'groupId'                      => 'groupId',
-        'id'                           => 'id',
-        'name'                         => 'name',
-        'regionId'                     => 'regionId',
-        'status'                       => 'status',
-        'tag'                          => 'tag',
+        'pathIndependentPercentageEnable' => 'PathIndependentPercentageEnable',
+        'enable'                          => 'enable',
+        'enableRules'                     => 'enableRules',
+        'entryRule'                       => 'entryRule',
+        'entryRules'                      => 'entryRules',
+        'gatewaySwimmingLaneRouteJson'    => 'gatewaySwimmingLaneRouteJson',
+        'gmtCreate'                       => 'gmtCreate',
+        'gmtModified'                     => 'gmtModified',
+        'groupId'                         => 'groupId',
+        'id'                              => 'id',
+        'name'                            => 'name',
+        'regionId'                        => 'regionId',
+        'status'                          => 'status',
+        'tag'                             => 'tag',
     ];
 
     public function validate()
@@ -96,6 +102,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pathIndependentPercentageEnable) {
+            $res['PathIndependentPercentageEnable'] = $this->pathIndependentPercentageEnable;
+        }
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
@@ -153,6 +162,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PathIndependentPercentageEnable'])) {
+            $model->pathIndependentPercentageEnable = $map['PathIndependentPercentageEnable'];
+        }
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }

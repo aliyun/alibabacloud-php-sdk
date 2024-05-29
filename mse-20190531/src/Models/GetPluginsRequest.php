@@ -46,6 +46,7 @@ class GetPluginsRequest extends Model
     /**
      * @description The ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-0adf3ad751284cc69fcf9669fba*****
      *
      * @var string

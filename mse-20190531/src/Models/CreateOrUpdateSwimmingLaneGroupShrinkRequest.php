@@ -82,6 +82,7 @@ class CreateOrUpdateSwimmingLaneGroupShrinkRequest extends Model
     /**
      * @description The name.
      *
+     * This parameter is required.
      * @example group1
      *
      * @var string

@@ -23,6 +23,7 @@ class ModifyLosslessRuleRequest extends Model
     /**
      * @description Specifies whether to align the lifecycle of the application in the Kubernetes cluster with that of the microservice.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -32,6 +33,7 @@ class ModifyLosslessRuleRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example c644n5frmc@3e75f25fd4*****
      *
      * @var string
@@ -50,6 +52,7 @@ class ModifyLosslessRuleRequest extends Model
     /**
      * @description The registration latency.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -62,6 +65,7 @@ class ModifyLosslessRuleRequest extends Model
      *   `true`: enables the rule.
      *   `false`: disables the rule.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -71,6 +75,7 @@ class ModifyLosslessRuleRequest extends Model
     /**
      * @description The slope of the prefetching curve.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -107,6 +112,7 @@ class ModifyLosslessRuleRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -116,6 +122,7 @@ class ModifyLosslessRuleRequest extends Model
     /**
      * @description Specifies whether to associate with service prefetching.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -125,6 +132,7 @@ class ModifyLosslessRuleRequest extends Model
     /**
      * @description The prefetching duration.
      *
+     * This parameter is required.
      * @example 60
      *
      * @var int

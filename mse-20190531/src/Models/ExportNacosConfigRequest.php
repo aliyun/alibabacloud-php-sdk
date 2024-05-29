@@ -83,6 +83,7 @@ class ExportNacosConfigRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-cn-2r42ddc****
      *
      * @var string

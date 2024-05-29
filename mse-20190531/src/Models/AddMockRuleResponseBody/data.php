@@ -68,8 +68,8 @@ class data extends Model
     /**
      * @description The mock type. Valid values:
      *
-     *   \- `[unk]0[unk]`: desktop client
-     *   \- `[unk]1[unk]`: mobile client
+     *   \\- `[unk]0[unk]`: desktop client
+     *   \\- `[unk]1[unk]`: mobile client
      *
      * @example 0
      *
@@ -125,7 +125,7 @@ class data extends Model
     /**
      * @description The HTTP mock rule.
      *
-     * @example [{"oper":"return+json","Path":"/mock","Value":"{\n \"date\": \"2021-09-10T07:45:12.357+0000\",\n \"name\": \"name\",\n \"id\": \"1\"\n}","Method":"GET","Condition":"AND","Timeout":1,"ArgumentMockItems":[{"type":"param","name":"id","value":"1","cond":"==","operator":"rawvalue"},{"type":"param","name":"name","value":"aliyun","cond":"==","operator":"rawvalue"}]}]
+     * @example [{"oper":"return+json","Path":"/mock","Value":"{\\n \\"date\\": \\"2021-09-10T07:45:12.357+0000\\",\\n \\"name\\": \\"name\\",\\n \\"id\\": \\"1\\"\\n}","Method":"GET","Condition":"AND","Timeout":1,"ArgumentMockItems":[{"type":"param","name":"id","value":"1","cond":"==","operator":"rawvalue"},{"type":"param","name":"name","value":"aliyun","cond":"==","operator":"rawvalue"}]}]
      *
      * @var string
      */

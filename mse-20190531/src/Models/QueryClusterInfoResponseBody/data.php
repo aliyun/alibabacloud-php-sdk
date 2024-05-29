@@ -273,7 +273,7 @@ class data extends Model
     public $intranetPort;
 
     /**
-     * @description The O\&M time window.
+     * @description The O\\&M time window.
      *
      * @var maintenancePeriod
      */
@@ -316,7 +316,7 @@ class data extends Model
     public $payInfo;
 
     /**
-     * @description The public bandwidth. Unit: Mbit/s.\
+     * @description The public bandwidth. Unit: Mbit/s.\\
      * Valid values: 0 to 5000. The value 0 indicates no access to the Internet.
      * @example 1
      *

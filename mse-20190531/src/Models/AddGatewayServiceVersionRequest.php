@@ -41,7 +41,7 @@ class AddGatewayServiceVersionRequest extends Model
     /**
      * @description The version of the service.
      *
-     * @example {\"name\":\"v1\",\"labels\":[{\"key\":\"version\",\"value\":\"v1\"}]}
+     * @example {\\"name\\":\\"v1\\",\\"labels\\":[{\\"key\\":\\"version\\",\\"value\\":\\"v1\\"}]}
      *
      * @var string
      */

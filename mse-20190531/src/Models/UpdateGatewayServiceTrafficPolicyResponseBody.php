@@ -20,7 +20,7 @@ class UpdateGatewayServiceTrafficPolicyResponseBody extends Model
     /**
      * @description The details of the data.
      *
-     * @example {\"GatewayUniqueId\": \"gw-2b8ebd75dc554c37a4279ba9917379f2\", \"Id\": 417, \"GatewayTrafficPolicy\": {\"LoadBalancerSettings\": {\"LoadbalancerType\": \"ROUND_ROBIN\"}, \"TlsSetting\": {\"TlsMode\": \"DISABLE\"}}}
+     * @example {\\"GatewayUniqueId\\": \\"gw-2b8ebd75dc554c37a4279ba9917379f2\\", \\"Id\\": 417, \\"GatewayTrafficPolicy\\": {\\"LoadBalancerSettings\\": {\\"LoadbalancerType\\": \\"ROUND_ROBIN\\"}, \\"TlsSetting\\": {\\"TlsMode\\": \\"DISABLE\\"}}}
      *
      * @var GatewayService
      */

@@ -28,7 +28,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The returned information.
+     * @description The data returned.
      *
      * @var result[]
      */

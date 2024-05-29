@@ -44,6 +44,7 @@ class UpdateGatewayAuthConsumerRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-90392d768a3847a7b804c505254d****
      *
      * @var string
@@ -53,6 +54,7 @@ class UpdateGatewayAuthConsumerRequest extends Model
     /**
      * @description The ID of the consumer.
      *
+     * This parameter is required.
      * @example 63
      *
      * @var int

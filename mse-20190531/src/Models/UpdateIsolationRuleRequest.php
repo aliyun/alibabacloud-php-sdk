@@ -23,6 +23,8 @@ class UpdateIsolationRuleRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -37,6 +39,8 @@ class UpdateIsolationRuleRequest extends Model
     public $enable;
 
     /**
+     * @description This parameter is required.
+     *
      * @example default
      *
      * @var string
@@ -44,6 +48,8 @@ class UpdateIsolationRuleRequest extends Model
     public $namespace;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

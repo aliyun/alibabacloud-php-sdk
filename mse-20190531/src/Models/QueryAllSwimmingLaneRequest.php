@@ -23,6 +23,7 @@ class QueryAllSwimmingLaneRequest extends Model
     /**
      * @description The ID of the lane group.
      *
+     * This parameter is required.
      * @example 186
      *
      * @var int

@@ -30,7 +30,7 @@ class data extends Model
      * @description The type of the security group. Valid values:
      *
      *   normal: basic security group
-     *   enterprise: advanced security group For more information, see [Advanced security groups](~~120621~~).
+     *   enterprise: advanced security group For more information, see [Advanced security groups](https://help.aliyun.com/document_detail/120621.html).
      *
      * @example enterprise
      *

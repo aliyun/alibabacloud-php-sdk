@@ -35,6 +35,7 @@ class UpdateNacosInstanceRequest extends Model
      *   `true`: yes.
      *   `false`: no.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -47,6 +48,7 @@ class UpdateNacosInstanceRequest extends Model
      *   `true`: yes.
      *   `false`: no.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -56,6 +58,7 @@ class UpdateNacosInstanceRequest extends Model
     /**
      * @description The name of the group.
      *
+     * This parameter is required.
      * @example DEFAULT_GROUP
      *
      * @var string
@@ -65,6 +68,7 @@ class UpdateNacosInstanceRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-cn-123456
      *
      * @var string
@@ -74,6 +78,7 @@ class UpdateNacosInstanceRequest extends Model
     /**
      * @description The IP address of the Nacos instance.
      *
+     * This parameter is required.
      * @example 1.2.X.X
      *
      * @var string
@@ -101,6 +106,7 @@ class UpdateNacosInstanceRequest extends Model
     /**
      * @description The port number of the Nacos instance.
      *
+     * This parameter is required.
      * @example 12281
      *
      * @var int
@@ -110,6 +116,7 @@ class UpdateNacosInstanceRequest extends Model
     /**
      * @description The name of the service.
      *
+     * This parameter is required.
      * @example hello_service
      *
      * @var string
@@ -119,6 +126,7 @@ class UpdateNacosInstanceRequest extends Model
     /**
      * @description The weight. Valid values: 0 to 10000. The value must be an integer. A larger value indicates a higher frequency at which the instance is accessed.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

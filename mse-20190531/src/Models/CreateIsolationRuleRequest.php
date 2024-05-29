@@ -23,6 +23,8 @@ class CreateIsolationRuleRequest extends Model
     public $appId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -30,6 +32,8 @@ class CreateIsolationRuleRequest extends Model
     public $appName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +41,8 @@ class CreateIsolationRuleRequest extends Model
     public $enable;
 
     /**
+     * @description This parameter is required.
+     *
      * @example default
      *
      * @var string
@@ -51,6 +57,8 @@ class CreateIsolationRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example /a
      *
      * @var string
@@ -58,6 +66,8 @@ class CreateIsolationRuleRequest extends Model
     public $resource;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var float

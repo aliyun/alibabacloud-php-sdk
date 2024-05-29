@@ -16,6 +16,8 @@ class DeleteGatewayIsolationRuleRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example gw-e2d226bba4b2445c9e29fa7f8216****
      *
      * @var string
@@ -23,6 +25,8 @@ class DeleteGatewayIsolationRuleRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 11151
      *
      * @var int
@@ -30,6 +34,8 @@ class DeleteGatewayIsolationRuleRequest extends Model
     public $routeId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int

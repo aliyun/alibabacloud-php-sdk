@@ -24,6 +24,8 @@ class traceDetails extends Model
     public $servicePort;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $traceEnabled;

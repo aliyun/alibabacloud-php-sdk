@@ -23,6 +23,7 @@ class ListGatewayAuthConsumerResourceRequest extends Model
     /**
      * @description The ID of the consumer.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -32,6 +33,7 @@ class ListGatewayAuthConsumerResourceRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-3f97e2989c344f35ab3fd62b19f1****
      *
      * @var string
@@ -41,6 +43,7 @@ class ListGatewayAuthConsumerResourceRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -50,6 +53,7 @@ class ListGatewayAuthConsumerResourceRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string

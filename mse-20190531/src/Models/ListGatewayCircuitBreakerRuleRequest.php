@@ -18,6 +18,7 @@ class ListGatewayCircuitBreakerRuleRequest extends Model
     /**
      * @description just for POP
      *
+     * This parameter is required.
      * @example param
      *
      * @var string

@@ -32,6 +32,7 @@ class AddSecurityGroupRuleRequest extends Model
     /**
      * @description The ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-c9bc5afd61014165bd58f621b491****
      *
      * @var string
@@ -41,6 +42,7 @@ class AddSecurityGroupRuleRequest extends Model
     /**
      * @description The range of port numbers.
      *
+     * This parameter is required.
      * @example 1/65535
      *
      * @var string
@@ -50,6 +52,7 @@ class AddSecurityGroupRuleRequest extends Model
     /**
      * @description The ID of the security group.
      *
+     * This parameter is required.
      * @example sg-wz929kxhcdpw9z8idqd8
      *
      * @var string

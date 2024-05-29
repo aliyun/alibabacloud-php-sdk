@@ -23,6 +23,7 @@ class UpdateGatewaySpecRequest extends Model
     /**
      * @description The ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-c70622ff52fe49beb29bea9a6f52****
      *
      * @var string
@@ -32,6 +33,7 @@ class UpdateGatewaySpecRequest extends Model
     /**
      * @description The number of nodes.
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -41,6 +43,7 @@ class UpdateGatewaySpecRequest extends Model
     /**
      * @description The node specifications of the gateway.
      *
+     * This parameter is required.
      * @example MSE_GTW_4_8_200_c
      *
      * @var string

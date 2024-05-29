@@ -44,6 +44,7 @@ class AddGatewayAuthConsumerRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-c70622ff52fe49beb29bea9a6f52****
      *
      * @var string
@@ -80,6 +81,7 @@ class AddGatewayAuthConsumerRequest extends Model
     /**
      * @description The name of the consumer.
      *
+     * This parameter is required.
      * @example name
      *
      * @var string
@@ -127,6 +129,7 @@ class AddGatewayAuthConsumerRequest extends Model
      *
      *   JWT
      *
+     * This parameter is required.
      * @example JWT
      *
      * @var string

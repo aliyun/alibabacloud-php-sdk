@@ -74,7 +74,7 @@ class data extends Model
     /**
      * @description The matching rules.
      *
-     * @example {\"PathPredicates\":{\"Path\":\"/metas\",\"Type\":\"PRE\",\"IgnoreCase\":false}}
+     * @example {\\"PathPredicates\\":{\\"Path\\":\\"/metas\\",\\"Type\\":\\"PRE\\",\\"IgnoreCase\\":false}}
      *
      * @var string
      */

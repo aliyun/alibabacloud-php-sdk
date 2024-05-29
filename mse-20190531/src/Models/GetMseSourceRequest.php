@@ -42,6 +42,10 @@ class GetMseSourceRequest extends Model
     public $type;
 
     /**
+     * @description VPC ID
+     *
+     * @example vpc-bp1t50e045b5g7i3p****
+     *
      * @var string
      */
     public $vpcId;

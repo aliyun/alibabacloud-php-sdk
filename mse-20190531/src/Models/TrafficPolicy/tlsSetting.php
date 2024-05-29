@@ -24,6 +24,8 @@ class tlsSetting extends Model
     public $sni;
 
     /**
+     * @description This parameter is required.
+     *
      * @example SIMPLE
      *
      * @var string

@@ -23,6 +23,7 @@ class ListSecurityGroupRuleRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-83b0ddb569434f82b9fe8e4c60c40f7c
      *
      * @var string

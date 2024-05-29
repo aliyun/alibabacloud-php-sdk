@@ -23,6 +23,7 @@ class ListZnodeChildrenRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-09k1q11****
      *
      * @var string
@@ -32,6 +33,7 @@ class ListZnodeChildrenRequest extends Model
     /**
      * @description The path of the node.
      *
+     * This parameter is required.
      * @example /zookeeper
      *
      * @var string

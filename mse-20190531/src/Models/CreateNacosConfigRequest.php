@@ -50,6 +50,7 @@ class CreateNacosConfigRequest extends Model
     /**
      * @description The ID of the data.
      *
+     * This parameter is required.
      * @example common.yaml
      *
      * @var string
@@ -68,6 +69,7 @@ class CreateNacosConfigRequest extends Model
     /**
      * @description The ID of the group.
      *
+     * This parameter is required.
      * @example alime-bridge-aliyun
      *
      * @var string
@@ -77,6 +79,7 @@ class CreateNacosConfigRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse_prepaid_public_cn-tl32****
      *
      * @var string

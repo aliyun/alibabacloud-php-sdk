@@ -32,6 +32,7 @@ class CreateFlowRuleRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example spring-cloud-a
      *
      * @var string
@@ -67,7 +68,7 @@ class CreateFlowRuleRequest extends Model
      *
      *   false
      *
-     * <!-- -->
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -86,6 +87,7 @@ class CreateFlowRuleRequest extends Model
     /**
      * @description The namespace.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string
@@ -104,6 +106,7 @@ class CreateFlowRuleRequest extends Model
     /**
      * @description The name of the API resource.
      *
+     * This parameter is required.
      * @example /b
      *
      * @var string
@@ -118,6 +121,7 @@ class CreateFlowRuleRequest extends Model
     /**
      * @description The throttling threshold.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int

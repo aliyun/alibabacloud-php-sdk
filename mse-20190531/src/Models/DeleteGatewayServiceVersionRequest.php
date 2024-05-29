@@ -41,7 +41,7 @@ class DeleteGatewayServiceVersionRequest extends Model
     /**
      * @description The version of the service.
      *
-     * @example {\"name\":\"app\",\"labels\":[{\"key\":\"app\",\"value\":\"demo-server\"}]}
+     * @example {\\"name\\":\\"app\\",\\"labels\\":[{\\"key\\":\\"app\\",\\"value\\":\\"demo-server\\"}]}
      *
      * @var string
      */

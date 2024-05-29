@@ -75,7 +75,7 @@ class data extends Model
     /**
      * @description The details of the routing rule.
      *
-     * @example {\"_base\": {\"rate\": 100, \"remove\": true}, \"blue\": {\"rate\": 0}}
+     * @example {\\"_base\\": {\\"rate\\": 100, \\"remove\\": true}, \\"blue\\": {\\"rate\\": 0}}
      *
      * @var string
      */

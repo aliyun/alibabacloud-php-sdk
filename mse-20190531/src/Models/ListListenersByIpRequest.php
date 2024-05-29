@@ -23,6 +23,7 @@ class ListListenersByIpRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse_prepaid_public_cn-i7m2cecji09
      *
      * @var string
@@ -32,6 +33,7 @@ class ListListenersByIpRequest extends Model
     /**
      * @description The IP address of the listener.
      *
+     * This parameter is required.
      * @example 172.22.0.240
      *
      * @var string

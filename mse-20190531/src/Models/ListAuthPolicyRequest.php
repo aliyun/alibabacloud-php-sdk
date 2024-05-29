@@ -47,6 +47,7 @@ class ListAuthPolicyRequest extends Model
     /**
      * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -56,6 +57,7 @@ class ListAuthPolicyRequest extends Model
     /**
      * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string
@@ -78,6 +80,7 @@ class ListAuthPolicyRequest extends Model
     /**
      * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -87,6 +90,7 @@ class ListAuthPolicyRequest extends Model
     /**
      * @description The service source.
      *
+     * This parameter is required.
      * @example edasmsc
      *
      * @var string

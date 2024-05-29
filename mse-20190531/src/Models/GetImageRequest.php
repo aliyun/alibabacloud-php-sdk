@@ -23,6 +23,7 @@ class GetImageRequest extends Model
     /**
      * @description The version number of the current instance.
      *
+     * This parameter is required.
      * @example ZooKeeper_3_5_5
      *
      * @var string

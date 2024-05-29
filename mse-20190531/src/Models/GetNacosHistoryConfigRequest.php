@@ -23,6 +23,7 @@ class GetNacosHistoryConfigRequest extends Model
     /**
      * @description The ID of the data.
      *
+     * This parameter is required.
      * @example msg-center.main.yaml
      *
      * @var string
@@ -32,6 +33,7 @@ class GetNacosHistoryConfigRequest extends Model
     /**
      * @description The name of the group.
      *
+     * This parameter is required.
      * @example DEFAULT_GROUP
      *
      * @var string
@@ -41,6 +43,7 @@ class GetNacosHistoryConfigRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse_prepaid_public_cn-st220g9ka02
      *
      * @var string
@@ -59,6 +62,7 @@ class GetNacosHistoryConfigRequest extends Model
     /**
      * @description The version ID of the configuration.
      *
+     * This parameter is required.
      * @example 40****
      *
      * @var string

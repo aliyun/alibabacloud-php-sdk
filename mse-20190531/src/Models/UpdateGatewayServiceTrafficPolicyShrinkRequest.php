@@ -32,6 +32,7 @@ class UpdateGatewayServiceTrafficPolicyShrinkRequest extends Model
     /**
      * @description The traffic policy of the gateway.
      *
+     * This parameter is required.
      * @var string
      */
     public $gatewayTrafficPolicyShrink;

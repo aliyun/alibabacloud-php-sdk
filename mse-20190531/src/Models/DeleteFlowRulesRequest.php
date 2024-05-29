@@ -23,6 +23,7 @@ class DeleteFlowRulesRequest extends Model
     /**
      * @description The application name.
      *
+     * This parameter is required.
      * @example spring-cloud-a
      *
      * @var string
@@ -41,6 +42,7 @@ class DeleteFlowRulesRequest extends Model
     /**
      * @description The microservice namespace to which the application belongs.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string

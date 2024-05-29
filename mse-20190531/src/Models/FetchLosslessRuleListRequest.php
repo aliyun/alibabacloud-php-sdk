@@ -50,6 +50,7 @@ class FetchLosslessRuleListRequest extends Model
     /**
      * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -59,6 +60,7 @@ class FetchLosslessRuleListRequest extends Model
     /**
      * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -68,6 +70,7 @@ class FetchLosslessRuleListRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string

@@ -23,6 +23,7 @@ class ListZkTrackRequest extends Model
     /**
      * @description The end timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1669619383
      *
      * @var int
@@ -32,6 +33,7 @@ class ListZkTrackRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-cn-0ju2yq****
      *
      * @var string
@@ -41,6 +43,7 @@ class ListZkTrackRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -50,6 +53,7 @@ class ListZkTrackRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -95,6 +99,7 @@ class ListZkTrackRequest extends Model
     /**
      * @description The start timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1669618483
      *
      * @var int

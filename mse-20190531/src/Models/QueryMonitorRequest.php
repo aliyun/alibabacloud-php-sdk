@@ -23,6 +23,7 @@ class QueryMonitorRequest extends Model
     /**
      * @description The timestamp when the monitoring ends.
      *
+     * This parameter is required.
      * @example 1666678376
      *
      * @var int
@@ -41,7 +42,7 @@ class QueryMonitorRequest extends Model
     /**
      * @description The metric type. The following metric types are supported:
      *
-     * \[Basic system metrics]
+     * [Basic system metrics]
      *
      *   cpuUsage
      *   memoryUsage
@@ -49,7 +50,7 @@ class QueryMonitorRequest extends Model
      *   gcCount
      *   gcTime
      *
-     * \[Nacos registry]
+     * [Nacos registry]
      *
      *   serviceCount
      *   writeCostTime
@@ -57,17 +58,18 @@ class QueryMonitorRequest extends Model
      *   TPS regCenterTps
      *   QPS regCenterQps
      *
-     * \[Nacos configuration center]
+     * [Nacos configuration center]
      *
      *   publish
      *   getConfig
      *
-     * \[zookeeper]
+     * [zookeeper]
      *
      *   TPS zk_TpsCount
      *   QPS zk_QpsCount
      *   zookeeper_AvgRequestLatency
      *
+     * This parameter is required.
      * @example regCenterQps
      *
      * @var string
@@ -86,6 +88,7 @@ class QueryMonitorRequest extends Model
     /**
      * @description The timestamp when the monitoring starts.
      *
+     * This parameter is required.
      * @example 1666678376
      *
      * @var int

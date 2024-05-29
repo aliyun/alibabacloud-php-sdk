@@ -35,6 +35,7 @@ class ListGatewayAuthConsumerRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-0fe488252dc44d55a9dd57875193****
      *
      * @var string
@@ -53,6 +54,7 @@ class ListGatewayAuthConsumerRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -62,6 +64,7 @@ class ListGatewayAuthConsumerRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string

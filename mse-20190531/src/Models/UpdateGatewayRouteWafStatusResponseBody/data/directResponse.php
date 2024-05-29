@@ -11,7 +11,7 @@ class directResponse extends Model
     /**
      * @description The mock return value.
      *
-     * @example [{\"key\":\"h68d13466.sqa.eu95\",\"dims\":\"groupName=All}]
+     * @example [{\\"key\\":\\"h68d13466.sqa.eu95\\",\\"dims\\":\\"groupName=All}]
      *
      * @var string
      */

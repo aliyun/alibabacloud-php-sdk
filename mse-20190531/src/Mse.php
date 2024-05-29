@@ -517,10 +517,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddAuthPolicyRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 新增服务鉴权规则
+     *  *
+     * @param AddAuthPolicyRequest $request AddAuthPolicyRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddAuthPolicyResponse
+     * @return AddAuthPolicyResponse AddAuthPolicyResponse
      */
     public function addAuthPolicyWithOptions($request, $runtime)
     {
@@ -578,9 +580,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddAuthPolicyRequest $request
+     * @summary 新增服务鉴权规则
+     *  *
+     * @param AddAuthPolicyRequest $request AddAuthPolicyRequest
      *
-     * @return AddAuthPolicyResponse
+     * @return AddAuthPolicyResponse AddAuthPolicyResponse
      */
     public function addAuthPolicy($request)
     {
@@ -590,10 +594,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddAuthResourceRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary Creates authorization information for a gateway.
+     *  *
+     * @param AddAuthResourceRequest $tmpReq  AddAuthResourceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddAuthResourceResponse
+     * @return AddAuthResourceResponse AddAuthResourceResponse
      */
     public function addAuthResourceWithOptions($tmpReq, $runtime)
     {
@@ -647,9 +653,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddAuthResourceRequest $request
+     * @summary Creates authorization information for a gateway.
+     *  *
+     * @param AddAuthResourceRequest $request AddAuthResourceRequest
      *
-     * @return AddAuthResourceResponse
+     * @return AddAuthResourceResponse AddAuthResourceResponse
      */
     public function addAuthResource($request)
     {
@@ -659,10 +667,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddBlackWhiteListRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates a blacklist or a whitelist.
+     *  *
+     * @param AddBlackWhiteListRequest $request AddBlackWhiteListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddBlackWhiteListResponse
+     * @return AddBlackWhiteListResponse AddBlackWhiteListResponse
      */
     public function addBlackWhiteListWithOptions($request, $runtime)
     {
@@ -717,9 +727,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddBlackWhiteListRequest $request
+     * @summary Creates a blacklist or a whitelist.
+     *  *
+     * @param AddBlackWhiteListRequest $request AddBlackWhiteListRequest
      *
-     * @return AddBlackWhiteListResponse
+     * @return AddBlackWhiteListResponse AddBlackWhiteListResponse
      */
     public function addBlackWhiteList($request)
     {
@@ -729,10 +741,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * @summary Adds a gateway.
+     *  *
+     * @param AddGatewayRequest $tmpReq  AddGatewayRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGatewayResponse
+     * @return AddGatewayResponse AddGatewayResponse
      */
     public function addGatewayWithOptions($tmpReq, $runtime)
     {
@@ -828,9 +842,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayRequest $request
+     * @summary Adds a gateway.
+     *  *
+     * @param AddGatewayRequest $request AddGatewayRequest
      *
-     * @return AddGatewayResponse
+     * @return AddGatewayResponse AddGatewayResponse
      */
     public function addGateway($request)
     {
@@ -840,10 +856,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayAuthRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary Adds an authentication configuration for a gateway.
+     *  *
+     * @param AddGatewayAuthRequest $tmpReq  AddGatewayAuthRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGatewayAuthResponse
+     * @return AddGatewayAuthResponse AddGatewayAuthResponse
      */
     public function addGatewayAuthWithOptions($tmpReq, $runtime)
     {
@@ -948,9 +966,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayAuthRequest $request
+     * @summary Adds an authentication configuration for a gateway.
+     *  *
+     * @param AddGatewayAuthRequest $request AddGatewayAuthRequest
      *
-     * @return AddGatewayAuthResponse
+     * @return AddGatewayAuthResponse AddGatewayAuthResponse
      */
     public function addGatewayAuth($request)
     {
@@ -960,10 +980,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayAuthConsumerRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Adds a consumer on which a gateway performs authentication operations.
+     *  *
+     * @param AddGatewayAuthConsumerRequest $request AddGatewayAuthConsumerRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGatewayAuthConsumerResponse
+     * @return AddGatewayAuthConsumerResponse AddGatewayAuthConsumerResponse
      */
     public function addGatewayAuthConsumerWithOptions($request, $runtime)
     {
@@ -1027,9 +1049,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayAuthConsumerRequest $request
+     * @summary Adds a consumer on which a gateway performs authentication operations.
+     *  *
+     * @param AddGatewayAuthConsumerRequest $request AddGatewayAuthConsumerRequest
      *
-     * @return AddGatewayAuthConsumerResponse
+     * @return AddGatewayAuthConsumerResponse AddGatewayAuthConsumerResponse
      */
     public function addGatewayAuthConsumer($request)
     {
@@ -1039,10 +1063,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayDomainRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Associates a domain name with a gateway.
+     *  *
+     * @param AddGatewayDomainRequest $request AddGatewayDomainRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGatewayDomainResponse
+     * @return AddGatewayDomainResponse AddGatewayDomainResponse
      */
     public function addGatewayDomainWithOptions($request, $runtime)
     {
@@ -1094,9 +1120,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayDomainRequest $request
+     * @summary Associates a domain name with a gateway.
+     *  *
+     * @param AddGatewayDomainRequest $request AddGatewayDomainRequest
      *
-     * @return AddGatewayDomainResponse
+     * @return AddGatewayDomainResponse AddGatewayDomainResponse
      */
     public function addGatewayDomain($request)
     {
@@ -1106,10 +1134,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayRouteRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary Adds a gateway route.
+     *  *
+     * @param AddGatewayRouteRequest $tmpReq  AddGatewayRouteRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGatewayRouteResponse
+     * @return AddGatewayRouteResponse AddGatewayRouteResponse
      */
     public function addGatewayRouteWithOptions($tmpReq, $runtime)
     {
@@ -1205,9 +1235,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayRouteRequest $request
+     * @summary Adds a gateway route.
+     *  *
+     * @param AddGatewayRouteRequest $request AddGatewayRouteRequest
      *
-     * @return AddGatewayRouteResponse
+     * @return AddGatewayRouteResponse AddGatewayRouteResponse
      */
     public function addGatewayRoute($request)
     {
@@ -1217,10 +1249,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayServiceVersionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Adds a service version.
+     *  *
+     * @param AddGatewayServiceVersionRequest $request AddGatewayServiceVersionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGatewayServiceVersionResponse
+     * @return AddGatewayServiceVersionResponse AddGatewayServiceVersionResponse
      */
     public function addGatewayServiceVersionWithOptions($request, $runtime)
     {
@@ -1257,9 +1291,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayServiceVersionRequest $request
+     * @summary Adds a service version.
+     *  *
+     * @param AddGatewayServiceVersionRequest $request AddGatewayServiceVersionRequest
      *
-     * @return AddGatewayServiceVersionResponse
+     * @return AddGatewayServiceVersionResponse AddGatewayServiceVersionResponse
      */
     public function addGatewayServiceVersion($request)
     {
@@ -1269,10 +1305,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewaySlbRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary Associates a Server Load Balancer (SLB) instance with a gateway.
+     *  *
+     * @param AddGatewaySlbRequest $tmpReq  AddGatewaySlbRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddGatewaySlbResponse
+     * @return AddGatewaySlbResponse AddGatewaySlbResponse
      */
     public function addGatewaySlbWithOptions($tmpReq, $runtime)
     {
@@ -1332,9 +1370,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewaySlbRequest $request
+     * @summary Associates a Server Load Balancer (SLB) instance with a gateway.
+     *  *
+     * @param AddGatewaySlbRequest $request AddGatewaySlbRequest
      *
-     * @return AddGatewaySlbResponse
+     * @return AddGatewaySlbResponse AddGatewaySlbResponse
      */
     public function addGatewaySlb($request)
     {
@@ -1344,10 +1384,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddMigrationTaskRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Adds a migration task.
+     *  *
+     * @param AddMigrationTaskRequest $request AddMigrationTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddMigrationTaskResponse
+     * @return AddMigrationTaskResponse AddMigrationTaskResponse
      */
     public function addMigrationTaskWithOptions($request, $runtime)
     {
@@ -1402,9 +1444,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddMigrationTaskRequest $request
+     * @summary Adds a migration task.
+     *  *
+     * @param AddMigrationTaskRequest $request AddMigrationTaskRequest
      *
-     * @return AddMigrationTaskResponse
+     * @return AddMigrationTaskResponse AddMigrationTaskResponse
      */
     public function addMigrationTask($request)
     {
@@ -1414,10 +1458,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddMockRuleRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates a mock rule.
+     *  *
+     * @param AddMockRuleRequest $request AddMockRuleRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddMockRuleResponse
+     * @return AddMockRuleResponse AddMockRuleResponse
      */
     public function addMockRuleWithOptions($request, $runtime)
     {
@@ -1478,9 +1524,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddMockRuleRequest $request
+     * @summary Creates a mock rule.
+     *  *
+     * @param AddMockRuleRequest $request AddMockRuleRequest
      *
-     * @return AddMockRuleResponse
+     * @return AddMockRuleResponse AddMockRuleResponse
      */
     public function addMockRule($request)
     {
@@ -1490,10 +1538,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddSSLCertRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Associates a certificate with a domain name of a gateway. You can specify a certificate that is hosted in Alibaba Cloud Security.
+     *  *
+     * @param AddSSLCertRequest $request AddSSLCertRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddSSLCertResponse
+     * @return AddSSLCertResponse AddSSLCertResponse
      */
     public function addSSLCertWithOptions($request, $runtime)
     {
@@ -1530,9 +1580,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddSSLCertRequest $request
+     * @summary Associates a certificate with a domain name of a gateway. You can specify a certificate that is hosted in Alibaba Cloud Security.
+     *  *
+     * @param AddSSLCertRequest $request AddSSLCertRequest
      *
-     * @return AddSSLCertResponse
+     * @return AddSSLCertResponse AddSSLCertResponse
      */
     public function addSSLCert($request)
     {
@@ -1542,10 +1594,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddSecurityGroupRuleRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Creates a security group rule for a gateway.
+     *  *
+     * @param AddSecurityGroupRuleRequest $request AddSecurityGroupRuleRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddSecurityGroupRuleResponse
+     * @return AddSecurityGroupRuleResponse AddSecurityGroupRuleResponse
      */
     public function addSecurityGroupRuleWithOptions($request, $runtime)
     {
@@ -1585,9 +1639,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddSecurityGroupRuleRequest $request
+     * @summary Creates a security group rule for a gateway.
+     *  *
+     * @param AddSecurityGroupRuleRequest $request AddSecurityGroupRuleRequest
      *
-     * @return AddSecurityGroupRuleResponse
+     * @return AddSecurityGroupRuleResponse AddSecurityGroupRuleResponse
      */
     public function addSecurityGroupRule($request)
     {
@@ -1597,10 +1653,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddServiceSourceRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Adds a Nacos service source.
+     *  *
+     * @param AddServiceSourceRequest $tmpReq  AddServiceSourceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddServiceSourceResponse
+     * @return AddServiceSourceResponse AddServiceSourceResponse
      */
     public function addServiceSourceWithOptions($tmpReq, $runtime)
     {
@@ -1669,9 +1727,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddServiceSourceRequest $request
+     * @summary Adds a Nacos service source.
+     *  *
+     * @param AddServiceSourceRequest $request AddServiceSourceRequest
      *
-     * @return AddServiceSourceResponse
+     * @return AddServiceSourceResponse AddServiceSourceResponse
      */
     public function addServiceSource($request)
     {
@@ -1681,10 +1741,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ApplyGatewayRouteRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Publishes a route for a gateway.
+     *  *
+     * @param ApplyGatewayRouteRequest $request ApplyGatewayRouteRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyGatewayRouteResponse
+     * @return ApplyGatewayRouteResponse ApplyGatewayRouteResponse
      */
     public function applyGatewayRouteWithOptions($request, $runtime)
     {
@@ -1718,9 +1780,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ApplyGatewayRouteRequest $request
+     * @summary Publishes a route for a gateway.
+     *  *
+     * @param ApplyGatewayRouteRequest $request ApplyGatewayRouteRequest
      *
-     * @return ApplyGatewayRouteResponse
+     * @return ApplyGatewayRouteResponse ApplyGatewayRouteResponse
      */
     public function applyGatewayRoute($request)
     {
@@ -1730,10 +1794,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ApplyTagPoliciesRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Modifies a tag-based routing rule.
+     *  *
+     * @param ApplyTagPoliciesRequest $tmpReq  ApplyTagPoliciesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyTagPoliciesResponse
+     * @return ApplyTagPoliciesResponse ApplyTagPoliciesResponse
      */
     public function applyTagPoliciesWithOptions($tmpReq, $runtime)
     {
@@ -1787,9 +1853,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ApplyTagPoliciesRequest $request
+     * @summary Modifies a tag-based routing rule.
+     *  *
+     * @param ApplyTagPoliciesRequest $request ApplyTagPoliciesRequest
      *
-     * @return ApplyTagPoliciesResponse
+     * @return ApplyTagPoliciesResponse ApplyTagPoliciesResponse
      */
     public function applyTagPolicies($request)
     {
@@ -1799,10 +1867,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param BindSentinelBlockFallbackDefinitionRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary 绑定流量防护行为
+     *  *
+     * @param BindSentinelBlockFallbackDefinitionRequest $request BindSentinelBlockFallbackDefinitionRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindSentinelBlockFallbackDefinitionResponse
+     * @return BindSentinelBlockFallbackDefinitionResponse BindSentinelBlockFallbackDefinitionResponse
      */
     public function bindSentinelBlockFallbackDefinitionWithOptions($request, $runtime)
     {
@@ -1845,9 +1915,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param BindSentinelBlockFallbackDefinitionRequest $request
+     * @summary 绑定流量防护行为
+     *  *
+     * @param BindSentinelBlockFallbackDefinitionRequest $request BindSentinelBlockFallbackDefinitionRequest
      *
-     * @return BindSentinelBlockFallbackDefinitionResponse
+     * @return BindSentinelBlockFallbackDefinitionResponse BindSentinelBlockFallbackDefinitionResponse
      */
     public function bindSentinelBlockFallbackDefinition($request)
     {
@@ -1857,8 +1929,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * mse-200-105.
-     *   *
+     * @summary Clones an existing Nacos configuration from a namespace to another namespace.
+     *  *
+     * @description mse-200-105
+     *  *
      * @param CloneNacosConfigRequest $request CloneNacosConfigRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -1905,8 +1979,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * mse-200-105.
-     *   *
+     * @summary Clones an existing Nacos configuration from a namespace to another namespace.
+     *  *
+     * @description mse-200-105
+     *  *
      * @param CloneNacosConfigRequest $request CloneNacosConfigRequest
      *
      * @return CloneNacosConfigResponse CloneNacosConfigResponse
@@ -1919,10 +1995,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CloneSentinelRuleFromAhasRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary 从AHAS侧复制规则
+     *  *
+     * @param CloneSentinelRuleFromAhasRequest $request CloneSentinelRuleFromAhasRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloneSentinelRuleFromAhasResponse
+     * @return CloneSentinelRuleFromAhasResponse CloneSentinelRuleFromAhasResponse
      */
     public function cloneSentinelRuleFromAhasWithOptions($request, $runtime)
     {
@@ -1962,9 +2040,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CloneSentinelRuleFromAhasRequest $request
+     * @summary 从AHAS侧复制规则
+     *  *
+     * @param CloneSentinelRuleFromAhasRequest $request CloneSentinelRuleFromAhasRequest
      *
-     * @return CloneSentinelRuleFromAhasResponse
+     * @return CloneSentinelRuleFromAhasResponse CloneSentinelRuleFromAhasResponse
      */
     public function cloneSentinelRuleFromAhas($request)
     {
@@ -1974,10 +2054,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Creates an application.
+     *  *
+     * @param CreateApplicationRequest $request CreateApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplicationWithOptions($request, $runtime)
     {
@@ -2026,9 +2108,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationRequest $request
+     * @summary Creates an application.
+     *  *
+     * @param CreateApplicationRequest $request CreateApplicationRequest
      *
-     * @return CreateApplicationResponse
+     * @return CreateApplicationResponse CreateApplicationResponse
      */
     public function createApplication($request)
     {
@@ -2038,10 +2122,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateCircuitBreakerRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Creates a circuit breaking rule.
+     *  *
+     * @param CreateCircuitBreakerRuleRequest $request CreateCircuitBreakerRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCircuitBreakerRuleResponse
+     * @return CreateCircuitBreakerRuleResponse CreateCircuitBreakerRuleResponse
      */
     public function createCircuitBreakerRuleWithOptions($request, $runtime)
     {
@@ -2114,9 +2200,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateCircuitBreakerRuleRequest $request
+     * @summary Creates a circuit breaking rule.
+     *  *
+     * @param CreateCircuitBreakerRuleRequest $request CreateCircuitBreakerRuleRequest
      *
-     * @return CreateCircuitBreakerRuleResponse
+     * @return CreateCircuitBreakerRuleResponse CreateCircuitBreakerRuleResponse
      */
     public function createCircuitBreakerRule($request)
     {
@@ -2126,8 +2214,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
-     *   *
+     * @summary Creates a Microservices Engine (MSE) instance, such as an MSE ZooKeeper instance or an MSE Nacos instance.
+     *  *
+     * @description Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
+     *  *
      * @param CreateClusterRequest $request CreateClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -2222,8 +2312,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
-     *   *
+     * @summary Creates a Microservices Engine (MSE) instance, such as an MSE ZooKeeper instance or an MSE Nacos instance.
+     *  *
+     * @description Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
+     *  *
      * @param CreateClusterRequest $request CreateClusterRequest
      *
      * @return CreateClusterResponse CreateClusterResponse
@@ -2236,10 +2328,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateEngineNamespaceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Creates a namespace in a Nacos instance.
+     *  *
+     * @param CreateEngineNamespaceRequest $request CreateEngineNamespaceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateEngineNamespaceResponse
+     * @return CreateEngineNamespaceResponse CreateEngineNamespaceResponse
      */
     public function createEngineNamespaceWithOptions($request, $runtime)
     {
@@ -2285,9 +2379,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateEngineNamespaceRequest $request
+     * @summary Creates a namespace in a Nacos instance.
+     *  *
+     * @param CreateEngineNamespaceRequest $request CreateEngineNamespaceRequest
      *
-     * @return CreateEngineNamespaceResponse
+     * @return CreateEngineNamespaceResponse CreateEngineNamespaceResponse
      */
     public function createEngineNamespace($request)
     {
@@ -2297,10 +2393,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateFlowRuleRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates a throttling rule.
+     *  *
+     * @param CreateFlowRuleRequest $request CreateFlowRuleRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFlowRuleResponse
+     * @return CreateFlowRuleResponse CreateFlowRuleResponse
      */
     public function createFlowRuleWithOptions($request, $runtime)
     {
@@ -2358,9 +2456,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateFlowRuleRequest $request
+     * @summary Creates a throttling rule.
+     *  *
+     * @param CreateFlowRuleRequest $request CreateFlowRuleRequest
      *
-     * @return CreateFlowRuleResponse
+     * @return CreateFlowRuleResponse CreateFlowRuleResponse
      */
     public function createFlowRule($request)
     {
@@ -2370,10 +2470,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateGatewayCircuitBreakerRuleRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 创建网关路由熔断规则
+     *  *
+     * @param CreateGatewayCircuitBreakerRuleRequest $request CreateGatewayCircuitBreakerRuleRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGatewayCircuitBreakerRuleResponse
+     * @return CreateGatewayCircuitBreakerRuleResponse CreateGatewayCircuitBreakerRuleResponse
      */
     public function createGatewayCircuitBreakerRuleWithOptions($request, $runtime)
     {
@@ -2449,9 +2551,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateGatewayCircuitBreakerRuleRequest $request
+     * @summary 创建网关路由熔断规则
+     *  *
+     * @param CreateGatewayCircuitBreakerRuleRequest $request CreateGatewayCircuitBreakerRuleRequest
      *
-     * @return CreateGatewayCircuitBreakerRuleResponse
+     * @return CreateGatewayCircuitBreakerRuleResponse CreateGatewayCircuitBreakerRuleResponse
      */
     public function createGatewayCircuitBreakerRule($request)
     {
@@ -2461,10 +2565,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateGatewayFlowRuleRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 创建网关路由流控规则
+     *  *
+     * @param CreateGatewayFlowRuleRequest $request CreateGatewayFlowRuleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGatewayFlowRuleResponse
+     * @return CreateGatewayFlowRuleResponse CreateGatewayFlowRuleResponse
      */
     public function createGatewayFlowRuleWithOptions($request, $runtime)
     {
@@ -2525,9 +2631,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateGatewayFlowRuleRequest $request
+     * @summary 创建网关路由流控规则
+     *  *
+     * @param CreateGatewayFlowRuleRequest $request CreateGatewayFlowRuleRequest
      *
-     * @return CreateGatewayFlowRuleResponse
+     * @return CreateGatewayFlowRuleResponse CreateGatewayFlowRuleResponse
      */
     public function createGatewayFlowRule($request)
     {
@@ -2537,10 +2645,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateGatewayIsolationRuleRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 创建网关路由隔离规则
+     *  *
+     * @param CreateGatewayIsolationRuleRequest $request CreateGatewayIsolationRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGatewayIsolationRuleResponse
+     * @return CreateGatewayIsolationRuleResponse CreateGatewayIsolationRuleResponse
      */
     public function createGatewayIsolationRuleWithOptions($request, $runtime)
     {
@@ -2601,9 +2711,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateGatewayIsolationRuleRequest $request
+     * @summary 创建网关路由隔离规则
+     *  *
+     * @param CreateGatewayIsolationRuleRequest $request CreateGatewayIsolationRuleRequest
      *
-     * @return CreateGatewayIsolationRuleResponse
+     * @return CreateGatewayIsolationRuleResponse CreateGatewayIsolationRuleResponse
      */
     public function createGatewayIsolationRule($request)
     {
@@ -2613,10 +2725,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateIsolationRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 创建隔离规则
+     *  *
+     * @param CreateIsolationRuleRequest $request CreateIsolationRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateIsolationRuleResponse
+     * @return CreateIsolationRuleResponse CreateIsolationRuleResponse
      */
     public function createIsolationRuleWithOptions($request, $runtime)
     {
@@ -2665,9 +2779,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateIsolationRuleRequest $request
+     * @summary 创建隔离规则
+     *  *
+     * @param CreateIsolationRuleRequest $request CreateIsolationRuleRequest
      *
-     * @return CreateIsolationRuleResponse
+     * @return CreateIsolationRuleResponse CreateIsolationRuleResponse
      */
     public function createIsolationRule($request)
     {
@@ -2677,8 +2793,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @deprecated : CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead.
-     *   *
+     * @deprecated openAPI CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead
+     *  *
+     * @summary Creates an application.
+     *  *
      * Deprecated
      *
      * @param CreateMseServiceApplicationRequest $request CreateMseServiceApplicationRequest
@@ -2736,8 +2854,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @deprecated : CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead.
-     *   *
+     * @deprecated openAPI CreateMseServiceApplication is deprecated, please use mse::2019-05-31::CreateApplication instead
+     *  *
+     * @summary Creates an application.
+     *  *
      * Deprecated
      *
      * @param CreateMseServiceApplicationRequest $request CreateMseServiceApplicationRequest
@@ -2752,8 +2872,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Creates a Nacos configuration.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param CreateNacosConfigRequest $request CreateNacosConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2815,8 +2937,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Creates a Nacos configuration.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param CreateNacosConfigRequest $request CreateNacosConfigRequest
      *
      * @return CreateNacosConfigResponse CreateNacosConfigResponse
@@ -2829,8 +2953,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Creates a Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param CreateNacosInstanceRequest $request CreateNacosInstanceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -2897,8 +3023,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Creates a Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param CreateNacosInstanceRequest $request CreateNacosInstanceRequest
      *
      * @return CreateNacosInstanceResponse CreateNacosInstanceResponse
@@ -2911,8 +3039,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Creates a Nacos service.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param CreateNacosServiceRequest $request CreateNacosServiceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -2965,8 +3095,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Creates a Nacos service.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param CreateNacosServiceRequest $request CreateNacosServiceRequest
      *
      * @return CreateNacosServiceResponse CreateNacosServiceResponse
@@ -2979,10 +3111,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateSwimmingLaneRequest $tmpReq
-     * @param RuntimeOptions                    $runtime
+     * @summary Creates or updates a lane for end-to-end canary release.
+     *  *
+     * @param CreateOrUpdateSwimmingLaneRequest $tmpReq  CreateOrUpdateSwimmingLaneRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateSwimmingLaneResponse
+     * @return CreateOrUpdateSwimmingLaneResponse CreateOrUpdateSwimmingLaneResponse
      */
     public function createOrUpdateSwimmingLaneWithOptions($tmpReq, $runtime)
     {
@@ -3020,6 +3154,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
         }
+        if (!Utils::isUnset($request->pathIndependentPercentageEnable)) {
+            $query['PathIndependentPercentageEnable'] = $request->pathIndependentPercentageEnable;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -3050,9 +3187,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateSwimmingLaneRequest $request
+     * @summary Creates or updates a lane for end-to-end canary release.
+     *  *
+     * @param CreateOrUpdateSwimmingLaneRequest $request CreateOrUpdateSwimmingLaneRequest
      *
-     * @return CreateOrUpdateSwimmingLaneResponse
+     * @return CreateOrUpdateSwimmingLaneResponse CreateOrUpdateSwimmingLaneResponse
      */
     public function createOrUpdateSwimmingLane($request)
     {
@@ -3062,10 +3201,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateSwimmingLaneGroupRequest $tmpReq
-     * @param RuntimeOptions                         $runtime
+     * @summary Creates or updates a lane group for end-to-end canary release.
+     *  *
+     * @param CreateOrUpdateSwimmingLaneGroupRequest $tmpReq  CreateOrUpdateSwimmingLaneGroupRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrUpdateSwimmingLaneGroupResponse
+     * @return CreateOrUpdateSwimmingLaneGroupResponse CreateOrUpdateSwimmingLaneGroupResponse
      */
     public function createOrUpdateSwimmingLaneGroupWithOptions($tmpReq, $runtime)
     {
@@ -3143,9 +3284,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateOrUpdateSwimmingLaneGroupRequest $request
+     * @summary Creates or updates a lane group for end-to-end canary release.
+     *  *
+     * @param CreateOrUpdateSwimmingLaneGroupRequest $request CreateOrUpdateSwimmingLaneGroupRequest
      *
-     * @return CreateOrUpdateSwimmingLaneGroupResponse
+     * @return CreateOrUpdateSwimmingLaneGroupResponse CreateOrUpdateSwimmingLaneGroupResponse
      */
     public function createOrUpdateSwimmingLaneGroup($request)
     {
@@ -3155,10 +3298,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateZnodeRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates a znode.
+     *  *
+     * @param CreateZnodeRequest $request CreateZnodeRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateZnodeResponse
+     * @return CreateZnodeResponse CreateZnodeResponse
      */
     public function createZnodeWithOptions($request, $runtime)
     {
@@ -3195,9 +3340,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param CreateZnodeRequest $request
+     * @summary Creates a znode.
+     *  *
+     * @param CreateZnodeRequest $request CreateZnodeRequest
      *
-     * @return CreateZnodeResponse
+     * @return CreateZnodeResponse CreateZnodeResponse
      */
     public function createZnode($request)
     {
@@ -3207,10 +3354,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteAuthResourceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes an authorized resource.
+     *  *
+     * @param DeleteAuthResourceRequest $request DeleteAuthResourceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAuthResourceResponse
+     * @return DeleteAuthResourceResponse DeleteAuthResourceResponse
      */
     public function deleteAuthResourceWithOptions($request, $runtime)
     {
@@ -3244,9 +3393,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteAuthResourceRequest $request
+     * @summary Deletes an authorized resource.
+     *  *
+     * @param DeleteAuthResourceRequest $request DeleteAuthResourceRequest
      *
-     * @return DeleteAuthResourceResponse
+     * @return DeleteAuthResourceResponse DeleteAuthResourceResponse
      */
     public function deleteAuthResource($request)
     {
@@ -3256,10 +3407,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteCircuitBreakerRulesRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary Deletes circuit breaking rules.
+     *  *
+     * @param DeleteCircuitBreakerRulesRequest $tmpReq  DeleteCircuitBreakerRulesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCircuitBreakerRulesResponse
+     * @return DeleteCircuitBreakerRulesResponse DeleteCircuitBreakerRulesResponse
      */
     public function deleteCircuitBreakerRulesWithOptions($tmpReq, $runtime)
     {
@@ -3301,9 +3454,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteCircuitBreakerRulesRequest $request
+     * @summary Deletes circuit breaking rules.
+     *  *
+     * @param DeleteCircuitBreakerRulesRequest $request DeleteCircuitBreakerRulesRequest
      *
-     * @return DeleteCircuitBreakerRulesResponse
+     * @return DeleteCircuitBreakerRulesResponse DeleteCircuitBreakerRulesResponse
      */
     public function deleteCircuitBreakerRules($request)
     {
@@ -3313,10 +3468,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes a Microservices Engine (MSE) instance.
+     *  *
+     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
@@ -3347,9 +3504,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterRequest $request
+     * @summary Deletes a Microservices Engine (MSE) instance.
+     *  *
+     * @param DeleteClusterRequest $request DeleteClusterRequest
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -3359,10 +3518,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteEngineNamespaceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Deletes a namespace from a Nacos instance.
+     *  *
+     * @param DeleteEngineNamespaceRequest $request DeleteEngineNamespaceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteEngineNamespaceResponse
+     * @return DeleteEngineNamespaceResponse DeleteEngineNamespaceResponse
      */
     public function deleteEngineNamespaceWithOptions($request, $runtime)
     {
@@ -3399,9 +3560,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteEngineNamespaceRequest $request
+     * @summary Deletes a namespace from a Nacos instance.
+     *  *
+     * @param DeleteEngineNamespaceRequest $request DeleteEngineNamespaceRequest
      *
-     * @return DeleteEngineNamespaceResponse
+     * @return DeleteEngineNamespaceResponse DeleteEngineNamespaceResponse
      */
     public function deleteEngineNamespace($request)
     {
@@ -3411,10 +3574,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteFlowRulesRequest $tmpReq
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes throttling rules.
+     *  *
+     * @param DeleteFlowRulesRequest $tmpReq  DeleteFlowRulesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFlowRulesResponse
+     * @return DeleteFlowRulesResponse DeleteFlowRulesResponse
      */
     public function deleteFlowRulesWithOptions($tmpReq, $runtime)
     {
@@ -3456,9 +3621,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteFlowRulesRequest $request
+     * @summary Deletes throttling rules.
+     *  *
+     * @param DeleteFlowRulesRequest $request DeleteFlowRulesRequest
      *
-     * @return DeleteFlowRulesResponse
+     * @return DeleteFlowRulesResponse DeleteFlowRulesResponse
      */
     public function deleteFlowRules($request)
     {
@@ -3468,10 +3635,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Deletes a gateway.
+     *  *
+     * @param DeleteGatewayRequest $request DeleteGatewayRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayResponse
+     * @return DeleteGatewayResponse DeleteGatewayResponse
      */
     public function deleteGatewayWithOptions($request, $runtime)
     {
@@ -3505,9 +3674,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayRequest $request
+     * @summary Deletes a gateway.
+     *  *
+     * @param DeleteGatewayRequest $request DeleteGatewayRequest
      *
-     * @return DeleteGatewayResponse
+     * @return DeleteGatewayResponse DeleteGatewayResponse
      */
     public function deleteGateway($request)
     {
@@ -3517,10 +3688,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayAuthConsumerRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Deletes a consumer on which a gateway performs authentication operations.
+     *  *
+     * @param DeleteGatewayAuthConsumerRequest $request DeleteGatewayAuthConsumerRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayAuthConsumerResponse
+     * @return DeleteGatewayAuthConsumerResponse DeleteGatewayAuthConsumerResponse
      */
     public function deleteGatewayAuthConsumerWithOptions($request, $runtime)
     {
@@ -3554,9 +3727,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayAuthConsumerRequest $request
+     * @summary Deletes a consumer on which a gateway performs authentication operations.
+     *  *
+     * @param DeleteGatewayAuthConsumerRequest $request DeleteGatewayAuthConsumerRequest
      *
-     * @return DeleteGatewayAuthConsumerResponse
+     * @return DeleteGatewayAuthConsumerResponse DeleteGatewayAuthConsumerResponse
      */
     public function deleteGatewayAuthConsumer($request)
     {
@@ -3566,10 +3741,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayAuthConsumerResourceRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Deletes resource permissions from the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param DeleteGatewayAuthConsumerResourceRequest $request DeleteGatewayAuthConsumerResourceRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayAuthConsumerResourceResponse
+     * @return DeleteGatewayAuthConsumerResourceResponse DeleteGatewayAuthConsumerResourceResponse
      */
     public function deleteGatewayAuthConsumerResourceWithOptions($request, $runtime)
     {
@@ -3606,9 +3783,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayAuthConsumerResourceRequest $request
+     * @summary Deletes resource permissions from the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param DeleteGatewayAuthConsumerResourceRequest $request DeleteGatewayAuthConsumerResourceRequest
      *
-     * @return DeleteGatewayAuthConsumerResourceResponse
+     * @return DeleteGatewayAuthConsumerResourceResponse DeleteGatewayAuthConsumerResourceResponse
      */
     public function deleteGatewayAuthConsumerResource($request)
     {
@@ -3618,10 +3797,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayCircuitBreakerRuleRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 删除网关路由熔断规则
+     *  *
+     * @param DeleteGatewayCircuitBreakerRuleRequest $request DeleteGatewayCircuitBreakerRuleRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayCircuitBreakerRuleResponse
+     * @return DeleteGatewayCircuitBreakerRuleResponse DeleteGatewayCircuitBreakerRuleResponse
      */
     public function deleteGatewayCircuitBreakerRuleWithOptions($request, $runtime)
     {
@@ -3658,9 +3839,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayCircuitBreakerRuleRequest $request
+     * @summary 删除网关路由熔断规则
+     *  *
+     * @param DeleteGatewayCircuitBreakerRuleRequest $request DeleteGatewayCircuitBreakerRuleRequest
      *
-     * @return DeleteGatewayCircuitBreakerRuleResponse
+     * @return DeleteGatewayCircuitBreakerRuleResponse DeleteGatewayCircuitBreakerRuleResponse
      */
     public function deleteGatewayCircuitBreakerRule($request)
     {
@@ -3670,10 +3853,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayDomainRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Disassociates a domain name from a gateway.
+     *  *
+     * @param DeleteGatewayDomainRequest $request DeleteGatewayDomainRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayDomainResponse
+     * @return DeleteGatewayDomainResponse DeleteGatewayDomainResponse
      */
     public function deleteGatewayDomainWithOptions($request, $runtime)
     {
@@ -3707,9 +3892,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayDomainRequest $request
+     * @summary Disassociates a domain name from a gateway.
+     *  *
+     * @param DeleteGatewayDomainRequest $request DeleteGatewayDomainRequest
      *
-     * @return DeleteGatewayDomainResponse
+     * @return DeleteGatewayDomainResponse DeleteGatewayDomainResponse
      */
     public function deleteGatewayDomain($request)
     {
@@ -3719,10 +3906,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayFlowRuleRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 删除网关路由流控规则
+     *  *
+     * @param DeleteGatewayFlowRuleRequest $request DeleteGatewayFlowRuleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayFlowRuleResponse
+     * @return DeleteGatewayFlowRuleResponse DeleteGatewayFlowRuleResponse
      */
     public function deleteGatewayFlowRuleWithOptions($request, $runtime)
     {
@@ -3759,9 +3948,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayFlowRuleRequest $request
+     * @summary 删除网关路由流控规则
+     *  *
+     * @param DeleteGatewayFlowRuleRequest $request DeleteGatewayFlowRuleRequest
      *
-     * @return DeleteGatewayFlowRuleResponse
+     * @return DeleteGatewayFlowRuleResponse DeleteGatewayFlowRuleResponse
      */
     public function deleteGatewayFlowRule($request)
     {
@@ -3771,10 +3962,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayIsolationRuleRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 删除网关路由隔离规则
+     *  *
+     * @param DeleteGatewayIsolationRuleRequest $request DeleteGatewayIsolationRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayIsolationRuleResponse
+     * @return DeleteGatewayIsolationRuleResponse DeleteGatewayIsolationRuleResponse
      */
     public function deleteGatewayIsolationRuleWithOptions($request, $runtime)
     {
@@ -3811,9 +4004,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayIsolationRuleRequest $request
+     * @summary 删除网关路由隔离规则
+     *  *
+     * @param DeleteGatewayIsolationRuleRequest $request DeleteGatewayIsolationRuleRequest
      *
-     * @return DeleteGatewayIsolationRuleResponse
+     * @return DeleteGatewayIsolationRuleResponse DeleteGatewayIsolationRuleResponse
      */
     public function deleteGatewayIsolationRule($request)
     {
@@ -3823,10 +4018,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayRouteRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a route from a gateway.
+     *  *
+     * @param DeleteGatewayRouteRequest $request DeleteGatewayRouteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayRouteResponse
+     * @return DeleteGatewayRouteResponse DeleteGatewayRouteResponse
      */
     public function deleteGatewayRouteWithOptions($request, $runtime)
     {
@@ -3860,9 +4057,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayRouteRequest $request
+     * @summary Deletes a route from a gateway.
+     *  *
+     * @param DeleteGatewayRouteRequest $request DeleteGatewayRouteRequest
      *
-     * @return DeleteGatewayRouteResponse
+     * @return DeleteGatewayRouteResponse DeleteGatewayRouteResponse
      */
     public function deleteGatewayRoute($request)
     {
@@ -3872,10 +4071,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayServiceRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Deletes a service from a gateway.
+     *  *
+     * @param DeleteGatewayServiceRequest $request DeleteGatewayServiceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayServiceResponse
+     * @return DeleteGatewayServiceResponse DeleteGatewayServiceResponse
      */
     public function deleteGatewayServiceWithOptions($request, $runtime)
     {
@@ -3912,9 +4113,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayServiceRequest $request
+     * @summary Deletes a service from a gateway.
+     *  *
+     * @param DeleteGatewayServiceRequest $request DeleteGatewayServiceRequest
      *
-     * @return DeleteGatewayServiceResponse
+     * @return DeleteGatewayServiceResponse DeleteGatewayServiceResponse
      */
     public function deleteGatewayService($request)
     {
@@ -3924,10 +4127,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayServiceVersionRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Deletes a service version from a gateway.
+     *  *
+     * @param DeleteGatewayServiceVersionRequest $request DeleteGatewayServiceVersionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewayServiceVersionResponse
+     * @return DeleteGatewayServiceVersionResponse DeleteGatewayServiceVersionResponse
      */
     public function deleteGatewayServiceVersionWithOptions($request, $runtime)
     {
@@ -3964,9 +4169,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewayServiceVersionRequest $request
+     * @summary Deletes a service version from a gateway.
+     *  *
+     * @param DeleteGatewayServiceVersionRequest $request DeleteGatewayServiceVersionRequest
      *
-     * @return DeleteGatewayServiceVersionResponse
+     * @return DeleteGatewayServiceVersionResponse DeleteGatewayServiceVersionResponse
      */
     public function deleteGatewayServiceVersion($request)
     {
@@ -3976,10 +4183,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewaySlbRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Deletes the Server Load Balancer (SLB) instance that is associated with a gateway.
+     *  *
+     * @param DeleteGatewaySlbRequest $request DeleteGatewaySlbRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGatewaySlbResponse
+     * @return DeleteGatewaySlbResponse DeleteGatewaySlbResponse
      */
     public function deleteGatewaySlbWithOptions($request, $runtime)
     {
@@ -4019,9 +4228,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteGatewaySlbRequest $request
+     * @summary Deletes the Server Load Balancer (SLB) instance that is associated with a gateway.
+     *  *
+     * @param DeleteGatewaySlbRequest $request DeleteGatewaySlbRequest
      *
-     * @return DeleteGatewaySlbResponse
+     * @return DeleteGatewaySlbResponse DeleteGatewaySlbResponse
      */
     public function deleteGatewaySlb($request)
     {
@@ -4031,10 +4242,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteIsolationRulesRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * @summary 删除隔离规则
+     *  *
+     * @param DeleteIsolationRulesRequest $tmpReq  DeleteIsolationRulesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteIsolationRulesResponse
+     * @return DeleteIsolationRulesResponse DeleteIsolationRulesResponse
      */
     public function deleteIsolationRulesWithOptions($tmpReq, $runtime)
     {
@@ -4076,9 +4289,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteIsolationRulesRequest $request
+     * @summary 删除隔离规则
+     *  *
+     * @param DeleteIsolationRulesRequest $request DeleteIsolationRulesRequest
      *
-     * @return DeleteIsolationRulesResponse
+     * @return DeleteIsolationRulesResponse DeleteIsolationRulesResponse
      */
     public function deleteIsolationRules($request)
     {
@@ -4088,10 +4303,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteMigrationTaskRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes a migration task.
+     *  *
+     * @param DeleteMigrationTaskRequest $request DeleteMigrationTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMigrationTaskResponse
+     * @return DeleteMigrationTaskResponse DeleteMigrationTaskResponse
      */
     public function deleteMigrationTaskWithOptions($request, $runtime)
     {
@@ -4125,9 +4342,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteMigrationTaskRequest $request
+     * @summary Deletes a migration task.
+     *  *
+     * @param DeleteMigrationTaskRequest $request DeleteMigrationTaskRequest
      *
-     * @return DeleteMigrationTaskResponse
+     * @return DeleteMigrationTaskResponse DeleteMigrationTaskResponse
      */
     public function deleteMigrationTask($request)
     {
@@ -4137,10 +4356,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNacosConfigRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 删除nacos指定配置
+     *  *
+     * @param DeleteNacosConfigRequest $request DeleteNacosConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNacosConfigResponse
+     * @return DeleteNacosConfigResponse DeleteNacosConfigResponse
      */
     public function deleteNacosConfigWithOptions($request, $runtime)
     {
@@ -4183,9 +4404,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNacosConfigRequest $request
+     * @summary 删除nacos指定配置
+     *  *
+     * @param DeleteNacosConfigRequest $request DeleteNacosConfigRequest
      *
-     * @return DeleteNacosConfigResponse
+     * @return DeleteNacosConfigResponse DeleteNacosConfigResponse
      */
     public function deleteNacosConfig($request)
     {
@@ -4195,8 +4418,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Deletes multiple Nacos configurations at a time.
+     *  *
+     * @description >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param DeleteNacosConfigsRequest $request DeleteNacosConfigsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -4237,8 +4462,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Deletes multiple Nacos configurations at a time.
+     *  *
+     * @description >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param DeleteNacosConfigsRequest $request DeleteNacosConfigsRequest
      *
      * @return DeleteNacosConfigsResponse DeleteNacosConfigsResponse
@@ -4251,8 +4478,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Deletes a persistent application instance from a Microservices Engine (MSE) Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param DeleteNacosInstanceRequest $request DeleteNacosInstanceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -4308,8 +4537,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Deletes a persistent application instance from a Microservices Engine (MSE) Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param DeleteNacosInstanceRequest $request DeleteNacosInstanceRequest
      *
      * @return DeleteNacosInstanceResponse DeleteNacosInstanceResponse
@@ -4322,8 +4553,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Deletes a Nacos service.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param DeleteNacosServiceRequest $request DeleteNacosServiceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -4367,8 +4600,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Deletes a Nacos service.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param DeleteNacosServiceRequest $request DeleteNacosServiceRequest
      *
      * @return DeleteNacosServiceResponse DeleteNacosServiceResponse
@@ -4381,10 +4616,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 删除MSE命名空间
+     *  *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespaceWithOptions($request, $runtime)
     {
@@ -4418,9 +4655,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
+     * @summary 删除MSE命名空间
+     *  *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespace($request)
     {
@@ -4430,10 +4669,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecurityGroupRuleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Deletes a security group rule from a gateway.
+     *  *
+     * @param DeleteSecurityGroupRuleRequest $request DeleteSecurityGroupRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSecurityGroupRuleResponse
+     * @return DeleteSecurityGroupRuleResponse DeleteSecurityGroupRuleResponse
      */
     public function deleteSecurityGroupRuleWithOptions($request, $runtime)
     {
@@ -4470,9 +4711,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteSecurityGroupRuleRequest $request
+     * @summary Deletes a security group rule from a gateway.
+     *  *
+     * @param DeleteSecurityGroupRuleRequest $request DeleteSecurityGroupRuleRequest
      *
-     * @return DeleteSecurityGroupRuleResponse
+     * @return DeleteSecurityGroupRuleResponse DeleteSecurityGroupRuleResponse
      */
     public function deleteSecurityGroupRule($request)
     {
@@ -4482,10 +4725,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceSourceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Deletes a gateway service source.
+     *  *
+     * @param DeleteServiceSourceRequest $request DeleteServiceSourceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServiceSourceResponse
+     * @return DeleteServiceSourceResponse DeleteServiceSourceResponse
      */
     public function deleteServiceSourceWithOptions($request, $runtime)
     {
@@ -4519,9 +4764,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteServiceSourceRequest $request
+     * @summary Deletes a gateway service source.
+     *  *
+     * @param DeleteServiceSourceRequest $request DeleteServiceSourceRequest
      *
-     * @return DeleteServiceSourceResponse
+     * @return DeleteServiceSourceResponse DeleteServiceSourceResponse
      */
     public function deleteServiceSource($request)
     {
@@ -4531,10 +4778,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteSwimmingLaneRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Deletes a lane.
+     *  *
+     * @param DeleteSwimmingLaneRequest $request DeleteSwimmingLaneRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSwimmingLaneResponse
+     * @return DeleteSwimmingLaneResponse DeleteSwimmingLaneResponse
      */
     public function deleteSwimmingLaneWithOptions($request, $runtime)
     {
@@ -4568,9 +4817,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteSwimmingLaneRequest $request
+     * @summary Deletes a lane.
+     *  *
+     * @param DeleteSwimmingLaneRequest $request DeleteSwimmingLaneRequest
      *
-     * @return DeleteSwimmingLaneResponse
+     * @return DeleteSwimmingLaneResponse DeleteSwimmingLaneResponse
      */
     public function deleteSwimmingLane($request)
     {
@@ -4580,10 +4831,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteSwimmingLaneGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Deletes a lane group.
+     *  *
+     * @param DeleteSwimmingLaneGroupRequest $request DeleteSwimmingLaneGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSwimmingLaneGroupResponse
+     * @return DeleteSwimmingLaneGroupResponse DeleteSwimmingLaneGroupResponse
      */
     public function deleteSwimmingLaneGroupWithOptions($request, $runtime)
     {
@@ -4620,9 +4873,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteSwimmingLaneGroupRequest $request
+     * @summary Deletes a lane group.
+     *  *
+     * @param DeleteSwimmingLaneGroupRequest $request DeleteSwimmingLaneGroupRequest
      *
-     * @return DeleteSwimmingLaneGroupResponse
+     * @return DeleteSwimmingLaneGroupResponse DeleteSwimmingLaneGroupResponse
      */
     public function deleteSwimmingLaneGroup($request)
     {
@@ -4632,10 +4887,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteZnodeRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Deletes a ZooKeeper node.
+     *  *
+     * @param DeleteZnodeRequest $request DeleteZnodeRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteZnodeResponse
+     * @return DeleteZnodeResponse DeleteZnodeResponse
      */
     public function deleteZnodeWithOptions($request, $runtime)
     {
@@ -4672,9 +4929,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param DeleteZnodeRequest $request
+     * @summary Deletes a ZooKeeper node.
+     *  *
+     * @param DeleteZnodeRequest $request DeleteZnodeRequest
      *
-     * @return DeleteZnodeResponse
+     * @return DeleteZnodeResponse DeleteZnodeResponse
      */
     public function deleteZnode($request)
     {
@@ -4684,8 +4943,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Exports specified Nacos configurations.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ExportNacosConfigRequest $request ExportNacosConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -4738,8 +4999,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Exports specified Nacos configurations.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ExportNacosConfigRequest $request ExportNacosConfigRequest
      *
      * @return ExportNacosConfigResponse ExportNacosConfigResponse
@@ -4752,8 +5015,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Only one task can run at a time.
-     *   *
+     * @summary Initiates a task to export ZooKeeper data.
+     *  *
+     * @description Only one task can run at a time.
+     *  *
      * @param ExportZookeeperDataRequest $request ExportZookeeperDataRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -4797,8 +5062,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * Only one task can run at a time.
-     *   *
+     * @summary Initiates a task to export ZooKeeper data.
+     *  *
+     * @description Only one task can run at a time.
+     *  *
      * @param ExportZookeeperDataRequest $request ExportZookeeperDataRequest
      *
      * @return ExportZookeeperDataResponse ExportZookeeperDataResponse
@@ -4811,8 +5078,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the rules for graceful start and shutdown.
-     *   *
+     * @summary Obtains the rules for graceful start and shutdown.
+     *  *
+     * @description You can call this operation to query the rules for graceful start and shutdown.
+     *  *
      * @param FetchLosslessRuleListRequest $request FetchLosslessRuleListRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -4862,8 +5131,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the rules for graceful start and shutdown.
-     *   *
+     * @summary Obtains the rules for graceful start and shutdown.
+     *  *
+     * @description You can call this operation to query the rules for graceful start and shutdown.
+     *  *
      * @param FetchLosslessRuleListRequest $request FetchLosslessRuleListRequest
      *
      * @return FetchLosslessRuleListResponse FetchLosslessRuleListResponse
@@ -4876,10 +5147,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetAppMessageQueueRouteRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries information about canary release for messaging of an application.
+     *  *
+     * @param GetAppMessageQueueRouteRequest $request GetAppMessageQueueRouteRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAppMessageQueueRouteResponse
+     * @return GetAppMessageQueueRouteResponse GetAppMessageQueueRouteResponse
      */
     public function getAppMessageQueueRouteWithOptions($request, $runtime)
     {
@@ -4919,9 +5192,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetAppMessageQueueRouteRequest $request
+     * @summary Queries information about canary release for messaging of an application.
+     *  *
+     * @param GetAppMessageQueueRouteRequest $request GetAppMessageQueueRouteRequest
      *
-     * @return GetAppMessageQueueRouteResponse
+     * @return GetAppMessageQueueRouteResponse GetAppMessageQueueRouteResponse
      */
     public function getAppMessageQueueRoute($request)
     {
@@ -4931,10 +5206,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationInstanceListRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries the list of microservice application instances.
+     *  *
+     * @param GetApplicationInstanceListRequest $request GetApplicationInstanceListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationInstanceListResponse
+     * @return GetApplicationInstanceListResponse GetApplicationInstanceListResponse
      */
     public function getApplicationInstanceListWithOptions($request, $runtime)
     {
@@ -4983,9 +5260,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationInstanceListRequest $request
+     * @summary Queries the list of microservice application instances.
+     *  *
+     * @param GetApplicationInstanceListRequest $request GetApplicationInstanceListRequest
      *
-     * @return GetApplicationInstanceListResponse
+     * @return GetApplicationInstanceListResponse GetApplicationInstanceListResponse
      */
     public function getApplicationInstanceList($request)
     {
@@ -4995,10 +5274,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationListRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Obtains the list of applications.
+     *  *
+     * @param GetApplicationListRequest $request GetApplicationListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationListResponse
+     * @return GetApplicationListResponse GetApplicationListResponse
      */
     public function getApplicationListWithOptions($request, $runtime)
     {
@@ -5056,9 +5337,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationListRequest $request
+     * @summary Obtains the list of applications.
+     *  *
+     * @param GetApplicationListRequest $request GetApplicationListRequest
      *
-     * @return GetApplicationListResponse
+     * @return GetApplicationListResponse GetApplicationListResponse
      */
     public function getApplicationList($request)
     {
@@ -5068,10 +5351,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetBlackWhiteListRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the blacklist or whitelist of a gateway.
+     *  *
+     * @param GetBlackWhiteListRequest $request GetBlackWhiteListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetBlackWhiteListResponse
+     * @return GetBlackWhiteListResponse GetBlackWhiteListResponse
      */
     public function getBlackWhiteListWithOptions($request, $runtime)
     {
@@ -5111,9 +5396,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetBlackWhiteListRequest $request
+     * @summary Queries the blacklist or whitelist of a gateway.
+     *  *
+     * @param GetBlackWhiteListRequest $request GetBlackWhiteListRequest
      *
-     * @return GetBlackWhiteListResponse
+     * @return GetBlackWhiteListResponse GetBlackWhiteListResponse
      */
     public function getBlackWhiteList($request)
     {
@@ -5123,10 +5410,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetEngineNamepaceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the namespaces of a Nacos instance.
+     *  *
+     * @param GetEngineNamepaceRequest $request GetEngineNamepaceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEngineNamepaceResponse
+     * @return GetEngineNamepaceResponse GetEngineNamepaceResponse
      */
     public function getEngineNamepaceWithOptions($request, $runtime)
     {
@@ -5163,9 +5452,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetEngineNamepaceRequest $request
+     * @summary Queries the namespaces of a Nacos instance.
+     *  *
+     * @param GetEngineNamepaceRequest $request GetEngineNamepaceRequest
      *
-     * @return GetEngineNamepaceResponse
+     * @return GetEngineNamepaceResponse GetEngineNamepaceResponse
      */
     public function getEngineNamepace($request)
     {
@@ -5175,10 +5466,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Obtains the basic information about a gateway, such as the virtual private cloud (VPC) and vSwitch to which the gateway belongs.
+     *  *
+     * @param GetGatewayRequest $request GetGatewayRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGatewayResponse
+     * @return GetGatewayResponse GetGatewayResponse
      */
     public function getGatewayWithOptions($request, $runtime)
     {
@@ -5209,9 +5502,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayRequest $request
+     * @summary Obtains the basic information about a gateway, such as the virtual private cloud (VPC) and vSwitch to which the gateway belongs.
+     *  *
+     * @param GetGatewayRequest $request GetGatewayRequest
      *
-     * @return GetGatewayResponse
+     * @return GetGatewayResponse GetGatewayResponse
      */
     public function getGateway($request)
     {
@@ -5221,10 +5516,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayAuthConsumerDetailRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the details of the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param GetGatewayAuthConsumerDetailRequest $request GetGatewayAuthConsumerDetailRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGatewayAuthConsumerDetailResponse
+     * @return GetGatewayAuthConsumerDetailResponse GetGatewayAuthConsumerDetailResponse
      */
     public function getGatewayAuthConsumerDetailWithOptions($request, $runtime)
     {
@@ -5258,9 +5555,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayAuthConsumerDetailRequest $request
+     * @summary Queries the details of the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param GetGatewayAuthConsumerDetailRequest $request GetGatewayAuthConsumerDetailRequest
      *
-     * @return GetGatewayAuthConsumerDetailResponse
+     * @return GetGatewayAuthConsumerDetailResponse GetGatewayAuthConsumerDetailResponse
      */
     public function getGatewayAuthConsumerDetail($request)
     {
@@ -5270,10 +5569,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayAuthDetailRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 查询网关认证详情
+     *  *
+     * @param GetGatewayAuthDetailRequest $request GetGatewayAuthDetailRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGatewayAuthDetailResponse
+     * @return GetGatewayAuthDetailResponse GetGatewayAuthDetailResponse
      */
     public function getGatewayAuthDetailWithOptions($request, $runtime)
     {
@@ -5310,9 +5611,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayAuthDetailRequest $request
+     * @summary 查询网关认证详情
+     *  *
+     * @param GetGatewayAuthDetailRequest $request GetGatewayAuthDetailRequest
      *
-     * @return GetGatewayAuthDetailResponse
+     * @return GetGatewayAuthDetailResponse GetGatewayAuthDetailResponse
      */
     public function getGatewayAuthDetail($request)
     {
@@ -5322,10 +5625,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayDomainDetailRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries the details of a domain name associated with a gateway.
+     *  *
+     * @param GetGatewayDomainDetailRequest $request GetGatewayDomainDetailRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGatewayDomainDetailResponse
+     * @return GetGatewayDomainDetailResponse GetGatewayDomainDetailResponse
      */
     public function getGatewayDomainDetailWithOptions($request, $runtime)
     {
@@ -5359,9 +5664,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayDomainDetailRequest $request
+     * @summary Queries the details of a domain name associated with a gateway.
+     *  *
+     * @param GetGatewayDomainDetailRequest $request GetGatewayDomainDetailRequest
      *
-     * @return GetGatewayDomainDetailResponse
+     * @return GetGatewayDomainDetailResponse GetGatewayDomainDetailResponse
      */
     public function getGatewayDomainDetail($request)
     {
@@ -5371,10 +5678,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayOptionRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Obtains the global parameters of a gateway.
+     *  *
+     * @param GetGatewayOptionRequest $request GetGatewayOptionRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGatewayOptionResponse
+     * @return GetGatewayOptionResponse GetGatewayOptionResponse
      */
     public function getGatewayOptionWithOptions($request, $runtime)
     {
@@ -5408,9 +5717,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayOptionRequest $request
+     * @summary Obtains the global parameters of a gateway.
+     *  *
+     * @param GetGatewayOptionRequest $request GetGatewayOptionRequest
      *
-     * @return GetGatewayOptionResponse
+     * @return GetGatewayOptionResponse GetGatewayOptionResponse
      */
     public function getGatewayOption($request)
     {
@@ -5420,10 +5731,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayRouteDetailRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the details of a route for a gateway.
+     *  *
+     * @param GetGatewayRouteDetailRequest $request GetGatewayRouteDetailRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGatewayRouteDetailResponse
+     * @return GetGatewayRouteDetailResponse GetGatewayRouteDetailResponse
      */
     public function getGatewayRouteDetailWithOptions($request, $runtime)
     {
@@ -5457,9 +5770,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayRouteDetailRequest $request
+     * @summary Queries the details of a route for a gateway.
+     *  *
+     * @param GetGatewayRouteDetailRequest $request GetGatewayRouteDetailRequest
      *
-     * @return GetGatewayRouteDetailResponse
+     * @return GetGatewayRouteDetailResponse GetGatewayRouteDetailResponse
      */
     public function getGatewayRouteDetail($request)
     {
@@ -5469,10 +5784,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayServiceDetailRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the details of a service.
+     *  *
+     * @param GetGatewayServiceDetailRequest $request GetGatewayServiceDetailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGatewayServiceDetailResponse
+     * @return GetGatewayServiceDetailResponse GetGatewayServiceDetailResponse
      */
     public function getGatewayServiceDetailWithOptions($request, $runtime)
     {
@@ -5506,9 +5823,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGatewayServiceDetailRequest $request
+     * @summary Queries the details of a service.
+     *  *
+     * @param GetGatewayServiceDetailRequest $request GetGatewayServiceDetailRequest
      *
-     * @return GetGatewayServiceDetailResponse
+     * @return GetGatewayServiceDetailResponse GetGatewayServiceDetailResponse
      */
     public function getGatewayServiceDetail($request)
     {
@@ -5518,10 +5837,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGovernanceKubernetesClusterRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the information about a Container Service for Kubernetes (ACK) cluster for which Microservices Governance is enabled.
+     *  *
+     * @param GetGovernanceKubernetesClusterRequest $request GetGovernanceKubernetesClusterRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGovernanceKubernetesClusterResponse
+     * @return GetGovernanceKubernetesClusterResponse GetGovernanceKubernetesClusterResponse
      */
     public function getGovernanceKubernetesClusterWithOptions($request, $runtime)
     {
@@ -5555,9 +5876,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetGovernanceKubernetesClusterRequest $request
+     * @summary Queries the information about a Container Service for Kubernetes (ACK) cluster for which Microservices Governance is enabled.
+     *  *
+     * @param GetGovernanceKubernetesClusterRequest $request GetGovernanceKubernetesClusterRequest
      *
-     * @return GetGovernanceKubernetesClusterResponse
+     * @return GetGovernanceKubernetesClusterResponse GetGovernanceKubernetesClusterResponse
      */
     public function getGovernanceKubernetesCluster($request)
     {
@@ -5567,10 +5890,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetImageRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary Queries the maximum version number to which the current version can be upgraded.
+     *  *
+     * @param GetImageRequest $request GetImageRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetImageResponse
+     * @return GetImageResponse GetImageResponse
      */
     public function getImageWithOptions($request, $runtime)
     {
@@ -5601,9 +5926,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetImageRequest $request
+     * @summary Queries the maximum version number to which the current version can be upgraded.
+     *  *
+     * @param GetImageRequest $request GetImageRequest
      *
-     * @return GetImageResponse
+     * @return GetImageResponse GetImageResponse
      */
     public function getImage($request)
     {
@@ -5613,8 +5940,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n.
-     *   *
+     * @summary Obtains the URL that is used to upload a configuration file when you import the configuration file into a Microservices Engine (MSE) Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n
+     *  *
      * @param GetImportFileUrlRequest $request GetImportFileUrlRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -5655,8 +5984,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n.
-     *   *
+     * @summary Obtains the URL that is used to upload a configuration file when you import the configuration file into a Microservices Engine (MSE) Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n
+     *  *
      * @param GetImportFileUrlRequest $request GetImportFileUrlRequest
      *
      * @return GetImportFileUrlResponse GetImportFileUrlResponse
@@ -5669,10 +6000,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetKubernetesSourceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Obtains sources of all Container Service for Kubernetes (ACK) services in a gateway.
+     *  *
+     * @param GetKubernetesSourceRequest $request GetKubernetesSourceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetKubernetesSourceResponse
+     * @return GetKubernetesSourceResponse GetKubernetesSourceResponse
      */
     public function getKubernetesSourceWithOptions($request, $runtime)
     {
@@ -5709,9 +6042,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetKubernetesSourceRequest $request
+     * @summary Obtains sources of all Container Service for Kubernetes (ACK) services in a gateway.
+     *  *
+     * @param GetKubernetesSourceRequest $request GetKubernetesSourceRequest
      *
-     * @return GetKubernetesSourceResponse
+     * @return GetKubernetesSourceResponse GetKubernetesSourceResponse
      */
     public function getKubernetesSource($request)
     {
@@ -5721,10 +6056,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the rules for graceful start and shutdown of an application.
-     *   * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
-     *   * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
-     *   *
+     * @summary Queries the rules for graceful start and shutdown of an application.
+     *  *
+     * @description You can call this operation to query the rules for graceful start and shutdown of an application.
+     * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
+     * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+     *  *
      * @param GetLosslessRuleByAppRequest $request GetLosslessRuleByAppRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5768,10 +6105,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the rules for graceful start and shutdown of an application.
-     *   * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
-     *   * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
-     *   *
+     * @summary Queries the rules for graceful start and shutdown of an application.
+     *  *
+     * @description You can call this operation to query the rules for graceful start and shutdown of an application.
+     * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
+     * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+     *  *
      * @param GetLosslessRuleByAppRequest $request GetLosslessRuleByAppRequest
      *
      * @return GetLosslessRuleByAppResponse GetLosslessRuleByAppResponse
@@ -5784,10 +6123,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetMseFeatureSwitchRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about the MSE feature switch.
+     *  *
+     * @param GetMseFeatureSwitchRequest $request GetMseFeatureSwitchRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMseFeatureSwitchResponse
+     * @return GetMseFeatureSwitchResponse GetMseFeatureSwitchResponse
      */
     public function getMseFeatureSwitchWithOptions($request, $runtime)
     {
@@ -5815,9 +6156,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetMseFeatureSwitchRequest $request
+     * @summary Queries the information about the MSE feature switch.
+     *  *
+     * @param GetMseFeatureSwitchRequest $request GetMseFeatureSwitchRequest
      *
-     * @return GetMseFeatureSwitchResponse
+     * @return GetMseFeatureSwitchResponse GetMseFeatureSwitchResponse
      */
     public function getMseFeatureSwitch($request)
     {
@@ -5827,10 +6170,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetMseSourceRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the existing Microservices Engine (MSE) Nacos instances that are service sources of a gateway.
+     *  *
+     * @param GetMseSourceRequest $request GetMseSourceRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMseSourceResponse
+     * @return GetMseSourceResponse GetMseSourceResponse
      */
     public function getMseSourceWithOptions($request, $runtime)
     {
@@ -5867,9 +6212,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetMseSourceRequest $request
+     * @summary Queries the existing Microservices Engine (MSE) Nacos instances that are service sources of a gateway.
+     *  *
+     * @param GetMseSourceRequest $request GetMseSourceRequest
      *
-     * @return GetMseSourceResponse
+     * @return GetMseSourceResponse GetMseSourceResponse
      */
     public function getMseSource($request)
     {
@@ -5879,8 +6226,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries Nacos configurations.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param GetNacosConfigRequest $request GetNacosConfigRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -5927,8 +6276,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries Nacos configurations.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param GetNacosConfigRequest $request GetNacosConfigRequest
      *
      * @return GetNacosConfigResponse GetNacosConfigResponse
@@ -5941,8 +6292,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries the historical details of Nacos configuration changes.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param GetNacosHistoryConfigRequest $request GetNacosHistoryConfigRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -5989,8 +6342,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries the historical details of Nacos configuration changes.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param GetNacosHistoryConfigRequest $request GetNacosHistoryConfigRequest
      *
      * @return GetNacosHistoryConfigResponse GetNacosHistoryConfigResponse
@@ -6003,8 +6358,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query overview information about service governance.
-     *   *
+     * @summary Queries information about service governance.
+     *  *
+     * @description You can call this operation to query overview information about service governance.
+     *  *
      * @param GetOverviewRequest $request GetOverviewRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -6042,8 +6399,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query overview information about service governance.
-     *   *
+     * @summary Queries information about service governance.
+     *  *
+     * @description You can call this operation to query overview information about service governance.
+     *  *
      * @param GetOverviewRequest $request GetOverviewRequest
      *
      * @return GetOverviewResponse GetOverviewResponse
@@ -6056,10 +6415,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetPluginConfigRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Obtains plug-in configurations.
+     *  *
+     * @param GetPluginConfigRequest $request GetPluginConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPluginConfigResponse
+     * @return GetPluginConfigResponse GetPluginConfigResponse
      */
     public function getPluginConfigWithOptions($request, $runtime)
     {
@@ -6093,9 +6454,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetPluginConfigRequest $request
+     * @summary Obtains plug-in configurations.
+     *  *
+     * @param GetPluginConfigRequest $request GetPluginConfigRequest
      *
-     * @return GetPluginConfigResponse
+     * @return GetPluginConfigResponse GetPluginConfigResponse
      */
     public function getPluginConfig($request)
     {
@@ -6105,10 +6468,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetPluginsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Obtains plug-ins.
+     *  *
+     * @param GetPluginsRequest $request GetPluginsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPluginsResponse
+     * @return GetPluginsResponse GetPluginsResponse
      */
     public function getPluginsWithOptions($request, $runtime)
     {
@@ -6148,9 +6513,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetPluginsRequest $request
+     * @summary Obtains plug-ins.
+     *  *
+     * @param GetPluginsRequest $request GetPluginsRequest
      *
-     * @return GetPluginsResponse
+     * @return GetPluginsResponse GetPluginsResponse
      */
     public function getPlugins($request)
     {
@@ -6160,10 +6527,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetServiceListRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the services of an application.
+     *  *
+     * @param GetServiceListRequest $request GetServiceListRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceListResponse
+     * @return GetServiceListResponse GetServiceListResponse
      */
     public function getServiceListWithOptions($request, $runtime)
     {
@@ -6206,9 +6575,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetServiceListRequest $request
+     * @summary Queries the services of an application.
+     *  *
+     * @param GetServiceListRequest $request GetServiceListRequest
      *
-     * @return GetServiceListResponse
+     * @return GetServiceListResponse GetServiceListResponse
      */
     public function getServiceList($request)
     {
@@ -6218,10 +6589,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetServiceListPageRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the version of a microservices application.
+     *  *
+     * @param GetServiceListPageRequest $request GetServiceListPageRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceListPageResponse
+     * @return GetServiceListPageResponse GetServiceListPageResponse
      */
     public function getServiceListPageWithOptions($request, $runtime)
     {
@@ -6276,9 +6649,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetServiceListPageRequest $request
+     * @summary Queries the version of a microservices application.
+     *  *
+     * @param GetServiceListPageRequest $request GetServiceListPageRequest
      *
-     * @return GetServiceListPageResponse
+     * @return GetServiceListPageResponse GetServiceListPageResponse
      */
     public function getServiceListPage($request)
     {
@@ -6288,10 +6663,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetServiceListenersRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the list of listeners for the destination service.
+     *  *
+     * @param GetServiceListenersRequest $request GetServiceListenersRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceListenersResponse
+     * @return GetServiceListenersResponse GetServiceListenersResponse
      */
     public function getServiceListenersWithOptions($request, $runtime)
     {
@@ -6352,9 +6729,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetServiceListenersRequest $request
+     * @summary Queries the list of listeners for the destination service.
+     *  *
+     * @param GetServiceListenersRequest $request GetServiceListenersRequest
      *
-     * @return GetServiceListenersResponse
+     * @return GetServiceListenersResponse GetServiceListenersResponse
      */
     public function getServiceListeners($request)
     {
@@ -6364,10 +6743,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetServiceMethodPageRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 获取服务接口列表
+     *  *
+     * @param GetServiceMethodPageRequest $request GetServiceMethodPageRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceMethodPageResponse
+     * @return GetServiceMethodPageResponse GetServiceMethodPageResponse
      */
     public function getServiceMethodPageWithOptions($request, $runtime)
     {
@@ -6437,9 +6818,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetServiceMethodPageRequest $request
+     * @summary 获取服务接口列表
+     *  *
+     * @param GetServiceMethodPageRequest $request GetServiceMethodPageRequest
      *
-     * @return GetServiceMethodPageResponse
+     * @return GetServiceMethodPageResponse GetServiceMethodPageResponse
      */
     public function getServiceMethodPage($request)
     {
@@ -6449,10 +6832,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetTagsBySwimmingLaneGroupIdRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Obtains all tags in the current lane group.
+     *  *
+     * @param GetTagsBySwimmingLaneGroupIdRequest $request GetTagsBySwimmingLaneGroupIdRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTagsBySwimmingLaneGroupIdResponse
+     * @return GetTagsBySwimmingLaneGroupIdResponse GetTagsBySwimmingLaneGroupIdResponse
      */
     public function getTagsBySwimmingLaneGroupIdWithOptions($request, $runtime)
     {
@@ -6486,9 +6871,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetTagsBySwimmingLaneGroupIdRequest $request
+     * @summary Obtains all tags in the current lane group.
+     *  *
+     * @param GetTagsBySwimmingLaneGroupIdRequest $request GetTagsBySwimmingLaneGroupIdRequest
      *
-     * @return GetTagsBySwimmingLaneGroupIdResponse
+     * @return GetTagsBySwimmingLaneGroupIdResponse GetTagsBySwimmingLaneGroupIdResponse
      */
     public function getTagsBySwimmingLaneGroupId($request)
     {
@@ -6498,10 +6885,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetZookeeperDataImportUrlRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary mse-200-105
+     *  *
+     * @param GetZookeeperDataImportUrlRequest $request GetZookeeperDataImportUrlRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetZookeeperDataImportUrlResponse
+     * @return GetZookeeperDataImportUrlResponse GetZookeeperDataImportUrlResponse
      */
     public function getZookeeperDataImportUrlWithOptions($request, $runtime)
     {
@@ -6535,9 +6924,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetZookeeperDataImportUrlRequest $request
+     * @summary mse-200-105
+     *  *
+     * @param GetZookeeperDataImportUrlRequest $request GetZookeeperDataImportUrlRequest
      *
-     * @return GetZookeeperDataImportUrlResponse
+     * @return GetZookeeperDataImportUrlResponse GetZookeeperDataImportUrlResponse
      */
     public function getZookeeperDataImportUrl($request)
     {
@@ -6547,8 +6938,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Imports Nacos configurations as a file.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ImportNacosConfigRequest $request ImportNacosConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -6592,8 +6985,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Imports Nacos configurations as a file.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ImportNacosConfigRequest $request ImportNacosConfigRequest
      *
      * @return ImportNacosConfigResponse ImportNacosConfigResponse
@@ -6606,10 +7001,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ImportServicesRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary Imports services to a gateway.
+     *  *
+     * @param ImportServicesRequest $tmpReq  ImportServicesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportServicesResponse
+     * @return ImportServicesResponse ImportServicesResponse
      */
     public function importServicesWithOptions($tmpReq, $runtime)
     {
@@ -6663,9 +7060,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ImportServicesRequest $request
+     * @summary Imports services to a gateway.
+     *  *
+     * @param ImportServicesRequest $request ImportServicesRequest
      *
-     * @return ImportServicesResponse
+     * @return ImportServicesResponse ImportServicesResponse
      */
     public function importServices($request)
     {
@@ -6675,8 +7074,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
-     *   *
+     * @summary Initiates a task to import data from a destination URL to a Microservices Engine (MSE) ZooKeeper instance.
+     *  *
+     * @description **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+     *  *
      * @param ImportZookeeperDataRequest $request ImportZookeeperDataRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -6723,8 +7124,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
-     *   *
+     * @summary Initiates a task to import data from a destination URL to a Microservices Engine (MSE) ZooKeeper instance.
+     *  *
+     * @description **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+     *  *
      * @param ImportZookeeperDataRequest $request ImportZookeeperDataRequest
      *
      * @return ImportZookeeperDataResponse ImportZookeeperDataResponse
@@ -6737,8 +7140,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries application instances that are registered with a Microservices Engine (MSE) Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListAnsInstancesRequest $request ListAnsInstancesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -6767,8 +7172,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries application instances that are registered with a Microservices Engine (MSE) Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListAnsInstancesRequest $request ListAnsInstancesRequest
      *
      * @return ListAnsInstancesResponse ListAnsInstancesResponse
@@ -6781,8 +7188,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries the clusters of a Nacos service.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListAnsServiceClustersRequest $request ListAnsServiceClustersRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -6838,8 +7247,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries the clusters of a Nacos service.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListAnsServiceClustersRequest $request ListAnsServiceClustersRequest
      *
      * @return ListAnsServiceClustersResponse ListAnsServiceClustersResponse
@@ -6852,8 +7263,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries Nacos services.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListAnsServicesRequest $request ListAnsServicesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -6918,8 +7331,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries Nacos services.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListAnsServicesRequest $request ListAnsServicesRequest
      *
      * @return ListAnsServicesResponse ListAnsServicesResponse
@@ -6932,8 +7347,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @deprecated : ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead.
-     *   *
+     * @deprecated openAPI ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead
+     *  *
+     * @summary Queries the applications in a lane group by tag.
+     *  *
      * Deprecated
      *
      * @param ListAppBySwimmingLaneGroupTagRequest $request ListAppBySwimmingLaneGroupTagRequest
@@ -6976,8 +7393,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @deprecated : ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead.
-     *   *
+     * @deprecated openAPI ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead
+     *  *
+     * @summary Queries the applications in a lane group by tag.
+     *  *
      * Deprecated
      *
      * @param ListAppBySwimmingLaneGroupTagRequest $request ListAppBySwimmingLaneGroupTagRequest
@@ -6992,10 +7411,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAppBySwimmingLaneGroupTagsRequest $tmpReq
-     * @param RuntimeOptions                        $runtime
+     * @summary Lists applications by tag in a specified lane group.
+     *  *
+     * @param ListAppBySwimmingLaneGroupTagsRequest $tmpReq  ListAppBySwimmingLaneGroupTagsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAppBySwimmingLaneGroupTagsResponse
+     * @return ListAppBySwimmingLaneGroupTagsResponse ListAppBySwimmingLaneGroupTagsResponse
      */
     public function listAppBySwimmingLaneGroupTagsWithOptions($tmpReq, $runtime)
     {
@@ -7037,9 +7458,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAppBySwimmingLaneGroupTagsRequest $request
+     * @summary Lists applications by tag in a specified lane group.
+     *  *
+     * @param ListAppBySwimmingLaneGroupTagsRequest $request ListAppBySwimmingLaneGroupTagsRequest
      *
-     * @return ListAppBySwimmingLaneGroupTagsResponse
+     * @return ListAppBySwimmingLaneGroupTagsResponse ListAppBySwimmingLaneGroupTagsResponse
      */
     public function listAppBySwimmingLaneGroupTags($request)
     {
@@ -7049,10 +7472,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsWithTagRulesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries the routing rules of an application.
+     *  *
+     * @param ListApplicationsWithTagRulesRequest $request ListApplicationsWithTagRulesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationsWithTagRulesResponse
+     * @return ListApplicationsWithTagRulesResponse ListApplicationsWithTagRulesResponse
      */
     public function listApplicationsWithTagRulesWithOptions($request, $runtime)
     {
@@ -7077,9 +7502,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsWithTagRulesRequest $request
+     * @summary Queries the routing rules of an application.
+     *  *
+     * @param ListApplicationsWithTagRulesRequest $request ListApplicationsWithTagRulesRequest
      *
-     * @return ListApplicationsWithTagRulesResponse
+     * @return ListApplicationsWithTagRulesResponse ListApplicationsWithTagRulesResponse
      */
     public function listApplicationsWithTagRules($request)
     {
@@ -7089,10 +7516,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAuthPolicyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries a list of service authentication rules.
+     *  *
+     * @param ListAuthPolicyRequest $request ListAuthPolicyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAuthPolicyResponse
+     * @return ListAuthPolicyResponse ListAuthPolicyResponse
      */
     public function listAuthPolicyWithOptions($request, $runtime)
     {
@@ -7144,9 +7573,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAuthPolicyRequest $request
+     * @summary Queries a list of service authentication rules.
+     *  *
+     * @param ListAuthPolicyRequest $request ListAuthPolicyRequest
      *
-     * @return ListAuthPolicyResponse
+     * @return ListAuthPolicyResponse ListAuthPolicyResponse
      */
     public function listAuthPolicy($request)
     {
@@ -7156,10 +7587,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListCircuitBreakerRulesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries a list of circuit breaking rules.
+     *  *
+     * @param ListCircuitBreakerRulesRequest $request ListCircuitBreakerRulesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCircuitBreakerRulesResponse
+     * @return ListCircuitBreakerRulesResponse ListCircuitBreakerRulesResponse
      */
     public function listCircuitBreakerRulesWithOptions($request, $runtime)
     {
@@ -7208,9 +7641,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListCircuitBreakerRulesRequest $request
+     * @summary Queries a list of circuit breaking rules.
+     *  *
+     * @param ListCircuitBreakerRulesRequest $request ListCircuitBreakerRulesRequest
      *
-     * @return ListCircuitBreakerRulesResponse
+     * @return ListCircuitBreakerRulesResponse ListCircuitBreakerRulesResponse
      */
     public function listCircuitBreakerRules($request)
     {
@@ -7220,10 +7655,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClusterConnectionTypesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Queries available cluster connection types.
+     *  *
+     * @param ListClusterConnectionTypesRequest $request ListClusterConnectionTypesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterConnectionTypesResponse
+     * @return ListClusterConnectionTypesResponse ListClusterConnectionTypesResponse
      */
     public function listClusterConnectionTypesWithOptions($request, $runtime)
     {
@@ -7251,9 +7688,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClusterConnectionTypesRequest $request
+     * @summary Queries available cluster connection types.
+     *  *
+     * @param ListClusterConnectionTypesRequest $request ListClusterConnectionTypesRequest
      *
-     * @return ListClusterConnectionTypesResponse
+     * @return ListClusterConnectionTypesResponse ListClusterConnectionTypesResponse
      */
     public function listClusterConnectionTypes($request)
     {
@@ -7263,10 +7702,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClusterHealthCheckTaskRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Obtains information about historical health check tasks.
+     *  *
+     * @param ListClusterHealthCheckTaskRequest $request ListClusterHealthCheckTaskRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterHealthCheckTaskResponse
+     * @return ListClusterHealthCheckTaskResponse ListClusterHealthCheckTaskResponse
      */
     public function listClusterHealthCheckTaskWithOptions($request, $runtime)
     {
@@ -7309,9 +7750,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClusterHealthCheckTaskRequest $request
+     * @summary Obtains information about historical health check tasks.
+     *  *
+     * @param ListClusterHealthCheckTaskRequest $request ListClusterHealthCheckTaskRequest
      *
-     * @return ListClusterHealthCheckTaskResponse
+     * @return ListClusterHealthCheckTaskResponse ListClusterHealthCheckTaskResponse
      */
     public function listClusterHealthCheckTask($request)
     {
@@ -7321,10 +7764,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClusterTypesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the engine types that can be activated.
+     *  *
+     * @param ListClusterTypesRequest $request ListClusterTypesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterTypesResponse
+     * @return ListClusterTypesResponse ListClusterTypesResponse
      */
     public function listClusterTypesWithOptions($request, $runtime)
     {
@@ -7361,9 +7806,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClusterTypesRequest $request
+     * @summary Queries the engine types that can be activated.
+     *  *
+     * @param ListClusterTypesRequest $request ListClusterTypesRequest
      *
-     * @return ListClusterTypesResponse
+     * @return ListClusterTypesResponse ListClusterTypesResponse
      */
     public function listClusterTypes($request)
     {
@@ -7373,10 +7820,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClusterVersionsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries the information about supported instance versions.
+     *  *
+     * @param ListClusterVersionsRequest $request ListClusterVersionsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterVersionsResponse
+     * @return ListClusterVersionsResponse ListClusterVersionsResponse
      */
     public function listClusterVersionsWithOptions($request, $runtime)
     {
@@ -7410,9 +7859,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClusterVersionsRequest $request
+     * @summary Queries the information about supported instance versions.
+     *  *
+     * @param ListClusterVersionsRequest $request ListClusterVersionsRequest
      *
-     * @return ListClusterVersionsResponse
+     * @return ListClusterVersionsResponse ListClusterVersionsResponse
      */
     public function listClusterVersions($request)
     {
@@ -7422,10 +7873,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClustersRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries Microservices Engine (MSE) instances.
+     *  *
+     * @param ListClustersRequest $request ListClustersRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClustersResponse
+     * @return ListClustersResponse ListClustersResponse
      */
     public function listClustersWithOptions($request, $runtime)
     {
@@ -7477,9 +7930,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListClustersRequest $request
+     * @summary Queries Microservices Engine (MSE) instances.
+     *  *
+     * @param ListClustersRequest $request ListClustersRequest
      *
-     * @return ListClustersResponse
+     * @return ListClustersResponse ListClustersResponse
      */
     public function listClusters($request)
     {
@@ -7489,10 +7944,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListConfigTrackRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Obtains the track data of a Nacos configuration center.
+     *  *
+     * @param ListConfigTrackRequest $request ListConfigTrackRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListConfigTrackResponse
+     * @return ListConfigTrackResponse ListConfigTrackResponse
      */
     public function listConfigTrackWithOptions($request, $runtime)
     {
@@ -7553,9 +8010,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListConfigTrackRequest $request
+     * @summary Obtains the track data of a Nacos configuration center.
+     *  *
+     * @param ListConfigTrackRequest $request ListConfigTrackRequest
      *
-     * @return ListConfigTrackResponse
+     * @return ListConfigTrackResponse ListConfigTrackResponse
      */
     public function listConfigTrack($request)
     {
@@ -7565,10 +8024,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListEngineNamespacesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries the namespaces of a Nacos instance.
+     *  *
+     * @param ListEngineNamespacesRequest $request ListEngineNamespacesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEngineNamespacesResponse
+     * @return ListEngineNamespacesResponse ListEngineNamespacesResponse
      */
     public function listEngineNamespacesWithOptions($request, $runtime)
     {
@@ -7599,9 +8060,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListEngineNamespacesRequest $request
+     * @summary Queries the namespaces of a Nacos instance.
+     *  *
+     * @param ListEngineNamespacesRequest $request ListEngineNamespacesRequest
      *
-     * @return ListEngineNamespacesResponse
+     * @return ListEngineNamespacesResponse ListEngineNamespacesResponse
      */
     public function listEngineNamespaces($request)
     {
@@ -7611,10 +8074,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListEurekaInstancesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Queries Eureka instances.
+     *  *
+     * @param ListEurekaInstancesRequest $request ListEurekaInstancesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEurekaInstancesResponse
+     * @return ListEurekaInstancesResponse ListEurekaInstancesResponse
      */
     public function listEurekaInstancesWithOptions($request, $runtime)
     {
@@ -7639,9 +8104,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListEurekaInstancesRequest $request
+     * @summary Queries Eureka instances.
+     *  *
+     * @param ListEurekaInstancesRequest $request ListEurekaInstancesRequest
      *
-     * @return ListEurekaInstancesResponse
+     * @return ListEurekaInstancesResponse ListEurekaInstancesResponse
      */
     public function listEurekaInstances($request)
     {
@@ -7651,10 +8118,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListEurekaServicesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries Eureka services.
+     *  *
+     * @param ListEurekaServicesRequest $request ListEurekaServicesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEurekaServicesResponse
+     * @return ListEurekaServicesResponse ListEurekaServicesResponse
      */
     public function listEurekaServicesWithOptions($request, $runtime)
     {
@@ -7679,9 +8148,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListEurekaServicesRequest $request
+     * @summary Queries Eureka services.
+     *  *
+     * @param ListEurekaServicesRequest $request ListEurekaServicesRequest
      *
-     * @return ListEurekaServicesResponse
+     * @return ListEurekaServicesResponse ListEurekaServicesResponse
      */
     public function listEurekaServices($request)
     {
@@ -7691,10 +8162,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListExportZookeeperDataRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Lists historical data export tasks of a Microservices Engine (MSE) Zookeeper instance.
+     *  *
+     * @param ListExportZookeeperDataRequest $request ListExportZookeeperDataRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExportZookeeperDataResponse
+     * @return ListExportZookeeperDataResponse ListExportZookeeperDataResponse
      */
     public function listExportZookeeperDataWithOptions($request, $runtime)
     {
@@ -7731,9 +8204,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListExportZookeeperDataRequest $request
+     * @summary Lists historical data export tasks of a Microservices Engine (MSE) Zookeeper instance.
+     *  *
+     * @param ListExportZookeeperDataRequest $request ListExportZookeeperDataRequest
      *
-     * @return ListExportZookeeperDataResponse
+     * @return ListExportZookeeperDataResponse ListExportZookeeperDataResponse
      */
     public function listExportZookeeperData($request)
     {
@@ -7743,10 +8218,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListFlowRulesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Obtains a list of throttling rules.
+     *  *
+     * @param ListFlowRulesRequest $request ListFlowRulesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFlowRulesResponse
+     * @return ListFlowRulesResponse ListFlowRulesResponse
      */
     public function listFlowRulesWithOptions($request, $runtime)
     {
@@ -7795,9 +8272,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListFlowRulesRequest $request
+     * @summary Obtains a list of throttling rules.
+     *  *
+     * @param ListFlowRulesRequest $request ListFlowRulesRequest
      *
-     * @return ListFlowRulesResponse
+     * @return ListFlowRulesResponse ListFlowRulesResponse
      */
     public function listFlowRules($request)
     {
@@ -7807,10 +8286,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayRequest $tmpReq
-     * @param RuntimeOptions     $runtime
+     * @summary Queries a list of gateways.
+     *  *
+     * @param ListGatewayRequest $tmpReq  ListGatewayRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayResponse
+     * @return ListGatewayResponse ListGatewayResponse
      */
     public function listGatewayWithOptions($tmpReq, $runtime)
     {
@@ -7858,9 +8339,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayRequest $request
+     * @summary Queries a list of gateways.
+     *  *
+     * @param ListGatewayRequest $request ListGatewayRequest
      *
-     * @return ListGatewayResponse
+     * @return ListGatewayResponse ListGatewayResponse
      */
     public function listGateway($request)
     {
@@ -7870,10 +8353,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayAuthConsumerRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the list of consumers on which a gateway performs authentication operations.
+     *  *
+     * @param ListGatewayAuthConsumerRequest $request ListGatewayAuthConsumerRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayAuthConsumerResponse
+     * @return ListGatewayAuthConsumerResponse ListGatewayAuthConsumerResponse
      */
     public function listGatewayAuthConsumerWithOptions($request, $runtime)
     {
@@ -7919,9 +8404,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayAuthConsumerRequest $request
+     * @summary Queries the list of consumers on which a gateway performs authentication operations.
+     *  *
+     * @param ListGatewayAuthConsumerRequest $request ListGatewayAuthConsumerRequest
      *
-     * @return ListGatewayAuthConsumerResponse
+     * @return ListGatewayAuthConsumerResponse ListGatewayAuthConsumerResponse
      */
     public function listGatewayAuthConsumer($request)
     {
@@ -7931,10 +8418,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayAuthConsumerResourceRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the list of authorized resources for the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param ListGatewayAuthConsumerResourceRequest $request ListGatewayAuthConsumerResourceRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayAuthConsumerResourceResponse
+     * @return ListGatewayAuthConsumerResourceResponse ListGatewayAuthConsumerResourceResponse
      */
     public function listGatewayAuthConsumerResourceWithOptions($request, $runtime)
     {
@@ -7980,9 +8469,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayAuthConsumerResourceRequest $request
+     * @summary Queries the list of authorized resources for the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param ListGatewayAuthConsumerResourceRequest $request ListGatewayAuthConsumerResourceRequest
      *
-     * @return ListGatewayAuthConsumerResourceResponse
+     * @return ListGatewayAuthConsumerResourceResponse ListGatewayAuthConsumerResourceResponse
      */
     public function listGatewayAuthConsumerResource($request)
     {
@@ -7992,10 +8483,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayCircuitBreakerRuleRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 查看网关路由熔断规则
+     *  *
+     * @param ListGatewayCircuitBreakerRuleRequest $request ListGatewayCircuitBreakerRuleRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayCircuitBreakerRuleResponse
+     * @return ListGatewayCircuitBreakerRuleResponse ListGatewayCircuitBreakerRuleResponse
      */
     public function listGatewayCircuitBreakerRuleWithOptions($request, $runtime)
     {
@@ -8026,9 +8519,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayCircuitBreakerRuleRequest $request
+     * @summary 查看网关路由熔断规则
+     *  *
+     * @param ListGatewayCircuitBreakerRuleRequest $request ListGatewayCircuitBreakerRuleRequest
      *
-     * @return ListGatewayCircuitBreakerRuleResponse
+     * @return ListGatewayCircuitBreakerRuleResponse ListGatewayCircuitBreakerRuleResponse
      */
     public function listGatewayCircuitBreakerRule($request)
     {
@@ -8038,10 +8533,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayDomainRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the domain names that are associated with a gateway.
+     *  *
+     * @param ListGatewayDomainRequest $request ListGatewayDomainRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayDomainResponse
+     * @return ListGatewayDomainResponse ListGatewayDomainResponse
      */
     public function listGatewayDomainWithOptions($request, $runtime)
     {
@@ -8078,9 +8575,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayDomainRequest $request
+     * @summary Queries the domain names that are associated with a gateway.
+     *  *
+     * @param ListGatewayDomainRequest $request ListGatewayDomainRequest
      *
-     * @return ListGatewayDomainResponse
+     * @return ListGatewayDomainResponse ListGatewayDomainResponse
      */
     public function listGatewayDomain($request)
     {
@@ -8090,10 +8589,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayFlowRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 查看网关路由流控规则
+     *  *
+     * @param ListGatewayFlowRuleRequest $request ListGatewayFlowRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayFlowRuleResponse
+     * @return ListGatewayFlowRuleResponse ListGatewayFlowRuleResponse
      */
     public function listGatewayFlowRuleWithOptions($request, $runtime)
     {
@@ -8124,9 +8625,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayFlowRuleRequest $request
+     * @summary 查看网关路由流控规则
+     *  *
+     * @param ListGatewayFlowRuleRequest $request ListGatewayFlowRuleRequest
      *
-     * @return ListGatewayFlowRuleResponse
+     * @return ListGatewayFlowRuleResponse ListGatewayFlowRuleResponse
      */
     public function listGatewayFlowRule($request)
     {
@@ -8136,10 +8639,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayIsolationRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 查看网关路由隔离规则
+     *  *
+     * @param ListGatewayIsolationRuleRequest $request ListGatewayIsolationRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayIsolationRuleResponse
+     * @return ListGatewayIsolationRuleResponse ListGatewayIsolationRuleResponse
      */
     public function listGatewayIsolationRuleWithOptions($request, $runtime)
     {
@@ -8170,9 +8675,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayIsolationRuleRequest $request
+     * @summary 查看网关路由隔离规则
+     *  *
+     * @param ListGatewayIsolationRuleRequest $request ListGatewayIsolationRuleRequest
      *
-     * @return ListGatewayIsolationRuleResponse
+     * @return ListGatewayIsolationRuleResponse ListGatewayIsolationRuleResponse
      */
     public function listGatewayIsolationRule($request)
     {
@@ -8182,10 +8689,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayRouteRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the routes of a gateway.
+     *  *
+     * @param ListGatewayRouteRequest $tmpReq  ListGatewayRouteRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayRouteResponse
+     * @return ListGatewayRouteResponse ListGatewayRouteResponse
      */
     public function listGatewayRouteWithOptions($tmpReq, $runtime)
     {
@@ -8233,9 +8742,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayRouteRequest $request
+     * @summary Queries the routes of a gateway.
+     *  *
+     * @param ListGatewayRouteRequest $request ListGatewayRouteRequest
      *
-     * @return ListGatewayRouteResponse
+     * @return ListGatewayRouteResponse ListGatewayRouteResponse
      */
     public function listGatewayRoute($request)
     {
@@ -8245,10 +8756,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayRouteOnAuthRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries a list of routes for which authentication is enabled.
+     *  *
+     * @param ListGatewayRouteOnAuthRequest $request ListGatewayRouteOnAuthRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayRouteOnAuthResponse
+     * @return ListGatewayRouteOnAuthResponse ListGatewayRouteOnAuthResponse
      */
     public function listGatewayRouteOnAuthWithOptions($request, $runtime)
     {
@@ -8282,9 +8795,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayRouteOnAuthRequest $request
+     * @summary Queries a list of routes for which authentication is enabled.
+     *  *
+     * @param ListGatewayRouteOnAuthRequest $request ListGatewayRouteOnAuthRequest
      *
-     * @return ListGatewayRouteOnAuthResponse
+     * @return ListGatewayRouteOnAuthResponse ListGatewayRouteOnAuthResponse
      */
     public function listGatewayRouteOnAuth($request)
     {
@@ -8294,10 +8809,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayServiceRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary Queries a list of services that are subscribed with a gateway.
+     *  *
+     * @param ListGatewayServiceRequest $tmpReq  ListGatewayServiceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewayServiceResponse
+     * @return ListGatewayServiceResponse ListGatewayServiceResponse
      */
     public function listGatewayServiceWithOptions($tmpReq, $runtime)
     {
@@ -8345,9 +8862,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewayServiceRequest $request
+     * @summary Queries a list of services that are subscribed with a gateway.
+     *  *
+     * @param ListGatewayServiceRequest $request ListGatewayServiceRequest
      *
-     * @return ListGatewayServiceResponse
+     * @return ListGatewayServiceResponse ListGatewayServiceResponse
      */
     public function listGatewayService($request)
     {
@@ -8357,10 +8876,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewaySlbRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the Server Load Balancer (SLB) instances that are associated with a gateway.
+     *  *
+     * @param ListGatewaySlbRequest $request ListGatewaySlbRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGatewaySlbResponse
+     * @return ListGatewaySlbResponse ListGatewaySlbResponse
      */
     public function listGatewaySlbWithOptions($request, $runtime)
     {
@@ -8391,9 +8912,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListGatewaySlbRequest $request
+     * @summary Queries the Server Load Balancer (SLB) instances that are associated with a gateway.
+     *  *
+     * @param ListGatewaySlbRequest $request ListGatewaySlbRequest
      *
-     * @return ListGatewaySlbResponse
+     * @return ListGatewaySlbResponse ListGatewaySlbResponse
      */
     public function listGatewaySlb($request)
     {
@@ -8403,10 +8926,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceCountRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Displays the number of nodes that can be deployed for an instance.
+     *  *
+     * @param ListInstanceCountRequest $request ListInstanceCountRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstanceCountResponse
+     * @return ListInstanceCountResponse ListInstanceCountResponse
      */
     public function listInstanceCountWithOptions($request, $runtime)
     {
@@ -8446,9 +8971,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceCountRequest $request
+     * @summary Displays the number of nodes that can be deployed for an instance.
+     *  *
+     * @param ListInstanceCountRequest $request ListInstanceCountRequest
      *
-     * @return ListInstanceCountResponse
+     * @return ListInstanceCountResponse ListInstanceCountResponse
      */
     public function listInstanceCount($request)
     {
@@ -8458,10 +8985,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListIsolationRulesRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询隔离规则
+     *  *
+     * @param ListIsolationRulesRequest $request ListIsolationRulesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListIsolationRulesResponse
+     * @return ListIsolationRulesResponse ListIsolationRulesResponse
      */
     public function listIsolationRulesWithOptions($request, $runtime)
     {
@@ -8510,9 +9039,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListIsolationRulesRequest $request
+     * @summary 查询隔离规则
+     *  *
+     * @param ListIsolationRulesRequest $request ListIsolationRulesRequest
      *
-     * @return ListIsolationRulesResponse
+     * @return ListIsolationRulesResponse ListIsolationRulesResponse
      */
     public function listIsolationRules($request)
     {
@@ -8522,8 +9053,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries listeners based on configuration information.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListListenersByConfigRequest $request ListListenersByConfigRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -8570,8 +9103,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries listeners based on configuration information.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListListenersByConfigRequest $request ListListenersByConfigRequest
      *
      * @return ListListenersByConfigResponse ListListenersByConfigResponse
@@ -8584,8 +9119,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries the information about listeners based on IP addresses.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListListenersByIpRequest $request ListListenersByIpRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -8629,8 +9166,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries the information about listeners based on IP addresses.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListListenersByIpRequest $request ListListenersByIpRequest
      *
      * @return ListListenersByIpResponse ListListenersByIpResponse
@@ -8643,10 +9182,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListMigrationTaskRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries information about a migration task.
+     *  *
+     * @param ListMigrationTaskRequest $request ListMigrationTaskRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMigrationTaskResponse
+     * @return ListMigrationTaskResponse ListMigrationTaskResponse
      */
     public function listMigrationTaskWithOptions($request, $runtime)
     {
@@ -8686,9 +9227,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListMigrationTaskRequest $request
+     * @summary Queries information about a migration task.
+     *  *
+     * @param ListMigrationTaskRequest $request ListMigrationTaskRequest
      *
-     * @return ListMigrationTaskResponse
+     * @return ListMigrationTaskResponse ListMigrationTaskResponse
      */
     public function listMigrationTask($request)
     {
@@ -8698,8 +9241,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries Nacos configurations.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListNacosConfigsRequest $request ListNacosConfigsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -8761,8 +9306,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries Nacos configurations.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListNacosConfigsRequest $request ListNacosConfigsRequest
      *
      * @return ListNacosConfigsResponse ListNacosConfigsResponse
@@ -8775,8 +9322,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries the configuration history of a Microservices Engine (MSE) Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListNacosHistoryConfigsRequest $request ListNacosHistoryConfigsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -8832,8 +9381,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Queries the configuration history of a Microservices Engine (MSE) Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param ListNacosHistoryConfigsRequest $request ListNacosHistoryConfigsRequest
      *
      * @return ListNacosHistoryConfigsResponse ListNacosHistoryConfigsResponse
@@ -8846,10 +9397,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListNamingTrackRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Obtains the trajectory data of a Nacos registry.
+     *  *
+     * @param ListNamingTrackRequest $request ListNamingTrackRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNamingTrackResponse
+     * @return ListNamingTrackResponse ListNamingTrackResponse
      */
     public function listNamingTrackWithOptions($request, $runtime)
     {
@@ -8874,9 +9427,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListNamingTrackRequest $request
+     * @summary Obtains the trajectory data of a Nacos registry.
+     *  *
+     * @param ListNamingTrackRequest $request ListNamingTrackRequest
      *
-     * @return ListNamingTrackResponse
+     * @return ListNamingTrackResponse ListNamingTrackResponse
      */
     public function listNamingTrack($request)
     {
@@ -8886,10 +9441,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListSSLCertRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Obtains a list of gateway certificates.
+     *  *
+     * @param ListSSLCertRequest $request ListSSLCertRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSSLCertResponse
+     * @return ListSSLCertResponse ListSSLCertResponse
      */
     public function listSSLCertWithOptions($request, $runtime)
     {
@@ -8923,9 +9480,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListSSLCertRequest $request
+     * @summary Obtains a list of gateway certificates.
+     *  *
+     * @param ListSSLCertRequest $request ListSSLCertRequest
      *
-     * @return ListSSLCertResponse
+     * @return ListSSLCertResponse ListSSLCertResponse
      */
     public function listSSLCert($request)
     {
@@ -8935,10 +9494,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListSecurityGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Obtains the information about security groups.
+     *  *
+     * @param ListSecurityGroupRequest $request ListSecurityGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSecurityGroupResponse
+     * @return ListSecurityGroupResponse ListSecurityGroupResponse
      */
     public function listSecurityGroupWithOptions($request, $runtime)
     {
@@ -8969,9 +9530,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListSecurityGroupRequest $request
+     * @summary Obtains the information about security groups.
+     *  *
+     * @param ListSecurityGroupRequest $request ListSecurityGroupRequest
      *
-     * @return ListSecurityGroupResponse
+     * @return ListSecurityGroupResponse ListSecurityGroupResponse
      */
     public function listSecurityGroup($request)
     {
@@ -8981,10 +9544,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListSecurityGroupRuleRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the security group rules of a gateway.
+     *  *
+     * @param ListSecurityGroupRuleRequest $request ListSecurityGroupRuleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSecurityGroupRuleResponse
+     * @return ListSecurityGroupRuleResponse ListSecurityGroupRuleResponse
      */
     public function listSecurityGroupRuleWithOptions($request, $runtime)
     {
@@ -9015,9 +9580,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListSecurityGroupRuleRequest $request
+     * @summary Queries the security group rules of a gateway.
+     *  *
+     * @param ListSecurityGroupRuleRequest $request ListSecurityGroupRuleRequest
      *
-     * @return ListSecurityGroupRuleResponse
+     * @return ListSecurityGroupRuleResponse ListSecurityGroupRuleResponse
      */
     public function listSecurityGroupRule($request)
     {
@@ -9027,10 +9594,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListSentinelBlockFallbackDefinitionsRequest $tmpReq
-     * @param RuntimeOptions                              $runtime
+     * @summary 查询流量防护行为
+     *  *
+     * @param ListSentinelBlockFallbackDefinitionsRequest $tmpReq  ListSentinelBlockFallbackDefinitionsRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSentinelBlockFallbackDefinitionsResponse
+     * @return ListSentinelBlockFallbackDefinitionsResponse ListSentinelBlockFallbackDefinitionsResponse
      */
     public function listSentinelBlockFallbackDefinitionsWithOptions($tmpReq, $runtime)
     {
@@ -9072,9 +9641,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListSentinelBlockFallbackDefinitionsRequest $request
+     * @summary 查询流量防护行为
+     *  *
+     * @param ListSentinelBlockFallbackDefinitionsRequest $request ListSentinelBlockFallbackDefinitionsRequest
      *
-     * @return ListSentinelBlockFallbackDefinitionsResponse
+     * @return ListSentinelBlockFallbackDefinitionsResponse ListSentinelBlockFallbackDefinitionsResponse
      */
     public function listSentinelBlockFallbackDefinitions($request)
     {
@@ -9084,10 +9655,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListServiceSourceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries a list of associated sources.
+     *  *
+     * @param ListServiceSourceRequest $request ListServiceSourceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListServiceSourceResponse
+     * @return ListServiceSourceResponse ListServiceSourceResponse
      */
     public function listServiceSourceWithOptions($request, $runtime)
     {
@@ -9121,9 +9694,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListServiceSourceRequest $request
+     * @summary Queries a list of associated sources.
+     *  *
+     * @param ListServiceSourceRequest $request ListServiceSourceRequest
      *
-     * @return ListServiceSourceResponse
+     * @return ListServiceSourceResponse ListServiceSourceResponse
      */
     public function listServiceSource($request)
     {
@@ -9133,10 +9708,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries tagged resources.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -9179,9 +9756,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries tagged resources.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -9191,10 +9770,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListZkTrackRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Obtains the track data of a ZooKeeper instance.
+     *  *
+     * @param ListZkTrackRequest $request ListZkTrackRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListZkTrackResponse
+     * @return ListZkTrackResponse ListZkTrackResponse
      */
     public function listZkTrackWithOptions($request, $runtime)
     {
@@ -9249,9 +9830,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListZkTrackRequest $request
+     * @summary Obtains the track data of a ZooKeeper instance.
+     *  *
+     * @param ListZkTrackRequest $request ListZkTrackRequest
      *
-     * @return ListZkTrackResponse
+     * @return ListZkTrackResponse ListZkTrackResponse
      */
     public function listZkTrack($request)
     {
@@ -9261,10 +9844,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListZnodeChildrenRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the child nodes of a ZooKeeper node.
+     *  *
+     * @param ListZnodeChildrenRequest $request ListZnodeChildrenRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListZnodeChildrenResponse
+     * @return ListZnodeChildrenResponse ListZnodeChildrenResponse
      */
     public function listZnodeChildrenWithOptions($request, $runtime)
     {
@@ -9298,9 +9883,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListZnodeChildrenRequest $request
+     * @summary Queries the child nodes of a ZooKeeper node.
+     *  *
+     * @param ListZnodeChildrenRequest $request ListZnodeChildrenRequest
      *
-     * @return ListZnodeChildrenResponse
+     * @return ListZnodeChildrenResponse ListZnodeChildrenResponse
      */
     public function listZnodeChildren($request)
     {
@@ -9310,10 +9897,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ModifyGovernanceKubernetesClusterRequest $tmpReq
-     * @param RuntimeOptions                           $runtime
+     * @summary Modifies the information about a cluster for which Microservice Governance is enabled.
+     *  *
+     * @param ModifyGovernanceKubernetesClusterRequest $tmpReq  ModifyGovernanceKubernetesClusterRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyGovernanceKubernetesClusterResponse
+     * @return ModifyGovernanceKubernetesClusterResponse ModifyGovernanceKubernetesClusterResponse
      */
     public function modifyGovernanceKubernetesClusterWithOptions($tmpReq, $runtime)
     {
@@ -9357,9 +9946,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ModifyGovernanceKubernetesClusterRequest $request
+     * @summary Modifies the information about a cluster for which Microservice Governance is enabled.
+     *  *
+     * @param ModifyGovernanceKubernetesClusterRequest $request ModifyGovernanceKubernetesClusterRequest
      *
-     * @return ModifyGovernanceKubernetesClusterResponse
+     * @return ModifyGovernanceKubernetesClusterResponse ModifyGovernanceKubernetesClusterResponse
      */
     public function modifyGovernanceKubernetesCluster($request)
     {
@@ -9369,10 +9960,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ModifyLosslessRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Modifies configurations of the lossless online and offline feature.
+     *  *
+     * @param ModifyLosslessRuleRequest $request ModifyLosslessRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyLosslessRuleResponse
+     * @return ModifyLosslessRuleResponse ModifyLosslessRuleResponse
      */
     public function modifyLosslessRuleWithOptions($request, $runtime)
     {
@@ -9436,9 +10029,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ModifyLosslessRuleRequest $request
+     * @summary Modifies configurations of the lossless online and offline feature.
+     *  *
+     * @param ModifyLosslessRuleRequest $request ModifyLosslessRuleRequest
      *
-     * @return ModifyLosslessRuleResponse
+     * @return ModifyLosslessRuleResponse ModifyLosslessRuleResponse
      */
     public function modifyLosslessRule($request)
     {
@@ -9448,10 +10043,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param OfflineGatewayRouteRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Unpublishes a route for a gateway.
+     *  *
+     * @param OfflineGatewayRouteRequest $request OfflineGatewayRouteRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return OfflineGatewayRouteResponse
+     * @return OfflineGatewayRouteResponse OfflineGatewayRouteResponse
      */
     public function offlineGatewayRouteWithOptions($request, $runtime)
     {
@@ -9485,9 +10082,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param OfflineGatewayRouteRequest $request
+     * @summary Unpublishes a route for a gateway.
+     *  *
+     * @param OfflineGatewayRouteRequest $request OfflineGatewayRouteRequest
      *
-     * @return OfflineGatewayRouteResponse
+     * @return OfflineGatewayRouteResponse OfflineGatewayRouteResponse
      */
     public function offlineGatewayRoute($request)
     {
@@ -9497,10 +10096,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param OrderClusterHealthCheckRiskNoticeRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Subscribes to the notification feature if a risk is detected during a health check.
+     *  *
+     * @param OrderClusterHealthCheckRiskNoticeRequest $request OrderClusterHealthCheckRiskNoticeRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return OrderClusterHealthCheckRiskNoticeResponse
+     * @return OrderClusterHealthCheckRiskNoticeResponse OrderClusterHealthCheckRiskNoticeResponse
      */
     public function orderClusterHealthCheckRiskNoticeWithOptions($request, $runtime)
     {
@@ -9546,9 +10147,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param OrderClusterHealthCheckRiskNoticeRequest $request
+     * @summary Subscribes to the notification feature if a risk is detected during a health check.
+     *  *
+     * @param OrderClusterHealthCheckRiskNoticeRequest $request OrderClusterHealthCheckRiskNoticeRequest
      *
-     * @return OrderClusterHealthCheckRiskNoticeResponse
+     * @return OrderClusterHealthCheckRiskNoticeResponse OrderClusterHealthCheckRiskNoticeResponse
      */
     public function orderClusterHealthCheckRiskNotice($request)
     {
@@ -9558,10 +10161,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param PullServicesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries all the microservices of a service source.
+     *  *
+     * @param PullServicesRequest $request PullServicesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return PullServicesResponse
+     * @return PullServicesResponse PullServicesResponse
      */
     public function pullServicesWithOptions($request, $runtime)
     {
@@ -9598,9 +10203,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param PullServicesRequest $request
+     * @summary Queries all the microservices of a service source.
+     *  *
+     * @param PullServicesRequest $request PullServicesRequest
      *
-     * @return PullServicesResponse
+     * @return PullServicesResponse PullServicesResponse
      */
     public function pullServices($request)
     {
@@ -9610,10 +10217,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param PutClusterHealthCheckTaskRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Initiates a task to check risk evaluation for an instance.
+     *  *
+     * @param PutClusterHealthCheckTaskRequest $request PutClusterHealthCheckTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutClusterHealthCheckTaskResponse
+     * @return PutClusterHealthCheckTaskResponse PutClusterHealthCheckTaskResponse
      */
     public function putClusterHealthCheckTaskWithOptions($request, $runtime)
     {
@@ -9644,9 +10253,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param PutClusterHealthCheckTaskRequest $request
+     * @summary Initiates a task to check risk evaluation for an instance.
+     *  *
+     * @param PutClusterHealthCheckTaskRequest $request PutClusterHealthCheckTaskRequest
      *
-     * @return PutClusterHealthCheckTaskResponse
+     * @return PutClusterHealthCheckTaskResponse PutClusterHealthCheckTaskResponse
      */
     public function putClusterHealthCheckTask($request)
     {
@@ -9656,10 +10267,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryAllSwimmingLaneRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Queries all the lanes in a lane group.
+     *  *
+     * @param QueryAllSwimmingLaneRequest $request QueryAllSwimmingLaneRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAllSwimmingLaneResponse
+     * @return QueryAllSwimmingLaneResponse QueryAllSwimmingLaneResponse
      */
     public function queryAllSwimmingLaneWithOptions($request, $runtime)
     {
@@ -9693,9 +10306,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryAllSwimmingLaneRequest $request
+     * @summary Queries all the lanes in a lane group.
+     *  *
+     * @param QueryAllSwimmingLaneRequest $request QueryAllSwimmingLaneRequest
      *
-     * @return QueryAllSwimmingLaneResponse
+     * @return QueryAllSwimmingLaneResponse QueryAllSwimmingLaneResponse
      */
     public function queryAllSwimmingLane($request)
     {
@@ -9705,10 +10320,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryAllSwimmingLaneGroupRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries all lane groups.
+     *  *
+     * @param QueryAllSwimmingLaneGroupRequest $request QueryAllSwimmingLaneGroupRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryAllSwimmingLaneGroupResponse
+     * @return QueryAllSwimmingLaneGroupResponse QueryAllSwimmingLaneGroupResponse
      */
     public function queryAllSwimmingLaneGroupWithOptions($request, $runtime)
     {
@@ -9739,9 +10356,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryAllSwimmingLaneGroupRequest $request
+     * @summary Queries all lane groups.
+     *  *
+     * @param QueryAllSwimmingLaneGroupRequest $request QueryAllSwimmingLaneGroupRequest
      *
-     * @return QueryAllSwimmingLaneGroupResponse
+     * @return QueryAllSwimmingLaneGroupResponse QueryAllSwimmingLaneGroupResponse
      */
     public function queryAllSwimmingLaneGroup($request)
     {
@@ -9751,10 +10370,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryBusinessLocationsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Queries information about regions.
+     *  *
+     * @param QueryBusinessLocationsRequest $request QueryBusinessLocationsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryBusinessLocationsResponse
+     * @return QueryBusinessLocationsResponse QueryBusinessLocationsResponse
      */
     public function queryBusinessLocationsWithOptions($request, $runtime)
     {
@@ -9779,9 +10400,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryBusinessLocationsRequest $request
+     * @summary Queries information about regions.
+     *  *
+     * @param QueryBusinessLocationsRequest $request QueryBusinessLocationsRequest
      *
-     * @return QueryBusinessLocationsResponse
+     * @return QueryBusinessLocationsResponse QueryBusinessLocationsResponse
      */
     public function queryBusinessLocations($request)
     {
@@ -9791,10 +10414,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryClusterDetailRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the details of an instance.
+     *  *
+     * @param QueryClusterDetailRequest $request QueryClusterDetailRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryClusterDetailResponse
+     * @return QueryClusterDetailResponse QueryClusterDetailResponse
      */
     public function queryClusterDetailWithOptions($request, $runtime)
     {
@@ -9831,9 +10456,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryClusterDetailRequest $request
+     * @summary Queries the details of an instance.
+     *  *
+     * @param QueryClusterDetailRequest $request QueryClusterDetailRequest
      *
-     * @return QueryClusterDetailResponse
+     * @return QueryClusterDetailResponse QueryClusterDetailResponse
      */
     public function queryClusterDetail($request)
     {
@@ -9843,10 +10470,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryClusterDiskSpecificationRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries disk specifications that are supported by an instance.
+     *  *
+     * @param QueryClusterDiskSpecificationRequest $request QueryClusterDiskSpecificationRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryClusterDiskSpecificationResponse
+     * @return QueryClusterDiskSpecificationResponse QueryClusterDiskSpecificationResponse
      */
     public function queryClusterDiskSpecificationWithOptions($request, $runtime)
     {
@@ -9877,9 +10506,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryClusterDiskSpecificationRequest $request
+     * @summary Queries disk specifications that are supported by an instance.
+     *  *
+     * @param QueryClusterDiskSpecificationRequest $request QueryClusterDiskSpecificationRequest
      *
-     * @return QueryClusterDiskSpecificationResponse
+     * @return QueryClusterDiskSpecificationResponse QueryClusterDiskSpecificationResponse
      */
     public function queryClusterDiskSpecification($request)
     {
@@ -9889,10 +10520,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryClusterInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the static information of an instance.
+     *  *
+     * @param QueryClusterInfoRequest $request QueryClusterInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryClusterInfoResponse
+     * @return QueryClusterInfoResponse QueryClusterInfoResponse
      */
     public function queryClusterInfoWithOptions($request, $runtime)
     {
@@ -9938,9 +10571,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryClusterInfoRequest $request
+     * @summary Queries the static information of an instance.
+     *  *
+     * @param QueryClusterInfoRequest $request QueryClusterInfoRequest
      *
-     * @return QueryClusterInfoResponse
+     * @return QueryClusterInfoResponse QueryClusterInfoResponse
      */
     public function queryClusterInfo($request)
     {
@@ -9950,10 +10585,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryClusterSpecificationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the information of supported instance specifications.
+     *  *
+     * @param QueryClusterSpecificationRequest $request QueryClusterSpecificationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryClusterSpecificationResponse
+     * @return QueryClusterSpecificationResponse QueryClusterSpecificationResponse
      */
     public function queryClusterSpecificationWithOptions($request, $runtime)
     {
@@ -9987,9 +10624,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryClusterSpecificationRequest $request
+     * @summary Queries the information of supported instance specifications.
+     *  *
+     * @param QueryClusterSpecificationRequest $request QueryClusterSpecificationRequest
      *
-     * @return QueryClusterSpecificationResponse
+     * @return QueryClusterSpecificationResponse QueryClusterSpecificationResponse
      */
     public function queryClusterSpecification($request)
     {
@@ -9999,10 +10638,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryConfigRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries configuration information of an instance.
+     *  *
+     * @param QueryConfigRequest $request QueryConfigRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryConfigResponse
+     * @return QueryConfigResponse QueryConfigResponse
      */
     public function queryConfigWithOptions($request, $runtime)
     {
@@ -10045,9 +10686,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryConfigRequest $request
+     * @summary Queries configuration information of an instance.
+     *  *
+     * @param QueryConfigRequest $request QueryConfigRequest
      *
-     * @return QueryConfigResponse
+     * @return QueryConfigResponse QueryConfigResponse
      */
     public function queryConfig($request)
     {
@@ -10057,10 +10700,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryGatewayRegionRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the regions supported by a gateway.
+     *  *
+     * @param QueryGatewayRegionRequest $request QueryGatewayRegionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryGatewayRegionResponse
+     * @return QueryGatewayRegionResponse QueryGatewayRegionResponse
      */
     public function queryGatewayRegionWithOptions($request, $runtime)
     {
@@ -10088,9 +10733,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryGatewayRegionRequest $request
+     * @summary Queries the regions supported by a gateway.
+     *  *
+     * @param QueryGatewayRegionRequest $request QueryGatewayRegionRequest
      *
-     * @return QueryGatewayRegionResponse
+     * @return QueryGatewayRegionResponse QueryGatewayRegionResponse
      */
     public function queryGatewayRegion($request)
     {
@@ -10100,10 +10747,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryGatewayTypeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries available gateway types.
+     *  *
+     * @param QueryGatewayTypeRequest $request QueryGatewayTypeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryGatewayTypeResponse
+     * @return QueryGatewayTypeResponse QueryGatewayTypeResponse
      */
     public function queryGatewayTypeWithOptions($request, $runtime)
     {
@@ -10131,9 +10780,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryGatewayTypeRequest $request
+     * @summary Queries available gateway types.
+     *  *
+     * @param QueryGatewayTypeRequest $request QueryGatewayTypeRequest
      *
-     * @return QueryGatewayTypeResponse
+     * @return QueryGatewayTypeResponse QueryGatewayTypeResponse
      */
     public function queryGatewayType($request)
     {
@@ -10143,10 +10794,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryGovernanceKubernetesClusterRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the Kubernetes clusters for which Microservices Governance is activated.
+     *  *
+     * @param QueryGovernanceKubernetesClusterRequest $request QueryGovernanceKubernetesClusterRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryGovernanceKubernetesClusterResponse
+     * @return QueryGovernanceKubernetesClusterResponse QueryGovernanceKubernetesClusterResponse
      */
     public function queryGovernanceKubernetesClusterWithOptions($request, $runtime)
     {
@@ -10171,9 +10824,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryGovernanceKubernetesClusterRequest $request
+     * @summary Queries the Kubernetes clusters for which Microservices Governance is activated.
+     *  *
+     * @param QueryGovernanceKubernetesClusterRequest $request QueryGovernanceKubernetesClusterRequest
      *
-     * @return QueryGovernanceKubernetesClusterResponse
+     * @return QueryGovernanceKubernetesClusterResponse QueryGovernanceKubernetesClusterResponse
      */
     public function queryGovernanceKubernetesCluster($request)
     {
@@ -10183,10 +10838,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryInstancesInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Queries the runtime data of a specified cluster.
+     *  *
+     * @param QueryInstancesInfoRequest $request QueryInstancesInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryInstancesInfoResponse
+     * @return QueryInstancesInfoResponse QueryInstancesInfoResponse
      */
     public function queryInstancesInfoWithOptions($request, $runtime)
     {
@@ -10229,9 +10886,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryInstancesInfoRequest $request
+     * @summary Queries the runtime data of a specified cluster.
+     *  *
+     * @param QueryInstancesInfoRequest $request QueryInstancesInfoRequest
      *
-     * @return QueryInstancesInfoResponse
+     * @return QueryInstancesInfoResponse QueryInstancesInfoResponse
      */
     public function queryInstancesInfo($request)
     {
@@ -10241,10 +10900,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryMonitorRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries monitoring information.
+     *  *
+     * @param QueryMonitorRequest $request QueryMonitorRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMonitorResponse
+     * @return QueryMonitorResponse QueryMonitorResponse
      */
     public function queryMonitorWithOptions($request, $runtime)
     {
@@ -10290,9 +10951,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryMonitorRequest $request
+     * @summary Queries monitoring information.
+     *  *
+     * @param QueryMonitorRequest $request QueryMonitorRequest
      *
-     * @return QueryMonitorResponse
+     * @return QueryMonitorResponse QueryMonitorResponse
      */
     public function queryMonitor($request)
     {
@@ -10302,10 +10965,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryNamespaceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 查询MSE命名空间
+     *  *
+     * @param QueryNamespaceRequest $request QueryNamespaceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryNamespaceResponse
+     * @return QueryNamespaceResponse QueryNamespaceResponse
      */
     public function queryNamespaceWithOptions($request, $runtime)
     {
@@ -10339,9 +11004,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryNamespaceRequest $request
+     * @summary 查询MSE命名空间
+     *  *
+     * @param QueryNamespaceRequest $request QueryNamespaceRequest
      *
-     * @return QueryNamespaceResponse
+     * @return QueryNamespaceResponse QueryNamespaceResponse
      */
     public function queryNamespace($request)
     {
@@ -10351,10 +11018,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QuerySlbSpecRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Queries the type of a Server Load Balancer (SLB) instance.
+     *  *
+     * @param QuerySlbSpecRequest $request QuerySlbSpecRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySlbSpecResponse
+     * @return QuerySlbSpecResponse QuerySlbSpecResponse
      */
     public function querySlbSpecWithOptions($request, $runtime)
     {
@@ -10379,9 +11048,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QuerySlbSpecRequest $request
+     * @summary Queries the type of a Server Load Balancer (SLB) instance.
+     *  *
+     * @param QuerySlbSpecRequest $request QuerySlbSpecRequest
      *
-     * @return QuerySlbSpecResponse
+     * @return QuerySlbSpecResponse QuerySlbSpecResponse
      */
     public function querySlbSpec($request)
     {
@@ -10391,10 +11062,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QuerySwimmingLaneByIdRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the information about a lane based on the lane ID.
+     *  *
+     * @param QuerySwimmingLaneByIdRequest $request QuerySwimmingLaneByIdRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySwimmingLaneByIdResponse
+     * @return QuerySwimmingLaneByIdResponse QuerySwimmingLaneByIdResponse
      */
     public function querySwimmingLaneByIdWithOptions($request, $runtime)
     {
@@ -10428,9 +11101,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QuerySwimmingLaneByIdRequest $request
+     * @summary Queries the information about a lane based on the lane ID.
+     *  *
+     * @param QuerySwimmingLaneByIdRequest $request QuerySwimmingLaneByIdRequest
      *
-     * @return QuerySwimmingLaneByIdResponse
+     * @return QuerySwimmingLaneByIdResponse QuerySwimmingLaneByIdResponse
      */
     public function querySwimmingLaneById($request)
     {
@@ -10440,10 +11115,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryZnodeDetailRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the information about a ZooKeeper node.
+     *  *
+     * @param QueryZnodeDetailRequest $request QueryZnodeDetailRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryZnodeDetailResponse
+     * @return QueryZnodeDetailResponse QueryZnodeDetailResponse
      */
     public function queryZnodeDetailWithOptions($request, $runtime)
     {
@@ -10468,9 +11145,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param QueryZnodeDetailRequest $request
+     * @summary Queries the information about a ZooKeeper node.
+     *  *
+     * @param QueryZnodeDetailRequest $request QueryZnodeDetailRequest
      *
-     * @return QueryZnodeDetailResponse
+     * @return QueryZnodeDetailResponse QueryZnodeDetailResponse
      */
     public function queryZnodeDetail($request)
     {
@@ -10480,10 +11159,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param RemoveApplicationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 删除单个应用
+     *  *
+     * @param RemoveApplicationRequest $request RemoveApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveApplicationResponse
+     * @return RemoveApplicationResponse RemoveApplicationResponse
      */
     public function removeApplicationWithOptions($request, $runtime)
     {
@@ -10523,9 +11204,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param RemoveApplicationRequest $request
+     * @summary 删除单个应用
+     *  *
+     * @param RemoveApplicationRequest $request RemoveApplicationRequest
      *
-     * @return RemoveApplicationResponse
+     * @return RemoveApplicationResponse RemoveApplicationResponse
      */
     public function removeApplication($request)
     {
@@ -10535,10 +11218,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param RemoveAuthPolicyRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param RemoveAuthPolicyRequest $request RemoveAuthPolicyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveAuthPolicyResponse
+     * @return RemoveAuthPolicyResponse RemoveAuthPolicyResponse
      */
     public function removeAuthPolicyWithOptions($request, $runtime)
     {
@@ -10569,9 +11252,9 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param RemoveAuthPolicyRequest $request
+     * @param RemoveAuthPolicyRequest $request RemoveAuthPolicyRequest
      *
-     * @return RemoveAuthPolicyResponse
+     * @return RemoveAuthPolicyResponse RemoveAuthPolicyResponse
      */
     public function removeAuthPolicy($request)
     {
@@ -10581,10 +11264,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param RestartClusterRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Restarts a registry.
+     *  *
+     * @param RestartClusterRequest $request RestartClusterRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartClusterResponse
+     * @return RestartClusterResponse RestartClusterResponse
      */
     public function restartClusterWithOptions($request, $runtime)
     {
@@ -10624,9 +11309,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param RestartClusterRequest $request
+     * @summary Restarts a registry.
+     *  *
+     * @param RestartClusterRequest $request RestartClusterRequest
      *
-     * @return RestartClusterResponse
+     * @return RestartClusterResponse RestartClusterResponse
      */
     public function restartCluster($request)
     {
@@ -10636,10 +11323,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param RetryClusterRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Retries a cluster.
+     *  *
+     * @param RetryClusterRequest $request RetryClusterRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RetryClusterResponse
+     * @return RetryClusterResponse RetryClusterResponse
      */
     public function retryClusterWithOptions($request, $runtime)
     {
@@ -10673,9 +11362,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param RetryClusterRequest $request
+     * @summary Retries a cluster.
+     *  *
+     * @param RetryClusterRequest $request RetryClusterRequest
      *
-     * @return RetryClusterResponse
+     * @return RetryClusterResponse RetryClusterResponse
      */
     public function retryCluster($request)
     {
@@ -10685,10 +11376,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param SelectGatewaySlbRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries an idle Server Load Balancer (SLB) instance that is associated with a gateway.
+     *  *
+     * @param SelectGatewaySlbRequest $request SelectGatewaySlbRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SelectGatewaySlbResponse
+     * @return SelectGatewaySlbResponse SelectGatewaySlbResponse
      */
     public function selectGatewaySlbWithOptions($request, $runtime)
     {
@@ -10725,9 +11418,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param SelectGatewaySlbRequest $request
+     * @summary Queries an idle Server Load Balancer (SLB) instance that is associated with a gateway.
+     *  *
+     * @param SelectGatewaySlbRequest $request SelectGatewaySlbRequest
      *
-     * @return SelectGatewaySlbResponse
+     * @return SelectGatewaySlbResponse SelectGatewaySlbResponse
      */
     public function selectGatewaySlb($request)
     {
@@ -10737,10 +11432,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Tags a specified resource.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -10780,9 +11477,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Tags a specified resource.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -10792,10 +11491,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Untags resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -10838,9 +11539,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Untags resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -10850,10 +11553,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateAclRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Modifies an IP address whitelist.
+     *  *
+     * @param UpdateAclRequest $request UpdateAclRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAclResponse
+     * @return UpdateAclResponse UpdateAclResponse
      */
     public function updateAclWithOptions($request, $runtime)
     {
@@ -10887,9 +11592,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateAclRequest $request
+     * @summary Modifies an IP address whitelist.
+     *  *
+     * @param UpdateAclRequest $request UpdateAclRequest
      *
-     * @return UpdateAclResponse
+     * @return UpdateAclResponse UpdateAclResponse
      */
     public function updateAcl($request)
     {
@@ -10899,10 +11606,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateAuthPolicyRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Updates a service authentication rule.
+     *  *
+     * @param UpdateAuthPolicyRequest $request UpdateAuthPolicyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAuthPolicyResponse
+     * @return UpdateAuthPolicyResponse UpdateAuthPolicyResponse
      */
     public function updateAuthPolicyWithOptions($request, $runtime)
     {
@@ -10957,9 +11666,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateAuthPolicyRequest $request
+     * @summary Updates a service authentication rule.
+     *  *
+     * @param UpdateAuthPolicyRequest $request UpdateAuthPolicyRequest
      *
-     * @return UpdateAuthPolicyResponse
+     * @return UpdateAuthPolicyResponse UpdateAuthPolicyResponse
      */
     public function updateAuthPolicy($request)
     {
@@ -10969,10 +11680,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateBlackWhiteListRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Modifies the blacklist or whitelist of a gateway.
+     *  *
+     * @param UpdateBlackWhiteListRequest $request UpdateBlackWhiteListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateBlackWhiteListResponse
+     * @return UpdateBlackWhiteListResponse UpdateBlackWhiteListResponse
      */
     public function updateBlackWhiteListWithOptions($request, $runtime)
     {
@@ -11030,9 +11743,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateBlackWhiteListRequest $request
+     * @summary Modifies the blacklist or whitelist of a gateway.
+     *  *
+     * @param UpdateBlackWhiteListRequest $request UpdateBlackWhiteListRequest
      *
-     * @return UpdateBlackWhiteListResponse
+     * @return UpdateBlackWhiteListResponse UpdateBlackWhiteListResponse
      */
     public function updateBlackWhiteList($request)
     {
@@ -11042,10 +11757,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateCircuitBreakerRuleRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Updates a circuit breaking rule.
+     *  *
+     * @param UpdateCircuitBreakerRuleRequest $request UpdateCircuitBreakerRuleRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCircuitBreakerRuleResponse
+     * @return UpdateCircuitBreakerRuleResponse UpdateCircuitBreakerRuleResponse
      */
     public function updateCircuitBreakerRuleWithOptions($request, $runtime)
     {
@@ -11112,9 +11829,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateCircuitBreakerRuleRequest $request
+     * @summary Updates a circuit breaking rule.
+     *  *
+     * @param UpdateCircuitBreakerRuleRequest $request UpdateCircuitBreakerRuleRequest
      *
-     * @return UpdateCircuitBreakerRuleResponse
+     * @return UpdateCircuitBreakerRuleResponse UpdateCircuitBreakerRuleResponse
      */
     public function updateCircuitBreakerRule($request)
     {
@@ -11124,10 +11843,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Modifies the information about an instance.
+     *  *
+     * @param UpdateClusterRequest $request UpdateClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateClusterResponse
+     * @return UpdateClusterResponse UpdateClusterResponse
      */
     public function updateClusterWithOptions($request, $runtime)
     {
@@ -11170,9 +11891,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateClusterRequest $request
+     * @summary Modifies the information about an instance.
+     *  *
+     * @param UpdateClusterRequest $request UpdateClusterRequest
      *
-     * @return UpdateClusterResponse
+     * @return UpdateClusterResponse UpdateClusterResponse
      */
     public function updateCluster($request)
     {
@@ -11182,8 +11905,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
-     *   *
+     * @summary Updates the number or specifications of nodes in a pay-as-you-go Microservices Engine (MSE) instance.
+     *  *
+     * @description You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing] (`~~1806469~~`).
+     *  *
      * @param UpdateClusterSpecRequest $request UpdateClusterSpecRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -11236,8 +11961,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see \\[Pricing] (`~~1806469~~`).
-     *   *
+     * @summary Updates the number or specifications of nodes in a pay-as-you-go Microservices Engine (MSE) instance.
+     *  *
+     * @description You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing] (`~~1806469~~`).
+     *  *
      * @param UpdateClusterSpecRequest $request UpdateClusterSpecRequest
      *
      * @return UpdateClusterSpecResponse UpdateClusterSpecResponse
@@ -11250,10 +11977,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateConfigRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary Updates the configurations of an instance.
+     *  *
+     * @param UpdateConfigRequest $request UpdateConfigRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateConfigResponse
+     * @return UpdateConfigResponse UpdateConfigResponse
      */
     public function updateConfigWithOptions($request, $runtime)
     {
@@ -11358,9 +12087,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateConfigRequest $request
+     * @summary Updates the configurations of an instance.
+     *  *
+     * @param UpdateConfigRequest $request UpdateConfigRequest
      *
-     * @return UpdateConfigResponse
+     * @return UpdateConfigResponse UpdateConfigResponse
      */
     public function updateConfig($request)
     {
@@ -11370,10 +12101,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateEngineNamespaceRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Updates a namespace for the Nacos engine.
+     *  *
+     * @param UpdateEngineNamespaceRequest $request UpdateEngineNamespaceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateEngineNamespaceResponse
+     * @return UpdateEngineNamespaceResponse UpdateEngineNamespaceResponse
      */
     public function updateEngineNamespaceWithOptions($request, $runtime)
     {
@@ -11419,9 +12152,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateEngineNamespaceRequest $request
+     * @summary Updates a namespace for the Nacos engine.
+     *  *
+     * @param UpdateEngineNamespaceRequest $request UpdateEngineNamespaceRequest
      *
-     * @return UpdateEngineNamespaceResponse
+     * @return UpdateEngineNamespaceResponse UpdateEngineNamespaceResponse
      */
     public function updateEngineNamespace($request)
     {
@@ -11431,10 +12166,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateFlowRuleRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Updates a throttling rule.
+     *  *
+     * @param UpdateFlowRuleRequest $request UpdateFlowRuleRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateFlowRuleResponse
+     * @return UpdateFlowRuleResponse UpdateFlowRuleResponse
      */
     public function updateFlowRuleWithOptions($request, $runtime)
     {
@@ -11486,9 +12223,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateFlowRuleRequest $request
+     * @summary Updates a throttling rule.
+     *  *
+     * @param UpdateFlowRuleRequest $request UpdateFlowRuleRequest
      *
-     * @return UpdateFlowRuleResponse
+     * @return UpdateFlowRuleResponse UpdateFlowRuleResponse
      */
     public function updateFlowRule($request)
     {
@@ -11498,10 +12237,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayAuthConsumerRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Updates the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param UpdateGatewayAuthConsumerRequest $request UpdateGatewayAuthConsumerRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayAuthConsumerResponse
+     * @return UpdateGatewayAuthConsumerResponse UpdateGatewayAuthConsumerResponse
      */
     public function updateGatewayAuthConsumerWithOptions($request, $runtime)
     {
@@ -11562,9 +12303,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayAuthConsumerRequest $request
+     * @summary Updates the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param UpdateGatewayAuthConsumerRequest $request UpdateGatewayAuthConsumerRequest
      *
-     * @return UpdateGatewayAuthConsumerResponse
+     * @return UpdateGatewayAuthConsumerResponse UpdateGatewayAuthConsumerResponse
      */
     public function updateGatewayAuthConsumer($request)
     {
@@ -11574,10 +12317,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayAuthConsumerResourceRequest $tmpReq
-     * @param RuntimeOptions                           $runtime
+     * @summary Updates a list of resources on which permissions are granted to a gateway authentication consumer.
+     *  *
+     * @param UpdateGatewayAuthConsumerResourceRequest $tmpReq  UpdateGatewayAuthConsumerResourceRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayAuthConsumerResourceResponse
+     * @return UpdateGatewayAuthConsumerResourceResponse UpdateGatewayAuthConsumerResourceResponse
      */
     public function updateGatewayAuthConsumerResourceWithOptions($tmpReq, $runtime)
     {
@@ -11619,9 +12364,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayAuthConsumerResourceRequest $request
+     * @summary Updates a list of resources on which permissions are granted to a gateway authentication consumer.
+     *  *
+     * @param UpdateGatewayAuthConsumerResourceRequest $request UpdateGatewayAuthConsumerResourceRequest
      *
-     * @return UpdateGatewayAuthConsumerResourceResponse
+     * @return UpdateGatewayAuthConsumerResourceResponse UpdateGatewayAuthConsumerResourceResponse
      */
     public function updateGatewayAuthConsumerResource($request)
     {
@@ -11631,10 +12378,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayAuthConsumerResourceStatusRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary Updates the resource authorization status for the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param UpdateGatewayAuthConsumerResourceStatusRequest $request UpdateGatewayAuthConsumerResourceStatusRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayAuthConsumerResourceStatusResponse
+     * @return UpdateGatewayAuthConsumerResourceStatusResponse UpdateGatewayAuthConsumerResourceStatusResponse
      */
     public function updateGatewayAuthConsumerResourceStatusWithOptions($request, $runtime)
     {
@@ -11674,9 +12423,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayAuthConsumerResourceStatusRequest $request
+     * @summary Updates the resource authorization status for the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param UpdateGatewayAuthConsumerResourceStatusRequest $request UpdateGatewayAuthConsumerResourceStatusRequest
      *
-     * @return UpdateGatewayAuthConsumerResourceStatusResponse
+     * @return UpdateGatewayAuthConsumerResourceStatusResponse UpdateGatewayAuthConsumerResourceStatusResponse
      */
     public function updateGatewayAuthConsumerResourceStatus($request)
     {
@@ -11686,10 +12437,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayAuthConsumerStatusRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Updates the status of the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param UpdateGatewayAuthConsumerStatusRequest $request UpdateGatewayAuthConsumerStatusRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayAuthConsumerStatusResponse
+     * @return UpdateGatewayAuthConsumerStatusResponse UpdateGatewayAuthConsumerStatusResponse
      */
     public function updateGatewayAuthConsumerStatusWithOptions($request, $runtime)
     {
@@ -11726,9 +12479,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayAuthConsumerStatusRequest $request
+     * @summary Updates the status of the consumer on which a gateway performs authentication operations.
+     *  *
+     * @param UpdateGatewayAuthConsumerStatusRequest $request UpdateGatewayAuthConsumerStatusRequest
      *
-     * @return UpdateGatewayAuthConsumerStatusResponse
+     * @return UpdateGatewayAuthConsumerStatusResponse UpdateGatewayAuthConsumerStatusResponse
      */
     public function updateGatewayAuthConsumerStatus($request)
     {
@@ -11738,10 +12493,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayCircuitBreakerRuleRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 更新网关路由熔断规则
+     *  *
+     * @param UpdateGatewayCircuitBreakerRuleRequest $request UpdateGatewayCircuitBreakerRuleRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayCircuitBreakerRuleResponse
+     * @return UpdateGatewayCircuitBreakerRuleResponse UpdateGatewayCircuitBreakerRuleResponse
      */
     public function updateGatewayCircuitBreakerRuleWithOptions($request, $runtime)
     {
@@ -11820,9 +12577,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayCircuitBreakerRuleRequest $request
+     * @summary 更新网关路由熔断规则
+     *  *
+     * @param UpdateGatewayCircuitBreakerRuleRequest $request UpdateGatewayCircuitBreakerRuleRequest
      *
-     * @return UpdateGatewayCircuitBreakerRuleResponse
+     * @return UpdateGatewayCircuitBreakerRuleResponse UpdateGatewayCircuitBreakerRuleResponse
      */
     public function updateGatewayCircuitBreakerRule($request)
     {
@@ -11832,10 +12591,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayDomainRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies the information about the domain name associated with a gateway.
+     *  *
+     * @param UpdateGatewayDomainRequest $request UpdateGatewayDomainRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayDomainResponse
+     * @return UpdateGatewayDomainResponse UpdateGatewayDomainResponse
      */
     public function updateGatewayDomainWithOptions($request, $runtime)
     {
@@ -11887,9 +12648,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayDomainRequest $request
+     * @summary Modifies the information about the domain name associated with a gateway.
+     *  *
+     * @param UpdateGatewayDomainRequest $request UpdateGatewayDomainRequest
      *
-     * @return UpdateGatewayDomainResponse
+     * @return UpdateGatewayDomainResponse UpdateGatewayDomainResponse
      */
     public function updateGatewayDomain($request)
     {
@@ -11899,10 +12662,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayFlowRuleRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 更新网关路由流控规则
+     *  *
+     * @param UpdateGatewayFlowRuleRequest $request UpdateGatewayFlowRuleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayFlowRuleResponse
+     * @return UpdateGatewayFlowRuleResponse UpdateGatewayFlowRuleResponse
      */
     public function updateGatewayFlowRuleWithOptions($request, $runtime)
     {
@@ -11966,9 +12731,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayFlowRuleRequest $request
+     * @summary 更新网关路由流控规则
+     *  *
+     * @param UpdateGatewayFlowRuleRequest $request UpdateGatewayFlowRuleRequest
      *
-     * @return UpdateGatewayFlowRuleResponse
+     * @return UpdateGatewayFlowRuleResponse UpdateGatewayFlowRuleResponse
      */
     public function updateGatewayFlowRule($request)
     {
@@ -11978,10 +12745,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayIsolationRuleRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 更新网关路由隔离规则
+     *  *
+     * @param UpdateGatewayIsolationRuleRequest $request UpdateGatewayIsolationRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayIsolationRuleResponse
+     * @return UpdateGatewayIsolationRuleResponse UpdateGatewayIsolationRuleResponse
      */
     public function updateGatewayIsolationRuleWithOptions($request, $runtime)
     {
@@ -12045,9 +12814,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayIsolationRuleRequest $request
+     * @summary 更新网关路由隔离规则
+     *  *
+     * @param UpdateGatewayIsolationRuleRequest $request UpdateGatewayIsolationRuleRequest
      *
-     * @return UpdateGatewayIsolationRuleResponse
+     * @return UpdateGatewayIsolationRuleResponse UpdateGatewayIsolationRuleResponse
      */
     public function updateGatewayIsolationRule($request)
     {
@@ -12057,10 +12828,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayNameRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Renames a gateway.
+     *  *
+     * @param UpdateGatewayNameRequest $request UpdateGatewayNameRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayNameResponse
+     * @return UpdateGatewayNameResponse UpdateGatewayNameResponse
      */
     public function updateGatewayNameWithOptions($request, $runtime)
     {
@@ -12094,9 +12867,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayNameRequest $request
+     * @summary Renames a gateway.
+     *  *
+     * @param UpdateGatewayNameRequest $request UpdateGatewayNameRequest
      *
-     * @return UpdateGatewayNameResponse
+     * @return UpdateGatewayNameResponse UpdateGatewayNameResponse
      */
     public function updateGatewayName($request)
     {
@@ -12106,10 +12881,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayOptionRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary Updates the configurations of a gateway.
+     *  *
+     * @param UpdateGatewayOptionRequest $tmpReq  UpdateGatewayOptionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayOptionResponse
+     * @return UpdateGatewayOptionResponse UpdateGatewayOptionResponse
      */
     public function updateGatewayOptionWithOptions($tmpReq, $runtime)
     {
@@ -12151,9 +12928,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayOptionRequest $request
+     * @summary Updates the configurations of a gateway.
+     *  *
+     * @param UpdateGatewayOptionRequest $request UpdateGatewayOptionRequest
      *
-     * @return UpdateGatewayOptionResponse
+     * @return UpdateGatewayOptionResponse UpdateGatewayOptionResponse
      */
     public function updateGatewayOption($request)
     {
@@ -12163,10 +12942,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteRequest $tmpReq
-     * @param RuntimeOptions            $runtime
+     * @summary Updates a route for a gateway.
+     *  *
+     * @param UpdateGatewayRouteRequest $tmpReq  UpdateGatewayRouteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayRouteResponse
+     * @return UpdateGatewayRouteResponse UpdateGatewayRouteResponse
      */
     public function updateGatewayRouteWithOptions($tmpReq, $runtime)
     {
@@ -12256,9 +13037,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteRequest $request
+     * @summary Updates a route for a gateway.
+     *  *
+     * @param UpdateGatewayRouteRequest $request UpdateGatewayRouteRequest
      *
-     * @return UpdateGatewayRouteResponse
+     * @return UpdateGatewayRouteResponse UpdateGatewayRouteResponse
      */
     public function updateGatewayRoute($request)
     {
@@ -12268,10 +13051,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteAuthRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary Updates the authentication configurations of a route.
+     *  *
+     * @param UpdateGatewayRouteAuthRequest $tmpReq  UpdateGatewayRouteAuthRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayRouteAuthResponse
+     * @return UpdateGatewayRouteAuthResponse UpdateGatewayRouteAuthResponse
      */
     public function updateGatewayRouteAuthWithOptions($tmpReq, $runtime)
     {
@@ -12316,9 +13101,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteAuthRequest $request
+     * @summary Updates the authentication configurations of a route.
+     *  *
+     * @param UpdateGatewayRouteAuthRequest $request UpdateGatewayRouteAuthRequest
      *
-     * @return UpdateGatewayRouteAuthResponse
+     * @return UpdateGatewayRouteAuthResponse UpdateGatewayRouteAuthResponse
      */
     public function updateGatewayRouteAuth($request)
     {
@@ -12328,10 +13115,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteCORSRequest $tmpReq
-     * @param RuntimeOptions                $runtime
+     * @summary Modifies the cross-origin resource sharing (CORS) policy of a route.
+     *  *
+     * @param UpdateGatewayRouteCORSRequest $tmpReq  UpdateGatewayRouteCORSRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayRouteCORSResponse
+     * @return UpdateGatewayRouteCORSResponse UpdateGatewayRouteCORSResponse
      */
     public function updateGatewayRouteCORSWithOptions($tmpReq, $runtime)
     {
@@ -12376,9 +13165,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteCORSRequest $request
+     * @summary Modifies the cross-origin resource sharing (CORS) policy of a route.
+     *  *
+     * @param UpdateGatewayRouteCORSRequest $request UpdateGatewayRouteCORSRequest
      *
-     * @return UpdateGatewayRouteCORSResponse
+     * @return UpdateGatewayRouteCORSResponse UpdateGatewayRouteCORSResponse
      */
     public function updateGatewayRouteCORS($request)
     {
@@ -12388,10 +13179,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteHTTPRewriteRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Updates the rewrite policy of a route for a gateway.
+     *  *
+     * @param UpdateGatewayRouteHTTPRewriteRequest $request UpdateGatewayRouteHTTPRewriteRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayRouteHTTPRewriteResponse
+     * @return UpdateGatewayRouteHTTPRewriteResponse UpdateGatewayRouteHTTPRewriteResponse
      */
     public function updateGatewayRouteHTTPRewriteWithOptions($request, $runtime)
     {
@@ -12431,9 +13224,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteHTTPRewriteRequest $request
+     * @summary Updates the rewrite policy of a route for a gateway.
+     *  *
+     * @param UpdateGatewayRouteHTTPRewriteRequest $request UpdateGatewayRouteHTTPRewriteRequest
      *
-     * @return UpdateGatewayRouteHTTPRewriteResponse
+     * @return UpdateGatewayRouteHTTPRewriteResponse UpdateGatewayRouteHTTPRewriteResponse
      */
     public function updateGatewayRouteHTTPRewrite($request)
     {
@@ -12443,10 +13238,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteHeaderOpRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Modifies the header configuration policy of a route.
+     *  *
+     * @param UpdateGatewayRouteHeaderOpRequest $request UpdateGatewayRouteHeaderOpRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayRouteHeaderOpResponse
+     * @return UpdateGatewayRouteHeaderOpResponse UpdateGatewayRouteHeaderOpResponse
      */
     public function updateGatewayRouteHeaderOpWithOptions($request, $runtime)
     {
@@ -12486,9 +13283,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteHeaderOpRequest $request
+     * @summary Modifies the header configuration policy of a route.
+     *  *
+     * @param UpdateGatewayRouteHeaderOpRequest $request UpdateGatewayRouteHeaderOpRequest
      *
-     * @return UpdateGatewayRouteHeaderOpResponse
+     * @return UpdateGatewayRouteHeaderOpResponse UpdateGatewayRouteHeaderOpResponse
      */
     public function updateGatewayRouteHeaderOp($request)
     {
@@ -12498,10 +13297,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteRetryRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Modifies the retry policy of a route.
+     *  *
+     * @param UpdateGatewayRouteRetryRequest $tmpReq  UpdateGatewayRouteRetryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayRouteRetryResponse
+     * @return UpdateGatewayRouteRetryResponse UpdateGatewayRouteRetryResponse
      */
     public function updateGatewayRouteRetryWithOptions($tmpReq, $runtime)
     {
@@ -12546,9 +13347,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteRetryRequest $request
+     * @summary Modifies the retry policy of a route.
+     *  *
+     * @param UpdateGatewayRouteRetryRequest $request UpdateGatewayRouteRetryRequest
      *
-     * @return UpdateGatewayRouteRetryResponse
+     * @return UpdateGatewayRouteRetryResponse UpdateGatewayRouteRetryResponse
      */
     public function updateGatewayRouteRetry($request)
     {
@@ -12558,10 +13361,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteTimeoutRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies the timeout policy of a route.
+     *  *
+     * @param UpdateGatewayRouteTimeoutRequest $tmpReq  UpdateGatewayRouteTimeoutRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayRouteTimeoutResponse
+     * @return UpdateGatewayRouteTimeoutResponse UpdateGatewayRouteTimeoutResponse
      */
     public function updateGatewayRouteTimeoutWithOptions($tmpReq, $runtime)
     {
@@ -12606,9 +13411,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteTimeoutRequest $request
+     * @summary Modifies the timeout policy of a route.
+     *  *
+     * @param UpdateGatewayRouteTimeoutRequest $request UpdateGatewayRouteTimeoutRequest
      *
-     * @return UpdateGatewayRouteTimeoutResponse
+     * @return UpdateGatewayRouteTimeoutResponse UpdateGatewayRouteTimeoutResponse
      */
     public function updateGatewayRouteTimeout($request)
     {
@@ -12618,10 +13425,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteWafStatusRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 更新路由waf状态
+     *  *
+     * @param UpdateGatewayRouteWafStatusRequest $request UpdateGatewayRouteWafStatusRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayRouteWafStatusResponse
+     * @return UpdateGatewayRouteWafStatusResponse UpdateGatewayRouteWafStatusResponse
      */
     public function updateGatewayRouteWafStatusWithOptions($request, $runtime)
     {
@@ -12658,9 +13467,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayRouteWafStatusRequest $request
+     * @summary 更新路由waf状态
+     *  *
+     * @param UpdateGatewayRouteWafStatusRequest $request UpdateGatewayRouteWafStatusRequest
      *
-     * @return UpdateGatewayRouteWafStatusResponse
+     * @return UpdateGatewayRouteWafStatusResponse UpdateGatewayRouteWafStatusResponse
      */
     public function updateGatewayRouteWafStatus($request)
     {
@@ -12670,10 +13481,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayServiceCheckRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
+     * @summary Updates the health check policy of a specified service in a cloud-native gateway.
+     *  *
+     * @param UpdateGatewayServiceCheckRequest $tmpReq  UpdateGatewayServiceCheckRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayServiceCheckResponse
+     * @return UpdateGatewayServiceCheckResponse UpdateGatewayServiceCheckResponse
      */
     public function updateGatewayServiceCheckWithOptions($tmpReq, $runtime)
     {
@@ -12739,9 +13552,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayServiceCheckRequest $request
+     * @summary Updates the health check policy of a specified service in a cloud-native gateway.
+     *  *
+     * @param UpdateGatewayServiceCheckRequest $request UpdateGatewayServiceCheckRequest
      *
-     * @return UpdateGatewayServiceCheckResponse
+     * @return UpdateGatewayServiceCheckResponse UpdateGatewayServiceCheckResponse
      */
     public function updateGatewayServiceCheck($request)
     {
@@ -12751,10 +13566,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayServiceTrafficPolicyRequest $tmpReq
-     * @param RuntimeOptions                           $runtime
+     * @summary Updates the traffic policy of a service.
+     *  *
+     * @param UpdateGatewayServiceTrafficPolicyRequest $tmpReq  UpdateGatewayServiceTrafficPolicyRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayServiceTrafficPolicyResponse
+     * @return UpdateGatewayServiceTrafficPolicyResponse UpdateGatewayServiceTrafficPolicyResponse
      */
     public function updateGatewayServiceTrafficPolicyWithOptions($tmpReq, $runtime)
     {
@@ -12799,9 +13616,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayServiceTrafficPolicyRequest $request
+     * @summary Updates the traffic policy of a service.
+     *  *
+     * @param UpdateGatewayServiceTrafficPolicyRequest $request UpdateGatewayServiceTrafficPolicyRequest
      *
-     * @return UpdateGatewayServiceTrafficPolicyResponse
+     * @return UpdateGatewayServiceTrafficPolicyResponse UpdateGatewayServiceTrafficPolicyResponse
      */
     public function updateGatewayServiceTrafficPolicy($request)
     {
@@ -12811,10 +13630,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayServiceVersionRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Modifies the version of a service.
+     *  *
+     * @param UpdateGatewayServiceVersionRequest $request UpdateGatewayServiceVersionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGatewayServiceVersionResponse
+     * @return UpdateGatewayServiceVersionResponse UpdateGatewayServiceVersionResponse
      */
     public function updateGatewayServiceVersionWithOptions($request, $runtime)
     {
@@ -12851,9 +13672,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateGatewayServiceVersionRequest $request
+     * @summary Modifies the version of a service.
+     *  *
+     * @param UpdateGatewayServiceVersionRequest $request UpdateGatewayServiceVersionRequest
      *
-     * @return UpdateGatewayServiceVersionResponse
+     * @return UpdateGatewayServiceVersionResponse UpdateGatewayServiceVersionResponse
      */
     public function updateGatewayServiceVersion($request)
     {
@@ -12863,8 +13686,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](~~250950~~).
-     *   *
+     * @summary Updates the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway.
+     *  *
+     * @description You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](https://help.aliyun.com/document_detail/250950.html).
+     *  *
      * @param UpdateGatewaySpecRequest $request UpdateGatewaySpecRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -12905,8 +13730,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](~~250950~~).
-     *   *
+     * @summary Updates the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway.
+     *  *
+     * @description You can call this operation to update the number of nodes or the specifications of nodes in a pay-as-you-go or subscription cloud-native gateway. If you add nodes or increase the specifications, you will incur fees. For more information, see [Pricing](https://help.aliyun.com/document_detail/250950.html).
+     *  *
      * @param UpdateGatewaySpecRequest $request UpdateGatewaySpecRequest
      *
      * @return UpdateGatewaySpecResponse UpdateGatewaySpecResponse
@@ -12919,10 +13746,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateImageRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Updates the version number of the destination cluster.
+     *  *
+     * @param UpdateImageRequest $request UpdateImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateImageResponse
+     * @return UpdateImageResponse UpdateImageResponse
      */
     public function updateImageWithOptions($request, $runtime)
     {
@@ -12956,9 +13785,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateImageRequest $request
+     * @summary Updates the version number of the destination cluster.
+     *  *
+     * @param UpdateImageRequest $request UpdateImageRequest
      *
-     * @return UpdateImageResponse
+     * @return UpdateImageResponse UpdateImageResponse
      */
     public function updateImage($request)
     {
@@ -12968,10 +13799,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateIsolationRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 更新隔离规则
+     *  *
+     * @param UpdateIsolationRuleRequest $request UpdateIsolationRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateIsolationRuleResponse
+     * @return UpdateIsolationRuleResponse UpdateIsolationRuleResponse
      */
     public function updateIsolationRuleWithOptions($request, $runtime)
     {
@@ -13017,9 +13850,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateIsolationRuleRequest $request
+     * @summary 更新隔离规则
+     *  *
+     * @param UpdateIsolationRuleRequest $request UpdateIsolationRuleRequest
      *
-     * @return UpdateIsolationRuleResponse
+     * @return UpdateIsolationRuleResponse UpdateIsolationRuleResponse
      */
     public function updateIsolationRule($request)
     {
@@ -13029,10 +13864,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateMessageQueueRouteRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
+     * @summary Updates the configuration of a canary release for messaging of an application.
+     *  *
+     * @param UpdateMessageQueueRouteRequest $tmpReq  UpdateMessageQueueRouteRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMessageQueueRouteResponse
+     * @return UpdateMessageQueueRouteResponse UpdateMessageQueueRouteResponse
      */
     public function updateMessageQueueRouteWithOptions($tmpReq, $runtime)
     {
@@ -13086,9 +13923,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateMessageQueueRouteRequest $request
+     * @summary Updates the configuration of a canary release for messaging of an application.
+     *  *
+     * @param UpdateMessageQueueRouteRequest $request UpdateMessageQueueRouteRequest
      *
-     * @return UpdateMessageQueueRouteResponse
+     * @return UpdateMessageQueueRouteResponse UpdateMessageQueueRouteResponse
      */
     public function updateMessageQueueRoute($request)
     {
@@ -13098,10 +13937,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateMigrationTaskRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary Updates a migration task.
+     *  *
+     * @param UpdateMigrationTaskRequest $request UpdateMigrationTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMigrationTaskResponse
+     * @return UpdateMigrationTaskResponse UpdateMigrationTaskResponse
      */
     public function updateMigrationTaskWithOptions($request, $runtime)
     {
@@ -13159,9 +14000,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateMigrationTaskRequest $request
+     * @summary Updates a migration task.
+     *  *
+     * @param UpdateMigrationTaskRequest $request UpdateMigrationTaskRequest
      *
-     * @return UpdateMigrationTaskResponse
+     * @return UpdateMigrationTaskResponse UpdateMigrationTaskResponse
      */
     public function updateMigrationTask($request)
     {
@@ -13171,10 +14014,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateNacosClusterRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Updates the information about a Nacos cluster.
+     *  *
+     * @param UpdateNacosClusterRequest $request UpdateNacosClusterRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateNacosClusterResponse
+     * @return UpdateNacosClusterResponse UpdateNacosClusterResponse
      */
     public function updateNacosClusterWithOptions($request, $runtime)
     {
@@ -13226,9 +14071,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateNacosClusterRequest $request
+     * @summary Updates the information about a Nacos cluster.
+     *  *
+     * @param UpdateNacosClusterRequest $request UpdateNacosClusterRequest
      *
-     * @return UpdateNacosClusterResponse
+     * @return UpdateNacosClusterResponse UpdateNacosClusterResponse
      */
     public function updateNacosCluster($request)
     {
@@ -13238,8 +14085,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Updates a Nacos configuration.
+     *  *
+     * @description >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param UpdateNacosConfigRequest $request UpdateNacosConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -13307,8 +14156,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Updates a Nacos configuration.
+     *  *
+     * @description >  The current API operation is not provided in Nacos SDK. For more information about Nacos SDK, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param UpdateNacosConfigRequest $request UpdateNacosConfigRequest
      *
      * @return UpdateNacosConfigResponse UpdateNacosConfigResponse
@@ -13321,8 +14172,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Updates the information about application instances that are registered with a Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param UpdateNacosInstanceRequest $request UpdateNacosInstanceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -13389,8 +14242,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Updates the information about application instances that are registered with a Nacos instance.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param UpdateNacosInstanceRequest $request UpdateNacosInstanceRequest
      *
      * @return UpdateNacosInstanceResponse UpdateNacosInstanceResponse
@@ -13403,8 +14258,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Updates the information about a Nacos service.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param UpdateNacosServiceRequest $request UpdateNacosServiceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -13454,8 +14311,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
+     * @summary Updates the information about a Nacos service.
+     *  *
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     *  *
      * @param UpdateNacosServiceRequest $request UpdateNacosServiceRequest
      *
      * @return UpdateNacosServiceResponse UpdateNacosServiceResponse
@@ -13468,10 +14327,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdatePluginConfigRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Updates the configuration of a plug-in.
+     *  *
+     * @param UpdatePluginConfigRequest $request UpdatePluginConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdatePluginConfigResponse
+     * @return UpdatePluginConfigResponse UpdatePluginConfigResponse
      */
     public function updatePluginConfigWithOptions($request, $runtime)
     {
@@ -13526,9 +14387,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdatePluginConfigRequest $request
+     * @summary Updates the configuration of a plug-in.
+     *  *
+     * @param UpdatePluginConfigRequest $request UpdatePluginConfigRequest
      *
-     * @return UpdatePluginConfigResponse
+     * @return UpdatePluginConfigResponse UpdatePluginConfigResponse
      */
     public function updatePluginConfig($request)
     {
@@ -13538,10 +14401,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateSSLCertRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Updates a certificate.
+     *  *
+     * @param UpdateSSLCertRequest $request UpdateSSLCertRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSSLCertResponse
+     * @return UpdateSSLCertResponse UpdateSSLCertResponse
      */
     public function updateSSLCertWithOptions($request, $runtime)
     {
@@ -13578,9 +14443,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateSSLCertRequest $request
+     * @summary Updates a certificate.
+     *  *
+     * @param UpdateSSLCertRequest $request UpdateSSLCertRequest
      *
-     * @return UpdateSSLCertResponse
+     * @return UpdateSSLCertResponse UpdateSSLCertResponse
      */
     public function updateSSLCert($request)
     {
@@ -13590,10 +14457,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceSourceRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * @summary Modifies service sources of a cloud-native gateway. You can modify only Container Service for Kubernetes (ACK) service sources that contain configurations related to Ingress resource monitoring.
+     *  *
+     * @param UpdateServiceSourceRequest $tmpReq  UpdateServiceSourceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServiceSourceResponse
+     * @return UpdateServiceSourceResponse UpdateServiceSourceResponse
      */
     public function updateServiceSourceWithOptions($tmpReq, $runtime)
     {
@@ -13656,9 +14525,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateServiceSourceRequest $request
+     * @summary Modifies service sources of a cloud-native gateway. You can modify only Container Service for Kubernetes (ACK) service sources that contain configurations related to Ingress resource monitoring.
+     *  *
+     * @param UpdateServiceSourceRequest $request UpdateServiceSourceRequest
      *
-     * @return UpdateServiceSourceResponse
+     * @return UpdateServiceSourceResponse UpdateServiceSourceResponse
      */
     public function updateServiceSource($request)
     {
@@ -13668,10 +14539,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateZnodeRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Updates the information about a ZooKeeper node.
+     *  *
+     * @param UpdateZnodeRequest $request UpdateZnodeRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateZnodeResponse
+     * @return UpdateZnodeResponse UpdateZnodeResponse
      */
     public function updateZnodeWithOptions($request, $runtime)
     {
@@ -13711,9 +14584,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpdateZnodeRequest $request
+     * @summary Updates the information about a ZooKeeper node.
+     *  *
+     * @param UpdateZnodeRequest $request UpdateZnodeRequest
      *
-     * @return UpdateZnodeResponse
+     * @return UpdateZnodeResponse UpdateZnodeResponse
      */
     public function updateZnode($request)
     {
@@ -13723,10 +14598,12 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpgradeClusterRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Upgrades the version of a cluster.
+     *  *
+     * @param UpgradeClusterRequest $request UpgradeClusterRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeClusterResponse
+     * @return UpgradeClusterResponse UpgradeClusterResponse
      */
     public function upgradeClusterWithOptions($request, $runtime)
     {
@@ -13763,9 +14640,11 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param UpgradeClusterRequest $request
+     * @summary Upgrades the version of a cluster.
+     *  *
+     * @param UpgradeClusterRequest $request UpgradeClusterRequest
      *
-     * @return UpgradeClusterResponse
+     * @return UpgradeClusterResponse UpgradeClusterResponse
      */
     public function upgradeCluster($request)
     {

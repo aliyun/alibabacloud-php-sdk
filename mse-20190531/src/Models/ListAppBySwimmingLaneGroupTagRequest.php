@@ -23,6 +23,7 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
     /**
      * @description The ID of the lane group.
      *
+     * This parameter is required.
      * @example 119
      *
      * @var int
@@ -41,6 +42,7 @@ class ListAppBySwimmingLaneGroupTagRequest extends Model
     /**
      * @description The tag.
      *
+     * This parameter is required.
      * @example gray
      *
      * @var string

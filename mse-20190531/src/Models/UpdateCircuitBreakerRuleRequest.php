@@ -29,6 +29,7 @@ class UpdateCircuitBreakerRuleRequest extends Model
     /**
      * @description The name of the application.
      *
+     * This parameter is required.
      * @example spring-cloud-a
      *
      * @var string
@@ -92,6 +93,7 @@ class UpdateCircuitBreakerRuleRequest extends Model
     /**
      * @description The microservice namespace to which the application belongs.
      *
+     * This parameter is required.
      * @example default
      *
      * @var string
@@ -110,6 +112,7 @@ class UpdateCircuitBreakerRuleRequest extends Model
     /**
      * @description The rule ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

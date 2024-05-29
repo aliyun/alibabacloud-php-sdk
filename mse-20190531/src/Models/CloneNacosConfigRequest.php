@@ -23,6 +23,7 @@ class CloneNacosConfigRequest extends Model
     /**
      * @description The data structure.
      *
+     * This parameter is required.
      * @example 253661,253662
      *
      * @var string
@@ -32,6 +33,7 @@ class CloneNacosConfigRequest extends Model
     /**
      * @description The ID of the destination namespace.
      *
+     * This parameter is required.
      * @example mse_prepaid_public_cn-i7m25igg403
      *
      * @var string
@@ -57,6 +59,7 @@ class CloneNacosConfigRequest extends Model
      *   zh: Chinese
      *   en: English
      *
+     * This parameter is required.
      * @example OVERWRITE
      *
      * @var string

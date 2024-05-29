@@ -23,7 +23,8 @@ class AddMockRuleRequest extends Model
     /**
      * @description The ID of the custom application.
      *
-     * @example [{\"appName\":\"provide\",\"appId\":\"bst8l6o735@f6d8aaf6e56e67d\"}]
+     * This parameter is required.
+     * @example [{\\"appName\\":\\"provide\\",\\"appId\\":\\"bst8l6o735@f6d8aaf6e56e67d\\"}]
      *
      * @var string
      */
@@ -32,6 +33,7 @@ class AddMockRuleRequest extends Model
     /**
      * @description The items in the recycle bin.
      *
+     * This parameter is required.
      * @example []
      *
      * @var string
@@ -53,6 +55,7 @@ class AddMockRuleRequest extends Model
     /**
      * @description The description.
      *
+     * This parameter is required.
      * @example {}
      *
      * @var string
@@ -62,10 +65,10 @@ class AddMockRuleRequest extends Model
     /**
      * @description The response time (RT) threshold of slow calls. Valid values:
      *
-     *   \- 15: 15 ms
-     *   \- 30: 30 ms
-     *   \- 60: 60 ms
-     *   \- 120: 120 ms
+     *   \\- 15: 15 ms
+     *   \\- 30: 30 ms
+     *   \\- 60: 60 ms
+     *   \\- 120: 120 ms
      *
      * @example 1
      *
@@ -76,6 +79,7 @@ class AddMockRuleRequest extends Model
     /**
      * @description The name of the rule.
      *
+     * This parameter is required.
      * @example agent-auto-test-sc
      *
      * @var string
@@ -103,6 +107,7 @@ class AddMockRuleRequest extends Model
     /**
      * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -112,6 +117,7 @@ class AddMockRuleRequest extends Model
     /**
      * @description The input parameters. The JSON format is supported.
      *
+     * This parameter is required.
      * @example []
      *
      * @var string
@@ -121,6 +127,7 @@ class AddMockRuleRequest extends Model
     /**
      * @description The rule source.
      *
+     * This parameter is required.
      * @example edasmsc
      *
      * @var string

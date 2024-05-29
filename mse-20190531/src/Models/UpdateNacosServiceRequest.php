@@ -70,6 +70,7 @@ class UpdateNacosServiceRequest extends Model
     /**
      * @description The name of the service.
      *
+     * This parameter is required.
      * @example com.dingtalk.doc.thumbnails.pdf.ThumbnailService
      *
      * @var string

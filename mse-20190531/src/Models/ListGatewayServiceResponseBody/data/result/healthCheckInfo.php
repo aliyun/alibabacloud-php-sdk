@@ -34,7 +34,7 @@ class healthCheckInfo extends Model
     public $healthyThreshold;
 
     /**
-     * @description The URL of the HTTP request for the health check.
+     * @description The endpoint of the HTTP request for the health check.
      *
      * @example http://172.168.0.1
      *

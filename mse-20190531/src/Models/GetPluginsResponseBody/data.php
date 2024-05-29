@@ -21,7 +21,7 @@ class data extends Model
     /**
      * @description The information about the plug-in configuration used for checking.
      *
-     * @example \# The configuration includes the fields required for checking, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
+     * @example \\# The configuration includes the fields required for checking, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
      *
      * @var string
      */

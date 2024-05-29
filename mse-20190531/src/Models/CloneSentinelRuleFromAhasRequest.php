@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloneSentinelRuleFromAhasRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +18,9 @@ class CloneSentinelRuleFromAhasRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The namespace (environment) of Application High Availability Service (AHAS).
+     *
+     * This parameter is required.
      * @example default
      *
      * @var string
@@ -23,6 +28,8 @@ class CloneSentinelRuleFromAhasRequest extends Model
     public $ahasNamespace;
 
     /**
+     * @description The application name.
+     *
      * @example spring-cloud-a
      *
      * @var string
@@ -30,6 +37,8 @@ class CloneSentinelRuleFromAhasRequest extends Model
     public $appName;
 
     /**
+     * @description Specifies whether AHAS is deployed in the Internet region.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +46,9 @@ class CloneSentinelRuleFromAhasRequest extends Model
     public $isAHASPublicRegion;
 
     /**
+     * @description The namespace.
+     *
+     * This parameter is required.
      * @example default
      *
      * @var string

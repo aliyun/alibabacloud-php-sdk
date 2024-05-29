@@ -23,6 +23,7 @@ class UpdateGatewayAuthConsumerResourceStatusRequest extends Model
     /**
      * @description The ID of the consumer.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -32,6 +33,7 @@ class UpdateGatewayAuthConsumerResourceStatusRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-2a99625886d54722be94d92e9a69****
      *
      * @var string
@@ -41,6 +43,7 @@ class UpdateGatewayAuthConsumerResourceStatusRequest extends Model
     /**
      * @description The list of IDs of the authorized resources that a user wants to update.
      *
+     * This parameter is required.
      * @example 1,2,3,4
      *
      * @var string
@@ -53,6 +56,7 @@ class UpdateGatewayAuthConsumerResourceStatusRequest extends Model
      *   true: enabled
      *   false: disabled
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

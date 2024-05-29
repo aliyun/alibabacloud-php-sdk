@@ -59,6 +59,7 @@ class CreateEngineNamespaceRequest extends Model
     /**
      * @description The display name of the namespace.
      *
+     * This parameter is required.
      * @example dev
      *
      * @var string

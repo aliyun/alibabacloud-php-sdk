@@ -49,6 +49,7 @@ class filterParams extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-30a0106924c94bca8712ec4e79fc5acc
      *
      * @var string

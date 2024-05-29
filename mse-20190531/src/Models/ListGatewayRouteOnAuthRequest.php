@@ -23,6 +23,7 @@ class ListGatewayRouteOnAuthRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-c9bc5afd61014165bd58f621b491****
      *
      * @var string
@@ -34,6 +35,7 @@ class ListGatewayRouteOnAuthRequest extends Model
      *
      *   JWT
      *
+     * This parameter is required.
      * @example JWT
      *
      * @var string

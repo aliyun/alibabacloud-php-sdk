@@ -24,6 +24,7 @@ class ModifyGovernanceKubernetesClusterRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example cd23228b3c80c4d4f9ad87cc3****
      *
      * @var string
@@ -40,6 +41,7 @@ class ModifyGovernanceKubernetesClusterRequest extends Model
     /**
      * @description The ID of the region in which the instance resides. The region is supported by MSE.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

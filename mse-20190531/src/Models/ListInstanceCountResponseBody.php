@@ -44,7 +44,7 @@ class ListInstanceCountResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The error code returned if the request failed. If the request failed, the ErrorCode parameter is returned. For more information, see the [Error codes](~~456441~~) section of this topic.
+     * @description The error code returned if the request failed. If the request failed, the ErrorCode parameter is returned. For more information, see the [Error codes](https://help.aliyun.com/document_detail/456441.html) section of this topic.
      *
      * @example mse-100-100
      *

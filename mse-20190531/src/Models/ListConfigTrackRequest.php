@@ -32,6 +32,7 @@ class ListConfigTrackRequest extends Model
     /**
      * @description The end timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1657178373
      *
      * @var int
@@ -50,6 +51,7 @@ class ListConfigTrackRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse_prepaid_public_cn-i7m2ne****
      *
      * @var string
@@ -77,6 +79,7 @@ class ListConfigTrackRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -86,6 +89,7 @@ class ListConfigTrackRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -116,6 +120,7 @@ class ListConfigTrackRequest extends Model
     /**
      * @description The start timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1671010148
      *
      * @var int

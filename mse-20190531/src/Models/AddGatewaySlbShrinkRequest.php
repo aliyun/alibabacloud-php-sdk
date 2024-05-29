@@ -23,6 +23,7 @@ class AddGatewaySlbShrinkRequest extends Model
     /**
      * @description The unique ID of the gateway.
      *
+     * This parameter is required.
      * @example gw-9cdcf8e4f58144059e73ff4c5ef9****
      *
      * @var string
@@ -68,6 +69,7 @@ class AddGatewaySlbShrinkRequest extends Model
     /**
      * @description The ID of the SLB instance.
      *
+     * This parameter is required.
      * @example lb-bp18t6jjskwxh6wy1****
      *
      * @var string

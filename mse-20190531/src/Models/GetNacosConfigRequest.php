@@ -35,6 +35,7 @@ class GetNacosConfigRequest extends Model
     /**
      * @description The ID of the data.
      *
+     * This parameter is required.
      * @example halvie-mp-item****
      *
      * @var string
@@ -44,6 +45,7 @@ class GetNacosConfigRequest extends Model
     /**
      * @description The name of the configuration group.
      *
+     * This parameter is required.
      * @example common
      *
      * @var string
@@ -53,6 +55,7 @@ class GetNacosConfigRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse-cn-i7m2h0****
      *
      * @var string

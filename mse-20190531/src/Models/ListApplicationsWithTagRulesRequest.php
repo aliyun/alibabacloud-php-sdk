@@ -52,6 +52,7 @@ class ListApplicationsWithTagRulesRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -61,6 +62,7 @@ class ListApplicationsWithTagRulesRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

@@ -23,6 +23,7 @@ class GetTagsBySwimmingLaneGroupIdRequest extends Model
     /**
      * @description The ID of the lane group.
      *
+     * This parameter is required.
      * @example 154
      *
      * @var int

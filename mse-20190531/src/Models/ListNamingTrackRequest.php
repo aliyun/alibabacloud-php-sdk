@@ -23,6 +23,7 @@ class ListNamingTrackRequest extends Model
     /**
      * @description The end timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1665299698
      *
      * @var int
@@ -41,6 +42,7 @@ class ListNamingTrackRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example mse_prepaid_public_cn-tl32d*****
      *
      * @var string
@@ -68,6 +70,7 @@ class ListNamingTrackRequest extends Model
     /**
      * @description The number of the page to return.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -77,6 +80,7 @@ class ListNamingTrackRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -116,6 +120,7 @@ class ListNamingTrackRequest extends Model
     /**
      * @description The start timestamp. Unit: seconds.
      *
+     * This parameter is required.
      * @example 1660238450
      *
      * @var int

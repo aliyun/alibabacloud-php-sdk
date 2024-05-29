@@ -39,7 +39,7 @@ class UpdateClusterRequest extends Model
     public $instanceId;
 
     /**
-     * @description The end time of the O\&M window.
+     * @description The end time of the O\\&M window.
      *
      * @example 06:00
      *
@@ -48,7 +48,7 @@ class UpdateClusterRequest extends Model
     public $maintenanceEndTime;
 
     /**
-     * @description The start time of the O\&M window.
+     * @description The start time of the O\\&M window.
      *
      * @example 02:00
      *

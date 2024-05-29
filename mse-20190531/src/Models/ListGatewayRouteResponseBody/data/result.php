@@ -169,7 +169,7 @@ class result extends Model
     /**
      * @description The matching rules.
      *
-     * @example {\"PathPredicates\":{\"Path\":\"/rpc/compute \",\"Type\":\"PRE\",\"IgnoreCase\":true}}
+     * @example {\\"PathPredicates\\":{\\"Path\\":\\"/rpc/compute \\",\\"Type\\":\\"PRE\\",\\"IgnoreCase\\":true}}
      *
      * @var string
      */

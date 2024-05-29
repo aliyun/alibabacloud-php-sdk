@@ -23,6 +23,7 @@ class CreateMseServiceApplicationRequest extends Model
     /**
      * @description The name of the application.
      *
+     * This parameter is required.
      * @example bsd-xxyp-open-goods-server
      *
      * @var string
@@ -68,6 +69,7 @@ class CreateMseServiceApplicationRequest extends Model
      *   cn-zhangjiakou: China (Zhangjiakou)
      *   cn-shenzhen: China (Shenzhen)
      *
+     * This parameter is required.
      * @example cn-shenzhen
      *
      * @var string
