@@ -74,6 +74,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteWebCacheCustomRuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteWebCacheCustomRuleResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteWebCCRuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteWebCCRuleResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteWebCCRuleV2Request;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteWebCCRuleV2Response;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteWebPreciseAccessRuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteWebPreciseAccessRuleResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DeleteWebRuleRequest;
@@ -342,6 +344,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyWebCacheModeRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyWebCacheModeResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyWebCacheSwitchRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyWebCacheSwitchResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyWebCCGlobalSwitchRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyWebCCGlobalSwitchResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyWebCCRuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyWebCCRuleResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyWebIpSetSwitchRequest;
@@ -2221,6 +2225,59 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteWebCCRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除新版cc规则
+     *  *
+     * @param DeleteWebCCRuleV2Request $request DeleteWebCCRuleV2Request
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteWebCCRuleV2Response DeleteWebCCRuleV2Response
+     */
+    public function deleteWebCCRuleV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->ruleNames)) {
+            $query['RuleNames'] = $request->ruleNames;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteWebCCRuleV2',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteWebCCRuleV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除新版cc规则
+     *  *
+     * @param DeleteWebCCRuleV2Request $request DeleteWebCCRuleV2Request
+     *
+     * @return DeleteWebCCRuleV2Response DeleteWebCCRuleV2Response
+     */
+    public function deleteWebCCRuleV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWebCCRuleV2WithOptions($request, $runtime);
     }
 
     /**
@@ -9467,6 +9524,56 @@ class Ddoscoo extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyWebAreaBlockSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 统一全局CC开关
+     *  *
+     * @param ModifyWebCCGlobalSwitchRequest $request ModifyWebCCGlobalSwitchRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyWebCCGlobalSwitchResponse ModifyWebCCGlobalSwitchResponse
+     */
+    public function modifyWebCCGlobalSwitchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ccGlobalSwitch)) {
+            $query['CcGlobalSwitch'] = $request->ccGlobalSwitch;
+        }
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWebCCGlobalSwitch',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyWebCCGlobalSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 统一全局CC开关
+     *  *
+     * @param ModifyWebCCGlobalSwitchRequest $request ModifyWebCCGlobalSwitchRequest
+     *
+     * @return ModifyWebCCGlobalSwitchResponse ModifyWebCCGlobalSwitchResponse
+     */
+    public function modifyWebCCGlobalSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyWebCCGlobalSwitchWithOptions($request, $runtime);
     }
 
     /**
