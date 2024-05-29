@@ -21,7 +21,7 @@ class SummaryJobDetailRequest extends Model
     /**
      * @description The ID of the data migration or data synchronization task.
      *
-     * >  You must specify at least one of the DtsJobId and DtsInstanceId parameters.
+     * This parameter is required.
      * @example l3m1213ye7l****
      *
      * @var string
@@ -34,6 +34,7 @@ class SummaryJobDetailRequest extends Model
      *   **02**: The task is in the schema migration phase.
      *   **03**: The task is in the incremental migration phase.
      *
+     * This parameter is required.
      * @example 02
      *
      * @var string
@@ -41,7 +42,7 @@ class SummaryJobDetailRequest extends Model
     public $jobCode;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

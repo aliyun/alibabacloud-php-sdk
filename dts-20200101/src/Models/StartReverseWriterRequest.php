@@ -21,6 +21,7 @@ class StartReverseWriterRequest extends Model
     /**
      * @description The ID of the reverse task that was created by calling the CreateReverseDtsJob operation.
      *
+     * This parameter is required.
      * @example n99m9jx822k****
      *
      * @var string

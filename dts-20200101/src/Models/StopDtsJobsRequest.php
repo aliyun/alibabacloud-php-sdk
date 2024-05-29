@@ -13,8 +13,9 @@ class StopDtsJobsRequest extends Model
      *
      * >
      *   Separate multiple task IDs by **,** (commas).
-     *   You can call the [DescribeDtsJobs](~~209702~~) operation to query task IDs.
+     *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query task IDs.
      *
+     * This parameter is required.
      * @example l5o11f9029c****
      *
      * @var string
@@ -22,7 +23,7 @@ class StopDtsJobsRequest extends Model
     public $dtsJobIds;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

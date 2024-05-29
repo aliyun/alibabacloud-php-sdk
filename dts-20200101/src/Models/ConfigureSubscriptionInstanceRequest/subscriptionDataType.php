@@ -14,6 +14,7 @@ class subscriptionDataType extends Model
      *   **true**: tracks DDL statements.
      *   **false**: does not track DDL statements.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -26,6 +27,7 @@ class subscriptionDataType extends Model
      *   **true**: tracks DML statements.
      *   **false**: does not tack DML statements.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

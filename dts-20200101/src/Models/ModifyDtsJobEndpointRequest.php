@@ -44,6 +44,8 @@ class ModifyDtsJobEndpointRequest extends Model
     public $dtsJobId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example src
      *
      * @var string
@@ -58,6 +60,8 @@ class ModifyDtsJobEndpointRequest extends Model
     public $endpointInstanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example rds
      *
      * @var string

@@ -32,7 +32,7 @@ class DescribeSynchronizationObjectModifyStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -46,8 +46,9 @@ class DescribeSynchronizationObjectModifyStatusRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The task ID, which is returned after you call the [ModifySynchronizationObject](~~49451~~) operation to modify the objects to be synchronized.
+     * @description The task ID, which is returned after you call the [ModifySynchronizationObject](https://help.aliyun.com/document_detail/49451.html) operation to modify the objects to be synchronized.
      *
+     * This parameter is required.
      * @example k71r16fj13g****
      *
      * @var string

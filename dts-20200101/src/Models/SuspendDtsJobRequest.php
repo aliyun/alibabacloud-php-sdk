@@ -20,7 +20,7 @@ class SuspendDtsJobRequest extends Model
     /**
      * @description The ID of the data migration, data synchronization, or change tracking task.
      *
-     * >  You can call the [DescribeDtsJobs](~~209702~~) operation to obtain the task ID.
+     * >  You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to obtain the task ID.
      * @example l3m1213ye7l****
      *
      * @var string
@@ -28,7 +28,7 @@ class SuspendDtsJobRequest extends Model
     public $dtsJobId;
 
     /**
-     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

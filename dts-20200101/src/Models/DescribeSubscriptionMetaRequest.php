@@ -34,6 +34,7 @@ class DescribeSubscriptionMetaRequest extends Model
     /**
      * @description The ID of the consumer group.
      *
+     * This parameter is required.
      * @example z38m91gg2******
      *
      * @var string

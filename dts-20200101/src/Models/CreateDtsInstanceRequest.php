@@ -77,7 +77,7 @@ class CreateDtsInstanceRequest extends Model
      *
      * >
      *   The default value is **MySQL**.
-     *   For more information about the supported source and destination databases, see [Overview of data synchronization scenarios](~~130744~~) and [Overview of data migration scenarios](~~26618~~).
+     *   For more information about the supported source and destination databases, see [Overview of data synchronization scenarios](https://help.aliyun.com/document_detail/130744.html) and [Overview of data migration scenarios](https://help.aliyun.com/document_detail/26618.html).
      *   You must specify one of this parameter and the **JobId** parameter.
      *
      * @example MySQL
@@ -87,7 +87,7 @@ class CreateDtsInstanceRequest extends Model
     public $destinationEndpointEngineName;
 
     /**
-     * @description The ID of the region in which the destination instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the destination instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * >  You must specify one of this parameter and the **JobId** parameter.
      * @example cn-hangzhou
@@ -123,7 +123,7 @@ class CreateDtsInstanceRequest extends Model
      *   DTS supports the following instance classes for a data migration instance: **xxlarge**, **xlarge**, **large**, **medium**, and **small**.
      *   DTS supports the following instance classes for a data synchronization instance: **large**, **medium**, **small**, and **micro**.
      *
-     * >  For more information about the test performance of each instance class, see [Specifications of data migration instances](~~26606~~) and [Specifications of data synchronization instances](~~26605~~).
+     * >  For more information about the test performance of each instance class, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html) and [Specifications of data synchronization instances](https://help.aliyun.com/document_detail/26605.html).
      * @example xxlarge
      *
      * @var string
@@ -184,7 +184,7 @@ class CreateDtsInstanceRequest extends Model
     public $quantity;
 
     /**
-     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -227,7 +227,7 @@ class CreateDtsInstanceRequest extends Model
      *
      * >
      *   The default value is **MySQL**.
-     *   For more information about the supported source and destination databases, see [Overview of data synchronization scenarios](~~130744~~) and [Overview of data migration scenarios](~~26618~~).
+     *   For more information about the supported source and destination databases, see [Overview of data synchronization scenarios](https://help.aliyun.com/document_detail/130744.html) and [Overview of data migration scenarios](https://help.aliyun.com/document_detail/26618.html).
      *   You must specify one of this parameter and the **JobId** parameter.
      *
      * @example MYSQL
@@ -237,7 +237,7 @@ class CreateDtsInstanceRequest extends Model
     public $sourceEndpointEngineName;
 
     /**
-     * @description The ID of the region in which the source instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the source instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * >  You must specify one of this parameter and the **JobId** parameter.
      * @example cn-hangzhou

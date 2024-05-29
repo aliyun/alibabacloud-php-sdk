@@ -80,6 +80,7 @@ class DescribeConnectionStatusRequest extends Model
      *   **AnalyticDB**: AnalyticDB for MySQL cluster V3.0 or V2.0
      *   **Greenplum**: AnalyticDB for PostgreSQL instance
      *
+     * This parameter is required.
      * @example PolarDB_o
      *
      * @var string
@@ -119,7 +120,7 @@ class DescribeConnectionStatusRequest extends Model
     public $destinationEndpointPort;
 
     /**
-     * @description The ID of the region where the destination instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the destination instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -130,7 +131,7 @@ class DescribeConnectionStatusRequest extends Model
     /**
      * @description The database account of the destination database.
      *
-     * >  The permissions that are required for database accounts vary with the migration or synchronization scenario. For more information, see [Overview of data migration scenarios](~~26618~~) and [Overview of data synchronization scenarios](~~130744~~).
+     * >  The permissions that are required for database accounts vary with the migration or synchronization scenario. For more information, see [Overview of data migration scenarios](https://help.aliyun.com/document_detail/26618.html) and [Overview of data synchronization scenarios](https://help.aliyun.com/document_detail/130744.html).
      * @example dtstest
      *
      * @var string
@@ -138,7 +139,7 @@ class DescribeConnectionStatusRequest extends Model
     public $destinationEndpointUserName;
 
     /**
-     * @description The ID of the region where the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -219,6 +220,7 @@ class DescribeConnectionStatusRequest extends Model
      *   **POLARDB**: PolarDB for MySQL cluster
      *   **PolarDB_o**: PolarDB for Oracle cluster
      *
+     * This parameter is required.
      * @example RDS
      *
      * @var string
@@ -255,7 +257,7 @@ class DescribeConnectionStatusRequest extends Model
     public $sourceEndpointPort;
 
     /**
-     * @description The ID of the region where the source instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the source instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -266,7 +268,7 @@ class DescribeConnectionStatusRequest extends Model
     /**
      * @description The database account of the source database.
      *
-     * >  The permissions that are required for database accounts vary with the migration or synchronization scenario. For more information, see [Overview of data migration scenarios](~~26618~~) and [Overview of data synchronization scenarios](~~130744~~).
+     * >  The permissions that are required for database accounts vary with the migration or synchronization scenario. For more information, see [Overview of data migration scenarios](https://help.aliyun.com/document_detail/26618.html) and [Overview of data synchronization scenarios](https://help.aliyun.com/document_detail/130744.html).
      * @example dtstest
      *
      * @var string

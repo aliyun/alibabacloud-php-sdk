@@ -32,7 +32,7 @@ class DescribeSynchronizationJobStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -61,8 +61,9 @@ class DescribeSynchronizationJobStatusRequest extends Model
     public $synchronizationDirection;
 
     /**
-     * @description The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](~~49454~~) operation to query the instance ID.
+     * @description The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsexjk1alb116****
      *
      * @var string

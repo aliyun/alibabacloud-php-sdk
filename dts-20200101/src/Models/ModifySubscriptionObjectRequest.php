@@ -33,8 +33,9 @@ class ModifySubscriptionObjectRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](~~49442~~) operation to query the instance ID.
+     * @description The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](https://help.aliyun.com/document_detail/49442.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsl8zl9ek6292****
      *
      * @var string
@@ -42,8 +43,9 @@ class ModifySubscriptionObjectRequest extends Model
     public $subscriptionInstanceId;
 
     /**
-     * @description The objects from which you want to track data changes. The value is a JSON string and can contain regular expressions. For more information, see [SubscriptionObjects](~~141902~~).
+     * @description The objects from which you want to track data changes. The value is a JSON string and can contain regular expressions. For more information, see [SubscriptionObjects](https://help.aliyun.com/document_detail/141902.html).
      *
+     * This parameter is required.
      * @example [{"DBName":"dtstestdata"}]
      *
      * @var string

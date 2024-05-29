@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class TransferPayTypeRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @description The subscription length.
      *
      *   If the **Period** parameter is set to **Year**, the value range is **1** to **5**.
@@ -31,6 +36,7 @@ class TransferPayTypeRequest extends Model
      *   The billing method of subscription instances cannot be changed to pay-as-you-go. To prevent resource waste, determine whether you need to change the billing method of your resources.
      *   If you do not need to change the billing method, specify the current billing method.
      *
+     * This parameter is required.
      * @example PostPaid
      *
      * @var string
@@ -38,8 +44,9 @@ class TransferPayTypeRequest extends Model
     public $chargeType;
 
     /**
-     * @description The ID of the data synchronization or change tracking task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     * @description The ID of the data synchronization or change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
      *
+     * This parameter is required.
      * @example o4nh3g7jg56****
      *
      * @var string
@@ -70,7 +77,7 @@ class TransferPayTypeRequest extends Model
     public $period;
 
     /**
-     * @description The ID of the region where the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -83,6 +90,7 @@ class TransferPayTypeRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
+        'autoPay'         => 'AutoPay',
         'buyCount'        => 'BuyCount',
         'chargeType'      => 'ChargeType',
         'dtsJobId'        => 'DtsJobId',
@@ -100,6 +108,9 @@ class TransferPayTypeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
         if (null !== $this->buyCount) {
             $res['BuyCount'] = $this->buyCount;
         }
@@ -136,6 +147,9 @@ class TransferPayTypeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
         if (isset($map['BuyCount'])) {
             $model->buyCount = $map['BuyCount'];
         }

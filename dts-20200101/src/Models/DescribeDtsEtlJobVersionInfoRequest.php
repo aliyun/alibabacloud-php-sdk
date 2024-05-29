@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDtsEtlJobVersionInfoRequest extends Model
 {
     /**
-     * @description The ID of the Data Transmission Service (DTS) instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     * @description The ID of the Data Transmission Service (DTS) instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsggk12iwya1a****
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeDtsEtlJobVersionInfoRequest extends Model
     public $dtsInstanceId;
 
     /**
-     * @description The ID of the ETL task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     * @description The ID of the ETL task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
      *
      * @example l5512es7w15****
      *
@@ -45,7 +46,7 @@ class DescribeDtsEtlJobVersionInfoRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which the DTS instance resides. You can call the [DescribeRegions](~~25609~~) operation to query the available Alibaba Cloud regions.
+     * @description The ID of the region in which the DTS instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the available Alibaba Cloud regions.
      *
      * @example cn-hangzhou
      *

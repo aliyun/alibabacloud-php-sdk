@@ -20,6 +20,7 @@ class CreateConsumerGroupRequest extends Model
     /**
      * @description The name of the consumer group. The name cannot exceed 128 characters in length. We recommend that you use an informative name for easy identification.
      *
+     * This parameter is required.
      * @var string
      */
     public $consumerGroupName;
@@ -30,6 +31,7 @@ class CreateConsumerGroupRequest extends Model
      *   A password must contain two or more of the following characters: uppercase letters, lowercase letters, digits, and special characters.
      *   A password must be 8 to 32 characters in length.
      *
+     * This parameter is required.
      * @example Test123456
      *
      * @var string
@@ -39,9 +41,10 @@ class CreateConsumerGroupRequest extends Model
     /**
      * @description The username of the consumer group.
      *
-     *   A username must contain one or more of the following characters: uppercase letters, lowercase letters, digits, and underscores (\_).
+     *   A username must contain one or more of the following characters: uppercase letters, lowercase letters, digits, and underscores (_).
      *   A username cannot exceed 16 characters in length.
      *
+     * This parameter is required.
      * @example dtstest
      *
      * @var string
@@ -66,6 +69,7 @@ class CreateConsumerGroupRequest extends Model
     /**
      * @description The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsg2m10r1x15a****
      *
      * @var string

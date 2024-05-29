@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataCheckTableDiffDetailsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeDataCheckTableDiffDetailsRequest extends Model
     public $checkType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example db_dtstest
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDataCheckTableDiffDetailsRequest extends Model
     public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xd4e4xb419q****
      *
      * @var string
@@ -49,6 +55,8 @@ class DescribeDataCheckTableDiffDetailsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example test_person
      *
      * @var string

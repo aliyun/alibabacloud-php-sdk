@@ -40,7 +40,7 @@ class DescribeTagKeysRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -54,7 +54,7 @@ class DescribeTagKeysRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the data migration, data synchronization, or change tracking instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     * @description The ID of the data migration, data synchronization, or change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
      *
      * @example dtsl5o11f9029c****
      *

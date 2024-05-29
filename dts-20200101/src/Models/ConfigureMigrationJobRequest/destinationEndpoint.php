@@ -66,6 +66,7 @@ class destinationEndpoint extends Model
      *   **AnalyticDB**: AnalyticDB for MySQL cluster V3.0 or V2.0
      *   **Greenplum**: AnalyticDB for PostgreSQL instance
      *
+     * This parameter is required.
      * @example RDS
      *
      * @var string
@@ -104,7 +105,7 @@ class destinationEndpoint extends Model
     /**
      * @description The region ID of the destination database.
      *
-     * >  If the **DestinationEndpoint.InstanceType** parameter is set to **LocalInstance**, you can enter **cn-hangzhou** or the ID of the region closest to the self-managed database. For more information, see [List of supported regions](~~141033~~).
+     * >  If the **DestinationEndpoint.InstanceType** parameter is set to **LocalInstance**, you can enter **cn-hangzhou** or the ID of the region closest to the self-managed database. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -114,7 +115,7 @@ class destinationEndpoint extends Model
     /**
      * @description The database account of the destination database.
      *
-     * >  The permissions that are required for database accounts vary with the migration scenario. For more information, see [Overview of data migration scenarios](~~26618~~).
+     * >  The permissions that are required for database accounts vary with the migration scenario. For more information, see [Overview of data migration scenarios](https://help.aliyun.com/document_detail/26618.html).
      * @example dtstestaccount
      *
      * @var string

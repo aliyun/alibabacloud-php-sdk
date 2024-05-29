@@ -22,8 +22,9 @@ class CreateJobMonitorRuleRequest extends Model
     public $delayRuleTime;
 
     /**
-     * @description The ID of the data migration, data synchronization, or change tracking task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     * @description The ID of the data migration, data synchronization, or change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
      *
+     * This parameter is required.
      * @example i03e3zty16i****
      *
      * @var string
@@ -54,7 +55,7 @@ class CreateJobMonitorRuleRequest extends Model
      *
      * >
      *   This parameter is available only for users of the China site (aliyun.com). Only mobile numbers in the Chinese mainland are supported. You can specify up to 10 mobile numbers.
-     *   Users of the international site (alibabacloud.com) cannot receive alerts by using mobile phones, but can [configure alert rules for DTS tasks in the CloudMonitor console](~~175876~~).
+     *   Users of the international site (alibabacloud.com) cannot receive alerts by using mobile phones, but can [configure alert rules for DTS tasks in the CloudMonitor console](https://help.aliyun.com/document_detail/175876.html).
      *
      * @example 1361234****,1371234****
      *
@@ -63,7 +64,7 @@ class CreateJobMonitorRuleRequest extends Model
     public $phone;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

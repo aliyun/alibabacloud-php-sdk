@@ -11,6 +11,7 @@ class tag extends Model
     /**
      * @description The ID of the request.
      *
+     * This parameter is required.
      * @example testkey1
      *
      * @var string

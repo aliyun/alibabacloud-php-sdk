@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class TransferInstanceClassRequest extends Model
 {
     /**
-     * @description The ID of the data migration or data synchronization task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     * @description The ID of the data migration or data synchronization task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
      *
+     * This parameter is required.
      * @example r4yr723m199****
      *
      * @var string
@@ -18,12 +19,12 @@ class TransferInstanceClassRequest extends Model
     public $dtsJobId;
 
     /**
-     * @description The new instance class of the DTS instance. You can call the [DescribeDtsJobDetail](~~208925~~) operation to query the original instance class of the DTS instance.
+     * @description The new instance class of the DTS instance. You can call the [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) operation to query the original instance class of the DTS instance.
      *
      *   DTS supports the following instance classes for a data migration instance: **xxlarge**, **xlarge**, **large**, **medium**, and **small**.
      *   DTS supports the following instance classes for a data synchronization instance: **large**, **medium**, **small**, and **micro**.
      *
-     * >  For more information about the test performance of each instance class, see [Specifications of data migration instances](~~26606~~) and [Specifications of data synchronization instances](~~26605~~).
+     * This parameter is required.
      * @example large
      *
      * @var string
@@ -36,6 +37,7 @@ class TransferInstanceClassRequest extends Model
      *   **UPGRADE**
      *   **DOWNGRADE**
      *
+     * This parameter is required.
      * @example UPGRADE
      *
      * @var string
@@ -43,7 +45,7 @@ class TransferInstanceClassRequest extends Model
     public $orderType;
 
     /**
-     * @description The ID of the region where the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

@@ -57,6 +57,7 @@ class DescribeSynchronizationJobAlertRequest extends Model
     /**
      * @description The ID of the data synchronization instance. You can call the **DescribeSynchronizationJobs** operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtskxz1170c10p****
      *
      * @var string

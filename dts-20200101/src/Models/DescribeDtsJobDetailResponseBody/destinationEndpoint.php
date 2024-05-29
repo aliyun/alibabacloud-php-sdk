@@ -69,7 +69,7 @@ class destinationEndpoint extends Model
     public $oracleSID;
 
     /**
-     * @description The ID of the region in which the destination instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the destination instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example 3306
      *
@@ -82,8 +82,8 @@ class destinationEndpoint extends Model
      *
      *   **DISABLE**: SSL encryption is disabled.
      *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and the CA certificate is uploaded.
-     *   **ENABLE_ONLY\_4\_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-     *   **ENABLE_ONLY\_4\_KAFKA_SCRAM_SHA\_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+     *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
+     *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
      *
      * @example cn-hangzhou
      *

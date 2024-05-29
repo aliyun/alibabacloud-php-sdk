@@ -11,7 +11,7 @@ class structureInitializationStatus extends Model
     /**
      * @description The error message returned if schema synchronization failed.
      *
-     * @example DTS-1020042 Execute sql error sql: Table \"customer\" already exists
+     * @example DTS-1020042 Execute sql error sql: Table \\"customer\\" already exists
      *
      * @var string
      */

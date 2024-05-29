@@ -73,7 +73,7 @@ class sourceEndpoint extends Model
     public $port;
 
     /**
-     * @description The ID of the region in which the source instance resides. For more information, see [Supported regions](~~141033~~).
+     * @description The ID of the region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

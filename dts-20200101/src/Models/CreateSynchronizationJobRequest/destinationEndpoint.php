@@ -18,7 +18,7 @@ class destinationEndpoint extends Model
      *
      * >
      *   Default value: **MySQL**.
-     *   For more information about the supported source and destination databases, see [Database types, initial synchronization types, and synchronization topologies](~~130744~~).
+     *   For more information about the supported source and destination databases, see [Database types, initial synchronization types, and synchronization topologies](https://help.aliyun.com/document_detail/130744.html).
      *
      * @example MySQL
      *

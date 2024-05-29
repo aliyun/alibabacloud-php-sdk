@@ -73,7 +73,7 @@ class destinationEndpoint extends Model
     public $port;
 
     /**
-     * @description The ID of the region in which the destination instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the destination instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

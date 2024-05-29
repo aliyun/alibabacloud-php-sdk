@@ -48,7 +48,7 @@ class sourceEndpoint extends Model
      *   **CEN**: self-managed database connected over Cloud Enterprise Network (CEN)
      *   **dg**: self-managed database connected over Database Gateway
      *
-     * >  The engine of a self-managed database can be MySQL or Oracle. You must specify the engine type when you call the [CreateSubscriptionInstance](~~49436~~) operation.
+     * >  The engine of a self-managed database can be MySQL or Oracle. You must specify the engine type when you call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation.
      * @example RDS
      *
      * @var string
@@ -97,7 +97,7 @@ class sourceEndpoint extends Model
     /**
      * @description The RAM role that is authorized to access the source database. This parameter is required if the source database does not belong to the Alibaba Cloud account that you use to configure the change tracking instance. In this case, you must authorize the Alibaba Cloud account to access the source database by using a RAM role.
      *
-     * >  For more information about the permissions that are required for the RAM role and how to grant permissions to the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](~~48468~~).
+     * >  For more information about the permissions that are required for the RAM role and how to grant permissions to the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](https://help.aliyun.com/document_detail/48468.html).
      * @example ram-for-dts
      *
      * @var string
@@ -107,7 +107,7 @@ class sourceEndpoint extends Model
     /**
      * @description The username of the account that is used to connect to the source database.
      *
-     * >  The permissions that are required for the database account vary with the change tracking scenario. For more information, see [Overview of change tracking scenarios](~~145715~~).
+     * >  The permissions that are required for the database account vary with the change tracking scenario. For more information, see [Overview of change tracking scenarios](https://help.aliyun.com/document_detail/145715.html).
      * @example dtstestaccount
      *
      * @var string

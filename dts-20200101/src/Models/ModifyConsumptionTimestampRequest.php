@@ -20,6 +20,7 @@ class ModifyConsumptionTimestampRequest extends Model
     /**
      * @description The consumption checkpoint. The format is *yyyy-MM-dd*T*HH:mm:ss*Z. The time is displayed in UTC.
      *
+     * This parameter is required.
      * @example 2019-10-15T17:20:03Z
      *
      * @var string
@@ -44,6 +45,7 @@ class ModifyConsumptionTimestampRequest extends Model
     /**
      * @description The ID of the change tracking instance. You can call the **DescribeSubscriptionInstances** operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsg2m10r1x15a****
      *
      * @var string

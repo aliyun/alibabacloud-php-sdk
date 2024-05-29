@@ -15,6 +15,7 @@ class tag extends Model
      *   N specifies the serial number of the tag. For example, Tag.1.Key specifies the key of the first tag and Tag.2.Key specifies the key of the second tag. You can specify 1 to 20 tag keys at a time.
      *   This parameter cannot be an empty string.
      *
+     * This parameter is required.
      * @example testkey1
      *
      * @var string

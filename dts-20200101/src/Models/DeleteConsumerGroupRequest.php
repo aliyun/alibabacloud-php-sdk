@@ -18,8 +18,9 @@ class DeleteConsumerGroupRequest extends Model
     public $accountId;
 
     /**
-     * @description The ID of the consumer group. You can call the [DescribeConsumerGroup](~~122886~~) operation to query the consumer group ID.
+     * @description The ID of the consumer group. You can call the [DescribeConsumerGroup](https://help.aliyun.com/document_detail/122886.html) operation to query the consumer group ID.
      *
+     * This parameter is required.
      * @example dtssb911ydd192****
      *
      * @var string
@@ -44,6 +45,7 @@ class DeleteConsumerGroupRequest extends Model
     /**
      * @description The ID of the change tracking instance. You can call the **DescribeSubscriptionInstances** operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsg2m10r1x15a****
      *
      * @var string

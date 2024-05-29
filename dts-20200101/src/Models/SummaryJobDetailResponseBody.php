@@ -39,7 +39,7 @@ class SummaryJobDetailResponseBody extends Model
     /**
      * @description The returned information about the migrated or synchronized objects in arrays.
      *
-     * >  The arrays are in the following format: \[{"key":"Function","state":5,"totalCount":22},{"key":"Procedure","state":5,"totalCount":26},{"key":"Table","state":0,"totalCount":68},{"key":"View","state":5,"totalCount":100}].
+     * >  The arrays are in the following format: [{"key":"Function","state":5,"totalCount":22},{"key":"Procedure","state":5,"totalCount":26},{"key":"Table","state":0,"totalCount":68},{"key":"View","state":5,"totalCount":100}].
      * @var progressSummaryDetails[]
      */
     public $progressSummaryDetails;

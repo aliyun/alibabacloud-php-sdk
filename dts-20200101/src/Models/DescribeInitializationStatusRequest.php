@@ -51,8 +51,9 @@ class DescribeInitializationStatusRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](~~49454~~) operation to query the instance ID.
+     * @description The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsi76118o3w92****
      *
      * @var string

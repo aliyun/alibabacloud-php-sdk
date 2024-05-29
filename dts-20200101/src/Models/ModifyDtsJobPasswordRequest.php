@@ -11,6 +11,7 @@ class ModifyDtsJobPasswordRequest extends Model
     /**
      * @description The ID of the data migration, data synchronization, or change tracking task.
      *
+     * This parameter is required.
      * @example l3m1213ye7l****
      *
      * @var string
@@ -41,7 +42,7 @@ class ModifyDtsJobPasswordRequest extends Model
     public $password;
 
     /**
-     * @description The ID of the region where the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

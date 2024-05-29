@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyConsumerChannelRequest extends Model
 {
     /**
-     * @description The ID of the consumer group. You can call the [DescribeConsumerChannel](~~264169~~) operation to query the consumer group ID.
+     * @description The ID of the consumer group. You can call the [DescribeConsumerChannel](https://help.aliyun.com/document_detail/264169.html) operation to query the consumer group ID.
      *
+     * This parameter is required.
      * @example dtsor2y66j4219****
      *
      * @var string
@@ -39,7 +40,7 @@ class ModifyConsumerChannelRequest extends Model
     /**
      * @description The new username of the consumer group.
      *
-     *   A username can contain one or more of the following character types: uppercase letters, lowercase letters, digits, and underscores (\_).
+     *   A username can contain one or more of the following character types: uppercase letters, lowercase letters, digits, and underscores (_).
      *   A username cannot exceed 16 characters in length.
      *
      * @example dtstest
@@ -49,7 +50,7 @@ class ModifyConsumerChannelRequest extends Model
     public $consumerGroupUserName;
 
     /**
-     * @description The ID of the change tracking instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     * @description The ID of the change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
      *
      * >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
      * @example dtsboss6pn1w73****
@@ -59,7 +60,7 @@ class ModifyConsumerChannelRequest extends Model
     public $dtsInstanceId;
 
     /**
-     * @description The ID of the change tracking task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     * @description The ID of the change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
      *
      * >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
      * @example boss6pn1w73****
@@ -69,8 +70,9 @@ class ModifyConsumerChannelRequest extends Model
     public $dtsJobId;
 
     /**
-     * @description The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

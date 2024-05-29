@@ -41,7 +41,7 @@ class detail extends Model
      * @description The error message returned if the task failed to pass the precheck.
      *
      * > This parameter is returned only if the returned value of **CheckResult** is **Failed**.
-     * @example Original error: Access denied for user \"dtstest\"@\"100.104.***.**\" (using password: YES)
+     * @example Original error: Access denied for user \\"dtstest\\"@\\"100.104.***.**\\" (using password: YES)
      *
      * @var string
      */

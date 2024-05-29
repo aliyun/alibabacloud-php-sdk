@@ -51,6 +51,8 @@ class ConfigureSynchronizationJobRequest extends Model
      *   **false**: no
      *
      * >  Default value: **true**.
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -58,9 +60,9 @@ class ConfigureSynchronizationJobRequest extends Model
     public $dataInitialization;
 
     /**
-     * @description The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, for example, whether to automatically start a precheck. For more information, see [MigrationReserved](~~176470~~).
+     * @description The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, for example, whether to automatically start a precheck. For more information, see [MigrationReserved](https://help.aliyun.com/document_detail/176470.html).
      *
-     * >  This parameter can be used for data synchronization between ApsaraDB for Redis Enterprise Edition instances. For more information, see [Use OpenAPI Explorer to configure one-way or two-way data synchronization between ApsaraDB for Redis Enterprise Edition instances](~~155967~~).
+     * >  This parameter can be used for data synchronization between ApsaraDB for Redis Enterprise Edition instances. For more information, see [Use OpenAPI Explorer to configure one-way or two-way data synchronization between ApsaraDB for Redis Enterprise Edition instances](https://help.aliyun.com/document_detail/155967.html).
      * @example {     "autoStartModulesAfterConfig": "none",     "targetTableMode": 2 }
      *
      * @var string
@@ -89,6 +91,8 @@ class ConfigureSynchronizationJobRequest extends Model
      *   **false**: no
      *
      * >  Default value: **true**.
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -112,8 +116,9 @@ class ConfigureSynchronizationJobRequest extends Model
     public $synchronizationDirection;
 
     /**
-     * @description The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](~~49454~~) operation to query the instance ID.
+     * @description The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsz4ao1dor13d****
      *
      * @var string
@@ -129,8 +134,9 @@ class ConfigureSynchronizationJobRequest extends Model
     public $synchronizationJobName;
 
     /**
-     * @description The objects that you want to synchronize. The value is a JSON string and can contain regular expressions. For more information, see [SynchronizationObjects](~~141901~~).
+     * @description The objects that you want to synchronize. The value is a JSON string and can contain regular expressions. For more information, see [SynchronizationObjects](https://help.aliyun.com/document_detail/141901.html).
      *
+     * This parameter is required.
      * @example [{"DBName":"dtstestdata","TableIncludes":[{"TableName":"customer"}]}]
      *
      * @var string

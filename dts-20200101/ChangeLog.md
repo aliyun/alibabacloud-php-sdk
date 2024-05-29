@@ -1,3 +1,7 @@
+2024-05-29 Version: 1.5.1
+- Update API TransferPayType: add param AutoPay.
+
+
 2024-05-09 Version: 1.5.0
 - Support API DescribeSyncStatus.
 - Update API ModifyDtsJobEndpoint: add param ModifyAccount.

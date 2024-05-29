@@ -21,7 +21,7 @@ class detail extends Model
     /**
      * @description The connection settings of the source instance.
      *
-     * @example Original error: Access denied for user \"dtstest\"@\"100.104.***.**\" (using password: YES)
+     * @example Original error: Access denied for user \\"dtstest\\"@\\"100.104.***.**\\" (using password: YES)
      *
      * @var string
      */

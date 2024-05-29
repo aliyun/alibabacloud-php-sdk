@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeConsumerChannelRequest extends Model
 {
     /**
-     * @description The ID of the change tracking instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     * @description The ID of the change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
      *
      * >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
      * @example dtsboss6pn1w******
@@ -19,7 +19,7 @@ class DescribeConsumerChannelRequest extends Model
     public $dtsInstanceId;
 
     /**
-     * @description The ID of the change tracking task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     * @description The ID of the change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
      *
      * >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
      * @example boss6pn1w******
@@ -56,8 +56,9 @@ class DescribeConsumerChannelRequest extends Model
     public $parentChannelId;
 
     /**
-     * @description The ID of the region in which the change tracking instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

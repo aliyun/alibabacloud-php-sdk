@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateReverseDtsJobRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example n99m9jx822k****
      *
      * @var string

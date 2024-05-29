@@ -35,6 +35,7 @@ class DeleteSubscriptionInstanceRequest extends Model
     /**
      * @description The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsmxg11pfp231****
      *
      * @var string

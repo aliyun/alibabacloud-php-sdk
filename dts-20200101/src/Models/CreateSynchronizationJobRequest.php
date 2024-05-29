@@ -48,9 +48,11 @@ class CreateSynchronizationJobRequest extends Model
     public $DBInstanceCount;
 
     /**
-     * @description The ID of the region where the destination database resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the destination database resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * >  If the **SourceRegion** parameter is set to the China (Hong Kong) region or a region outside the Chinese mainland, you must set the DestRegion parameter to the same region ID.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -68,6 +70,7 @@ class CreateSynchronizationJobRequest extends Model
      *   **PrePaid**: subscription
      *   **PostPaid** (default value): pay-as-you-go
      *
+     * This parameter is required.
      * @example PostPaid
      *
      * @var string
@@ -98,8 +101,9 @@ class CreateSynchronizationJobRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the region where the source database resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the source database resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -109,7 +113,7 @@ class CreateSynchronizationJobRequest extends Model
     /**
      * @description The specification of the data synchronization instance. Valid values: **micro**, **small**, **medium**, and **large**.
      *
-     * >  For more information about the test performance of each specification, see [Specifications of data synchronization instances](~~26605~~).
+     * This parameter is required.
      * @example small
      *
      * @var string

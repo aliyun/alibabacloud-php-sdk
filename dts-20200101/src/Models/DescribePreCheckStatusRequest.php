@@ -11,6 +11,7 @@ class DescribePreCheckStatusRequest extends Model
     /**
      * @description The ID of the data migration, data synchronization, or change tracking task.
      *
+     * This parameter is required.
      * @example i03e3zty16i****
      *
      * @var string
@@ -25,6 +26,7 @@ class DescribePreCheckStatusRequest extends Model
      *   **03**: full data migration or initial full data synchronization
      *   **04**: incremental data migration or synchronization
      *
+     * This parameter is required.
      * @example 01
      *
      * @var string
@@ -59,7 +61,7 @@ class DescribePreCheckStatusRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-beijing
      *

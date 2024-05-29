@@ -19,7 +19,7 @@ class DescribeDtsServiceLogResponseBody extends Model
     public $dynamicCode;
 
     /**
-     * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
+     * @description The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
      *
      * @example DtsJobId
      *

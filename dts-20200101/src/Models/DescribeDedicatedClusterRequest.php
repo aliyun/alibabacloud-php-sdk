@@ -11,6 +11,7 @@ class DescribeDedicatedClusterRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example dtsCluster****
      *
      * @var string

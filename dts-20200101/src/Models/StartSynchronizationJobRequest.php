@@ -51,6 +51,7 @@ class StartSynchronizationJobRequest extends Model
     /**
      * @description The ID of the data synchronization instance. You can call the **DescribeSynchronizationJobs** operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsf19100l2186****
      *
      * @var string

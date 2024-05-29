@@ -11,6 +11,7 @@ class ModifyDtsJobNameRequest extends Model
     /**
      * @description The ID of the data migration, data synchronization, or change tracking task.
      *
+     * This parameter is required.
      * @example l3m1213ye7l****
      *
      * @var string
@@ -20,13 +21,13 @@ class ModifyDtsJobNameRequest extends Model
     /**
      * @description The new name of the DTS task.
      *
-     * >  We recommend that you specify a descriptive name for easy identification. You do not need to use a unique name.
+     * This parameter is required.
      * @var string
      */
     public $dtsJobName;
 
     /**
-     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-beijing
      *

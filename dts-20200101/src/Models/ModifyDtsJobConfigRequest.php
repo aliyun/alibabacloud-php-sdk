@@ -21,7 +21,7 @@ class ModifyDtsJobConfigRequest extends Model
     public $ownerId;
 
     /**
-     * @example [{\"module\":\"07\",\"name\":\"sink.connection.idle.second\",\"value\":60},{\"module\":\"07\",\"name\":\"sink.batch.size.maximum\",\"value\":64}]
+     * @example [{\\"module\\":\\"07\\",\\"name\\":\\"sink.connection.idle.second\\",\\"value\\":60},{\\"module\\":\\"07\\",\\"name\\":\\"sink.batch.size.maximum\\",\\"value\\":64}]
      *
      * @var string
      */

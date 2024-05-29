@@ -14,6 +14,7 @@ class DescribeDataCheckTableDetailsRequest extends Model
      *   **1**: full data verification.
      *   **2**: incremental data verification.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -21,8 +22,9 @@ class DescribeDataCheckTableDetailsRequest extends Model
     public $checkType;
 
     /**
-     * @description The ID of the data migration or data synchronization task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     * @description The ID of the data migration or data synchronization task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
      *
+     * This parameter is required.
      * @example xd4e4xb419q****
      *
      * @var string

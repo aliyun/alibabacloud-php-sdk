@@ -51,8 +51,9 @@ class ConfigureSubscriptionInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the region in which the change tracking instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
+     * This parameter is required.
      * @example dtshp8n2ze4r5x****
      *
      * @var string
@@ -60,7 +61,7 @@ class ConfigureSubscriptionInstanceRequest extends Model
     public $subscriptionInstanceId;
 
     /**
-     * @description The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](~~49442~~) operation to query the instance ID.
+     * @description The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](https://help.aliyun.com/document_detail/49442.html) operation to query the instance ID.
      *
      * @example The name of the change tracking instance.
      *
@@ -83,8 +84,9 @@ class ConfigureSubscriptionInstanceRequest extends Model
     public $subscriptionInstanceNetworkType;
 
     /**
-     * @description The objects for which you want to track data changes. The value is a JSON string and can contain regular expressions. For more information, see [SubscriptionObjects](~~141902~~).
+     * @description The objects for which you want to track data changes. The value is a JSON string and can contain regular expressions. For more information, see [SubscriptionObjects](https://help.aliyun.com/document_detail/141902.html).
      *
+     * This parameter is required.
      * @example [{     "DBName": "dtstestdata" }]
      *
      * @var string

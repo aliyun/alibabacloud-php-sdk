@@ -139,7 +139,7 @@ class DescribeDtsJobsRequest extends Model
     public $params;
 
     /**
-     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -228,7 +228,7 @@ class DescribeDtsJobsRequest extends Model
      * @description The tags of the DTS task to be queried. Specify tags in the JSON format.
      *
      * >  You can call the **ListTagResources** operation to query the tag key and tag value.
-     * @example [     {         \"key\": \"testK\",         \"value\": \"testV\"     }  ]
+     * @example [     {         \\"key\\": \\"testK\\",         \\"value\\": \\"testV\\"     }  ]
      *
      * @var string
      */

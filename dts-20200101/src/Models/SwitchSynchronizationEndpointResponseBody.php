@@ -45,7 +45,7 @@ class SwitchSynchronizationEndpointResponseBody extends Model
     public $success;
 
     /**
-     * @description The task ID. You must specify the task ID when you call the [DescribeEndpointSwitchStatus](~~135598~~) operation to query the execution status of the task.
+     * @description The task ID. You must specify the task ID when you call the [DescribeEndpointSwitchStatus](https://help.aliyun.com/document_detail/135598.html) operation to query the execution status of the task.
      *
      * @example 11****
      *

@@ -11,6 +11,7 @@ class ModifyDtsJobDuLimitRequest extends Model
     /**
      * @description The ID of the data migration, data synchronization, or change tracking task.
      *
+     * This parameter is required.
      * @example dtsxxx
      *
      * @var string
@@ -21,6 +22,8 @@ class ModifyDtsJobDuLimitRequest extends Model
      * @description The upper limit of DUs for the DTS task.
      *
      * >  Minimum value: **1**.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int

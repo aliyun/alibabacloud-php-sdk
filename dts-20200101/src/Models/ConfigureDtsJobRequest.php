@@ -30,8 +30,9 @@ class ConfigureDtsJobRequest extends Model
     public $dataCheckConfigure;
 
     /**
-     * @description The objects that you want to migrate or synchronize. The value is a JSON string. For more information, see [Objects of DTS tasks](~~209545~~).
+     * @description The objects that you want to migrate or synchronize. The value is a JSON string. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -39,8 +40,9 @@ class ConfigureDtsJobRequest extends Model
     public $dataInitialization;
 
     /**
-     * @description The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to add more configurations of the source or destination instance to the DTS task. For example, you can specify the data storage format of the destination Kafka database and the ID of the CEN instance. For more information, see [Reserve](~~273111~~).
+     * @description The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to add more configurations of the source or destination instance to the DTS task. For example, you can specify the data storage format of the destination Kafka database and the ID of the CEN instance. For more information, see [Reserve](https://help.aliyun.com/document_detail/273111.html).
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -57,7 +59,7 @@ class ConfigureDtsJobRequest extends Model
     public $dbList;
 
     /**
-     * @description The data verification task for a data migration or synchronization instance. The value is a JSON string that indicates parameter limits or alert configurations. For more information, see [DataCheckConfigure](~~459023~~).
+     * @description The data verification task for a data migration or synchronization instance. The value is a JSON string that indicates parameter limits or alert configurations. For more information, see [DataCheckConfigure](https://help.aliyun.com/document_detail/459023.html).
      *
      * @example dtscluster_atyl3b5214uk***
      *
@@ -94,7 +96,7 @@ class ConfigureDtsJobRequest extends Model
      *
      * >
      *   This parameter is available only for China site (aliyun.com) users. Only mobile numbers in the Chinese mainland are supported. Up to 10 mobile numbers can be specified.
-     *   International site (alibabacloud.com) users cannot receive alerts by using mobile phones, but can [set alert rules for DTS tasks in the CloudMonitor console](~~175876~~).
+     *   International site (alibabacloud.com) users cannot receive alerts by using mobile phones, but can [set alert rules for DTS tasks in the CloudMonitor console](https://help.aliyun.com/document_detail/175876.html).
      *
      * @example 10
      *
@@ -115,7 +117,7 @@ class ConfigureDtsJobRequest extends Model
     /**
      * @description The password of the destination database account.
      *
-     * >  If the destination database is a MaxCompute project, you must specify the AccessKey secret of your Alibaba Cloud account. For information about how to obtain your AccessKey pair, see [Create an AccessKey pair](~~116401~~).
+     * >  If the destination database is a MaxCompute project, you must specify the AccessKey secret of your Alibaba Cloud account. For information about how to obtain your AccessKey pair, see [Create an AccessKey pair](https://help.aliyun.com/document_detail/116401.html).
      * @example dtstestdata
      *
      * @var string
@@ -139,14 +141,14 @@ class ConfigureDtsJobRequest extends Model
      *   If the destination instance is a PolarDB for Oracle cluster, an AnalyticDB for PostgreSQL instance, a PostgreSQL database, a MaxCompute project, or a MongoDB database, this parameter is available and required.
      *   If the destination instance is a MaxCompute project, you must specify the ID of the MaxCompute project.
      *
-     * @example 172.16.**.***
+     * @example 172.16.\*\*.***
      *
      * @var string
      */
     public $destinationEndpointIP;
 
     /**
-     * @description The ID of the region in which the destination instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the destination instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * >  If the destination instance is an Alibaba Cloud database instance, this parameter is required.
      * @example vpc-bp1opxu1zkhn00gzv****
@@ -182,8 +184,9 @@ class ConfigureDtsJobRequest extends Model
      *
      * >
      *   Default value: **MYSQL**.
-     *   If the DestinationEndpointEngineName parameter is set to **KAFKA**, **MONGODB**, or **PolarDB**, you must also specify the database information in the Reserve parameter. For more information, see [Reserve](~~273111~~).
+     *   If the DestinationEndpointEngineName parameter is set to **KAFKA**, **MONGODB**, or **PolarDB**, you must also specify the database information in the Reserve parameter. For more information, see [Reserve](https://help.aliyun.com/document_detail/273111.html).
      *
+     * This parameter is required.
      * @example EXPRESS
      *
      * @var string
@@ -193,7 +196,7 @@ class ConfigureDtsJobRequest extends Model
     /**
      * @description The ID of the data migration or synchronization task.
      *
-     * >  You must specify at least one of the DtsJobId and **DtsInstanceId** parameters. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     * >  You must specify at least one of the DtsJobId and **DtsInstanceId** parameters. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
      * @example testsid
      *
      * @var string
@@ -222,8 +225,8 @@ class ConfigureDtsJobRequest extends Model
      *
      * >
      *   In most cases, this parameter is required.
-     *   The permissions that are required for the database account vary with the migration or synchronization scenario. For more information, see [Prepare the database accounts for data migration](~~175878~~) or [Prepare the database accounts for data synchronization](~~213152~~).
-     *   If the destination database is a MaxCompute project, you must specify the AccessKey ID of your Alibaba Cloud account. For information about how to obtain your AccessKey pair, see [Create an AccessKey pair](~~116401~~).
+     *   The permissions that are required for the database account vary with the migration or synchronization scenario. For more information, see [Prepare the database accounts for data migration](https://help.aliyun.com/document_detail/175878.html) or [Prepare the database accounts for data synchronization](https://help.aliyun.com/document_detail/213152.html).
+     *   If the destination database is a MaxCompute project, you must specify the AccessKey ID of your Alibaba Cloud account. For information about how to obtain your AccessKey pair, see [Create an AccessKey pair](https://help.aliyun.com/document_detail/116401.html).
      *
      * @example 3306
      *
@@ -287,7 +290,7 @@ class ConfigureDtsJobRequest extends Model
      *
      * >
      *   This parameter is available only for China site (aliyun.com) users. Only mobile numbers in the Chinese mainland are supported. Up to 10 mobile numbers can be specified.
-     *   International site (alibabacloud.com) users cannot receive alerts by using mobile phones, but can [set alert rules for DTS tasks in the CloudMonitor console](~~175876~~).
+     *   International site (alibabacloud.com) users cannot receive alerts by using mobile phones, but can [set alert rules for DTS tasks in the CloudMonitor console](https://help.aliyun.com/document_detail/175876.html).
      *
      * @example k2gm967v16f****
      *
@@ -306,7 +309,9 @@ class ConfigureDtsJobRequest extends Model
      *   If the SourceEndpointInstanceType parameter is set to **DG**, you must specify the ID of the database gateway.
      *   If the SourceEndpointInstanceType parameter is set to **EXPRESS** or **CEN**, you must specify the ID of the VPC that is connected to the source instance.
      *
-     * >  If the SourceEndpointInstanceType parameter is set to **CEN**, you must also specify the ID of the CEN instance in the Reserve parameter. For more information, see [Reserve](~~273111~~).
+     * >  If the SourceEndpointInstanceType parameter is set to **CEN**, you must also specify the ID of the CEN instance in the Reserve parameter. For more information, see [Reserve](https://help.aliyun.com/document_detail/273111.html).
+     *
+     * This parameter is required.
      * @example rdsmysql_to_mysql
      *
      * @var string
@@ -314,7 +319,7 @@ class ConfigureDtsJobRequest extends Model
     public $dtsJobName;
 
     /**
-     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example true
      *
@@ -353,7 +358,9 @@ class ConfigureDtsJobRequest extends Model
     /**
      * @description The ID of the data migration or synchronization instance.
      *
-     * >  You must specify at least one of the **DtsJobId** and DtsInstanceId parameters. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     * >  You must specify at least one of the **DtsJobId** and DtsInstanceId parameters. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
+     *
+     * This parameter is required.
      * @example SYNC
      *
      * @var string
@@ -422,14 +429,14 @@ class ConfigureDtsJobRequest extends Model
      * @description The system ID (SID) of the Oracle database.
      *
      * >  If the **SourceEndpointEngineName** parameter is set to **ORACLE** and the **Oracle** database is deployed in an architecture that is not a Real Application Cluster (RAC), this parameter is available and required.
-     * @example 172.16.**.***
+     * @example 172.16.\*\*.***
      *
      * @var string
      */
     public $sourceEndpointIP;
 
     /**
-     * @description The ID of the region in which the source instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the source instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * >  If the source instance is an Alibaba Cloud database instance, this parameter is required.
      * @example rm-bp1imrtn6fq7h****
@@ -461,8 +468,9 @@ class ConfigureDtsJobRequest extends Model
      *
      * >
      *   Default value: **MYSQL**.
-     *   If the SourceEndpointEngineName parameter is set to **MONGODB**, you must also specify the architecture type of the MongoDB database in the Reserve parameter. For more information, see [Reserve](~~273111~~).
+     *   If the SourceEndpointEngineName parameter is set to **MONGODB**, you must also specify the architecture type of the MongoDB database in the Reserve parameter. For more information, see [Reserve](https://help.aliyun.com/document_detail/273111.html).
      *
+     * This parameter is required.
      * @example RDS
      *
      * @var string
@@ -474,7 +482,7 @@ class ConfigureDtsJobRequest extends Model
      *
      * >
      *   In most cases, this parameter is required.
-     *   The permissions that are required for the database account vary with the migration or synchronization scenario. For more information, see [Prepare the database accounts for data migration](~~175878~~) or [Prepare the database accounts for data synchronization](~~213152~~).
+     *   The permissions that are required for the database account vary with the migration or synchronization scenario. For more information, see [Prepare the database accounts for data migration](https://help.aliyun.com/document_detail/175878.html) or [Prepare the database accounts for data synchronization](https://help.aliyun.com/document_detail/213152.html).
      *
      * @example testsid
      *
@@ -511,8 +519,8 @@ class ConfigureDtsJobRequest extends Model
      * >
      *   If the destination instance is a PolarDB for Oracle cluster, you must set this parameter to **OTHER** or **EXPRESS** because you can use a PolarDB for Oracle cluster only as a self-managed database connected over the Internet or Express Connect.
      *   If the destination instance is a Message Queue for Apache Kafka instance, you must set this parameter to **ECS** or **EXPRESS** because you can use a Message Queue for Apache Kafka instance only as a self-managed database connected over ECS or Express Connect.
-     *   For more information, see [Supported databases](~~176064~~).
-     *   If the destination instance is a self-managed database, you must deploy the network environment for the database. For more information, see [Preparation overview](~~146958~~).
+     *   For more information, see [Supported databases](https://help.aliyun.com/document_detail/176064.html).
+     *   If the destination instance is a self-managed database, you must deploy the network environment for the database. For more information, see [Preparation overview](https://help.aliyun.com/document_detail/146958.html).
      *
      * @example 140692647406****
      *
@@ -523,7 +531,7 @@ class ConfigureDtsJobRequest extends Model
     /**
      * @description The name of the RAM role configured for the Alibaba Cloud account that owns the source instance.
      *
-     * >  This parameter is required when you migrate or synchronize data across different Alibaba Cloud accounts. For information about the permissions and authorization methods of the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](~~48468~~).
+     * >  This parameter is required when you migrate or synchronize data across different Alibaba Cloud accounts. For information about the permissions and authorization methods of the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](https://help.aliyun.com/document_detail/48468.html).
      * @example Test123456
      *
      * @var string
@@ -561,7 +569,7 @@ class ConfigureDtsJobRequest extends Model
      *   If the DestinationEndpointInstanceType parameter is set to **DG**, you must specify the ID of the database gateway.
      *   If the DestinationEndpointInstanceType parameter is set to **EXPRESS** or **CEN**, you must specify the ID of the VPC that is connected to the source instance.
      *
-     * >  If the DestinationEndpointInstanceType parameter is set to **CEN**, you must also specify the ID of the CEN instance in the Reserve parameter. For more information, see [Reserve](~~273111~~).
+     * >  If the DestinationEndpointInstanceType parameter is set to **CEN**, you must also specify the ID of the CEN instance in the Reserve parameter. For more information, see [Reserve](https://help.aliyun.com/document_detail/273111.html).
      * @example ram-for-dts
      *
      * @var string
@@ -601,6 +609,7 @@ class ConfigureDtsJobRequest extends Model
      *   **false**: does not perform incremental data migration or synchronization.
      *   **true**: performs incremental data migration or synchronization.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

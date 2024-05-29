@@ -44,6 +44,7 @@ class DescribeSubscriptionInstanceAlertRequest extends Model
     /**
      * @description The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsl8zl9ek6292****
      *
      * @var string

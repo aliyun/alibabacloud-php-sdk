@@ -29,6 +29,7 @@ class DescribeMigrationJobStatusRequest extends Model
     /**
      * @description The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsz2v12jfo309****
      *
      * @var string

@@ -14,7 +14,7 @@ class migrationMode extends Model
      *   **true**: yes
      *   **false**: no
      *
-     * >  For more information about databases that support full data migration, see [Supported databases and migration types](~~26618~~).
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -27,7 +27,7 @@ class migrationMode extends Model
      *   **true**: yes
      *   **false**: no
      *
-     * >  For more information about databases that support incremental data migration, see [Supported databases and migration types](~~26618~~).
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -40,7 +40,7 @@ class migrationMode extends Model
      *   **true**: yes
      *   **false**: no
      *
-     * >  For more information about databases that support schema migration, see [Supported databases and migration types](~~26618~~).
+     * This parameter is required.
      * @example true
      *
      * @var bool

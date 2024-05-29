@@ -225,7 +225,7 @@ class jobProgress extends Model
     /**
      * @description The sub-item progress of the subtask.
      *
-     * >  If **\[]** is returned, the subtask has no sub-items.
+     * >  If **[]** is returned, the subtask has no sub-items.
      * @example []
      *
      * @var string

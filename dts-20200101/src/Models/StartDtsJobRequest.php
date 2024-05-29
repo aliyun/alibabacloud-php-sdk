@@ -11,7 +11,7 @@ class StartDtsJobRequest extends Model
     /**
      * @description The ID of the data migration, data synchronization, or change tracking instance.
      *
-     * >  You can call the [DescribeMigrationJobs](~~208139~~), [DescribeSubscriptionInstances](~~49442~~), or [DescribeSynchronizationJobs](~~49454~~) operation to query the instance ID
+     * >  You can call the [DescribeMigrationJobs](https://help.aliyun.com/document_detail/208139.html), [DescribeSubscriptionInstances](https://help.aliyun.com/document_detail/49442.html), or [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID
      * @example dtsl3m1213ye7l****
      *
      * @var string
@@ -28,7 +28,7 @@ class StartDtsJobRequest extends Model
     public $dtsJobId;
 
     /**
-     * @description The region ID of the Data Transmission Service (DTS) instance. For more information, see [List of supported regions](~~141033~~).
+     * @description The region ID of the Data Transmission Service (DTS) instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

@@ -63,8 +63,9 @@ class CreateSubscriptionInstanceRequest extends Model
     public $period;
 
     /**
-     * @description The region ID of the change tracking instance. The region ID is the same as that of the source instance. For more information, see [List of supported regions](~~141033~~).
+     * @description The region ID of the change tracking instance. The region ID is the same as that of the source instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

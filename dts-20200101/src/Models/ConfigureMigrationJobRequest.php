@@ -47,6 +47,7 @@ class ConfigureMigrationJobRequest extends Model
     /**
      * @description The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsl3m1213ye7l****
      *
      * @var string
@@ -56,6 +57,7 @@ class ConfigureMigrationJobRequest extends Model
     /**
      * @description The name of the data migration task. The name can be up to 32 characters in length. We recommend that you specify an informative name to identify the task. You do not need to use a unique task name.
      *
+     * This parameter is required.
      * @example MySQL_TO_RDS
      *
      * @var string
@@ -65,7 +67,7 @@ class ConfigureMigrationJobRequest extends Model
     /**
      * @description The objects that you want to migrate. The value is a JSON string and can contain regular expressions.
      *
-     * For more information, see [MigrationObject](~~141227~~).
+     * This parameter is required.
      * @example [{"DBName":"dtstestdata","TableIncludes":[{"TableName":"customer"}]}]
      *
      * @var string
@@ -73,7 +75,7 @@ class ConfigureMigrationJobRequest extends Model
     public $migrationObject;
 
     /**
-     * @description The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, for example, whether to automatically start a precheck. For more information, see [MigrationReserved](~~176470~~).
+     * @description The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, for example, whether to automatically start a precheck. For more information, see [MigrationReserved](https://help.aliyun.com/document_detail/176470.html).
      *
      * @example {     "autoStartModulesAfterConfig": "none",     "targetTableMode": 2 }
      *
@@ -87,7 +89,7 @@ class ConfigureMigrationJobRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the data migration instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the data migration instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * >  The region ID of the data migration instance is the same as that of the destination database.
      * @example cn-hangzhou

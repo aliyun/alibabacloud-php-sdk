@@ -30,9 +30,10 @@ class CreateMigrationJobRequest extends Model
      * @description The specification of the data migration instance. Valid values: **small**, **medium**, **large**, **xlarge**, and **2xlarge**.
      *
      * >
-     *   For more information about the test performance of each specification, see [Specifications of data migration instances](~~26606~~).
-     *   For more information about the pricing of data migration instances, see [Pricing](~~117780~~).
+     *   For more information about the test performance of each specification, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html).
+     *   For more information about the pricing of data migration instances, see [Pricing](https://help.aliyun.com/document_detail/117780.html).
      *
+     * This parameter is required.
      * @example 2xlarge
      *
      * @var string
@@ -45,8 +46,9 @@ class CreateMigrationJobRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the data migration instance resides. The region ID of the data migration instance is the same as that of the destination database. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the data migration instance resides. The region ID of the data migration instance is the same as that of the destination database. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

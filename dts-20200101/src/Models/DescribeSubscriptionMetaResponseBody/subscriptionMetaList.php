@@ -19,9 +19,9 @@ class subscriptionMetaList extends Model
     public $checkpoint;
 
     /**
-     * @description The objects of the subtask. For more information, see [Objects of DTS tasks](~~209545~~).
+     * @description The objects of the subtask. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
      *
-     * @example {\"dtstestdata\":{\"name\":\"dtstestdata\",\"all\":false,\"Table\":{\"order\":{\"name\":\"order\",\"all\":true}}}}
+     * @example {\\"dtstestdata\\":{\\"name\\":\\"dtstestdata\\",\\"all\\":false,\\"Table\\":{\\"order\\":{\\"name\\":\\"order\\",\\"all\\":true}}}}
      *
      * @var string
      */

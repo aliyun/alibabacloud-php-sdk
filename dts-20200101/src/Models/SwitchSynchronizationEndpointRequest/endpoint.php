@@ -25,6 +25,7 @@ class endpoint extends Model
      *   If the **Endpoint.InstanceType** parameter is set to **ECS**, you must specify the ID of the ECS instance.
      *   If the **Endpoint.InstanceType** parameter is set to **Express**, you must specify the ID of the VPC.
      *
+     * This parameter is required.
      * @example i-bp11haem1kpkhoup****
      *
      * @var string
@@ -38,6 +39,7 @@ class endpoint extends Model
      *   **ECS**: self-managed database that is hosted on ECS
      *   **Express**: self-managed database that is connected over Express Connect
      *
+     * This parameter is required.
      * @example ECS
      *
      * @var string
@@ -47,6 +49,7 @@ class endpoint extends Model
     /**
      * @description The service port number of the database.
      *
+     * This parameter is required.
      * @example 3306
      *
      * @var string
@@ -59,6 +62,7 @@ class endpoint extends Model
      *   **Source**
      *   **Destination**
      *
+     * This parameter is required.
      * @example Destination
      *
      * @var string

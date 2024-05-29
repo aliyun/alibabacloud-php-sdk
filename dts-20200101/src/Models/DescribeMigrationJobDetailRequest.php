@@ -35,6 +35,7 @@ class DescribeMigrationJobDetailRequest extends Model
     /**
      * @description The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsta7w132u12h****
      *
      * @var string
@@ -65,7 +66,7 @@ class DescribeMigrationJobDetailRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the data migration instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the data migration instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

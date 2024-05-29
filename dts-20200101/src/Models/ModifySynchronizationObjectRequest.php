@@ -51,6 +51,7 @@ class ModifySynchronizationObjectRequest extends Model
     /**
      * @description The ID of the data synchronization instance. You can call the DescribeSynchronizationJobs operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtskfq1149w254****
      *
      * @var string
@@ -58,6 +59,8 @@ class ModifySynchronizationObjectRequest extends Model
     public $synchronizationJobId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $synchronizationObjects;

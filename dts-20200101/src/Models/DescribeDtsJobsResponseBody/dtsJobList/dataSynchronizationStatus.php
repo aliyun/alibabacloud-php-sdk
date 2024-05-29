@@ -23,7 +23,7 @@ class dataSynchronizationStatus extends Model
      *   **true**: yes
      *   **false**: no
      *
-     * >  To upgrade a DTS instance, call the [TransferInstanceClass](~~281093~~) operation.
+     * >  To upgrade a DTS instance, call the [TransferInstanceClass](https://help.aliyun.com/document_detail/281093.html) operation.
      * @example true
      *
      * @var bool

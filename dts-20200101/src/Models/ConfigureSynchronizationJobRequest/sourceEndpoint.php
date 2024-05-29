@@ -87,7 +87,7 @@ class sourceEndpoint extends Model
     /**
      * @description The name of the RAM role configured for the Alibaba Cloud account that owns the source instance.
      *
-     * >  You must specify this parameter when you synchronize data across different Alibaba Cloud accounts. For information about the permissions and authorization methods of the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](~~48468~~).
+     * >  You must specify this parameter when you synchronize data across different Alibaba Cloud accounts. For information about the permissions and authorization methods of the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](https://help.aliyun.com/document_detail/48468.html).
      * @example ram-for-dts
      *
      * @var string
@@ -100,7 +100,7 @@ class sourceEndpoint extends Model
      * >
      *   You must specify this parameter only if the **SourceEndpoint.InstanceType** parameter is set to **ECS**, **Express**, **dg**, or **cen**.
      *   If the **SourceEndpoint.InstanceType** parameter is set to **Redis**, you do not need to specify the database account.
-     *   The permissions that are required for database accounts vary with the synchronization scenario. For more information, see [Overview of data synchronization scenarios](~~140954~~).
+     *   The permissions that are required for database accounts vary with the synchronization scenario. For more information, see [Overview of data synchronization scenarios](https://help.aliyun.com/document_detail/140954.html).
      *
      * @example dtstestaccount
      *

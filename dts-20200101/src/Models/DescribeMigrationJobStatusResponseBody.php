@@ -55,7 +55,7 @@ class DescribeMigrationJobStatusResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The specification of the data migration instance. Valid values: **small**, **medium**, **large**, **xlarge**, and **2xlarge**. For more information, see [Specifications of data migration instances](~~26606~~).
+     * @description The specification of the data migration instance. Valid values: **small**, **medium**, **large**, **xlarge**, and **2xlarge**. For more information, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html).
      *
      * @example 2xlarge
      *
@@ -106,7 +106,7 @@ class DescribeMigrationJobStatusResponseBody extends Model
     /**
      * @description The objects that are migrated by the task.
      *
-     * @example [{\"DBName\":\"dtstestdata\",\"TableIncludes\":[{\"TableName\":\"customer\"}]}]
+     * @example [{\\"DBName\\":\\"dtstestdata\\",\\"TableIncludes\\":[{\\"TableName\\":\\"customer\\"}]}]
      *
      * @var string
      */

@@ -20,6 +20,7 @@ class CreateDedicatedClusterMonitorRuleRequest extends Model
     /**
      * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example dts-dasd22******
      *
      * @var string
@@ -82,6 +83,7 @@ class CreateDedicatedClusterMonitorRuleRequest extends Model
     /**
      * @description The mobile phone number to which alerts are sent. Separate multiple mobile phone numbers with commas (,).
      *
+     * This parameter is required.
      * @example 186****7654
      *
      * @var string

@@ -24,7 +24,7 @@ class checkItem extends Model
      * @description The error message returned if the task failed to pass the precheck.
      *
      * >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
-     * @example Original error: Access denied for user \"dtstest\"@\"100.104.***.**\" (using password: YES)
+     * @example Original error: Access denied for user \\"dtstest\\"@\\"100.104.***.**\\" (using password: YES)
      *
      * @var string
      */

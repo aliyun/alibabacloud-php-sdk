@@ -11,6 +11,7 @@ class ShieldPrecheckRequest extends Model
     /**
      * @description The ID of the data migration or data synchronization instance. You can call the **DescribeMigrationJobs** or DescribeSynchronizationJobs operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsi76118o3w92****
      *
      * @var string
@@ -28,10 +29,11 @@ class ShieldPrecheckRequest extends Model
      *
      *   **CHECK_TOPOLOGY**: topology
      *
-     * > For more information about the topologies supported by DTS, see [Synchronization topologies](~~124115~~).
+     * > For more information about the topologies supported by DTS, see [Synchronization topologies](https://help.aliyun.com/document_detail/124115.html).
      *
      *   **CHECK_SERVER_ID**: value of server_id in the source database
      *
+     * This parameter is required.
      * @example CHECK_SAME_OBJ
      *
      * @var string

@@ -62,6 +62,7 @@ class DescribeMetricListRequest extends Model
      *   **memory_usedutilization**: the memory usage.
      *   **IntranetOutRate**: the outbound traffic over the internal network. Unit: byte.
      *
+     * This parameter is required.
      * @example cpu_total
      *
      * @var string
@@ -88,6 +89,7 @@ class DescribeMetricListRequest extends Model
     /**
      * @description The monitored object. If the **MetricType** parameter is set to **NODE**, set this parameter to the ID of the node that is monitored.
      *
+     * This parameter is required.
      * @example nodeid
      *
      * @var string

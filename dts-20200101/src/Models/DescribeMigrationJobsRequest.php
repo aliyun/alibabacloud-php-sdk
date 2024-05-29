@@ -50,7 +50,7 @@ class DescribeMigrationJobsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the data migration instances reside. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the data migration instances reside. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

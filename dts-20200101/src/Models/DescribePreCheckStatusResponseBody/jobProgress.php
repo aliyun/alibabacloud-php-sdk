@@ -39,7 +39,7 @@ class jobProgress extends Model
     /**
      * @description The DDL statements.
      *
-     * @example CREATE TABLE `dtstestdata`.`order` (\n`orderid`  int(11)     COMMENT \"\"   NOT NULL   , \n`username`  char(32)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \"\"   NULL   , \n`ordertime`  datetime     COMMENT \"\"   NULL   , \n`commodity`  varchar(32)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \"\"   NULL   , \n`phonenumber`  int(11)     COMMENT \"\"   NULL   , \n`address`  text  CHARSET `utf8mb4` COLLATE `utf8mb4_general_ci`    COMMENT \"\"   NULL   \n, PRIMARY KEY (`orderid`)) engine=InnoDB DEFAULT CHARSET=`gbk` DEFAULT COLLATE `gbk_chinese_ci` ROW_FORMAT= Dynamic comment = \"\" ;\n
+     * @example CREATE TABLE `dtstestdata`.`order` (\\n`orderid`  int(11)     COMMENT \\"\\"   NOT NULL   , \\n`username`  char(32)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \\"\\"   NULL   , \\n`ordertime`  datetime     COMMENT \\"\\"   NULL   , \\n`commodity`  varchar(32)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \\"\\"   NULL   , \\n`phonenumber`  int(11)     COMMENT \\"\\"   NULL   , \\n`address`  text  CHARSET `utf8mb4` COLLATE `utf8mb4_general_ci`    COMMENT \\"\\"   NULL   \\n, PRIMARY KEY (`orderid`)) engine=InnoDB DEFAULT CHARSET=`gbk` DEFAULT COLLATE `gbk_chinese_ci` ROW_FORMAT= Dynamic comment = \\"\\" ;\\n
      *
      * @var string
      */
@@ -222,7 +222,7 @@ class jobProgress extends Model
     /**
      * @description The sub-item progress of the subtask.
      *
-     * >  If **\[]** is returned, the subtask has no sub-items.
+     * >  If **[]** is returned, the subtask has no sub-items.
      * @example []
      *
      * @var string

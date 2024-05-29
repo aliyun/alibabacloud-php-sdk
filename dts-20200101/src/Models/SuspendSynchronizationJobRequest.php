@@ -51,6 +51,7 @@ class SuspendSynchronizationJobRequest extends Model
     /**
      * @description The ID of the data synchronization instance. You can call the **DescribeSynchronizationJobs** operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsmr1q4mc2152****
      *
      * @var string

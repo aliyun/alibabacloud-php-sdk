@@ -29,6 +29,7 @@ class DescribeClusterUsedUtilizationRequest extends Model
     /**
      * @description The ID of the cluster. If the **MetricType** parameter is set to **CLUSTER**, enter the ID of the exclusive cluster. Otherwise, set this parameter to a node ID.
      *
+     * This parameter is required.
      * @example nodeid
      *
      * @var string

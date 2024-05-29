@@ -23,6 +23,7 @@ class RenewInstanceRequest extends Model
     /**
      * @description The billing method of the DTS instance. Set the value to **PREPAY**, which indicates the subscription billing method.
      *
+     * This parameter is required.
      * @example PREPAY
      *
      * @var string
@@ -30,8 +31,9 @@ class RenewInstanceRequest extends Model
     public $chargeType;
 
     /**
-     * @description The ID of the data synchronization or change tracking task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     * @description The ID of the data synchronization or change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
      *
+     * This parameter is required.
      * @example qi0r643lc31****
      *
      * @var string
@@ -51,7 +53,7 @@ class RenewInstanceRequest extends Model
     public $period;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

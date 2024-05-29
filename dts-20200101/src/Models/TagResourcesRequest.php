@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The ID of the region where the data migration, data synchronization, or change tracking instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the data migration, data synchronization, or change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -24,6 +25,8 @@ class TagResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example dtsntk10k6r12v****
      *
      * @var string[]
@@ -40,6 +43,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var tag[]
      */
     public $tag;

@@ -9,13 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDynamicConfigRequest extends Model
 {
     /**
-     * @example {\"dts.datamove.source.rps.max\":5000,\"dts.datamove.source.bps.max\":10485760}
+     * @example {\\"dts.datamove.source.rps.max\\":5000,\\"dts.datamove.source.bps.max\\":10485760}
      *
      * @var string
      */
     public $configList;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ta7w132u12h****
      *
      * @var string
@@ -30,6 +32,8 @@ class ModifyDynamicConfigRequest extends Model
     public $enableLimit;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 07
      *
      * @var string

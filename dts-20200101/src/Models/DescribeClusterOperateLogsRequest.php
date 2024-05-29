@@ -29,6 +29,7 @@ class DescribeClusterOperateLogsRequest extends Model
     /**
      * @description The ID of the DTS dedicated cluster on which a DTS task runs.
      *
+     * This parameter is required.
      * @example dtsxxxxx
      *
      * @var string

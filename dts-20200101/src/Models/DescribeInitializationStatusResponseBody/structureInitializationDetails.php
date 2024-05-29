@@ -29,7 +29,7 @@ class structureInitializationDetails extends Model
     /**
      * @description The error message returned if initial schema synchronization failed.
      *
-     * @example DTS-1020042 Execute sql error sql: Table \"customer\" already exists
+     * @example DTS-1020042 Execute sql error sql: Table \\"customer\\" already exists
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class structureInitializationDetails extends Model
     /**
      * @description The schema of the object.
      *
-     * @example CREATE TABLE `dtstestdata`.`customer` (\n`customer_id`  int(10) unsigned   auto_increment  COMMENT \"\"   NOT NULL   , \n`customer_title`  varchar(100)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \"\"   NOT NULL   , \n`customer_company1216`  varchar(40)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \"\"   NOT NULL   , \n`submission_date1216`  date     COMMENT \"\"   NULL   \n, PRIMARY KEY (`customer_id`)) engine=InnoDB AUTO_INCREMENT=200001 DEFAULT CHARSET=`utf8` DEFAULT COLLATE `utf8_general_ci` ROW_FORMAT= Dynamic comment = \"\" ;\n
+     * @example CREATE TABLE `dtstestdata`.`customer` (\\n`customer_id`  int(10) unsigned   auto_increment  COMMENT \\"\\"   NOT NULL   , \\n`customer_title`  varchar(100)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \\"\\"   NOT NULL   , \\n`customer_company1216`  varchar(40)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \\"\\"   NOT NULL   , \\n`submission_date1216`  date     COMMENT \\"\\"   NULL   \\n, PRIMARY KEY (`customer_id`)) engine=InnoDB AUTO_INCREMENT=200001 DEFAULT CHARSET=`utf8` DEFAULT COLLATE `utf8_general_ci` ROW_FORMAT= Dynamic comment = \\"\\" ;\\n
      *
      * @var string
      */

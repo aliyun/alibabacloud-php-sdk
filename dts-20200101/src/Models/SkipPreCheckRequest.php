@@ -11,6 +11,7 @@ class SkipPreCheckRequest extends Model
     /**
      * @description The ID of the data migration, data synchronization, or change tracking task.
      *
+     * This parameter is required.
      * @example c7412z57g8k****
      *
      * @var string
@@ -27,7 +28,7 @@ class SkipPreCheckRequest extends Model
     public $jobId;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -46,7 +47,7 @@ class SkipPreCheckRequest extends Model
      *   **true**: skips the precheck item.
      *   **false**: does not skip the precheck item.
      *
-     * >  This parameter is required.
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -64,7 +65,7 @@ class SkipPreCheckRequest extends Model
      *
      *   **CHECK_TOPOLOGY**: topology type
      *
-     * > For more information about the topologies supported by DTS, see [Synchronization topologies](~~124115~~).
+     * > For more information about the topologies supported by DTS, see [Synchronization topologies](https://help.aliyun.com/document_detail/124115.html).
      *
      *   **CHECK_SERVER_ID**: the server ID of the source database
      *
@@ -86,7 +87,7 @@ class SkipPreCheckRequest extends Model
      *
      *   **CHECK_TOPOLOGY_DETAIL**: topology type
      *
-     * > For more information about the topologies supported by DTS, see [Synchronization topologies](~~124115~~).
+     * > For more information about the topologies supported by DTS, see [Synchronization topologies](https://help.aliyun.com/document_detail/124115.html).
      *
      *   **CHECK_SERVER_ID_DETAIL**: the server ID of the source database
      *

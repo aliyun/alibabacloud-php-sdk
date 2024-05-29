@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifySubscriptionRequest extends Model
 {
     /**
-     * @description The objects of the change tracking task. The value is a JSON string. For more information, see [Objects of DTS tasks](~~209545~~).
+     * @description The objects of the change tracking task. The value is a JSON string. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
      *
-     * >  You can call the [DescribeDtsJobDetail](~~208925~~) operation to query the original objects of the task.
+     * This parameter is required.
      * @example {"dtstest":{"name":"dtstest","all":true}}
      *
      * @var string
@@ -19,7 +19,7 @@ class ModifySubscriptionRequest extends Model
     public $dbList;
 
     /**
-     * @description The ID of the change tracking instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     * @description The ID of the change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
      *
      * @example dtsboss6pn1w******
      *
@@ -28,7 +28,7 @@ class ModifySubscriptionRequest extends Model
     public $dtsInstanceId;
 
     /**
-     * @description The ID of the change tracking task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     * @description The ID of the change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
      *
      * @example boss6pn1w******
      *
@@ -37,7 +37,7 @@ class ModifySubscriptionRequest extends Model
     public $dtsJobId;
 
     /**
-     * @description The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -56,6 +56,7 @@ class ModifySubscriptionRequest extends Model
      *   **true**: yes
      *   **false**: no
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -68,6 +69,7 @@ class ModifySubscriptionRequest extends Model
      *   **true**: yes
      *   **false**: no
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool

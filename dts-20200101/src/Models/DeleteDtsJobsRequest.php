@@ -12,7 +12,9 @@ class DeleteDtsJobsRequest extends Model
      * @description The ID of the data migration, data synchronization, or change tracking task.
      *
      * > *   Separate multiple task IDs with commas (,).
-     * > *   You can call the [DescribeDtsJobs](~~209702~~) operation to query task IDs.
+     * > *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query task IDs.
+     *
+     * This parameter is required.
      * @example l5o11f9029c****
      *
      * @var string
@@ -20,7 +22,7 @@ class DeleteDtsJobsRequest extends Model
     public $dtsJobIds;
 
     /**
-     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

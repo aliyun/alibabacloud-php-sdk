@@ -29,6 +29,7 @@ class StopMigrationJobRequest extends Model
     /**
      * @description The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query all data migration instances.
      *
+     * This parameter is required.
      * @example dtsb2c11sxpi3j****
      *
      * @var string

@@ -33,8 +33,9 @@ class DescribeSubscriptionInstanceStatusRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](~~49442~~) operation to query the instance ID.
+     * @description The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](https://help.aliyun.com/document_detail/49442.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsy0zz3t13h7d****
      *
      * @var string

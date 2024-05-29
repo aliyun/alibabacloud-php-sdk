@@ -49,8 +49,9 @@ class CountJobByConditionRequest extends Model
     public $params;
 
     /**
-     * @description One of the query conditions. The ID of the region. For more information, see [Supported regions](~~141033~~).
+     * @description One of the query conditions. The ID of the region. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -58,8 +59,9 @@ class CountJobByConditionRequest extends Model
     public $region;
 
     /**
-     * @description The ID of the region in which the DTS instance resides. For more information, see [Supported regions](~~141033~~).
+     * @description The ID of the region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

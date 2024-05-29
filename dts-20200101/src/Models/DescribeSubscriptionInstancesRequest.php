@@ -51,7 +51,7 @@ class DescribeSubscriptionInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](~~49442~~).
+     * @description The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/49442.html).
      *
      * @example cn-hangzhou
      *

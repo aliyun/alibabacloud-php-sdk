@@ -11,7 +11,7 @@ class UpgradeTwoWayRequest extends Model
     /**
      * @description The instance class of the two-way synchronization task. Valid values: **large**, **medium**, **micro**, and **small**.
      *
-     * >  For more information, see [Specifications of data synchronization instances](~~26605~~).
+     * This parameter is required.
      * @example large
      *
      * @var string
@@ -19,8 +19,9 @@ class UpgradeTwoWayRequest extends Model
     public $instanceClass;
 
     /**
-     * @description The ID of the data synchronization instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     * @description The ID of the data synchronization instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtsh77p49x4k28****
      *
      * @var string
@@ -28,7 +29,7 @@ class UpgradeTwoWayRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *

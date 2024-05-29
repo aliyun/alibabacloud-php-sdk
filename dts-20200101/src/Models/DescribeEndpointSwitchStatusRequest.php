@@ -42,8 +42,9 @@ class DescribeEndpointSwitchStatusRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The task ID, which is returned after you call the [SwitchSynchronizationEndpoint](~~201858~~) operation.
+     * @description The task ID, which is returned after you call the [SwitchSynchronizationEndpoint](https://help.aliyun.com/document_detail/201858.html) operation.
      *
+     * This parameter is required.
      * @example 11****
      *
      * @var string

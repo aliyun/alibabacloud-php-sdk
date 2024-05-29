@@ -53,6 +53,7 @@ class DescribeConsumerGroupRequest extends Model
     /**
      * @description The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example dtso5xx5t9u19e****
      *
      * @var string

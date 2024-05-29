@@ -67,6 +67,7 @@ class sourceEndpoint extends Model
      *   **POLARDB**: PolarDB for MySQL cluster or PolarDB for PostgreSQL cluster
      *   **PolarDB_o**: PolarDB O Edition cluster
      *
+     * This parameter is required.
      * @example RDS
      *
      * @var string
@@ -115,7 +116,7 @@ class sourceEndpoint extends Model
     /**
      * @description The region ID of the source database.
      *
-     * >  If the **SourceEndpoint.InstanceType** parameter is set to **LocalInstance**, you can enter **cn-hangzhou** or the ID of the region closest to the self-managed database. For more information, see [List of supported regions](~~141033~~).
+     * >  If the **SourceEndpoint.InstanceType** parameter is set to **LocalInstance**, you can enter **cn-hangzhou** or the ID of the region closest to the self-managed database. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -125,7 +126,7 @@ class sourceEndpoint extends Model
     /**
      * @description The authorized RAM role of the source instance. You must specify the RAM role only if the source instance and the destination instance belong to different Alibaba Cloud accounts. You can use the RAM role to allow the Alibaba Cloud account that owns the destination instance to access the source instance.
      *
-     * >  For information about the permissions and authorization methods of the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](~~48468~~).
+     * >  For information about the permissions and authorization methods of the RAM role, see [Configure RAM authorization for cross-account data migration and synchronization](https://help.aliyun.com/document_detail/48468.html).
      * @example ram-for-dts
      *
      * @var string
@@ -135,7 +136,7 @@ class sourceEndpoint extends Model
     /**
      * @description The database account of the source database.
      *
-     * >  The permissions that are required for database accounts vary with the migration scenario. For more information, see [Overview of data migration scenarios](~~26618~~).
+     * >  The permissions that are required for database accounts vary with the migration scenario. For more information, see [Overview of data migration scenarios](https://help.aliyun.com/document_detail/26618.html).
      * @example dtstestaccount
      *
      * @var string

@@ -42,8 +42,9 @@ class DescribeSynchronizationJobStatusListRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The IDs of the data synchronization instances. The value is a JSON array. You can call the [DescribeSynchronizationJobs](~~49454~~) operation to query the instance IDs.
+     * @description The IDs of the data synchronization instances. The value is a JSON array. You can call the [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance IDs.
      *
+     * This parameter is required.
      * @example ["dtsexjk1alb116****","dtskfq1149w254****"]
      *
      * @var string

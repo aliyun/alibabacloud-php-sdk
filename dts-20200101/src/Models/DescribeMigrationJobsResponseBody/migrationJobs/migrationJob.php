@@ -57,7 +57,7 @@ class migrationJob extends Model
     public $jobCreateTime;
 
     /**
-     * @description The specification of the data migration instance. Valid values: **small**, **medium**, **large**, **xlarge**, and **2xlarge**. For more information, see [Specifications of data migration instances](~~26606~~).
+     * @description The specification of the data migration instance. Valid values: **small**, **medium**, **large**, **xlarge**, and **2xlarge**. For more information, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html).
      *
      * @example 2xlarge
      *
