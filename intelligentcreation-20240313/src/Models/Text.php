@@ -35,6 +35,11 @@ class Text extends Model
     /**
      * @var string
      */
+    public $publishStatus;
+
+    /**
+     * @var string
+     */
     public $textContent;
 
     /**
@@ -68,6 +73,11 @@ class Text extends Model
     public $textStatus;
 
     /**
+     * @var string
+     */
+    public $textStyleType;
+
+    /**
      * @description This parameter is required.
      *
      * @example 123
@@ -75,6 +85,11 @@ class Text extends Model
      * @var int
      */
     public $textTaskId;
+
+    /**
+     * @var string[]
+     */
+    public $textThemes;
 
     /**
      * @example xxx
@@ -105,12 +120,15 @@ class Text extends Model
         'gmtCreate'              => 'gmtCreate',
         'gmtModified'            => 'gmtModified',
         'illustrationTaskIdList' => 'illustrationTaskIdList',
+        'publishStatus'          => 'publishStatus',
         'textContent'            => 'textContent',
         'textId'                 => 'textId',
         'textIllustrationTag'    => 'textIllustrationTag',
         'textModeType'           => 'textModeType',
         'textStatus'             => 'textStatus',
+        'textStyleType'          => 'textStyleType',
         'textTaskId'             => 'textTaskId',
+        'textThemes'             => 'textThemes',
         'title'                  => 'title',
         'userNameCreate'         => 'userNameCreate',
         'userNameModified'       => 'userNameModified',
@@ -135,6 +153,9 @@ class Text extends Model
         if (null !== $this->illustrationTaskIdList) {
             $res['illustrationTaskIdList'] = $this->illustrationTaskIdList;
         }
+        if (null !== $this->publishStatus) {
+            $res['publishStatus'] = $this->publishStatus;
+        }
         if (null !== $this->textContent) {
             $res['textContent'] = $this->textContent;
         }
@@ -150,8 +171,14 @@ class Text extends Model
         if (null !== $this->textStatus) {
             $res['textStatus'] = $this->textStatus;
         }
+        if (null !== $this->textStyleType) {
+            $res['textStyleType'] = $this->textStyleType;
+        }
         if (null !== $this->textTaskId) {
             $res['textTaskId'] = $this->textTaskId;
+        }
+        if (null !== $this->textThemes) {
+            $res['textThemes'] = $this->textThemes;
         }
         if (null !== $this->title) {
             $res['title'] = $this->title;
@@ -188,6 +215,9 @@ class Text extends Model
                 $model->illustrationTaskIdList = $map['illustrationTaskIdList'];
             }
         }
+        if (isset($map['publishStatus'])) {
+            $model->publishStatus = $map['publishStatus'];
+        }
         if (isset($map['textContent'])) {
             $model->textContent = $map['textContent'];
         }
@@ -203,8 +233,16 @@ class Text extends Model
         if (isset($map['textStatus'])) {
             $model->textStatus = $map['textStatus'];
         }
+        if (isset($map['textStyleType'])) {
+            $model->textStyleType = $map['textStyleType'];
+        }
         if (isset($map['textTaskId'])) {
             $model->textTaskId = $map['textTaskId'];
+        }
+        if (isset($map['textThemes'])) {
+            if (!empty($map['textThemes'])) {
+                $model->textThemes = $map['textThemes'];
+            }
         }
         if (isset($map['title'])) {
             $model->title = $map['title'];

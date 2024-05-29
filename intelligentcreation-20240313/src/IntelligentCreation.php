@@ -16,6 +16,9 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetOssUploadTokenReque
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetOssUploadTokenResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetTextResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetTextTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListTextsRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListTextsResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListTextThemesRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListTextThemesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -386,15 +389,22 @@ class IntelligentCreation extends OpenApiClient
     /**
      * @summary 查询文案主题列表
      *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param ListTextThemesRequest $request ListTextThemesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
      * @return ListTextThemesResponse ListTextThemesResponse
      */
-    public function listTextThemesWithOptions($headers, $runtime)
+    public function listTextThemesWithOptions($request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->industry)) {
+            $query['industry'] = $request->industry;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTextThemes',
@@ -414,13 +424,83 @@ class IntelligentCreation extends OpenApiClient
     /**
      * @summary 查询文案主题列表
      *  *
+     * @param ListTextThemesRequest $request ListTextThemesRequest
+     *
      * @return ListTextThemesResponse ListTextThemesResponse
      */
-    public function listTextThemes()
+    public function listTextThemes($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTextThemesWithOptions($headers, $runtime);
+        return $this->listTextThemesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 列举文案
+     *  *
+     * @param ListTextsRequest $request ListTextsRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTextsResponse ListTextsResponse
+     */
+    public function listTextsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->generationSource)) {
+            $query['generationSource'] = $request->generationSource;
+        }
+        if (!Utils::isUnset($request->industry)) {
+            $query['industry'] = $request->industry;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->publishStatus)) {
+            $query['publishStatus'] = $request->publishStatus;
+        }
+        if (!Utils::isUnset($request->textStyleType)) {
+            $query['textStyleType'] = $request->textStyleType;
+        }
+        if (!Utils::isUnset($request->textTheme)) {
+            $query['textTheme'] = $request->textTheme;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTexts',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/texts',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTextsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列举文案
+     *  *
+     * @param ListTextsRequest $request ListTextsRequest
+     *
+     * @return ListTextsResponse ListTextsResponse
+     */
+    public function listTexts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTextsWithOptions($request, $headers, $runtime);
     }
 }

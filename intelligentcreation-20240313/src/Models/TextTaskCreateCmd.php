@@ -23,6 +23,11 @@ class TextTaskCreateCmd extends Model
     public $idempotentId;
 
     /**
+     * @var string
+     */
+    public $industry;
+
+    /**
      * @example xxx
      *
      * @var string
@@ -82,9 +87,15 @@ class TextTaskCreateCmd extends Model
      * @var string
      */
     public $theme;
+
+    /**
+     * @var string[]
+     */
+    public $themes;
     protected $_name = [
         'contentRequirement' => 'contentRequirement',
         'idempotentId'       => 'idempotentId',
+        'industry'           => 'industry',
         'introduction'       => 'introduction',
         'number'             => 'number',
         'point'              => 'point',
@@ -94,6 +105,7 @@ class TextTaskCreateCmd extends Model
         'target'             => 'target',
         'textModeType'       => 'textModeType',
         'theme'              => 'theme',
+        'themes'             => 'themes',
     ];
 
     public function validate()
@@ -108,6 +120,9 @@ class TextTaskCreateCmd extends Model
         }
         if (null !== $this->idempotentId) {
             $res['idempotentId'] = $this->idempotentId;
+        }
+        if (null !== $this->industry) {
+            $res['industry'] = $this->industry;
         }
         if (null !== $this->introduction) {
             $res['introduction'] = $this->introduction;
@@ -136,6 +151,9 @@ class TextTaskCreateCmd extends Model
         if (null !== $this->theme) {
             $res['theme'] = $this->theme;
         }
+        if (null !== $this->themes) {
+            $res['themes'] = $this->themes;
+        }
 
         return $res;
     }
@@ -153,6 +171,9 @@ class TextTaskCreateCmd extends Model
         }
         if (isset($map['idempotentId'])) {
             $model->idempotentId = $map['idempotentId'];
+        }
+        if (isset($map['industry'])) {
+            $model->industry = $map['industry'];
         }
         if (isset($map['introduction'])) {
             $model->introduction = $map['introduction'];
@@ -182,6 +203,11 @@ class TextTaskCreateCmd extends Model
         }
         if (isset($map['theme'])) {
             $model->theme = $map['theme'];
+        }
+        if (isset($map['themes'])) {
+            if (!empty($map['themes'])) {
+                $model->themes = $map['themes'];
+            }
         }
 
         return $model;
