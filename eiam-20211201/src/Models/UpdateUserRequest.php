@@ -26,7 +26,7 @@ class UpdateUserRequest extends Model
     public $displayName;
 
     /**
-     * @description The email address. The prefix of the email address can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
+     * @description The email address. The prefix of the email address can contain letters, digits, periods (.), underscores (_), and hyphens (-).
      *
      * @example example@example.com
      *
@@ -46,6 +46,7 @@ class UpdateUserRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -82,6 +83,7 @@ class UpdateUserRequest extends Model
     /**
      * @description The account ID.
      *
+     * This parameter is required.
      * @example user_d6sbsuumeta4h66ec3il7yxxxx
      *
      * @var string
@@ -89,7 +91,7 @@ class UpdateUserRequest extends Model
     public $userId;
 
     /**
-     * @description The name of the account. The name can be up to 64 characters in length. It can contain letters, digits, and the following special characters: \_ . @ -
+     * @description The name of the account. The name can be up to 64 characters in length. It can contain letters, digits, and the following special characters: _ . @ -
      *
      * @example username_test
      *

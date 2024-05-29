@@ -20,6 +20,7 @@ class SetForgetPasswordConfigurationRequest extends Model
     /**
      * @description 忘记密码配置状态。枚举取值:enabled(开启)、disabled(禁用)
      *
+     * This parameter is required.
      * @example enabled
      *
      * @var string
@@ -29,6 +30,7 @@ class SetForgetPasswordConfigurationRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example eiam-111ccc1111
      *
      * @var string

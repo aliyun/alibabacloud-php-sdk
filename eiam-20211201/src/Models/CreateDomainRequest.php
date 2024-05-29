@@ -12,6 +12,7 @@ class CreateDomainRequest extends Model
     /**
      * @description 域名。最大长度限制255，格式由数字、字母、横线（-）点（.）组成;
      *
+     * This parameter is required.
      * @example www.example.com
      *
      * @var string
@@ -28,6 +29,7 @@ class CreateDomainRequest extends Model
     /**
      * @description IDaaS EIAM实例的ID。
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string

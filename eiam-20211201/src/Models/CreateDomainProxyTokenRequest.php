@@ -11,6 +11,7 @@ class CreateDomainProxyTokenRequest extends Model
     /**
      * @description 域名ID。
      *
+     * This parameter is required.
      * @example dm_examplexxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateDomainProxyTokenRequest extends Model
     /**
      * @description IDaaS EIAM实例的ID。
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string

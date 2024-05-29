@@ -11,6 +11,7 @@ class ListOrganizationalUnitParentsRequest extends Model
     /**
      * @description IDaaS EIAM实例的ID。
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class ListOrganizationalUnitParentsRequest extends Model
     /**
      * @description 组织ID。
      *
+     * This parameter is required.
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string

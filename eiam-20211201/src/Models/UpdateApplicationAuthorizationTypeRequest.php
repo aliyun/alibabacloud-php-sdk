@@ -11,6 +11,7 @@ class UpdateApplicationAuthorizationTypeRequest extends Model
     /**
      * @description The ID of the application that you want to modify.
      *
+     * This parameter is required.
      * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
      *
      * @var string
@@ -23,6 +24,7 @@ class UpdateApplicationAuthorizationTypeRequest extends Model
      *   authorize_required: Only the user with explicit authorization can access the application.
      *   default_all: By default, all users can access the application.
      *
+     * This parameter is required.
      * @example authorize_required
      *
      * @var string
@@ -32,6 +34,7 @@ class UpdateApplicationAuthorizationTypeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string

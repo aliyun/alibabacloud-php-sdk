@@ -11,6 +11,7 @@ class ObtainDomainProxyTokenRequest extends Model
     /**
      * @description 域名ID。
      *
+     * This parameter is required.
      * @example dm_examplexxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class ObtainDomainProxyTokenRequest extends Model
     /**
      * @description 域名代理Token ID。
      *
+     * This parameter is required.
      * @example pt_examplexxxx
      *
      * @var string
@@ -29,6 +31,7 @@ class ObtainDomainProxyTokenRequest extends Model
     /**
      * @description IDaaS EIAM实例的ID。
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string

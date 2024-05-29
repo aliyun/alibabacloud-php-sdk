@@ -20,6 +20,7 @@ class ListApplicationsForOrganizationalUnitRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class ListApplicationsForOrganizationalUnitRequest extends Model
     /**
      * @description The ID of the EIAM organization.
      *
+     * This parameter is required.
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string

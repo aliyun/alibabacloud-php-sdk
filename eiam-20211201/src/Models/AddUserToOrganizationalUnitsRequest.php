@@ -11,6 +11,7 @@ class AddUserToOrganizationalUnitsRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class AddUserToOrganizationalUnitsRequest extends Model
     /**
      * @description The organization IDs. You can add an account to a maximum of 100 organizations.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $organizationalUnitIds;
@@ -27,6 +29,7 @@ class AddUserToOrganizationalUnitsRequest extends Model
     /**
      * @description The account ID.
      *
+     * This parameter is required.
      * @example user_d6sbsuumeta4h66ec3il7yxxxx
      *
      * @var string

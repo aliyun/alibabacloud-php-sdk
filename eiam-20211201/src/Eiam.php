@@ -265,10 +265,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param AddUserToOrganizationalUnitsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
+     *  *
+     * @param AddUserToOrganizationalUnitsRequest $request AddUserToOrganizationalUnitsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserToOrganizationalUnitsResponse
+     * @return AddUserToOrganizationalUnitsResponse AddUserToOrganizationalUnitsResponse
      */
     public function addUserToOrganizationalUnitsWithOptions($request, $runtime)
     {
@@ -302,9 +304,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param AddUserToOrganizationalUnitsRequest $request
+     * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
+     *  *
+     * @param AddUserToOrganizationalUnitsRequest $request AddUserToOrganizationalUnitsRequest
      *
-     * @return AddUserToOrganizationalUnitsResponse
+     * @return AddUserToOrganizationalUnitsResponse AddUserToOrganizationalUnitsResponse
      */
     public function addUserToOrganizationalUnits($request)
     {
@@ -314,10 +318,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param AddUsersToGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary Adds Employee Identity and Access Management (EIAM) accounts to an EIAM group of Identity as a Service (IDaaS).
+     *  *
+     * @param AddUsersToGroupRequest $request AddUsersToGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUsersToGroupResponse
+     * @return AddUsersToGroupResponse AddUsersToGroupResponse
      */
     public function addUsersToGroupWithOptions($request, $runtime)
     {
@@ -351,9 +357,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param AddUsersToGroupRequest $request
+     * @summary Adds Employee Identity and Access Management (EIAM) accounts to an EIAM group of Identity as a Service (IDaaS).
+     *  *
+     * @param AddUsersToGroupRequest $request AddUsersToGroupRequest
      *
-     * @return AddUsersToGroupResponse
+     * @return AddUsersToGroupResponse AddUsersToGroupResponse
      */
     public function addUsersToGroup($request)
     {
@@ -363,10 +371,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeApplicationToGroupsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param AuthorizeApplicationToGroupsRequest $request AuthorizeApplicationToGroupsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AuthorizeApplicationToGroupsResponse
+     * @return AuthorizeApplicationToGroupsResponse AuthorizeApplicationToGroupsResponse
      */
     public function authorizeApplicationToGroupsWithOptions($request, $runtime)
     {
@@ -400,9 +410,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeApplicationToGroupsRequest $request
+     * @summary Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param AuthorizeApplicationToGroupsRequest $request AuthorizeApplicationToGroupsRequest
      *
-     * @return AuthorizeApplicationToGroupsResponse
+     * @return AuthorizeApplicationToGroupsResponse AuthorizeApplicationToGroupsResponse
      */
     public function authorizeApplicationToGroups($request)
     {
@@ -412,10 +424,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeApplicationToOrganizationalUnitsRequest $request
-     * @param RuntimeOptions                                   $runtime
+     * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
+     *  *
+     * @param AuthorizeApplicationToOrganizationalUnitsRequest $request AuthorizeApplicationToOrganizationalUnitsRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AuthorizeApplicationToOrganizationalUnitsResponse
+     * @return AuthorizeApplicationToOrganizationalUnitsResponse AuthorizeApplicationToOrganizationalUnitsResponse
      */
     public function authorizeApplicationToOrganizationalUnitsWithOptions($request, $runtime)
     {
@@ -449,9 +463,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeApplicationToOrganizationalUnitsRequest $request
+     * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
+     *  *
+     * @param AuthorizeApplicationToOrganizationalUnitsRequest $request AuthorizeApplicationToOrganizationalUnitsRequest
      *
-     * @return AuthorizeApplicationToOrganizationalUnitsResponse
+     * @return AuthorizeApplicationToOrganizationalUnitsResponse AuthorizeApplicationToOrganizationalUnitsResponse
      */
     public function authorizeApplicationToOrganizationalUnits($request)
     {
@@ -461,10 +477,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeApplicationToUsersRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
+     *  *
+     * @param AuthorizeApplicationToUsersRequest $request AuthorizeApplicationToUsersRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AuthorizeApplicationToUsersResponse
+     * @return AuthorizeApplicationToUsersResponse AuthorizeApplicationToUsersResponse
      */
     public function authorizeApplicationToUsersWithOptions($request, $runtime)
     {
@@ -498,9 +516,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param AuthorizeApplicationToUsersRequest $request
+     * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
+     *  *
+     * @param AuthorizeApplicationToUsersRequest $request AuthorizeApplicationToUsersRequest
      *
-     * @return AuthorizeApplicationToUsersResponse
+     * @return AuthorizeApplicationToUsersResponse AuthorizeApplicationToUsersResponse
      */
     public function authorizeApplicationToUsers($request)
     {
@@ -510,8 +530,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
-     *   *
+     * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+     *  *
      * @param CreateApplicationRequest $request CreateApplicationRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -561,8 +583,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
-     *   *
+     * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+     *  *
      * @param CreateApplicationRequest $request CreateApplicationRequest
      *
      * @return CreateApplicationResponse CreateApplicationResponse
@@ -575,10 +599,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationClientSecretRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
+     *  *
+     * @param CreateApplicationClientSecretRequest $request CreateApplicationClientSecretRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateApplicationClientSecretResponse
+     * @return CreateApplicationClientSecretResponse CreateApplicationClientSecretResponse
      */
     public function createApplicationClientSecretWithOptions($request, $runtime)
     {
@@ -609,9 +635,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateApplicationClientSecretRequest $request
+     * @summary Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
+     *  *
+     * @param CreateApplicationClientSecretRequest $request CreateApplicationClientSecretRequest
      *
-     * @return CreateApplicationClientSecretResponse
+     * @return CreateApplicationClientSecretResponse CreateApplicationClientSecretResponse
      */
     public function createApplicationClientSecret($request)
     {
@@ -621,10 +649,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 创建域名。
+     *  *
+     * @param CreateDomainRequest $request CreateDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDomainResponse
+     * @return CreateDomainResponse CreateDomainResponse
      */
     public function createDomainWithOptions($request, $runtime)
     {
@@ -658,9 +688,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainRequest $request
+     * @summary 创建域名。
+     *  *
+     * @param CreateDomainRequest $request CreateDomainRequest
      *
-     * @return CreateDomainResponse
+     * @return CreateDomainResponse CreateDomainResponse
      */
     public function createDomain($request)
     {
@@ -670,10 +702,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainProxyTokenRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 创建域名代理Token。
+     *  *
+     * @param CreateDomainProxyTokenRequest $request CreateDomainProxyTokenRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDomainProxyTokenResponse
+     * @return CreateDomainProxyTokenResponse CreateDomainProxyTokenResponse
      */
     public function createDomainProxyTokenWithOptions($request, $runtime)
     {
@@ -704,9 +738,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateDomainProxyTokenRequest $request
+     * @summary 创建域名代理Token。
+     *  *
+     * @param CreateDomainProxyTokenRequest $request CreateDomainProxyTokenRequest
      *
-     * @return CreateDomainProxyTokenResponse
+     * @return CreateDomainProxyTokenResponse CreateDomainProxyTokenResponse
      */
     public function createDomainProxyToken($request)
     {
@@ -716,10 +752,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Creates an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param CreateGroupRequest $request CreateGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroupWithOptions($request, $runtime)
     {
@@ -756,9 +794,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
+     * @summary Creates an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param CreateGroupRequest $request CreateGroupRequest
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroup($request)
     {
@@ -768,10 +808,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
@@ -799,9 +841,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -811,10 +855,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkAccessEndpointRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 创建一个专属网络端点。
+     *  *
+     * @param CreateNetworkAccessEndpointRequest $request CreateNetworkAccessEndpointRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateNetworkAccessEndpointResponse
+     * @return CreateNetworkAccessEndpointResponse CreateNetworkAccessEndpointResponse
      */
     public function createNetworkAccessEndpointWithOptions($request, $runtime)
     {
@@ -857,9 +903,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateNetworkAccessEndpointRequest $request
+     * @summary 创建一个专属网络端点。
+     *  *
+     * @param CreateNetworkAccessEndpointRequest $request CreateNetworkAccessEndpointRequest
      *
-     * @return CreateNetworkAccessEndpointResponse
+     * @return CreateNetworkAccessEndpointResponse CreateNetworkAccessEndpointResponse
      */
     public function createNetworkAccessEndpoint($request)
     {
@@ -869,10 +917,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateOrganizationalUnitRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param CreateOrganizationalUnitRequest $request CreateOrganizationalUnitRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateOrganizationalUnitResponse
+     * @return CreateOrganizationalUnitResponse CreateOrganizationalUnitResponse
      */
     public function createOrganizationalUnitWithOptions($request, $runtime)
     {
@@ -912,9 +962,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateOrganizationalUnitRequest $request
+     * @summary Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param CreateOrganizationalUnitRequest $request CreateOrganizationalUnitRequest
      *
-     * @return CreateOrganizationalUnitResponse
+     * @return CreateOrganizationalUnitResponse CreateOrganizationalUnitResponse
      */
     public function createOrganizationalUnit($request)
     {
@@ -924,10 +976,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
+     *  *
+     * @param CreateUserRequest $request CreateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUserWithOptions($request, $runtime)
     {
@@ -997,9 +1051,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
+     * @summary Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
+     *  *
+     * @param CreateUserRequest $request CreateUserRequest
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUser($request)
     {
@@ -1009,8 +1065,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
-     *   *
+     * @summary Deletes an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @description Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
+     *  *
      * @param DeleteApplicationRequest $request DeleteApplicationRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -1045,8 +1103,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
-     *   *
+     * @summary Deletes an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @description Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
+     *  *
      * @param DeleteApplicationRequest $request DeleteApplicationRequest
      *
      * @return DeleteApplicationResponse DeleteApplicationResponse
@@ -1059,10 +1119,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationClientSecretRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Deletes a client key for an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param DeleteApplicationClientSecretRequest $request DeleteApplicationClientSecretRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteApplicationClientSecretResponse
+     * @return DeleteApplicationClientSecretResponse DeleteApplicationClientSecretResponse
      */
     public function deleteApplicationClientSecretWithOptions($request, $runtime)
     {
@@ -1096,9 +1158,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteApplicationClientSecretRequest $request
+     * @summary Deletes a client key for an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param DeleteApplicationClientSecretRequest $request DeleteApplicationClientSecretRequest
      *
-     * @return DeleteApplicationClientSecretResponse
+     * @return DeleteApplicationClientSecretResponse DeleteApplicationClientSecretResponse
      */
     public function deleteApplicationClientSecret($request)
     {
@@ -1108,10 +1172,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 删除域名。
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
@@ -1142,9 +1208,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainRequest $request
+     * @summary 删除域名。
+     *  *
+     * @param DeleteDomainRequest $request DeleteDomainRequest
      *
-     * @return DeleteDomainResponse
+     * @return DeleteDomainResponse DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -1154,10 +1222,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainProxyTokenRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 删除指定域名代理Token，删除之前请保证代理Token处于禁用状态。
+     *  *
+     * @param DeleteDomainProxyTokenRequest $request DeleteDomainProxyTokenRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDomainProxyTokenResponse
+     * @return DeleteDomainProxyTokenResponse DeleteDomainProxyTokenResponse
      */
     public function deleteDomainProxyTokenWithOptions($request, $runtime)
     {
@@ -1191,9 +1261,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteDomainProxyTokenRequest $request
+     * @summary 删除指定域名代理Token，删除之前请保证代理Token处于禁用状态。
+     *  *
+     * @param DeleteDomainProxyTokenRequest $request DeleteDomainProxyTokenRequest
      *
-     * @return DeleteDomainProxyTokenResponse
+     * @return DeleteDomainProxyTokenResponse DeleteDomainProxyTokenResponse
      */
     public function deleteDomainProxyToken($request)
     {
@@ -1203,10 +1275,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Deletes the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param DeleteGroupRequest $request DeleteGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroupWithOptions($request, $runtime)
     {
@@ -1237,9 +1311,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupRequest $request
+     * @summary Deletes the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param DeleteGroupRequest $request DeleteGroupRequest
      *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroup($request)
     {
@@ -1249,8 +1325,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
-     *   *
+     * @summary Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+     *  *
+     * @description Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
+     *  *
      * @param DeleteInstanceRequest $request DeleteInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1282,8 +1360,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
-     *   *
+     * @summary Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+     *  *
+     * @description Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
+     *  *
      * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
      * @return DeleteInstanceResponse DeleteInstanceResponse
@@ -1296,10 +1376,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkAccessEndpointRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary 删除一个专属网络端点。
+     *  *
+     * @param DeleteNetworkAccessEndpointRequest $request DeleteNetworkAccessEndpointRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNetworkAccessEndpointResponse
+     * @return DeleteNetworkAccessEndpointResponse DeleteNetworkAccessEndpointResponse
      */
     public function deleteNetworkAccessEndpointWithOptions($request, $runtime)
     {
@@ -1330,9 +1412,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteNetworkAccessEndpointRequest $request
+     * @summary 删除一个专属网络端点。
+     *  *
+     * @param DeleteNetworkAccessEndpointRequest $request DeleteNetworkAccessEndpointRequest
      *
-     * @return DeleteNetworkAccessEndpointResponse
+     * @return DeleteNetworkAccessEndpointResponse DeleteNetworkAccessEndpointResponse
      */
     public function deleteNetworkAccessEndpoint($request)
     {
@@ -1342,10 +1426,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteOrganizationalUnitRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Deletes an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the organization has EIAM accounts or child organizations, the delete operation fails.
+     *  *
+     * @param DeleteOrganizationalUnitRequest $request DeleteOrganizationalUnitRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteOrganizationalUnitResponse
+     * @return DeleteOrganizationalUnitResponse DeleteOrganizationalUnitResponse
      */
     public function deleteOrganizationalUnitWithOptions($request, $runtime)
     {
@@ -1376,9 +1462,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteOrganizationalUnitRequest $request
+     * @summary Deletes an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the organization has EIAM accounts or child organizations, the delete operation fails.
+     *  *
+     * @param DeleteOrganizationalUnitRequest $request DeleteOrganizationalUnitRequest
      *
-     * @return DeleteOrganizationalUnitResponse
+     * @return DeleteOrganizationalUnitResponse DeleteOrganizationalUnitResponse
      */
     public function deleteOrganizationalUnit($request)
     {
@@ -1388,10 +1476,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
@@ -1422,9 +1512,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * @summary Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
+     *  *
+     * @param DeleteUserRequest $request DeleteUserRequest
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -1434,8 +1526,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
-     *   *
+     * @summary Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
+     *  *
+     * @description All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
+     *  *
      * @param DisableApplicationRequest $request DisableApplicationRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1470,8 +1564,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
-     *   *
+     * @summary Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
+     *  *
+     * @description All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
+     *  *
      * @param DisableApplicationRequest $request DisableApplicationRequest
      *
      * @return DisableApplicationResponse DisableApplicationResponse
@@ -1484,10 +1580,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationApiInvokeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param DisableApplicationApiInvokeRequest $request DisableApplicationApiInvokeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableApplicationApiInvokeResponse
+     * @return DisableApplicationApiInvokeResponse DisableApplicationApiInvokeResponse
      */
     public function disableApplicationApiInvokeWithOptions($request, $runtime)
     {
@@ -1518,9 +1616,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationApiInvokeRequest $request
+     * @summary Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param DisableApplicationApiInvokeRequest $request DisableApplicationApiInvokeRequest
      *
-     * @return DisableApplicationApiInvokeResponse
+     * @return DisableApplicationApiInvokeResponse DisableApplicationApiInvokeResponse
      */
     public function disableApplicationApiInvoke($request)
     {
@@ -1530,10 +1630,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationClientSecretRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Disables a client key of an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param DisableApplicationClientSecretRequest $request DisableApplicationClientSecretRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableApplicationClientSecretResponse
+     * @return DisableApplicationClientSecretResponse DisableApplicationClientSecretResponse
      */
     public function disableApplicationClientSecretWithOptions($request, $runtime)
     {
@@ -1567,9 +1669,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationClientSecretRequest $request
+     * @summary Disables a client key of an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param DisableApplicationClientSecretRequest $request DisableApplicationClientSecretRequest
      *
-     * @return DisableApplicationClientSecretResponse
+     * @return DisableApplicationClientSecretResponse DisableApplicationClientSecretResponse
      */
     public function disableApplicationClientSecret($request)
     {
@@ -1579,10 +1683,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationProvisioningRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param DisableApplicationProvisioningRequest $request DisableApplicationProvisioningRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableApplicationProvisioningResponse
+     * @return DisableApplicationProvisioningResponse DisableApplicationProvisioningResponse
      */
     public function disableApplicationProvisioningWithOptions($request, $runtime)
     {
@@ -1613,9 +1719,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationProvisioningRequest $request
+     * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param DisableApplicationProvisioningRequest $request DisableApplicationProvisioningRequest
      *
-     * @return DisableApplicationProvisioningResponse
+     * @return DisableApplicationProvisioningResponse DisableApplicationProvisioningResponse
      */
     public function disableApplicationProvisioning($request)
     {
@@ -1625,10 +1733,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationSsoRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 禁用应用SSO能力
+     *  *
+     * @param DisableApplicationSsoRequest $request DisableApplicationSsoRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableApplicationSsoResponse
+     * @return DisableApplicationSsoResponse DisableApplicationSsoResponse
      */
     public function disableApplicationSsoWithOptions($request, $runtime)
     {
@@ -1659,9 +1769,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableApplicationSsoRequest $request
+     * @summary 禁用应用SSO能力
+     *  *
+     * @param DisableApplicationSsoRequest $request DisableApplicationSsoRequest
      *
-     * @return DisableApplicationSsoResponse
+     * @return DisableApplicationSsoResponse DisableApplicationSsoResponse
      */
     public function disableApplicationSso($request)
     {
@@ -1671,10 +1783,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableDomainProxyTokenRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 禁用指定域名代理Token。
+     *  *
+     * @param DisableDomainProxyTokenRequest $request DisableDomainProxyTokenRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableDomainProxyTokenResponse
+     * @return DisableDomainProxyTokenResponse DisableDomainProxyTokenResponse
      */
     public function disableDomainProxyTokenWithOptions($request, $runtime)
     {
@@ -1708,9 +1822,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableDomainProxyTokenRequest $request
+     * @summary 禁用指定域名代理Token。
+     *  *
+     * @param DisableDomainProxyTokenRequest $request DisableDomainProxyTokenRequest
      *
-     * @return DisableDomainProxyTokenResponse
+     * @return DisableDomainProxyTokenResponse DisableDomainProxyTokenResponse
      */
     public function disableDomainProxyToken($request)
     {
@@ -1720,10 +1836,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableInitDomainAutoRedirectRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 关闭初始化域名自动跳转。
+     *  *
+     * @param DisableInitDomainAutoRedirectRequest $request DisableInitDomainAutoRedirectRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableInitDomainAutoRedirectResponse
+     * @return DisableInitDomainAutoRedirectResponse DisableInitDomainAutoRedirectResponse
      */
     public function disableInitDomainAutoRedirectWithOptions($request, $runtime)
     {
@@ -1751,9 +1869,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableInitDomainAutoRedirectRequest $request
+     * @summary 关闭初始化域名自动跳转。
+     *  *
+     * @param DisableInitDomainAutoRedirectRequest $request DisableInitDomainAutoRedirectRequest
      *
-     * @return DisableInitDomainAutoRedirectResponse
+     * @return DisableInitDomainAutoRedirectResponse DisableInitDomainAutoRedirectResponse
      */
     public function disableInitDomainAutoRedirect($request)
     {
@@ -1763,10 +1883,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableUserRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
+     *  *
+     * @param DisableUserRequest $request DisableUserRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableUserResponse
+     * @return DisableUserResponse DisableUserResponse
      */
     public function disableUserWithOptions($request, $runtime)
     {
@@ -1797,9 +1919,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param DisableUserRequest $request
+     * @summary Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
+     *  *
+     * @param DisableUserRequest $request DisableUserRequest
      *
-     * @return DisableUserResponse
+     * @return DisableUserResponse DisableUserResponse
      */
     public function disableUser($request)
     {
@@ -1809,10 +1933,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Enables a disabled Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param EnableApplicationRequest $request EnableApplicationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableApplicationResponse
+     * @return EnableApplicationResponse EnableApplicationResponse
      */
     public function enableApplicationWithOptions($request, $runtime)
     {
@@ -1843,9 +1969,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationRequest $request
+     * @summary Enables a disabled Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param EnableApplicationRequest $request EnableApplicationRequest
      *
-     * @return EnableApplicationResponse
+     * @return EnableApplicationResponse EnableApplicationResponse
      */
     public function enableApplication($request)
     {
@@ -1855,10 +1983,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationApiInvokeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param EnableApplicationApiInvokeRequest $request EnableApplicationApiInvokeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableApplicationApiInvokeResponse
+     * @return EnableApplicationApiInvokeResponse EnableApplicationApiInvokeResponse
      */
     public function enableApplicationApiInvokeWithOptions($request, $runtime)
     {
@@ -1889,9 +2019,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationApiInvokeRequest $request
+     * @summary Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param EnableApplicationApiInvokeRequest $request EnableApplicationApiInvokeRequest
      *
-     * @return EnableApplicationApiInvokeResponse
+     * @return EnableApplicationApiInvokeResponse EnableApplicationApiInvokeResponse
      */
     public function enableApplicationApiInvoke($request)
     {
@@ -1901,10 +2033,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationClientSecretRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param EnableApplicationClientSecretRequest $request EnableApplicationClientSecretRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableApplicationClientSecretResponse
+     * @return EnableApplicationClientSecretResponse EnableApplicationClientSecretResponse
      */
     public function enableApplicationClientSecretWithOptions($request, $runtime)
     {
@@ -1938,9 +2072,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationClientSecretRequest $request
+     * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param EnableApplicationClientSecretRequest $request EnableApplicationClientSecretRequest
      *
-     * @return EnableApplicationClientSecretResponse
+     * @return EnableApplicationClientSecretResponse EnableApplicationClientSecretResponse
      */
     public function enableApplicationClientSecret($request)
     {
@@ -1950,10 +2086,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationProvisioningRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param EnableApplicationProvisioningRequest $request EnableApplicationProvisioningRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableApplicationProvisioningResponse
+     * @return EnableApplicationProvisioningResponse EnableApplicationProvisioningResponse
      */
     public function enableApplicationProvisioningWithOptions($request, $runtime)
     {
@@ -1984,9 +2122,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationProvisioningRequest $request
+     * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param EnableApplicationProvisioningRequest $request EnableApplicationProvisioningRequest
      *
-     * @return EnableApplicationProvisioningResponse
+     * @return EnableApplicationProvisioningResponse EnableApplicationProvisioningResponse
      */
     public function enableApplicationProvisioning($request)
     {
@@ -1996,10 +2136,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationSsoRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 启用应用SSO能力
+     *  *
+     * @param EnableApplicationSsoRequest $request EnableApplicationSsoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableApplicationSsoResponse
+     * @return EnableApplicationSsoResponse EnableApplicationSsoResponse
      */
     public function enableApplicationSsoWithOptions($request, $runtime)
     {
@@ -2030,9 +2172,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableApplicationSsoRequest $request
+     * @summary 启用应用SSO能力
+     *  *
+     * @param EnableApplicationSsoRequest $request EnableApplicationSsoRequest
      *
-     * @return EnableApplicationSsoResponse
+     * @return EnableApplicationSsoResponse EnableApplicationSsoResponse
      */
     public function enableApplicationSso($request)
     {
@@ -2042,10 +2186,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableDomainProxyTokenRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 启用指定域名代理Token。
+     *  *
+     * @param EnableDomainProxyTokenRequest $request EnableDomainProxyTokenRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableDomainProxyTokenResponse
+     * @return EnableDomainProxyTokenResponse EnableDomainProxyTokenResponse
      */
     public function enableDomainProxyTokenWithOptions($request, $runtime)
     {
@@ -2079,9 +2225,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableDomainProxyTokenRequest $request
+     * @summary 启用指定域名代理Token。
+     *  *
+     * @param EnableDomainProxyTokenRequest $request EnableDomainProxyTokenRequest
      *
-     * @return EnableDomainProxyTokenResponse
+     * @return EnableDomainProxyTokenResponse EnableDomainProxyTokenResponse
      */
     public function enableDomainProxyToken($request)
     {
@@ -2091,10 +2239,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableInitDomainAutoRedirectRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 开启初始化域名自动跳转。开启后，访问初始化域名将会自动跳转至默认域名。
+     *  *
+     * @param EnableInitDomainAutoRedirectRequest $request EnableInitDomainAutoRedirectRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableInitDomainAutoRedirectResponse
+     * @return EnableInitDomainAutoRedirectResponse EnableInitDomainAutoRedirectResponse
      */
     public function enableInitDomainAutoRedirectWithOptions($request, $runtime)
     {
@@ -2122,9 +2272,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableInitDomainAutoRedirectRequest $request
+     * @summary 开启初始化域名自动跳转。开启后，访问初始化域名将会自动跳转至默认域名。
+     *  *
+     * @param EnableInitDomainAutoRedirectRequest $request EnableInitDomainAutoRedirectRequest
      *
-     * @return EnableInitDomainAutoRedirectResponse
+     * @return EnableInitDomainAutoRedirectResponse EnableInitDomainAutoRedirectResponse
      */
     public function enableInitDomainAutoRedirect($request)
     {
@@ -2134,10 +2286,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+     *  *
+     * @param EnableUserRequest $request EnableUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableUserResponse
+     * @return EnableUserResponse EnableUserResponse
      */
     public function enableUserWithOptions($request, $runtime)
     {
@@ -2168,9 +2322,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param EnableUserRequest $request
+     * @summary Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+     *  *
+     * @param EnableUserRequest $request EnableUserRequest
      *
-     * @return EnableUserResponse
+     * @return EnableUserResponse EnableUserResponse
      */
     public function enableUser($request)
     {
@@ -2180,10 +2336,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplicationWithOptions($request, $runtime)
     {
@@ -2214,9 +2372,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationRequest $request
+     * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param GetApplicationRequest $request GetApplicationRequest
      *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplication($request)
     {
@@ -2226,10 +2386,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationGrantScopeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries the permissions of the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param GetApplicationGrantScopeRequest $request GetApplicationGrantScopeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationGrantScopeResponse
+     * @return GetApplicationGrantScopeResponse GetApplicationGrantScopeResponse
      */
     public function getApplicationGrantScopeWithOptions($request, $runtime)
     {
@@ -2260,9 +2422,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationGrantScopeRequest $request
+     * @summary Queries the permissions of the Developer API feature for an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param GetApplicationGrantScopeRequest $request GetApplicationGrantScopeRequest
      *
-     * @return GetApplicationGrantScopeResponse
+     * @return GetApplicationGrantScopeResponse GetApplicationGrantScopeResponse
      */
     public function getApplicationGrantScope($request)
     {
@@ -2272,10 +2436,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationProvisioningConfigRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param GetApplicationProvisioningConfigRequest $request GetApplicationProvisioningConfigRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationProvisioningConfigResponse
+     * @return GetApplicationProvisioningConfigResponse GetApplicationProvisioningConfigResponse
      */
     public function getApplicationProvisioningConfigWithOptions($request, $runtime)
     {
@@ -2306,9 +2472,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationProvisioningConfigRequest $request
+     * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param GetApplicationProvisioningConfigRequest $request GetApplicationProvisioningConfigRequest
      *
-     * @return GetApplicationProvisioningConfigResponse
+     * @return GetApplicationProvisioningConfigResponse GetApplicationProvisioningConfigResponse
      */
     public function getApplicationProvisioningConfig($request)
     {
@@ -2318,10 +2486,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationProvisioningScopeRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+     *  *
+     * @param GetApplicationProvisioningScopeRequest $request GetApplicationProvisioningScopeRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationProvisioningScopeResponse
+     * @return GetApplicationProvisioningScopeResponse GetApplicationProvisioningScopeResponse
      */
     public function getApplicationProvisioningScopeWithOptions($request, $runtime)
     {
@@ -2352,9 +2522,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationProvisioningScopeRequest $request
+     * @summary Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+     *  *
+     * @param GetApplicationProvisioningScopeRequest $request GetApplicationProvisioningScopeRequest
      *
-     * @return GetApplicationProvisioningScopeResponse
+     * @return GetApplicationProvisioningScopeResponse GetApplicationProvisioningScopeResponse
      */
     public function getApplicationProvisioningScope($request)
     {
@@ -2364,10 +2536,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationSsoConfigRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param GetApplicationSsoConfigRequest $request GetApplicationSsoConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationSsoConfigResponse
+     * @return GetApplicationSsoConfigResponse GetApplicationSsoConfigResponse
      */
     public function getApplicationSsoConfigWithOptions($request, $runtime)
     {
@@ -2398,9 +2572,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationSsoConfigRequest $request
+     * @summary Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param GetApplicationSsoConfigRequest $request GetApplicationSsoConfigRequest
      *
-     * @return GetApplicationSsoConfigResponse
+     * @return GetApplicationSsoConfigResponse GetApplicationSsoConfigResponse
      */
     public function getApplicationSsoConfig($request)
     {
@@ -2410,10 +2586,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetDomainRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary 查询一个域名的详细信息。
+     *  *
+     * @param GetDomainRequest $request GetDomainRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDomainResponse
+     * @return GetDomainResponse GetDomainResponse
      */
     public function getDomainWithOptions($request, $runtime)
     {
@@ -2444,9 +2622,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetDomainRequest $request
+     * @summary 查询一个域名的详细信息。
+     *  *
+     * @param GetDomainRequest $request GetDomainRequest
      *
-     * @return GetDomainResponse
+     * @return GetDomainResponse GetDomainResponse
      */
     public function getDomain($request)
     {
@@ -2456,10 +2636,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetDomainDnsChallengeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 查看域名的DNS Challenge记录。
+     *  *
+     * @param GetDomainDnsChallengeRequest $request GetDomainDnsChallengeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDomainDnsChallengeResponse
+     * @return GetDomainDnsChallengeResponse GetDomainDnsChallengeResponse
      */
     public function getDomainDnsChallengeWithOptions($request, $runtime)
     {
@@ -2490,9 +2672,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetDomainDnsChallengeRequest $request
+     * @summary 查看域名的DNS Challenge记录。
+     *  *
+     * @param GetDomainDnsChallengeRequest $request GetDomainDnsChallengeRequest
      *
-     * @return GetDomainDnsChallengeResponse
+     * @return GetDomainDnsChallengeResponse GetDomainDnsChallengeResponse
      */
     public function getDomainDnsChallenge($request)
     {
@@ -2502,10 +2686,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetForgetPasswordConfigurationRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetForgetPasswordConfigurationRequest $request GetForgetPasswordConfigurationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetForgetPasswordConfigurationResponse
+     * @return GetForgetPasswordConfigurationResponse GetForgetPasswordConfigurationResponse
      */
     public function getForgetPasswordConfigurationWithOptions($request, $runtime)
     {
@@ -2533,9 +2719,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetForgetPasswordConfigurationRequest $request
+     * @summary Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetForgetPasswordConfigurationRequest $request GetForgetPasswordConfigurationRequest
      *
-     * @return GetForgetPasswordConfigurationResponse
+     * @return GetForgetPasswordConfigurationResponse GetForgetPasswordConfigurationResponse
      */
     public function getForgetPasswordConfiguration($request)
     {
@@ -2545,10 +2733,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetGroupRequest $request
-     * @param RuntimeOptions  $runtime
+     * @summary Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param GetGroupRequest $request GetGroupRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroupWithOptions($request, $runtime)
     {
@@ -2579,9 +2769,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetGroupRequest $request
+     * @summary Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param GetGroupRequest $request GetGroupRequest
      *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroup($request)
     {
@@ -2591,10 +2783,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetInstanceRequest $request GetInstanceRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstanceWithOptions($request, $runtime)
     {
@@ -2622,9 +2816,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceRequest $request
+     * @summary Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetInstanceRequest $request GetInstanceRequest
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstance($request)
     {
@@ -2634,10 +2830,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetNetworkAccessEndpointRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary 查询一个专属网络端点的详细信息。
+     *  *
+     * @param GetNetworkAccessEndpointRequest $request GetNetworkAccessEndpointRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetNetworkAccessEndpointResponse
+     * @return GetNetworkAccessEndpointResponse GetNetworkAccessEndpointResponse
      */
     public function getNetworkAccessEndpointWithOptions($request, $runtime)
     {
@@ -2668,9 +2866,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetNetworkAccessEndpointRequest $request
+     * @summary 查询一个专属网络端点的详细信息。
+     *  *
+     * @param GetNetworkAccessEndpointRequest $request GetNetworkAccessEndpointRequest
      *
-     * @return GetNetworkAccessEndpointResponse
+     * @return GetNetworkAccessEndpointResponse GetNetworkAccessEndpointResponse
      */
     public function getNetworkAccessEndpoint($request)
     {
@@ -2680,10 +2880,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetOrganizationalUnitRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Queries the information about an organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param GetOrganizationalUnitRequest $request GetOrganizationalUnitRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOrganizationalUnitResponse
+     * @return GetOrganizationalUnitResponse GetOrganizationalUnitResponse
      */
     public function getOrganizationalUnitWithOptions($request, $runtime)
     {
@@ -2714,9 +2916,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetOrganizationalUnitRequest $request
+     * @summary Queries the information about an organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param GetOrganizationalUnitRequest $request GetOrganizationalUnitRequest
      *
-     * @return GetOrganizationalUnitResponse
+     * @return GetOrganizationalUnitResponse GetOrganizationalUnitResponse
      */
     public function getOrganizationalUnit($request)
     {
@@ -2726,10 +2930,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetPasswordComplexityConfigurationRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetPasswordComplexityConfigurationRequest $request GetPasswordComplexityConfigurationRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPasswordComplexityConfigurationResponse
+     * @return GetPasswordComplexityConfigurationResponse GetPasswordComplexityConfigurationResponse
      */
     public function getPasswordComplexityConfigurationWithOptions($request, $runtime)
     {
@@ -2757,9 +2963,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetPasswordComplexityConfigurationRequest $request
+     * @summary Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetPasswordComplexityConfigurationRequest $request GetPasswordComplexityConfigurationRequest
      *
-     * @return GetPasswordComplexityConfigurationResponse
+     * @return GetPasswordComplexityConfigurationResponse GetPasswordComplexityConfigurationResponse
      */
     public function getPasswordComplexityConfiguration($request)
     {
@@ -2769,10 +2977,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetPasswordExpirationConfigurationRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Queries the password expiration configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetPasswordExpirationConfigurationRequest $request GetPasswordExpirationConfigurationRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPasswordExpirationConfigurationResponse
+     * @return GetPasswordExpirationConfigurationResponse GetPasswordExpirationConfigurationResponse
      */
     public function getPasswordExpirationConfigurationWithOptions($request, $runtime)
     {
@@ -2800,9 +3010,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetPasswordExpirationConfigurationRequest $request
+     * @summary Queries the password expiration configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetPasswordExpirationConfigurationRequest $request GetPasswordExpirationConfigurationRequest
      *
-     * @return GetPasswordExpirationConfigurationResponse
+     * @return GetPasswordExpirationConfigurationResponse GetPasswordExpirationConfigurationResponse
      */
     public function getPasswordExpirationConfiguration($request)
     {
@@ -2812,10 +3024,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetPasswordHistoryConfigurationRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Queries the password history configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetPasswordHistoryConfigurationRequest $request GetPasswordHistoryConfigurationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPasswordHistoryConfigurationResponse
+     * @return GetPasswordHistoryConfigurationResponse GetPasswordHistoryConfigurationResponse
      */
     public function getPasswordHistoryConfigurationWithOptions($request, $runtime)
     {
@@ -2843,9 +3057,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetPasswordHistoryConfigurationRequest $request
+     * @summary Queries the password history configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetPasswordHistoryConfigurationRequest $request GetPasswordHistoryConfigurationRequest
      *
-     * @return GetPasswordHistoryConfigurationResponse
+     * @return GetPasswordHistoryConfigurationResponse GetPasswordHistoryConfigurationResponse
      */
     public function getPasswordHistoryConfiguration($request)
     {
@@ -2855,10 +3071,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetPasswordInitializationConfigurationRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary Queries the password initialization configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetPasswordInitializationConfigurationRequest $request GetPasswordInitializationConfigurationRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPasswordInitializationConfigurationResponse
+     * @return GetPasswordInitializationConfigurationResponse GetPasswordInitializationConfigurationResponse
      */
     public function getPasswordInitializationConfigurationWithOptions($request, $runtime)
     {
@@ -2886,9 +3104,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetPasswordInitializationConfigurationRequest $request
+     * @summary Queries the password initialization configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param GetPasswordInitializationConfigurationRequest $request GetPasswordInitializationConfigurationRequest
      *
-     * @return GetPasswordInitializationConfigurationResponse
+     * @return GetPasswordInitializationConfigurationResponse GetPasswordInitializationConfigurationResponse
      */
     public function getPasswordInitializationConfiguration($request)
     {
@@ -2898,10 +3118,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetRootOrganizationalUnitRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param GetRootOrganizationalUnitRequest $request GetRootOrganizationalUnitRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRootOrganizationalUnitResponse
+     * @return GetRootOrganizationalUnitResponse GetRootOrganizationalUnitResponse
      */
     public function getRootOrganizationalUnitWithOptions($request, $runtime)
     {
@@ -2929,9 +3151,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetRootOrganizationalUnitRequest $request
+     * @summary Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param GetRootOrganizationalUnitRequest $request GetRootOrganizationalUnitRequest
      *
-     * @return GetRootOrganizationalUnitResponse
+     * @return GetRootOrganizationalUnitResponse GetRootOrganizationalUnitResponse
      */
     public function getRootOrganizationalUnit($request)
     {
@@ -2941,10 +3165,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
-     * @param RuntimeOptions $runtime
+     * @summary Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param GetUserRequest $request GetUserRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($request, $runtime)
     {
@@ -2975,9 +3201,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
+     * @summary Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param GetUserRequest $request GetUserRequest
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUser($request)
     {
@@ -2987,10 +3215,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationClientSecretsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
+     *  *
+     * @param ListApplicationClientSecretsRequest $request ListApplicationClientSecretsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationClientSecretsResponse
+     * @return ListApplicationClientSecretsResponse ListApplicationClientSecretsResponse
      */
     public function listApplicationClientSecretsWithOptions($request, $runtime)
     {
@@ -3021,9 +3251,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationClientSecretsRequest $request
+     * @summary Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
+     *  *
+     * @param ListApplicationClientSecretsRequest $request ListApplicationClientSecretsRequest
      *
-     * @return ListApplicationClientSecretsResponse
+     * @return ListApplicationClientSecretsResponse ListApplicationClientSecretsResponse
      */
     public function listApplicationClientSecrets($request)
     {
@@ -3033,10 +3265,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
+     *  *
+     * @param ListApplicationsRequest $request ListApplicationsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplicationsWithOptions($request, $runtime)
     {
@@ -3082,9 +3316,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsRequest $request
+     * @summary Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
+     *  *
+     * @param ListApplicationsRequest $request ListApplicationsRequest
      *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplications($request)
     {
@@ -3094,8 +3330,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
-     *   *
+     * @summary Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+     *  *
+     * @description You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+     *  *
      * @param ListApplicationsForOrganizationalUnitRequest $request ListApplicationsForOrganizationalUnitRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
@@ -3139,8 +3377,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
-     *   *
+     * @summary Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+     *  *
+     * @description You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+     *  *
      * @param ListApplicationsForOrganizationalUnitRequest $request ListApplicationsForOrganizationalUnitRequest
      *
      * @return ListApplicationsForOrganizationalUnitResponse ListApplicationsForOrganizationalUnitResponse
@@ -3153,10 +3393,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsForUserRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+     *  *
+     * @param ListApplicationsForUserRequest $request ListApplicationsForUserRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationsForUserResponse
+     * @return ListApplicationsForUserResponse ListApplicationsForUserResponse
      */
     public function listApplicationsForUserWithOptions($request, $runtime)
     {
@@ -3199,9 +3441,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsForUserRequest $request
+     * @summary Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
+     *  *
+     * @param ListApplicationsForUserRequest $request ListApplicationsForUserRequest
      *
-     * @return ListApplicationsForUserResponse
+     * @return ListApplicationsForUserResponse ListApplicationsForUserResponse
      */
     public function listApplicationsForUser($request)
     {
@@ -3211,10 +3455,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListDomainProxyTokensRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary 列表查询域名代理Token信息。
+     *  *
+     * @param ListDomainProxyTokensRequest $request ListDomainProxyTokensRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDomainProxyTokensResponse
+     * @return ListDomainProxyTokensResponse ListDomainProxyTokensResponse
      */
     public function listDomainProxyTokensWithOptions($request, $runtime)
     {
@@ -3245,9 +3491,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListDomainProxyTokensRequest $request
+     * @summary 列表查询域名代理Token信息。
+     *  *
+     * @param ListDomainProxyTokensRequest $request ListDomainProxyTokensRequest
      *
-     * @return ListDomainProxyTokensResponse
+     * @return ListDomainProxyTokensResponse ListDomainProxyTokensResponse
      */
     public function listDomainProxyTokens($request)
     {
@@ -3257,10 +3505,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListDomainsRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary 列表查询域名记录。
+     *  *
+     * @param ListDomainsRequest $request ListDomainsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDomainsResponse
+     * @return ListDomainsResponse ListDomainsResponse
      */
     public function listDomainsWithOptions($request, $runtime)
     {
@@ -3288,9 +3538,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListDomainsRequest $request
+     * @summary 列表查询域名记录。
+     *  *
+     * @param ListDomainsRequest $request ListDomainsRequest
      *
-     * @return ListDomainsResponse
+     * @return ListDomainsResponse ListDomainsResponse
      */
     public function listDomains($request)
     {
@@ -3300,10 +3552,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListEiamInstancesRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary 查询EIAM2.0/EIAM1.0实例列表
+     *  *
+     * @param ListEiamInstancesRequest $request ListEiamInstancesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEiamInstancesResponse
+     * @return ListEiamInstancesResponse ListEiamInstancesResponse
      */
     public function listEiamInstancesWithOptions($request, $runtime)
     {
@@ -3334,9 +3588,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListEiamInstancesRequest $request
+     * @summary 查询EIAM2.0/EIAM1.0实例列表
+     *  *
+     * @param ListEiamInstancesRequest $request ListEiamInstancesRequest
      *
-     * @return ListEiamInstancesResponse
+     * @return ListEiamInstancesResponse ListEiamInstancesResponse
      */
     public function listEiamInstances($request)
     {
@@ -3346,9 +3602,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 查询EIAM2.0/EIAM1.0地域列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListEiamRegionsResponse
+     * @return ListEiamRegionsResponse ListEiamRegionsResponse
      */
     public function listEiamRegionsWithOptions($runtime)
     {
@@ -3369,7 +3627,9 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @return ListEiamRegionsResponse
+     * @summary 查询EIAM2.0/EIAM1.0地域列表
+     *  *
+     * @return ListEiamRegionsResponse ListEiamRegionsResponse
      */
     public function listEiamRegions()
     {
@@ -3379,10 +3639,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Queries a list of account groups in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $runtime)
     {
@@ -3428,9 +3690,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
+     * @summary Queries a list of account groups in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param ListGroupsRequest $request ListGroupsRequest
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroups($request)
     {
@@ -3440,10 +3704,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsForApplicationRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
+     *  *
+     * @param ListGroupsForApplicationRequest $request ListGroupsForApplicationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupsForApplicationResponse
+     * @return ListGroupsForApplicationResponse ListGroupsForApplicationResponse
      */
     public function listGroupsForApplicationWithOptions($request, $runtime)
     {
@@ -3483,9 +3749,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsForApplicationRequest $request
+     * @summary Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
+     *  *
+     * @param ListGroupsForApplicationRequest $request ListGroupsForApplicationRequest
      *
-     * @return ListGroupsForApplicationResponse
+     * @return ListGroupsForApplicationResponse ListGroupsForApplicationResponse
      */
     public function listGroupsForApplication($request)
     {
@@ -3495,10 +3763,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsForUserRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
+     *  *
+     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupsForUserResponse
+     * @return ListGroupsForUserResponse ListGroupsForUserResponse
      */
     public function listGroupsForUserWithOptions($request, $runtime)
     {
@@ -3535,9 +3805,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsForUserRequest $request
+     * @summary Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
+     *  *
+     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
      *
-     * @return ListGroupsForUserResponse
+     * @return ListGroupsForUserResponse ListGroupsForUserResponse
      */
     public function listGroupsForUser($request)
     {
@@ -3547,10 +3819,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
@@ -3587,9 +3861,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @summary Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -3599,9 +3875,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary 获取支持专属端点的region列表
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNetworkAccessEndpointAvailableRegionsResponse
+     * @return ListNetworkAccessEndpointAvailableRegionsResponse ListNetworkAccessEndpointAvailableRegionsResponse
      */
     public function listNetworkAccessEndpointAvailableRegionsWithOptions($runtime)
     {
@@ -3622,7 +3900,9 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @return ListNetworkAccessEndpointAvailableRegionsResponse
+     * @summary 获取支持专属端点的region列表
+     *  *
+     * @return ListNetworkAccessEndpointAvailableRegionsResponse ListNetworkAccessEndpointAvailableRegionsResponse
      */
     public function listNetworkAccessEndpointAvailableRegions()
     {
@@ -3632,10 +3912,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListNetworkAccessEndpointAvailableZonesRequest $request
-     * @param RuntimeOptions                                 $runtime
+     * @summary 获取支持NAE的可用区列表
+     *  *
+     * @param ListNetworkAccessEndpointAvailableZonesRequest $request ListNetworkAccessEndpointAvailableZonesRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNetworkAccessEndpointAvailableZonesResponse
+     * @return ListNetworkAccessEndpointAvailableZonesResponse ListNetworkAccessEndpointAvailableZonesResponse
      */
     public function listNetworkAccessEndpointAvailableZonesWithOptions($request, $runtime)
     {
@@ -3663,9 +3945,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListNetworkAccessEndpointAvailableZonesRequest $request
+     * @summary 获取支持NAE的可用区列表
+     *  *
+     * @param ListNetworkAccessEndpointAvailableZonesRequest $request ListNetworkAccessEndpointAvailableZonesRequest
      *
-     * @return ListNetworkAccessEndpointAvailableZonesResponse
+     * @return ListNetworkAccessEndpointAvailableZonesResponse ListNetworkAccessEndpointAvailableZonesResponse
      */
     public function listNetworkAccessEndpointAvailableZones($request)
     {
@@ -3675,10 +3959,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListNetworkAccessEndpointsRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary 列表查询专属网络端点。
+     *  *
+     * @param ListNetworkAccessEndpointsRequest $request ListNetworkAccessEndpointsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNetworkAccessEndpointsResponse
+     * @return ListNetworkAccessEndpointsResponse ListNetworkAccessEndpointsResponse
      */
     public function listNetworkAccessEndpointsWithOptions($request, $runtime)
     {
@@ -3724,9 +4010,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListNetworkAccessEndpointsRequest $request
+     * @summary 列表查询专属网络端点。
+     *  *
+     * @param ListNetworkAccessEndpointsRequest $request ListNetworkAccessEndpointsRequest
      *
-     * @return ListNetworkAccessEndpointsResponse
+     * @return ListNetworkAccessEndpointsResponse ListNetworkAccessEndpointsResponse
      */
     public function listNetworkAccessEndpoints($request)
     {
@@ -3736,10 +4024,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListNetworkAccessPathsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 列表某个网络访问端点下的访问路径。
+     *  *
+     * @param ListNetworkAccessPathsRequest $request ListNetworkAccessPathsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListNetworkAccessPathsResponse
+     * @return ListNetworkAccessPathsResponse ListNetworkAccessPathsResponse
      */
     public function listNetworkAccessPathsWithOptions($request, $runtime)
     {
@@ -3770,9 +4060,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListNetworkAccessPathsRequest $request
+     * @summary 列表某个网络访问端点下的访问路径。
+     *  *
+     * @param ListNetworkAccessPathsRequest $request ListNetworkAccessPathsRequest
      *
-     * @return ListNetworkAccessPathsResponse
+     * @return ListNetworkAccessPathsResponse ListNetworkAccessPathsResponse
      */
     public function listNetworkAccessPaths($request)
     {
@@ -3782,10 +4074,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListOrganizationalUnitParentsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary 查询组织的所有父级路径
+     *  *
+     * @param ListOrganizationalUnitParentsRequest $request ListOrganizationalUnitParentsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOrganizationalUnitParentsResponse
+     * @return ListOrganizationalUnitParentsResponse ListOrganizationalUnitParentsResponse
      */
     public function listOrganizationalUnitParentsWithOptions($request, $runtime)
     {
@@ -3816,9 +4110,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListOrganizationalUnitParentsRequest $request
+     * @summary 查询组织的所有父级路径
+     *  *
+     * @param ListOrganizationalUnitParentsRequest $request ListOrganizationalUnitParentsRequest
      *
-     * @return ListOrganizationalUnitParentsResponse
+     * @return ListOrganizationalUnitParentsResponse ListOrganizationalUnitParentsResponse
      */
     public function listOrganizationalUnitParents($request)
     {
@@ -3828,10 +4124,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListOrganizationalUnitsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+     *  *
+     * @param ListOrganizationalUnitsRequest $request ListOrganizationalUnitsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOrganizationalUnitsResponse
+     * @return ListOrganizationalUnitsResponse ListOrganizationalUnitsResponse
      */
     public function listOrganizationalUnitsWithOptions($request, $runtime)
     {
@@ -3877,9 +4175,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListOrganizationalUnitsRequest $request
+     * @summary Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+     *  *
+     * @param ListOrganizationalUnitsRequest $request ListOrganizationalUnitsRequest
      *
-     * @return ListOrganizationalUnitsResponse
+     * @return ListOrganizationalUnitsResponse ListOrganizationalUnitsResponse
      */
     public function listOrganizationalUnits($request)
     {
@@ -3889,10 +4189,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListOrganizationalUnitsForApplicationRequest $request
-     * @param RuntimeOptions                               $runtime
+     * @summary Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
+     *  *
+     * @param ListOrganizationalUnitsForApplicationRequest $request ListOrganizationalUnitsForApplicationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListOrganizationalUnitsForApplicationResponse
+     * @return ListOrganizationalUnitsForApplicationResponse ListOrganizationalUnitsForApplicationResponse
      */
     public function listOrganizationalUnitsForApplicationWithOptions($request, $runtime)
     {
@@ -3932,9 +4234,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListOrganizationalUnitsForApplicationRequest $request
+     * @summary Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
+     *  *
+     * @param ListOrganizationalUnitsForApplicationRequest $request ListOrganizationalUnitsForApplicationRequest
      *
-     * @return ListOrganizationalUnitsForApplicationResponse
+     * @return ListOrganizationalUnitsForApplicationResponse ListOrganizationalUnitsForApplicationResponse
      */
     public function listOrganizationalUnitsForApplication($request)
     {
@@ -3944,9 +4248,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @summary Queries the supported Alibaba Cloud regions.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRegionsResponse
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegionsWithOptions($runtime)
     {
@@ -3967,7 +4273,9 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @return ListRegionsResponse
+     * @summary Queries the supported Alibaba Cloud regions.
+     *  *
+     * @return ListRegionsResponse ListRegionsResponse
      */
     public function listRegions()
     {
@@ -3977,10 +4285,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
-     * @param RuntimeOptions   $runtime
+     * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
@@ -4047,9 +4357,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
+     * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -4059,10 +4371,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListUsersForApplicationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
+     *  *
+     * @param ListUsersForApplicationRequest $request ListUsersForApplicationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersForApplicationResponse
+     * @return ListUsersForApplicationResponse ListUsersForApplicationResponse
      */
     public function listUsersForApplicationWithOptions($request, $runtime)
     {
@@ -4102,9 +4416,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListUsersForApplicationRequest $request
+     * @summary Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
+     *  *
+     * @param ListUsersForApplicationRequest $request ListUsersForApplicationRequest
      *
-     * @return ListUsersForApplicationResponse
+     * @return ListUsersForApplicationResponse ListUsersForApplicationResponse
      */
     public function listUsersForApplication($request)
     {
@@ -4114,10 +4430,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListUsersForGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
+     *  *
+     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersForGroupResponse
+     * @return ListUsersForGroupResponse ListUsersForGroupResponse
      */
     public function listUsersForGroupWithOptions($request, $runtime)
     {
@@ -4157,9 +4475,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ListUsersForGroupRequest $request
+     * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
+     *  *
+     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
      *
-     * @return ListUsersForGroupResponse
+     * @return ListUsersForGroupResponse ListUsersForGroupResponse
      */
     public function listUsersForGroup($request)
     {
@@ -4169,10 +4489,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ObtainApplicationClientSecretRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @summary Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
+     *  *
+     * @param ObtainApplicationClientSecretRequest $request ObtainApplicationClientSecretRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ObtainApplicationClientSecretResponse
+     * @return ObtainApplicationClientSecretResponse ObtainApplicationClientSecretResponse
      */
     public function obtainApplicationClientSecretWithOptions($request, $runtime)
     {
@@ -4206,9 +4528,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ObtainApplicationClientSecretRequest $request
+     * @summary Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
+     *  *
+     * @param ObtainApplicationClientSecretRequest $request ObtainApplicationClientSecretRequest
      *
-     * @return ObtainApplicationClientSecretResponse
+     * @return ObtainApplicationClientSecretResponse ObtainApplicationClientSecretResponse
      */
     public function obtainApplicationClientSecret($request)
     {
@@ -4218,10 +4542,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ObtainDomainProxyTokenRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 查看指定域名安全代理Token。
+     *  *
+     * @param ObtainDomainProxyTokenRequest $request ObtainDomainProxyTokenRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ObtainDomainProxyTokenResponse
+     * @return ObtainDomainProxyTokenResponse ObtainDomainProxyTokenResponse
      */
     public function obtainDomainProxyTokenWithOptions($request, $runtime)
     {
@@ -4255,9 +4581,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param ObtainDomainProxyTokenRequest $request
+     * @summary 查看指定域名安全代理Token。
+     *  *
+     * @param ObtainDomainProxyTokenRequest $request ObtainDomainProxyTokenRequest
      *
-     * @return ObtainDomainProxyTokenResponse
+     * @return ObtainDomainProxyTokenResponse ObtainDomainProxyTokenResponse
      */
     public function obtainDomainProxyToken($request)
     {
@@ -4267,10 +4595,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromOrganizationalUnitsRequest $request
-     * @param RuntimeOptions                           $runtime
+     * @summary Removes an Employee Identity and Access Management (EIAM) account from multiple EIAM organizations of Identity as a Service (IDaaS). You cannot remove an account from a primary organization.
+     *  *
+     * @param RemoveUserFromOrganizationalUnitsRequest $request RemoveUserFromOrganizationalUnitsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUserFromOrganizationalUnitsResponse
+     * @return RemoveUserFromOrganizationalUnitsResponse RemoveUserFromOrganizationalUnitsResponse
      */
     public function removeUserFromOrganizationalUnitsWithOptions($request, $runtime)
     {
@@ -4304,9 +4634,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromOrganizationalUnitsRequest $request
+     * @summary Removes an Employee Identity and Access Management (EIAM) account from multiple EIAM organizations of Identity as a Service (IDaaS). You cannot remove an account from a primary organization.
+     *  *
+     * @param RemoveUserFromOrganizationalUnitsRequest $request RemoveUserFromOrganizationalUnitsRequest
      *
-     * @return RemoveUserFromOrganizationalUnitsResponse
+     * @return RemoveUserFromOrganizationalUnitsResponse RemoveUserFromOrganizationalUnitsResponse
      */
     public function removeUserFromOrganizationalUnits($request)
     {
@@ -4316,10 +4648,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RemoveUsersFromGroupRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
+     *  *
+     * @param RemoveUsersFromGroupRequest $request RemoveUsersFromGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUsersFromGroupResponse
+     * @return RemoveUsersFromGroupResponse RemoveUsersFromGroupResponse
      */
     public function removeUsersFromGroupWithOptions($request, $runtime)
     {
@@ -4353,9 +4687,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RemoveUsersFromGroupRequest $request
+     * @summary Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
+     *  *
+     * @param RemoveUsersFromGroupRequest $request RemoveUsersFromGroupRequest
      *
-     * @return RemoveUsersFromGroupResponse
+     * @return RemoveUsersFromGroupResponse RemoveUsersFromGroupResponse
      */
     public function removeUsersFromGroup($request)
     {
@@ -4365,10 +4701,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RevokeApplicationFromGroupsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @summary Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param RevokeApplicationFromGroupsRequest $request RevokeApplicationFromGroupsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeApplicationFromGroupsResponse
+     * @return RevokeApplicationFromGroupsResponse RevokeApplicationFromGroupsResponse
      */
     public function revokeApplicationFromGroupsWithOptions($request, $runtime)
     {
@@ -4402,9 +4740,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RevokeApplicationFromGroupsRequest $request
+     * @summary Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     *  *
+     * @param RevokeApplicationFromGroupsRequest $request RevokeApplicationFromGroupsRequest
      *
-     * @return RevokeApplicationFromGroupsResponse
+     * @return RevokeApplicationFromGroupsResponse RevokeApplicationFromGroupsResponse
      */
     public function revokeApplicationFromGroups($request)
     {
@@ -4414,10 +4754,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RevokeApplicationFromOrganizationalUnitsRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
+     *  *
+     * @param RevokeApplicationFromOrganizationalUnitsRequest $request RevokeApplicationFromOrganizationalUnitsRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeApplicationFromOrganizationalUnitsResponse
+     * @return RevokeApplicationFromOrganizationalUnitsResponse RevokeApplicationFromOrganizationalUnitsResponse
      */
     public function revokeApplicationFromOrganizationalUnitsWithOptions($request, $runtime)
     {
@@ -4451,9 +4793,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RevokeApplicationFromOrganizationalUnitsRequest $request
+     * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
+     *  *
+     * @param RevokeApplicationFromOrganizationalUnitsRequest $request RevokeApplicationFromOrganizationalUnitsRequest
      *
-     * @return RevokeApplicationFromOrganizationalUnitsResponse
+     * @return RevokeApplicationFromOrganizationalUnitsResponse RevokeApplicationFromOrganizationalUnitsResponse
      */
     public function revokeApplicationFromOrganizationalUnits($request)
     {
@@ -4463,10 +4807,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RevokeApplicationFromUsersRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
+     *  *
+     * @param RevokeApplicationFromUsersRequest $request RevokeApplicationFromUsersRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RevokeApplicationFromUsersResponse
+     * @return RevokeApplicationFromUsersResponse RevokeApplicationFromUsersResponse
      */
     public function revokeApplicationFromUsersWithOptions($request, $runtime)
     {
@@ -4500,9 +4846,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param RevokeApplicationFromUsersRequest $request
+     * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
+     *  *
+     * @param RevokeApplicationFromUsersRequest $request RevokeApplicationFromUsersRequest
      *
-     * @return RevokeApplicationFromUsersResponse
+     * @return RevokeApplicationFromUsersResponse RevokeApplicationFromUsersResponse
      */
     public function revokeApplicationFromUsers($request)
     {
@@ -4512,10 +4860,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetApplicationGrantScopeRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Configures the permissions of the Developer API feature of an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param SetApplicationGrantScopeRequest $request SetApplicationGrantScopeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetApplicationGrantScopeResponse
+     * @return SetApplicationGrantScopeResponse SetApplicationGrantScopeResponse
      */
     public function setApplicationGrantScopeWithOptions($request, $runtime)
     {
@@ -4549,9 +4899,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetApplicationGrantScopeRequest $request
+     * @summary Configures the permissions of the Developer API feature of an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param SetApplicationGrantScopeRequest $request SetApplicationGrantScopeRequest
      *
-     * @return SetApplicationGrantScopeResponse
+     * @return SetApplicationGrantScopeResponse SetApplicationGrantScopeResponse
      */
     public function setApplicationGrantScope($request)
     {
@@ -4561,10 +4913,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetApplicationProvisioningConfigRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param SetApplicationProvisioningConfigRequest $request SetApplicationProvisioningConfigRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetApplicationProvisioningConfigResponse
+     * @return SetApplicationProvisioningConfigResponse SetApplicationProvisioningConfigResponse
      */
     public function setApplicationProvisioningConfigWithOptions($request, $runtime)
     {
@@ -4607,9 +4961,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetApplicationProvisioningConfigRequest $request
+     * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @param SetApplicationProvisioningConfigRequest $request SetApplicationProvisioningConfigRequest
      *
-     * @return SetApplicationProvisioningConfigResponse
+     * @return SetApplicationProvisioningConfigResponse SetApplicationProvisioningConfigResponse
      */
     public function setApplicationProvisioningConfig($request)
     {
@@ -4619,10 +4975,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetApplicationProvisioningScopeRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Sets the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+     *  *
+     * @param SetApplicationProvisioningScopeRequest $request SetApplicationProvisioningScopeRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetApplicationProvisioningScopeResponse
+     * @return SetApplicationProvisioningScopeResponse SetApplicationProvisioningScopeResponse
      */
     public function setApplicationProvisioningScopeWithOptions($request, $runtime)
     {
@@ -4630,6 +4988,9 @@ class Eiam extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->applicationId)) {
             $query['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->groupIds)) {
+            $query['GroupIds'] = $request->groupIds;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -4656,9 +5017,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetApplicationProvisioningScopeRequest $request
+     * @summary Sets the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
+     *  *
+     * @param SetApplicationProvisioningScopeRequest $request SetApplicationProvisioningScopeRequest
      *
-     * @return SetApplicationProvisioningScopeResponse
+     * @return SetApplicationProvisioningScopeResponse SetApplicationProvisioningScopeResponse
      */
     public function setApplicationProvisioningScope($request)
     {
@@ -4668,8 +5031,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
-     *   *
+     * @summary Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @description In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+     *  *
      * @param SetApplicationSsoConfigRequest $request SetApplicationSsoConfigRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -4716,8 +5081,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
-     *   *
+     * @summary Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
+     *  *
+     * @description In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+     *  *
      * @param SetApplicationSsoConfigRequest $request SetApplicationSsoConfigRequest
      *
      * @return SetApplicationSsoConfigResponse SetApplicationSsoConfigResponse
@@ -4730,10 +5097,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultDomainRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 设置默认域名。
+     *  *
+     * @param SetDefaultDomainRequest $request SetDefaultDomainRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDefaultDomainResponse
+     * @return SetDefaultDomainResponse SetDefaultDomainResponse
      */
     public function setDefaultDomainWithOptions($request, $runtime)
     {
@@ -4764,9 +5133,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetDefaultDomainRequest $request
+     * @summary 设置默认域名。
+     *  *
+     * @param SetDefaultDomainRequest $request SetDefaultDomainRequest
      *
-     * @return SetDefaultDomainResponse
+     * @return SetDefaultDomainResponse SetDefaultDomainResponse
      */
     public function setDefaultDomain($request)
     {
@@ -4776,10 +5147,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetForgetPasswordConfigurationRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @summary Configures a forgot password policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param SetForgetPasswordConfigurationRequest $request SetForgetPasswordConfigurationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetForgetPasswordConfigurationResponse
+     * @return SetForgetPasswordConfigurationResponse SetForgetPasswordConfigurationResponse
      */
     public function setForgetPasswordConfigurationWithOptions($request, $runtime)
     {
@@ -4813,9 +5186,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetForgetPasswordConfigurationRequest $request
+     * @summary Configures a forgot password policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param SetForgetPasswordConfigurationRequest $request SetForgetPasswordConfigurationRequest
      *
-     * @return SetForgetPasswordConfigurationResponse
+     * @return SetForgetPasswordConfigurationResponse SetForgetPasswordConfigurationResponse
      */
     public function setForgetPasswordConfiguration($request)
     {
@@ -4825,10 +5200,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordComplexityConfigurationRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param SetPasswordComplexityConfigurationRequest $request SetPasswordComplexityConfigurationRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPasswordComplexityConfigurationResponse
+     * @return SetPasswordComplexityConfigurationResponse SetPasswordComplexityConfigurationResponse
      */
     public function setPasswordComplexityConfigurationWithOptions($request, $runtime)
     {
@@ -4862,9 +5239,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordComplexityConfigurationRequest $request
+     * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param SetPasswordComplexityConfigurationRequest $request SetPasswordComplexityConfigurationRequest
      *
-     * @return SetPasswordComplexityConfigurationResponse
+     * @return SetPasswordComplexityConfigurationResponse SetPasswordComplexityConfigurationResponse
      */
     public function setPasswordComplexityConfiguration($request)
     {
@@ -4874,10 +5253,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordExpirationConfigurationRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param SetPasswordExpirationConfigurationRequest $request SetPasswordExpirationConfigurationRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPasswordExpirationConfigurationResponse
+     * @return SetPasswordExpirationConfigurationResponse SetPasswordExpirationConfigurationResponse
      */
     public function setPasswordExpirationConfigurationWithOptions($request, $runtime)
     {
@@ -4926,9 +5307,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordExpirationConfigurationRequest $request
+     * @summary Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param SetPasswordExpirationConfigurationRequest $request SetPasswordExpirationConfigurationRequest
      *
-     * @return SetPasswordExpirationConfigurationResponse
+     * @return SetPasswordExpirationConfigurationResponse SetPasswordExpirationConfigurationResponse
      */
     public function setPasswordExpirationConfiguration($request)
     {
@@ -4938,10 +5321,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordHistoryConfigurationRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary Configures a password history policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param SetPasswordHistoryConfigurationRequest $request SetPasswordHistoryConfigurationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPasswordHistoryConfigurationResponse
+     * @return SetPasswordHistoryConfigurationResponse SetPasswordHistoryConfigurationResponse
      */
     public function setPasswordHistoryConfigurationWithOptions($request, $runtime)
     {
@@ -4975,9 +5360,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordHistoryConfigurationRequest $request
+     * @summary Configures a password history policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param SetPasswordHistoryConfigurationRequest $request SetPasswordHistoryConfigurationRequest
      *
-     * @return SetPasswordHistoryConfigurationResponse
+     * @return SetPasswordHistoryConfigurationResponse SetPasswordHistoryConfigurationResponse
      */
     public function setPasswordHistoryConfiguration($request)
     {
@@ -4987,10 +5374,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordInitializationConfigurationRequest $request
-     * @param RuntimeOptions                                $runtime
+     * @summary Sets the password initialization configurations for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param SetPasswordInitializationConfigurationRequest $request SetPasswordInitializationConfigurationRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetPasswordInitializationConfigurationResponse
+     * @return SetPasswordInitializationConfigurationResponse SetPasswordInitializationConfigurationResponse
      */
     public function setPasswordInitializationConfigurationWithOptions($request, $runtime)
     {
@@ -5030,9 +5419,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetPasswordInitializationConfigurationRequest $request
+     * @summary Sets the password initialization configurations for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param SetPasswordInitializationConfigurationRequest $request SetPasswordInitializationConfigurationRequest
      *
-     * @return SetPasswordInitializationConfigurationResponse
+     * @return SetPasswordInitializationConfigurationResponse SetPasswordInitializationConfigurationResponse
      */
     public function setPasswordInitializationConfiguration($request)
     {
@@ -5042,10 +5433,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetUserPrimaryOrganizationalUnitRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Updates the primary organizational unit to which an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account belongs. This account will be removed from the previous primary organizational unit and added to the new primary organization.
+     *  *
+     * @param SetUserPrimaryOrganizationalUnitRequest $request SetUserPrimaryOrganizationalUnitRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetUserPrimaryOrganizationalUnitResponse
+     * @return SetUserPrimaryOrganizationalUnitResponse SetUserPrimaryOrganizationalUnitResponse
      */
     public function setUserPrimaryOrganizationalUnitWithOptions($request, $runtime)
     {
@@ -5079,9 +5472,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param SetUserPrimaryOrganizationalUnitRequest $request
+     * @summary Updates the primary organizational unit to which an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account belongs. This account will be removed from the previous primary organizational unit and added to the new primary organization.
+     *  *
+     * @param SetUserPrimaryOrganizationalUnitRequest $request SetUserPrimaryOrganizationalUnitRequest
      *
-     * @return SetUserPrimaryOrganizationalUnitResponse
+     * @return SetUserPrimaryOrganizationalUnitResponse SetUserPrimaryOrganizationalUnitResponse
      */
     public function setUserPrimaryOrganizationalUnit($request)
     {
@@ -5091,10 +5486,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UnlockUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
+     *  *
+     * @param UnlockUserRequest $request UnlockUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnlockUserResponse
+     * @return UnlockUserResponse UnlockUserResponse
      */
     public function unlockUserWithOptions($request, $runtime)
     {
@@ -5125,9 +5522,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UnlockUserRequest $request
+     * @summary Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
+     *  *
+     * @param UnlockUserRequest $request UnlockUserRequest
      *
-     * @return UnlockUserResponse
+     * @return UnlockUserResponse UnlockUserResponse
      */
     public function unlockUser($request)
     {
@@ -5137,10 +5536,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationAuthorizationTypeRequest $request
-     * @param RuntimeOptions                            $runtime
+     * @summary Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param UpdateApplicationAuthorizationTypeRequest $request UpdateApplicationAuthorizationTypeRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationAuthorizationTypeResponse
+     * @return UpdateApplicationAuthorizationTypeResponse UpdateApplicationAuthorizationTypeResponse
      */
     public function updateApplicationAuthorizationTypeWithOptions($request, $runtime)
     {
@@ -5174,9 +5575,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationAuthorizationTypeRequest $request
+     * @summary Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param UpdateApplicationAuthorizationTypeRequest $request UpdateApplicationAuthorizationTypeRequest
      *
-     * @return UpdateApplicationAuthorizationTypeResponse
+     * @return UpdateApplicationAuthorizationTypeResponse UpdateApplicationAuthorizationTypeResponse
      */
     public function updateApplicationAuthorizationType($request)
     {
@@ -5186,10 +5589,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationDescriptionRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary Modifies the description of an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param UpdateApplicationDescriptionRequest $request UpdateApplicationDescriptionRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateApplicationDescriptionResponse
+     * @return UpdateApplicationDescriptionResponse UpdateApplicationDescriptionResponse
      */
     public function updateApplicationDescriptionWithOptions($request, $runtime)
     {
@@ -5223,9 +5628,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateApplicationDescriptionRequest $request
+     * @summary Modifies the description of an Employee Identity and Access Management (EIAM) application.
+     *  *
+     * @param UpdateApplicationDescriptionRequest $request UpdateApplicationDescriptionRequest
      *
-     * @return UpdateApplicationDescriptionResponse
+     * @return UpdateApplicationDescriptionResponse UpdateApplicationDescriptionResponse
      */
     public function updateApplicationDescription($request)
     {
@@ -5235,10 +5642,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * @summary Updates the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the information is empty, the information is not updated by default.
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroupWithOptions($request, $runtime)
     {
@@ -5275,9 +5684,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
+     * @summary Updates the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the information is empty, the information is not updated by default.
+     *  *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroup($request)
     {
@@ -5287,10 +5698,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupDescriptionRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary Updates the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account group.
+     *  *
+     * @param UpdateGroupDescriptionRequest $request UpdateGroupDescriptionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGroupDescriptionResponse
+     * @return UpdateGroupDescriptionResponse UpdateGroupDescriptionResponse
      */
     public function updateGroupDescriptionWithOptions($request, $runtime)
     {
@@ -5324,9 +5737,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupDescriptionRequest $request
+     * @summary Updates the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account group.
+     *  *
+     * @param UpdateGroupDescriptionRequest $request UpdateGroupDescriptionRequest
      *
-     * @return UpdateGroupDescriptionResponse
+     * @return UpdateGroupDescriptionResponse UpdateGroupDescriptionResponse
      */
     public function updateGroupDescription($request)
     {
@@ -5336,10 +5751,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceDescriptionRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @summary Modifies the description of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param UpdateInstanceDescriptionRequest $request UpdateInstanceDescriptionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceDescriptionResponse
+     * @return UpdateInstanceDescriptionResponse UpdateInstanceDescriptionResponse
      */
     public function updateInstanceDescriptionWithOptions($request, $runtime)
     {
@@ -5370,9 +5787,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceDescriptionRequest $request
+     * @summary Modifies the description of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     *  *
+     * @param UpdateInstanceDescriptionRequest $request UpdateInstanceDescriptionRequest
      *
-     * @return UpdateInstanceDescriptionResponse
+     * @return UpdateInstanceDescriptionResponse UpdateInstanceDescriptionResponse
      */
     public function updateInstanceDescription($request)
     {
@@ -5382,10 +5801,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateNetworkAccessEndpointNameRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @summary 更新一个专属网络端点的名称。
+     *  *
+     * @param UpdateNetworkAccessEndpointNameRequest $request UpdateNetworkAccessEndpointNameRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateNetworkAccessEndpointNameResponse
+     * @return UpdateNetworkAccessEndpointNameResponse UpdateNetworkAccessEndpointNameResponse
      */
     public function updateNetworkAccessEndpointNameWithOptions($request, $runtime)
     {
@@ -5419,9 +5840,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateNetworkAccessEndpointNameRequest $request
+     * @summary 更新一个专属网络端点的名称。
+     *  *
+     * @param UpdateNetworkAccessEndpointNameRequest $request UpdateNetworkAccessEndpointNameRequest
      *
-     * @return UpdateNetworkAccessEndpointNameResponse
+     * @return UpdateNetworkAccessEndpointNameResponse UpdateNetworkAccessEndpointNameResponse
      */
     public function updateNetworkAccessEndpointName($request)
     {
@@ -5431,10 +5854,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateOrganizationalUnitRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) organization. The basic information about the organization is not updated by default if no parameter is specified.
+     *  *
+     * @param UpdateOrganizationalUnitRequest $request UpdateOrganizationalUnitRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateOrganizationalUnitResponse
+     * @return UpdateOrganizationalUnitResponse UpdateOrganizationalUnitResponse
      */
     public function updateOrganizationalUnitWithOptions($request, $runtime)
     {
@@ -5468,9 +5893,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateOrganizationalUnitRequest $request
+     * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) organization. The basic information about the organization is not updated by default if no parameter is specified.
+     *  *
+     * @param UpdateOrganizationalUnitRequest $request UpdateOrganizationalUnitRequest
      *
-     * @return UpdateOrganizationalUnitResponse
+     * @return UpdateOrganizationalUnitResponse UpdateOrganizationalUnitResponse
      */
     public function updateOrganizationalUnit($request)
     {
@@ -5480,10 +5907,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateOrganizationalUnitDescriptionRequest $request
-     * @param RuntimeOptions                             $runtime
+     * @summary Modifies the description of an Employee Identity and Access Management (EIAM) organization.
+     *  *
+     * @param UpdateOrganizationalUnitDescriptionRequest $request UpdateOrganizationalUnitDescriptionRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateOrganizationalUnitDescriptionResponse
+     * @return UpdateOrganizationalUnitDescriptionResponse UpdateOrganizationalUnitDescriptionResponse
      */
     public function updateOrganizationalUnitDescriptionWithOptions($request, $runtime)
     {
@@ -5517,9 +5946,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateOrganizationalUnitDescriptionRequest $request
+     * @summary Modifies the description of an Employee Identity and Access Management (EIAM) organization.
+     *  *
+     * @param UpdateOrganizationalUnitDescriptionRequest $request UpdateOrganizationalUnitDescriptionRequest
      *
-     * @return UpdateOrganizationalUnitDescriptionResponse
+     * @return UpdateOrganizationalUnitDescriptionResponse UpdateOrganizationalUnitDescriptionResponse
      */
     public function updateOrganizationalUnitDescription($request)
     {
@@ -5529,10 +5960,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateOrganizationalUnitParentIdRequest $request
-     * @param RuntimeOptions                          $runtime
+     * @summary Updates the parent organization ID of an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). In this case, the organization is moved from a parent node to a new node.
+     *  *
+     * @param UpdateOrganizationalUnitParentIdRequest $request UpdateOrganizationalUnitParentIdRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateOrganizationalUnitParentIdResponse
+     * @return UpdateOrganizationalUnitParentIdResponse UpdateOrganizationalUnitParentIdResponse
      */
     public function updateOrganizationalUnitParentIdWithOptions($request, $runtime)
     {
@@ -5566,9 +5999,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateOrganizationalUnitParentIdRequest $request
+     * @summary Updates the parent organization ID of an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). In this case, the organization is moved from a parent node to a new node.
+     *  *
+     * @param UpdateOrganizationalUnitParentIdRequest $request UpdateOrganizationalUnitParentIdRequest
      *
-     * @return UpdateOrganizationalUnitParentIdResponse
+     * @return UpdateOrganizationalUnitParentIdResponse UpdateOrganizationalUnitParentIdResponse
      */
     public function updateOrganizationalUnitParentId($request)
     {
@@ -5578,10 +6013,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
@@ -5636,9 +6073,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
+     * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUser($request)
     {
@@ -5648,10 +6087,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserDescriptionRequest $request
-     * @param RuntimeOptions               $runtime
+     * @summary Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
+     *  *
+     * @param UpdateUserDescriptionRequest $request UpdateUserDescriptionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserDescriptionResponse
+     * @return UpdateUserDescriptionResponse UpdateUserDescriptionResponse
      */
     public function updateUserDescriptionWithOptions($request, $runtime)
     {
@@ -5685,9 +6126,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserDescriptionRequest $request
+     * @summary Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
+     *  *
+     * @param UpdateUserDescriptionRequest $request UpdateUserDescriptionRequest
      *
-     * @return UpdateUserDescriptionResponse
+     * @return UpdateUserDescriptionResponse UpdateUserDescriptionResponse
      */
     public function updateUserDescription($request)
     {
@@ -5697,10 +6140,12 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserPasswordRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
+     *  *
+     * @param UpdateUserPasswordRequest $request UpdateUserPasswordRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserPasswordResponse
+     * @return UpdateUserPasswordResponse UpdateUserPasswordResponse
      */
     public function updateUserPasswordWithOptions($request, $runtime)
     {
@@ -5740,9 +6185,11 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserPasswordRequest $request
+     * @summary Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
+     *  *
+     * @param UpdateUserPasswordRequest $request UpdateUserPasswordRequest
      *
-     * @return UpdateUserPasswordResponse
+     * @return UpdateUserPasswordResponse UpdateUserPasswordResponse
      */
     public function updateUserPassword($request)
     {

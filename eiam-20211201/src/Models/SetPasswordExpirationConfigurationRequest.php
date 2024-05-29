@@ -11,6 +11,7 @@ class SetPasswordExpirationConfigurationRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -66,6 +67,7 @@ class SetPasswordExpirationConfigurationRequest extends Model
      *   enabled
      *   disabled
      *
+     * This parameter is required.
      * @example enabled
      *
      * @var string

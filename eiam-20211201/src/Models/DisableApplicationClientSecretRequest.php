@@ -11,6 +11,7 @@ class DisableApplicationClientSecretRequest extends Model
     /**
      * @description The ID of the application for which you want to disable a client key.
      *
+     * This parameter is required.
      * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class DisableApplicationClientSecretRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -29,6 +31,7 @@ class DisableApplicationClientSecretRequest extends Model
     /**
      * @description The client key ID of the application.
      *
+     * This parameter is required.
      * @example sci_k52x2ru63rlkflina5utgkxxxx
      *
      * @var string

@@ -11,6 +11,7 @@ class RevokeApplicationFromOrganizationalUnitsRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class RevokeApplicationFromOrganizationalUnitsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -29,6 +31,7 @@ class RevokeApplicationFromOrganizationalUnitsRequest extends Model
     /**
      * @description The IDs of the organizations. You can revoke the access permissions from a maximum of 100 organizations at a time.
      *
+     * This parameter is required.
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string[]

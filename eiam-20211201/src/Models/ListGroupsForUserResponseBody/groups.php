@@ -16,8 +16,20 @@ class groups extends Model
      * @var string
      */
     public $groupId;
+
+    /**
+     * @var string
+     */
+    public $groupMemberRelationSourceId;
+
+    /**
+     * @var string
+     */
+    public $groupMemberRelationSourceType;
     protected $_name = [
-        'groupId' => 'GroupId',
+        'groupId'                       => 'GroupId',
+        'groupMemberRelationSourceId'   => 'GroupMemberRelationSourceId',
+        'groupMemberRelationSourceType' => 'GroupMemberRelationSourceType',
     ];
 
     public function validate()
@@ -29,6 +41,12 @@ class groups extends Model
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->groupMemberRelationSourceId) {
+            $res['GroupMemberRelationSourceId'] = $this->groupMemberRelationSourceId;
+        }
+        if (null !== $this->groupMemberRelationSourceType) {
+            $res['GroupMemberRelationSourceType'] = $this->groupMemberRelationSourceType;
         }
 
         return $res;
@@ -44,6 +62,12 @@ class groups extends Model
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['GroupMemberRelationSourceId'])) {
+            $model->groupMemberRelationSourceId = $map['GroupMemberRelationSourceId'];
+        }
+        if (isset($map['GroupMemberRelationSourceType'])) {
+            $model->groupMemberRelationSourceType = $map['GroupMemberRelationSourceType'];
         }
 
         return $model;

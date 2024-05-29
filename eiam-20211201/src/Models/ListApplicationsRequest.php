@@ -41,6 +41,7 @@ class ListApplicationsRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string

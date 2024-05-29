@@ -29,6 +29,7 @@ class CreateGroupRequest extends Model
     /**
      * @description The name of the group. The name can be up to 64 characters in length.
      *
+     * This parameter is required.
      * @example name_test
      *
      * @var string
@@ -38,6 +39,7 @@ class CreateGroupRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string

@@ -11,6 +11,7 @@ class SetUserPrimaryOrganizationalUnitRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class SetUserPrimaryOrganizationalUnitRequest extends Model
     /**
      * @description The ID of the new primary organizational unit.
      *
+     * This parameter is required.
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
@@ -29,6 +31,7 @@ class SetUserPrimaryOrganizationalUnitRequest extends Model
     /**
      * @description The ID of the account.
      *
+     * This parameter is required.
      * @example user_d6sbsuumeta4h66ec3il7yxxxx
      *
      * @var string

@@ -11,6 +11,7 @@ class UpdateNetworkAccessEndpointNameRequest extends Model
     /**
      * @description IDaaS EIAM实例的ID。
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateNetworkAccessEndpointNameRequest extends Model
     /**
      * @description 专属网络端点ID。
      *
+     * This parameter is required.
      * @example nae_examplexxxx
      *
      * @var string
@@ -29,6 +31,7 @@ class UpdateNetworkAccessEndpointNameRequest extends Model
     /**
      * @description 专属网络端点名称。
      *
+     * This parameter is required.
      * @example xx业务VPC访问端点
      *
      * @var string

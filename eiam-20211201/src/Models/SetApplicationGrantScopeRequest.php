@@ -11,6 +11,7 @@ class SetApplicationGrantScopeRequest extends Model
     /**
      * @description The ID of the application that you want to configure.
      *
+     * This parameter is required.
      * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
      *
      * @var string
@@ -27,6 +28,7 @@ class SetApplicationGrantScopeRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @var string
+     */
+    public $groupMemberRelationSourceId;
+
+    /**
+     * @var string
+     */
+    public $groupMemberRelationSourceType;
+
+    /**
      * @description The account ID.
      *
      * @example user_d6sbsuumeta4h66ec3il7yxxxx
@@ -17,7 +27,9 @@ class users extends Model
      */
     public $userId;
     protected $_name = [
-        'userId' => 'UserId',
+        'groupMemberRelationSourceId'   => 'GroupMemberRelationSourceId',
+        'groupMemberRelationSourceType' => 'GroupMemberRelationSourceType',
+        'userId'                        => 'UserId',
     ];
 
     public function validate()
@@ -27,6 +39,12 @@ class users extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->groupMemberRelationSourceId) {
+            $res['GroupMemberRelationSourceId'] = $this->groupMemberRelationSourceId;
+        }
+        if (null !== $this->groupMemberRelationSourceType) {
+            $res['GroupMemberRelationSourceType'] = $this->groupMemberRelationSourceType;
+        }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -42,6 +60,12 @@ class users extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GroupMemberRelationSourceId'])) {
+            $model->groupMemberRelationSourceId = $map['GroupMemberRelationSourceId'];
+        }
+        if (isset($map['GroupMemberRelationSourceType'])) {
+            $model->groupMemberRelationSourceType = $map['GroupMemberRelationSourceType'];
+        }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

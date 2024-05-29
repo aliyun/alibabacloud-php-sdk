@@ -11,6 +11,7 @@ class ListNetworkAccessEndpointAvailableZonesRequest extends Model
     /**
      * @description 专属网络端点支持的地域
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

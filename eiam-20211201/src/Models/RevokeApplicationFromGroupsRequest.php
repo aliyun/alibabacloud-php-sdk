@@ -11,6 +11,7 @@ class RevokeApplicationFromGroupsRequest extends Model
     /**
      * @description The application ID.
      *
+     * This parameter is required.
      * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class RevokeApplicationFromGroupsRequest extends Model
     /**
      * @description The group IDs. You can specify up to 100 group IDs at a time.
      *
+     * This parameter is required.
      * @example group_miu8e4t4d7i4u7uwezgr54xxxx
      *
      * @var string[]
@@ -29,6 +31,7 @@ class RevokeApplicationFromGroupsRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string

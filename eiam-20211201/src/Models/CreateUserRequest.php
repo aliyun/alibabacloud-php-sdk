@@ -38,7 +38,7 @@ class CreateUserRequest extends Model
     public $displayName;
 
     /**
-     * @description The email address of the user who owns the account. The email address prefix can contain letters, digits, underscores (\_), periods (.), and hyphens (-).
+     * @description The email address of the user who owns the account. The email address prefix can contain letters, digits, underscores (_), periods (.), and hyphens (-).
      *
      * @example example@example.com
      *
@@ -58,6 +58,7 @@ class CreateUserRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -117,6 +118,7 @@ class CreateUserRequest extends Model
     /**
      * @description The ID of the primary organizational unit to which the account belongs.
      *
+     * This parameter is required.
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string
@@ -133,8 +135,9 @@ class CreateUserRequest extends Model
     public $userExternalId;
 
     /**
-     * @description The name of the account. The name can be up to 64 characters in length and can contain letters, digits, underscores (\_), periods (.), at signs (@), and hyphens (-).
+     * @description The name of the account. The name can be up to 64 characters in length and can contain letters, digits, underscores (_), periods (.), at signs (@), and hyphens (-).
      *
+     * This parameter is required.
      * @example user_001
      *
      * @var string

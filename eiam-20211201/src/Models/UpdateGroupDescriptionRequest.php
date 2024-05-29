@@ -20,6 +20,7 @@ class UpdateGroupDescriptionRequest extends Model
     /**
      * @description The ID of the account group.
      *
+     * This parameter is required.
      * @example group_d6sbsuumeta4h66ec3il7yxxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class UpdateGroupDescriptionRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string

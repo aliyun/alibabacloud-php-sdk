@@ -11,6 +11,7 @@ class CreateApplicationRequest extends Model
     /**
      * @description The name of the application.
      *
+     * This parameter is required.
      * @example Ram Account SSO
      *
      * @var string
@@ -23,6 +24,7 @@ class CreateApplicationRequest extends Model
      *   urn:alibaba:idaas:app:source:template: application template
      *   urn:alibaba:idaas:app:source:standard: standard protocol
      *
+     * This parameter is required.
      * @example urn:alibaba:idaas:app:source:standard
      *
      * @var string
@@ -50,6 +52,7 @@ class CreateApplicationRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk2676xxxx
      *
      * @var string
@@ -71,6 +74,7 @@ class CreateApplicationRequest extends Model
      *   saml2: the SAML 2.0 protocol.
      *   oidc: the OpenID Connect protocol.
      *
+     * This parameter is required.
      * @example saml2
      *
      * @var string

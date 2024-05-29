@@ -11,6 +11,7 @@ class UpdateOrganizationalUnitRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateOrganizationalUnitRequest extends Model
     /**
      * @description The organization ID.
      *
+     * This parameter is required.
      * @example ou_wovwffm62xifdziem7an7xxxxx
      *
      * @var string

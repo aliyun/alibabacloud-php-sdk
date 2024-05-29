@@ -11,6 +11,7 @@ class GetDomainDnsChallengeRequest extends Model
     /**
      * @description 域名。
      *
+     * This parameter is required.
      * @example dm_examplexxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class GetDomainDnsChallengeRequest extends Model
     /**
      * @description IDaaS EIAM实例的ID。
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string

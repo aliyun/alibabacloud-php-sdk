@@ -13,6 +13,7 @@ class SetApplicationProvisioningConfigRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class SetApplicationProvisioningConfigRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -53,6 +55,7 @@ class SetApplicationProvisioningConfigRequest extends Model
      *   idaas_callback: custom event callback protocol of IDaaS.
      *   scim2: System for Cross-domain Identity Management (SCIM) protocol.
      *
+     * This parameter is required.
      * @example idaas_callback
      *
      * @var string

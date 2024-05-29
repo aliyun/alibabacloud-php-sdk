@@ -11,6 +11,7 @@ class UpdateUserPasswordRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class UpdateUserPasswordRequest extends Model
     /**
      * @description The new password of the account. For more information about the password format, see the "Password Policies" topic.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var string
@@ -41,6 +43,7 @@ class UpdateUserPasswordRequest extends Model
     /**
      * @description The account ID.
      *
+     * This parameter is required.
      * @example user_d6sbsuumeta4h66ec3il7yxxxx
      *
      * @var string

@@ -20,6 +20,7 @@ class CreateNetworkAccessEndpointRequest extends Model
     /**
      * @description IDaaS EIAM实例的ID。
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -29,6 +30,7 @@ class CreateNetworkAccessEndpointRequest extends Model
     /**
      * @description 专属网络端点名称。
      *
+     * This parameter is required.
      * @example xx业务VPC访问端点
      *
      * @var string
@@ -47,6 +49,7 @@ class CreateNetworkAccessEndpointRequest extends Model
     /**
      * @description 专属网络端点连接的VpcID。
      *
+     * This parameter is required.
      * @example vpc-examplexxx
      *
      * @var string
@@ -56,6 +59,7 @@ class CreateNetworkAccessEndpointRequest extends Model
     /**
      * @description 专属网络端点连接的VpcID所属地域，该地域取值必须在ListNetworkAccessEndpointAvailableRegions接口中返回。
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

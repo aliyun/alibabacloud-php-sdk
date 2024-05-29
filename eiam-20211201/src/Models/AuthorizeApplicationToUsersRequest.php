@@ -11,6 +11,7 @@ class AuthorizeApplicationToUsersRequest extends Model
     /**
      * @description The ID of the application on which you want to grant permissions.
      *
+     * This parameter is required.
      * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class AuthorizeApplicationToUsersRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk2676xxxx
      *
      * @var string
@@ -29,6 +31,7 @@ class AuthorizeApplicationToUsersRequest extends Model
     /**
      * @description The IDs of the accounts to which you want to grant permissions. You can grant permissions to a maximum of 100 accounts at a time.
      *
+     * This parameter is required.
      * @example user_d6sbsuumeta4h66ec3il7yxxxx
      *
      * @var string[]

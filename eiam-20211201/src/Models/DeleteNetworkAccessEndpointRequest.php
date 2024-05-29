@@ -11,6 +11,7 @@ class DeleteNetworkAccessEndpointRequest extends Model
     /**
      * @description IDaaS EIAM实例的ID。
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteNetworkAccessEndpointRequest extends Model
     /**
      * @description 专属网络端点ID。
      *
+     * This parameter is required.
      * @example nae_examplexxxx
      *
      * @var string

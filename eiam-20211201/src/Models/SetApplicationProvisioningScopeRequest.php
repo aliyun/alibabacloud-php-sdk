@@ -11,6 +11,7 @@ class SetApplicationProvisioningScopeRequest extends Model
     /**
      * @description The ID of the application.
      *
+     * This parameter is required.
      * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
      *
      * @var string
@@ -18,8 +19,16 @@ class SetApplicationProvisioningScopeRequest extends Model
     public $applicationId;
 
     /**
+     * @description 授权同步出的组列表
+     *
+     * @var string[]
+     */
+    public $groupIds;
+
+    /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -34,6 +43,7 @@ class SetApplicationProvisioningScopeRequest extends Model
     public $organizationalUnitIds;
     protected $_name = [
         'applicationId'         => 'ApplicationId',
+        'groupIds'              => 'GroupIds',
         'instanceId'            => 'InstanceId',
         'organizationalUnitIds' => 'OrganizationalUnitIds',
     ];
@@ -47,6 +57,9 @@ class SetApplicationProvisioningScopeRequest extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+        if (null !== $this->groupIds) {
+            $res['GroupIds'] = $this->groupIds;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -68,6 +81,11 @@ class SetApplicationProvisioningScopeRequest extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+        if (isset($map['GroupIds'])) {
+            if (!empty($map['GroupIds'])) {
+                $model->groupIds = $map['GroupIds'];
+            }
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

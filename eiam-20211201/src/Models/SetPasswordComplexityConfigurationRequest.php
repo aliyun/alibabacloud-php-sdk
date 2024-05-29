@@ -12,6 +12,7 @@ class SetPasswordComplexityConfigurationRequest extends Model
     /**
      * @description The instance ID.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
@@ -28,6 +29,7 @@ class SetPasswordComplexityConfigurationRequest extends Model
     /**
      * @description The minimum number of characters in a password.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

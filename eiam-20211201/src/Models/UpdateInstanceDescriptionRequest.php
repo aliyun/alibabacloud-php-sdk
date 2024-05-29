@@ -20,6 +20,7 @@ class UpdateInstanceDescriptionRequest extends Model
     /**
      * @description The ID of the instance whose description you want to modify.
      *
+     * This parameter is required.
      * @example idaas_ue2jvisn35ea5lmthk267xxxxx
      *
      * @var string
