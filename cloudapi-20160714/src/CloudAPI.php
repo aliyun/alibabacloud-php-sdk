@@ -212,6 +212,10 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeImportOASTaskRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeImportOASTaskResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceClusterInfoRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceClusterInfoResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceClusterListRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceClusterListResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceDropConnectionsRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceDropConnectionsResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceDropPacketRequest;
@@ -6797,6 +6801,115 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeImportOASTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询专享实例集群的详情
+     *  *
+     * @param DescribeInstanceClusterInfoRequest $request DescribeInstanceClusterInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeInstanceClusterInfoResponse DescribeInstanceClusterInfoResponse
+     */
+    public function describeInstanceClusterInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceClusterName)) {
+            $query['InstanceClusterName'] = $request->instanceClusterName;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceClusterInfo',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceClusterInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询专享实例集群的详情
+     *  *
+     * @param DescribeInstanceClusterInfoRequest $request DescribeInstanceClusterInfoRequest
+     *
+     * @return DescribeInstanceClusterInfoResponse DescribeInstanceClusterInfoResponse
+     */
+    public function describeInstanceClusterInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceClusterInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询专享实例集群列表
+     *  *
+     * @param DescribeInstanceClusterListRequest $request DescribeInstanceClusterListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeInstanceClusterListResponse DescribeInstanceClusterListResponse
+     */
+    public function describeInstanceClusterListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceClusterId)) {
+            $query['InstanceClusterId'] = $request->instanceClusterId;
+        }
+        if (!Utils::isUnset($request->instanceClusterName)) {
+            $query['InstanceClusterName'] = $request->instanceClusterName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceClusterList',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceClusterListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询专享实例集群列表
+     *  *
+     * @param DescribeInstanceClusterListRequest $request DescribeInstanceClusterListRequest
+     *
+     * @return DescribeInstanceClusterListResponse DescribeInstanceClusterListResponse
+     */
+    public function describeInstanceClusterList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceClusterListWithOptions($request, $runtime);
     }
 
     /**
