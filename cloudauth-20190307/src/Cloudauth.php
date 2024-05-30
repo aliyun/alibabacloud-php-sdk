@@ -108,10 +108,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param AIGCFaceVerifyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 新增AIGC人脸检测能力
+     *  *
+     * @param AIGCFaceVerifyRequest $request AIGCFaceVerifyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AIGCFaceVerifyResponse
+     * @return AIGCFaceVerifyResponse AIGCFaceVerifyResponse
      */
     public function aIGCFaceVerifyWithOptions($request, $runtime)
     {
@@ -159,9 +161,11 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param AIGCFaceVerifyRequest $request
+     * @summary 新增AIGC人脸检测能力
+     *  *
+     * @param AIGCFaceVerifyRequest $request AIGCFaceVerifyRequest
      *
-     * @return AIGCFaceVerifyResponse
+     * @return AIGCFaceVerifyResponse AIGCFaceVerifyResponse
      */
     public function aIGCFaceVerify($request)
     {
@@ -171,10 +175,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param BankMetaVerifyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 银行卡要素核验接口
+     *  *
+     * @param BankMetaVerifyRequest $request BankMetaVerifyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return BankMetaVerifyResponse
+     * @return BankMetaVerifyResponse BankMetaVerifyResponse
      */
     public function bankMetaVerifyWithOptions($request, $runtime)
     {
@@ -220,9 +226,11 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param BankMetaVerifyRequest $request
+     * @summary 银行卡要素核验接口
+     *  *
+     * @param BankMetaVerifyRequest $request BankMetaVerifyRequest
      *
-     * @return BankMetaVerifyResponse
+     * @return BankMetaVerifyResponse BankMetaVerifyResponse
      */
     public function bankMetaVerify($request)
     {
@@ -232,10 +240,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param CompareFaceVerifyRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CompareFaceVerifyRequest $request CompareFaceVerifyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CompareFaceVerifyResponse
+     * @return CompareFaceVerifyResponse CompareFaceVerifyResponse
      */
     public function compareFaceVerifyWithOptions($request, $runtime)
     {
@@ -302,9 +310,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param CompareFaceVerifyRequest $request
+     * @param CompareFaceVerifyRequest $request CompareFaceVerifyRequest
      *
-     * @return CompareFaceVerifyResponse
+     * @return CompareFaceVerifyResponse CompareFaceVerifyResponse
      */
     public function compareFaceVerify($request)
     {
@@ -314,10 +322,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param CompareFacesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param CompareFacesRequest $request CompareFacesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CompareFacesResponse
+     * @return CompareFacesResponse CompareFacesResponse
      */
     public function compareFacesWithOptions($request, $runtime)
     {
@@ -354,9 +362,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param CompareFacesRequest $request
+     * @param CompareFacesRequest $request CompareFacesRequest
      *
-     * @return CompareFacesResponse
+     * @return CompareFacesResponse CompareFacesResponse
      */
     public function compareFaces($request)
     {
@@ -366,10 +374,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param ContrastFaceVerifyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ContrastFaceVerifyRequest $request ContrastFaceVerifyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ContrastFaceVerifyResponse
+     * @return ContrastFaceVerifyResponse ContrastFaceVerifyResponse
      */
     public function contrastFaceVerifyWithOptions($request, $runtime)
     {
@@ -453,9 +461,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param ContrastFaceVerifyRequest $request
+     * @param ContrastFaceVerifyRequest $request ContrastFaceVerifyRequest
      *
-     * @return ContrastFaceVerifyResponse
+     * @return ContrastFaceVerifyResponse ContrastFaceVerifyResponse
      */
     public function contrastFaceVerify($request)
     {
@@ -478,7 +486,7 @@ class Cloudauth extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -500,12 +508,13 @@ class Cloudauth extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -543,10 +552,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param CreateAuthKeyRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param CreateAuthKeyRequest $request CreateAuthKeyRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAuthKeyResponse
+     * @return CreateAuthKeyResponse CreateAuthKeyResponse
      */
     public function createAuthKeyWithOptions($request, $runtime)
     {
@@ -583,9 +592,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param CreateAuthKeyRequest $request
+     * @param CreateAuthKeyRequest $request CreateAuthKeyRequest
      *
-     * @return CreateAuthKeyResponse
+     * @return CreateAuthKeyResponse CreateAuthKeyResponse
      */
     public function createAuthKey($request)
     {
@@ -595,10 +604,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param CreateVerifySettingRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateVerifySettingRequest $request CreateVerifySettingRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVerifySettingResponse
+     * @return CreateVerifySettingResponse CreateVerifySettingResponse
      */
     public function createVerifySettingWithOptions($request, $runtime)
     {
@@ -641,9 +650,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param CreateVerifySettingRequest $request
+     * @param CreateVerifySettingRequest $request CreateVerifySettingRequest
      *
-     * @return CreateVerifySettingResponse
+     * @return CreateVerifySettingResponse CreateVerifySettingResponse
      */
     public function createVerifySetting($request)
     {
@@ -653,10 +662,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param CredentialVerifyRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 凭证核验
+     *  *
+     * @param CredentialVerifyRequest $request CredentialVerifyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CredentialVerifyResponse
+     * @return CredentialVerifyResponse CredentialVerifyResponse
      */
     public function credentialVerifyWithOptions($request, $runtime)
     {
@@ -682,6 +693,9 @@ class Cloudauth extends OpenApiClient
         }
         if (!Utils::isUnset($request->isOCR)) {
             $query['IsOCR'] = $request->isOCR;
+        }
+        if (!Utils::isUnset($request->merchantId)) {
+            $query['MerchantId'] = $request->merchantId;
         }
         if (!Utils::isUnset($request->userName)) {
             $query['UserName'] = $request->userName;
@@ -710,9 +724,11 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param CredentialVerifyRequest $request
+     * @summary 凭证核验
+     *  *
+     * @param CredentialVerifyRequest $request CredentialVerifyRequest
      *
-     * @return CredentialVerifyResponse
+     * @return CredentialVerifyResponse CredentialVerifyResponse
      */
     public function credentialVerify($request)
     {
@@ -722,10 +738,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceInfoRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DescribeDeviceInfoRequest $request DescribeDeviceInfoRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDeviceInfoResponse
+     * @return DescribeDeviceInfoResponse DescribeDeviceInfoResponse
      */
     public function describeDeviceInfoWithOptions($request, $runtime)
     {
@@ -771,9 +787,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeDeviceInfoRequest $request
+     * @param DescribeDeviceInfoRequest $request DescribeDeviceInfoRequest
      *
-     * @return DescribeDeviceInfoResponse
+     * @return DescribeDeviceInfoResponse DescribeDeviceInfoResponse
      */
     public function describeDeviceInfo($request)
     {
@@ -783,10 +799,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaceVerifyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DescribeFaceVerifyRequest $request DescribeFaceVerifyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeFaceVerifyResponse
+     * @return DescribeFaceVerifyResponse DescribeFaceVerifyResponse
      */
     public function describeFaceVerifyWithOptions($request, $runtime)
     {
@@ -820,9 +836,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeFaceVerifyRequest $request
+     * @param DescribeFaceVerifyRequest $request DescribeFaceVerifyRequest
      *
-     * @return DescribeFaceVerifyResponse
+     * @return DescribeFaceVerifyResponse DescribeFaceVerifyResponse
      */
     public function describeFaceVerify($request)
     {
@@ -832,9 +848,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOssUploadTokenResponse
+     * @return DescribeOssUploadTokenResponse DescribeOssUploadTokenResponse
      */
     public function describeOssUploadTokenWithOptions($runtime)
     {
@@ -855,7 +871,7 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @return DescribeOssUploadTokenResponse
+     * @return DescribeOssUploadTokenResponse DescribeOssUploadTokenResponse
      */
     public function describeOssUploadToken()
     {
@@ -865,10 +881,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribePageFaceVerifyDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @summary Open API新增金融级数据统计API
+     *  *
+     * @param DescribePageFaceVerifyDataRequest $request DescribePageFaceVerifyDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePageFaceVerifyDataResponse
+     * @return DescribePageFaceVerifyDataResponse DescribePageFaceVerifyDataResponse
      */
     public function describePageFaceVerifyDataWithOptions($request, $runtime)
     {
@@ -911,9 +929,11 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribePageFaceVerifyDataRequest $request
+     * @summary Open API新增金融级数据统计API
+     *  *
+     * @param DescribePageFaceVerifyDataRequest $request DescribePageFaceVerifyDataRequest
      *
-     * @return DescribePageFaceVerifyDataResponse
+     * @return DescribePageFaceVerifyDataResponse DescribePageFaceVerifyDataResponse
      */
     public function describePageFaceVerifyData($request)
     {
@@ -923,10 +943,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeSmartStatisticsPageListRequest $request
-     * @param RuntimeOptions                         $runtime
+     * @param DescribeSmartStatisticsPageListRequest $request DescribeSmartStatisticsPageListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSmartStatisticsPageListResponse
+     * @return DescribeSmartStatisticsPageListResponse DescribeSmartStatisticsPageListResponse
      */
     public function describeSmartStatisticsPageListWithOptions($request, $runtime)
     {
@@ -969,9 +989,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeSmartStatisticsPageListRequest $request
+     * @param DescribeSmartStatisticsPageListRequest $request DescribeSmartStatisticsPageListRequest
      *
-     * @return DescribeSmartStatisticsPageListResponse
+     * @return DescribeSmartStatisticsPageListResponse DescribeSmartStatisticsPageListResponse
      */
     public function describeSmartStatisticsPageList($request)
     {
@@ -981,10 +1001,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeVerifyResultRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeVerifyResultRequest $request DescribeVerifyResultRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVerifyResultResponse
+     * @return DescribeVerifyResultResponse DescribeVerifyResultResponse
      */
     public function describeVerifyResultWithOptions($request, $runtime)
     {
@@ -1015,9 +1035,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeVerifyResultRequest $request
+     * @param DescribeVerifyResultRequest $request DescribeVerifyResultRequest
      *
-     * @return DescribeVerifyResultResponse
+     * @return DescribeVerifyResultResponse DescribeVerifyResultResponse
      */
     public function describeVerifyResult($request)
     {
@@ -1027,10 +1047,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeVerifySDKRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param DescribeVerifySDKRequest $request DescribeVerifySDKRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVerifySDKResponse
+     * @return DescribeVerifySDKResponse DescribeVerifySDKResponse
      */
     public function describeVerifySDKWithOptions($request, $runtime)
     {
@@ -1058,9 +1078,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeVerifySDKRequest $request
+     * @param DescribeVerifySDKRequest $request DescribeVerifySDKRequest
      *
-     * @return DescribeVerifySDKResponse
+     * @return DescribeVerifySDKResponse DescribeVerifySDKResponse
      */
     public function describeVerifySDK($request)
     {
@@ -1070,10 +1090,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeVerifyTokenRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DescribeVerifyTokenRequest $request DescribeVerifyTokenRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeVerifyTokenResponse
+     * @return DescribeVerifyTokenResponse DescribeVerifyTokenResponse
      */
     public function describeVerifyTokenWithOptions($request, $runtime)
     {
@@ -1143,9 +1163,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DescribeVerifyTokenRequest $request
+     * @param DescribeVerifyTokenRequest $request DescribeVerifyTokenRequest
      *
-     * @return DescribeVerifyTokenResponse
+     * @return DescribeVerifyTokenResponse DescribeVerifyTokenResponse
      */
     public function describeVerifyToken($request)
     {
@@ -1155,10 +1175,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DetectFaceAttributesRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DetectFaceAttributesRequest $request DetectFaceAttributesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetectFaceAttributesResponse
+     * @return DetectFaceAttributesResponse DetectFaceAttributesResponse
      */
     public function detectFaceAttributesWithOptions($request, $runtime)
     {
@@ -1189,9 +1209,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param DetectFaceAttributesRequest $request
+     * @param DetectFaceAttributesRequest $request DetectFaceAttributesRequest
      *
-     * @return DetectFaceAttributesResponse
+     * @return DetectFaceAttributesResponse DetectFaceAttributesResponse
      */
     public function detectFaceAttributes($request)
     {
@@ -1201,10 +1221,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param Id2MetaVerifyRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 身份二要素接口
+     *  *
+     * @param Id2MetaVerifyRequest $request Id2MetaVerifyRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return Id2MetaVerifyResponse
+     * @return Id2MetaVerifyResponse Id2MetaVerifyResponse
      */
     public function id2MetaVerifyWithOptions($request, $runtime)
     {
@@ -1238,9 +1260,11 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param Id2MetaVerifyRequest $request
+     * @summary 身份二要素接口
+     *  *
+     * @param Id2MetaVerifyRequest $request Id2MetaVerifyRequest
      *
-     * @return Id2MetaVerifyResponse
+     * @return Id2MetaVerifyResponse Id2MetaVerifyResponse
      */
     public function id2MetaVerify($request)
     {
@@ -1250,10 +1274,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param InitFaceVerifyRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param InitFaceVerifyRequest $request InitFaceVerifyRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return InitFaceVerifyResponse
+     * @return InitFaceVerifyResponse InitFaceVerifyResponse
      */
     public function initFaceVerifyWithOptions($request, $runtime)
     {
@@ -1379,9 +1403,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param InitFaceVerifyRequest $request
+     * @param InitFaceVerifyRequest $request InitFaceVerifyRequest
      *
-     * @return InitFaceVerifyResponse
+     * @return InitFaceVerifyResponse InitFaceVerifyResponse
      */
     public function initFaceVerify($request)
     {
@@ -1391,10 +1415,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param LivenessFaceVerifyRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param LivenessFaceVerifyRequest $request LivenessFaceVerifyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return LivenessFaceVerifyResponse
+     * @return LivenessFaceVerifyResponse LivenessFaceVerifyResponse
      */
     public function livenessFaceVerifyWithOptions($request, $runtime)
     {
@@ -1463,9 +1487,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param LivenessFaceVerifyRequest $request
+     * @param LivenessFaceVerifyRequest $request LivenessFaceVerifyRequest
      *
-     * @return LivenessFaceVerifyResponse
+     * @return LivenessFaceVerifyResponse LivenessFaceVerifyResponse
      */
     public function livenessFaceVerify($request)
     {
@@ -1475,10 +1499,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param Mobile3MetaDetailVerifyRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 手机三要素详版接口
+     *  *
+     * @param Mobile3MetaDetailVerifyRequest $request Mobile3MetaDetailVerifyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return Mobile3MetaDetailVerifyResponse
+     * @return Mobile3MetaDetailVerifyResponse Mobile3MetaDetailVerifyResponse
      */
     public function mobile3MetaDetailVerifyWithOptions($request, $runtime)
     {
@@ -1515,9 +1541,11 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param Mobile3MetaDetailVerifyRequest $request
+     * @summary 手机三要素详版接口
+     *  *
+     * @param Mobile3MetaDetailVerifyRequest $request Mobile3MetaDetailVerifyRequest
      *
-     * @return Mobile3MetaDetailVerifyResponse
+     * @return Mobile3MetaDetailVerifyResponse Mobile3MetaDetailVerifyResponse
      */
     public function mobile3MetaDetailVerify($request)
     {
@@ -1527,10 +1555,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param Mobile3MetaSimpleVerifyRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 手机号三要素简版接口
+     *  *
+     * @param Mobile3MetaSimpleVerifyRequest $request Mobile3MetaSimpleVerifyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return Mobile3MetaSimpleVerifyResponse
+     * @return Mobile3MetaSimpleVerifyResponse Mobile3MetaSimpleVerifyResponse
      */
     public function mobile3MetaSimpleVerifyWithOptions($request, $runtime)
     {
@@ -1567,9 +1597,11 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param Mobile3MetaSimpleVerifyRequest $request
+     * @summary 手机号三要素简版接口
+     *  *
+     * @param Mobile3MetaSimpleVerifyRequest $request Mobile3MetaSimpleVerifyRequest
      *
-     * @return Mobile3MetaSimpleVerifyResponse
+     * @return Mobile3MetaSimpleVerifyResponse Mobile3MetaSimpleVerifyResponse
      */
     public function mobile3MetaSimpleVerify($request)
     {
@@ -1579,10 +1611,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param MobileDetectRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 号码检测
+     *  *
+     * @param MobileDetectRequest $request MobileDetectRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return MobileDetectResponse
+     * @return MobileDetectResponse MobileDetectResponse
      */
     public function mobileDetectWithOptions($request, $runtime)
     {
@@ -1613,9 +1647,11 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param MobileDetectRequest $request
+     * @summary 号码检测
+     *  *
+     * @param MobileDetectRequest $request MobileDetectRequest
      *
-     * @return MobileDetectResponse
+     * @return MobileDetectResponse MobileDetectResponse
      */
     public function mobileDetect($request)
     {
@@ -1625,10 +1661,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param MobileOnlineStatusRequest $request
-     * @param RuntimeOptions            $runtime
+     * @summary 查询手机号在网状态
+     *  *
+     * @param MobileOnlineStatusRequest $request MobileOnlineStatusRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return MobileOnlineStatusResponse
+     * @return MobileOnlineStatusResponse MobileOnlineStatusResponse
      */
     public function mobileOnlineStatusWithOptions($request, $runtime)
     {
@@ -1659,9 +1697,11 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param MobileOnlineStatusRequest $request
+     * @summary 查询手机号在网状态
+     *  *
+     * @param MobileOnlineStatusRequest $request MobileOnlineStatusRequest
      *
-     * @return MobileOnlineStatusResponse
+     * @return MobileOnlineStatusResponse MobileOnlineStatusResponse
      */
     public function mobileOnlineStatus($request)
     {
@@ -1671,10 +1711,12 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param MobileOnlineTimeRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询手机号在网时长
+     *  *
+     * @param MobileOnlineTimeRequest $request MobileOnlineTimeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return MobileOnlineTimeResponse
+     * @return MobileOnlineTimeResponse MobileOnlineTimeResponse
      */
     public function mobileOnlineTimeWithOptions($request, $runtime)
     {
@@ -1705,9 +1747,11 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param MobileOnlineTimeRequest $request
+     * @summary 查询手机号在网时长
+     *  *
+     * @param MobileOnlineTimeRequest $request MobileOnlineTimeRequest
      *
-     * @return MobileOnlineTimeResponse
+     * @return MobileOnlineTimeResponse MobileOnlineTimeResponse
      */
     public function mobileOnlineTime($request)
     {
@@ -1717,10 +1761,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param ModifyDeviceInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ModifyDeviceInfoRequest $request ModifyDeviceInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDeviceInfoResponse
+     * @return ModifyDeviceInfoResponse ModifyDeviceInfoResponse
      */
     public function modifyDeviceInfoWithOptions($request, $runtime)
     {
@@ -1760,9 +1804,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param ModifyDeviceInfoRequest $request
+     * @param ModifyDeviceInfoRequest $request ModifyDeviceInfoRequest
      *
-     * @return ModifyDeviceInfoResponse
+     * @return ModifyDeviceInfoResponse ModifyDeviceInfoResponse
      */
     public function modifyDeviceInfo($request)
     {
@@ -1772,10 +1816,10 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param VerifyMaterialRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param VerifyMaterialRequest $request VerifyMaterialRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyMaterialResponse
+     * @return VerifyMaterialResponse VerifyMaterialResponse
      */
     public function verifyMaterialWithOptions($request, $runtime)
     {
@@ -1824,9 +1868,9 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
-     * @param VerifyMaterialRequest $request
+     * @param VerifyMaterialRequest $request VerifyMaterialRequest
      *
-     * @return VerifyMaterialResponse
+     * @return VerifyMaterialResponse VerifyMaterialResponse
      */
     public function verifyMaterial($request)
     {

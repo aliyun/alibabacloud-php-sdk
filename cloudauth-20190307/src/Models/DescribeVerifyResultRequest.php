@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifyResultRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 39ecf51e-2f81-4dc5-90ee-ff86125b****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeVerifyResultRequest extends Model
     public $bizId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example FVBioOnlyTest
      *
      * @var string

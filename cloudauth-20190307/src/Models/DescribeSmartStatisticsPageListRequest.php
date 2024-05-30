@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSmartStatisticsPageListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeSmartStatisticsPageListRequest extends Model
     public $currentPage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2022-11-16 23:59:59 +0800
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeSmartStatisticsPageListRequest extends Model
     public $endDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeSmartStatisticsPageListRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 36**01
      *
      * @var string
@@ -44,6 +52,8 @@ class DescribeSmartStatisticsPageListRequest extends Model
     public $serviceCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2023-11-01 00:00:00 +0800
      *
      * @var string

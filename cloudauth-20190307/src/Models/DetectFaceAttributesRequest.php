@@ -16,6 +16,8 @@ class DetectFaceAttributesRequest extends Model
     public $bizType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg
      *
      * @var string

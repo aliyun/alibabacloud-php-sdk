@@ -67,6 +67,11 @@ class CredentialVerifyRequest extends Model
     /**
      * @var string
      */
+    public $merchantId;
+
+    /**
+     * @var string
+     */
     public $userName;
     protected $_name = [
         'certNum'      => 'CertNum',
@@ -77,6 +82,7 @@ class CredentialVerifyRequest extends Model
         'imageUrl'     => 'ImageUrl',
         'isCheck'      => 'IsCheck',
         'isOCR'        => 'IsOCR',
+        'merchantId'   => 'MerchantId',
         'userName'     => 'UserName',
     ];
 
@@ -110,6 +116,9 @@ class CredentialVerifyRequest extends Model
         }
         if (null !== $this->isOCR) {
             $res['IsOCR'] = $this->isOCR;
+        }
+        if (null !== $this->merchantId) {
+            $res['MerchantId'] = $this->merchantId;
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
@@ -149,6 +158,9 @@ class CredentialVerifyRequest extends Model
         }
         if (isset($map['IsOCR'])) {
             $model->isOCR = $map['IsOCR'];
+        }
+        if (isset($map['MerchantId'])) {
+            $model->merchantId = $map['MerchantId'];
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];

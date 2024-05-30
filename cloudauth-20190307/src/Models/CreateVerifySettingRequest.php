@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateVerifySettingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $bizName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example UserRegister
      *
      * @var string
@@ -42,6 +46,8 @@ class CreateVerifySettingRequest extends Model
     public $resultStep;
 
     /**
+     * @description This parameter is required.
+     *
      * @example RPBasic
      *
      * @var string

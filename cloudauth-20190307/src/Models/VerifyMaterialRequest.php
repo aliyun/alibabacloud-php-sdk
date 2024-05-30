@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifyMaterialRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 39ecf51e-2f81-4dc5-90ee-ff86125b****
      *
      * @var string
@@ -16,6 +18,8 @@ class VerifyMaterialRequest extends Model
     public $bizId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example RPMinTest
      *
      * @var string
@@ -23,6 +27,8 @@ class VerifyMaterialRequest extends Model
     public $bizType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg
      *
      * @var string
@@ -44,6 +50,8 @@ class VerifyMaterialRequest extends Model
     public $idCardFrontImageUrl;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 02343218901123****
      *
      * @var string
@@ -51,6 +59,8 @@ class VerifyMaterialRequest extends Model
     public $idCardNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;

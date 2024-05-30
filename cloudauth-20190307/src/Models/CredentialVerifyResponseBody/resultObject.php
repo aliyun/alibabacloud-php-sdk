@@ -11,6 +11,11 @@ class resultObject extends Model
     /**
      * @var string
      */
+    public $materialInfo;
+
+    /**
+     * @var string
+     */
     public $ocrInfo;
 
     /**
@@ -46,6 +51,7 @@ class resultObject extends Model
      */
     public $verifyResult;
     protected $_name = [
+        'materialInfo' => 'MaterialInfo',
         'ocrInfo'      => 'OcrInfo',
         'result'       => 'Result',
         'riskScore'    => 'RiskScore',
@@ -61,6 +67,9 @@ class resultObject extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->materialInfo) {
+            $res['MaterialInfo'] = $this->materialInfo;
+        }
         if (null !== $this->ocrInfo) {
             $res['OcrInfo'] = $this->ocrInfo;
         }
@@ -91,6 +100,9 @@ class resultObject extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaterialInfo'])) {
+            $model->materialInfo = $map['MaterialInfo'];
+        }
         if (isset($map['OcrInfo'])) {
             $model->ocrInfo = $map['OcrInfo'];
         }

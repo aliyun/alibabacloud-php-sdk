@@ -16,6 +16,8 @@ class ModifyDeviceInfoRequest extends Model
     public $bizType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example wd.6ziUffspAeW5FVYbaqmexR-1qwNjM
      *
      * @var string
