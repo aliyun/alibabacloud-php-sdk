@@ -54,6 +54,7 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListByMailFromAndTagNameRequest
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListByMailFromAndTagNameResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetTrackListResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetUserResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ListUserSuppressionRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ListUserSuppressionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyMailAddressRequest;
@@ -92,6 +93,9 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SingleSendMailResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1561,6 +1565,43 @@ class Dm extends OpenApiClient
     }
 
     /**
+     * @summary 获取账号详情
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetUserResponse GetUserResponse
+     */
+    public function getUserWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetUser',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取账号详情
+     *  *
+     * @return GetUserResponse GetUserResponse
+     */
+    public function getUser()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserWithOptions($runtime);
+    }
+
+    /**
      * @summary 列出用户无效地址
      *  *
      * @param ListUserSuppressionRequest $request ListUserSuppressionRequest
@@ -2799,5 +2840,57 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateIpProtectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新帐号信息
+     *  *
+     * @param UpdateUserRequest $tmpReq  UpdateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateUserResponse UpdateUserResponse
+     */
+    public function updateUserWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateUserShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->user)) {
+            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->userShrink)) {
+            $body['User'] = $request->userShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUser',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新帐号信息
+     *  *
+     * @param UpdateUserRequest $request UpdateUserRequest
+     *
+     * @return UpdateUserResponse UpdateUserResponse
+     */
+    public function updateUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserWithOptions($request, $runtime);
     }
 }
