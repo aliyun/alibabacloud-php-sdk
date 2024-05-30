@@ -11,6 +11,7 @@ class ChatappVerifyAndRegisterRequest extends Model
     /**
      * @description The space ID of the user under the independent software vendor (ISV) account.
      *
+     * This parameter is required.
      * @example 29389299388383
      *
      * @var string
@@ -20,6 +21,7 @@ class ChatappVerifyAndRegisterRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 8613800001234
      *
      * @var string
@@ -29,6 +31,7 @@ class ChatappVerifyAndRegisterRequest extends Model
     /**
      * @description The verification code.
      *
+     * This parameter is required.
      * @example 223222
      *
      * @var string

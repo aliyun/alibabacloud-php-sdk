@@ -18,6 +18,7 @@ class DeprecateFlowRequest extends Model
     /**
      * @description Flow ID。
      *
+     * This parameter is required.
      * @example flow_001
      *
      * @var string

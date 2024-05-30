@@ -11,6 +11,7 @@ class UpdateAccountWebhookRequest extends Model
     /**
      * @description The space ID of the user under the ISV account.
      *
+     * This parameter is required.
      * @example 293483938849493**
      *
      * @var string

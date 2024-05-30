@@ -18,7 +18,7 @@ class ChatappMigrationVerifiedResponseBody extends Model
      * @description The HTTP status code returned.
      *
      *   A value of OK indicates that the call is successful.
-     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
      *
      * @example OK
      *

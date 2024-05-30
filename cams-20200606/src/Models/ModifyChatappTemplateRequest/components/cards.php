@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class cards extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var cardComponents[]
      */
     public $cardComponents;

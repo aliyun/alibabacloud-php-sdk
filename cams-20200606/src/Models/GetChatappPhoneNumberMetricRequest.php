@@ -20,6 +20,7 @@ class GetChatappPhoneNumberMetricRequest extends Model
     /**
      * @description The end of the time range to query.
      *
+     * This parameter is required.
      * @example 1693407714687
      *
      * @var int
@@ -56,6 +57,7 @@ class GetChatappPhoneNumberMetricRequest extends Model
     /**
      * @description The beginning of the time range to query.
      *
+     * This parameter is required.
      * @example 1693107714687
      *
      * @var int

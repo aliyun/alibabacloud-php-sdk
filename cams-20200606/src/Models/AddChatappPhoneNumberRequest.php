@@ -11,6 +11,7 @@ class AddChatappPhoneNumberRequest extends Model
     /**
      * @description The country code.
      *
+     * This parameter is required.
      * @example 86
      *
      * @var string
@@ -20,6 +21,7 @@ class AddChatappPhoneNumberRequest extends Model
     /**
      * @description The space ID of the user within the independent software vendor (ISV) account.
      *
+     * This parameter is required.
      * @example 939283893939
      *
      * @var string
@@ -29,6 +31,7 @@ class AddChatappPhoneNumberRequest extends Model
     /**
      * @description The phone number without a country code.
      *
+     * This parameter is required.
      * @example 13800000000
      *
      * @var string
@@ -47,6 +50,7 @@ class AddChatappPhoneNumberRequest extends Model
     /**
      * @description The display name of the phone number.
      *
+     * This parameter is required.
      * @example Alibaba
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMigrationVerifyCodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -16,6 +18,8 @@ class GetMigrationVerifyCodeRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example zh_CN
      *
      * @var string
@@ -23,6 +27,8 @@ class GetMigrationVerifyCodeRequest extends Model
     public $locale;
 
     /**
+     * @description This parameter is required.
+     *
      * @example sms
      *
      * @var string
@@ -30,6 +36,8 @@ class GetMigrationVerifyCodeRequest extends Model
     public $method;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8613800001234
      *
      * @var string

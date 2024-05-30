@@ -36,6 +36,7 @@ class CreateChatappTemplateShrinkRequest extends Model
      *   **text_video_button**: the template that contains text, videos, and buttons
      *   **text_image**: the template that contains text and images
      *
+     * This parameter is required.
      * @example The code of the message template.
      *
      * @var string
@@ -45,7 +46,7 @@ class CreateChatappTemplateShrinkRequest extends Model
     /**
      * @description The components of the message template.
      *
-     * >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter must be empty.
+     * This parameter is required.
      * @var string
      */
     public $componentsShrink;
@@ -88,8 +89,9 @@ class CreateChatappTemplateShrinkRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
+     * @description The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
      *
+     * This parameter is required.
      * @example en
      *
      * @var string
@@ -109,6 +111,7 @@ class CreateChatappTemplateShrinkRequest extends Model
     /**
      * @description The name of the message template.
      *
+     * This parameter is required.
      * @example hello_whatsapp
      *
      * @var string
@@ -122,6 +125,7 @@ class CreateChatappTemplateShrinkRequest extends Model
      *   **VIBER**
      *   LINE: the Line message template. This type of message template will be released later.
      *
+     * This parameter is required.
      * @example WHATSAPP
      *
      * @var string

@@ -15,6 +15,7 @@ class SendChatappMessageShrinkRequest extends Model
      *   **viber**
      *   line. The feature that ChatAPP sends messages by using Line is under development.
      *
+     * This parameter is required.
      * @example whatsapp
      *
      * @var string
@@ -48,7 +49,7 @@ class SendChatappMessageShrinkRequest extends Model
      *   When you set the **MessageType** parameter to **text_video**, the **text**, **link**, **thumbnail**, **fileSize**, and **duration** parameters are required.
      *   When you set the **MessageType** parameter to **text_video_button**, the **text**, **link**, **thumbnail**, **fileSize**, **duration**, and **caption** parameters are required. The **action** parameter is invalid.
      *
-     * @example {\"text\": \"hello whatsapp\", \"link\": \"\", \"caption\": \"\", \"fileName\": \"\" }
+     * @example {\\"text\\": \\"hello whatsapp\\", \\"link\\": \\"\\", \\"caption\\": \\"\\", \\"fileName\\": \\"\\" }
      *
      * @var string
      */
@@ -113,7 +114,7 @@ class SendChatappMessageShrinkRequest extends Model
     /**
      * @description 回落规则。
      *
-     * </props>
+     * > 中国站此字段无效
      * @example undelivered
      *
      * @var string
@@ -130,7 +131,7 @@ class SendChatappMessageShrinkRequest extends Model
     /**
      * @description The phone number of the message sender.
      *
-     * > You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the ChatAPP console.
+     * This parameter is required.
      * @example 1360000****
      *
      * @var string
@@ -156,7 +157,7 @@ class SendChatappMessageShrinkRequest extends Model
     public $label;
 
     /**
-     * @description The language that is used in the message template. This parameter is required only if you set the Type parameter to **template**. For more information about language codes, see [Language codes](~~463420~~).
+     * @description The language that is used in the message template. This parameter is required only if you set the Type parameter to **template**. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
      *
      * @example en
      *
@@ -192,7 +193,7 @@ class SendChatappMessageShrinkRequest extends Model
      *   **text_video_button**: a message that contains multiple media objects, including text, video, and button.
      *   **text_image**: a message that contains the text and image media objects.
      *
-     * > For more information, see [Parameters of a message template](~~454530~~).
+     * > For more information, see [Parameters of a message template](https://help.aliyun.com/document_detail/454530.html).
      * @example text
      *
      * @var string
@@ -259,6 +260,7 @@ class SendChatappMessageShrinkRequest extends Model
     /**
      * @description The phone number that receives the message.
      *
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string
@@ -289,6 +291,7 @@ class SendChatappMessageShrinkRequest extends Model
      *   **template**: a template message. A template message is sent based on a template that is created in the ChatAPP console and is approved. You can send template messages at any time based on your business requirements.
      *   **message**: a custom message. You can send a custom message to a user only within 24 hours after you receive the last message from the user.
      *
+     * This parameter is required.
      * @example template
      *
      * @var string

@@ -16,6 +16,8 @@ class DeletePhoneMessageQrdlRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 861380000
      *
      * @var string
@@ -23,6 +25,8 @@ class DeletePhoneMessageQrdlRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 29338838
      *
      * @var string

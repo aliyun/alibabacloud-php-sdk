@@ -11,6 +11,7 @@ class GetPreValidatePhoneIdRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 861380000
      *
      * @var string
@@ -20,6 +21,7 @@ class GetPreValidatePhoneIdRequest extends Model
     /**
      * @description The verification code provided when you purchased the pre-registered phone number.
      *
+     * This parameter is required.
      * @example 208393
      *
      * @var string

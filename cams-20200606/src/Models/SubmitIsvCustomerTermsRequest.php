@@ -11,6 +11,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     /**
      * @description The use scenario.
      *
+     * This parameter is required.
      * @example Marketing products
      *
      * @var string
@@ -20,6 +21,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     /**
      * @description The email address of your business.
      *
+     * This parameter is required.
      * @example partner@aliyun.com
      *
      * @var string
@@ -29,6 +31,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     /**
      * @description The country code.
      *
+     * This parameter is required.
      * @example CN
      *
      * @var string
@@ -38,6 +41,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     /**
      * @description The display name of your business.
      *
+     * This parameter is required.
      * @example Aliyun
      *
      * @var string
@@ -47,6 +51,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     /**
      * @description The space ID of the user under the ISV account.
      *
+     * This parameter is required.
      * @example 293483938849493
      *
      * @var string
@@ -56,7 +61,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     /**
      * @description The ISV or Client Agreement.
      *
-     * > The value of this parameter is the name of the uploaded file.
+     * This parameter is required.
      * @example isvTerms.pdf
      *
      * @var string
@@ -66,6 +71,7 @@ class SubmitIsvCustomerTermsRequest extends Model
     /**
      * @description The address of your business.
      *
+     * This parameter is required.
      * @example Hangzhou
      *
      * @var string

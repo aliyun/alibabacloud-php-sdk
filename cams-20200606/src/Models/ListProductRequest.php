@@ -29,6 +29,7 @@ class ListProductRequest extends Model
     /**
      * @description The catalog ID.
      *
+     * This parameter is required.
      * @example 29398389292
      *
      * @var string
@@ -47,7 +48,7 @@ class ListProductRequest extends Model
     /**
      * @description The fields. Separate multiple fields with commas (,).
      *
-     * see [product fields](~~2579419~~)
+     * see [product fields](https://help.aliyun.com/document_detail/2579419.html)
      * @example id,name
      *
      * @var string
@@ -81,6 +82,7 @@ class ListProductRequest extends Model
     /**
      * @description The ID of the WhatsApp Business account (WABA).
      *
+     * This parameter is required.
      * @example 38487474747
      *
      * @var string

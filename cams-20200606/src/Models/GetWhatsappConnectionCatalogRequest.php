@@ -35,6 +35,7 @@ class GetWhatsappConnectionCatalogRequest extends Model
     /**
      * @description The WABA ID.
      *
+     * This parameter is required.
      * @example 292939399393
      *
      * @var string

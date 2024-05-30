@@ -24,6 +24,13 @@ class ListChatappTemplateRequest extends Model
     public $auditStatus;
 
     /**
+     * @example 838888822*****
+     *
+     * @var string
+     */
+    public $code;
+
+    /**
      * @description The space ID of the user under the ISV account.
      *
      * @example 28251486512358****
@@ -54,7 +61,7 @@ class ListChatappTemplateRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
+     * @description The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
      *
      * @example en
      *
@@ -74,7 +81,7 @@ class ListChatappTemplateRequest extends Model
     /**
      * @description The pagination settings.
      *
-     * @example "page": "{\"index\": 1,\"size\": 20}
+     * @example "page": "{\\"index\\": 1,\\"size\\": 20}
      *
      * @var page
      */
@@ -94,6 +101,7 @@ class ListChatappTemplateRequest extends Model
     public $templateType;
     protected $_name = [
         'auditStatus'  => 'AuditStatus',
+        'code'         => 'Code',
         'custSpaceId'  => 'CustSpaceId',
         'custWabaId'   => 'CustWabaId',
         'isvCode'      => 'IsvCode',
@@ -112,6 +120,9 @@ class ListChatappTemplateRequest extends Model
         $res = [];
         if (null !== $this->auditStatus) {
             $res['AuditStatus'] = $this->auditStatus;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
@@ -148,6 +159,9 @@ class ListChatappTemplateRequest extends Model
         $model = new self();
         if (isset($map['AuditStatus'])) {
             $model->auditStatus = $map['AuditStatus'];
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];

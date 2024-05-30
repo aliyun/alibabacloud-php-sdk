@@ -11,6 +11,7 @@ class UpdateCommerceSettingRequest extends Model
     /**
      * @description Specifies whether to display the shopping cart button.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -20,6 +21,7 @@ class UpdateCommerceSettingRequest extends Model
     /**
      * @description Specifies whether to display the catalog button.
      *
+     * This parameter is required.
      * @example false
      *
      * @var bool
@@ -29,6 +31,7 @@ class UpdateCommerceSettingRequest extends Model
     /**
      * @description The space ID of the user within the independent software vendor (ISV) account.
      *
+     * This parameter is required.
      * @example 293483938849493
      *
      * @var string
@@ -38,6 +41,7 @@ class UpdateCommerceSettingRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 1380000****
      *
      * @var string

@@ -20,6 +20,7 @@ class PublishFlowRequest extends Model
     /**
      * @description The Flow ID.
      *
+     * This parameter is required.
      * @example flow_001
      *
      * @var string

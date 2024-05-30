@@ -144,6 +144,7 @@ class components extends Model
      *
      *   In a Viber message template, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and images, the images are placed under the text in the message received on a device.
      *
+     * This parameter is required.
      * @example BODY
      *
      * @var string

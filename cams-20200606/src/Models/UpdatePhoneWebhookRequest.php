@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePhoneWebhookRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 293483938849493****
      *
      * @var string
@@ -23,6 +25,8 @@ class UpdatePhoneWebhookRequest extends Model
     public $httpFlag;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 8613800001234
      *
      * @var string

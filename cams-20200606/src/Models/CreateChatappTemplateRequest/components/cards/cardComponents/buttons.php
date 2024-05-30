@@ -23,6 +23,8 @@ class buttons extends Model
     public $text;
 
     /**
+     * @description This parameter is required.
+     *
      * @example PHONE_NUMBER
      *
      * @var string

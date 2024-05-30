@@ -28,6 +28,11 @@ class data extends Model
     public $accountReviewStatus;
 
     /**
+     * @var mixed[]
+     */
+    public $authInternationalRateEligibility;
+
+    /**
      * @description The currency.
      *
      * @example USD
@@ -62,12 +67,21 @@ class data extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @example 示例值示例值
+     *
+     * @var string
+     */
+    public $primaryBusinessLocation;
     protected $_name = [
-        'accountReviewStatus'      => 'AccountReviewStatus',
-        'currency'                 => 'Currency',
-        'id'                       => 'Id',
-        'messageTemplateNamespace' => 'MessageTemplateNamespace',
-        'name'                     => 'Name',
+        'accountReviewStatus'              => 'AccountReviewStatus',
+        'authInternationalRateEligibility' => 'AuthInternationalRateEligibility',
+        'currency'                         => 'Currency',
+        'id'                               => 'Id',
+        'messageTemplateNamespace'         => 'MessageTemplateNamespace',
+        'name'                             => 'Name',
+        'primaryBusinessLocation'          => 'PrimaryBusinessLocation',
     ];
 
     public function validate()
@@ -80,6 +94,9 @@ class data extends Model
         if (null !== $this->accountReviewStatus) {
             $res['AccountReviewStatus'] = $this->accountReviewStatus;
         }
+        if (null !== $this->authInternationalRateEligibility) {
+            $res['AuthInternationalRateEligibility'] = $this->authInternationalRateEligibility;
+        }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
@@ -91,6 +108,9 @@ class data extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->primaryBusinessLocation) {
+            $res['PrimaryBusinessLocation'] = $this->primaryBusinessLocation;
         }
 
         return $res;
@@ -107,6 +127,9 @@ class data extends Model
         if (isset($map['AccountReviewStatus'])) {
             $model->accountReviewStatus = $map['AccountReviewStatus'];
         }
+        if (isset($map['AuthInternationalRateEligibility'])) {
+            $model->authInternationalRateEligibility = $map['AuthInternationalRateEligibility'];
+        }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
@@ -118,6 +141,9 @@ class data extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PrimaryBusinessLocation'])) {
+            $model->primaryBusinessLocation = $map['PrimaryBusinessLocation'];
         }
 
         return $model;

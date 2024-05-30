@@ -11,6 +11,7 @@ class BeeBotAssociateRequest extends Model
     /**
      * @description The ID of a bot instance.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

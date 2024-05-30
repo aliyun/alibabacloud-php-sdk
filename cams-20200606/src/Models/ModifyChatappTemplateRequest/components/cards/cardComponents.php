@@ -29,6 +29,8 @@ class cardComponents extends Model
     public $text;
 
     /**
+     * @description This parameter is required.
+     *
      * @example BODY
      *
      * @var string

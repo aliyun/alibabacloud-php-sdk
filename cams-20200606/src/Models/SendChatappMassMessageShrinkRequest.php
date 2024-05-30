@@ -11,6 +11,7 @@ class SendChatappMassMessageShrinkRequest extends Model
     /**
      * @description The channel type. Valid values: whatsapp, viber, and line.
      *
+     * This parameter is required.
      * @example whatsapp
      *
      * @var string
@@ -80,6 +81,7 @@ class SendChatappMassMessageShrinkRequest extends Model
     /**
      * @description The phone number of the message sender.
      *
+     * This parameter is required.
      * @example 861387777****
      *
      * @var string
@@ -105,8 +107,9 @@ class SendChatappMassMessageShrinkRequest extends Model
     public $label;
 
     /**
-     * @description The language. For more information about language codes, see [Language codes](~~463420~~).
+     * @description The language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
      *
+     * This parameter is required.
      * @example en
      *
      * @var string
@@ -116,6 +119,7 @@ class SendChatappMassMessageShrinkRequest extends Model
     /**
      * @description The phone numbers to which the message is sent.
      *
+     * This parameter is required.
      * @var string
      */
     public $senderListShrink;

@@ -11,6 +11,7 @@ class ChatappBindWabaRequest extends Model
     /**
      * @description The ID of the WhatsApp Business account.
      *
+     * This parameter is required.
      * @example 2293938222343****
      *
      * @var string

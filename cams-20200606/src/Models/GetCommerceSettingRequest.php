@@ -11,6 +11,7 @@ class GetCommerceSettingRequest extends Model
     /**
      * @description The space ID of the user within the independent software vendor (ISV) account.
      *
+     * This parameter is required.
      * @example 293483938849493
      *
      * @var string
@@ -20,6 +21,7 @@ class GetCommerceSettingRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 1380000****
      *
      * @var string

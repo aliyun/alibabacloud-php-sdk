@@ -109,6 +109,7 @@ class buttons extends Model
      *
      *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
      *
+     * This parameter is required.
      * @example PHONE_NUMBER
      *
      * @var string

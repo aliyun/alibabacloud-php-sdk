@@ -48,7 +48,7 @@ class listTemplate extends Model
     public $category;
 
     /**
-     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
+     * @description The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
      *
      * @example en
      *

@@ -18,6 +18,7 @@ class IsvGetAppIdRequest extends Model
     /**
      * @description The type of the application. Set the value to WHATSAPP.
      *
+     * This parameter is required.
      * @example WHATSAPP
      *
      * @var string

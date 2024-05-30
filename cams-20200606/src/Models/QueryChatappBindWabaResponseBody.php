@@ -22,7 +22,7 @@ class QueryChatappBindWabaResponseBody extends Model
      * @description The HTTP status code returned.
      *
      *   A value of OK indicates that the call is successful.
-     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
      *
      * @example OK
      *
@@ -54,12 +54,20 @@ class QueryChatappBindWabaResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
         'code'               => 'Code',
         'data'               => 'Data',
         'message'            => 'Message',
         'requestId'          => 'RequestId',
+        'success'            => 'Success',
     ];
 
     public function validate()
@@ -83,6 +91,9 @@ class QueryChatappBindWabaResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -110,6 +121,9 @@ class QueryChatappBindWabaResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

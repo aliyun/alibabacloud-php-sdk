@@ -11,6 +11,7 @@ class ChatappMigrationVerifiedRequest extends Model
     /**
      * @description The space ID of the user under the independent software vendor (ISV) account.
      *
+     * This parameter is required.
      * @example 293483938849493
      *
      * @var string
@@ -20,6 +21,7 @@ class ChatappMigrationVerifiedRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 861380001234
      *
      * @var string
@@ -29,6 +31,7 @@ class ChatappMigrationVerifiedRequest extends Model
     /**
      * @description The verification code.
      *
+     * This parameter is required.
      * @example 828798
      *
      * @var string

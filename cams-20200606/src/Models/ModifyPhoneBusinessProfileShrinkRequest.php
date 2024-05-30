@@ -27,6 +27,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     /**
      * @description Modifies the business information of the account to which a specified phone number is bound.
      *
+     * This parameter is required.
      * @example 293483938849****
      *
      * @var string
@@ -54,6 +55,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     /**
      * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
+     * This parameter is required.
      * @example 8613800001234
      *
      * @var string

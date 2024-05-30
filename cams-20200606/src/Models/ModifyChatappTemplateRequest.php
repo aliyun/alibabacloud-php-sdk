@@ -32,7 +32,7 @@ class ModifyChatappTemplateRequest extends Model
     /**
      * @description The components of the message template.
      *
-     * >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter is empty and text in the body or footer is automatically generated.
+     * This parameter is required.
      * @var components[]
      */
     public $components;
@@ -75,8 +75,9 @@ class ModifyChatappTemplateRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
+     * @description The language that is used in the message template. For more information, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
      *
+     * This parameter is required.
      * @example en
      *
      * @var string

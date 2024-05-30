@@ -11,6 +11,7 @@ class ModifyFlowShrinkRequest extends Model
     /**
      * @description The categories of the Flow.
      *
+     * This parameter is required.
      * @var string
      */
     public $categoriesShrink;
@@ -36,6 +37,7 @@ class ModifyFlowShrinkRequest extends Model
     /**
      * @description The name of the Flow.
      *
+     * This parameter is required.
      * @example flow_001
      *
      * @var string

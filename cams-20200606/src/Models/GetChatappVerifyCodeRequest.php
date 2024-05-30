@@ -11,6 +11,7 @@ class GetChatappVerifyCodeRequest extends Model
     /**
      * @description The space ID of the user under the independent software vendor (ISV) account.
      *
+     * This parameter is required.
      * @example 229393838*****
      *
      * @var string
@@ -20,6 +21,7 @@ class GetChatappVerifyCodeRequest extends Model
     /**
      * @description The language.
      *
+     * This parameter is required.
      * @example zh_CN
      *
      * @var string
@@ -29,6 +31,7 @@ class GetChatappVerifyCodeRequest extends Model
     /**
      * @description The method to obtain the verification code. Valid values: SMS and VOICE.
      *
+     * This parameter is required.
      * @example SMS
      *
      * @var string
@@ -38,6 +41,7 @@ class GetChatappVerifyCodeRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 8613800001234
      *
      * @var string

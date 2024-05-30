@@ -11,6 +11,7 @@ class page extends Model
     /**
      * @description The page number. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -20,6 +21,7 @@ class page extends Model
     /**
      * @description The number of entries per page. Default value: 10.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

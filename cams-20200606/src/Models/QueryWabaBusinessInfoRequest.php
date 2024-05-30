@@ -11,6 +11,7 @@ class QueryWabaBusinessInfoRequest extends Model
     /**
      * @description The space ID of the user under the independent software vendor (ISV) account.
      *
+     * This parameter is required.
      * @example 293483938849493****
      *
      * @var string
@@ -20,6 +21,7 @@ class QueryWabaBusinessInfoRequest extends Model
     /**
      * @description The ID of the WABA.
      *
+     * This parameter is required.
      * @example 293848822333
      *
      * @var string

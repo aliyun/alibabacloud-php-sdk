@@ -39,6 +39,7 @@ class senderList extends Model
     /**
      * @description The phone number to which the message is sent.
      *
+     * This parameter is required.
      * @example 861388988****
      *
      * @var string

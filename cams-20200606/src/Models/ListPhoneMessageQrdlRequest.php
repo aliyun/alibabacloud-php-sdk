@@ -16,6 +16,8 @@ class ListPhoneMessageQrdlRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 861380000
      *
      * @var string

@@ -11,6 +11,7 @@ class ChatappEmbedSignUpRequest extends Model
     /**
      * @description The InputToken returned after the embedded signup flow is complete.
      *
+     * This parameter is required.
      * @example wlelkelwidilwloe-ewlwols0lwsllsld
      *
      * @var string

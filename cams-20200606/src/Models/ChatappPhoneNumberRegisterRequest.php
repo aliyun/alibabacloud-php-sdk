@@ -11,6 +11,7 @@ class ChatappPhoneNumberRegisterRequest extends Model
     /**
      * @description The space ID of the user under the independent software vendor (ISV) account.
      *
+     * This parameter is required.
      * @example 939283893939***
      *
      * @var string
@@ -20,6 +21,7 @@ class ChatappPhoneNumberRegisterRequest extends Model
     /**
      * @description The phone number.
      *
+     * This parameter is required.
      * @example 8613800001234
      *
      * @var string

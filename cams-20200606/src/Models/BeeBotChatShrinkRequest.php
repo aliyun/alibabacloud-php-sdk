@@ -11,6 +11,7 @@ class BeeBotChatShrinkRequest extends Model
     /**
      * @description The ID of the bot instance.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -25,7 +26,7 @@ class BeeBotChatShrinkRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The name of the intent in the dialog flow. When this parameter is specified, the bot conducts a Q\&A based on the intent.
+     * @description The name of the intent in the dialog flow. When this parameter is specified, the bot conducts a Q\\&A based on the intent.
      *
      * @example intent
      *
@@ -88,6 +89,7 @@ class BeeBotChatShrinkRequest extends Model
     /**
      * @description The input of the visitor.
      *
+     * This parameter is required.
      * @example 659216218162179
      *
      * @var string

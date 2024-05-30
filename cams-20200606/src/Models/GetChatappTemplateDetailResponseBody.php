@@ -18,7 +18,7 @@ class GetChatappTemplateDetailResponseBody extends Model
      * @description The HTTP status code.
      *
      *   Example: OK. This value indicates that the request is successful.
-     *   Other codes indicate that the request fails. For more information, see [Error codes](~~196974~~).
+     *   Other codes indicate that the request fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
      *
      * @example OK
      *
@@ -29,7 +29,7 @@ class GetChatappTemplateDetailResponseBody extends Model
     /**
      * @description The returned data.
      *
-     * @example { 		"category": "ACCOUNT_UPDATE", 		"name": "account_notice", 		"language": "en_US", 		"templateCode": "744c4b5c79c9432497a075bdfca3****", 		"auditStatus": "APPROVED", 		"components": "[{\"type\":\"BODY\",\"text\":\"body_text$(textVariable)\"},{\"type\":\"HEADER\",\"formate\":\"IMAGE\",\"url\":\"$(linkVariable)\"},{\"type\":\"FOOTER\",\"text\":\"footer-text\"},{\"type\":\"BUTTONS\",\"buttons\":[{\"type\":\"PHONE_NUMBER\",\"text\":\"phone-button-text\",\"phone_number\":\"+861388888****\"},{\"type\":\"URL\",\"text\":\"url-button-text\",\"url\":\"https://www.website.com/\"}]}]", 		"example": "{\"textVariable\": \"text\", \"linkVariable\": \"link\"}" 	}
+     * @example { 		"category": "ACCOUNT_UPDATE", 		"name": "account_notice", 		"language": "en_US", 		"templateCode": "744c4b5c79c9432497a075bdfca3****", 		"auditStatus": "APPROVED", 		"components": "[{\\"type\\":\\"BODY\\",\\"text\\":\\"body_text$(textVariable)\\"},{\\"type\\":\\"HEADER\\",\\"formate\\":\\"IMAGE\\",\\"url\\":\\"$(linkVariable)\\"},{\\"type\\":\\"FOOTER\\",\\"text\\":\\"footer-text\\"},{\\"type\\":\\"BUTTONS\\",\\"buttons\\":[{\\"type\\":\\"PHONE_NUMBER\\",\\"text\\":\\"phone-button-text\\",\\"phone_number\\":\\"+861388888****\\"},{\\"type\\":\\"URL\\",\\"text\\":\\"url-button-text\\",\\"url\\":\\"https://www.website.com/\\"}]}]", 		"example": "{\\"textVariable\\": \\"text\\", \\"linkVariable\\": \\"link\\"}" 	}
      *
      * @var data
      */

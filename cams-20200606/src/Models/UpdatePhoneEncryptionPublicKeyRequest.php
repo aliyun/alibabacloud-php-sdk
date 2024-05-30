@@ -16,6 +16,8 @@ class UpdatePhoneEncryptionPublicKeyRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example -----BEGIN PUBLIC KEY-----
      * -----END PUBLIC KEY-----
      * @var string
@@ -23,6 +25,8 @@ class UpdatePhoneEncryptionPublicKeyRequest extends Model
     public $encryptionPublicKey;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 86138000
      *
      * @var string

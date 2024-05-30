@@ -16,6 +16,8 @@ class UpdateFlowJSONAssetRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://aliyun/json.json
      *
      * @var string
@@ -25,6 +27,7 @@ class UpdateFlowJSONAssetRequest extends Model
     /**
      * @description Flow ID。
      *
+     * This parameter is required.
      * @example flow_001
      *
      * @var string
