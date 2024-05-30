@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class intranet extends Model
 {
     /**
+     * @var string
+     */
+    public $httpsCaCertId;
+
+    /**
      * @description The supported protocol.
      *
      * @example 1513561019707729_16f37aae5f3_-375882821_-169099****
@@ -44,10 +49,11 @@ class intranet extends Model
      */
     public $targetPort;
     protected $_name = [
-        'httpsCertId' => 'HttpsCertId',
-        'port'        => 'Port',
-        'protocol'    => 'Protocol',
-        'targetPort'  => 'TargetPort',
+        'httpsCaCertId' => 'HttpsCaCertId',
+        'httpsCertId'   => 'HttpsCertId',
+        'port'          => 'Port',
+        'protocol'      => 'Protocol',
+        'targetPort'    => 'TargetPort',
     ];
 
     public function validate()
@@ -57,6 +63,9 @@ class intranet extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->httpsCaCertId) {
+            $res['HttpsCaCertId'] = $this->httpsCaCertId;
+        }
         if (null !== $this->httpsCertId) {
             $res['HttpsCertId'] = $this->httpsCertId;
         }
@@ -81,6 +90,9 @@ class intranet extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HttpsCaCertId'])) {
+            $model->httpsCaCertId = $map['HttpsCaCertId'];
+        }
         if (isset($map['HttpsCertId'])) {
             $model->httpsCertId = $map['HttpsCertId'];
         }
