@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class fileList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1-video1.mp4
      *
      * @var string
@@ -17,6 +19,8 @@ class fileList extends Model
     public $fileName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/GenerateVideo/1-video1.mp4
      *
      * @var Stream
@@ -24,6 +28,8 @@ class fileList extends Model
     public $fileUrlObject;
 
     /**
+     * @description This parameter is required.
+     *
      * @example video
      *
      * @var string

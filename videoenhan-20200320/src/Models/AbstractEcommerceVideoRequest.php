@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AbstractEcommerceVideoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 5
      *
      * @var float
@@ -23,6 +25,8 @@ class AbstractEcommerceVideoRequest extends Model
     public $height;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/AbstractEcommerceVideo/AbstractEcommerceVideo1.mp4
      *
      * @var string

@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class AbstractEcommerceVideoAdvanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 5
      *
      * @var float
@@ -24,6 +26,8 @@ class AbstractEcommerceVideoAdvanceRequest extends Model
     public $height;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/AbstractEcommerceVideo/AbstractEcommerceVideo1.mp4
      *
      * @var Stream

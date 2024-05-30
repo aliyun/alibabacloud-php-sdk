@@ -38,6 +38,8 @@ class ChangeVideoSizeAdvanceRequest extends Model
     public $g;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1000
      *
      * @var int
@@ -59,6 +61,8 @@ class ChangeVideoSizeAdvanceRequest extends Model
     public $tightness;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/ChangeVideoSize/ChangeVideoSize1.mp4
      *
      * @var Stream
@@ -66,6 +70,8 @@ class ChangeVideoSizeAdvanceRequest extends Model
     public $videoUrlObject;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 600
      *
      * @var int

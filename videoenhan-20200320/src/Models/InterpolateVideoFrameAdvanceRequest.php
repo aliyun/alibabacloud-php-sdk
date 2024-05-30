@@ -24,6 +24,8 @@ class InterpolateVideoFrameAdvanceRequest extends Model
     public $frameRate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/InterpolateVideoFrame/InterpolateVideoFrame3.mp4
      *
      * @var Stream

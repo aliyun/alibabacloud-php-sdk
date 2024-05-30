@@ -114,10 +114,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param AbstractEcommerceVideoRequest $request
-     * @param RuntimeOptions                $runtime
+     * @param AbstractEcommerceVideoRequest $request AbstractEcommerceVideoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AbstractEcommerceVideoResponse
+     * @return AbstractEcommerceVideoResponse AbstractEcommerceVideoResponse
      */
     public function abstractEcommerceVideoWithOptions($request, $runtime)
     {
@@ -154,9 +154,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param AbstractEcommerceVideoRequest $request
+     * @param AbstractEcommerceVideoRequest $request AbstractEcommerceVideoRequest
      *
-     * @return AbstractEcommerceVideoResponse
+     * @return AbstractEcommerceVideoResponse AbstractEcommerceVideoResponse
      */
     public function abstractEcommerceVideo($request)
     {
@@ -179,7 +179,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -201,12 +201,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -244,10 +245,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param AbstractFilmVideoRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param AbstractFilmVideoRequest $request AbstractFilmVideoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return AbstractFilmVideoResponse
+     * @return AbstractFilmVideoResponse AbstractFilmVideoResponse
      */
     public function abstractFilmVideoWithOptions($request, $runtime)
     {
@@ -278,9 +279,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param AbstractFilmVideoRequest $request
+     * @param AbstractFilmVideoRequest $request AbstractFilmVideoRequest
      *
-     * @return AbstractFilmVideoResponse
+     * @return AbstractFilmVideoResponse AbstractFilmVideoResponse
      */
     public function abstractFilmVideo($request)
     {
@@ -303,7 +304,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -325,12 +326,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -368,10 +370,12 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param AddFaceVideoTemplateRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 视频人脸融合模板增加
+     *  *
+     * @param AddFaceVideoTemplateRequest $request AddFaceVideoTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddFaceVideoTemplateResponse
+     * @return AddFaceVideoTemplateResponse AddFaceVideoTemplateResponse
      */
     public function addFaceVideoTemplateWithOptions($request, $runtime)
     {
@@ -402,9 +406,11 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param AddFaceVideoTemplateRequest $request
+     * @summary 视频人脸融合模板增加
+     *  *
+     * @param AddFaceVideoTemplateRequest $request AddFaceVideoTemplateRequest
      *
-     * @return AddFaceVideoTemplateResponse
+     * @return AddFaceVideoTemplateResponse AddFaceVideoTemplateResponse
      */
     public function addFaceVideoTemplate($request)
     {
@@ -427,7 +433,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -449,12 +455,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -492,10 +499,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param AdjustVideoColorRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param AdjustVideoColorRequest $request AdjustVideoColorRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AdjustVideoColorResponse
+     * @return AdjustVideoColorResponse AdjustVideoColorResponse
      */
     public function adjustVideoColorWithOptions($request, $runtime)
     {
@@ -535,9 +542,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param AdjustVideoColorRequest $request
+     * @param AdjustVideoColorRequest $request AdjustVideoColorRequest
      *
-     * @return AdjustVideoColorResponse
+     * @return AdjustVideoColorResponse AdjustVideoColorResponse
      */
     public function adjustVideoColor($request)
     {
@@ -560,7 +567,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -582,12 +589,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -625,10 +633,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param ChangeVideoSizeRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ChangeVideoSizeRequest $request ChangeVideoSizeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeVideoSizeResponse
+     * @return ChangeVideoSizeResponse ChangeVideoSizeResponse
      */
     public function changeVideoSizeWithOptions($request, $runtime)
     {
@@ -680,9 +688,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param ChangeVideoSizeRequest $request
+     * @param ChangeVideoSizeRequest $request ChangeVideoSizeRequest
      *
-     * @return ChangeVideoSizeResponse
+     * @return ChangeVideoSizeResponse ChangeVideoSizeResponse
      */
     public function changeVideoSize($request)
     {
@@ -705,7 +713,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -727,12 +735,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -770,10 +779,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param ConvertHdrVideoRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ConvertHdrVideoRequest $request ConvertHdrVideoRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConvertHdrVideoResponse
+     * @return ConvertHdrVideoResponse ConvertHdrVideoResponse
      */
     public function convertHdrVideoWithOptions($request, $runtime)
     {
@@ -810,9 +819,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param ConvertHdrVideoRequest $request
+     * @param ConvertHdrVideoRequest $request ConvertHdrVideoRequest
      *
-     * @return ConvertHdrVideoResponse
+     * @return ConvertHdrVideoResponse ConvertHdrVideoResponse
      */
     public function convertHdrVideo($request)
     {
@@ -835,7 +844,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -857,12 +866,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -900,10 +910,12 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param DeleteFaceVideoTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 视频人脸融合模板删除
+     *  *
+     * @param DeleteFaceVideoTemplateRequest $request DeleteFaceVideoTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFaceVideoTemplateResponse
+     * @return DeleteFaceVideoTemplateResponse DeleteFaceVideoTemplateResponse
      */
     public function deleteFaceVideoTemplateWithOptions($request, $runtime)
     {
@@ -931,9 +943,11 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param DeleteFaceVideoTemplateRequest $request
+     * @summary 视频人脸融合模板删除
+     *  *
+     * @param DeleteFaceVideoTemplateRequest $request DeleteFaceVideoTemplateRequest
      *
-     * @return DeleteFaceVideoTemplateResponse
+     * @return DeleteFaceVideoTemplateResponse DeleteFaceVideoTemplateResponse
      */
     public function deleteFaceVideoTemplate($request)
     {
@@ -943,10 +957,12 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param EnhancePortraitVideoRequest $request
-     * @param RuntimeOptions              $runtime
+     * @summary 视频人像增强
+     *  *
+     * @param EnhancePortraitVideoRequest $request EnhancePortraitVideoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnhancePortraitVideoResponse
+     * @return EnhancePortraitVideoResponse EnhancePortraitVideoResponse
      */
     public function enhancePortraitVideoWithOptions($request, $runtime)
     {
@@ -974,9 +990,11 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param EnhancePortraitVideoRequest $request
+     * @summary 视频人像增强
+     *  *
+     * @param EnhancePortraitVideoRequest $request EnhancePortraitVideoRequest
      *
-     * @return EnhancePortraitVideoResponse
+     * @return EnhancePortraitVideoResponse EnhancePortraitVideoResponse
      */
     public function enhancePortraitVideo($request)
     {
@@ -999,7 +1017,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1021,12 +1039,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1064,10 +1083,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param EnhanceVideoQualityRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param EnhanceVideoQualityRequest $request EnhanceVideoQualityRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnhanceVideoQualityResponse
+     * @return EnhanceVideoQualityResponse EnhanceVideoQualityResponse
      */
     public function enhanceVideoQualityWithOptions($request, $runtime)
     {
@@ -1113,9 +1132,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param EnhanceVideoQualityRequest $request
+     * @param EnhanceVideoQualityRequest $request EnhanceVideoQualityRequest
      *
-     * @return EnhanceVideoQualityResponse
+     * @return EnhanceVideoQualityResponse EnhanceVideoQualityResponse
      */
     public function enhanceVideoQuality($request)
     {
@@ -1138,7 +1157,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1160,12 +1179,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1203,10 +1223,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param EraseVideoLogoRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param EraseVideoLogoRequest $request EraseVideoLogoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return EraseVideoLogoResponse
+     * @return EraseVideoLogoResponse EraseVideoLogoResponse
      */
     public function eraseVideoLogoWithOptions($request, $runtime)
     {
@@ -1237,9 +1257,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param EraseVideoLogoRequest $request
+     * @param EraseVideoLogoRequest $request EraseVideoLogoRequest
      *
-     * @return EraseVideoLogoResponse
+     * @return EraseVideoLogoResponse EraseVideoLogoResponse
      */
     public function eraseVideoLogo($request)
     {
@@ -1262,7 +1282,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1284,12 +1304,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1327,10 +1348,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param EraseVideoSubtitlesRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param EraseVideoSubtitlesRequest $request EraseVideoSubtitlesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return EraseVideoSubtitlesResponse
+     * @return EraseVideoSubtitlesResponse EraseVideoSubtitlesResponse
      */
     public function eraseVideoSubtitlesWithOptions($request, $runtime)
     {
@@ -1370,9 +1391,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param EraseVideoSubtitlesRequest $request
+     * @param EraseVideoSubtitlesRequest $request EraseVideoSubtitlesRequest
      *
-     * @return EraseVideoSubtitlesResponse
+     * @return EraseVideoSubtitlesResponse EraseVideoSubtitlesResponse
      */
     public function eraseVideoSubtitles($request)
     {
@@ -1395,7 +1416,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1417,12 +1438,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1460,10 +1482,12 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param GenerateHumanAnimeStyleVideoRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @summary 视频人像卡通化
+     *  *
+     * @param GenerateHumanAnimeStyleVideoRequest $request GenerateHumanAnimeStyleVideoRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateHumanAnimeStyleVideoResponse
+     * @return GenerateHumanAnimeStyleVideoResponse GenerateHumanAnimeStyleVideoResponse
      */
     public function generateHumanAnimeStyleVideoWithOptions($request, $runtime)
     {
@@ -1494,9 +1518,11 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param GenerateHumanAnimeStyleVideoRequest $request
+     * @summary 视频人像卡通化
+     *  *
+     * @param GenerateHumanAnimeStyleVideoRequest $request GenerateHumanAnimeStyleVideoRequest
      *
-     * @return GenerateHumanAnimeStyleVideoResponse
+     * @return GenerateHumanAnimeStyleVideoResponse GenerateHumanAnimeStyleVideoResponse
      */
     public function generateHumanAnimeStyleVideo($request)
     {
@@ -1519,7 +1545,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1541,12 +1567,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1584,10 +1611,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param GenerateVideoRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param GenerateVideoRequest $request GenerateVideoRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateVideoResponse
+     * @return GenerateVideoResponse GenerateVideoResponse
      */
     public function generateVideoWithOptions($request, $runtime)
     {
@@ -1645,9 +1672,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param GenerateVideoRequest $request
+     * @param GenerateVideoRequest $request GenerateVideoRequest
      *
-     * @return GenerateVideoResponse
+     * @return GenerateVideoResponse GenerateVideoResponse
      */
     public function generateVideo($request)
     {
@@ -1670,7 +1697,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1692,12 +1719,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1742,10 +1770,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncJobResultRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param GetAsyncJobResultRequest $request GetAsyncJobResultRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAsyncJobResultResponse
+     * @return GetAsyncJobResultResponse GetAsyncJobResultResponse
      */
     public function getAsyncJobResultWithOptions($request, $runtime)
     {
@@ -1773,9 +1801,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param GetAsyncJobResultRequest $request
+     * @param GetAsyncJobResultRequest $request GetAsyncJobResultRequest
      *
-     * @return GetAsyncJobResultResponse
+     * @return GetAsyncJobResultResponse GetAsyncJobResultResponse
      */
     public function getAsyncJobResult($request)
     {
@@ -1785,10 +1813,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param InterpolateVideoFrameRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param InterpolateVideoFrameRequest $request InterpolateVideoFrameRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return InterpolateVideoFrameResponse
+     * @return InterpolateVideoFrameResponse InterpolateVideoFrameResponse
      */
     public function interpolateVideoFrameWithOptions($request, $runtime)
     {
@@ -1822,9 +1850,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param InterpolateVideoFrameRequest $request
+     * @param InterpolateVideoFrameRequest $request InterpolateVideoFrameRequest
      *
-     * @return InterpolateVideoFrameResponse
+     * @return InterpolateVideoFrameResponse InterpolateVideoFrameResponse
      */
     public function interpolateVideoFrame($request)
     {
@@ -1847,7 +1875,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -1869,12 +1897,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -1912,10 +1941,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param MergeVideoFaceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param MergeVideoFaceRequest $request MergeVideoFaceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return MergeVideoFaceResponse
+     * @return MergeVideoFaceResponse MergeVideoFaceResponse
      */
     public function mergeVideoFaceWithOptions($request, $runtime)
     {
@@ -1955,9 +1984,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param MergeVideoFaceRequest $request
+     * @param MergeVideoFaceRequest $request MergeVideoFaceRequest
      *
-     * @return MergeVideoFaceResponse
+     * @return MergeVideoFaceResponse MergeVideoFaceResponse
      */
     public function mergeVideoFace($request)
     {
@@ -1980,7 +2009,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -2002,12 +2031,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -2070,10 +2100,12 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param MergeVideoModelFaceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 视频模板融合换脸
+     *  *
+     * @param MergeVideoModelFaceRequest $request MergeVideoModelFaceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return MergeVideoModelFaceResponse
+     * @return MergeVideoModelFaceResponse MergeVideoModelFaceResponse
      */
     public function mergeVideoModelFaceWithOptions($request, $runtime)
     {
@@ -2116,9 +2148,11 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param MergeVideoModelFaceRequest $request
+     * @summary 视频模板融合换脸
+     *  *
+     * @param MergeVideoModelFaceRequest $request MergeVideoModelFaceRequest
      *
-     * @return MergeVideoModelFaceResponse
+     * @return MergeVideoModelFaceResponse MergeVideoModelFaceResponse
      */
     public function mergeVideoModelFace($request)
     {
@@ -2141,7 +2175,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -2163,12 +2197,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -2206,10 +2241,12 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param QueryFaceVideoTemplateRequest $request
-     * @param RuntimeOptions                $runtime
+     * @summary 视频人脸融合模板查询
+     *  *
+     * @param QueryFaceVideoTemplateRequest $request QueryFaceVideoTemplateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryFaceVideoTemplateResponse
+     * @return QueryFaceVideoTemplateResponse QueryFaceVideoTemplateResponse
      */
     public function queryFaceVideoTemplateWithOptions($request, $runtime)
     {
@@ -2243,9 +2280,11 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param QueryFaceVideoTemplateRequest $request
+     * @summary 视频人脸融合模板查询
+     *  *
+     * @param QueryFaceVideoTemplateRequest $request QueryFaceVideoTemplateRequest
      *
-     * @return QueryFaceVideoTemplateResponse
+     * @return QueryFaceVideoTemplateResponse QueryFaceVideoTemplateResponse
      */
     public function queryFaceVideoTemplate($request)
     {
@@ -2255,10 +2294,12 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param ReduceVideoNoiseRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 视频降噪
+     *  *
+     * @param ReduceVideoNoiseRequest $request ReduceVideoNoiseRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReduceVideoNoiseResponse
+     * @return ReduceVideoNoiseResponse ReduceVideoNoiseResponse
      */
     public function reduceVideoNoiseWithOptions($request, $runtime)
     {
@@ -2286,9 +2327,11 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param ReduceVideoNoiseRequest $request
+     * @summary 视频降噪
+     *  *
+     * @param ReduceVideoNoiseRequest $request ReduceVideoNoiseRequest
      *
-     * @return ReduceVideoNoiseResponse
+     * @return ReduceVideoNoiseResponse ReduceVideoNoiseResponse
      */
     public function reduceVideoNoise($request)
     {
@@ -2311,7 +2354,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -2333,12 +2376,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -2376,10 +2420,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param SuperResolveVideoRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param SuperResolveVideoRequest $request SuperResolveVideoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SuperResolveVideoResponse
+     * @return SuperResolveVideoResponse SuperResolveVideoResponse
      */
     public function superResolveVideoWithOptions($request, $runtime)
     {
@@ -2410,9 +2454,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param SuperResolveVideoRequest $request
+     * @param SuperResolveVideoRequest $request SuperResolveVideoRequest
      *
-     * @return SuperResolveVideoResponse
+     * @return SuperResolveVideoResponse SuperResolveVideoResponse
      */
     public function superResolveVideo($request)
     {
@@ -2435,7 +2479,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -2457,12 +2501,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
@@ -2500,10 +2545,10 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param ToneSdrVideoRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param ToneSdrVideoRequest $request ToneSdrVideoRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ToneSdrVideoResponse
+     * @return ToneSdrVideoResponse ToneSdrVideoResponse
      */
     public function toneSdrVideoWithOptions($request, $runtime)
     {
@@ -2537,9 +2582,9 @@ class Videoenhan extends OpenApiClient
     }
 
     /**
-     * @param ToneSdrVideoRequest $request
+     * @param ToneSdrVideoRequest $request ToneSdrVideoRequest
      *
-     * @return ToneSdrVideoResponse
+     * @return ToneSdrVideoResponse ToneSdrVideoResponse
      */
     public function toneSdrVideo($request)
     {
@@ -2562,7 +2607,7 @@ class Videoenhan extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::isUnset($openPlatformEndpoint)) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
         if (Utils::isUnset($credentialType)) {
@@ -2584,12 +2629,13 @@ class Videoenhan extends OpenApiClient
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
         $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
             'type'            => 'access_key',
             'protocol'        => $this->_protocol,
             'regionId'        => $this->_regionId,
         ]);
-        $ossClient     = null;
+        $ossClient     = new OSS($ossConfig);
         $fileObj       = new FileField([]);
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);

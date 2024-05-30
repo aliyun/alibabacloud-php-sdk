@@ -20,6 +20,8 @@ class MergeVideoFaceAdvanceRequest extends Model
     public $enhance;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/MergeVideoFace/MergeVideoFace-pic1.png
      *
      * @var Stream
@@ -27,6 +29,8 @@ class MergeVideoFaceAdvanceRequest extends Model
     public $referenceURLObject;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/MergeVideoFace/MergeVideoFace1.mp4
      *
      * @var Stream

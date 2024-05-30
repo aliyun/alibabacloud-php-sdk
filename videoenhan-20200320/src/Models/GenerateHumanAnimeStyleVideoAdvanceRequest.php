@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class GenerateHumanAnimeStyleVideoAdvanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example anime
      *
      * @var string
@@ -17,6 +19,8 @@ class GenerateHumanAnimeStyleVideoAdvanceRequest extends Model
     public $cartoonStyle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test/xxx/eas/EvaluateVideoQuality/123.mp4
      *
      * @var Stream

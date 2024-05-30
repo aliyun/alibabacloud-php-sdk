@@ -26,6 +26,7 @@ class GenerateVideoAdvanceRequest extends Model
     /**
      * @description 1
      *
+     * This parameter is required.
      * @var fileList[]
      */
     public $fileList;

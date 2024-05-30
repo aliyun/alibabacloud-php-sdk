@@ -15,6 +15,8 @@ class AddFaceVideoTemplateAdvanceRequest extends Model
     public $videoScene;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://invi-label.oss-cn-shanghai.aliyuncs.com/labl/temp/faceswap/test_for_api/xxxx.mp4
      *
      * @var Stream

@@ -51,6 +51,8 @@ class EnhanceVideoQualityRequest extends Model
     public $outPutWidth;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/test_for_api/xxxx.mp4
      *
      * @var string

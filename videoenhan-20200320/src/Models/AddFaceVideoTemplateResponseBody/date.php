@@ -20,9 +20,15 @@ class date extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $transResult;
     protected $_name = [
-        'faceInfos'  => 'FaceInfos',
-        'templateId' => 'TemplateId',
+        'faceInfos'   => 'FaceInfos',
+        'templateId'  => 'TemplateId',
+        'transResult' => 'TransResult',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class date extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->transResult) {
+            $res['TransResult'] = $this->transResult;
         }
 
         return $res;
@@ -67,6 +76,9 @@ class date extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TransResult'])) {
+            $model->transResult = $map['TransResult'];
         }
 
         return $model;

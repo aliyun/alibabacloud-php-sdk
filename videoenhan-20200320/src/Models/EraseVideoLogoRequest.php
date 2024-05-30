@@ -15,6 +15,8 @@ class EraseVideoLogoRequest extends Model
     public $boxes;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/EraseVideoLogo/EraseVideoLogo1.mp4
      *
      * @var string

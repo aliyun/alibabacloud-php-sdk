@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class ReduceVideoNoiseAdvanceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test-team/xxx/shang/video/SD%289516100%29.mp4
      *
      * @var Stream

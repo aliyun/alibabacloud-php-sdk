@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AbstractFilmVideoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class AbstractFilmVideoRequest extends Model
     public $length;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/AbstractFilmVideo/AbstractFilmVideo1.mp4
      *
      * @var string

@@ -37,6 +37,8 @@ class AdjustVideoColorRequest extends Model
     public $videoFormat;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/AdjustVideoColor/AdjustVideoColor1.mp4
      *
      * @var string

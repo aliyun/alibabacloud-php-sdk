@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateHumanAnimeStyleVideoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example anime
      *
      * @var string
@@ -16,6 +18,8 @@ class GenerateHumanAnimeStyleVideoRequest extends Model
     public $cartoonStyle;
 
     /**
+     * @description This parameter is required.
+     *
      * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/test/xxx/eas/EvaluateVideoQuality/123.mp4
      *
      * @var string
